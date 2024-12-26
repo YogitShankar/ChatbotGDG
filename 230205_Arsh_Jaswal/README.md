@@ -30,9 +30,9 @@ The scraper uses **BeautifulSoup** for parsing HTML and **undetected-chromedrive
 
 ## Results and Observations
 
-- There were only **89 "No solution found"** entries in the JSON file out of **700** questions.
-- A total of **611 solutions were found**, indicating a high success rate in retrieving solutions.
-- The **percentage of solutions found** is approximately **87.14%**.
+- There were only **79 "No solution found"** entries in the JSON file out of **703** questions.
+- A total of **624 solutions were found**, indicating a high success rate in retrieving solutions.
+- The **percentage of solutions found** is approximately **88.76%**.
 - The **text file** was successfully generated with **readable** and **well formatted** content.
 - The **code structure** was maintained and organized throughout the scraping process.
 - The scraper took an **average of 5-12 seconds per question**, ensuring efficient data collection.
