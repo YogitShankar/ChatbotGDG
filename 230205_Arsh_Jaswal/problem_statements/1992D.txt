@@ -1,0 +1,16 @@
+Problem Title: D. Test of Love
+
+time limit per test2 seconds
+memory limit per test256 megabytes
+
+ErnKor is ready to do anything for Julen, even to swim through crocodile-infested swamps. We decided to test this love. ErnKor will have to swim across a river with a width of 1 meter and a length of n meters.
+The river is very cold. Therefore, in total (that is, throughout the entire swim from 0 to n+1) ErnKor can swim in the water for no more than k meters. For the sake of humanity, we have added not only crocodiles to the river, but also logs on which he can jump. Our test is as follows:
+Initially, ErnKor is on the left bank and needs to reach the right bank. They are located at the 0 and n+1 meters respectively. The river can be represented as n segments, each with a length of 1 meter. Each segment contains either a log 'L', a crocodile 'C', or just water 'W'. ErnKor can move as follows: 
+Determine if ErnKor can reach the right bank.
+The first line contains a single integer t (1≤t≤104)  — the number of test cases.
+The first line of each test case contains three numbers n,m,k (0≤k≤2⋅105, 1≤n≤2⋅105, 1≤m≤10) — the length of the river, the distance ErnKor can jump, and the number of meters ErnKor can swim without freezing.
+The second line of each test case contains a string a of length n. ai denotes the object located at the i-th meter. (ai∈{'W','C','L'})
+It is guaranteed that the sum of n over all test cases does not exceed 2⋅105.
+For each test case, output "YES" if ErnKor can pass the test, and output "NO" otherwise.
+You can output the answer in any case (upper or lower). For example, the strings "yEs", "yes", "Yes", and "YES" will be recognized as positive responses.
+Let's consider examples: 

@@ -1,0 +1,13 @@
+Problem Title: B. Stone Age Problem
+
+time limit per test2 seconds
+memory limit per test256 megabytes
+
+Once upon a time Mike and Mike decided to come up with an outstanding problem for some stage of ROI (rare olympiad in informatics). One of them came up with a problem prototype but another stole the idea and proposed that problem for another stage of the same olympiad. Since then the first Mike has been waiting for an opportunity to propose the original idea for some other contest... Mike waited until this moment!
+You are given an array aa of nn integers. You are also given qq queries of two types:
+After performing each query you have to calculate the sum of all elements in the array.
+The first line contains two integers nn and qq (1≤n,q≤2⋅1051≤n,q≤2⋅105) — the number of elements in the array and the number of queries, respectively.
+The second line contains nn integers a1,…,ana1,…,an (1≤ai≤1091≤ai≤109) — elements of the array aa.
+Each of the following qq lines contains a description of the corresponding query. Description begins with integer tt (t∈{1,2}t∈{1,2}) which denotes a type of the query:
+Print qq integers, each on a separate line. In the ii-th line print the sum of all elements in the array after performing the first ii queries.
+Consider array from the example and the result of performing each query:

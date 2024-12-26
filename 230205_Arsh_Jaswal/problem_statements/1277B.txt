@@ -1,0 +1,14 @@
+Problem Title: B. Make Them Odd
+
+time limit per test3 seconds
+memory limit per test256 megabytes
+
+There are nn positive integers a1,a2,…,ana1,a2,…,an. For the one move you can choose any even value cc and divide by two all elements that equal cc.
+For example, if a=[6,8,12,6,3,12]a=[6,8,12,6,3,12] and you choose c=6c=6, and aa is transformed into a=[3,8,12,3,3,12]a=[3,8,12,3,3,12] after the move.
+You need to find the minimal number of moves for transforming aa to an array of only odd integers (each element shouldn't be divisible by 22).
+The first line of the input contains one integer tt (1≤t≤1041≤t≤104) — the number of test cases in the input. Then tt test cases follow.
+The first line of a test case contains nn (1≤n≤2⋅1051≤n≤2⋅105) — the number of integers in the sequence aa. The second line contains positive integers a1,a2,…,ana1,a2,…,an (1≤ai≤1091≤ai≤109).
+The sum of nn for all test cases in the input doesn't exceed 2⋅1052⋅105.
+For tt test cases print the answers in the order of test cases in the input. The answer for the test case is the minimal number of moves needed to make all numbers in the test case odd (i.e. not divisible by 22).
+In the first test case of the example, the optimal sequence of moves can be as follows:
+Thus, all numbers became odd after 44 moves. In 33 or fewer moves, you cannot make them all odd.

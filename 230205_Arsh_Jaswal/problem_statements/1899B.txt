@@ -1,0 +1,18 @@
+Problem Title: B. 250 Thousand Tons of TNT
+
+time limit per test2 seconds
+memory limit per test256 megabytes
+
+Alex is participating in the filming of another video of BrMeast, and BrMeast asked Alex to prepare 250 thousand tons of TNT, but Alex didn't hear him well, so he prepared n boxes and arranged them in a row waiting for trucks. The i-th box from the left weighs ai tons.
+All trucks that Alex is going to use hold the same number of boxes, denoted by k. Loading happens the following way:
+Upon loading is completed, each truck must have exactly k boxes. In other words, if at some point it is not possible to load exactly k boxes into the truck, then the loading option with that k is not possible.
+Alex hates justice, so he wants the maximum absolute difference between the total weights of two trucks to be as great as possible. If there is only one truck, this value is 0.
+Alex has quite a lot of connections, so for every 1≤k≤n, he can find a company such that each of its trucks can hold exactly k boxes. Print the maximum absolute difference between the total weights of any two trucks.
+The first line contains one integer t (1≤t≤104) — the number of test cases.
+The first line of each test case contains one integer n (1≤n≤150000) — the number of boxes.
+The second line contains n integers a1,a2,…,an (1≤ai≤109) — the weights of the boxes.
+It is guaranteed that the sum of n for all test cases does not exceed 150000.
+For each test case, print a single integer — the answer to the problem.
+In the first case, we should pick two trucks, so the first one will have only the first box, and the second one will have only the second box.
+In the second case, we should pick six trucks, so the maximum will be 10, the minimum will be 1, and the answer is 10−1=9.
+In the third case, for any possible k, the trucks will have the same total weight of boxes, so the answer is 0.

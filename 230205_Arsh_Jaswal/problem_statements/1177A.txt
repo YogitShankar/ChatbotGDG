@@ -1,0 +1,9 @@
+Problem Title: A. Digits Sequence (Easy Edition)
+
+time limit per test1 second
+memory limit per test256 megabytes
+
+Let's write all the positive integer numbers one after another from 11 without any delimiters (i.e. as a single string). It will be the infinite sequence starting with 123456789101112131415161718192021222324252627282930313233343536...
+Your task is to print the kk-th digit of this sequence.
+The first and only line contains integer kk (1≤k≤100001≤k≤10000) — the position to process (11-based index).
+Print the kk-th digit of the resulting infinite sequence.

@@ -1,0 +1,12 @@
+Problem Title: C. Yet Another Card Deck
+
+time limit per test2 seconds
+memory limit per test256 megabytes
+
+You have a card deck of n cards, numbered from top to bottom, i. e. the top card has index 1 and bottom card — index n. Each card has its color: the i-th card has color ai.
+You should process q queries. The j-th query is described by integer tj. For each query you should: 
+The first line contains two integers n and q (2≤n≤3⋅105; 1≤q≤3⋅105) — the number of cards in the deck and the number of queries.
+The second line contains n integers a1,a2,…,an (1≤ai≤50) — the colors of cards.
+The third line contains q integers t1,t2,…,tq (1≤tj≤50) — the query colors. It's guaranteed that queries ask only colors that are present in the deck.
+Print q integers — the answers for each query.
+Description of the sample: 

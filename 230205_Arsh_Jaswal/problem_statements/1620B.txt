@@ -1,0 +1,17 @@
+Problem Title: B. Triangles on a Rectangle
+
+time limit per test2 seconds
+memory limit per test256 megabytes
+
+A rectangle with its opposite corners in (0,0)(0,0) and (w,h)(w,h) and sides parallel to the axes is drawn on a plane.
+You are given a list of lattice points such that each point lies on a side of a rectangle but not in its corner. Also, there are at least two points on every side of a rectangle.
+Your task is to choose three points in such a way that: 
+Print the doubled area of this triangle. It can be shown that the doubled area of any triangle formed by lattice points is always an integer.
+The first line contains a single integer tt (1≤t≤1041≤t≤104) — the number of testcases.
+The first line of each testcase contains two integers ww and hh (3≤w,h≤1063≤w,h≤106) — the coordinates of the corner of a rectangle.
+The next two lines contain the description of the points on two horizontal sides. First, an integer kk (2≤k≤2⋅1052≤k≤2⋅105) — the number of points. Then, kk integers x1<x2<⋯<xkx1<x2<⋯<xk (0<xi<w0<xi<w) — the xx coordinates of the points in the ascending order. The yy coordinate for the first line is 00 and for the second line is hh.
+The next two lines contain the description of the points on two vertical sides. First, an integer kk (2≤k≤2⋅1052≤k≤2⋅105) — the number of points. Then, kk integers y1<y2<⋯<yky1<y2<⋯<yk (0<yi<h0<yi<h) — the yy coordinates of the points in the ascending order. The xx coordinate for the first line is 00 and for the second line is ww.
+The total number of points on all sides in all testcases doesn't exceed 2⋅1052⋅105.
+For each testcase print a single integer — the doubled maximum area of a triangle formed by such three points that exactly two of them belong to the same side.
+The points in the first testcase of the example: 
+The largest triangle is formed by points (0,1)(0,1), (0,6)(0,6) and (5,4)(5,4) — its area is 252252. Thus, the doubled area is 2525. Two points that are on the same side are: (0,1)(0,1) and (0,6)(0,6).

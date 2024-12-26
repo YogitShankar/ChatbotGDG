@@ -1,0 +1,14 @@
+Problem Title: B. Fear of the Dark
+
+time limit per test2 seconds
+memory limit per test256 megabytes
+
+Monocarp tries to get home from work. He is currently at the point O=(0,0) of a two-dimensional plane; his house is at the point P=(Px,Py).
+Unfortunately, it is late in the evening, so it is very dark. Monocarp is afraid of the darkness. He would like to go home along a path illuminated by something.
+Thankfully, there are two lanterns, located in the points A=(Ax,Ay) and B=(Bx,By). You can choose any non-negative number w and set the power of both lanterns to w. If a lantern's power is set to w, it illuminates a circle of radius w centered at the lantern location (including the borders of the circle).
+You have to choose the minimum non-negative value w for the power of the lanterns in such a way that there is a path from the point O to the point P which is completely illuminated. You may assume that the lanterns don't interfere with Monocarp's movement.
+The first line of the input contains one integer t (1≤t≤104) — the number of test cases.
+Each test case consists of three lines:
+Additional constraint on the input:
+For each test case, print the answer on a separate line — one real number equal to the minimum value of w such that there is a completely illuminated path from the point O to the point P.
+Your answer will be considered correct if its absolute or relative error does not exceed 10−6 — formally, if your answer is a, and the jury's answer is b, your answer will be accepted if |a−b|max(1,b)≤10−6.

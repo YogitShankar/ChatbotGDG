@@ -1,0 +1,12 @@
+Problem Title: K. King's Task
+
+time limit per test3 seconds
+memory limit per test512 megabytes
+
+The brave Knight came to the King and asked permission to marry the princess. The King knew that the Knight was brave, but he also wanted to know if he was smart enough. So he asked him to solve the following task.
+There is a permutation pi of numbers from 1 to 2n. You can make two types of operations. 
+The task is to find the minimal number of operations required to sort the given permutation.
+The Knight was not that smart actually, but quite charming, so the princess asks you to help him to solve the King's task.
+The first line contains the integer n (1≤n≤1000). The second line contains 2n integers pi — the permutation of numbers from 1 to 2n.
+Print one integer — the minimal number of operations required to sort the permutation. If it is impossible to sort the permutation using these operations, print −1.
+In the first example, you can sort the permutation in three operations: 

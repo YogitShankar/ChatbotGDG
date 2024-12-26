@@ -1,0 +1,18 @@
+Problem Title: G2. Subsequence Addition (Hard Version)
+
+time limit per test2 seconds
+memory limit per test256 megabytes
+
+The only difference between the two versions is that in this version, the constraints are higher.
+Initially, array aa contains just the number 11. You can perform several operations in order to change the array. In an operation, you can select some subsequence†† of aa and add into aa an element equal to the sum of all elements of the subsequence. 
+You are given a final array cc. Check if cc can be obtained from the initial array aa by performing some number (possibly 0) of operations on the initial array.
+†† A sequence bb is a subsequence of a sequence aa if bb can be obtained from aa by the deletion of several (possibly zero, but not all) elements. In other words, select kk (1≤k≤|a|1≤k≤|a|) distinct indices i1,i2,…,iki1,i2,…,ik and insert anywhere into aa a new element with the value equal to ai1+ai2+⋯+aikai1+ai2+⋯+aik.
+The first line of the input contains an integer tt (1≤t≤10001≤t≤1000) — the number of test cases. The description of the test cases follows.
+The first line of each test case contains a single integer nn (1≤n≤2⋅1051≤n≤2⋅105)  — the number of elements the final array cc should have.
+The second line of each test case contains nn space-separated integers cici (1≤ci≤2⋅1051≤ci≤2⋅105)  — the elements of the final array cc that should be obtained from the initial array aa.
+It is guaranteed that the sum of nn over all test cases does not exceed 2⋅1052⋅105.
+For each test case, output "YES" (without quotes) if such a sequence of operations exists, and "NO" (without quotes) otherwise.
+You can output the answer in any case (for example, the strings "yEs", "yes", "Yes" and "YES" will be recognized as a positive answer).
+For the first test case, the initial array aa is already equal to [1][1], so the answer is "YES".
+For the second test case, performing any amount of operations will change aa to an array of size at least two which doesn't only have the element 22, thus obtaining the array [2][2] is impossible and the answer is "NO".
+For the third test case, we can perform the following operations in order to obtain the final given array cc:

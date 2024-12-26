@@ -1,0 +1,12 @@
+Problem Title: C1. k-LCM (easy version)
+
+time limit per test1 second
+memory limit per test256 megabytes
+
+It is the easy version of the problem. The only difference is that in this version k=3.
+You are given a positive integer n. Find k positive integers a1,a2,…,ak, such that:
+Here LCM is the least common multiple of numbers a1,a2,…,ak.
+We can show that for given constraints the answer always exists.
+The first line contains a single integer t (1≤t≤104)  — the number of test cases.
+The only line of each test case contains two integers n, k (3≤n≤109, k=3).
+For each test case print k positive integers a1,a2,…,ak, for which all conditions are satisfied.

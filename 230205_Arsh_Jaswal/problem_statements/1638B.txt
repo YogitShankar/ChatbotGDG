@@ -1,0 +1,17 @@
+Problem Title: B. Odd Swap Sort
+
+time limit per test1 second
+memory limit per test256 megabytes
+
+You are given an array a1,a2,…,ana1,a2,…,an. You can perform operations on the array. In each operation you can choose an integer ii (1≤i<n1≤i<n), and swap elements aiai and ai+1ai+1 of the array, if ai+ai+1ai+ai+1 is odd.
+Determine whether it can be sorted in non-decreasing order using this operation any number of times.
+Each test contains multiple test cases. The first line contains a single integer tt (1≤t≤1051≤t≤105) — the number of test cases. Description of the test cases follows.
+The first line of each test case contains a single integer nn (1≤n≤1051≤n≤105) — the length of the array.
+The second line of each test case contains nn integers a1,a2,…,ana1,a2,…,an (1≤ai≤1091≤ai≤109) — the elements of the array.
+It is guaranteed that the sum of nn over all test cases does not exceed 2⋅1052⋅105.
+For each test case, print "Yes" or "No" depending on whether you can or can not sort the given array.
+You may print each letter in any case (for example, "YES", "Yes", "yes", "yEs" will all be recognized as positive answer).
+In the first test case, we can simply swap 3131 and 1414 (31+14=4531+14=45 which is odd) and obtain the non-decreasing array [1,6,14,31][1,6,14,31].
+In the second test case, the only way we could sort the array is by swapping 44 and 22, but this is impossible, since their sum 4+2=64+2=6 is even.
+In the third test case, there is no way to make the array non-decreasing.
+In the fourth test case, the array is already non-decreasing.

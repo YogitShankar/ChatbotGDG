@@ -1,0 +1,17 @@
+Problem Title: A. Balanced Rating Changes
+
+time limit per test1 second
+memory limit per test512 megabytes
+
+Another Codeforces Round has just finished! It has gathered n participants, and according to the results, the expected rating change of participant i is ai. These rating changes are perfectly balanced — their sum is equal to 0.
+Unfortunately, due to minor technical glitches, the round is declared semi-rated. It means that all rating changes must be divided by two.
+There are two conditions though: 
+Can you help with that?
+The first line contains a single integer n (2≤n≤13845), denoting the number of participants.
+Each of the next n lines contains a single integer ai (−336≤ai≤1164), denoting the rating change of the i-th participant.
+The sum of all ai is equal to 0.
+Output n integers bi, each denoting the modified rating change of the i-th participant in order of input.
+For any i, it must be true that either bi=⌊ai2⌋ or bi=⌈ai2⌉. The sum of all bi must be equal to 0.
+If there are multiple solutions, print any. We can show that a solution exists for any valid input.
+In the first example, b1=5, b2=−3 and b3=−2 is another correct solution.
+In the second example there are 6 possible solutions, one of them is shown in the example output.

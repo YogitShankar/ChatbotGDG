@@ -1,0 +1,19 @@
+Problem Title: B. Maximum Sum
+
+time limit per test1 second
+memory limit per test256 megabytes
+
+You have an array a of n integers.
+You perform exactly k operations on it. In one operation, you select any contiguous subarray of the array a (possibly empty) and insert the sum of this subarray anywhere in the array.
+Your task is to find the maximum possible sum of the array after k such operations.
+As this number can be very large, output the answer modulo 109+7.
+Reminder: the remainder of a number x modulo p is the smallest non-negative y such that there exists an integer q and x=p⋅q+y.
+Each test consists of several test cases. The first line contains a single integer t (1≤t≤104) — the number of test cases. Then follows the description of the test cases.
+The first line of each test case contains two integers n and k (1≤n,k≤2⋅105) — the length of the array a and the number of operations, respectively.
+The second line of each test case contains n integers a1,a2,…,an (−109≤ai≤109) — the array a itself.
+It is guaranteed that the sum of the values of n and k for all test cases does not exceed 2⋅105.
+For each test, output a single integer — the maximum sum of the array that can be obtained after k operations modulo 109+7.
+In the first test case, it is advantageous to take an empty subarray of the array twice and insert the sum of the empty subarray (zero) anywhere, then the sum of the resulting array will be (−4)+(−7)+0+0=−11, modulo 109+7 this is 999999996.
+In the second test case, it is advantageous to take the sum of the entire array three times and place it anywhere in the array, then one of the possible sequences of actions: [2,2,8] → [2,2,8,12] → [2,2,8,12,24] → [2,2,8,12,24,48], the sum of the final array is 2+2+8+12+24+48=96.
+In the fourth test case, it is advantageous to take a subarray of the array consisting of the first three numbers (i.e. consisting of the numbers 4,−2 and 8) and insert its sum at the beginning of the array, thereby obtaining the array [10,4,−2,8,−12,9], the sum of this array is 17.
+In the seventh test case, it will always be advantageous for us to take an empty subarray of the array. In this case, the sum of the resulting array will not differ from the sum of the original. The answer will be the sum of the original array, taken modulo — 42, because (−6⋅(109+7)+42=−6000000000).

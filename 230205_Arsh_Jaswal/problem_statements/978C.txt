@@ -1,0 +1,13 @@
+Problem Title: C. Letters
+
+time limit per test4 seconds
+memory limit per test256 megabytes
+
+There are nn dormitories in Berland State University, they are numbered with integers from 11 to nn. Each dormitory consists of rooms, there are aiai rooms in ii-th dormitory. The rooms in ii-th dormitory are numbered from 11 to aiai.
+A postman delivers letters. Sometimes there is no specific dormitory and room number in it on an envelope. Instead of it only a room number among all rooms of all nn dormitories is written on an envelope. In this case, assume that all the rooms are numbered from 11 to a1+a2+⋯+ana1+a2+⋯+an and the rooms of the first dormitory go first, the rooms of the second dormitory go after them and so on.
+For example, in case n=2n=2, a1=3a1=3 and a2=5a2=5 an envelope can have any integer from 11 to 88 written on it. If the number 77 is written on an envelope, it means that the letter should be delivered to the room number 44 of the second dormitory.
+For each of mm letters by the room number among all nn dormitories, determine the particular dormitory and the room number in a dormitory where this letter should be delivered.
+The first line contains two integers nn and mm (1≤n,m≤2⋅105)(1≤n,m≤2⋅105) — the number of dormitories and the number of letters.
+The second line contains a sequence a1,a2,…,ana1,a2,…,an (1≤ai≤1010)(1≤ai≤1010), where aiai equals to the number of rooms in the ii-th dormitory. The third line contains a sequence b1,b2,…,bmb1,b2,…,bm (1≤bj≤a1+a2+⋯+an)(1≤bj≤a1+a2+⋯+an), where bjbj equals to the room number (among all rooms of all dormitories) for the jj-th letter. All bjbj are given in increasing order.
+Print mm lines. For each letter print two integers ff and kk — the dormitory number ff (1≤f≤n)(1≤f≤n) and the room number kk in this dormitory (1≤k≤af)(1≤k≤af) to deliver the letter.
+In the first example letters should be delivered in the following order:

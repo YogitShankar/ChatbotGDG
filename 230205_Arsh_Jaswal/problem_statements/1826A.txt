@@ -1,0 +1,14 @@
+Problem Title: A. Trust Nobody
+
+time limit per test1 second
+memory limit per test256 megabytes
+
+There is a group of nn people. Some of them might be liars, who always tell lies. Other people always tell the truth. The ii-th person says "There are at least lili liars amongst us". Determine if what people are saying is contradictory, or if it is possible. If it is possible, output the number of liars in the group. If there are multiple possible answers, output any one of them.
+The first line contains a single integer tt (1≤t≤10001≤t≤1000) — the number of test cases.
+The first line of each test case contains a single integer nn (1≤n≤1001≤n≤100).
+The second line of each test case contains nn integers lili (0≤li≤n0≤li≤n) — the number said by the ii-th person.
+It's guaranteed that the sum of all nn does not exceed 104104.
+For each test case output a single integer. If what people are saying is contradictory, output −1−1. Otherwise, output the number of liars in the group. If there are multiple possible answers, output any one of them.
+In the first example, the only possible answer is that the second person is a liar, so the answer is 11 liar.
+In the second example, it can be proven that we can't choose the liars so that all the requirements are satisfied.
+In the third example, everybody tells the truth, so the answer is 00 liars.

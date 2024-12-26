@@ -1,0 +1,12 @@
+Problem Title: A. Another Sorting Problem
+
+time limit per test2 seconds
+memory limit per test512 megabytes
+
+Andi and Budi were given an assignment to tidy up their bookshelf of n books. Each book is represented by the book title — a string si numbered from 1 to n, each with length m. Andi really wants to sort the book lexicographically ascending, while Budi wants to sort it lexicographically descending.
+Settling their fight, they decided to combine their idea and sort it asc-desc-endingly, where the odd-indexed characters will be compared ascendingly, and the even-indexed characters will be compared descendingly.
+A string a occurs before a string b in asc-desc-ending order if and only if in the first position where a and b differ, the following holds:
+The first line contains two integers n and m (1≤n⋅m≤106).
+The i-th of the next n lines contains a string si consisting of m uppercase Latin letters — the book title. The strings are pairwise distinct.
+Output n integers — the indices of the strings after they are sorted asc-desc-endingly.
+The following illustrates the first example.

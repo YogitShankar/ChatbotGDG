@@ -1,0 +1,17 @@
+Problem Title: C. Andrew and Stones
+
+time limit per test1 second
+memory limit per test256 megabytes
+
+Andrew has nn piles with stones. The ii-th pile contains aiai stones. He wants to make his table clean so he decided to put every stone either to the 11-st or the nn-th pile.
+Andrew can perform the following operation any number of times: choose 33 indices 1≤i<j<k≤n1≤i<j<k≤n, such that the jj-th pile contains at least 22 stones, then he takes 22 stones from the pile jj and puts one stone into pile ii and one stone into pile kk. 
+Tell Andrew what is the minimum number of operations needed to move all the stones to piles 11 and nn, or determine if it's impossible.
+The input contains several test cases. The first line contains one integer tt (1≤t≤100001≤t≤10000) — the number of test cases.
+The first line for each test case contains one integer nn (3≤n≤1053≤n≤105) — the length of the array.
+The second line contains a sequence of integers a1,a2,…,ana1,a2,…,an (1≤ai≤1091≤ai≤109) — the array elements.
+It is guaranteed that the sum of the values nn over all test cases does not exceed 105105.
+For each test case print the minimum number of operations needed to move stones to piles 11 and nn, or print −1−1 if it's impossible.
+In the first test case, it is optimal to do the following: 
+In the second test case, it's impossible to put all stones into piles with numbers 11 and 33: 
+In the third test case, it's optimal to do the following: 
+In the fourth test case, it's impossible to do any operation, and the array doesn't satisfy the statement, so the answer is −1−1.
