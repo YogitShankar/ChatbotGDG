@@ -1,0 +1,14 @@
+Problem Title: E. The Lakes
+
+time limit per test3 seconds
+memory limit per test256 megabytes
+
+You are given an n×mn×m grid aa of non-negative integers. The value ai,jai,j represents the depth of water at the ii-th row and jj-th column. 
+A lake is a set of cells such that:
+The volume of a lake is the sum of depths of all the cells in the lake.
+Find the largest volume of a lake in the grid.
+The first line contains a single integer tt (1≤t≤1041≤t≤104) — the number of test cases.
+The first line of each test case contains two integers n,mn,m (1≤n,m≤10001≤n,m≤1000) — the number of rows and columns of the grid, respectively.
+Then nn lines follow each with mm integers ai,jai,j (0≤ai,j≤10000≤ai,j≤1000) — the depth of the water at each cell.
+It is guaranteed that the sum of n⋅mn⋅m over all test cases does not exceed 106106.
+For each test case, output a single integer — the largest volume of a lake in the grid.

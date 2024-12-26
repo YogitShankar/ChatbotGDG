@@ -1,0 +1,16 @@
+Problem Title: B. Friendly Arrays
+
+time limit per test2 seconds
+memory limit per test256 megabytes
+
+You are given two arrays of integers — a1,…,ana1,…,an of length nn, and b1,…,bmb1,…,bm of length mm. You can choose any element bjbj from array bb (1≤j≤m1≤j≤m), and for all 1≤i≤n1≤i≤n perform ai=ai|bjai=ai|bj. You can perform any number of such operations.
+After all the operations, the value of x=a1⊕a2⊕…⊕anx=a1⊕a2⊕…⊕an will be calculated. Find the minimum and maximum values of xx that could be obtained after performing any set of operations.
+Above, || is the bitwise OR operation, and ⊕⊕ is the bitwise XOR operation.
+The first line contains a single integer tt (1≤t≤1041≤t≤104) — the number of test cases. This is followed by the description of the test cases.
+The first line of each test case contains two integers nn and mm (1≤n,m≤2⋅1051≤n,m≤2⋅105) — the sizes of arrays aa and bb.
+The second line of each test case contains nn integers a1,a2,…,ana1,a2,…,an (0≤ai≤1090≤ai≤109) — the array aa.
+The third line of each test case contains mm integers b1,b2,…,bmb1,b2,…,bm (0≤bi≤1090≤bi≤109) — the array bb.
+It is guaranteed that the sum of values of nn and mm across all test cases does not exceed 2⋅1052⋅105.
+For each test case, output 22 numbers: the minimum and maximum possible values of xx after performing any set of operations.
+In the first test case, if we apply the operation with element b1=1b1=1, the array aa will become [1,1][1,1], and xx will be 00. If no operations are applied, then x=1x=1.
+In the second test case, if no operations are applied, then x=2x=2. If we apply the operation with b1=1b1=1, then a=[1,1,3]a=[1,1,3], and x=3x=3.

@@ -1,0 +1,16 @@
+Problem Title: G1. Teleporters (Easy Version)
+
+time limit per test1 second
+memory limit per test256 megabytes
+
+The only difference between the easy and hard versions are the locations you can teleport to.
+Consider the points 0,1,…,n0,1,…,n on the number line. There is a teleporter located on each of the points 1,2,…,n1,2,…,n. At point ii, you can do the following:
+You have cc coins, and you start at point 00. What's the most number of teleporters you can use?
+The input consists of multiple test cases. The first line contains an integer tt (1≤t≤10001≤t≤1000) — the number of test cases. The descriptions of the test cases follow.
+The first line of each test case contains two integers nn and cc (1≤n≤2⋅1051≤n≤2⋅105; 1≤c≤1091≤c≤109)  — the length of the array and the number of coins you have respectively.
+The following line contains nn space-separated integers a1,a2,…,ana1,a2,…,an (1≤ai≤1091≤ai≤109) — the costs to use the teleporters.
+It is guaranteed that the sum of nn over all test cases does not exceed 2⋅1052⋅105.
+For each test case, output the maximum number of teleporters you can use.
+In the first test case, you can move one unit to the right, use the teleporter at index 11 and teleport to point 00, move two units to the right and use the teleporter at index 22. You are left with 6−1−1−2−1=16−1−1−2−1=1 coins you don't have enough coins to use another teleporter. You have used two teleporters, so the answer is two.
+In the second test case, you go four units to the right and use the teleporter to go to 00, then go six units right and use the teleporter at index 66 to go to 00. The total cost will be 4+6+6+4=204+6+6+4=20. You are left with 1212 coins, but it is not enough to reach any other teleporter and use it so the answer is 22.
+In the third test case, you don't have enough coins to use any teleporter, so the answer is zero.

@@ -1,0 +1,20 @@
+Problem Title: C. Restore the Array
+
+time limit per test1 second
+memory limit per test256 megabytes
+
+Kristina had an array a of length n consisting of non-negative integers.
+She built a new array b of length n−1, such that bi=max(ai,ai+1) (1≤i≤n−1).
+For example, suppose Kristina had an array a = [3,0,4,0,5] of length 5. Then she did the following: 
+You only know the array b. Find any matching array a that Kristina may have originally had.
+The first line of input data contains a single integer t (1≤t≤104) — the number of test cases.
+The description of the test cases follows.
+The first line of each test case contains one integer n (2≤n≤2⋅105) — the number of elements in the array a that Kristina originally had.
+The second line of each test case contains exactly n−1 non-negative integer — elements of array b (0≤bi≤109).
+It is guaranteed that the sum of n over all test cases does not exceed 2⋅105, and that array b was built correctly from some array a.
+For each test case on a separate line, print exactly n non-negative integers — the elements of the array a that Kristina originally had.
+If there are several possible answers — output any of them.
+The first test case is explained in the problem statement.
+In the second test case, we can get array b = [2,2,1] from the array a = [2,2,1,1]: 
+In the third test case, all elements of the array b are zeros. Since each bi is the maximum of two adjacent elements of array a, array a can only consist entirely of zeros.
+In the fourth test case, we can get array b = [0,3,4,4,3] from the array a = [0,0,3,4,3,3] : 

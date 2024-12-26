@@ -1,0 +1,11 @@
+Problem Title: B. Weird Subtraction Process
+
+time limit per test1 second
+memory limit per test256 megabytes
+
+You have two variables a and b. Consider the following sequence of actions performed with these variables:
+Initially the values of a and b are positive integers, and so the process will be finite.
+You have to determine the values of a and b after the process ends.
+The only line of the input contains two integers n and m (1 ≤ n, m ≤ 1018). n is the initial value of variable a, and m is the initial value of variable b.
+Print two integers — the values of a and b after the end of the process.
+Explanations to the samples:

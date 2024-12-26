@@ -1,0 +1,15 @@
+Problem Title: E. Building an Aquarium
+
+time limit per test2 seconds
+memory limit per test256 megabytes
+
+You love fish, that's why you have decided to build an aquarium. You have a piece of coral made of nn columns, the ii-th of which is aiai units tall. Afterwards, you will build a tank around the coral as follows: 
+The first line contains a single integer tt (1≤t≤1041≤t≤104) — the number of test cases.
+The first line of each test case contains two positive integers nn and xx (1≤n≤2⋅1051≤n≤2⋅105; 1≤x≤1091≤x≤109) — the number of columns of the coral and the maximum amount of water you can use.
+The second line of each test case contains nn space-separated integers aiai (1≤ai≤1091≤ai≤109) — the heights of the coral.
+The sum of nn over all test cases doesn't exceed 2⋅1052⋅105.
+For each test case, output a single positive integer hh (h≥1h≥1) — the maximum height the tank can have, so you need at most xx units of water to fill up the tank.
+We have a proof that under these constraints, such a value of hh always exists.
+The first test case is pictured in the statement. With h=4h=4 we need 88 units of water, but if hh is increased to 55 we need 1313 units of water, which is more than x=9x=9. So h=4h=4 is optimal.
+In the second test case, we can pick h=4h=4 and add 33 units to each column, using a total of 99 units of water. It can be shown that this is optimal.
+In the third test case, we can pick h=2h=2 and use all of our water, so it is optimal.
