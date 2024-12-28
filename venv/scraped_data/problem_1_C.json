@@ -1,0 +1,17 @@
+{
+  "title": "C. Ancient Berland Circus",
+  "time_limit": "time limit per test2 seconds",
+  "memory_limit": "memory limit per test64 megabytes",
+  "statement": "Nowadays all circuses in Berland have a round arena with diameter 13 meters, but in the past things were different.In Ancient Berland arenas in circuses were shaped as a regular (equiangular) polygon, the size and the number of angles could vary from one circus to another. In each corner of the arena there was a special pillar, and the rope strung between the pillars marked the arena edges.Recently the scientists from Berland have discovered the remains of the ancient circus arena. They found only three pillars, the others were destroyed by the time.You are given the coordinates of these three pillars. Find out what is the smallest area that the arena could have.",
+  "samples": [
+    {
+      "input": "0.000000 0.0000001.000000 1.0000000.000000 1.000000",
+      "output": "1.00000000"
+    }
+  ],
+  "tags": [
+    "geometry",
+    "math",
+    "*2100"
+  ]
+}

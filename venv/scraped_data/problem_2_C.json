@@ -1,0 +1,16 @@
+{
+  "title": "C. Commentator problem",
+  "time_limit": "time limit per test1 second",
+  "memory_limit": "memory limit per test64 megabytes",
+  "statement": "The Olympic Games in Bercouver are in full swing now. Here everyone has their own objectives: sportsmen compete for medals, and sport commentators compete for more convenient positions to give a running commentary. Today the main sport events take place at three round stadiums, and the commentator's objective is to choose the best point of observation, that is to say the point from where all the three stadiums can be observed. As all the sport competitions are of the same importance, the stadiums should be observed at the same angle. If the number of points meeting the conditions is more than one, the point with the maximum angle of observation is prefered. Would you, please, help the famous Berland commentator G. Berniev to find the best point of observation. It should be noted, that the stadiums do not hide each other, the commentator can easily see one stadium through the other.",
+  "samples": [
+    {
+      "input": "0 0 1060 0 1030 30 10",
+      "output": "30.00000 0.00000"
+    }
+  ],
+  "tags": [
+    "geometry",
+    "*2600"
+  ]
+}
