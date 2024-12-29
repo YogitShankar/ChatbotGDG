@@ -1,0 +1,15 @@
+{
+    "problem_tag": "1999A",
+    "title": "A+B Again?",
+    "link": "https://codeforces.com/problemset/problem/1999/A",
+    "description": "Given a two-digit positive integer\nn\n, find the sum of its digits.",
+    "input_specification": "The first line contains an integer\nt\n(\n1≤t≤90\n) — the number of test cases.\nThe only line of each test case contains a single two-digit positive integer\nn\n(\n10≤n≤99\n).",
+    "output_specification": "For each test case, output a single integer — the sum of the digits of\nn\n.",
+    "time_limit": "1 second",
+    "memory_limit": "256 megabytes",
+    "tags": [
+        "implementation",
+        "math",
+        "*800"
+    ]
+}

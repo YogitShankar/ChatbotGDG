@@ -1,0 +1,14 @@
+{
+    "problem_tag": "1154A",
+    "title": "Restoring Three Numbers",
+    "link": "https://codeforces.com/problemset/problem/1154/A",
+    "description": "Polycarp has guessed three positive integers\n𝑎\n,\n𝑏\nand\n𝑐\n. He keeps these numbers in secret, but he writes down four numbers on a board in arbitrary order — their pairwise sums (three numbers) and sum of all three numbers (one number). So, there are four numbers on a board in random order:\n𝑎+𝑏\n,\n𝑎+𝑐\n,\n𝑏+𝑐\nand\n𝑎+𝑏+𝑐\n.\nYou have to guess three numbers\n𝑎\n,\n𝑏\nand\n𝑐\nusing given numbers. Print three guessed integers in any order.\nPay attention that some given numbers\n𝑎\n,\n𝑏\nand\n𝑐\ncan be equal (it is also possible that\n𝑎=𝑏=𝑐\n).",
+    "input_specification": "The only line of the input contains four positive integers\n𝑥\n1\n,\n𝑥\n2\n,\n𝑥\n3\n,\n𝑥\n4\n(\n2≤\n𝑥\n𝑖\n≤\n10\n9\n) — numbers written on a board in random order. It is guaranteed that the answer exists for the given number\n𝑥\n1\n,\n𝑥\n2\n,\n𝑥\n3\n,\n𝑥\n4\n.",
+    "output_specification": "Print such positive integers\n𝑎\n,\n𝑏\nand\n𝑐\nthat four numbers written on a board are values\n𝑎+𝑏\n,\n𝑎+𝑐\n,\n𝑏+𝑐\nand\n𝑎+𝑏+𝑐\nwritten in some order. Print\n𝑎\n,\n𝑏\nand\n𝑐\nin any order. If there are several answers, you can print any. It is guaranteed that the answer exists.",
+    "time_limit": "1 second",
+    "memory_limit": "256 megabytes",
+    "tags": [
+        "math",
+        "*800"
+    ]
+}

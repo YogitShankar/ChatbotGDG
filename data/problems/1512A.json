@@ -1,0 +1,15 @@
+{
+    "problem_tag": "1512A",
+    "title": "Spy Detected!",
+    "link": "https://codeforces.com/problemset/problem/1512/A",
+    "description": "You are given an array\na\nconsisting of\nn\n(\nn≥3\n) positive integers. It is known that in this array, all the numbers except one are the same (for example, in the array\n[4,11,4,4]\nall numbers except one are equal to\n4\n).\nPrint the index of the element that does not equal others. The numbers in the array are numbered from one.",
+    "input_specification": "The first line contains a single integer\nt\n(\n1≤t≤100\n). Then\nt\ntest cases follow.\nThe first line of each test case contains a single integer\nn\n(\n3≤n≤100\n) — the length of the array\na\n.\nThe second line of each test case contains\nn\nintegers\na1,a2,…,an\n(\n1≤ai≤100\n).\nIt is guaranteed that all the numbers except one in the\na\narray are the same.",
+    "output_specification": "For each test case, output a single integer — the index of the element that is not equal to others.",
+    "time_limit": "2 seconds",
+    "memory_limit": "256 megabytes",
+    "tags": [
+        "brute force",
+        "implementation",
+        "*800"
+    ]
+}

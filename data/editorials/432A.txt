@@ -1,0 +1,13 @@
+Problem: 432A - Choosing Teams
+Problem Link: https://codeforces.com/problemset/problem/432/A
+Editorial Link: https://codeforces.com/blog/entry/12310
+
+================================================================================
+
+432A - Choosing TeamsIn this problem you should count number of students who can participate in ACM, divide it by 3 and round down. It could be done like this: int cnt = 0;
+
+for(int i = 0; i < n; i++)
+    if (5 - a[i] >= k)
+        cnt++;
+
+int ans = cnt / 3;
