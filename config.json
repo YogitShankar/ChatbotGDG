@@ -1,0 +1,13 @@
+{
+	"problem_storage": "./data/problems/",
+	"editorial_storage": "./data/editorials/",
+	"selenium": {
+		"headless": true,
+		"delay": 2	
+	},
+	"logging": {
+		"enabled": true,
+		"log_file": "./logs/scraper.log"	
+	}
+}
+
