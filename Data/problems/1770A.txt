@@ -1,0 +1,18 @@
+Problem: A. Koxia and Whiteboards
+Time Limit: time limit per test1 second
+Memory Limit: memory limit per test256 megabytes
+Tags: brute force, greedy, *1000
+
+Description:
+Kiyora has n whiteboards numbered from 1 to n. Initially, the i-th whiteboard has the integer ai written on it.
+Koxia performs m operations. The j-th operation is to choose one of the whiteboards and change the integer written on it to bj.
+Find the maximum possible sum of integers written on the whiteboards after performing all m operations.
+Each test consists of multiple test cases. The first line contains a single integer t (1≤t≤1000) — the number of test cases. The description of test cases follows.
+The first line of each test case contains two integers n and m (1≤n,m≤100).
+The second line of each test case contains n integers a1,a2,…,an (1≤ai≤109).
+The third line of each test case contains m integers b1,b2,…,bm (1≤bi≤109).
+For each test case, output a single integer — the maximum possible sum of integers written on whiteboards after performing all m operations.
+In the first test case, Koxia can perform the operations as follows:
+After performing all operations, the numbers on the three whiteboards are 4, 5 and 3 respectively, and their sum is 12. It can be proven that this is the maximum possible sum achievable.
+In the second test case, Koxia can perform the operations as follows:
+The sum is 4+5=9. It can be proven that this is the maximum possible sum achievable.
