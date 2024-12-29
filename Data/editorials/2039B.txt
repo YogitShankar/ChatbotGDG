@@ -1,0 +1,2427 @@
+Editorial for Problem: B. Shohag Loves Strings
+Problem ID: 2039B
+
+Solution:
+Thanks for participating in the contest . We hope you liked the problems. We would love to hear your feedback in the comments. If you find anything wrong in the editorial which is more likely to happen because we have written a rather long editorial to make you understand the solutions better, then comment below.We also tried to write the thought process of how you can come up with the solution for the easier problems. The approach I followed is similar to what the current AI agents do. They first generate some thoughts, then do some actions, then gather observations, and repeat the process until they find the solution. Hope you will like this approach.Also, don't forget to upvote the editorial. See you in the next contest!Also, please rate the problems after checking the editorial. Because otherwise you might have solved it in a very cumbersome way that you will end up hating the problem. How did you find the contest? Great: 
+
+
+
+
+177
+
+
+
+
+
+ Good: 
+
+    
+
+
+259
+
+
+
+ Average: 
+
+    
+
+
+68
+
+
+
+ Bad: 
+
+    
+
+
+79
+
+
+
+ Trash: 
+
+    
+
+
+74
+
+
+
+  Which problem is your most favourite? A: 
+
+    
+
+
+27
+
+
+
+ B: 
+
+    
+
+
+63
+
+
+
+ C1: 
+
+    
+
+
+59
+
+
+
+ C2: 
+
+    
+
+
+57
+
+
+
+ D: 
+
+    
+
+
+231
+
+
+
+ E: 
+
+    
+
+
+45
+
+
+
+ F1: 
+
+    
+
+
+7
+
+
+
+ F2: 
+
+    
+
+
+4
+
+
+
+ G: 
+
+    
+
+
+5
+
+
+
+ H1: 
+
+    
+
+
+7
+
+
+
+ H2: 
+
+    
+
+
+4
+
+
+
+  Which problem you hate the most? A: 
+
+    
+
+
+10
+
+
+
+ B: 
+
+    
+
+
+18
+
+
+
+ C1: 
+
+    
+
+
+49
+
+
+
+ C2: 
+
+    
+
+
+444
+
+
+
+ D: 
+
+    
+
+
+13
+
+
+
+ E: 
+
+    
+
+
+49
+
+
+
+ F1: 
+
+    
+
+
+13
+
+
+
+ F2: 
+
+    
+
+
+2
+
+
+
+ G: 
+
+    
+
+
+1
+
+
+
+ H1: 
+
+    
+
+
+2
+
+
+
+ H2: 
+
+    
+
+
+1
+
+
+
+ Also, huge props to redpanda for creating awesome manim video editorials for problems A to D. Check it out here: https://www.youtube.com/watch?v=elRvvUbk1J42039A - Shohag Loves ModAuthor: YouKn0wWho Tutorial2039A - Shohag Loves ModTHOUGHT: A general approach to tackle ad-hoc problems is to play around with the conditions and see if we can add more constraints to limit the search space.ACTION: Let's analyze the modular condition $$$a_i \bmod i$$$.We know that $$$a_i \bmod i < i$$$, and all $$$a_i \bmod i$$$ values are distinct. Let's explore this step by step:  $$$a_1 \bmod 1$$$ is always $$$0$$$.  $$$a_2 \bmod 2$$$ can be $$$0$$$ or $$$1$$$. But since all $$$a_i \bmod i$$$ values must be distinct, $$$a_2 \bmod 2$$$ must be $$$1$$$ (otherwise, it would equal $$$a_1 \bmod 1$$$).  $$$a_3 \bmod 3$$$ can be $$$0$$$, $$$1$$$, or $$$2$$$. Similarly, $$$a_3 \bmod 3$$$ must be $$$2$$$ (to avoid duplication with $$$a_1 \bmod 1$$$ or $$$a_2 \bmod 2$$$).  $$$\ldots$$$  $$$a_n \bmod n$$$ must be $$$n-1$$$. OBSERVATION: This leads to the constraint $$$a_i \bmod i = i - 1$$$.THOUGHT: Next, let's consider the increasing sequence condition.OBSERVATION: Since the sequence must be increasing, we add the constraint $$$a_i \ge i$$$.THOUGHT: To further limit the search space, note that $$$n$$$ can be up to $$$50$$$, and $$$a_i$$$ must be $$$\le 100$$$.OBSERVATION: This suggests that we can restrict $$$a_i$$$ to values up to $$$2 \cdot n$$$.THOUGHT: Let's compile the constraints:   $$$a_i \bmod i = i - 1$$$.  $$$a_i \ge i$$$.  $$$a_i \le 2 \cdot n$$$. Now we need to build the sequence that satisfies these conditions.ACTION: Let's build the sequence starting from the end.  $$$a_n \bmod n = n-1$$$. Thus, $$$a_n$$$ can be $$$n-1$$$ or $$$2 \cdot n - 1$$$. Since $$$a_n \ge n$$$, $$$a_n$$$ must be $$$2 \cdot n - 1$$$.  $$$a_{n-1} \bmod (n-1) = n-2$$$. So $$$a_{n-1}$$$ can be $$$n-2$$$ or $$$(n - 2) + (n - 1) = 2 \cdot n - 3$$$. Since $$$a_{n-1} \ge n-1$$$, $$$a_{n-1}$$$ must be $$$2 \cdot n - 3$$$.  $$$\ldots$$$  $$$a_i \bmod i = i - 1$$$. Thus, $$$a_i$$$ can be $$$i - 1$$$ or $$$2 \cdot i - 1$$$ or $$$3 \cdot i - 1 \ldots$$$. Since $$$a_i \ge i$$$ and the odd numbers greater than $$$2 \cdot i$$$ have already been used, $$$a_i$$$ must be $$$2 \cdot i - 1$$$. OBSERVATION: If we limit the elements to $$$2 \cdot n$$$, there is exactly one sequence that satisfies all conditions.CONCLUSION: The sequence is $$$a_i = 2 \cdot i - 1$$$, which is $$$1, 3, 5, \ldots, 2 \cdot n - 1$$$.VALIDATION: We can validate the solution by checking if it satisfies all the constraints. $$$a_i \bmod i = (2 \cdot i - 1) \bmod i = i - 1$$$. So all $$$a_i \bmod i$$$ are distinct and values are under $$$2 \cdot n$$$. So the sequence is valid.Time Complexity: $$$\mathcal{O}(n)$$$. Code#include<bits/stdc++.h>
+using namespace std;
+
+const int N = 3e5 + 9;
+using ll = long long;
+
+void solve() {
+  int n; cin >> n;
+  for (int i = 1; i <= n; i++) {
+    cout << 2 * i - 1 << ' ';
+  }
+  cout << '\n';
+}
+
+int32_t main() {
+  ios_base::sync_with_stdio(0);
+  cin.tie(0);
+  int t = 1;
+  cin >> t;
+  while (t--) {
+    solve();
+  }
+  return 0;
+} Rate the Problem Amazing problem: 
+
+    
+
+
+268
+
+
+
+ Good problem: 
+
+    
+
+
+55
+
+
+
+ Average problem: 
+
+    
+
+
+39
+
+
+
+ Bad problem: 
+
+    
+
+
+12
+
+
+
+ Didn't solve: 
+
+    
+
+
+10
+
+
+
+ 2039B - Shohag Loves StringsAuthor: YouKn0wWho Tutorial2039B - Shohag Loves StringsTHOUGHT: The condition seems hard to track. So a good way is to play around with smaller cases and see if we can make some observations.ACTION: Let's start with the smallest string. When $$$s=$$$ a, the number of unique substrings $$$f(s) = 1$$$, so it's odd and not valid.OBSERVATION: No one length strings are valid.ACTION: Let's try the next smallest strings. When $$$s=$$$ aa, $$$f(s) = 2$$$, so it's even and valid. When $$$s=$$$ ab, $$$f(s) = 3$$$, so it's odd and not valid.OBSERVATION: Two length strings are valid if the adjacent characters are same.THOUGHT: So if $$$s$$$ contains two consecutive same characters, we can print it right away. All that remains is to consider strings without two consecutive same characters.ACTION: Let's try the next smallest strings with adjacent different characters. When $$$s=$$$ aba, $$$f(s) = 5$$$, so it's odd and not valid. When $$$s=$$$ abc, $$$f(s) = 6$$$, so it's even and valid.OBSERVATION: Three length strings are valid if all characters are different.THOUGHT: So if $$$s$$$ contains three consecutive different characters, we can print it right away. All that remains is to consider strings without two adjacent same characters but no three consecutive different characters.So all the remaining strings are of the form $$$s =$$$ abababababa...Let's try to see if we can make some observations about these strings.ACTION: Let's try to calculate the number of unique substrings for a string of the form $$$s =$$$ abababababa...  There are exactly $$$2$$$ unique substrings of length $$$1$$$: a and b.  There are exactly $$$2$$$ unique substrings of length $$$2$$$: ab and ba.  There are exactly $$$2$$$ unique substrings of length $$$3$$$: aba and bab.  $$$\ldots$$$  There are exactly $$$2$$$ unique substrings of length $$$n - 1$$$.  However, the length $$$n$$$ substring occurs exactly once. OBSERVATION: The number of unique substrings of any length is $$$2$$$. But only the length $$$n$$$ substring occurs exactly once. So total number of unique substrings is $$$2n - 1$$$. And this is always odd! So there is no solution for these strings.THOUGHT: We have covered all the cases. CONCLUSION: If there are adjacent same characters, we can print it right away. If there are three consecutive different characters, we can print it right away. Otherwise there is no solution.Time Complexity: $$$\mathcal{O}(n)$$$. Code#include<bits/stdc++.h>
+using namespace std;
+
+const int N = 3e5 + 9;
+using ll = long long;
+
+void solve() {
+  string s; cin >> s;
+  int n = s.size();
+  for (int i = 0; i + 1 < n; i++) {
+    if (s[i] == s[i + 1]) {
+      cout << s.substr(i, 2) << '\n';
+      return;
+    }
+  }
+  for (int i = 0; i + 2 < n; i++) {
+    if (s[i] != s[i + 1] and s[i] != s[i + 2] and s[i + 1] != s[i + 2]) {
+      cout << s.substr(i, 3) << '\n';
+      return;
+    }
+  }
+  cout << -1 << '\n';
+}
+
+int32_t main() {
+  ios_base::sync_with_stdio(0);
+  cin.tie(0);
+  int t = 1;
+  cin >> t;
+  while (t--) {
+    solve();
+  }
+  return 0;
+} Rate the Problem Amazing problem: 
+
+    
+
+
+310
+
+
+
+ Good problem: 
+
+    
+
+
+54
+
+
+
+ Average problem: 
+
+    
+
+
+32
+
+
+
+ Bad problem: 
+
+    
+
+
+29
+
+
+
+ Didn't solve: 
+
+    
+
+
+19
+
+
+
+ 2039C1 - Shohag Loves XOR (Easy Version)Author: YouKn0wWho Tutorial2039C1 - Shohag Loves XOR (Easy Version)THOUGHT: Here $$$x > 0$$$ and $$$y > 0$$$. So $$$x \oplus y$$$ is neither equal to $$$x$$$ nor $$$y$$$. So $$$x \oplus y$$$ is a divisor of $$$x$$$ or $$$y$$$ and $$$x \oplus y < x$$$ or $$$x \oplus y < y$$$.OBSERVATION: Any divisor $$$d$$$ of $$$p$$$ such that $$$d < p$$$ we know that $$$d \le \lfloor \frac{p}{2} \rfloor$$$. Also, the highest bits of $$$d$$$ and $$$p$$$ are different when $$$d \le \lfloor \frac{p}{2} \rfloor$$$.THOUGHT: Wait but $$$x \oplus y$$$ has the same highest bit as $$$y$$$ if $$$y \ge 2 \cdot x$$$.CONCLUSION: So if $$$y \ge 2 \cdot x$$$, then $$$x \oplus y$$$ can not be a divisor of $$$y$$$.THOUGHT: But can it be a divisor of $$$x$$$?OBSERVATION: If $$$y \ge 2 \cdot x$$$, then $$$x \oplus y > x$$$ because the highest bit in $$$x \oplus y$$$ is greater than that in $$$x$$$. So $$$x \oplus y$$$ can not be a divisor of $$$x$$$.CONCLUSION: If $$$y \ge 2 \cdot x$$$, then $$$x \oplus y$$$ can not be a divisor of $$$x$$$ or $$$y$$$. So no solution in this case.THOUGHT: Now we need to consider the case when $$$y < 2 \cdot x$$$. But $$$x$$$ is small in this problem, making it feasible to iterate over all possible values of $$$y$$$.ACTION: Iterate over all possible values of $$$y < 2 \cdot x$$$ and check if $$$x \oplus y$$$ is a divisor of either $$$x$$$ or $$$y$$$.Time Complexity: $$$\mathcal{O}(x)$$$. Code#include<bits/stdc++.h>
+using namespace std;
+
+using ll = long long;
+
+void solve() {
+  int x; ll m; cin >> x >> m;
+
+  int ans = 0;
+  for (int y = 1; y <= min(2LL * x, m); y++) {
+    if (x != y and ((x % (x ^ y)) == 0 or (y % (x ^ y) == 0))) {
+      ++ans;
+    }
+  }
+  cout << ans << '\n';
+}
+
+int32_t main() {
+  ios_base::sync_with_stdio(0);
+  cin.tie(0);
+  int t = 1;
+  cin >> t;
+  while (t--) {
+    solve();
+  }
+  return 0;
+} Rate the Problem Amazing problem: 
+
+    
+
+
+265
+
+
+
+ Good problem: 
+
+    
+
+
+82
+
+
+
+ Average problem: 
+
+    
+
+
+39
+
+
+
+ Bad problem: 
+
+    
+
+
+59
+
+
+
+ Didn't solve: 
+
+    
+
+
+29
+
+
+
+ 2039C2 - Shohag Loves XOR (Hard Version)Author: YouKn0wWho Tutorial2039C2 - Shohag Loves XOR (Hard Version)THOUGHT: Consider the three cases of when $$$x \oplus y$$$ is divisible by $$$x$$$, $$$y$$$, or both separately.Case 1: $$$x \oplus y$$$ is divisible by $$$x$$$.THOUGHT: Let $$$p = x \oplus y$$$. So $$$y = p \oplus x$$$. So we can rephrase the problem as counting the number of integers $$$p$$$ such that $$$p$$$ is divisible by $$$x$$$ and $$$1 \le p \oplus x \le m$$$.OBSERVATION: $$$p \oplus x \le p + x$$$, because xor is just addition without carry.THOUGHT: So it feels like almost all values of $$$p \le m$$$ might work! And it's actually true because $$$p \oplus x \le p + x \le m$$$, so if $$$p + x \le m$$$ i.e. $$$p \le m - x$$$ then $$$p \oplus x \le m$$$ is always true.CONCLUSION: All multiples of $$$x$$$ under $$$m - x$$$ always work! So the count is $$$\lfloor \frac{m - x}{x} \rfloor$$$.THOUGHT: But how about when $$$p > m - x$$$?OBSERVATION: if $$$p > x$$$, then $$$p \oplus x \ge p - x$$$, because xor is like subtraction without borrowing.THOUGHT: So if $$$p - x > m$$$ i.e. $$$p > m + x$$$ then $$$p \oplus x \ge p - x > m$$$ is always true.CONCLUSION: So no values of $$$p$$$ work when $$$p > m + x$$$.THOUGHT: And there are two multiples of $$$x$$$ in the range $$$(m - x, m + x]$$$. So we can just check them manually.CONCLUSION: Answer is $$$\lfloor \frac{m - x}{x} \rfloor$$$ plus manually checking the two multiples of $$$x$$$ in the range $$$(m - x, m + x]$$$.Case 2: $$$x \oplus y$$$ is divisible by $$$y$$$.THOUGHT: As we already know that $$$x \oplus y \le x + y$$$, and when $$$x < y$$$, $$$x \oplus y \le x + y < y + y = 2 \cdot y$$$.But as $$$x > 0$$$ and $$$y > 0$$$, so $$$x \oplus y$$$ is neither $$$x$$$ nor $$$y$$$, so the smallest multiple of $$$y$$$ that can work is $$$2 \cdot y$$$. But $$$x \oplus y < 2 \cdot y$$$, so no solution here.CONCLUSION: No solution when $$$x < y$$$. And as $$$x$$$ is small in this problem, so we can just iterate over all values of $$$y \le x$$$ and manually check if $$$x \oplus y$$$ is divisible by $$$y$$$.Case 3: $$$x \oplus y$$$ is divisible by both $$$x$$$ and $$$y$$$.THOUGHT: So the xor is divisible by $$$\text{lcm}(x, y)$$$. So when $$$x \neq y$$$, $$$\text{lcm}(x, y) \ge 2 \cdot \max(x, y)$$$ but $$$x \oplus y < 2 \cdot \max(x, y)$$$, so no solution here.CONCLUSION: Only works when $$$y = x$$$.FINAL CONCLUSION: So we just implement the above cases and the answer is the sum of case $$$1$$$ and case $$$2$$$ subtracted by case $$$3$$$.Time Complexity: $$$\mathcal{O}(x)$$$. Code#include<bits/stdc++.h>
+using namespace std;
+
+using ll = long long;
+
+void solve() {
+  int x; ll m; cin >> x >> m;
+
+  // divisible by x
+  ll p = m - m % x;
+  ll ans = p / x - (x < p);
+  if ((x ^ p) >= 1 and (x ^ p) <= m) ++ans;
+  p += x;
+  if ((x ^ p) >= 1 and (x ^ p) <= m) ++ans;
+
+  // divisibly by y
+  for (int y = 1; y <= min(1LL * x, m); y++) {
+    ll cur = x ^ y;
+    if (cur % y == 0) {
+      ++ans;
+    }
+  }
+
+  // divisible by both
+  if (x <= m) {
+    --ans;
+  }
+
+  cout << ans << '\n';
+}
+
+int32_t main() {
+  ios_base::sync_with_stdio(0);
+  cin.tie(0);
+  int t = 1;
+  cin >> t;
+  while (t--) {
+    solve();
+  }
+  return 0;
+} Rate the Problem Amazing problem: 
+
+    
+
+
+128
+
+
+
+ Good problem: 
+
+    
+
+
+36
+
+
+
+ Average problem: 
+
+    
+
+
+49
+
+
+
+ Bad problem: 
+
+    
+
+
+301
+
+
+
+ Didn't solve: 
+
+    
+
+
+41
+
+
+
+ 2039D - Shohag Loves GCDAuthor: YouKn0wWho Tutorial2039D - Shohag Loves GCDTHOUGHT: For problems where we need to construct something under some conditions, then a good idea is to first see the nature of the sequences that satisfy the conditions. And to find the properties of such sequences we can try to find some necessary conditions that must have to be met for the sequence to satisfy the conditions.ACTION: The given condition is that $$$a_{\text{gcd}(i, j)} \neq \text{gcd}(a_i, a_j)$$$ all $$$i < j$$$. As the given operation is gcd on indices and values, it's hard to directly find the properties of the sequence.But what happens when $$$i$$$ divides $$$j$$$? Then $$$a_{\text{gcd}(i, j)} = a_i$$$. So the condition becomes $$$a_i \neq \text{gcd}(a_i, a_j)$$$ which translates to $$$a_i$$$ can not divide $$$a_j$$$ because otherwise $$$\text{gcd}(a_i, a_j) = a_i$$$.So we have found a necessary condition: for any pair $$$i < j$$$ where $$$i$$$ divides $$$j$$$, $$$a_i$$$ can not divide $$$a_j$$$.THOUGHT: Hmm, but is the condition sufficient? One way to check the sufficiency is to find a contradiction.ACTION: Imagine two indices $$$i$$$ and $$$j$$$ where $$$i$$$ does not divide $$$j$$$ but the condition is violated: $$$a_{\text{gcd}(i, j)} = \text{gcd}(a_i, a_j)$$$.Then $$$g = \text{gcd}(i, j)$$$ is a divisor of both $$$i$$$ and $$$j$$$ and as $$$a_g$$$ divides both $$$a_i$$$ and $$$a_j$$$, so for pair $$$(g, i)$$$ we have $$$a_{\text{gcd}(g, i)} = a_g$$$ and $$$\text{gcd}(a_g, a_i) = a_g$$$ because $$$a_g$$$ divides $$$a_i$$$. So for this pair the condition is violated!So if the condition is violated for some pair $$$(i, j)$$$ then it is violated for the pair $$$(g, i)$$$ and $$$(g, j)$$$ as well where $$$g = \text{gcd}(i, j)$$$.So if there is no pair $$$(i, j)$$$ where $$$i$$$ divides $$$j$$$ and the condition is violated, then all the pairs also satisfy the condition. This proves the sufficiency of the condition.THOUGHT: So we have found a necessary and sufficient condition. Now we need to construct the lexicographically largest sequence that satisfies the condition.Solution 1:Consider a multiple chain $$$i_1 < i_2 < \ldots < i_k$$$. Such that $$$i_1$$$ divides $$$i_2$$$, $$$i_2$$$ divides $$$i_3$$$, ..., $$$i_{k-1}$$$ divides $$$i_k$$$.Then we know that we have to put distinct values for all the indices in the multiple chain otherwise one number will be divisible by another which will violate the condition.And as we are aiming for the lexicographically largest sequence, it makes sense to put the values in decreasing order in a multiple chain i.e. $$$a_{i_1} > a_{i_2} > \ldots > a_{i_k}$$$. This way we don't have to care about the divisibility condition, as the numbers are in decreasing order.Now, we definitely will try to put the largest number possible for each index. So what is the largest number that we can put for the index $$$x$$$?Consider a directed graph where there is an edge from $$$i$$$ to $$$j$$$ if $$$i$$$ divides $$$j$$$. Then the question is what is the length of the longest path in this graph ending at $$$x$$$.You can find it using a simple DP on this directed acyclic graph in $$$O(n \log n)$$$ time.But if you think about it, the answer is actually simple. Let $$$p(x)$$$ the number of prime factors of $$$x$$$ counted with multiplicity. Then the answer is $$$p(x) + 1$$$. For example, if $$$x = 2 \cdot 3^2 \cdot 5$$$, then one of the longest chains ending at $$$x$$$ is $$$1 \rightarrow 2 \rightarrow 2 \cdot 3 \rightarrow 2 \cdot 3^2 \rightarrow 2 \cdot 3^2 \cdot 5$$$ which has length $$$4$$$.We can precalculate the values $$$p(x)$$$ for all $$$1 \leq x \leq n$$$ in $$$O(n \log n)$$$ time using sieve.So at index $$$i$$$ we will put the ($$$p(i) + 1$$$)-th largest number from the set $$$S$$$. And the largest value of $$$p(i)$$$ for $$$1 \leq i \leq n$$$ is $$$\lfloor \log_2 n \rfloor$$$ for the chain $$$1 \rightarrow 2 \rightarrow 2^2 \rightarrow \ldots \rightarrow 2^{\lfloor \log_2 n \rfloor}$$$.So if $$$m < \lfloor \log_2 n \rfloor + 1$$$, then we can't construct the sequence and the answer is $$$-1$$$. Otherwise set $$$a_i = s_{m - p(i)}$$$ for all $$$i$$$.Also, unless you have noticed already, the actual numbers don't matter!Time Complexity: $$$O(n \log n)$$$Solution 2:As we are trying to construct the lexicographically largest sequence, it's always better to take larger values first. Let $$$s_i$$$ be the $$$i$$$-th smallest number in the set $$$S$$$.  So, initially set $$$a_1 = s_m$$$. Then we can't use $$$s_m$$$ for any other index as it will violate the condition. Then set $$$a_2 = s_{m - 1}$$$ (because we can't use $$$s_m$$$). Then we can't use $$$s_{m - 1}$$$ for any other index $$$j$$$ where $$$j$$$ is divisible by $$$2$$$ as it will violate the condition. Then set $$$a_3 = s_{m - 1}$$$ (because we can't use $$$s_{m}$$$). Then we can't use $$$s_{m - 1}$$$ for any other index $$$j$$$ where $$$j$$$ is divisible by $$$3$$$ as it will violate the condition. Now set $$$a_4 = s_{m - 2}$$$ (because we can't use $$$s_{m - 1}$$$ or $$$s_m$$$). Then we can't use $$$s_{m - 2}$$$ for any other index $$$j$$$ where $$$j$$$ is divisible by $$$4$$$ as it will violate the condition. Then for $$$a_5$$$ we can actually use $$$s_{m-1}$$$ as $$$5$$$ is not divisible by $$$2, 3,$$$ or $$$4$$$ so the only constraint is that $$$a_5 \neq a_1$$$. ... Notice that this is a sieve-like process where we are using the maximum number that we can use for the current index and then we are remembering that in the multiples of the current index, the current number can't be used. We can use sets to simulate the process.So this process will always construct a valid lexicographically largest sequence. If it is not possible to construct the sequence, then the answer is $$$-1$$$.Also, if you notice the construction process carefully, the actual numbers don't matter!Time Complexity: $$$O(n \log^2 n)$$$ Code (Solution 1)#include<bits/stdc++.h>
+using namespace std;
+
+const int N = 1e5 + 9;
+int p[N];
+void solve() {
+  int n, m; cin >> n >> m;
+  vector<int> s(m + 1);
+  for (int i = 1; i <= m; i++) {
+    cin >> s[i];
+  }
+  if (m < __lg(n) + 1) {
+    cout << -1 << '\n';
+    return;
+  }
+  for (int i = 1; i <= n; i++) {
+    cout << s[m - p[i]] << ' ';
+  }
+  cout << '\n';
+}
+
+int32_t main() {
+  ios_base::sync_with_stdio(0);
+  cin.tie(0);
+  for (int i = 2; i < N; i++) {
+    if (p[i]) continue;
+    for (int j = i; j < N; j += i) {
+      int x = j;
+      while (x % i == 0) x /= i, ++p[j];
+    }
+  }
+  int t = 1;
+  cin >> t;
+  while (t--) {
+    solve();
+  }
+  return 0;
+} Code (Solution 2)#include<bits/stdc++.h>
+using namespace std;
+
+const int N = 1e5 + 9;
+using ll = long long;
+
+vector<int> d[N];
+void solve() {
+  int n, m; cin >> n >> m;
+  vector<int> s(m + 1);
+  for (int i = 1; i <= m; i++) {
+    cin >> s[i];
+  }
+  vector<int> a(n + 1, -1);
+  for (int i = 1; i <= n; i++) {
+    set<int> banned;
+    for (int j: d[i]) {
+      banned.insert(a[j]);
+    }
+    for (int k = m; k >= 1; k--) {
+        if (banned.find(s[k]) == banned.end()) {
+            a[i] = s[k];
+            break;
+        }
+    }
+    if (a[i] == -1) {
+        cout << -1 << '\n';
+        return;
+    }
+  }
+  for (int i = 1; i <= n; i++) {
+    cout << a[i] << ' ';
+  }
+  cout << '\n';
+}
+
+int32_t main() {
+  ios_base::sync_with_stdio(0);
+  cin.tie(0);
+  for (int i = 1; i < N; i++) {
+    for (int j = i + i; j < N; j += i) {
+        d[j].push_back(i);
+    }
+  }
+  int t = 1;
+  cin >> t;
+  while (t--) {
+    solve();
+  }
+  return 0;
+} Rate the Problem Amazing problem: 
+
+    
+
+
+240
+
+
+
+ Good problem: 
+
+    
+
+
+32
+
+
+
+ Average problem: 
+
+    
+
+
+16
+
+
+
+ Bad problem: 
+
+    
+
+
+28
+
+
+
+ Didn't solve: 
+
+    
+
+
+10
+
+
+
+ 2039E - Shohag Loves InversionsAuthor: YouKn0wWho Tutorial2039E - Shohag Loves InversionsIt's hard to track the array when we insert new inversions as the inversion number can quickly become very large.The key observation here is to notice what happens when the inversion count becomes more than $$$1$$$. As the initial array has only $$$0$$$ and $$$1$$$ as elements when we insert an inversion count that is more than $$$1$$$, the inversion count will be larger than any element of the array. And this gives us a way to control everything!Let $$$\text{dp}_i$$$ be the number of final arrays of length $$$n$$$ we can get from the current array of length $$$i$$$ if the current number of inversions in it is larger than any element of the array.Let $$$k$$$ be the number of inversions in the current array and $$$k > \max(a)$$$. Then  If we insert $$$k$$$ not in the end, then the new inversion count will be more than $$$k$$$, so we get the same situation for $$$dp_{i+1}$$$  Or if we insert $$$k$$$ in the end then the number of inversions will still be $$$k$$$. So if we inserted it $$$j$$$ times in the end and once somewhere else ($$$i$$$ ways to do so) then we will get the situation for $$$dp_{i+j+1}$$$ So $$$\text{dp}_i = (i \cdot \sum_{j > i} \text{dp}_j) + 1$$$, here $$$1$$$ is added as we can end the sequence here by inserting $$$k$$$ in the end $$$(n - i)$$$ times.This can be computed with simple dp in $$$O(n)$$$ time using suffix sums.Now we just need to deal with the starting array when it starts to have more than $$$1$$$ inversion.There are $$$(n - 1)$$$ ways to finish the sequence having $$$\le 1$$$ inversion. And they are of the form $$$0, 0, \ldots, 0, [0, 1, 0], 1, \ldots, 1, 1$$$ this is because we first insert $$$0$$$ at the beginning for some time and then we get $$$1$$$ inversion count when we insert $$$0$$$ at the end for the first time and then we will have to insert $$$1$$$ at the end every time after that.And to count the ways to get the starting array of length $$$m$$$ with more than $$$1$$$ inversion, we can notice that it's just the sum of ways where we insert $$$1$$$ before the first $$$1$$$ in any sequence of the form like above $$$0, 0, \ldots, 0, [0, 1, 0], 1, \ldots, 1, 1$$$. And if the position of the first $$$1$$$ is $$$j$$$ then we have $$$(j - 1)$$$ ways to do so. So total ways is $$$\sum_{j=2}^{m - 1} (j - 1) = \frac{(m - 2) \cdot (m - 1)}{2} - 1$$$So the answer is just $$$n - 1 + \sum_{m=3}^{n} \left( \frac{(m - 2) \cdot (m - 1)}{2} - 1 \right) \cdot \text{dp}_m$$$Time Complexity: $$$O(n)$$$Note that there are ways to write the dp so that you don't have to handle the starting array separately. Also in this problem, we have limited the total sum of $$$n$$$ over all test cases. But there exists solutions where the solution works even without the limit but we decided to let both solutions pass.Also, I am extremely sorry that during the contest we found out that some people found the second difference/derivative of the sequence on OEIS. We searched on OEIS before but couldn't find it, otherwise we would have modified the problem. Again, sorry for this issue. Code#include<bits/stdc++.h>
+using namespace std;
+
+const int N = 1e6 + 9, mod = 998244353;
+using ll = long long;
+
+int dp[N]; // count of arrays that we can get if the current number of inversions is > max element of the array
+void solve() {
+  int n; cin >> n;
+  int sum = 0;
+  for (int i = n; i >= 1; i--) {
+    dp[i] = (1LL * i * sum % mod + 1) % mod;
+    sum = (sum + dp[i]) % mod;
+  }
+  int ans = n - 1; // arrays having 0 and 1 inversions
+  for (int k = 3; k <= n; k++) {
+    int ways = (1LL * (k - 1) * (k - 2) / 2 - 1 + mod) % mod; // count of arrays achievable such that > 1 inversion count was inserted for the first time
+    ans += 1LL * ways * dp[k] % mod;
+    ans %= mod;
+  }
+  cout << ans << '\n';
+}
+
+int32_t main() {
+  ios_base::sync_with_stdio(0);
+  cin.tie(0);
+  int t = 1;
+  cin >> t;
+  while (t--) {
+    solve();
+  }
+  return 0;
+} Code (by wyrqwq, without initial casework)#include <bits/stdc++.h>
+
+#include <chrono>
+std::mt19937 eng(std::chrono::steady_clock::now().time_since_epoch().count());
+int rnd(int l, int r) { return std::uniform_int_distribution<int>(l, r)(eng); }
+
+namespace FastIO {
+//	char buf[1 << 21], *p1 = buf, *p2 = buf;
+//	#define getchar() (p1 == p2 && (p1 = buf, p2 = (p1 + fread(buf, 1, 1 << 21, stdin))) == p1 ? EOF : *p1++)
+	template <typename T> inline T read() { T x = 0, w = 0; char ch = getchar(); while (ch < '0' || ch > '9') w |= (ch == '-'), ch = getchar(); while ('0' <= ch && ch <= '9') x = x * 10 + (ch ^ '0'), ch = getchar(); return w ? -x : x; }
+	template <typename T> inline void write(T x) { if (!x) return; write<T>(x / 10), putchar((x % 10) ^ '0'); }
+	template <typename T> inline void print(T x) { if (x > 0) write<T>(x); else if (x < 0) putchar('-'), write<T>(-x); else putchar('0'); }
+	template <typename T> inline void print(T x, char en) { print<T>(x), putchar(en); }
+//	inline char rChar() { char ch = getchar(); while (!isalpha(ch)) ch = getchar(); return ch; }
+}; using namespace FastIO;
+
+using i32 = int32_t;
+using u32 = uint32_t;
+using u64 = uint64_t;
+template <uint32_t MOD> struct mint {
+	static constexpr u32 get_r() {
+		u32 ret = MOD;
+		for (i32 i = 0; i < 4; ++i) ret *= 2 - MOD * ret;
+		return ret;
+	}
+	static constexpr u32 r = get_r();
+	static constexpr u32 n2 = -u64(MOD) % MOD;
+	static_assert(r * MOD == 1, "invalid, r * MOD != 1");
+	static_assert(MOD < (1 << 30), "invalid, MOD >= 2 ^ 30");
+	static_assert((MOD & 1) == 1, "invalid, MOD % 2 == 0");
+	u32 a;
+	constexpr mint() : a(0) {}
+	constexpr mint(const int64_t &b) : a(reduce(u64(b % MOD + MOD) * n2)){};
+	static constexpr u32 reduce(const u64 &b) { return (b + u64(u32(b) * u32(-r)) * MOD) >> 32; }
+	 constexpr mint &operator += (const mint &b) { if (i32(a += b.a - 2 * MOD) < 0) a += 2 * MOD; return *this; }
+	constexpr mint &operator -= (const mint &b) { if (i32(a -= b.a) < 0) a += 2 * MOD; return *this; }
+	constexpr mint &operator *= (const mint &b) { a = reduce(u64(a) * b.a); return *this; }
+	constexpr mint &operator /= (const mint &b) { *this *= b.inverse(); return *this; }
+	constexpr mint operator + (const mint &b) const { return mint(*this) += b; }
+	constexpr mint operator - (const mint &b) const { return mint(*this) -= b; }
+	constexpr mint operator * (const mint &b) const { return mint(*this) *= b; }
+	constexpr mint operator / (const mint &b) const { return mint(*this) /= b; }
+	constexpr bool operator == (const mint &b) const { return (a >= MOD ? a - MOD : a) == (b.a >= MOD ? b.a - MOD : b.a); }
+	constexpr bool operator != (const mint &b) const { return (a >= MOD ? a - MOD : a) != (b.a >= MOD ? b.a - MOD : b.a); }
+	constexpr mint operator-() const { return mint() - mint(*this); }
+	constexpr mint pow(u64 n) const { mint ret(1), mul(*this); while (n > 0) { if (n & 1) ret *= mul; mul *= mul, n >>= 1; } return ret; }
+	constexpr mint inverse() const { return pow(MOD - 2); }
+	friend std::ostream &operator<< (std::ostream &os, const mint &b) { return os << b.get(); }
+	friend std::istream &operator>> (std::istream &is, mint &b) { int64_t t; is >> t; b = mint<MOD>(t); return (is); }
+	constexpr u32 get() const { u32 ret = reduce(a); return ret >= MOD ? ret - MOD : ret; }
+	static constexpr u32 get_MOD() { return MOD; }
+    explicit operator u32() const { return get(); }
+}; using modint = mint<998244353>;
+
+// Let's write some brute first
+// dp[i][j] := current length is i, current number of inversions is j (not inserted)
+// dp[i][j] -> dp[>= i + 1][[j + 1, j + i]]
+// this is true for j >= 1, so let's do something when j = 0
+// we can generate [0, (0 ... ), 1, 0] -> dp[>= 3][1]
+// this is still kinda annoying because 1 > 1 does not hold, we process it till j >= 2
+// [0, 0, ..., 0, 1, 0] -> [0, 0, ..., 0, 1, 0, 1, ..., 1]
+// after that we insert an 1 before some numbers of 0 and we get dp[i][1] -> dp[>= i + 1][[j + 1, j + i - 1]]
+// the answer is sum dp[i][j] for all 1 <= i <= n, j >= 1, plus 1 ([0, 0, 0 ... 1])
+// actually we care nothing 'bout, j so let's say f[i] = sum dp[i][j]
+// (f[i] * i - 1) -> f[i + 1], f[i + 2], ..., f[n]
+
+#define MAXN 1000001
+modint f[MAXN];
+void solve() {
+	int n = read<int>(); modint ans = 1, pre = 2;
+	f[3] = 1;
+	for (int i = 4; i <= n; ++i) 
+		f[i] = pre + modint(1), pre += f[i] * modint(i) - modint(1);
+	for (int i = 3; i <= n; ++i) ans += f[i];
+	// f[3] : [0, 1, 0]
+	// f[4] : [0, 0, 1, 0] (+1), [0, 1, 1, 0], [1, 0, 1, 0] (dp[3][1] * 2)
+	print<int>(ans.get(), '\n');
+}
+
+int main() { int T = read<int>(); while (T--) solve(); return 0; } Rate the Problem Amazing problem: 
+
+    
+
+
+47
+
+
+
+ Good problem: 
+
+    
+
+
+30
+
+
+
+ Average problem: 
+
+    
+
+
+28
+
+
+
+ Bad problem: 
+
+    
+
+
+89
+
+
+
+ Didn't solve: 
+
+    
+
+
+19
+
+
+
+ 2039F1 - Shohag Loves Counting (Easy Version)Author: YouKn0wWho Tutorial2039F1 - Shohag Loves Counting (Easy Version)Let $$$s_k$$$ be the sequence of $$$k$$$ length subarray maximums of the array. Then $$$s_{k + 1}$$$ is just the adjacent maximum sequence of $$$s_k$$$.Also, let $$$g_k$$$ be the GCD of the elements of $$$s_k$$$. Then notice that every element of $$$s_{k + 1}$$$ is also divisible by $$$g_k$$$. That is $$$g_k$$$ divides $$$g_{k + 1}$$$.For the array to be good, $$$g_k$$$ must be different for all $$$k$$$. So $$$g_k < g_{k + 1}$$$ and $$$g_k$$$ divides $$$g_{k + 1}$$$. This means if the length of the array is $$$n$$$, then $$$n \le \lfloor \log_2 m \rfloor + 1$$$.Now consider a non-decreasing sequence of integers $$$a$$$ of length $$$n$$$ such that $$$1 \le a_i \le m$$$ for all $$$i$$$. Then the $$$k$$$ length subarray maximums of $$$a$$$ are just the last $$$k$$$ elements of $$$a$$$. So $$$g_k$$$ is the GCD of the last $$$k$$$ elements of $$$a$$$. Then for $$$g_k$$$ to be different for all $$$k$$$, all the elements of $$$a$$$ must be distinct. So the condition for $$$a$$$ to be good is that the elements are distinct and all suffix GCDs are distinct as well.Next the question is how many permutations of this increasing sequence $$$a$$$ is good as well? To count this, lets start from $$$s_n$$$. $$$s_n$$$ is just $$$[a_n]$$$. Now consider $$$s_{n - 1}$$$. We need to put $$$a_{n - 1}$$$ in the sequence such that the adjacent maximum sequence of $$$s_{n-1}$$$ becomes $$$s_n$$$. For this we clearly have $$$2$$$ ways: $$$[a_{n - 1}, a_n]$$$ and $$$[a_n, a_{n - 1}]$$$.Now consider $$$s_{n - 2}$$$. We need to put $$$a_{n - 2}$$$ in the sequence such that the adjacent maximum sequence of $$$s_{n-2}$$$ becomes $$$s_{n-1}$$$. For this we again have $$$2$$$ ways because $$$a_{n - 2}$$$ can be inserted in $$$2$$$ places: before $$$a_{n - 1}$$$ or after $$$a_{n - 1}$$$.Similarly for all other $$$s_k$$$ we have $$$2$$$ ways to insert it: putting it before $$$a_{k + 1}$$$ or after $$$a_{k + 1}$$$. So the total number of good permutations of $$$a$$$ is $$$2^{n - 1}$$$.So our problem reduces to the following:  Select a length $$$n$$$ such that $$$1 \le n \le \lfloor \log_2 m \rfloor + 1$$$.  Count the number of strictly increasing sequences of length $$$n$$$ such that all suffix GCDs are distinct.  Multiply the answer by $$$2^{n - 1}$$$.  Sum up the answer for all valid $$$n$$$. For a fixed $$$n$$$, let's count the number of strictly increasing sequences of length $$$n$$$ such that all suffix GCDs are distinct.Let $$$\text{dp}_{i, g}$$$ be the number of strictly increasing sequences of length $$$n$$$ such that the starting element is $$$i$$$ and the GCD of the elements is $$$g$$$.Now iterate from $$$i = m$$$ to $$$1$$$. Then the transition is to iterate over the next suffix GCD $$$h$$$ such that $$$g$$$ divides $$$h$$$, $$$g < h \le m$$$ and $$$g = \text{gcd}(i, h)$$$ and then add $$$\text{dp}_{*, h}$$$ to $$$\text{dp}_{i, g}$$$. Here $$$\text{dp}_{*, h}$$$ is the sum of all $$$\text{dp}_{j, h}$$$ for all $$$j > i$$$.Another way to look at the transition is that for a fixed $$$i$$$, we iterate over all $$$h$$$ and if $$$\text{gcd}(i, h) < h$$$, then we add $$$\text{dp}_{*, h}$$$ to $$$\text{dp}_{i, \text{gcd}(i, h)}$$$.But doing everything like this would still be $$$O(m^2 \log m)$$$ which is too slow.Notice that all $$$g$$$ are the divisors of $$$i$$$. Here the main difficulty is that we need update at the index $$$\text{gcd}(i, h)$$$ over all $$$h$$$ but it is hard to track the exact gcd but what's easier is to track the multiple of the gcd.So for each $$$g$$$, let's say we know the sum of all $$$\text{dp}_{*, h}$$$ over all $$$h$$$ such that $$$g$$$ divides $$$h$$$. So this sums up all $$$\text{dp}_{*, h}$$$ such that $$$g$$$ divides $$$\text{gcd}(i, h)$$$. Then using inclusion exclusion on the divisors of $$$i$$$ we can get the sum of all $$$\text{dp}_{*, h}$$$ for all $$$h$$$ such that $$$g$$$ is exactly $$$\text{gcd}(i, h)$$$. This will take $$$O(\sigma(i)^2)$$$ time for each $$$i$$$ where $$$\sigma(i)$$$ is the number of divisors of $$$i$$$.And once we calculate the $$$\text{dp}_{i, g}$$$ for some $$$i$$$ and $$$g$$$, then before transitioning to $$$i - 1$$$, we can add the value of $$$\text{dp}_{i, g}$$$ to all divisors of $$$g$$$ to get the value of $$$\text{dp}_{*, h}$$$ faster in the future. To keep track of this, we can use a separate array.So for a fixed $$$n$$$, the time complexity is $$$O(\sum_{i = 1}^{m} \sigma(i)^2)$$$. And we need to do this for all $$$n$$$ from $$$1$$$ to $$$\lfloor \log_2 m \rfloor + 1$$$.So the overall time complexity is $$$O(\log m \cdot \sum_{i = 1}^{m} \sigma(i)^2)$$$. We actually allowed this to pass in F1.We can make the time complexity much better with a simple modification in the dp. Note that we don't need to use the length of array in the dp state. As we need to sum up after multiplying by $$$2^{\text{length of array} - 1}$$$ at the end, we can modify the dp to directly store the sum of $$$2^{\text{length of array} - 1}$$$. So we can just multiply the dp by $$$2$$$ during each transition.So the time complexity becomes $$$O(\sum_{i = 1}^{m} \sigma(i)^2)$$$. This is very fast for F1. Code (by LipArcanjo)#include<bits/stdc++.h>
+using namespace std;
+
+const int N = 2e5 + 9, mod = 998244353;
+using ll = long long;
+
+int add(int a, int b){
+	a += b;
+	if(a > mod) a -= mod;
+	if(a < 0) a += mod;
+	return a;
+}
+
+// dp[i][j] = number of arrays where starting element is i and gcd of the array is j
+int dp[N], cur[N], uni[N];
+int sum[N];
+vector<int> d[N];
+void solve() {
+  int m; cin >> m;
+  for (int i = 1; i <= m; i++) {
+    dp[i] = cur[i] = 0;
+	uni[i] = 0;
+	sum[i] = 0;
+  }
+  int ans = 0;
+  ans = 0;
+  for (int i = m; i >= 1; i--) {
+    for (int j: d[i]) {
+      cur[j] = 0;
+    }
+	int sz = d[i].size();
+	for(int idj = sz-1; idj >= 0; idj--){
+		int j = d[i][idj];
+		uni[j] = add(sum[j],sum[j]);
+		for(int idk = idj+1; idk < sz; idk++){
+			int k = d[i][idk];
+			if(k%j) continue;
+			uni[j] = add(uni[j],-uni[k]);
+		}
+		cur[j] = add(uni[j], - add(dp[j],dp[j]));
+	}
+
+    cur[i] += 1;
+
+    for (int j : d[i]) {
+	  dp[j] = add(dp[j],cur[j]);
+	  for(auto k : d[j]){
+	  	sum[k] = add(sum[k],cur[j]);
+	  }
+	  ans = add(ans,cur[j]);
+    }
+	
+  }
+  cout << ans << '\n';
+}
+
+int32_t main() {
+  ios_base::sync_with_stdio(0);
+  cin.tie(0);
+  for (int i = 1; i < N; i++) {
+    for (int j = i; j < N; j += i) {
+      d[j].push_back(i);
+    }
+  }
+  int t = 1;
+  cin >> t;
+  while (t--) {
+    solve();
+  }
+  return 0;
+} Rate the Problem Amazing problem: 
+
+    
+
+
+37
+
+
+
+ Good problem: 
+
+    
+
+
+8
+
+
+
+ Average problem: 
+
+    
+
+
+2
+
+
+
+ Bad problem: 
+
+    
+
+
+9
+
+
+
+ Didn't solve: 
+
+    
+
+
+12
+
+
+
+ 2039F2 - Shohag Loves Counting (Hard Version)Author: YouKn0wWho Tutorial2039F2 - Shohag Loves Counting (Hard Version)First, check the editorial of F1.Note that for F2 there is no limit on the sum of $$$m$$$, so we need to change the approach a bit.And for F2 you need to remove the length from the dp state (which I described at the end of the editorial of F1).Now instead of iterating $$$i$$$ from $$$m$$$ to $$$1$$$, we iterate from $$$1$$$ to $$$m$$$. And reformulate the dp as follows.Let's say we are building the strictly increasing sequence $$$a$$$ from left to right and we are fixing what the suffix GCD of the final array $$$a$$$ starting from each element will be.Let $$$\text{dp}_{j, h}$$$ be the sum of $$$2^{\text{length of array so far} - 1}$$$ for all $$$a$$$ such that we are at element $$$j$$$ and the suffix GCD of the final array $$$a$$$ starting from element $$$j$$$ is $$$h$$$.Then the transition is to iterate over the previous suffix GCD $$$g$$$ at element $$$i$$$ such that $$$g$$$ divides $$$h$$$, $$$g < h$$$ and $$$g = \text{gcd}(i, h)$$$ and then add $$$\text{dp}_{i, g}$$$ to $$$\text{dp}_{j, h}$$$.Just like F1, we can speed up the transitions by tracking some prefix sums and doing inclusion-exclusion on the divisors of $$$i$$$. We can use the Mobius Inversion Formula to do it in $$$O(\sum_{d | i} \sigma(d))$$$. Another way to make it faster is to do SOS DP on the divisors of $$$i$$$ which will take $$$O(\sigma(i) \cdot p(i))$$$ where $$$p(i)$$$ is the number of unique prime factors of $$$i$$$.It is hard to describe all the little details of the implementation here, please refer to the code for more details.The overall time complexity is $$$O(\sum_{i = 1}^M \sigma(i) \cdot p(i))$$$ or $$$O(\sum_{i = 1}^M \sum_{d | i} \sigma(d))$$$ where $$$M$$$ is the maximum value of $$$m$$$. Both work fast enough.  Code (unoptimized)#include<bits/stdc++.h>
+using namespace std;
+ 
+const int N = 1e6 + 9, mod = 998244353;
+ 
+inline void add(int &x, int y) {
+  x = x + y >= mod ? x + y - mod : x + y;
+}
+int mob[N];
+void mobius() {
+  mob[1] = 1;
+  for (int i = 2; i < N; i++){
+    mob[i]--;
+    for (int j = i + i; j < N; j += i) {
+      mob[j] -= mob[i];
+    }
+  }
+  for (int i = 1; i < N; i++) {
+    mob[i] = (mob[i] % mod + mod) % mod;
+  }
+}
+vector<int> divs[N];
+int dp[N];
+int f[N];
+int tmp[N], ans[N];
+void solve() {
+  for (int i = 1; i < N; i++) {
+    for (int d: divs[i]) {
+      tmp[d] = (mod - f[d]) % mod;
+      for (int c: divs[d]) {
+        add(tmp[d], dp[c]);
+      }
+      tmp[d] = (2 * tmp[d] + 1) % mod;
+    }
+
+    // apply mobius inversion formula
+    for (int d: divs[i]) {
+      for (int c: divs[d]) {
+        add(dp[d], 1LL * mob[c] * tmp[d / c] % mod);
+      }
+      add(f[d], tmp[d]);
+    }
+
+    ans[i] = ans[i - 1];
+    add(ans[i], f[i]);
+  }
+}
+ 
+int32_t main() {
+  ios_base::sync_with_stdio(0);
+  cin.tie(0);
+  for (int i = 1; i < N; i++) {
+    for (int j = i; j < N; j += i) {
+      divs[j].push_back(i);
+    }
+  }
+  mobius();
+  solve();
+  int t = 1;
+  cin >> t;
+  while (t--) {
+    int m; cin >> m;
+    cout << ans[m] << '\n';
+  }
+  return 0;
+}
+ Code (optimized)#include<bits/stdc++.h>
+using namespace std;
+ 
+const int N = 1e6 + 9, mod = 998244353;
+ 
+inline void add(int &x, int y) {
+  x = x + y >= mod ? x + y - mod : x + y;
+}
+int spf[N];
+void sieve() {
+  vector<int> p;
+  for(int i = 2; i < N; i++) {
+    if (spf[i] == 0) spf[i] = i, p.push_back(i);
+    int sz = p.size();
+    for (int j = 0; j < sz && i * p[j] < N && p[j] <= spf[i]; j++) {
+      spf[i * p[j]] = p[j];
+    }
+  }
+}
+int mob[N];
+void mobius() {
+  mob[1] = 1;
+  for (int i = 2; i < N; i++){
+    mob[i]--;
+    for (int j = i + i; j < N; j += i) {
+      mob[j] -= mob[i];
+    }
+  }
+  for (int i = 1; i < N; i++) {
+    mob[i] = (mob[i] % mod + mod) % mod;
+  }
+}
+int c[N];
+vector<int> divs[N];
+void gen_divs(int n) { // not sorted
+  int id = 1, x = n;
+  divs[n][0] = 1;
+  while (n > 1) {
+    int k = spf[n];
+    int cur = 1, sz = id;
+    while (n % k == 0) {
+      cur *= k;
+      n /= k;
+      for (int i = 0; i < sz; i++) {
+        divs[x][id++] = divs[x][i] * cur;
+      }
+    }
+  }
+}
+
+void prec() {
+  sieve();
+  // generate divisors without using push_back as its really slow on Codeforces
+  for (int i = 1; i < N; i++) {
+    for (int j = i; j < N; j += i) {
+      c[j]++;
+    }
+    divs[i].resize(c[i]);
+    gen_divs(i);
+  }
+  mobius();
+}
+int dp[N];
+int f[N];
+int tmp[N], ans[N];
+void solve() {
+  for (int i = 1; i < N; i++) {
+    for (int d: divs[i]) {
+      tmp[d] = (mod - f[d]) % mod;
+      for (int c: divs[d]) {
+        add(tmp[d], dp[c]);
+      }
+      tmp[d] = (2 * tmp[d] + 1) % mod;
+    }
+
+    // apply mobius inversion formula
+    for (int d: divs[i]) {
+      for (int c: divs[d]) {
+        add(dp[d], 1LL * mob[c] * tmp[d / c] % mod);
+      }
+      add(f[d], tmp[d]);
+    }
+
+    ans[i] = ans[i - 1];
+    add(ans[i], f[i]);
+  }
+}
+ 
+int32_t main() {
+  ios_base::sync_with_stdio(0);
+  cin.tie(0);
+  prec();
+  solve();
+  int t = 1;
+  cin >> t;
+  while (t--) {
+    int m; cin >> m;
+    cout << ans[m] << '\n';
+  }
+  return 0;
+}
+ Rate the Problem Amazing problem: 
+
+    
+
+
+17
+
+
+
+ Good problem: 
+
+    
+
+
+1
+
+
+
+ Average problem: 
+
+    
+
+
+3
+
+
+
+ Bad problem: 
+
+    
+
+
+25
+
+
+
+ Didn't solve: 
+
+    
+
+
+11
+
+
+
+ 2039G - Shohag Loves PebaeAuthor: YouKn0wWho Tutorial2039G - Shohag Loves PebaeLet's say we assign $$$a_u$$$ to the node $$$u$$$. Let $$$h_u$$$ be the maximum length of a simple path that passes through $$$u$$$. Then a necessary condition is that $$$a_u$$$ can not be a multiple of any number $$$\le h_u$$$. Because if $$$a_u$$$ is a multiple of $$$k \le h_u$$$ and $$$v$$$ is a node such that the unique simple path from $$$u$$$ to $$$v$$$ has length $$$k$$$, then the LCM of the values of the nodes from $$$u$$$ to $$$v$$$ is a multiple of $$$k$$$, which is a contradiction.The condition also means that $$$a_u$$$ can not be a multiple of any prime number $$$p \le h_u$$$.Is this a sufficient condition? Yes, and the proof is also simple.So now the problem is to count the number of assignments such that for each node $$$u$$$, $$$a_u$$$ is not a multiple of any prime number $$$p \le h_u$$$ and $$$\text{gcd}(a_1, a_2, \ldots, a_n) = 1$$$.Let   $$$f_{w, p}$$$ be the count of numbers from $$$1$$$ to $$$w$$$ that are not divisible by any prime $$$\le p$$$,  $$$D$$$ be the diameter of the tree,  A number $$$x$$$ is good if $$$x$$$ is not divisible by any prime $$$\le D$$$,  $$$\mu(g)$$$ be the Mobius function,  $$$\pi(x)$$$ be the number of primes $$$\le x$$$. Then the answer to our problem is $$$\sum_{g = 1}^m \mu(g) \cdot [g \text{ is good}] \cdot \prod_{i = 1}^n f_{\lfloor \frac{m}{g} \rfloor, h_i}$$$.As $$$\lfloor \frac{m}{g} \rfloor$$$ is a non-decreasing function and has at most $$$2 \sqrt{m}$$$ distinct values, we can iterate over $$$\lfloor \frac{m}{g} \rfloor$$$ and calculate range sums of $$$\mu(g) \cdot [g \text{ is good}]$$$.For calculating prefix sums of a multiplicative function (like $$$\mu(g)$$$), it's a standard task and can be solved using Dirichlet convolution, Min25 sieve or multiple other methods.Here, we need a slight variant of the method as we need the prefix sums of $$$\mu(g) \cdot [g \text{ is good}]$$$. This can be achieved using Dirichlet convolution in $$$\mathcal{O}(m^{2 / 3})$$$ if we just imagine the prime numbers $$$\le D$$$ do not exist in the number system. Refer to my code for more details.But for each fixed $$$\lfloor \frac{m}{g} \rfloor$$$, how do we calculate $$$\prod_{i = 1}^n f_{\lfloor \frac{m}{g} \rfloor, h_i}$$$ fast enough? Trivially doing it will make the total complexity around $$$\mathcal{O}(n \sqrt{m})$$$ which is too slow.The key observation is to not forget that the values of $$$h_i$$$ are not random, they are the maximum length of a simple path that passes through the node $$$i$$$. So $$$h_i \ge \lceil \frac{D}{2} \rceil$$$ for all $$$i$$$ because from each node, the endpoints of the diameter are at least $$$\lceil \frac{D}{2} \rceil$$$ away.So now consider two cases:Case 1: $$$D > 2 \sqrt{m}$$$In this case, all $$$h_i \ge \lceil \frac{D}{2} \rceil \ge \sqrt{m}$$$ for all $$$i$$$. So only primes or $$$1$$$ are the good numbers. So instead of going with the mobius route, we can just directly solve it by calculating the total number of ways and subtracting the number of ways where the gcd is a prime.We can calculate the total number of ways by first calculating the number of primes $$$\le m$$$ and then $$$f_{m, h_i}$$$ is just $$$\pi(m) - \pi(h_i) + 1$$$.And the number of ways where the gcd is a prime is just $$$1$$$ for all primes $$$> D$$$ and $$$0$$$ otherwise.Counting primes under $$$m$$$ is also a standard task and can be done in $$$\mathcal{O}(m^{2 / 3} \log m)$$$ or faster.Case 2: $$$D \le 2 \sqrt{m}$$$We can convert each $$$h_i$$$ to the maximum prime $$$\le h_i$$$ and then group $$$h_i$$$ by their values. Then the maximum number of groups will be $$$\mathcal{O}(\pi(\sqrt{m}))$$$. So for each fixed $$$k = \lfloor \frac{m}{g} \rfloor$$$, if the sum of the mobius function in the range $$$(\lfloor \frac{m}{k + 1} \rfloor, \lfloor \frac{m}{k} \rfloor]$$$ is non-zero (keep in mind that when all numbers in the range are bad numbers, then the sum will definitely be $$$0$$$), then we can calculate the product of $$$f_{k, h_i}$$$ directly. Then the upper bound of the complexity will be around $$$\mathcal{O}(\frac{m}{\log^2 m} \cdot \log \left( \frac{n}{\pi(\sqrt[3]{m})} \right))$$$. The proof will be added later. This works fast enough. Code#include<bits/stdc++.h>
+using namespace std;
+#include<ext/pb_ds/assoc_container.hpp>
+#include<ext/pb_ds/tree_policy.hpp>
+using namespace __gnu_pbds;
+
+struct custom_hash {
+  static uint64_t splitmix64(uint64_t x) {
+    x += 0x9e3779b97f4a7c15;
+    x = (x ^ (x >> 30)) * 0xbf58476d1ce4e5b9;
+    x = (x ^ (x >> 27)) * 0x94d049bb133111eb;
+    return x ^ (x >> 31);
+  }
+  size_t operator()(uint64_t x) const {
+    static const uint64_t FIXED_RANDOM = chrono::steady_clock::now().time_since_epoch().count();
+    return splitmix64(x + FIXED_RANDOM);
+  }
+};
+
+const int N = 1e6 + 9, T = 1e7 + 9, RT = 33333, mod = 998244353; 
+using ll = long long;
+
+int power(int n, long long k) {
+  int ans = 1 % mod;
+  while (k) {
+    if (k & 1) ans = (long long) ans * n % mod;
+    n = (long long) n * n % mod;
+    k >>= 1;
+  }
+  return ans;
+}
+
+int SQRT(int n) {
+  int x = sqrt(n);
+  while (x * x < n) ++x;
+  while (x * x > n) --x;
+  return x;
+}
+
+int spf[T], id[T], DIAMETER, mu[T];
+vector<int> primes; // 1 indexed
+int prefix_prime_count[T], prefix_sum_mu[T];
+void init() {
+  mu[1] = 1;
+  for(int i = 2; i < T; i++) {
+    if (spf[i] == 0) spf[i] = i, mu[i] = i <= DIAMETER ? 0 : -1, primes.push_back(i);
+    int sz = primes.size();
+    for (int j = 0; j < sz && i * primes[j] < T && primes[j] <= spf[i]; j++) {
+      spf[i * primes[j]] = primes[j];
+      if (i % primes[j] == 0) mu[i * primes[j]] = 0;
+      else mu[i * primes[j]] = mu[i] * (primes[j] <= DIAMETER ? 0 : -1);
+    }
+  }
+  primes.insert(primes.begin(), 0);
+  for (int i = 1; i < primes.size(); i++) {
+    id[primes[i]] = i;
+  }
+  for (int i = 2; i < T; i++) {
+    prefix_prime_count[i] = prefix_prime_count[i - 1] + (spf[i] == i);
+  }
+  for (int i = 1; i < T; i++) prefix_sum_mu[i] = prefix_sum_mu[i - 1] + mu[i];
+}
+int cnt[N]; // count of nodes having each diameter
+int m;
+namespace GoodNumbers { // numbers which aren't divisible by the first k primes
+  gp_hash_table<int, int, custom_hash> mp[RT << 1];
+  int count_num(int n, int k) { // n is a floor value, returns good numbers <= n
+    if (k == 0 or n == 0) return n;
+    if (primes[k] >= n) return 1;
+    if (n < T and 1LL * primes[k] * primes[k] > n) {
+      return 1 + prefix_prime_count[n] - k;
+    }
+    if (mp[k].find(n) != mp[k].end()) return mp[k][n];
+    int ans;
+    if (1LL * primes[k] * primes[k] > n) {
+      int x = upper_bound(primes.begin(), primes.begin() + k, (int)SQRT(n)) - primes.begin() - 1;
+      ans = count_num(n, x) - (k - x);
+    }
+    else ans = count_num(n, k - 1) - count_num(n / primes[k], k - 1);
+    mp[k][n] = ans;
+    return ans;
+  }
+};
+
+vector<pair<int, int>> v;
+namespace Dirichlet {
+  // good number = numbers that aren't divisible by any prime <= DIAMETER
+  // we will run dirichlet imagining there exists no prime <= DIAMETER
+  gp_hash_table<int, int, custom_hash> mp;
+  int p_c(int n) {
+    return n < 1 ? 0 : 1;
+  }
+  int p_g(int n) {
+    return GoodNumbers::count_num(n, v.back().first);
+  }
+  int solve (int x) { // sum of mob[i] over 1 <= i <= x and i is a good number
+    if (x < T) return prefix_sum_mu[x];
+    if (mp.find(x) != mp.end()) return mp[x];
+    int ans = 0;
+    for (int i = 2, last; i <= x; i = last + 1) {
+      last = x / (x / i);
+      ans += solve(x / i) * (p_g(last) - p_g(i - 1));
+    }
+    ans = p_c(x) - ans;
+    return mp[x] = ans;
+  }
+};
+
+int count_primes(int n) {
+  if (n < T) return prefix_prime_count[n];
+  int x = SQRT(n);
+  int k = upper_bound(primes.begin(), primes.end(), x) - primes.begin() - 1;
+  return GoodNumbers::count_num(n, k) + k - 1;
+}
+
+
+// diameter > 2 * sqrt(m)
+void solve_large() {
+  // only primes are good, so count total ways
+  // and subtract where gcd is prime (means all nodes have a fixed prime)
+  int total_ways = 1;
+  int primes_under_m = count_primes(m);
+  for (auto [k, c]: v) {
+    if (m <= primes[k]) break;
+    total_ways = 1LL * total_ways * power((primes_under_m - k + 1) % mod, c) % mod; // 1 or a prime > k
+  }
+  int bad_ways = (max(0, primes_under_m - v.back().first)) % mod;
+  int ans = (total_ways - bad_ways + mod) % mod;
+  cout << ans << '\n';
+}
+
+// diameter <= 2 * sqrt(m)
+void solve_small() {
+  int ans = 0;
+  for (int l = 1, r; l <= m; l = r + 1) {
+    int x = m / l;
+    r = m / x;
+    int cur = ((Dirichlet::solve(r) - Dirichlet::solve(l - 1)) % mod + mod) % mod;
+    if (cur) {
+      int mul = 1;
+      for (auto [k, c]: v) {
+        if (x <= primes[k]) break;
+        mul = 1LL * mul * power(GoodNumbers::count_num(x, k) % mod, c) % mod;
+      }
+      ans += 1LL * cur * mul % mod;
+      ans %= mod;
+    }
+  }
+  cout << ans << '\n';
+}
+
+vector<int> g[N];
+int dp[N], up[N];
+void dfs(int u, int p = 0) {
+  dp[u] = 0;
+  if (p) g[u].erase(find(g[u].begin(), g[u].end(), p));
+  for (auto v: g[u]) {
+    if (v ^ p) {
+      dfs(v, u);
+      dp[u] = max(dp[u], dp[v] + 1);
+    }
+  }
+}
+int pref[N], suf[N];
+void dfs2(int u) {
+  int sz = g[u].size();
+  for (int i = 0; i < sz; i++) {
+    int v = g[u][i];
+    pref[i] = dp[v] + 1;
+    if (i) pref[i] = max(pref[i], pref[i - 1]);
+  }
+  for (int i = sz - 1; i >= 0; i--) {
+    int v = g[u][i];
+    suf[i] = dp[v] + 1;
+    if (i + 1 < sz) suf[i] = max(suf[i], suf[i + 1]);
+  }
+  for (int i = 0; i < sz; i++) {
+    int v = g[u][i];
+    int cur = up[u];
+    if (i) cur = max(cur, pref[i - 1]);
+    if (i + 1 < sz) cur = max(cur, suf[i + 1]);
+    up[v] = cur + 1;
+  }
+  for (auto v: g[u]) {
+    dfs2(v);
+  }
+}
+int mx_d[N];
+int32_t main() {
+  ios_base::sync_with_stdio(0);
+  cin.tie(0);
+  int n; cin >> n >> m;
+  for (int i = 1; i < n; i++) {
+    int u, v; cin >> u >> v;
+    g[u].push_back(v);
+    g[v].push_back(u);
+  }
+  dfs(1);
+  dfs2(1);
+  for (int u = 1; u <= n; u++) {
+    vector<int> vec;
+    if (u != 1) vec.push_back(up[u]);
+    for (auto v: g[u]) {
+      vec.push_back(dp[v] + 1);
+    }
+    sort(vec.rbegin(), vec.rend());
+    mx_d[u] = vec[0];
+    if (vec.size() > 1) {
+      mx_d[u] += vec[1];
+    }
+    mx_d[u] += 1;
+  }
+  for (int i = 1; i <= n; i++) {
+    cnt[mx_d[i]]++;
+    DIAMETER = max(DIAMETER, mx_d[i]);
+  }
+
+  init();
+
+  int last_prime = 0;
+  for (int i = 2; i <= DIAMETER; i++) {
+    if (spf[i] == i) last_prime = i;
+    if (cnt[i]) {
+      int k = id[last_prime];
+      if (!v.empty() and v.back().first == k) {
+        v.back().second += cnt[i];
+      } else {
+        v.push_back({k, cnt[i]});
+      }
+    }
+  }
+
+  if (DIAMETER > 2 * SQRT(m)) solve_large();
+  else solve_small();
+  return 0;
+} Rate the Problem Amazing problem: 
+
+    
+
+
+13
+
+
+
+ Good problem: 
+
+    
+
+
+1
+
+
+
+ Average problem: 
+
+    
+
+
+1
+
+
+
+ Bad problem: 
+
+    
+
+
+12
+
+
+
+ Didn't solve: 
+
+    
+
+
+14
+
+
+
+ 2039H1 - Cool Swap Walk (Easy Version)Author: wuhudsm TutorialWe can observe that this kind of path is imporatnt — when we are in (x,x), we only perform one of the following two kind of moves:Move 1 (x,x)→(x,x+1)→(x+1,x+1)This move transforms […,ax,ax+1,…] into […,ax+1,ax,…].Move 2 (x,x)→(x,x+1)→(x,x+2)→(x+1,x+2)→(x+2,x+2)This move transforms […,ax,ax+1,ax+2,…] into […,ax+2,ax+1,ax,…].Summary of the path:Note the arrays before and after the path as a and a′, respectively. We can see a′n=a1, and [a′1,…,a′n−1] can be obtained from [a2,…,an] through the following transformation:  Swap any two adjacent numbers of [a2,…,an], but each number can be swapped at most once. This inspires us to use Odd-Even Sort algorithm.Steps to Achieve the Sorted Array:Step 1: Initialize a1=mn:  If a1≠mn, where mn is the minimum of the array, use the following path: (1,1)→(1,p1)→(p1,p1)→(p1,n)→(n,n)This sequence ensures that a1=mn.Then, repeat steps 2 and 3 until the array is sorted.Step 2: Perform Odd-Even Sorting:  Perform an  Odd-Even Sort (a round of comparison) using the key path above on the subarray a2,…,an.Step 3: Maintain the orderliness of [a2,…,an] while repeatedly making a1=mn:  After step 2, we want mn back to the head of the array. To achieve this, perform the following operations: (1,1)→(1,n)→(n,n)This sequence transforms the array as follows: [a1,a2,…,an(an=mn)]→[a′1,a′2,…,a′n]=[an,an−1,a1,a2,…,an−2]When this is performed after an odd-even sort, it ensures that:  mn is back to the head of the array. The subarray a1,…,an−1 has been cyclically shifted. Handling Continuous Cyclic Shifts in Odd-Even Sort:  Even Length (n−1 is even):  Cyclic shifting does not affect the odd-even sort. You can continue applying the sort as usual. Odd Length (n−1 is odd):  A small modification is needed. Specifically, First compare (a3,a4),(a5,a6),… instead of (a2,a3),(a4,a5),… This adjustment ensures that the odd-even sort operates correctly despite the continuous cyclic shifts. Overall, we obtained a sorted array using 2n walks. Code#include <map>
+#include <set>
+#include <cmath>
+#include <ctime>
+#include <queue>
+#include <stack>
+#include <cstdio>
+#include <cstdlib>
+#include <vector>
+#include <cstring>
+#include <algorithm>
+#include <iostream>
+#include <bitset>
+using namespace std;
+typedef double db;
+typedef long long ll;
+typedef unsigned long long ull;
+const int N=2010;
+int T,n,mn,tot;
+int a[N];
+vector<int> X[N],Y[N];
+
+void path1(int num) //(1,1)->(1,2)->(2,2)->(2,3)->(3,3)->...
+{
+	for(int i=1;i<=n;i++)
+	{
+		X[num].push_back(i),Y[num].push_back(i);
+		if(i!=n)
+		{
+			X[num].push_back(i),Y[num].push_back(i+1);
+			swap(a[i],a[i+1]);
+		}
+	}
+}
+
+void path2(int num) //(1,1)->(1,n)->(n,n)
+{
+	for(int i=1;i<=n;i++)
+	{
+		X[num].push_back(1),Y[num].push_back(i);
+		swap(a[1],a[i]);
+	}
+	for(int i=2;i<=n;i++)
+	{
+		X[num].push_back(i),Y[num].push_back(n);
+		swap(a[i],a[n]);
+	}
+}
+
+void walk1(int j)
+{
+	X[tot].push_back(j-1),Y[tot].push_back(j);
+	X[tot].push_back(j-1),Y[tot].push_back(j+1);
+    X[tot].push_back(j),Y[tot].push_back(j+1);
+	X[tot].push_back(j+1),Y[tot].push_back(j+1);
+    swap(a[j-1],a[j+1]);
+}
+
+void walk2(int j)
+{
+	X[tot].push_back(j-1),Y[tot].push_back(j);
+	X[tot].push_back(j),Y[tot].push_back(j);
+	X[tot].push_back(j),Y[tot].push_back(j+1);
+	X[tot].push_back(j+1),Y[tot].push_back(j+1);
+	swap(a[j-1],a[j]);
+	swap(a[j],a[j+1]);
+}
+
+int main()
+{
+	scanf("%d",&T);
+	while(T--)
+	{
+		scanf("%d",&n);
+		for(int i=1;i<=n;i++) scanf("%d",&a[i]);
+		mn=n;tot=0;
+		for(int i=1;i<=n;i++)   mn=min(mn,a[i]);
+		for(int i=1;i<=3*n;i++) X[i].clear(),Y[i].clear();
+		int p1;
+		for(int i=1;i<=n;i++) if(a[i]==mn) p1=i;
+		if(p1!=1)
+		{
+		    tot++;
+		    for(int i=1;i<=p1;i++) X[tot].push_back(1),Y[tot].push_back(i),swap(a[1],a[i]);
+		    for(int i=2;i<=p1;i++) X[tot].push_back(i),Y[tot].push_back(p1),swap(a[i],a[p1]);
+		    for(int i=p1+1;i<=n;i++) X[tot].push_back(p1),Y[tot].push_back(i),swap(a[p1],a[i]);
+		    for(int i=p1+1;i<=n;i++) X[tot].push_back(i),Y[tot].push_back(n),swap(a[i],a[n]);
+		}
+		for(int i=2;i<=n;i++)
+		{
+			tot++;
+			X[tot].push_back(1),Y[tot].push_back(1);
+			if(n&1)
+			{
+				if(i&1)
+				{
+					for(int j=2;j<=n;j+=2)
+					{
+						if(j+1==i) walk2(j);
+						else if(a[j]>a[j+1]) walk1(j);
+						else walk2(j);
+					}
+				}
+				else
+				{
+					for(int j=2;j<=n;j+=2)
+					{
+						if(a[j]>a[j+1]) walk1(j);
+						else walk2(j);
+					}
+				}
+			}
+			else
+			{
+				if(i&1)
+				{
+					for(int j=2;j<=n;j+=2)
+					{
+						if(j==i-1)
+						{
+							X[tot].push_back(j-1),Y[tot].push_back(j);
+							X[tot].push_back(j),Y[tot].push_back(j);
+							swap(a[j-1],a[j]);
+							j--;
+						}
+						else if(a[j]>a[j+1]) walk1(j);
+						else walk2(j);
+					}
+				}
+				else
+				{
+					for(int j=2;j<=n;j+=2)
+					{
+						if(j==i)
+						{
+							X[tot].push_back(j-1),Y[tot].push_back(j);
+							X[tot].push_back(j),Y[tot].push_back(j);
+							swap(a[j-1],a[j]);
+							j--;
+						}
+						else if(a[j]>a[j+1]) walk1(j);
+						else walk2(j);
+					}
+				}
+			}
+			path2(++tot);
+		}
+		printf("%d\n",tot);
+		for(int i=1;i<=tot;i++)
+		{
+			for(int j=1;j<2*n-1;j++)
+			{
+			    if(X[i][j]==X[i][j-1]) printf("R");
+			    else printf("D");
+			}
+			printf("\n");
+		}
+
+	}
+
+	return 0;
+} Rate the Problem Amazing problem: 
+
+    
+
+
+13
+
+
+
+ Good problem: 
+
+    
+
+
+0
+
+
+
+ Average problem: 
+
+    
+
+
+1
+
+
+
+ Bad problem: 
+
+    
+
+
+4
+
+
+
+ Didn't solve: 
+
+    
+
+
+14
+
+
+
+ 2039H2 - Cool Swap Walk (Hard Version)Author: wuhudsm TutorialFirst, read the editorial of the easy version. We can see that the bottleneck lies in the fact that after every round of odd-even sorting, we need to perform a walk operation to ensure that a1=mn.The following method can break through this bottleneck: for simplicity, let's assume n is even. Define the numbers smaller than or equal to n2 as S, and the numbers bigger than n2 as B. If we have a=[S,…,S,B,…,B], we can repeatedly perform key path operations to get the following sequence:  [S,…,S,B,…,B]→[S,…,S,B,…,B,S]→[S,…,S,B,…,B,S,S]→…→[B,…,B,S,…,S]  In this process, we only perform odd-even sorting for the subarray [B,…,B]. [B,…,B,S,…,S]→[B,…,B,S,…,S,B]→[B,…,B,S,…,B,B]→…→[S,…,S,B,…,B]  In this process, we only perform odd-even sorting for the subarray [S,…,S]. After that, the array is sorted.Finally, the only remaining problem is how to arrange a=[S,…,S,B,…,B].Assume we have k positions p1,p2,…,pk such that 1<p1<p2<…<pk≤n. Consider what the following operations are doing:(1,1)→(1,p1)→(2,p1)→(2,p2)→(3,p2)→…→(k,pk)If we ignore the other numbers，these operations correspond to:swap(a1,ap1),swap(a2,ap2),…Then, we can take any path from (k,pk) to (n,n).At first, we perform one operation to set a1=n, then choose n2 positions p1,p2,…,pn2 to obtain a=[S,…,S,B,…,B].For n being odd, we need two additional operations for some little adjustments.Overall, we obtained a sorted array using n+4 walks. Code#include <map>
+#include <set>
+#include <cmath>
+#include <ctime>
+#include <queue>
+#include <stack>
+#include <cstdio>
+#include <cstdlib>
+#include <vector>
+#include <cstring>
+#include <algorithm>
+#include <iostream>
+#include <bitset>
+using namespace std;
+typedef double db;
+typedef long long ll;
+typedef unsigned long long ull;
+const int N=2010;
+int T,n,tot;
+int a[N];
+vector<int> X[N],Y[N];
+
+void path1(int num)  //(1,1)->(1,2)->(2,2)->(2,3)->(3,3)->...
+{
+	for(int i=1;i<=n;i++)
+	{
+		X[num].push_back(i),Y[num].push_back(i);
+		if(i!=n)
+		{
+			X[num].push_back(i),Y[num].push_back(i+1);
+			swap(a[i],a[i+1]);
+		}
+	}
+}
+
+void path2(int num) //(1,1)->(1,n)->(n,n)
+{
+	for(int i=1;i<=n;i++)
+	{
+		X[num].push_back(1),Y[num].push_back(i);
+		swap(a[1],a[i]);
+	}
+	for(int i=2;i<=n;i++)
+	{
+		X[num].push_back(i),Y[num].push_back(n);
+		swap(a[i],a[n]);
+	}
+}
+
+void path3(int num,vector<int> p) //swap(1,p[0]),(2,p[1]),... note p[0]!=1
+{
+	for(int i=1;i<=p[0];i++)
+	{
+		X[num].push_back(1),Y[num].push_back(i);
+		swap(a[1],a[i]);
+	}
+	for(int i=1;i<p.size();i++)
+	{
+		for(int j=p[i-1];j<=p[i];j++)
+		{
+			X[num].push_back(i+1),Y[num].push_back(j);
+		    swap(a[i+1],a[j]);
+		}
+	}
+	int x=p.size(),y=p.back();
+	while(x!=n)
+	{
+	    x++;
+	    X[num].push_back(x),Y[num].push_back(y);
+		swap(a[x],a[y]);
+	}
+	while(y!=n)
+	{
+	    y++;
+	    X[num].push_back(x),Y[num].push_back(y);
+		swap(a[x],a[y]);
+	}
+}
+
+void walk1(int j)
+{
+	X[tot].push_back(j-1),Y[tot].push_back(j);
+	X[tot].push_back(j-1),Y[tot].push_back(j+1);
+    X[tot].push_back(j),Y[tot].push_back(j+1);
+	X[tot].push_back(j+1),Y[tot].push_back(j+1);
+    swap(a[j-1],a[j+1]);
+}
+
+void walk2(int j)
+{
+	X[tot].push_back(j-1),Y[tot].push_back(j);
+	X[tot].push_back(j),Y[tot].push_back(j);
+	X[tot].push_back(j),Y[tot].push_back(j+1);
+	X[tot].push_back(j+1),Y[tot].push_back(j+1);
+	swap(a[j-1],a[j]);
+	swap(a[j],a[j+1]);
+}
+
+void walk3(int j)
+{
+	X[tot].push_back(j-1),Y[tot].push_back(j);
+	X[tot].push_back(j),Y[tot].push_back(j);
+	swap(a[j-1],a[j]);
+}
+
+void init()
+{
+	scanf("%d",&n);
+	for(int i=1;i<=n;i++) scanf("%d",&a[i]);
+	tot=0;
+	for(int i=1;i<=3*n;i++) X[i].clear(),Y[i].clear();
+	vector<pair<int,int> > pr;
+	for(int i=1;i<=n;i++) pr.push_back(make_pair(a[i],i));
+	sort(pr.begin(),pr.end());
+	for(int i=1;i<=n;i++) a[pr[i-1].second]=i;
+}
+
+void step1()
+{
+	int p1,pn;
+	vector<int> p;
+	for(int i=1;i<=n;i++) if(a[i]==1) p1=i;
+	if(p1!=1)
+	{
+        p.push_back(p1);
+        path3(++tot,p);
+	}
+	if(n==2) return ;
+	tot++;
+	X[tot].push_back(1),Y[tot].push_back(1);
+	for(int j=2;j<=n;j+=2)
+	{
+	    if(j+1>n) walk3(j);
+	    else if(a[j]==n) walk1(j);
+		else walk2(j);
+	}
+	p1=n;
+	for(int i=1;i<=n;i++) if(a[i]==n) pn=i;
+    p.clear();
+    p.push_back(pn);p.push_back(p1);
+    path3(++tot,p);
+    p.clear();
+    for(int i=1;i<=n;i++) if(a[i]<=(n+1)/2) p.push_back(i);
+    path3(++tot,p);
+}
+
+void step2()
+{
+	int head;
+	if(n&1)
+	{
+	    for(int t=1;t<=2;t++)
+		{
+            head=n/2+2;
+            for(int i=1;i<=n/2+(t==1);i++)
+            {
+                tot++;
+                X[tot].push_back(1),Y[tot].push_back(1);
+                for(int j=2;j<=n;j++)
+                {
+                    if(!(head<=j&&j<=head+n/2-1)) walk3(j);
+                    else if(j==head&&(head&1)) walk3(j);
+                    else
+                    {
+                        if(!(head<=j+1&&j+1<=head+n/2-1)) walk3(j);
+                        else if(a[j]>a[j+1]) walk1(j),j++;
+                        else walk2(j),j++;
+                    }
+                }
+                head--;
+            }
+		}
+	}
+	else
+	{
+		for(int t=1;t<=2;t++)
+		{
+            head=n/2+1;
+            for(int i=1;i<=n/2;i++)
+            {
+                tot++;
+                X[tot].push_back(1),Y[tot].push_back(1);
+                for(int j=2;j<=n;j++)
+                {
+                    if(!(head<=j&&j<=head+n/2-1)) walk3(j);
+                    else if(j==head&&(head&1)) walk3(j);
+                    else
+                    {
+                        if(!(head<=j+1&&j+1<=head+n/2-1)) walk3(j);
+                        else if(a[j]>a[j+1]) walk1(j),j++;
+                        else walk2(j),j++;
+                    }
+                }
+                head--;
+            }
+		}
+	}
+}
+
+void output()
+{
+	printf("%d\n",tot);
+	for(int i=1;i<=tot;i++)
+	{
+		for(int j=1;j<2*n-1;j++)
+		{
+		    if(X[i][j]==X[i][j-1]) printf("R");
+		    else printf("D");
+		}
+		printf("\n");
+	}
+}
+
+int main()
+{
+	scanf("%d",&T);
+	while(T--)
+	{
+		init();
+		step1();
+		step2();
+		output();
+	}
+
+	return 0;
+}
+ Rate the Problem Amazing problem: 
+
+    
+
+
+12
+
+
+
+ Good problem: 
+
+    
+
+
+1
+
+
+
+ Average problem: 
+
+    
+
+
+0
+
+
+
+ Bad problem: 
+
+    
+
+
+4
+
+
+
+ Didn't solve: 
+
+    
+
+
+20
+
+
+
+ 
+Thanks for participating in the contest . We hope you liked the problems. We would love to hear your feedback in the comments. 
+If you find anything wrong in the editorial which is more likely to happen because we have written a rather long editorial to make you understand the solutions better, then comment below.
+We also tried to write the thought process of how you can come up with the solution for the easier problems. The approach I followed is similar to what the current AI agents do. They first generate some thoughts, then do some actions, then gather observations, and repeat the process until they find the solution. Hope you will like this approach.
+Also, don't forget to upvote the editorial. See you in the next contest!
+Also, please rate the problems after checking the editorial. Because otherwise you might have solved it in a very cumbersome way that you will end up hating the problem.
+
+How did you find the contest? Great: 
+
+
+
+
+177
+
+
+
+
+
+ Good: 
+
+    
+
+
+259
+
+
+
+ Average: 
+
+    
+
+
+68
+
+
+
+ Bad: 
+
+    
+
+
+79
+
+
+
+ Trash: 
+
+    
+
+
+74
+
+
+
+ 
+ Great: 
+
+
+
+
+177
+
+
+
+
+
+ Good: 
+
+    
+
+
+259
+
+
+
+ Average: 
+
+    
+
+
+68
+
+
+
+ Bad: 
+
+    
+
+
+79
+
+
+
+ Trash: 
+
+    
+
+
+74
+
+
+
+ 
+Which problem is your most favourite? A: 
+
+    
+
+
+27
+
+
+
+ B: 
+
+    
+
+
+63
+
+
+
+ C1: 
+
+    
+
+
+59
+
+
+
+ C2: 
+
+    
+
+
+57
+
+
+
+ D: 
+
+    
+
+
+231
+
+
+
+ E: 
+
+    
+
+
+45
+
+
+
+ F1: 
+
+    
+
+
+7
+
+
+
+ F2: 
+
+    
+
+
+4
+
+
+
+ G: 
+
+    
+
+
+5
+
+
+
+ H1: 
+
+    
+
+
+7
+
+
+
+ H2: 
+
+    
+
+
+4
+
+
+
+ 
+ A: 
+
+    
+
+
+27
+
+
+
+ B: 
+
+    
+
+
+63
+
+
+
+ C1: 
+
+    
+
+
+59
+
+
+
+ C2: 
+
+    
+
+
+57
+
+
+
+ D: 
+
+    
+
+
+231
+
+
+
+ E: 
+
+    
+
+
+45
+
+
+
+ F1: 
+
+    
+
+
+7
+
+
+
+ F2: 
+
+    
+
+
+4
+
+
+
+ G: 
+
+    
+
+
+5
+
+
+
+ H1: 
+
+    
+
+
+7
+
+
+
+ H2: 
+
+    
+
+
+4
+
+
+
+ 
+Which problem you hate the most? A: 
+
+    
+
+
+10
+
+
+
+ B: 
+
+    
+
+
+18
+
+
+
+ C1: 
+
+    
+
+
+49
+
+
+
+ C2: 
+
+    
+
+
+444
+
+
+
+ D: 
+
+    
+
+
+13
+
+
+
+ E: 
+
+    
+
+
+49
+
+
+
+ F1: 
+
+    
+
+
+13
+
+
+
+ F2: 
+
+    
+
+
+2
+
+
+
+ G: 
+
+    
+
+
+1
+
+
+
+ H1: 
+
+    
+
+
+2
+
+
+
+ H2: 
+
+    
+
+
+1
+
+
+
+ 
+ A: 
+
+    
+
+
+10
+
+
+
+ B: 
+
+    
+
+
+18
+
+
+
+ C1: 
+
+    
+
+
+49
+
+
+
+ C2: 
+
+    
+
+
+444
+
+
+
+ D: 
+
+    
+
+
+13
+
+
+
+ E: 
+
+    
+
+
+49
+
+
+
+ F1: 
+
+    
+
+
+13
+
+
+
+ F2: 
+
+    
+
+
+2
+
+
+
+ G: 
+
+    
+
+
+1
+
+
+
+ H1: 
+
+    
+
+
+2
+
+
+
+ H2: 
+
+    
+
+
+1
+
+
+
+ 
+Also, huge props to redpanda for creating awesome manim video editorials for problems A to D. Check it out here: https://www.youtube.com/watch?v=elRvvUbk1J4

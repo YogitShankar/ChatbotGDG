@@ -1,0 +1,393 @@
+Editorial for Problem: C. Numeric String Template
+Problem ID: 2000C
+
+Solution:
+2000A - Primary TaskIdea: senjougaharin Tutorial2000A - Primary TaskYou need to check that the number has the form '$$$\text{10x}$$$', where $$$x$$$ is an integer without leading zeros. This means it must start with '10'; if the length of the number is $$$3$$$, then the third digit must be at least $$$2$$$; if the length is greater, then the third digit must be at least $$$1$$$ (all such numbers $$$x$$$ are at least $$$10$$$).Additionally, under these constraints, you can simply check that for the given number $$$a$$$, either $$$102 \le a \le 109$$$ or $$$1010 \le a \le 1099$$$ holds true. Solutionfor _ in range(int(input())):
+    a = int(input())
+    if 102 <= a <= 109 or 1010 <= a <= 1099:
+        print("YES")
+    else:
+        print("NO")2000B - Seating in a BusIdea: myav Tutorial2000B - Seating in a BusTo solve the problem, it is enough to use an array $$$used$$$ of size $$$2 \cdot 10^5 + 1$$$ (maximal value $$$n + 1$$$) consisting of boolean variables. When a passenger gets on the bus to seat $$$a_i$$$, we will replace the value of $$$used[a_i]$$$ with true. Then, for all passengers, starting from the second one, we should check that at least one of the existing elements $$$used[a_i - 1]$$$ or $$$used[a_i + 1]$$$ has the value true. If this condition is not satisfied, the answer to the problem is "NO". If at least $$$1$$$ occupied neighbouring seat always existed for all passengers at the moment they took their seat — the answer is "YES". Solution#include <bits/stdc++.h>
+using namespace std;
+void solve(){
+    int n;
+    cin >> n;
+    vector<int>a(n);
+    for(auto &i : a) cin >> i;
+    int left = a[0], right = a[0];
+    for(int i = 1; i < n; i++){
+        if(a[i] + 1 == left) left = a[i];
+        else if(a[i] - 1 == right) right = a[i];
+        else {
+            cout << "NO\n";
+            return;
+        }
+    }
+    cout << "YES\n";
+}
+ 
+int main(){
+    int t;
+    cin >> t;
+    while (t--) {
+        solve();
+    }
+    return 0;
+}2000C - Numeric String TemplateIdea: myav Tutorial2000C - Numeric String TemplateTo solve the problem, we can use two dictionaries (map): match the characters of the string to the numbers of the array in the map $$$m_1$$$ and the numbers of the array to the characters of the string in the map $$$m_2$$$.First, we check the length of the string to see if it is equal to the number $$$n$$$. If the string is longer or shorter, the answer is "NO".Otherwise, we will loop through the characters of the string and check the following conditions:   The map $$$m_1$$$ does not contain the character $$$s_i$$$ as a key, and the map $$$m_2$$$ does not contain the number $$$a_i$$$ as a key. Then let's perform the assignments $$$m_1[s_i] = a_i$$$ and $$$m_2[a_i] = s_i$$$.  One of the maps contains the current array element or string character as a key, but its value does not match the character or number in the current position. Then the answer to the problem is — "NO", you can break the loop. If the loop reaches the end of the line, the answer to the problem is "YES". Solutiondef solve():
+    n = int(input())
+    a = list(map(int, input().split()))
+    m = int(input())
+    for _ in range(m):
+        m_1 = {}
+        m_2 = {}
+        s = input().strip()
+        if len(s) != n:
+            print("NO")
+            continue
+ 
+        ok = True
+        for j in range(n):
+            if s[j] not in m_1 and a[j] not in m_2:
+                m_1[s[j]] = a[j]
+                m_2[a[j]] = s[j]
+            elif (s[j] in m_1 and m_1[s[j]] != a[j]) or (a[j] in m_2 and m_2[a[j]] != s[j]):
+                ok = False
+                break
+        print("YES" if ok else "NO")
+ 
+t = int(input())
+for _ in range(t):
+    solve()2000D - Right Left WrongIdea: Vladosiya Tutorial2000D - Right Left WrongNote that since all characters of the selected segment of the string $$$s$$$ are erased after applying the operation, the segments we choose cannot overlap. However, they can be nested if we first choose an inner segment and then an outer one.Since all numbers in the array are positive, it is always beneficial to take the largest possible segment in the answer, that is, from the first 'L' to the last 'R'. By choosing this segment, we can only select segments within it. We will continue to choose such segments within the last selected one as long as possible. To quickly find the sums of the segments, we will calculate the prefix sums of the array $$$a$$$. Solutiondef solve():
+    n = int(input())
+    a = [0]
+    for x in input().split():
+        x = int(x)
+        a.append(a[-1] + x)
+    s = input()
+    ans = 0
+    l = 0
+    r = n - 1
+    while r > l:
+        while l < n and s[l] == 'R':
+            l += 1
+        while r >= 0 and s[r] == 'L':
+            r -= 1
+        if l < r:
+            ans += a[r + 1] - a[l]
+            l += 1
+            r -= 1
+    print(ans)
+ 
+t = int(input())
+for _ in range(t):
+    solve()2000E - Photoshoot for GorillasIdea: Vladosiya Tutorial2000E - Photoshoot for GorillasWe will learn how to find the number of sub-squares that cover the cell $$$(i, j)$$$: $$$(\min(i, n - k) - \max(-1, i - k)) \cdot (\min(j, m - k) - \max(-1, j - k))$$$. Next, we will use a straightforward greedy algorithm: we will place the tallest gorillas in the cells covered by the maximum number of squares. This can be done using two std::sort operations and a linear pass.The time complexity of the solution is: $$$O(n \cdot m \log (n \cdot m) + w \log w)$$$. Solution#include <bits/stdc++.h>
+ 
+#define int long long
+ 
+using namespace std;
+ 
+#define MAXW 200200
+#define MAXNM 200200
+ 
+int n, m, k, w, p;
+int arr[MAXW], prr[MAXNM];
+ 
+static inline int calcc(int i, int j) {
+    int upr = min(i, n - k);
+    int leftr = min(j, m - k);
+    int upl = max(-1LL, i - k);
+    int leftl = max(-1LL, j - k);
+    return (upr - upl) * (leftr - leftl);
+}
+ 
+void build() {
+    sort(arr, arr + w);
+    reverse(arr, arr + w);
+    p = 0;
+    for (int i = 0; i < n; ++i)
+        for (int j = 0; j < m; ++j)
+            prr[p++] = calcc(i, j);
+    sort(prr, prr + p);
+    reverse(prr, prr + p);
+}
+ 
+int solve() {
+    int sum = 0;
+    for (int i = 0; i < w; ++i)
+        sum += prr[i] * arr[i];
+    return sum;
+}
+ 
+signed main() {
+    int t; cin >> t;
+    while (t--) {
+        cin >> n >> m >> k >> w;
+        for (int i = 0; i < w; ++i)
+            cin >> arr[i];
+        build();
+        cout << solve() << endl;
+    }
+}2000F - Color Rows and ColumnsIdea: senjougaharin Tutorial2000F - Color Rows and ColumnsWe will use the idea from the knapsack problem: let $$$dp[i][j]$$$ be the minimum number of operations required to achieve $$$j$$$ points using the first $$$i$$$ rectangles.To calculate the next value, we will iterate over the number of points scored in the $$$i$$$-th rectangle. To count the number of operations, we note that it is always better to paint the outer row of the smaller side of the unpainted part of the rectangle (which may change after painting the row). Solution#include <iostream>
+#include <algorithm>
+#include <vector>
+ 
+using namespace std;
+ 
+void solve() {
+    int n, k;
+    cin >> n >> k;
+    vector<int> a(n), b(n);
+    for (int i = 0; i < n; ++i) {
+        cin >> a[i] >> b[i];
+    }
+    vector<vector<int>> dp(n + 1, vector<int>(k + 1, 1e9));
+    dp[0][0] = 0;
+    for (int i = 0; i < n; ++i) {
+        int x = a[i], y = b[i];
+        int xy = x + y;
+        int cost = 0;
+        for (int j = 0; j <= xy; ++j) {
+            for (int j1 = 0; j1 + j <= k; ++j1) {
+                dp[i + 1][j1 + j] = min(dp[i + 1][j1 + j], dp[i][j1] + cost);
+            }
+            if (j < xy) {
+                if (x >= y) {
+                    x--, cost += y;
+                } else {
+                    y--, cost += x;
+                }
+            }
+        }
+    }
+    cout << (dp[n][k] == 1e9 ? -1 : dp[n][k]) << '\n';
+}
+ 
+int main() {
+    int t;
+    cin >> t;
+    for (int i = 0; i < t; ++i) {
+        solve();
+    }
+    return 0;
+}2000G - Call During the JourneyIdea: senjougaharin Tutorial2000G - Call During the JourneyLet's find the maximum time $$$ans_i$$$ for each vertex, at which it is possible to leave from it and reach vertex $$$n$$$ at time $$$t_0$$$. To find this value, we will run Dijkstra's algorithm from the last vertex.When processing the next edge, we will check if it is possible to travel by bus during the time interval from $$$ans_v - l_{i1}$$$ to $$$ans_v$$$. If it is possible, we will travel by bus; otherwise, we will either walk or wait at this vertex and then go by bus. Solution#include <iostream>
+#include <vector>
+#include <set>
+ 
+using namespace std;
+ 
+void solve() {
+    int n, m;
+    cin >> n >> m;
+    int t0, t1, t2;
+    cin >> t0 >> t1 >> t2;
+    vector<vector<vector<int>>> g(n);
+    for (int i = 0; i < m; ++i) {
+        int u, v, l1, l2;
+        cin >> u >> v >> l1 >> l2;
+        u--, v--;
+        g[u].push_back({v, l1, l2});
+        g[v].push_back({u, l1, l2});
+    }
+    set<pair<int, int>> prq;
+    prq.insert({t0, n - 1});
+    for (int i = 0; i + 1 < n; ++i) {
+        prq.insert({-1e9, i});
+    }
+    vector<int> dist(n, -1e9);
+    dist[n - 1] = t0;
+    while (!prq.empty()) {
+        auto p = *prq.rbegin();
+        prq.erase(p);
+        int d = p.first, u = p.second;
+        for (auto e: g[u]) {
+            int v = e[0], l1 = e[1], l2 = e[2];
+            int d1 = (d - l1 >= t2 || d <= t1) ? d - l1 : d - l2;
+            if(d1 == d - l2) d1 = max(d1, t1 - l1);
+            if (dist[v] < d1) {
+                prq.erase({dist[v], v});
+                dist[v] = d1;
+                prq.insert({d1, v});
+            }
+        }
+    }
+    cout << (dist[0] >= 0 ? dist[0] : -1) << '\n';
+}
+ 
+int main() {
+    int t;
+    cin >> t;
+    for (int i = 0; i < t; ++i) {
+        solve();
+    }
+    return 0;
+}2000H - Ksyusha and the Loaded SetIdea: senjougaharin Tutorial2000H - Ksyusha and the Loaded SetWe will maintain the elements of a set in std::set. We will also maintain a std::set of free segments (in the form of half-intervals). These segments can be easily updated during insertion and deletion operations. In one case, we need to remove a large segment and insert two small ones; in another case, we need to remove two small ones and insert one large segment. We will find suitable segments using std::set::lower_bound.To answer the query ?, we will maintain a Cartesian tree, where the keys are pairs (length, left boundary). Additionally, we will store the minimum of all left boundaries at the nodes. Now, to answer the query, it is sufficient to cut the Cartesian tree at $$$k$$$ and take the minimum from the stored minimums.The time complexity of the solution is: $$$O(n \log n + m \log n)$$$. Solution#pragma GCC optimize("O3,unroll-loops")
+ 
+#include <bits/stdc++.h>
+ 
+#define endl '\n'
+ 
+using namespace std;
+ 
+typedef pair<int, int> ipair;
+ 
+#define INF 1'000'000'009
+#define MAXN 200200
+#define MAXMEM 5'000'000
+#define MAXLEN 2'000'100
+ 
+#define X first
+#define Y second
+ 
+mt19937 rng(chrono::steady_clock::now().time_since_epoch().count());
+ 
+struct node {
+    node *lv = nullptr, *rv = nullptr;
+    ipair key;
+    int prior;
+    int minl = INF;
+    
+    node(const ipair& key) : key(key), prior(rng()), minl(key.Y) {}
+};
+ 
+static inline int minl(node *v) {
+    return (v == nullptr ? INF : v->minl);
+}
+ 
+static inline void upd(node *v) {
+    v->minl = min(v->key.Y, min(minl(v->lv), minl(v->rv)));
+}
+ 
+node *merge(node *s1, node *s2) {
+    if (s1 == nullptr) return s2;
+    if (s2 == nullptr) return s1;
+    if (s1->prior > s2->prior) {
+        s1->rv = merge(s1->rv, s2);
+        upd(s1);
+        return s1;
+    } else {
+        s2->lv = merge(s1, s2->lv);
+        upd(s2);
+        return s2;
+    }
+}
+ 
+pair<node*, node*> split(node* &v, ipair x) {
+    if (v == nullptr) {
+        return {nullptr, nullptr};
+    }
+    if (v->key < x) {
+        auto [s1, s2] = split(v->rv, x);
+        v->rv = s1;
+        upd(v);
+        return {v, s2};
+    } else {
+        auto [s1, s2] = split(v->lv, x);
+        v->lv = s2;
+        upd(v);
+        return {s1, v};
+    }
+}
+ 
+int n, m;
+int arr[MAXN];
+node *mem = (node*)calloc(MAXMEM, sizeof(*mem));
+node *mpos = mem;
+node *root;
+set<int> M;
+ 
+// [l..r)
+void add_seg(int l, int r) {
+    if (l >= r) return;
+    ipair p {r - l, l};
+    auto [s1, s2] = split(root, p);
+    node *v = mpos++;
+    *v = node(p);
+    root = merge(merge(s1, v), s2);
+}
+ 
+void rem_dek(node* &v, const ipair& x) {
+    if (v == nullptr) return;
+    if (v->key == x) {
+        v = merge(v->lv, v->rv);
+        if (v) upd(v);
+        return;
+    }
+    if (v->key < x) rem_dek(v->rv, x);
+    else rem_dek(v->lv, x);
+    upd(v);
+}
+ 
+// [l..r)
+void rem_seg(int l, int r) {
+    if (l >= r) return;
+    ipair p {r - l, l};
+    rem_dek(root, p);
+}
+ 
+void add_val(int x) {
+    auto it = M.lower_bound(x);
+    int clsl = (it == M.begin() ? 0 : *prev(it));
+    int clsr = (it == M.end() ? INF : *it);
+    rem_seg(clsl + 1, clsr);
+    add_seg(clsl + 1, x);
+    if (clsr != INF) add_seg(x + 1, clsr);
+    M.insert(x);
+}
+ 
+void rem_val(int x) {
+    auto it = M.lower_bound(x);
+    int clsl = (it == M.begin() ? 0 : *prev(it));
+    int clsr = (next(it) == M.end() ? INF : *next(it));
+    rem_seg(clsl + 1, x);
+    rem_seg(x + 1, clsr);
+    if (clsr != INF) add_seg(clsl + 1, clsr);
+    M.erase(x);
+}
+ 
+int query(int k) {
+    if (M.empty()) return 1;
+    auto [s1, s2] = split(root, make_pair(k, -1));
+    fprintf(stderr, "AMOGUS: %p, %p\n", s1, s2);
+    int ans = min(*M.rbegin() + 1, minl(s2));
+    root = merge(s1, s2);
+    return ans;
+}
+ 
+void init() {
+    root = nullptr;
+    mpos = mem;
+    M = {arr, arr + n};
+    add_seg(1, *M.begin());
+    for (auto it = M.begin(); next(it) != M.end(); ++it)
+        add_seg(*it + 1, *next(it));
+}
+ 
+signed main() {
+    int t; cin >> t;
+    while (t--) {
+        cin >> n;
+        for (int i = 0; i < n; ++i)
+            cin >> arr[i];
+        init();
+        cin >> m;
+        for (int j = 0; j < m; ++j) {
+            char tp; cin >> tp;
+            int x, k;
+            switch (tp) {
+            case '+':
+                cin >> x;
+                add_val(x);
+                break;
+            case '-':
+                cin >> x;
+                rem_val(x);
+                break;
+            case '?':
+                cin >> k;
+                cout << query(k) << " ";
+                break;
+            }
+        }
+        cout << endl;
+    }
+}

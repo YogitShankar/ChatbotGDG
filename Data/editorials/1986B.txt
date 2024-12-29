@@ -1,0 +1,17 @@
+Editorial for Problem: B. Matrix Stabilization
+Problem ID: 1986B
+
+Solution:
+Hi,From now on, we are going to provide video editorials for Codeforces rounds. So, Codeforces rounds are not going to be limited to text editorials, but also video editorials!We want to seek feedback and try to improve these video editorials as much as possible. We will try different ideas like recorded videos and livestreams to see which one helps you the best. So, please help us make a better content for you!The blog will be shortly accessible in contest materials.1986A — X Axis1986B — Matrix Stabilization1986C — Update Queries1986D — Mathematical Problem1986E — Beautiful Array1986F — Non-academic Problem1986G — Permutation ProblemI hope it helps!
+Hi,
+From now on, we are going to provide video editorials for Codeforces rounds. So, Codeforces rounds are not going to be limited to text editorials, but also video editorials!
+We want to seek feedback and try to improve these video editorials as much as possible. We will try different ideas like recorded videos and livestreams to see which one helps you the best. So, please help us make a better content for you!
+The blog will be shortly accessible in contest materials.
+
+
+
+
+
+
+
+I hope it helps!

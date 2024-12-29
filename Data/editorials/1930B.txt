@@ -1,0 +1,831 @@
+Editorial for Problem: B. Permutation Printing
+Problem ID: 1930B
+
+Solution:
+Thank you for your participation! I hope you liked atleast one problem from the set (:1930A - Maximise The ScoreIdea: satyam343Editorial: Non-origination Hint 1Selecting the smallest two elements on the whiteboard is a good choice in the first move. SolutionLet b denote the sorted array a. Assume that b contains only distinct elements for convenience. We prove by induction on n that the maximum final score is b1+b3+…+b2n−1.For the base case n=1, the final and only possible score that can be achieved is b1.Now let n>1. Claim: It is optimal to choose b1 with b2 for some move. ProofSuppose that in some move, b1 is choosen with bi and b2 is choosen with bj, for some 2<i,j<2n,i≠j.The contribution to the score according to these choices is min(b1,bi)+min(b2,bj)=b1+b2.However, if we had chosen b1 and b2 in one move, and bi and bj in the other move, the score according to these choices is min(b1,b2)+min(bi,bj)=b1+min(bi,bj). As i,j>2, bi>b2 and bj>b2⟹min(bi,bj)>b2. Thus, we can achieve a strictly larger score by choosing b1 with b2 in some move.The choice of selecting b1 and b2 contributes a value of b1 to the score. The maximum score that can achieved for the remaining numbers [b3,b4,…,b2n] on the whiteboard in the remaining moves is b3+b5+b7+…b2n−1 by the induction hypothesis.Note that we can extend the arguments for the case where a has duplicate elements. Code#include <bits/stdc++.h>     
+using namespace std;
+#define ll long long
+void solve(){ 
+    ll n; cin>>n;
+    vector<ll> a(2*n);
+    ll ans=0;
+    for(auto &it:a){
+        cin>>it;
+    }
+    sort(a.begin(),a.end());
+    for(ll i=0;i<2*n;i+=2){
+        ans+=a[i];
+    }
+    cout<<ans<<"\n";
+    return;  
+}                                       
+int main()                                                                               
+{       
+    ios_base::sync_with_stdio(false);                         
+    cin.tie(NULL);                               
+    #ifndef ONLINE_JUDGE                   
+    freopen("input.txt", "r", stdin);                                           
+    freopen("output.txt", "w", stdout);      
+    freopen("error.txt", "w", stderr);                        
+    #endif     
+    ll test_cases=1;                 
+    cin>>test_cases;
+    while(test_cases--){
+        solve();
+    }
+    cout<<fixed<<setprecision(10);
+    cerr<<"Time:"<<1000*((double)clock())/(double)CLOCKS_PER_SEC<<"ms\n"; 
+}  video editorial by aryanc4031930B - Permutation PrintingIdea: satyam343Editorial: satyam343 Hint 1For integers x (⌊n2⌋<x≤n), there does not exist integer y (y>x) such that y is divisible by x. SolutionConsider the permutation p such that p=[1,n,2,n−1,…⌈n+12⌉]. It is valid. Why? ProofWe have max(pa,pa+1)>⌊n2⌋ for all 1≤a<n−1. So we cannot ever have a pair of integers (a,b) such that:  1≤a<n−1 1≤b<n a≠b pa divides pb and pa+1 divides pb+1 Now, we just need to check for a=n−1. First of all, notice that pa does not divide p1.There does not exist an integer b (2≤b<n−1) such that pa+1 divides pb+1 as 2⋅pa+1≥n and pc+1<n for all c (2≤c<n−1).Note that we covered all possible pairs of indices and did not find two distinct indices i and j (1≤i,j<n; i≠j) such that pi divides pj and pi+1 divides pj+1. Code#include <bits/stdc++.h>     
+using namespace std;
+#define ll long long
+void solve(){ 
+    ll n; cin>>n;
+    ll l=1,r=n;
+    for(ll i=1;i<=n;i++){
+        if(i&1){
+            cout<<l<<" ";
+            l++;
+        }
+        else{
+            cout<<r<<" ";
+            r--;
+        }
+    }
+    cout<<"\n";
+    return;  
+}                                       
+int main()                                                                               
+{       
+    ios_base::sync_with_stdio(false);                         
+    cin.tie(NULL);                               
+    #ifndef ONLINE_JUDGE                   
+    freopen("input.txt", "r", stdin);                                           
+    freopen("output.txt", "w", stdout);      
+    freopen("error.txt", "w", stderr);                        
+    #endif     
+    ll test_cases=1;                 
+    cin>>test_cases;
+    while(test_cases--){
+        solve();
+    }
+    cout<<fixed<<setprecision(10);
+    cerr<<"Time:"<<1000*((double)clock())/(double)CLOCKS_PER_SEC<<"ms\n"; 
+}  video editorial by aryanc4031930C - Lexicographically LargestIdea: satyam343Editorial: Non-origination and satyam343 Hint 1Consider an array c of length n such that ci:= number of indices smaller than i which were chosen before index i.So set S will be a collection of ai+i−ci over all 1≤i≤n. SolutionNow one might wonder what type of arrays c is it possible to get.First, it is easy to see that we should have 0≤ci<i for all i. Call an array c of length n good, if 0≤ci<i for all 1≤i≤n. The claim is that all good arrays of length n can be obtained. ProofWe can prove it by induction on n. c1=0 always holds. Now c2 can either be 0 or 1. We can obtain c2=0 by deleting the element at index 2 before the element at index 1. We can also obtain c2=1 by deleting it after deleting the element at index 1. Thus, all good arrays of length 2 can be obtained. Now assume that it is possible to obtain all good arrays of length atmost k. Choose an integer x (0≤x≤k) arbitrarily.  Consider the following sequence for the order of deletion:  The elements at indices 1,2,…,x in the same order. The element at index k. The elements at indices x+1,…,k−1 in the same order. It is easy to see that the array obtained on performing the above sequence of operations is a good array of length k+1 with ck+1=x. Hence we can establish a bijection between the sequence of order of deletion and the number of good arrays.So we have the following subproblem. We have a set S. We will iterate i from 1 to n, select an integer ci (0≤ci≤i−1) and insert ai+i−ci into set S and move to i+1. Now using exchange arguments, we can prove that it is never bad if we select the smallest integer v (0≤v≤i−1) such that ai+i−v is not present in the set S, and assign it to ci. Note that as we have i options for v, and we would have inserted exactly i−1 elements before index i, there always exists an integer v (0≤v≤i−1) such that ai+i−v is not present in the set S. You can refer to the attached submission to see how to find v efficiently for each i. Code#include <bits/stdc++.h>     
+using namespace std;
+#define ll long long
+void solve(){ 
+    ll n; cin>>n;
+    set<ll> used,not_used;
+    vector<ll> ans;
+    for(ll i=1;i<=n;i++){
+        ll x; cin>>x; x+=i;
+        if(!used.count(x)){
+            not_used.insert(x);
+        }
+        ll cur=*(--not_used.upper_bound(x)); //find the largest element(<= x) which is not in set "used"
+        not_used.erase(cur);
+        ans.push_back(cur);
+        used.insert(cur);
+        if(!used.count(cur-1)){
+            not_used.insert(cur-1);
+        }
+    }
+    sort(ans.begin(), ans.end());
+    reverse(ans.begin(), ans.end());
+    for(auto i:ans){
+        cout<<i<<" ";
+    }  
+    cout<<"\n";
+    return;  
+}                                       
+int main()                                                                               
+{       
+    ios_base::sync_with_stdio(false);                         
+    cin.tie(NULL);                               
+    #ifndef ONLINE_JUDGE                   
+    freopen("input.txt", "r", stdin);                                           
+    freopen("output.txt", "w", stdout);      
+    freopen("error.txt", "w", stderr);                        
+    #endif     
+    ll test_cases=1;                 
+    cin>>test_cases;
+    while(test_cases--){
+        solve();
+    }
+    cout<<fixed<<setprecision(10);
+    cerr<<"Time:"<<1000*((double)clock())/(double)CLOCKS_PER_SEC<<"ms\n"; 
+}  video editorial by aryanc4031930D1 - Sum over all Substrings (Easy Version) Idea: satyam343Editorial: satyam343 Hint 1To find f(s), we can partition s into multiple independent substrings of length atmost 3 and find best answer for them separately. Hint 2There always exists a string g such that:  g is s−good there are f(s) number of 1s in g g is of the form b1+b2+…bq, where bi is either equal to 0 or 010.  SolutionFirst of all, append n 0 s to the back of s for our convenience. Note that this does not change the answer. Now let us call a binary string p of size d nice if:  there exists a positive integer k such that d=3k p is of form f(0,k)+f(1,k)+f(0,k), where f(c,z) gives a string containing exactly z characters equal to c. Suppose binary string t is one of the s−good strings such that there are exactly f(s) 1 s in t. We claim that for any valid t, there always exists a binary string t′ such that:  t′ is permutation of t t′ is s−good t′ is of the form f(0,d1)+z1+f(0,d2)+z2+f(0,d3)+…+zg+f(0,dg+1), where z1,z2,…zg are nice binary strings and d1,d2,…dg+1 are non-negative integers.  ProofInitially, all the 1s in s are unmarked. We will mark all of them and modify the string t in the process.We will do the following recursive process unless all the 1 s in s are marked.Find the index of leftmost unmarked 1 in s. Suppose its index is x. Now suppose y is the largest index such that there are an equal number of 0 s and 1 s in substring t[x,y]. Note that y will always exist as we appended some extra 0s in the starting. Now we can rearrange the characters in substring t[x,y], as they will still contain an equal number of 0 s and 1 s and 1 will still be the mode of substring t[x,y]. Obviously rearranging the characters in t[x,y] to 0…01…1 is the best we can do. We will mark all the 1 s in substring s[x,y]. Suppose y−x+1=2v. Now t[y+1,y+v] might contain some 1 s. Say there are z 1 s in t[y+1,y+v] initially. We will do the following operation exactly z times.   Find the leftmost 1 in substring t[y+1,y+v]. Find the leftmost 0 in substring t[y+v+1,2n]. Swap both characters. Now note that t[x,x+3v−1] will be of form f(0,v)+f(1,v)+f(0,v). It is easy to verify that in the updated t, there won't be any index i for which there does not exist two indices 1≤l≤i≤r≤2n such that si is mode of t[l,r].Now we can mark all the 1 s in substring s[x+2v,x+3v−1] too, as t[x+v,x+3v−1] contain equal number of 0 s and 1 s.It is not hard to conclude that the updated t will be of form f(0,d1)+z1+f(0,d2)+z2+f(0,d3)+…+zg+f(0,dg+1), where z1,z2,…zg are nice binary strings and d1,d2,…dg+1 are non-negative integers.Note that the 1 s in t[x,x+3v−1] won't help the 1 s in s[x+3v,2n]. So, we can solve for s[x+3v,2n] independently.Let t′ be the updated t.Now, carefully observe the structure of t′. We can replace all the substrings of the form f(0,k)+f(1,k)+f(0,k) in t′ with 010010…010010.So the updated t′(say t") will be of form b1+b2+…bq, where bi is either equal to 0 or 010.So whenever we need to find f(e) for some binary string e, we can always try to find a string of form t" using as few 1s as possible. Notice that we can construct t" greedily. You can look at the attached code for the implementation details. Also, we don't need to actually append the 0s at the back of s. It was just for proof purposes. Code#include <bits/stdc++.h>   
+#include <ext/pb_ds/tree_policy.hpp>
+#include <ext/pb_ds/assoc_container.hpp>
+using namespace __gnu_pbds;   
+using namespace std;
+#define ll long long
+#define pb push_back                  
+#define mp make_pair          
+#define nline "\n"                            
+#define f first                                            
+#define s second                                             
+#define pll pair<ll,ll> 
+#define all(x) x.begin(),x.end()     
+const ll MOD=1e9+7;
+const ll MAX=500500;
+ll f(string s){
+    ll len=s.size(),ans=0,pos=0;
+    while(pos<len){
+        if(s[pos]=='1'){
+            ans++;
+            pos+=2;
+        }
+        pos++;
+    }
+    return ans;
+}
+void solve(){ 
+    ll n,ans=0; cin>>n;
+    string s; cin>>s; 
+    for(ll i=0;i<n;i++){
+        string t; 
+        for(ll j=i;j<n;j++){
+            t.push_back(s[j]);
+            ans+=f(t);
+        }
+    }
+    cout<<ans<<nline;
+    return;  
+}                                       
+int main()                                                                               
+{     
+    ios_base::sync_with_stdio(false);                         
+    cin.tie(NULL);                               
+    #ifndef ONLINE_JUDGE                 
+    freopen("input.txt", "r", stdin);                                           
+    freopen("output.txt", "w", stdout);      
+    freopen("error.txt", "w", stderr);                        
+    #endif     
+    ll test_cases=1;                 
+    cin>>test_cases;
+    while(test_cases--){
+        solve();
+    }
+    cout<<fixed<<setprecision(10);
+    cerr<<"Time:"<<1000*((double)clock())/(double)CLOCKS_PER_SEC<<"ms\n"; 
+}  1930D2 - Sum over all Substrings (Hard Version) Idea: satyam343Editorial: satyam343 Hint 1We can use the idea of D1 and dynamic programming to solve in O(n). SolutionSuppose dp[i][j] denotes f(s[i,j]) for all 1≤i≤j≤n. Performing the transition is quite easy.If si=1, dp[i][j]=1+dp[i+3][j], otherwise dp[i][j]=dp[i+1][j]. Note that dp[i][j]=0 for if i>j.So if we fix j, we can find dp[i][j] for all 1≤i≤j in O(n), and the original problem in O(n2).Now, we need to optimise it. Suppose track[i]=∑nj=idp[i][j] for all 1≤i≤n, with base condition that track[i]=0 if i>n.There are two cases:  si=0 :   track[i]=∑nj=idp[i][j] track[i]=dp[i][i]+∑nj=i+1dp[i][j] track[i]=dp[i][i]+∑nj=i+1dp[i+1][j] track[i]=track[i+1] as dp[i][i]=0   si=1 :   track[i]=∑nj=idp[i][j] track[i]=∑nj=i1+dp[i+3][j] track[i]=n−i+1+∑nj=i+3dp[i+3][j] as dp[i+3][i]=dp[i+3][i+1]=dp[i+3][i+2]=0 track[i]=n−i+1+∑nj=i+3dp[i+3][j] track[i]=n−i+1+track[i+3] So, the answer to the original problem is ∑ni=1track[i], which we can do in O(n). Code#include <bits/stdc++.h>   
+#include <ext/pb_ds/tree_policy.hpp>
+#include <ext/pb_ds/assoc_container.hpp>
+using namespace __gnu_pbds;   
+using namespace std;
+#define ll long long
+#define pb push_back                  
+#define mp make_pair          
+#define nline "\n"                            
+#define f first                                            
+#define s second                                             
+#define pll pair<ll,ll> 
+#define all(x) x.begin(),x.end()     
+const ll MOD=1e9+7;
+const ll MAX=500500;
+void solve(){ 
+    ll n,ans=0; cin>>n;
+    string s; cin>>s; s=" "+s;
+    vector<ll> dp(n+5,0);
+    for(ll i=n;i>=1;i--){
+        if(s[i]=='1'){
+            dp[i]=dp[i+3]+n-i+1;
+        }
+        else{
+            dp[i]=dp[i+1];
+        }
+        ans+=dp[i];
+    }
+    cout<<ans<<nline;
+    return;  
+}                                       
+int main()                                                                               
+{     
+    ios_base::sync_with_stdio(false);                         
+    cin.tie(NULL);                               
+    #ifndef ONLINE_JUDGE                 
+    freopen("input.txt", "r", stdin);                                           
+    freopen("output.txt", "w", stdout);      
+    freopen("error.txt", "w", stderr);                        
+    #endif     
+    ll test_cases=1;                 
+    cin>>test_cases;
+    while(test_cases--){
+        solve();
+    }
+    cout<<fixed<<setprecision(10);
+    cerr<<"Time:"<<1000*((double)clock())/(double)CLOCKS_PER_SEC<<"ms\n"; 
+}  1930E - 2..3...4.... Wonderful! Wonderful! Idea: satyam343Editorial: satyam343 Hint 1Suppose you are given some array b of length m and a positive integer k. How to check whether we can get the array b if we start with an array a of length n such that ai=i for all i (1≤i≤n)? Hint 2First of all, array b should be a subsequence of a. Now consider an increasing array c (possibly empty) such that it contains all the elements of a which are not present in b.  Now look at some trivial necessary conditions.   The length of array c should divisible by 2k, as exactly 2k elements were deleted in one operation. There should be atleast one element v in b such that there are atleast k elements smaller than v in the array c, and alteast k elements greater than v in the array c. Why? Think about the last operation. We can consider the case of empty c separately. In fact, it turns out that these necessary conditions are sufficient (Why?). SolutionNow, we need to find the number of possible b. We can instead find the number of binary strings s of length n such that si=1 if i is present in b, and si=0 otherwise.For given n and k, let us call s good if there exists some b which can be achieved from a. Instead of counting strings s which are good, let us count the number of strings which are not good. For convenience, we will only consider strings s having the number of 0's divisible by 2k. Now, based on the conditions in hint 2, we can conclude that s is bad if and only if there does not exist any 1 between the k-th 0 from the left and the k-th 0 from the right in s. Let us compress all the 0's between the k-th 0 from the left and the k-th 0 from the right into a single 0 and call the new string t. Note that t will have exactly 2k−1 0's. We can also observe that for each t, a unique s exists. This is only because we have already fixed the parameters n and k. Thus the number of bad s having exactly x 1's is (x+2k−12k−1) as there are exactly (x+2k−12k−1) binary strings t having 2k−1 0's and x 1's.Finally, there are exactly (nx)−(x+2k−12k−1) good binary strings s having x 1's and n−x 0's. Now, do we need to find this value for each x from 1 to n? No, as the number(n−x) of 0's in s should be a multiple of 2k. There are only O(n2k) useful candidates for x.Thus, our overall complexity is O(nlog(n)) (as ∑ni=1O(ni)=O(nlog(n))). Code#pragma GCC optimize("O3,unroll-loops")
+#include <bits/stdc++.h>   
+#include <ext/pb_ds/tree_policy.hpp>
+#include <ext/pb_ds/assoc_container.hpp>
+using namespace __gnu_pbds;   
+using namespace std;
+#define ll long long
+const ll INF_ADD=1e18;
+#define pb push_back                  
+#define mp make_pair          
+#define nline "\n"                            
+#define f first                                            
+#define s second                                             
+#define pll pair<ll,ll> 
+#define all(x) x.begin(),x.end()     
+const ll MOD=998244353;
+const ll MAX=5000500;
+vector<ll> fact(MAX+2,1),inv_fact(MAX+2,1);
+ll binpow(ll a,ll b,ll MOD){
+    ll ans=1;
+    a%=MOD;  
+    while(b){
+        if(b&1)
+            ans=(ans*a)%MOD;
+        b/=2;
+        a=(a*a)%MOD;
+    }
+    return ans;
+}
+ll inverse(ll a,ll MOD){
+    return binpow(a,MOD-2,MOD);
+} 
+void precompute(ll MOD){
+    for(ll i=2;i<MAX;i++){
+        fact[i]=(fact[i-1]*i)%MOD;
+    }
+    inv_fact[MAX-1]=inverse(fact[MAX-1],MOD);
+    for(ll i=MAX-2;i>=0;i--){
+        inv_fact[i]=(inv_fact[i+1]*(i+1))%MOD;
+    }
+}
+ll nCr(ll a,ll b,ll MOD){
+    if(a==b){
+        return 1;
+    }
+    if((a<0)||(a<b)||(b<0))
+        return 0;   
+    ll denom=(inv_fact[b]*inv_fact[a-b])%MOD; 
+    return (denom*fact[a])%MOD;    
+}
+ll n,k;    
+ll ways(ll gaps,ll options){
+    gaps--;
+    ll now=nCr(gaps+options-1,options-1,MOD);
+    return now;
+}
+void solve(){
+    cin>>n; 
+    for(ll k=1;k<=(n-1)/2;k++){
+        ll ans=1;
+        for(ll deleted=2*k;deleted<=n-1;deleted+=2*k){
+            ll options=2*k,left_elements=n-deleted;
+            ans=(ans+ways(left_elements+1,deleted+1)-ways(left_elements+1,options)+MOD)%MOD;  
+        }
+        cout<<ans<<" ";
+    }
+    cout<<nline;
+    return;   
+}                                       
+int main()                                                                               
+{     
+    ios_base::sync_with_stdio(false);                         
+    cin.tie(NULL); 
+    #ifndef ONLINE_JUDGE                 
+    freopen("input.txt", "r", stdin);                                           
+    freopen("output.txt", "w", stdout);      
+    freopen("error.txt", "w", stderr);                        
+    #endif  
+    ll test_cases=1;                 
+    cin>>test_cases;
+    precompute(MOD);
+    while(test_cases--){
+        solve();
+    }
+    cout<<fixed<<setprecision(10);
+    cerr<<"Time:"<<1000*((double)clock())/(double)CLOCKS_PER_SEC<<"ms\n"; 
+}  1930F - Maximize the Difference Idea: satyam343Editorial: satyam343 Hint 1For an array b consiting of m non-negative integers, f(b)=mmaxp=1(mmaxi=1(bi|bp)−mmini=1(bi|bp)). In other, we can get the maximum possible value by choosing x=bp for some p (1≤p≤m). Hint 2f(b) is the maximum value of bi∧ ~ bj over all pairs of (i,j) (1≤i,j≤m), where ∧ is the bitwise AND operator, and ~ is the bitwise One's complement operator. SolutionLet us see how to find f(b) in O(nlog(n)) first. We will focus on updates later. Let us have two sets S1 and S2 such that   S1 contains all submasks of bi for all 1≤i≤m S2 contains all submasks of ~bifor all 1≤i≤m We can observe that f(b) is the largest element present in both sets S1 and S2.Now, we can insert all submasks naively. But it would be pretty inefficient. Note that we need to insert any submask atmost once in either of the sets. Can you think of some approach in which you efficiently insert all the non-visited submasks of some mask? Pseudo Codeinsert_submask(cur, S){
+    return if mask cur is present in S
+    add mask cur to the set S
+    vec = list of all the set bits of the mask cur
+    for i in vec:
+        insert_submask(cur - 2^i)
+}Note that the above pseudo code inserts all the all submasks efficiently. As all the masks will be visited atmost once, the amortised complexity will be O(nlog(n)2). Note that instead of using a set, we can use a boolean array of size n to reduce the complexity to O(nlog(n)).Thus, we can use the above idea to find f(b) in O(nlog(n)). For each i from 1 to m, we can insert all submasks of bi into set S1 and insert all the submasks of ~bi into set S2.The above idea hints at how to deal with updates. If we need to append an element z to b, we can just insert all submasks of z into set S1 and insert all the submasks of ~z into set S2.Hence, the overall complexity is O(nlog(n)). Code#pragma GCC optimize("O3,unroll-loops")
+#include <bits/stdc++.h>   
+#include <ext/pb_ds/tree_policy.hpp>
+#include <ext/pb_ds/assoc_container.hpp>
+using namespace __gnu_pbds;   
+using namespace std;
+#define ll long long
+#define pb push_back                  
+#define mp make_pair          
+#define nline "\n"                            
+#define f first                                            
+#define s second                                             
+#define pll pair<ll,ll> 
+#define all(x) x.begin(),x.end() 
+const ll MAX=100100; 
+void solve(){     
+    ll n,q; cin>>n>>q;
+    ll till=1,len=1;
+    while(till<n){
+        till*=2;
+        len++;
+    }
+    ll ans=0;
+    vector<vector<ll>> track(2,vector<ll>(till+5,0));
+    auto add=[&](ll x,ll p){
+        queue<ll> trav;
+        if(track[p][x]){
+            return;
+        }
+        trav.push(x); track[p][x]=1;
+        while(!trav.empty()){
+            auto it=trav.front();
+            trav.pop();
+            if(track[0][it]&track[1][it]){
+                ans=max(ans,it);
+            }
+            for(ll j=0;j<len;j++){
+                if(it&(1<<j)){
+                    ll cur=(it^(1<<j));   
+                    if(!track[p][cur]){
+                        track[p][cur]=1;
+                        trav.push(cur);
+                    }
+                }
+            }
+        }
+    };
+    ll supermask=till-1;
+    vector<ll> a(q+5);
+    for(ll i=1;i<=q;i++){
+        ll h; cin>>h; 
+        a[i]=(h+ans)%n;
+        add(a[i],0);
+        add(supermask^a[i],1);
+        cout<<ans<<" \n"[i==q];
+    }
+    return;  
+}                                         
+int main()                                                                               
+{     
+    ios_base::sync_with_stdio(false);                         
+    cin.tie(NULL);                               
+    #ifndef ONLINE_JUDGE                 
+    freopen("input.txt", "r", stdin);                                           
+    freopen("output.txt", "w", stdout);      
+    freopen("error.txt", "w", stderr);                        
+    #endif     
+    ll test_cases=1;                 
+    cin>>test_cases;
+    while(test_cases--){
+        solve();
+    }
+    cout<<fixed<<setprecision(10);
+    cerr<<"Time:"<<1000*((double)clock())/(double)CLOCKS_PER_SEC<<"ms\n"; 
+}  1930G - Prefix Max Set Counting Idea: satyam343Editorial: satyam343 Hint 1Consider some subsequence S of [1,2,…n] such that there exists atleast one pre-order a such that F(a)=S. Look for some non-trivial properties about S. Node Si will be visited before the node Si+1. Hint 2Assume |S|=k. First of all, we should S1=1 and Sk=n. There cannot exists there distinct indices a,b and c (1≤a<b<c≤|k|) such that Sc lies on the path from Sa to Sb. Assume LCAi is the lowest common ancestor of Si and Si+1. For all i(1≤i<k), the largest value over all the nodes on the unique path from Si to Si+1 should be Si+1.  Hint 3Suppose naxp is the maximum value in the subtree of p. There is one more important restriction if Si does not lie on the path from Si+1 to 1. Suppose m is the child of LCAi, which lies on the path from Si to LCAi. We should have Si+1>naxm. In fact, if you observe carefully you will realise that we should have Si=naxm. SolutionLet us use dynamic programming. Suppose dp[i] gives the number of valid subsequences(say S) such that the last element of S is i. Note that the answer to our original problem will be dp[n].Suppose nax(u,v) denotes the maximum value on the path from u to v(including the endpoints).Let us have a O(n2) solution first.We have dp[1]=1. Suppose we are at some node i(i>1), and we need to find dp[i]. Let us consider some node j(1≤j<i) and see if we can append i to all the subsequences which end with node j. If we can append, we just need to add dp[j] to dp[i].But how do we check if we can append i to all the subsequences that end with node j?Check hints 2 and 3.So, we have a n2 solution now. We need to optimise it now.We will move in the increasing value of the nodes(from 2 to n) and calculate the dp values.Suppose nax(1,pari)=v, where pari denotes the parent of i.Assume we go from node j(j<i) to node i.There are two cases:  j lies on the path from 1 to i: This case is easy, as we just need to ensure that nax(j,pari)=j. We can add dp[j] to dp[i] if we have nax(j,pari)=j. Note that there exists only one node(node v) for which might add dp[v] to dp[i] j does not lie on the path from 1 to i : We will only consider the case in which dp[j] will be added to dp[i]. Suppose lca is the lowest common ancestor of j and i, and m is the child of lca, which lies on the path from j to lca. Notice that the largest value in the subtree of m should be j. This observation is quite helpful. We can traverse over all the ancestors of i. Suppose that we are at ancestor u. We will iterate over all the child(say c) of u such that naxc<i, and add dp[naxc] to dp[i] if nax(u,pari)<naxc. Suppose track[u][i] stores the sum of dp[naxc] for all c such that naxc<i. So we should add track[u][i] to dp[i]. But there is a catch. This way, dp[naxc] will also get added dp[i] even when naxc<nax(u,pari). So, we need to subtract some values, which is left as an exercise for the readers. Now, track[u][d]=track[u][d−1]+dp[naxc] if naxc=d. So, instead of keeping a two-dimensional array track, we can just maintain a one-dimensional array track. Note that we will only need the sum of track[u] for all the ancestors of i, which we can easily calculate using the euler tour. You can look at the attached code for the implementation details.The intended time complexity is O(n⋅log(n)).  Code#include <bits/stdc++.h>   
+#include <ext/pb_ds/tree_policy.hpp>
+#include <ext/pb_ds/assoc_container.hpp>
+using namespace __gnu_pbds;   
+using namespace std;
+#define ll long long
+#define pb push_back                  
+#define mp make_pair          
+#define nline "\n"                            
+#define f first                                            
+#define s second                                             
+#define pll pair<ll,ll> 
+#define all(x) x.begin(),x.end()     
+const ll MOD=998244353;
+const ll MAX=1000100;
+struct FenwickTree{
+    vector<ll> bit; 
+    ll n;
+    FenwickTree(ll n){
+        this->n = n;
+        bit.assign(n, 0);
+    }
+    FenwickTree(vector<ll> a):FenwickTree(a.size()){  
+        ll x=a.size();
+        for(size_t i=0;i<x;i++)
+            add(i,a[i]);
+    }
+    ll sum(ll r) {
+        ll ret=0;
+        for(;r>=0;r=(r&(r+1))-1){
+            ret+=bit[r];
+            ret%=MOD;
+        }
+        return ret;
+    }
+    ll sum(ll l,ll r) {
+        if(l>r)
+            return 0;
+        ll val=sum(r)-sum(l-1)+MOD;
+        val%=MOD;
+        return val;
+    }
+    void add(ll idx,ll delta) {
+        for(;idx<n;idx=idx|(idx+1)){
+            bit[idx]+=delta;
+            bit[idx]%=MOD;
+        }
+    }
+};
+vector<vector<ll>> adj;
+vector<ll> tin(MAX,0),tout(MAX,0);
+vector<ll> parent(MAX,0);
+vector<ll> overall_max(MAX,0);
+ll now=1;
+vector<ll> jump_to(MAX,0),sub(MAX,0);
+void dfs(ll cur,ll par){
+    parent[cur]=par;
+    tin[cur]=now++;
+    overall_max[cur]=cur;
+    for(auto chld:adj[cur]){
+        if(chld!=par){
+            jump_to[chld]=max(jump_to[cur],cur);
+            dfs(chld,cur);
+            overall_max[cur]=max(overall_max[cur],overall_max[chld]);
+        }
+    }
+    tout[cur]=now++;
+}
+vector<ll> dp(MAX,0);
+void solve(){ 
+    ll n; cin>>n;
+    adj.clear();
+    adj.resize(n+5);
+    for(ll i=1;i<=n-1;i++){
+        ll u,v; cin>>u>>v;
+        adj[u].push_back(v);  
+        adj[v].push_back(u);
+    }  
+    now=1;      
+    dfs(1,0);      
+    ll ans=0;    
+    FenwickTree enter_time(now+5),exit_time(now+5);
+    overall_max[0]=MOD;   
+    dp[0]=1;    
+    for(ll i=1;i<=n;i++){
+        ll p=jump_to[i];
+        dp[i]=(enter_time.sum(0,tin[i])-exit_time.sum(0,tin[i])-sub[p]+dp[p]+MOD+MOD)%MOD;
+        if(p>i){  
+            dp[i]=0;
+        }
+        ll node=i;
+        while(overall_max[node]==i){
+            node=parent[node];
+        }
+        enter_time.add(tin[node],dp[i]);
+        exit_time.add(tout[node],dp[i]);
+        sub[i]=(enter_time.sum(0,tin[i])-exit_time.sum(0,tin[i])+MOD)%MOD;
+    }
+    cout<<dp[n]<<nline;
+    return;  
+}                                       
+int main()                                                                               
+{       
+    ios_base::sync_with_stdio(false);                         
+    cin.tie(NULL);                               
+    #ifndef ONLINE_JUDGE                 
+    freopen("input.txt", "r", stdin);                                           
+    freopen("output.txt", "w", stdout);      
+    freopen("error.txt", "w", stderr);                        
+    #endif     
+    ll test_cases=1;                 
+    cin>>test_cases;
+    while(test_cases--){
+        solve();
+    }
+    cout<<fixed<<setprecision(10);
+    cerr<<"Time:"<<1000*((double)clock())/(double)CLOCKS_PER_SEC<<"ms\n"; 
+}  1930H - Interactive Mex TreeIdea: satyam343Editorial: satyam343 Hint 1MEX of the path from u to v will be the minimum value over all the nodes of T which do not lie on the path from u to v. Hint 2p1 and p2 are associated with the Euler tour Hint 3p1 is the permutation of [1,2,…n] sorted in increasing order on the basis on tin time observed during Euler tour. Similarly, p2 is the permutation of [1,2,…n] sorted in increasing order based on tout time. Note that any Euler tour is fine. SolutionNow we have p1 and p2 with us. Suppose we need to find MEX of the path from u to v. Assume that tinu<tinv for convenience. Assume T′ is the forest we get if we remove all the nodes on the path from u to v from T. Our goal is to find the minimum value over all the nodes in T′. Assume that T′ is non-empty, as MEX will be n if T′ is empty. Assume LCA is the lowest common ancestor of u and v. Suppose m is the child of LCA(u,v), which lies on the path from v to LCA(u,v).Let us consider some groups of nodes p such that.  toutp<tinu tinu<tinp<tinm tinm<toutp<tinv tinv<tinp toutLCA<toutp Note that we have precisely 5 groups, with the i-th group consisting of only those nodes which satisfy the i-th condition.Here comes the interesting claim. All nodes in T′ are present in atleast one of the above 5 groups. There does not exist a node p such that p is on the path from u from v and p is present in any of the groups.Now, it is not hard to observe that if we consider the nodes of any group, they will form a continuous segment in either p1 or p2. So we can cover each group in a single query. Hence, we can find the MEX of the path in any round using atmost 5 queries. Code#include <bits/stdc++.h>   
+#include <ext/pb_ds/tree_policy.hpp>
+#include <ext/pb_ds/assoc_container.hpp>
+using namespace __gnu_pbds;   
+using namespace std;
+#define ll long long
+const ll INF_ADD=1e18;
+#define pb push_back                  
+#define mp make_pair          
+#define nline "\n"                            
+#define f first                                            
+#define s second                                             
+#define pll pair<ll,ll> 
+#define all(x) x.begin(),x.end()     
+const ll MOD=998244353;
+const ll MAX=200200;   
+vector<ll> adj[MAX];
+ll now=0,till=20;
+vector<ll> tin(MAX,0),tout(MAX,0),depth(MAX,0);
+vector<vector<ll>> jump(MAX,vector<ll>(till+1,0));
+void dfs(ll cur,ll par){
+    jump[cur][0]=par;
+    for(ll i=1;i<=till;i++)
+        jump[cur][i]=jump[jump[cur][i-1]][i-1];
+    tin[cur]=++now;
+    for(ll chld:adj[cur]){
+        if(chld!=par){
+            depth[chld]=depth[cur]+1;
+            dfs(chld,cur);
+        }
+    }
+    tout[cur]=++now;
+} 
+bool is_ancestor(ll a,ll b){
+    if((tin[a]<=tin[b])&&(tout[a]>=tout[b]))
+        return 1;
+    return 0;
+} 
+ll lca(ll a,ll b){
+    if(is_ancestor(a,b))
+        return a;
+    for(ll i=till;i>=0;i--){
+        if(!is_ancestor(jump[a][i],b))
+            a=jump[a][i];
+    }
+    return jump[a][0];
+}  
+void solve(){
+    ll n; cin>>n;
+    ll m; cin>>m;
+    vector<ll> a(n+5);
+    for(ll i=1;i<=n-1;i++){
+        ll u,v; cin>>u>>v;
+        adj[u].push_back(v);
+        adj[v].push_back(u);
+    }
+    now=1;
+    dfs(1,1);
+    vector<ll> p(n),q(n);
+    for(ll i=0;i<n;i++){
+        p[i]=q[i]=i+1;
+    }
+    sort(all(p),[&](ll l,ll r){
+        return tin[l]<tin[r];
+    });
+    sort(all(q),[&](ll l,ll r){
+        return tout[l]<tout[r];
+    });
+    for(auto it:p){
+        cout<<it<<" ";
+    }
+    cout<<endl;
+    for(auto it:q){
+        cout<<it<<" ";
+    }
+    cout<<endl;
+    auto query_p=[&](ll l,ll r){
+        ll left_pos=n+1,right_pos=-1;
+        for(ll i=0;i<n;i++){
+            ll node=p[i];
+            if((tin[node]>=l) and (tin[node]<=r)){
+                left_pos=min(left_pos,i);
+                right_pos=i;
+            }
+        }
+        ll now=n+5;
+        if(right_pos!=-1){
+            left_pos++,right_pos++;
+            cout<<"? 1 "<<left_pos<<" "<<right_pos<<endl;
+            cin>>now;
+        }
+        return now;
+    };
+    auto query_q=[&](ll l,ll r){
+        ll left_pos=n+1,right_pos=-1;
+        for(ll i=0;i<n;i++){
+            ll node=q[i];
+            if((tout[node]>=l) and (tout[node]<=r)){
+                left_pos=min(left_pos,i);
+                right_pos=i;
+            }
+        }
+        ll now=n+5;
+        if(right_pos!=-1){
+            left_pos++,right_pos++;
+            cout<<"? 2 "<<left_pos<<" "<<right_pos<<endl;
+            cin>>now;
+        }
+        return now;
+    };
+    while(m--){
+        ll u,v; cin>>u>>v;
+        if(tout[u]>tout[v]){
+            swap(u,v);
+        }
+        ll lca_node=lca(u,v);
+        ll ans=n;
+        if(lca_node==v){
+            ans=min(ans,query_q(1,tin[u]));
+            ans=min(ans,query_p(tin[u]+1,tout[v]));
+            ans=min(ans,query_q(tout[v]+1,now));
+            cout<<"! "<<ans<<endl;
+            ll x; cin>>x;
+            continue;
+        }
+        ans=min(ans,query_q(1,tin[u]));
+        ll consider=v;
+        for(auto it:adj[lca_node]){
+            if(is_ancestor(lca_node,it) and is_ancestor(it,v)){
+                consider=it;
+            }
+        }
+        ans=min(ans,query_p(tin[u]+1,tin[consider]-1));
+        ans=min(ans,query_q(tin[consider],tin[v]));
+        ans=min(ans,query_p(tin[v]+1,tout[lca_node]));
+        ans=min(ans,query_q(tout[lca_node]+1,now));
+        cout<<"! "<<ans<<endl;
+        ll x; cin>>x;
+    }
+    for(ll i=1;i<=n;i++){
+        adj[i].clear();
+    }
+    return;  
+}                                       
+int main()                                                                               
+{     
+    ios_base::sync_with_stdio(false);                         
+    cin.tie(NULL); 
+    #ifndef ONLINE_JUDGE                 
+    freopen("input.txt", "r", stdin);                                           
+    freopen("output.txt", "w", stdout);      
+    freopen("error.txt", "w", stderr);                        
+    #endif  
+    ll test_cases=1;                 
+    cin>>test_cases;
+    while(test_cases--){
+        solve();
+    }
+    cout<<fixed<<setprecision(10);
+    cerr<<"Time:"<<1000*((double)clock())/(double)CLOCKS_PER_SEC<<"ms\n"; 
+}  1930I - Counting Is Fun Idea: satyam343Full Solution: ElegiaEditorial: errorgorn Hint 1A167510 SolutionIt is convinient here to assign weights to 0→−1 and 1→1.Given a string t, we can define the prefix sum p of it's weights. For example, if t=0010111, then p=[0,−1,−2,−1,−2,−1,0,1]. So that if t is bad and i is a index that violates the definition, then max(p0,p1,…,pi−1)<min(pi,pi+1,…,pn) if si=0 or min(p0,p1,…,pi−1)>max(pi,pi+1,…,pn) if si=1.Naturally, it is convinient to assume that p0<pn. All string with p0=pn are clearly good and p0>pn is handled similarly. For strings with p0<pn, the condition can only be violated on an index with si=0.The solution works using PIE. Let us fix a set of positions I that are bad, so that if i∈I, then si=0 and max(p0,p1,…,pi−1)<min(pi,pi+1,…,pn). Then we need to count the number of ways to construct p satisfying these conditions and then add it to the answer multiplied by (−1)|I|. Suppose that I=i1,i2,…,ik. t[1,i1] and t[ik,n] need to be a ballot sequence of length i1−1 and n−ik respectively (A001405, denote it as f(n)) while t[ij,ij+1] needs to be bidirectional ballot sequence of length ij+1−ij−1 (A167510, denote it as g(n)). Note that in our definition of ballot sequence, we are do not require that prefixes and suffixes have strictly more 1 s thatn 0 s. It is the same sequence, but note that we need to shift it by a few places when refering to OEIS.The first n terms of f is easily computed in linear time. We will focus on how to compute the first n terms of g in O(nlog2n).Computing g(n) Firstly, let us consider the number of bidirectional sequences with n+k2 1 s and n−k2 0 s. We will imagine this as lattice walks from (0,0) to (n,k) where 1→(1,1) and 0→(1,−1). If we touch the lines y=−1 or y=k+1, the walk is invalid. We can use the reflection method here, similar to a proof of Catalan. The number of valid walks is #(*) - #(T) + #(TB) - #(TBT) ..... - #(B) + #(BT) - #(BTB) + ..... where #(BTB) denotes the number of walks that touch the bottom line, then the top line, then the bottom line, and then may continue to touch the top and bottom line after that.We have #(*) = (nn+k2), #(T) = (nn+k+22), #(TB) = (nn+3k+42), #(TBT) = (nn+3k+62), …, #(B) = (nn+k+22), #(BT) = (nn+k+42), #(BTB) = (nn+3k+62), …This already gives us a method to compute g(n) in O(nlogn) since for a fixed k, we can compute the above sum in O(nk), since only the first O(nk) terms are not 0.First, notice that we can aggregate them sums without iterating on k, for some fixed j, we can find the coefficient cj of (nn+j2) across all k. Notice that this coefficient is independent across all n, so we only need to compute c once.Now, note that (nn+z2)=[xz](x−1+x)n. So that g(n)=[x0]C⋅(x−1+x)n, where C is the ogf of c.From this formulation, we can describe how to compute the first n terms of g in O(nlog2n) using Divide and Conquer.DnC(l,r,V) computes the g(l)…g(r) where V is the coefficents between [l−r,r−l] of C⋅(x−1+x)l. DnC(l,r,V) will call DnC(l,m,V) and DnC(m+1,r,V⋅(x−1+x)m−l+1). We have the reccurence T(n)=2T(n2)+O(nlogn) so T(n)=O(nlog2n).Of course, for constant time speedup, you can choose to split the odd and even coefficients, but that is not needed.It is possible to compute the first n of g in O(nlogn) but it does not improve the overall complexity of the solution.Final StepsNow that we obtained the n terms of f and g, let us return to the origial problem.If si=0, define dpi=f(i−1)−∑sj=0dpj⋅g(j−i−1). Then this contributes f(n−i)⋅dpi to the number of bad strings.Again, we will use Divide and Conquer to perform this quickly.Briefly, DnC(l,r) will compute the values of dp[l,r] given that contributions from dp[1,l−1] has been transferred to dp[l,r] already.We will call DnC(l,m), compute the contribution from dp[l,m] to dp[m+1,r] using FFT and then call DnC(m+1,r). The complexity of this is O(nlog2n). Code(errorgorn)#include <bits/stdc++.h>
+using namespace std;
+
+#define int long long
+#define ll long long
+#define ii pair<int,int>
+#define iii tuple<int,int,int>
+#define fi first
+#define se second
+#define endl '\n'
+#define debug(x) cout << #x << ": " << x << endl
+
+#define pub push_back
+#define pob pop_back
+#define puf push_front
+#define pof pop_front
+#define lb lower_bound
+#define ub upper_bound
+
+#define rep(x,start,end) for(int x=(start)-((start)>(end));x!=(end)-((start)>(end));((start)<(end)?x++:x--))
+#define all(x) (x).begin(),(x).end()
+#define sz(x) (int)(x).size()
+
+mt19937 rng(chrono::system_clock::now().time_since_epoch().count());
+
+
+const int MOD=998244353;
+
+ll qexp(ll b,ll p,int m){
+    ll res=1;
+    while (p){
+        if (p&1) res=(res*b)%m;
+        b=(b*b)%m;
+        p>>=1;
+    }
+    return res;
+}
+
+ll inv(ll i){
+	return qexp(i,MOD-2,MOD);
+}
+
+ll fix(ll i){
+	i%=MOD;
+	if (i<0) i+=MOD;
+	return i;
+}
+
+ll fac[1000005];
+ll ifac[1000005];
+
+ll nCk(int i,int j){
+	if (i<j) return 0;
+	return fac[i]*ifac[j]%MOD*ifac[i-j]%MOD;
+}
+
+const ll mod = (119 << 23) + 1, root = 62; // = 998244353
+// For p < 2^30 there is also e.g. 5 << 25, 7 << 26, 479 << 21
+// and 483 << 21 (same root). The last two are > 10^9.
+typedef vector<ll> vl;
+void ntt(vl &a) {
+	int n = sz(a), L = 31 - __builtin_clz(n);
+	static vl rt(2, 1);
+	for (static int k = 2, s = 2; k < n; k *= 2, s++) {
+		rt.resize(n);
+		ll z[] = {1, qexp(root, mod >> s, mod)};
+		rep(i,k,2*k) rt[i] = rt[i / 2] * z[i & 1] % mod;
+	}
+	vector<int> rev(n);
+	rep(i,0,n) rev[i] = (rev[i / 2] | (i & 1) << L) / 2;
+	rep(i,0,n) if (i < rev[i]) swap(a[i], a[rev[i]]);
+	for (int k = 1; k < n; k *= 2)
+		for (int i = 0; i < n; i += 2 * k) rep(j,0,k) {
+			ll z = rt[j + k] * a[i + j + k] % mod, &ai = a[i + j];
+			a[i + j + k] = ai - z + (z > ai ? mod : 0);
+			ai += (ai + z >= mod ? z - mod : z);
+		}
+}
+vl conv(const vl &a, const vl &b) {
+	if (a.empty() || b.empty()) return {};
+	int s = sz(a) + sz(b) - 1, B = 32 - __builtin_clz(s), n = 1 << B;
+	int inv = qexp(n, mod - 2, mod);
+	vl L(a), R(b), out(n);
+	L.resize(n), R.resize(n);
+	ntt(L), ntt(R);
+	rep(i,0,n) out[-i & (n - 1)] = (ll)L[i] * R[i] % mod * inv % mod;
+	ntt(out);
+	return {out.begin(), out.begin() + s};
+}
+
+int n;
+string s;
+
+int c[100005];
+int f[100005];
+
+void calc(int l,int r,vector<int> v){
+	while (sz(v)>(r-l)*2+1) v.pob();
+	
+	if (l==r){
+		f[l]=v[0];
+		return;
+	}
+	
+	int m=l+r>>1;
+	
+	calc(l,m,vector<int>(v.begin()+(r-m),v.end()));
+	vector<int> a;
+	int t=m-l+1;
+	rep(x,0,t+1) a.pub(nCk(t,x)),a.pub(0);
+	
+	v=conv(v,a);
+	calc(m+1,r,vector<int>(v.begin()+(2*t),v.end()));
+}
+
+int ans[100005];
+
+void solve(int l,int r){
+	if (l==r) return;
+	int m=l+r>>1;
+	solve(l,m);
+	auto a=conv(vector<int>(ans+l,ans+m+1),vector<int>(f,f+(r-l)));
+	rep(x,m+1,r+1) if (s[x]=='0') ans[x]=fix(ans[x]-a[x-1-l]);
+	solve(m+1,r);
+}
+
+
+signed main(){
+	ios::sync_with_stdio(0);
+	cin.tie(0);
+	cout.tie(0);
+	cin.exceptions(ios::badbit | ios::failbit);
+	
+	fac[0]=1;
+	rep(x,1,1000005) fac[x]=fac[x-1]*x%MOD;
+	ifac[1000004]=inv(fac[1000004]);
+	rep(x,1000005,1) ifac[x-1]=ifac[x]*x%MOD;
+	
+	rep(x,1,100005){
+		c[x]++;
+		
+		int curr=x;
+		while (curr<100005){
+			if (curr+2<100005) c[curr+2]-=2;
+			if (curr+4<100005) c[curr+4]++;
+			if (curr+2*x+4<100005) c[curr+2*x+4]++;
+			curr+=2*x+4;
+		}
+	}
+	
+	cin>>n;
+	cin>>s;
+	
+	vector<int> v;
+	rep(x,n+1,1) v.pub(fix(c[x]+(x>=2?c[x-2]:0LL)));
+	calc(1,n,v);
+	f[0]=1;
+	
+	int fin=qexp(2,n,MOD);
+	rep(_,0,2){
+		rep(x,0,n) ans[x]=(s[x]=='0')?nCk(x,x/2):0LL;
+		solve(0,n-1);
+		rep(x,0,n) if (s[x]=='0') fin=fix(fin-ans[x]*nCk((n-x-1),(n-x-1)/2));
+		
+		for (auto &it:s) it^=1;
+	}
+	
+	cout<<fin<<endl;
+}
+Thank you for your participation! I hope you liked atleast one problem from the set (:

@@ -1,0 +1,380 @@
+Editorial for Problem: B. Permutations & Primes
+Problem ID: 1844B
+
+Solution:
+Video editorials for B, C, and D are available on ak2006's channel.1844A - Subtraction Game Hint 1There exists a small n where the second player can win. Hint 2If a≥2, then n=1 works. Solution1844A - Subtraction GameWe present two approaches.Approach 1If $$$a \ge 2$$$, then $$$n = 1$$$ works.Else if $$$a = 1$$$ and $$$b \ge 3$$$, $$$n = 2$$$ works.Otherwise, $$$a = 1$$$ and $$$b = 2$$$, so $$$n = 3$$$ works.Approach 2Printing $$$a+b$$$ works because no matter what move the first player makes, the second player can respond with the opposite move.The time complexity is $$$\mathcal{O}(1)$$$ per test case. Implementation#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    int t,a,b;
+    scanf("%d",&t);
+    while (t--) {
+        scanf("%d %d",&a,&b);
+        printf("%d\n",a+b);
+    }
+    return 0;
+}1844B - Permutations & Primes Hint 1In order for (l,r) to contribute to the primality, we must have MEX(al,…,ar)≥2, so there is some value 1 between indices l and r. Hint 2To maximize the number of pairs (l,r) that contain the value 1, we should put 1 near the middle of the array. Hint 3To minimize the number of pairs (l,r) where MEX(al,…,ar)≥2 but is not prime, we should put 2 and 3 at the ends of the array. Solution1844B - Permutations & PrimesThe cases $$$n \le 2$$$ can be handled separately. For $$$n \ge 3$$$, any construction with $$$a_1 = 2, a_{\lfloor (n+1)/2 \rfloor} = 1, a_n = 3$$$ is optimal. We can prove this as follows: Note that since $$$2$$$ and $$$3$$$ are both prime, any $$$(l,r)$$$ with $$$l \le \left\lfloor \frac{n+1}{2} \right\rfloor \le r$$$ has a prime $$$\operatorname{MEX}(a_l,\dots,a_r)$$$ except for possibly $$$(l,r) = (1,n)$$$, where $$$\operatorname{MEX}(a_1,\dots,a_n) = n+1$$$. Therefore the primality of this array is $$$\left\lfloor \frac{n+1}{2} \right\rfloor \cdot \left\lceil \frac{n+1}{2} \right\rceil - [n+1\text{ is not prime}]$$$, where $$$[P] = 1$$$ if proposition $$$P$$$ is true and $$$0$$$ if $$$P$$$ is false. On the other hand, for any permutation of $$$1,\dots,n$$$, let $$$k$$$ be the index with $$$a_k = 1$$$. The primality of this array cannot exceed $$$k(n+1-k)-[n+1\text{ is not prime}]$$$, since any pair $$$(l,r)$$$ with prime $$$\operatorname{MEX}(a_l,\dots,a_r) \ge 2$$$ must satisfy $$$l \le k \le r$$$, and additionally $$$\operatorname{MEX}(a_1,\dots,a_n) = n+1$$$ no matter what the permutation is. The function $$$f(k) = k(n+1-k)$$$ is a quadratic which is maximized at $$$k = \left\lfloor \frac{n+1}{2} \right\rfloor$$$, so $$$k(n+1-k)-[n+1\text{ is not prime}] \le \left\lfloor \frac{n+1}{2} \right\rfloor \cdot \left\lceil \frac{n+1}{2} \right\rceil - [n+1\text{ is not prime}]$$$ as required.The time complexity is $$$\mathcal{O}(n)$$$ (note that we don't even need to sieve for primes!). Implementation#include <bits/stdc++.h>
+using namespace std;
+
+int a[200000];
+int main() {
+    int i;
+    int t,n;
+    scanf("%d",&t);
+    while (t--) {
+        scanf("%d",&n);
+        if (n == 1) printf("1\n");
+        else if (n == 2) printf("1 2\n");
+        else {
+            int c = 4;
+            fill(a,a+n,0);
+            a[0] = 2,a[n/2] = 1,a[n-1] = 3;
+            for (i = 0; i < n; i++) {
+                if (a[i] == 0) a[i] = c++;
+            }
+            for (i = 0; i < n; i++) printf("%d%c",a[i],(i == n-1) ? '\n':' ');
+        }
+    }
+    return 0;
+}1844C - Particles Hint 1The answer is the sum of some subset of c1,…,cn. Think about which subsets are obtainable. Hint 2Consider the set of even-indexed particles and the set of odd-indexed particles. Solution1844C - ParticlesConsider the set of even-indexed particles and the set of odd-indexed particles. Observe that particles can only ever combine with other particles from the same set. It follows that the answer is at most $$$$$$\max\left(\sum_{\text{odd }i} \max(c_i,0),\sum_{\text{even }i} \max(c_i,0)\right).$$$$$$On the other hand, this bound is almost always obtainable. We can first perform the operation on all negatively charged particles in the same set as the desired final particle, then perform the operation on all the particles from the opposite set. There is a corner case where all particles are negative, where the answer is just $$$\max(c_1,\dots,c_n)$$$.The time complexity is $$$\mathcal{O}(n)$$$. Implementation#include <bits/stdc++.h>
+using namespace std;
+typedef long long int LLI;
+
+int c[200000];
+int main() {
+    int i;
+    int t,n;
+    scanf("%d",&t);
+    while (t--) {
+        scanf("%d",&n);
+        for (i = 0; i < n; i++) scanf("%d",&c[i]);
+
+        int allneg = 1;
+        for (i = 0; i < n; i++) allneg &= (c[i] < 0);
+        if (allneg) printf("%d\n",*max_element(c,c+n));
+        else {
+            LLI ans1 = 0,ans2 = 0;
+            for (i = 0; i < n; i++) {
+                if (i & 1) ans1 += max(c[i],0);
+                else ans2 += max(c[i],0);
+            }
+            printf("%lld\n",max(ans1,ans2));
+        }
+    }
+    return 0;
+}1844D - Row Major Hint 1Describe, using a graph, all the pairs of characters in s that need to be different. Hint 2Consider the smallest positive integer that does not divide n. Solution1844D - Row MajorThe condition is equivalent to a graph of pairs of characters in $$$s$$$ that need to be different. In graph-theoretic language, we need to find the chromatic number of this graph.By considering the $$$1 \times n$$$ and $$$n \times 1$$$ grids, there is an edge between character $$$u$$$ and $$$u+1$$$ for all $$$1 \le u \le n-1$$$. By considering a $$$\frac{n}{d} \times d$$$ grid (where $$$d$$$ divides $$$n$$$), there is an edge between character $$$u$$$ and $$$u+d$$$ for all $$$1 \le u \le n-d$$$ whenever $$$d$$$ divides $$$n$$$. Let $$$c$$$ be the smallest positive integer that does not divide $$$n$$$. There is an edge between every pair of the characters $$$1,\dots,c$$$ (in graph-theoretic language, this is a clique), so the answer is at least $$$c$$$. On the other hand, consider the string obtained by letting $$$s_1,\dots,s_c$$$ be all distinct characters and repeating this pattern periodically ($$$s_i = s_{i+c}$$$ for all $$$1 \le i \le n-c$$$). Any pair of equal characters have an index difference that is a multiple of $$$c$$$, say $$$kc$$$. But since $$$c$$$ does not divide $$$n$$$, $$$kc$$$ also does not divide $$$n$$$, so these characters are not connected by an edge. Therefore this construction gives a suitable string with $$$c$$$ distinct characters.The time complexity is $$$\mathcal{O}(n)$$$. Implementation#include <bits/stdc++.h>
+using namespace std;
+
+char s[1000001];
+int main() {
+    int i;
+    int t,n;
+    scanf("%d",&t);
+    while (t--) {
+        scanf("%d",&n);
+        int c = 1;
+        while ((n % c) == 0) c++;
+        for (i = 0; i < n; i++) s[i] = 'a'+(i % c);
+        s[n] = '\0';
+        printf("%s\n",s);
+    }
+    return 0;
+}1844E - Great Grids Hint 1Try to find a characterization of all great grids. Hint 2There are two approaches that lead to the same conclusion. Approach 1 is more clever and leads more easily to the conclusion, while approach 2 is perhaps more natural to consider. Feel free to read the hint towards the approach that sounds better. Hint Towards Approach 1Think of the letters as numbers modulo 3 and look at differences of adjacent cells. Hint Towards Approach 2Draw a / or \ for each 2×2 subgrid connecting the equal letters, and look for patterns. Hint 3In either approach, we can associate a type to each row and column, which has one of two possibilities. The constraints correspond to a row and a column needing to have the same or different types. Hint 4The problem reduces to checking the 2-colourability of a graph. Solution1844E - Great GridsWe present two approaches.Approach 1Let the letters 'A', 'B', and 'C' correspond to the numbers $$$0$$$, $$$1$$$, and $$$2$$$ modulo $$$3$$$ respectively. Consider drawing an arrow between any two adjacent cells in a great grid pointing to the right or down, and label this arrow with the difference of the two cells modulo $$$3$$$.The conditions imply that all labels are $$$1$$$ or $$$2$$$, and in each contiguous $$$2 \times 2$$$ subgrid, the top arrow has the same label as the bottom arrow, and the left arrow has the same label as the right arrow. Hence we can associate a type to each of $$$n-1$$$ rows and $$$m-1$$$ columns which is its label. A constraint for cells $$$(x,y)$$$ and $$$(x+1,y+1)$$$ means that row $$$x$$$ and column $$$y$$$ must have different labels, and a constraint for cells $$$(x,y+1)$$$ and $$$(x+1,y)$$$ means that row $$$x$$$ and $$$y$$$ must have the same label.These relations form a graph, and the problem reduces to a variant of $$$2$$$-colourability, which can be checked using DFS or a DSU.Approach 2In a great grid, draw a '/' or '\' for each $$$2 \times 2$$$ subgrid connecting the equal letters.We can observe that these grids have a simple pattern: every two rows are either the same or opposite. Furthermore, any such pattern corresponds to a great grid (this can be proven with the idea in approach 1). We can associate a type to each row and column, a boolean variable $$$0$$$ or $$$1$$$, such that an entry is '/' or '\' depending on whether the labels are the same or different.The constraints correspond to entries needing to be '/' or '\', forming a graph of pairs of labels that must be the same or different. Thus the problem reduces to a variant of $$$2$$$-colourability, which can be checked using DFS or a DSU.The intended time complexity is $$$\mathcal{O}(n+m+k)$$$, although slower implementations with complexities like $$$\mathcal{O}(nm+k)$$$ or $$$\mathcal{O}(k(n+m))$$$ can also pass. Implementation#include <bits/stdc++.h>
+using namespace std;
+typedef vector<pair<int,int> > vpii;
+#define mp make_pair
+#define pb push_back
+
+vpii adjList[4000];
+int colour[4000],bad = 0;
+int doDFS(int u,int c) {
+    if (colour[u] != -1) {
+        if (colour[u] != c) bad = 1;
+        return 0;
+    }
+    colour[u] = c;
+    for (auto [v,e]: adjList[u]) doDFS(v,c^e);
+    return 0;
+}
+int main() {
+    int i;
+    int t,n,m,k;
+    int x1,y1,x2,y2;
+    scanf("%d",&t);
+    while (t--) {
+        scanf("%d %d %d",&n,&m,&k);
+        for (i = 0; i < k; i++) {
+            scanf("%d %d %d %d",&x1,&y1,&x2,&y2);
+            x1--,y1--,x2--,y2--;
+            adjList[min(x1,x2)].pb(mp(n+min(y1,y2),(x1+y1 != x2+y2)));
+            adjList[n+min(y1,y2)].pb(mp(min(x1,x2),(x1+y1 != x2+y2)));
+        }
+
+        fill(colour,colour+n+m,-1),bad = 0;
+        for (i = 0; i < n+m; i++) {
+            if (colour[i] == -1) doDFS(i,0);
+        }
+        printf(bad ? "NO\n":"YES\n");
+
+        for (i = 0; i < n+m; i++) adjList[i].clear();
+    }
+    return 0;
+}1844F1 - Min Cost Permutation (Easy Version) Hint 1Solve the case c≥0 first. There is a very simple description of the answer. Another HintWhat is the answer when c=0? Hint 2When c≥0, the answer is the array sorted in nondecreasing order. Hint 3When c<0, the minimum cost is achieved by sorting the array in nonincreasing order, but this is not the lexicographically smallest. Try to greedily form the lexicographically smallest array one element at a time. Solution (easy version)1844F1 - Min Cost Permutation (Easy Version)Let the cost of a permutation $$$b$$$ of $$$a$$$ be the value $$$\sum_{i=1}^{n-1} |b_{i+1}-b_i-c|$$$.When $$$c \ge 0$$$, it can be proven that the minimum cost can be obtained by sorting $$$a$$$ in nondecreasing order. As sorting $$$a$$$ in nondecreasing order is also the lexicographically smallest array, this is the answer.Similarly, when $$$c < 0$$$, it can be proven that the minimum cost can be obtained by sorting $$$a$$$ in nonincreasing order. Furthermore, if we have fixed the values of $$$b_1,\dots,b_k$$$ for some $$$1 \le k < n$$$, then intuitively, one optimal permutation $$$b_{k+1},\dots,b_n$$$ of the remaining elements is to sort them in nonincreasing order$$$^\dagger$$$.To find the lexicographically smallest permutation, we can greedily loop through $$$k = 1,\dots,n$$$, each time taking the smallest $$$b_k$$$ that does not increase the cost. If $$$a_k \ge \dots \ge a_n$$$ are the unused elements sorted in nonincreasing order, then the condition we need to check to determine if setting $$$b_k := a_i$$$ is good is whether $$$|a_{i-1}-a_i-c|+|a_i-a_{i+1}-c|+|b_{k-1}-a_k-c| \ge |a_{i-1}-a_{i+1}-c|+|b_{k-1}-a_i-c|+|a_i-a_k-c|\quad(*)$$$ (with some adjustments in the corner cases when $$$k = 1$$$ or $$$i = k,n$$$). This condition $$$(*)$$$ can be checked in constant time, and we try $$$\mathcal{O}(n)$$$ values of $$$i$$$ for each of the $$$\mathcal{O}(n)$$$ values of $$$k$$$, so the time complexity is $$$\mathcal{O}(n^2)$$$.The proofs of the claims used in this solution can be found at the end of the solution for the hard version.$$$^\dagger$$$This is actually not true as stated (e.g. when $$$c = -1$$$ and we fix $$$b_1 = 2$$$, $$$[2,1,9,8]$$$ is better than $$$[2,9,8,1]$$$), but it turns out it is true for all states that the greedy algorithm can reach (i.e. in this example, the greedy algorithm could not have chosen $$$b_1 = 2$$$). Implementation#include <bits/stdc++.h>
+using namespace std;
+typedef long long int LLI;
+
+int a[200000];
+int main() {
+    int i,j;
+    int t,n,c;
+    scanf("%d",&t);
+    while (t--) {
+        scanf("%d %d",&n,&c);
+        for (i = 0; i < n; i++) scanf("%d",&a[i]);
+        if (c >= 0) {
+            sort(a,a+n);
+            for (i = 0; i < n; i++) printf("%d%c",a[i],(i == n-1) ? '\n':' ');
+            continue;
+        }
+
+        sort(a,a+n,greater<int>());
+        for (i = 0; i < n; i++) {
+            for (j = n-1; j > i; j--) {
+                LLI diff = -abs(a[j]-a[j-1]-c);
+                if (j < n-1) {
+                    diff -= abs(a[j+1]-a[j]-c);
+                    diff += abs(a[j+1]-a[j-1]-c);
+                }
+                if (i == 0) diff += abs(a[i]-a[j]-c);
+                else {
+                    diff -= abs(a[i]-a[i-1]-c);
+                    diff += abs(a[i]-a[j]-c);
+                    diff += abs(a[j]-a[i-1]-c);
+                }
+                if (diff == 0) {
+                    for (; j > i; j--) swap(a[j],a[j-1]);
+                }
+            }
+        }
+        for (i = 0; i < n; i++) printf("%d%c",a[i],(i == n-1) ? '\n':' ');
+    }
+    return 0;
+}1844F2 - Min Cost Permutation (Hard Version)These hints and solution continue from the solution for the easy version, so please read the solution for the easy version first. Hint 4We need to optimize the O(n2) greedy with some data structures. There exist solutions with varying levels of data structure implementation depending on how much effort is put into characterizing the answer array. For a short solution, start by simplifying the formula (∗) (in the solution for the easy version) to get a cleaner description. Hint 5The condition is actually equivalent to (ai−1−ai+1≤|c| or ai−1=ai or ai=ai+1) and (bk−1−ai≤|c|). Hint 6Maintain a linked list of the unused entries of a and a set of unused entries that satisfy (ai−1−ai+1≤|c| or ai−1=ai or ai=ai+1). Solution (hard version)1844F2 - Min Cost Permutation (Hard Version)Let c<0.We now simplify condition (∗), which involves considering a few cases depending on the sign of the terms. It turns out that the condition is equivalent to (ai−1−ai+1≤|c| or ai−1=ai or ai=ai+1) and (bk−1−ai≤|c|) (for full details, see the overall proof below).Sort a in nonincreasing order so that a1≥a2≥⋯≥an. We can simulate the greedy algorithm from the easy version with the help of a linked list of the unused elements of a and a set of ai which satisfy the first part of the condition, (ai−1−ai+1≤|c| or ai−1=ai or ai=ai+1). Here, ai−1 and ai+1 actually refer to the closest unused elements of a, which are ai's left and right pointers in the linked list, respectively. Each time, we query the set for its smallest element ai that satisfies ai≥bk−1−|c|. If this element does not exist, then we take ai to be the largest element in the linked list. Then, we set bk:=ai, delete ai from the linked list, and update the set with the left and right elements of ai if they now satisfy the condition.One small observation is that in the answer b, b1=a1 and bn=an. This may simplify the implementation since it means that some edge cases of (∗) actually don't need to be checked. It is also actually not necessary to check the ai−1=ai or ai=ai+1 condition.The time complexity is O(nlogn). ProofsThe case n≤2 is trivial. In the following, we only consider the case c<0 and n≥3. The case c≥0 follows by symmetry (reverse the array).Let c′:=−c to reduce confusion with negative signs, and WLOG let a1≥a2≥⋯≥an.Instead of considering ∑n−1i=1|bi+1−bi−c|, consider a permutation b that minimizes the augmented cost |b1−bn−c|+∑n−1i=1|bi+1−bi−c|. By circular symmetry, WLOG rotate b so that bn=an.We will perform a sequence of steps to sort b in nonincreasing order without ever increasing the augmented cost. Consider looking at bn−1,bn−2,…,b1 in order, such that when we look at bk, we have the invariant that bk+1≥bk+2≥⋯≥bn=an. If bk≥bk+1, do not do anything. Otherwise, since bk≥an=bn, there exists an index k+1≤i<n such that bi≥bk≥bi+1. Consider deleting bk from the array and reinserting it between index i and i+1. We have the following results:Claim 1: Deleting bk decreases the augmented cost by at least c′.Proof: Let x:=bk−1−bk (or bn−b1 if k=1) and y:=bk+1−bk≥0. We need to check that |x−y−c′|+c′≤|x−c′|+|−y−c′|, which follows from |x−c′|+|−y−c′|=|x−c′|+y+c′≥|x−y−c′|+c′ (we use the triangle inequality in the last step).Note that equality holds if and only if x−c′≤0, i.e. bk−1−bk≤c′.Claim 2: Reinserting bk increases the augmented cost by at most c′.Proof: Let x:=bi−bk≥0 and y:=bk−bi+1≥0. We need to check that |x−c′|+|y−c′|≤|x+y−c′|+c′. Consider four cases:  If x,y≥c′, then |x−c′|+|y−c′|=x+y−2c′<(x+y−c′)+c′=|x+y−c′|+c′. If x≥c′,y≤c′, then |x−c′|+|y−c′|=x−y≤(x+y−c′)+c′=|x+y−c′|+c′. If x≤c′,y≥c′, then |x−c′|+|y−c′|=y−x≤(x+y−c′)+c′=|x+y−c′|+c′. If x,y≤c′, then |x−c′|+|y−c′|=2c′−x−y=(c′−x−y)+c′≤|x+y−c′|+c′. Note that equality holds if and only if x=0 or y=0 or c′−x−y≥0, i.e. bi−bi+1≤c′ or bi=bk or bk=bi+1.Therefore, each step does not increase the augmented cost. After all the steps, b will be sorted in nonincreasing order. Therefore, the smallest possible augmented cost is |a1−an−c|+∑n−1i=1|ai+1−ai−c|.Now note that |a1−an−c|=(a1−an)+c′ is the maximum possible value of |b1−bn−c|! This means that the minimum cost cannot be less than the minimum augmented cost minus (a1−an)+c′. It follows that the minimum cost is obtained by sorting a in nonincreasing order, and furthermore, any optimal permutation b satisfies b1=a1 and bn=an.Furthermore, suppose we have fixed b1,…,bk and also bn=an. By a similar argument (looking at bn−1,…,bk+1 and reinserting them to the right), one optimal permutation bk+1,…,bn of the remaining elements is to sort them in nonincreasing order. Our greedy algorithm can only reach states where the optimal remaining permutation satisfies bn=an, so it is correct.Note that condition (∗) is similar to equality being achieved in both claim 1 and claim 2. It follows that (∗) is equivalent to (ai−1−ai+1≤|c| or ai−1=ai or ai=ai+1) and (bk−1−ai≤|c|) as claimed. Implementation#include <bits/stdc++.h>
+using namespace std;
+typedef pair<int,int> pii;
+#define mp make_pair
+
+int a[200000],b[200000],l[200000],r[200000];
+set<pii> S;
+int main() {
+    int i;
+    int t,n,c;
+    scanf("%d",&t);
+    while (t--) {
+        scanf("%d %d",&n,&c);
+        for (i = 0; i < n; i++) scanf("%d",&a[i]);
+        if (c >= 0) {
+            sort(a,a+n);
+            for (i = 0; i < n; i++) printf("%d%c",a[i],(i == n-1) ? '\n':' ');
+            continue;
+        }
+
+        sort(a,a+n,greater<int>());
+        b[0] = a[0];
+        for (i = 0; i < n; i++) l[i] = (i+n-1) % n,r[i] = (i+1) % n;
+        for (i = 2; i < n-1; i++) {
+            if (a[l[i]]-a[r[i]] <= -c) S.insert(mp(a[i],i));
+        }
+        for (i = 1; i < n; i++) {
+            int u;
+            auto it = S.lower_bound(mp(b[i-1]+c,0));
+            if (it == S.end()) u = r[0];
+            else u = it->second,S.erase(it);
+            b[i] = a[u];
+            int x = l[u],y = r[u];
+            r[x] = y,l[y] = x;
+            S.erase(mp(a[x],x)),S.erase(mp(a[y],y));
+            if ((x != 0) && (l[x] != 0) && (r[x] != 0) && (a[l[x]]-a[r[x]] <= -c)) S.insert(mp(a[x],x));
+            if ((y != 0) && (l[y] != 0) && (r[y] != 0) && (a[l[y]]-a[r[y]] <= -c)) S.insert(mp(a[y],y));
+        }
+        for (i = 0; i < n; i++) printf("%d%c",b[i],(i == n-1) ? '\n':' ');
+    }
+    return 0;
+}1844G - Tree Weights Hint 1Model the problem as a system of linear equations.  Hint 2Let xu be the sum of the weights of the edges on the path from node 1 to node u. The equations are of the form xi+xi+1−2xlca(i,i+1)=di. Hint 3The intended solution does not do anything like attempt to maintain paths/virtual trees of known weight. One easily overlooked detail that is essential to the solution is that xi are integers. Hint 4Solve the equations modulo 2 first, so that the 2xlca(i,i+1) term disappears. Hint 5After solving the equations modulo 2, we can similarly solve modulo 4, 8, etc. Solution1844G - Tree WeightsLet $$$x_u$$$ be the sum of the weights of the edges on the path from node $$$1$$$ to node $$$u$$$. We know that $$$x_1 = 0$$$ and $$$x_i + x_{i+1} - 2x_{\text{lca}(i,i+1)} = d_i$$$ for all $$$1 \le i \le n-1$$$. This is a system of $$$n$$$ linear equations in $$$n$$$ variables.As $$$x_u$$$ should be integers, let's first solve this system modulo $$$2$$$. The $$$2x_{\text{lca}(i,i+1)}$$$ term disappears, so we just have $$$x_{i+1} \equiv d_i - x_i \pmod 2$$$. Starting from $$$x_1 \equiv 0 \pmod 2$$$, this uniquely determines $$$x_2 \pmod 2$$$, then $$$x_3 \pmod 2$$$, and so on.Now that we know $$$x_1,\dots,x_n \pmod 2$$$, write $$$x_u = 2x_u' + b_u$$$ where $$$b_u$$$ is the first bit of $$$x_u$$$. We can rewrite our system of equations as$$$$$$(2x_i'+b_i) + (2x_{i+1}'+b_{i+1}) - 2(2x_{\text{lca}(i,i+1)}'+b_{\text{lca}(i,i+1)}) = d_i$$$$$$ $$$$$$\iff x_i' + x_{i+1}' - 2x_{\text{lca}(i,i+1)}' = \frac{1}{2}\left(d_i-b_i-b_{i+1}+2b_{\text{lca}(i,i+1)}\right)$$$$$$which has the same form as the original system. Thus we can repeat this process to find $$$x_u' \pmod 2$$$ (giving $$$x_u \pmod 4$$$), then $$$x_u \pmod 8$$$, and so on. Note that each bit of $$$x_u$$$ is uniquely determined.If a solution exists, it satisfies $$$0 \le x_u \le n \cdot \max d_i \le 10^{17}$$$ for all $$$u$$$, so it suffices to repeat this process until we have found the first $$$57$$$ bits of $$$x_u$$$. Finally, we check that these $$$57$$$ bits correspond to a valid solution where all the original weights are positive.The time complexity is $$$\mathcal{O}(n(\log n + \log \max d_i))$$$, if the $$$\text{lca}(i,i+1)$$$ are precomputed.Remark: This idea is related to the method of Hensel Lifting. Implementation#include <bits/stdc++.h>
+using namespace std;
+typedef long long int LLI;
+typedef vector<pair<int,int> > vpii;
+#define mp make_pair
+#define pb push_back
+
+vpii adjList[100000];
+LLI d[100000];
+int parent[100000][17],parenti[100000],depth[100000];
+int doDFS(int u,int p,int d) {
+    parent[u][0] = p,depth[u] = d;
+    for (auto [v,i]: adjList[u]) {
+        if (v != p) parenti[v] = i,doDFS(v,u,d+1);
+    }
+    return 0;
+}
+int logn;
+int lca(int u,int v) {
+    int i;
+    if (depth[u] < depth[v]) swap(u,v);
+    for (i = logn-1; i >= 0; i--) {
+        if ((parent[u][i] != -1) && (depth[parent[u][i]] >= depth[v])) u = parent[u][i];
+    }
+    if (u == v) return u;
+    for (i = logn-1; i >= 0; i--) {
+        if (parent[u][i] != parent[v][i]) u = parent[u][i],v = parent[v][i];
+    }
+    return parent[u][0];
+}
+int lcas[100000],bit[100000];
+LLI ans[100000],w[100000];
+int main() {
+    int i;
+    int n,u,v;
+    scanf("%d",&n);
+    for (i = 0; i < n-1; i++) {
+        scanf("%d %d",&u,&v);
+        u--,v--;
+        adjList[u].pb(mp(v,i));
+        adjList[v].pb(mp(u,i));
+    }
+    for (i = 0; i < n-1; i++) scanf("%lld",&d[i]);
+
+    int j;
+    doDFS(0,-1,0);
+    for (i = 1; (1 << i) < n; i++) {
+        for (j = 0; j < n; j++) {
+            if (parent[j][i-1] != -1) parent[j][i] = parent[parent[j][i-1]][i-1];
+            else parent[j][i] = -1;
+        }
+    }
+    logn = i;
+    for (i = 0; i < n-1; i++) lcas[i] = lca(i,i+1);
+
+    for (i = 0; i < 57; i++) {
+        bit[0] = 0;
+        for (j = 0; j < n-1; j++) bit[j+1] = bit[j]^(d[j] & 1);
+        for (j = 0; j < n-1; j++) d[j] = (d[j]-bit[j]-bit[j+1]+2*bit[lcas[j]])/2;
+        for (j = 0; j < n; j++) ans[j] |= ((LLI) bit[j] << i);
+    }
+    for (i = 0; i < n-1; i++) {
+        if (d[i] != 0) {
+            printf("-1\n");
+            return 0;
+        }
+    }
+    for (i = 1; i < n; i++) {
+        w[parenti[i]] = ans[i]-ans[parent[i][0]];
+        if (w[parenti[i]] <= 0) {
+            printf("-1\n");
+            return 0;
+        }
+    }
+    for (i = 0; i < n-1; i++) printf("%lld\n",w[i]);
+
+    return 0;
+}1844H - Multiple of Three Cycles Hint 1The partially formed permutation is composed of several paths and cycles. Only the length of each path/cycle modulo 3 matters. Hint 2The problem reduces to the following: Given a 1s, b 2s, and c 0s, how many ways are there to build a permutation on these objects so that each cycle sums to a multiple of 3? Let f(a,b,c) be the answer. Write some dynamic programming recurrences for f(a,b,c). Hint 3Note that f(a,b,c)=(a+b+c)f(a,b,c−1) (choose the next object of any 0 and merge them).  Why is this useful?This allows us to eliminate the c parameter, multiplying the answer by a factorial and inverse factorial. Hint 4Let f(a,b)=f(a,b,0). Write down not one, but two recurrence relations f(a,b) satisfies. What are the recurrences?We have f(a,b)=b(a+b−1)f(a−1,b−1)+(a−1)f(a−2,b+1) when a>0 (choose the next object of any 1 and merge them) and also f(a,b)=a(a+b−1)f(a−1,b−1)+(b−1)f(a+1,b−2) when b>0 (choose the next object of any 2 and merge them). Hint 5These recurrences mean that given any two of f(a,b),f(a−1,b−1),f(a+2,b−1),f(a−1,b+2), we can solve for the other two. Hint 6Consider the pairs (a,b) that arise from the n queries. These pairs can be visualized as a walk in the plane, where each each pair does not differ from the previous pair by much. If we carefully use the recurrences to solve for values of f(a,b) from values we already know, we can answer all queries on this walk while calculating only O(n) values of f(a,b). Solution1844H - Multiple of Three CyclesThe partially formed permutation is composed of several paths and cycles, and only the length of each path/cycle modulo $$$3$$$ matters. We can use a DSU to track the number of paths/cycles of each length $$$\pmod 3$$$. If at any point a cycle whose length is not $$$\equiv 0 \pmod 3$$$ is formed, the answer is $$$0$$$.Thus, the problem reduces to the following:   Given $$$a$$$ $$$1$$$s, $$$b$$$ $$$2$$$s, and $$$c$$$ $$$0$$$s, how many ways are there to build a permutation on these objects so that each cycle sums to a multiple of $$$3$$$? Let $$$f(a,b,c)$$$ be the answer to this problem. Note that $$$f(a,b,c) = (a+b+c)f(a,b,c-1)$$$ for $$$c > 0$$$, as there are $$$a+b+c$$$ ways to choose the next object of any $$$0$$$, and after merging this $$$0$$$ with its next object, there are $$$f(a,b,c-1)$$$ ways to build a permutation on the remaining objects. Repeatedly applying this recurrence gives $$$f(a,b,c) = \frac{(a+b+c)!}{(a+b)!}f(a,b,0)$$$, so we can eliminate the $$$c$$$ parameter and multiply the answer by a factorial and inverse factorial in the end.Now let $$$f(a,b) = f(a,b,0)$$$. We have not one, but two recurrence relations $$$f(a,b)$$$ satisfies:   $$$f(a,b) = bf(a-1,b-1,1) + (a-1)f(a-2,b+1) = b(a+b-1)f(a-1,b-1) + (a-1)f(a-2,b+1)$$$ when $$$a > 0$$$ (consider the next object of any $$$1$$$)  $$$f(a,b) = af(a-1,b-1,1) + (b-1)f(a+1,b-2) = a(a+b-1)f(a-1,b-1) + (b-1)f(a+1,b-2)$$$ when $$$b > 0$$$ (consider the next object of any $$$2$$$) The key idea now is that because we have two equations relating the four values $$$f(a,b),f(a-1,b-1),f(a+2,b-1),f(a-1,b+2)$$$, given any two of these values, we can solve for the other two. For example, if we know $$$f(a,b)$$$ and $$$f(a-1,b-1)$$$, we can calculate $$$f(a-2,b+1) = \frac{f(a,b)-b(a+b-1)f(a-1,b-1)}{a-1}$$$. Also note that the queried pairs $$$(a,b)$$$ can be visualized as a walk in the plane, where each pair does not differ from the previous pair by much. By using these recurrences carefully, it is possible to calculate $$$f(a,b)$$$ for all queries $$$(a,b)$$$ while calculating only $$$\mathcal{O}(n)$$$ values of $$$f$$$.The details can be tricky. The author's solution does the following: First, reverse the order of the updates, possibly adding dummy updates if a cycle whose length is not $$$\equiv 0 \pmod 3$$$ is created early. Then we need to find $$$f(a_i,b_i)$$$ for a sequence of pairs $$$(a_1,b_1),(a_2,b_2),\dots$$$ where $$$(a_1,b_1) = (0,0)$$$ and $$$(a_{i+1},b_{i+1})$$$ is one of $$$(a_i,b_i)$$$, $$$(a_i-1,b_i+2)$$$, $$$(a_i+2,b_i-1)$$$, or $$$(a_i+1,b_i+1)$$$ for all $$$i$$$. We loop through $$$i$$$ in order, maintaining two values $$$u := f(a_i,b_i)$$$ and $$$v := f(a_i+1,b_i+1)$$$ at all times. Whenever we need a transition of the form $$$(a_i,b_i) \to (a_i-1,b_i+2)$$$, we use the recurrence $$$f(a_i+1,b_i+1) = (b_i+1)(a_i+b_i+1)f(a_i,b_i) + a_if(a_i-1,b_i+2)$$$ to solve for $$$f(a_i-1,b_i+2)$$$ (the new value of $$$u$$$), then use the recurrence $$$f(a_i,b_i+3) = a_i(a_i+b_i+2)f(a_i-1,b_i+2) + (b_i+2)f(a_i+1,b_i+1)$$$ to find $$$f(a_i,b_i+3)$$$ (the new value of $$$v$$$). The $$$(a_i,b_i) \to (a_i+2,b_i-1)$$$ transition is similar. For $$$(a_i,b_i) \to (a_i+1,b_i+1)$$$ transitions, do both of the previous types of transitions once.The time complexity of the main part of the problem is $$$\mathcal{O}(N)$$$. The overall time complexity is $$$\mathcal{O}(N\alpha(N))$$$, dominated by the DSU operations.Remark 1: Since $$$1$$$s and $$$2$$$s behave symmetrically, $$$f(a,b,c) = f(b,a,c)$$$.Remark 2: The exponential generating function for $$$f(a,b)$$$ is $$$\sum_{a \ge 0}\sum_{b \ge 0} \frac{f(a,b)}{a!b!}x^ay^b = (1-(x^3+3xy+y^3))^{-1/3}$$$.  Implementation#include <bits/stdc++.h>
+using namespace std;
+typedef long long int LLI;
+#define MOD 998244353
+
+int parent[300000],siz[300000];
+int find(int n) {
+    if (parent[n] != n) parent[n] = find(parent[n]);
+    return parent[n];
+}
+int queries[600000][3],ans[600000];
+int fact[300000],invfact[300000],invn[300000];
+int inv(int n) {
+    int e = MOD-2,r = 1;
+    while (e > 0) {
+        if (e & 1) r = ((LLI) r*n) % MOD;
+        e >>= 1;
+        n = ((LLI) n*n) % MOD;
+    }
+    return r;
+}
+int main() {
+    int i;
+    int n,x,y,bad = 1e9;
+    int num[3];
+    scanf("%d",&n);
+    for (i = 0; i < n; i++) parent[i] = i,siz[i] = 1;
+    num[0] = 0,num[1] = n,num[2] = 0;
+    for (i = 0; i < n; i++) {
+        scanf("%d %d",&x,&y);
+        x--,y--;
+        if (find(x) != find(y)) {
+            num[siz[find(x)] % 3]--;
+            num[siz[find(y)] % 3]--;
+            siz[find(y)] += siz[find(x)];
+            parent[find(x)] = find(y);
+            num[siz[find(y)] % 3]++;
+        }
+        else if ((siz[find(x)] % 3) == 0) num[0]--;
+        else if (bad == 1e9) bad = i;
+        copy(num,num+3,queries[i]);
+    }
+
+    fact[0] = 1;
+    for (i = 1; i < n; i++) fact[i] = ((LLI) i*fact[i-1]) % MOD;
+    invfact[n-1] = inv(fact[n-1]);
+    for (i = n-2; i >= 0; i--) invfact[i] = ((LLI) (i+1)*invfact[i+1]) % MOD;
+    for (i = 1; i < n; i++) invn[i] = ((LLI) invfact[i]*fact[i-1]) % MOD;
+
+    int m = n;
+    while (num[1]+num[2] > 0) {
+        int a = (num[1] > 0) ? 1:2;
+        num[a]--;
+        int b = (num[1] > 0) ? 1:2;
+        num[b]--;
+        num[(a+b) % 3]++;
+        copy(num,num+3,queries[m++]);
+    }
+    x = 1,y = 1;
+    int u = 1,v = 8;
+    auto f = [&]() {
+        assert(x > 0);
+        int nu = (((v-(((LLI) (y+1)*(x+y+1)) % MOD)*u) % MOD)*invn[x]) % MOD;
+        int nv = ((((LLI) x*(x+y+2)) % MOD)*nu+(LLI) (y+2)*v) % MOD;
+        x--,y += 2,u = nu,v = nv;
+        if (u < 0) u += MOD;
+        if (v < 0) v += MOD;
+    };
+    auto g = [&]() {
+        assert(y > 0);
+        int nu = (((v-(((LLI) (x+1)*(x+y+1)) % MOD)*u) % MOD)*invn[y]) % MOD;
+        int nv = ((((LLI) y*(x+y+2)) % MOD)*nu+(LLI) (x+2)*v) % MOD;
+        x += 2,y--,u = nu,v = nv;
+        if (u < 0) u += MOD;
+        if (v < 0) v += MOD;
+    };
+    for (i = m-1; i >= 0; i--) {
+        int a = queries[i][1],b = queries[i][2],c = queries[i][0];
+        if ((a == 0) && (b == 0)) ans[i] = 1;
+        else if ((a == x) && (b == y)) ans[i] = u;
+        else if ((a == x-1) && (b == y+2)) f(),ans[i] = u;
+        else if ((a == x+2) && (b == y-1)) g(),ans[i] = u;
+        else if ((a == x+1) && (b == y+1)) {
+            if (x > 0) f(),g(),ans[i] = u;
+            else g(),f(),ans[i] = u;
+        }
+        else assert(0);
+        ans[i] = ((LLI) ans[i]*fact[a+b+c]) % MOD;
+        ans[i] = ((LLI) ans[i]*invfact[a+b]) % MOD;
+    }
+    for (i = 0; i < n; i++) printf("%d\n",(i >= bad) ? 0:ans[i]);
+
+    return 0;
+}
+Video editorials for B, C, and D are available on ak2006's channel.
+Hint 1There exists a small n where the second player can win.
+There exists a small n where the second player can win.
+There exists a small n where the second player can win.
+Hint 2If a≥2, then n=1 works.
+If a≥2, then n=1 works.
+If a≥2, then n=1 works.
