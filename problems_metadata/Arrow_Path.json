@@ -1,0 +1,20 @@
+{
+    "time_limit": "2 seconds",
+    "memory_limit": "256 megabytes",
+    "tags": [
+        "brute force",
+        "constructive algorithms",
+        "dfs and similar",
+        "dp",
+        "graphs",
+        "shortest paths",
+        "*1300"
+    ],
+    "solution": [
+        "There are multiple different approaches to this problem. We will describe a couple of them.",
+        "The key observation for this problem that works for all these approaches is that, since we never skip a move and never try to move outside the grid, we can split the cells into two groups:",
+        "Each movement leads us from one of these groups to the other group, that's why we always visit even cells after the second action and odd cells after the first action during each second.",
+        "Solution 1 (graph-based). Create a graph where each cell is represented by a vertex; if this is an even cell, then the robot can choose any direction from it, so we add directed arcs from it into all adjacent cells. If this is an odd cell, then the robot will be forced to move along the arrow in that cell, so we add only one directed arc from the corresponding vertex. Then we check if the vertex representing (2,n)(2,n) is reachable from the vertex representing (1,1)(1,1) via DFS or BFS.",
+        "Solution 2 (observation-based). We can try searching for a pattern that \"blocks\" our robot, i.\u2009e. does not let it advance further. If there are two adjacent by angle odd cells, which both have arrows leading to the left, then every path of the robot will pass through at least one of them; and every time it goes through one of them, it will be forced to the left. So any pair of odd <-type cells which share an angle (i.\u2009e. are on the same diagonal) means that the answer is NO. Otherwise, we can show that the answer is yes; the proof is based on the fact that for every even cell, either the cell in the same column or the cell to the right will contain an arrow leading to the right, so we can always go forward."
+    ]
+}

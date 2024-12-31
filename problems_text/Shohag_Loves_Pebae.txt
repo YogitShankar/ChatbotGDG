@@ -1,0 +1,5 @@
+Shohag has a tree with n n nodes.
+
+Pebae has an integer m m . She wants to assign each node a value — an integer from 1 1 to m m . So she asks Shohag to count the number, modulo 998 244 353 998 244 353 , of assignments such that following conditions are satisfied:
+
+But this problem is too hard for Shohag to solve. As Shohag loves Pebae, he has to solve the problem. Please save Shohag!

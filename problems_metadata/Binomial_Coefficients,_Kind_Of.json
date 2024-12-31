@@ -1,0 +1,11 @@
+{
+    "time_limit": "2 seconds",
+    "memory_limit": "512 megabytes",
+    "tags": [
+        "combinatorics",
+        "dp",
+        "math",
+        "*1100"
+    ],
+    "solution": "2025B - Binomial Coefficients, Kind OfIn order to solve the task, just try to generate values and find a pattern. The pattern is easy:C[n][k]=2kC[n][k]=2kfor allk\u2208[0,n)k\u2208[0,n).The last step is to calculateC[n][k]C[n][k]fast enough. For example, we can precalculate all powers of two in some arrayppasp[k]=2\u22c5p[k\u22121]mod(109+7)p[k]=2\u22c5p[k\u22121]mod(109+7)for allk<105k<105and print the necessary values when asked.Proof:C[n][k]=C[n][k\u22121]+C[n\u22121][k\u22121]=C[n][k]=C[n][k\u22121]+C[n\u22121][k\u22121]==C[n][k\u22122]+2\u22c5C[n\u22121][k\u22122]+C[n\u22122][k\u22122]==C[n][k\u22122]+2\u22c5C[n\u22121][k\u22122]+C[n\u22122][k\u22122]==C[n][k\u22123]+3\u22c5C[n\u22121][k\u22123]+3\u22c5C[n\u22122][k\u22123]+C[n\u22123][k\u22123]==C[n][k\u22123]+3\u22c5C[n\u22121][k\u22123]+3\u22c5C[n\u22122][k\u22123]+C[n\u22123][k\u22123]==\u2211i=0j(ji)\u22c5C[n\u2212i][k\u2212j]=\u2211i=0k(ki)\u22c5C[n\u2212i][0]=\u2211i=0k(ki)=2k=\u2211i=0j(ji)\u22c5C[n\u2212i][k\u2212j]=\u2211i=0k(ki)\u22c5C[n\u2212i][0]=\u2211i=0k(ki)=2k"
+}

@@ -1,0 +1,14 @@
+{
+    "time_limit": "2 seconds",
+    "memory_limit": "256 megabytes",
+    "tags": [
+        "combinatorics",
+        "dp",
+        "math",
+        "number theory",
+        "*2200"
+    ],
+    "solution": [
+        "First, if p1p1 is not equal to 11, or sm2sm2 is not equal to nn, or pm1pm1 is not equal to s1s1, then the answer is 00 for obvious reasons. Otherwise, we know exactly where the number nn is located, at position s1s1. Next, we have (n\u22121s1\u22121)(n\u22121s1\u22121) ways to divide the numbers from 11 to n\u22121n\u22121 into two sets\u00a0\u2014 the numbers that will be in the left part and the numbers that will be in the right part (the left part\u00a0\u2014 all indices <s1<s1, the right part\u00a0\u2014 all indices >s1>s1). We solve for the left part, and similarly for the right part. For the left part, the position of the maximum (pm1\u22121pm1\u22121) is again defined, and the maximum itself is also unique in the set of numbers for the left part, so we can again divide the left part into two, with (pm1\u22122pm1\u22121\u22121)(pm1\u22122pm1\u22121\u22121) ways to do so, but we can also arrange the numbers between indices pm1\u22121pm1\u22121 and pm1pm1 (non-inclusive) in any order, i.e., (pm1\u2212pm1\u22121\u22121)!(pm1\u2212pm1\u22121\u22121)! ways. Then we solve similarly for the left set (i.e., for indices less than pm1\u22121pm1\u22121)."
+    ]
+}

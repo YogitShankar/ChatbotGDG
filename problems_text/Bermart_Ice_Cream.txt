@@ -1,0 +1,3 @@
+In the Bermart chain of stores, a variety of ice cream is sold. Each type of ice cream has two parameters: price and tastiness.
+
+Initially, there is one store numbered 1 1 , which sells nothing. You have to process q q queries of the following types:

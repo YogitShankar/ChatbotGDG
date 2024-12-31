@@ -1,0 +1,17 @@
+{
+    "time_limit": "6 seconds",
+    "memory_limit": "512 megabytes",
+    "tags": [
+        "bitmasks",
+        "brute force",
+        "dsu",
+        "graph matchings",
+        "trees",
+        "*3100"
+    ],
+    "solution": [
+        "The key to solving this problem is applying K\u0151nig's theorem: in a bipartite graph, the size of the maximum matching is equal to the size of the minimum vertex cover. At the first glance it shouldn't work here, because our graph is not bipartite; however, when we leave only the edges belonging to the spanning tree we chose, it becomes bipartite. So instead of adding cc to the cost of the tree for each edge in its maximum matching, we can add cc to the cost of the tree for each vertex in its minimum vertex cover.",
+        "This allows us to try iterating on that vertex cover. Let's fix a set of vertices SS, say that this is the minimum vertex cover, and the second part of the cost is equal to c\u22c5|S|c\u22c5|S|. How to build a minimum-cost spanning tree which has SS as its minimum vertex cover? Well, that's not really easy to do; but instead, we can build a minimum-cost spanning tree which has SS as one of its vertex covers (not necessarily minimum). The fact that there might be some other vertex cover of smaller size for the tree doesn't really matter, because we can generate this tree again using a smaller set of vertices as its vertex cover.",
+        "So, how do we build a minimum spanning tree such that SS is its vertex cover? This is actually easy: we forbid all edges such that none of their endpoints are in SS (because they can't be covered), and use any regular MST algorithm on all edges we have not forbidden. If we use Prim's algorithm, we get a solution in O(2n\u22c5n2)O(2n\u22c5n2), which is fast enough to pass the time limit. Kruskal's algorithm with DSU might be a bit slower, but can also get accepted."
+    ]
+}

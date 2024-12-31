@@ -1,0 +1,15 @@
+Suppose you have n n water barrels standing in a row, numbered from 1 1 to n n .
+
+All barrels are equal and have a bottom area equal to one unit, so the volume of the water inside a barrel is equal to the height of the water column. Initially, the i i -th barrel has v i v i units of water.
+
+Adjacent barrels are connected by pipes. In other words, for each i i from 1 1 to n − 1 n − 1 , barrels i i and i + 1 i + 1 are connected by a single horizontal pipe at height h i h i . The widths of the pipes are negligible. These pipes allow water to flow between barrels.
+
+Now you want to play with barrels. Your plan is to maximize the volume of the water in the first barrel by throwing clay into barrels. In one step, you can choose any barrel and throw one unit of clay into it. One unit of clay has the same volume as one unit of water. Clay is heavier than water and doesn't mix with it, so it falls to the bottom of the barrel, distributing evenly.
+
+Clay has a sticky structure, so it seals pipes if the clay column is high enough. More formally, suppose the pipe is at height h h . If the height of the clay column is also h h (or lower), the pipe is working . But the moment you add more clay into the barrel, the pipe becomes sealed instantly, preventing any water from moving between barrels.
+
+You have a mountain of clay, so you can repeat the step described above any number of times. However, between the steps, you have to wait until the water reaches the new equilibrium.
+
+What is the maximum water volume you can collect in the first barrel?
+
+Assume that the barrels are high enough, so the water doesn't overflow, and the pipe widths are negligible.

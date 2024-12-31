@@ -1,0 +1,7 @@
+An expression is a string consisting of three characters, where the first and the last characters are digits (from 0 0 to 9 9 ), and the middle character is a comparison symbol ( < , = or > ).
+
+An expression is true if the comparison symbol matches the digits (for example, if the first digit is strictly less than the last digit, the comparison symbol should be < ).
+
+For example, the expressions 1<3 , 4>2 , 0=0 are true, while 5>5 , 7<3 are not.
+
+You are given a string s s , which is an expression. Change as few characters as possible so that s s becomes a true expression. Note that if s s is already true, you should leave it as it is.

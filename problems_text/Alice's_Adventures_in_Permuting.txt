@@ -1,0 +1,9 @@
+Alice mixed up the words transmutation and permutation! She has an array a a specified via three integers n n , b b , c c : the array a a has length n n and is given via a i = b ⋅ ( i − 1 ) + c a i = b ⋅ ( i − 1 ) + c for 1 ≤ i ≤ n 1 ≤ i ≤ n . For example, if n = 3 n = 3 , b = 2 b = 2 , and c = 1 c = 1 , then a = [ 2 ⋅ 0 + 1 , 2 ⋅ 1 + 1 , 2 ⋅ 2 + 1 ] = [ 1 , 3 , 5 ] a = [ 2 ⋅ 0 + 1 , 2 ⋅ 1 + 1 , 2 ⋅ 2 + 1 ] = [ 1 , 3 , 5 ] .
+
+Now, Alice really enjoys permutations of [ 0 , … , n − 1 ] [ 0 , … , n − 1 ] ∗ ∗ and would like to transform a a into a permutation. In one operation, Alice replaces the maximum element of a a with the MEX MEX † † of a a . If there are multiple maximum elements in a a , Alice chooses the leftmost one to replace.
+
+Can you help Alice figure out how many operations she has to do for a a to become a permutation for the first time? If it is impossible, you should report it.
+
+∗ ∗ A permutation of length n n is an array consisting of n n distinct integers from 0 0 to n − 1 n − 1 in arbitrary order. Please note, this is slightly different from the usual definition of a permutation. For example, [ 1 , 2 , 0 , 4 , 3 ] [ 1 , 2 , 0 , 4 , 3 ] is a permutation, but [ 0 , 1 , 1 ] [ 0 , 1 , 1 ] is not a permutation ( 1 1 appears twice in the array), and [ 0 , 2 , 3 ] [ 0 , 2 , 3 ] is also not a permutation ( n = 3 n = 3 but there is 3 3 in the array).
+
+† † The MEX MEX of an array is the smallest non-negative integer that does not belong to the array. For example, the MEX MEX of [ 0 , 3 , 1 , 3 ] [ 0 , 3 , 1 , 3 ] is 2 2 and the MEX MEX of [ 5 ] [ 5 ] is 0 0 .

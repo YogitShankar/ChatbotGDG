@@ -1,0 +1,9 @@
+Imagine you have n n light bulbs numbered 1 , 2 , … , n 1 , 2 , … , n . Initially, all bulbs are on . To flip the state of a bulb means to turn it off if it used to be on, and to turn it on otherwise.
+
+Next, you do the following:
+
+After performing all operations, there will be several bulbs that are still on. Your goal is to make this number exactly k k .
+
+Find the smallest suitable n n such that after performing the operations there will be exactly k k bulbs on. We can show that an answer always exists.
+
+† † An integer x x is divisible by y y if there exists an integer z z such that x = y ⋅ z x = y ⋅ z .

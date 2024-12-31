@@ -1,0 +1,11 @@
+For an arbitrary binary string t t ∗ ∗ , let f ( t ) f ( t ) be the number of non-empty subsequences † † of t t that contain only 0 0 , and let g ( t ) g ( t ) be the number of non-empty subsequences of t t that contain at least one 1 1 .
+
+Note that for f ( t ) f ( t ) and for g ( t ) g ( t ) , each subsequence is counted as many times as it appears in t t . E.g., f ( 000 ) = 7 , g ( 100 ) = 4 f ( 000 ) = 7 , g ( 100 ) = 4 .
+
+We define the oneness of the binary string t t to be | f ( t ) − g ( t ) | | f ( t ) − g ( t ) | , where for an arbitrary integer z z , | z | | z | represents the absolute value of z z .
+
+You are given a positive integer n n . Find a binary string s s of length n n such that its oneness is as small as possible. If there are multiple strings, you can print any of them.
+
+∗ ∗ A binary string is a string that only consists of characters 0 0 and 1 1 .
+
+† † A sequence a a is a subsequence of a sequence b b if a a can be obtained from b b by the deletion of several (possibly, zero or all) elements. For example, subsequences of 1011101 1011101 are 0 0 , 1 1 , 11111 11111 , 0111 0111 , but not 000 000 nor 11100 11100 .

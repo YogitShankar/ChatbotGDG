@@ -1,0 +1,4 @@
+There are balls of n n different colors; the number of balls of the i i -th color is a i a i .
+The balls can be combined into groups. Each group should contain at most 2 2 balls, and no more than 1 1 ball of each color.
+Consider all 2 n 2 n sets of colors. For a set of colors, let's denote its value as the minimum number of groups the balls of those colors can be distributed into. For example, if there are three colors with 3 3 , 1 1 and 7 7 balls respectively, they can be combined into 7 7 groups (and not less than 7 7 ), so the value of that set of colors is 7 7 .
+Your task is to calculate the sum of values over all 2 n 2 n possible sets of colors. Since the answer may be too large, print it modulo 998 244 353 998 244 353 .

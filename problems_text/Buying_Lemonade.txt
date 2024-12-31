@@ -1,0 +1,9 @@
+There is a vending machine that sells lemonade. The machine has a total of n n slots. You know that initially, the i i -th slot contains a i a i cans of lemonade. There are also n n buttons on the machine, each button corresponds to a slot, with exactly one button corresponding to each slot. Unfortunately, the labels on the buttons have worn off, so you do not know which button corresponds to which slot.
+
+When you press the button corresponding to the i i -th slot, one of two events occurs:
+
+After pressing, the can drops out so quickly that it is impossible to track from which slot it fell. The contents of the slots are hidden from your view, so you cannot see how many cans are left in each slot. The only thing you know is the initial number of cans in the slots: a 1 , a 2 , … , a n a 1 , a 2 , … , a n .
+
+Determine the minimum number of button presses needed to guarantee that you receive at least k k cans of lemonade.
+
+Note that you can adapt your strategy during the button presses based on whether you received a can or not. It is guaranteed that there are at least k k cans of lemonade in total in the machine. In other words, k ≤ a 1 + a 2 + … + a n k ≤ a 1 + a 2 + … + a n .

@@ -1,0 +1,3 @@
+Farmer John has an array a a of length n n . He also has a function f f with the following recurrence:
+Note that f ( i ) f ( i ) is not necessarily an integer.
+He plans to do q q updates to the array. Each update, he gives you two integers k k and x x and he wants you to set a k = x a k = x . After each update, he wants to know ⌊ f ( n ) ⌋ ⌊ f ( n ) ⌋ , where ⌊ t ⌋ ⌊ t ⌋ denotes the value of t t rounded down to the nearest integer.

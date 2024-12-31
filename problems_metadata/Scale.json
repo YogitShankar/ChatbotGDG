@@ -1,0 +1,12 @@
+{
+    "time_limit": "2 seconds",
+    "memory_limit": "256 megabytes",
+    "tags": [
+        "greedy",
+        "implementation",
+        "*800"
+    ],
+    "solution": [
+        "Let's define every kk by kk block of cells by its value in the top left corner, since all cells in the block must have the same value. So, we can just print out the value of the cell in every kk'th row and every kk'th column."
+    ]
+}

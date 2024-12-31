@@ -1,0 +1,13 @@
+{
+    "time_limit": "2 seconds",
+    "memory_limit": "256 megabytes",
+    "tags": [
+        "bitmasks",
+        "dfs and similar",
+        "flows",
+        "graph matchings",
+        "graphs",
+        "*2500"
+    ],
+    "solution": "2026E - Best SubsequenceLet the number of chosen elements bekk, and their bitwise OR bexx. The answer is equal tok\u2212popcount(x)k\u2212popcount(x), wherepopcount(x)popcount(x)is the number of bits equal to11inxx.However, we can rewritepopcount(x)popcount(x)as60\u2212zeroes(x)60\u2212zeroes(x), wherezeroes(x)zeroes(x)is equal to the number of bits equal to00among the first6060bits inxx. So, we have to maximize the value ofk+zeroes(x)k+zeroes(x).Consider the following bipartite graph: the left part consists of elements of the given array, the right part consists of bits. An edge between vertexiifrom the left part and vertexjjfrom the right part means that thejj-th bit inaiaiis set to11.Suppose we've chosen a set of vertices in the left part (the elements of our subsequence). The bits which are equal to00in the bitwise OR are represented by such verticesjjsuch that no chosen vertex from the left part is connected tojj. So, if we unite the chosen vertices from the left part with the vertices in the right part representing bits equal to00, this will be an independent subset of vertices.Thus, our problem is reduced to finding the maximum size of the independent subset of vertices. Usually, this problem is NP-complete. However, our graph is bipartite. So, we can use the following:by Konig's theorem, in a bipartite graph, the size of the minimum vertex cover is equal to the size of the maximum matching;and in every graph, independent subsets and vertex covers are complements of each other (ifSSis a vertex cover, then the set of all vertices not belonging toSSis an independent subset, and vice versa). So, the maximum independent subset is the complement of the minimum vertex cover.It means that we can calculate the size of the maximum independent subset asV\u2212MMV\u2212MM, whereVVis the number of vertices in the graph, andMMMMis the size of the maximum matching. We can computeMMMMusing any maximum matching algorithm or network flow."
+}

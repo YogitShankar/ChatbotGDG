@@ -1,0 +1,12 @@
+{
+    "time_limit": "1 second",
+    "memory_limit": "256 megabytes",
+    "tags": [
+        "implementation",
+        "sortings",
+        "*800"
+    ],
+    "solution": [
+        "You can use, for example, an if-statement or some inbuilt minmin and maxmax function available in most languages (like Python or C++)."
+    ]
+}

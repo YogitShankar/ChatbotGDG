@@ -1,0 +1,12 @@
+{
+    "time_limit": "1 second",
+    "memory_limit": "256 megabytes",
+    "tags": [
+        "implementation",
+        "math",
+        "*800"
+    ],
+    "solution": [
+        "From 24-hour format to 12-hour format, the minutes are the same. For the hours:"
+    ]
+}

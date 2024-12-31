@@ -1,0 +1,2 @@
+You are given a binary (consisting only of 0 s and 1 s) n × m n × m matrix. You are also given a XORificator, using which you can invert all the values in a chosen row (i.e. replace 0 with 1 and 1 with 0 ).
+A column in the matrix is considered special if it contains exactly one 1 . Your task is to find the maximum number of columns that can be made special at the same time, and the set of rows the XORificator should be used on to achieve that.

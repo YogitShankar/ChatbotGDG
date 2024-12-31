@@ -1,0 +1,5 @@
+Ruby just won an internship position at Farmer John's farm by winning a coding competition! As the newly recruited intern, Ruby is tasked with maintaining Farmer John's peach tree, a tree consisting of n n nodes rooted at node 1 1 . Each node initially contains a i = 0 a i = 0 peaches, and there are two types of events that can happen:
+Ruby is also given an array b b of length n n . The peach tree is deemed healthy if a i ≥ b i a i ≥ b i for every node i i .
+Ruby is asked to perform q q operations of two types:
+For every prefix of operations, Ruby asks you to find if she can perform these operations in some order such that the resulting peach tree (at the end of these operations) is healthy. Note that Ruby can't perform a harvest event that makes any a i a i negative.
+Every prefix is independent, meaning that for a given operation, Ruby may choose different nodes to perform events on for every prefix that contains that operation.

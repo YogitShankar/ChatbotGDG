@@ -1,0 +1,15 @@
+{
+    "time_limit": "2 seconds",
+    "memory_limit": "512 megabytes",
+    "tags": [
+        "2-sat",
+        "binary search",
+        "combinatorics",
+        "constructive algorithms",
+        "dfs and similar",
+        "dsu",
+        "graphs",
+        "*2500"
+    ],
+    "solution": null
+}

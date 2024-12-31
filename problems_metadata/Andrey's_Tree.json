@@ -1,0 +1,16 @@
+{
+    "time_limit": "4 seconds",
+    "memory_limit": "256 megabytes",
+    "tags": [
+        "binary search",
+        "constructive algorithms",
+        "data structures",
+        "dfs and similar",
+        "dsu",
+        "greedy",
+        "implementation",
+        "trees",
+        "*2800"
+    ],
+    "solution": null
+}

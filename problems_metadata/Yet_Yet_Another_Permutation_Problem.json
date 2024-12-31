@@ -1,0 +1,11 @@
+{
+    "time_limit": "5 seconds",
+    "memory_limit": "1024 megabytes",
+    "tags": [
+        "divide and conquer",
+        "fft",
+        "math",
+        "*3400"
+    ],
+    "solution": null
+}

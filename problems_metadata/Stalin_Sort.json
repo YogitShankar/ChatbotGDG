@@ -1,0 +1,10 @@
+{
+    "time_limit": "1 second",
+    "memory_limit": "256 megabytes",
+    "tags": [
+        "brute force",
+        "greedy",
+        "*1100"
+    ],
+    "solution": "2027B - Stalin SortAn array is vulnerable if and only if the first element is the largest. To prove the forward direction, we can trivially perform a single operation on the entire range, which will clearly make it non-increasing. Now, let's prove the reverse direction. Consider any array in which the maximum is not the first element. Note that a Stalin Sort on any subarray will never remove the first element, and also will never remove the maximum. So if the first is not the maximum, this will always break the non-increasing property.Therefore, we just need to find the longest subsequence in which the first element is the largest. This can be done easily inO(n2)O(n2)\u2014 consider each index being the first item in the subsequence, and count all items to the right of it which are smaller or equal to it. Find the maximum over all of these, then subtract this fromnn.Bonus: Solve this task inO(nlogn)O(nlog\u2061n)."
+}

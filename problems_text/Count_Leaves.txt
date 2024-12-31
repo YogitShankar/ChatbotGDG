@@ -1,0 +1,9 @@
+Let n n and d d be positive integers. We build the the divisor tree T n , d T n , d as follows:
+
+For example, T 6 , 2 T 6 , 2 (the divisor tree for n = 6 n = 6 and d = 2 d = 2 ) looks like this:
+
+Define f ( n , d ) f ( n , d ) as the number of leaves in T n , d T n , d .
+
+Given integers n n , k k , and d d , please compute ∑ i = 1 n f ( i k , d ) ∑ i = 1 n f ( i k , d ) , modulo 10 9 + 7 10 9 + 7 .
+
+† † In this problem, we say that an integer y y is a divisor of x x if y ≥ 1 y ≥ 1 and there exists an integer z z such that x = y ⋅ z x = y ⋅ z .

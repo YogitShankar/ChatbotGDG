@@ -1,0 +1,7 @@
+Finally, lunchtime!
+n n schoolchildren have lined up in a long queue at the cook's tent for porridge. The cook will be serving porridge for D D minutes. The schoolchild standing in the i i -th position in the queue has a priority of k i k i and eats one portion of porridge in s i s i minutes.
+At the beginning of each minute of the break, the cook serves the first schoolchild in the queue one portion of porridge, after which the schoolchild goes to eat their portion. If the i i -th schoolchild is served a portion at the beginning of the x x -th minute, then they will return to the queue at the end of the ( x + s i ) ( x + s i ) -th minute.
+When the i i -th schoolchild returns to the queue, the schoolchildren at the end of the queue whose priority is strictly lower than that of the i i -th schoolchild must let them pass. Thus, they will stand in the queue behind the last schoolchild whose priority is not lower than their own. That is, behind the last schoolchild j j with k j ≥ k i k j ≥ k i . If there is no such schoolchild in the queue, the i i -th schoolchild will stand at the front of the queue.
+If several schoolchildren return at the same time, they will return to the queue in ascending order of their s i s i .
+For example, if n = 3 n = 3 , D = 3 D = 3 , k = [ 2 , 3 , 2 ] k = [ 2 , 3 , 2 ] , and s = [ 2 , 1 , 3 ] s = [ 2 , 1 , 3 ] , the serving will occur as follows:
+Determine the minimum number of minutes after the start of the break that each schoolchild will receive porridge at least once, or report that this will not happen within D D minutes.

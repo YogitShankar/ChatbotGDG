@@ -1,0 +1,16 @@
+{
+    "time_limit": "2 seconds",
+    "memory_limit": "256 megabytes",
+    "tags": [
+        "constructive algorithms",
+        "implementation",
+        "math",
+        "*800"
+    ],
+    "solution": [
+        "Obviously, you can't send fewer than 22 invitations. Since all pi\u2260ipi\u2260i, you need to send at least 22 invitations (ii and pipi) in order for at least some friend ii to come.",
+        "On the other hand, you never need to send more than 33 invitations. You can always send invitations to friends i,pii,pi, and ppippi, so that ii and pipi come.",
+        "Now we need to determine the condition for when two invitations are enough. That is, we send invitations to friends ii and jj, and both of them come. This means pi=jpi=j and pj=ipj=i. This check is already enough to solve the problem in O(n2)O(n2). But you can think further and see that since j=pij=pi, the second check becomes ppi=ippi=i. This means it is enough to iterate over friend ii and check if ppi=ippi=i for at least one of them.",
+        "Overall complexity: O(n)O(n) per testcase."
+    ]
+}

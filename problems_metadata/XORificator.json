@@ -1,0 +1,14 @@
+{
+    "time_limit": "2 seconds",
+    "memory_limit": "256 megabytes",
+    "tags": [
+        "bitmasks",
+        "brute force",
+        "greedy",
+        "hashing",
+        "*2300"
+    ],
+    "solution": [
+        "Note that one action with the cube changes the parity of the number of cubes in the tower. Therefore, if the parities of nn and mm do not match, it is impossible to build the tower. Also, if n<mn<m, the tower cannot be built either. In all other cases, it is possible to build a tower of height mm in mm operations, and then add and remove a cube until the operations are exhausted."
+    ]
+}

@@ -1,0 +1,21 @@
+{
+    "time_limit": "3 seconds",
+    "memory_limit": "256 megabytes",
+    "tags": [
+        "bitmasks",
+        "dfs and similar",
+        "dp",
+        "graphs",
+        "hashing",
+        "implementation",
+        "strings",
+        "*1900"
+    ],
+    "solution": [
+        "First of all, always comparing strings takes quite a long time, so, let's map the strings to integers. We can do that by keeping all strings in some array, sorting the array, and mapping each string to its position in the array. This process is called \"Normalization\" or \"Coordinate Compression\".",
+        "Now, we can do a dynamic programming solution over subsets.",
+        "We denote mask as our current bit-mask and we say it has the value of all elements we include. For example, if our mask is equal to 7, in binary it looks like ...000111, so we can say that we included elements 0, 1 and 2. Each power of two set in our mask, implies we include that element.",
+        "So now, if we iterate over masks and the last included element, we can mark dpmask,idpmask,i as a boolean which tells whether it is possible to get to this state. We transition from a state to another by using the current mask and trying to include all non-included elements one-by-one, and checking out if it is possible to include them. If it is, we update our new mask.",
+        "After calculating for each state whether we can get to it, using previously calculated states, we update our answer as the maximum number of included elements (bits set) in a mask which is obtainable."
+    ]
+}

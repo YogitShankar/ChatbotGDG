@@ -1,0 +1,4 @@
+Nikita is a student passionate about number theory and algorithms. He faces an interesting problem related to an array of numbers.
+Suppose Nikita has an array of integers a a of length n n . He will call a subsequence † † of the array special if its least common multiple (LCM) is not contained in a a . The LCM of an empty subsequence is equal to 0 0 .
+Nikita wonders: what is the length of the longest special subsequence of a a ? Help him answer this question!
+† † A sequence b b is a subsequence of a a if b b can be obtained from a a by the deletion of several (possibly, zero or all) elements, without changing the order of the remaining elements. For example, [ 5 , 2 , 3 ] [ 5 , 2 , 3 ] is a subsequence of [ 1 , 5 , 7 , 8 , 2 , 4 , 3 ] [ 1 , 5 , 7 , 8 , 2 , 4 , 3 ] .

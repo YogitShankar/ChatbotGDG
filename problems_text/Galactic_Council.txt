@@ -1,0 +1,5 @@
+Monocarp plays a computer game. In this game, he maintains a space empire. The empire is governed by n n political parties. Initially, every party has political power equal to 0 0 , and there is no ruling party.
+
+During each of the next m m turns, the following happens:
+
+Determine which party Monocarp has to support during each turn so that he doesn't lose the game due to the events, and the score he achieves is the maximum possible. Initially, Monocarp's score is 0 0 .

@@ -1,0 +1,12 @@
+{
+    "time_limit": "2 seconds",
+    "memory_limit": "512 megabytes",
+    "tags": [
+        "binary search",
+        "greedy",
+        "strings",
+        "two pointers",
+        "*800"
+    ],
+    "solution": "2025A - Two ScreensWhenever we perform the second action (copy from one screen to the other screen), we overwrite what was written on the other screen. It means that we can consider the string on the other screen to be empty before the copying, and that we only need to copy at most once.So, the optimal sequence of operations should look as follows: add some characters to one of the screens, copy them to the other screen, and then finish both strings.We need to copy as many characters as possible. Since after copying, we can only append new characters to the end of the strings on the screens, the string we copy must be a prefix of both of the given strings. So, we need to find the length of the longest common prefix of the given strings. This can be done in linear time if we scan these strings until we find a pair of different characters in the same positions; however, the constraints were low enough so that you could do it slower (like, for example, iterate on the length of the prefix and check that both prefixes of this length are equal).Okay, now letllbe the length of the longest common prefix. Usingl+1l+1operations, we write2l2lcharacters in total; so the number of operations we need will be|s|+|t|\u22122l+l+1=|s|+|t|+1\u2212l|s|+|t|\u22122l+l+1=|s|+|t|+1\u2212l. However, if the longest common prefix is empty, there's no need to copy anything, and we can write both strings in|s|+|t||s|+|t|seconds."
+}

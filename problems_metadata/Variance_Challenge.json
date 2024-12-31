@@ -1,0 +1,11 @@
+{
+    "time_limit": "6 seconds",
+    "memory_limit": "256 megabytes",
+    "tags": [
+        "flows",
+        "graphs",
+        "greedy",
+        "*3400"
+    ],
+    "solution": null
+}

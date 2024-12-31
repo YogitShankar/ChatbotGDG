@@ -1,0 +1,7 @@
+This is the hard version of this problem. The only difference is that you need to also output the number of optimal sequences in this version. You must solve both versions to be able to hack.
+
+You're given an array a a of length n n , and an array b b of length m m ( b i > b i + 1 b i > b i + 1 for all 1 ≤ i < m 1 ≤ i < m ). Initially, the value of k k is 1 1 . Your aim is to make the array a a empty by performing one of these two operations repeatedly:
+
+You need to minimize the total cost of the operations to make array a a empty. If it's impossible to do this through any sequence of operations, output − 1 − 1 . Otherwise, output the minimum total cost of the operations, and the number of sequences of operations which yield this minimum cost modulo 10 9 + 7 10 9 + 7 .
+
+Two sequences of operations are considered different if you choose a different type of operation at any step, or the size of the removed prefix is different at any step.
