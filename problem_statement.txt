@@ -1,0 +1,146 @@
+I1. Affectionate Arrays (Easy Version)
+time limit per test3 seconds
+memory limit per test512 megabytes
+You are the beginning of the letter, the development of a poem, and the end of a fairy tale.
+— ilem, Pinky Promise
+This is the easy version of the problem. The difference between the versions is that in this version, you need to compute the minimum length of the arrays. You can hack only if you solved all versions of this problem.
+Iris treasures an integer array
+a1,a2,…,an
+. She knows this array has an interesting property: the maximum absolute value of all elements is less than or equal to the sum of all elements, that is,
+max(|ai|)≤∑ai
+.
+Iris defines the boredom of an array as its maximum subarray
+∗
+sum.
+Iris's birthday is coming, and Victor is going to send her another array
+b1,b2,…,bm
+as a gift. For some seemingly obvious reasons, he decides the array
+b1,b2,…,bm
+should have the following properties.
+a1,a2,…,an
+should be a subsequence
+†
+of
+b1,b2,…,bm
+.
+The two arrays have the same sum. That is,
+n
+∑
+i=1
+ai=
+m
+∑
+i=1
+bi
+.
+The boredom of
+b1,b2,…,bm
+is the smallest possible.
+Among the arrays with the smallest boredom, the length of the array
+b
+(i.e.,
+m
+) is the smallest possible. And in this case, Iris will understand his regard as soon as possible!
+Even constrained as above, there are still too many possible gifts. So Victor asks you to compute the value of
+m
+of any array
+b1,b2,…,bm
+satisfying all the conditions above. He promises you: if you help him successfully, he will share a bit of Iris's birthday cake with you.
+Note: since the input is large, you may need to optimize it for this problem.
+For example, in C++, it is enough to use the following lines at the start of the main() function:
+int main() {
+    std::ios::sync_with_stdio(false);
+    std::cin.tie(nullptr); std::cout.tie(nullptr);
+}
+∗
+An array
+c
+is a subarray of an array
+d
+if
+c
+can be obtained from
+d
+by the deletion of several (possibly, zero or all) elements from the beginning and several (possibly, zero or all) elements from the end.
+†
+A sequence
+c
+is a subsequence of a sequence
+d
+if
+c
+can be obtained from
+d
+by the deletion of several (possibly, zero or all) element from arbitrary positions.
+Input
+Each test contains multiple test cases. The first line of input contains an integer
+t
+(
+1≤t≤105
+) — the number of test cases. The description of test cases follows.
+The first line of each test case contains a single integer
+n
+(
+1≤n≤3⋅106
+) — the length of the array
+a1,a2,…,an
+.
+The second line of each test case contains
+n
+integers
+a1,a2,…,an
+(
+−109≤ai≤109
+) — the initial array. It is guaranteed that
+max(|ai|)≤∑ai
+.
+It is guaranteed that the sum of
+n
+over all test cases does not exceed
+3⋅106
+.
+Output
+For each test case, output a single line containing an integer: the length
+m
+of a valid array
+b
+.
+Example
+input
+Copy
+4
+4
+1 2 3 4
+4
+2 -3 2 2
+10
+2 -7 6 3 -1 4 2 -5 8 -4
+20
+4 -2 4 3 -2 1 5 2 3 6 -5 -1 -4 -2 -3 5 -3 1 -4 1
+output
+Copy
+4
+6
+14
+25
+Note
+In the first test case,
+a=[1,2,3,4]
+. The only array
+b
+which satisfies all the properties above is
+[1,2,3,4]
+, so we should output
+4
+.
+In the second test case,
+a=[2,−3,2,2]
+. The possible arrays
+b
+are
+[1,2,−3,2,−1,2]
+and
+[2,1,−3,2,−1,2]
+, so we should output
+6
+.
