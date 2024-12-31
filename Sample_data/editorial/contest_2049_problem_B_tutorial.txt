@@ -1,5 +1,0 @@
-2049B - pspspsps
-Since the entire p must be a permutation, if s1=  s , we can set s1=  . , and if sn=  p , we can set sn=  . .
-After that, the answer is YES if and only if all non-dot characters in s are all p or s .
-If all non-dot characters are p , we can choose the permutation p=[1,2,…,n] . If all non-dot characters are s , we can choose p=[n,n−1,…,1] .
-Otherwise, there exists both a p and a s . Suppose for contradiction that there is a solution. Let a and b represent the subarrays represented by the p and s respectively. Without loss of generality, suppose a is the shorter subarray.Since b is also a permutation, the elements of a must be in b . Since p is a permutation, a must be a subarray of b .However, b cannot contain a : since b is not the entire p , b does not contain p1 . However, a contains p1 . Contradiction.
