@@ -1,0 +1,1 @@
+contest/2049/problem/B
