@@ -1,0 +1,12 @@
+Penchick loves two things: square numbers and Hong Kong-style BBQ buns! For his birthday, Kohane wants to combine them with a gift: nn BBQ buns arranged from left to right. There are 106106 available fillings of BBQ buns, numbered from 11 to 106106. To ensure that Penchick would love this gift, Kohane has a few goals:  No filling is used exactly once; that is, each filling must either not appear at all or appear at least twice.  For any two buns ii and jj that have the same filling, the distance between them, which is |i−j||i−j|, must be a perfect square∗∗. Help Kohane find a valid way to choose the filling of the buns, or determine if it is impossible to satisfy her goals! If there are multiple solutions, print any of them.∗∗A positive integer xx is a perfect square if there exists a positive integer yy such that x=y2x=y2. For example, 4949 and 11 are perfect squares because 49=7249=72 and 1=121=12 respectively. On the other hand, 55 is not a perfect square as no integer squared equals 55
+
+Each test contains multiple test cases. The first line contains the number of test cases tt (1≤t≤2⋅1051≤t≤2⋅105). The description of the test cases follows.The only line of each test case contains a single integer nn (1≤n≤2⋅1051≤n≤2⋅105) — the number of BBQ buns.It is guaranteed that the sum of nn over all test cases does not exceed 2⋅1052⋅105.
+
+For each test case, if no valid choice of fillings exists, output −1−1. Otherwise, output nn integers, where the ii-th integer represents the filling of the ii-th BBQ bun. If there are multiple solutions, print any of them.
+
+Input
+2 3 12
+
+Output
+-1
+1 2 3 6 10 2 7 6 10 1 7 3

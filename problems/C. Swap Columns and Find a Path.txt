@@ -1,0 +1,13 @@
+There is a matrix consisting of 2 rows and n columns. The rows are numbered from 1 to 2 from top to bottom; the columns are numbered from 1 to n from left to right. Let's denote the cell on the intersection of the i-th row and the j-th column as (i,j). Each cell contains an integer; initially, the integer in the cell (i,j) is ai,j.You can perform the following operation any number of times (possibly zero):  choose two columns and swap them (i. e. choose two integers x and y such that 1≤x<y≤n, then swap a1,x with a1,y, and then swap a2,x with a2,y). After performing the operations, you have to choose a path from the cell (1,1) to the cell (2,n). For every cell (i,j) in the path except for the last, the next cell should be either (i+1,j) or (i,j+1). Obviously, the path cannot go outside the matrix.The cost of the path is the sum of all integers in all (n+1) cells belonging to the path. You have to perform the operations and choose a path so that its cost is maximum possible.
+
+Each test contains multiple test cases. The first line contains the number of test cases t (1≤t≤5000). The description of the test cases follows. Each test case consists of three lines:  the first line contains one integer n (1≤n≤5000) — the number of columns in the matrix;  the second line contains n integers a1,1,a1,2,…,a1,n (−105≤ai,j≤105) — the first row of the matrix;  the third line contains n integers a2,1,a2,2,…,a2,n (−105≤ai,j≤105) — the second row of the matrix. It is guaranteed that the sum of n over all test cases does not exceed 5000.
+
+For each test case, print one integer — the maximum cost of a path you can obtain.
+
+Input
+3 1 -10 5 3 1 2 3 10 -5 -3 4 2 8 5 3 1 10 3 4
+
+Output
+-5
+16
+29

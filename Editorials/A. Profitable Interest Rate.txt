@@ -1,0 +1,308 @@
+Spoiler287108342 code because it seems people can view other's submissions right now#include <bits/stdc++.h>
+using namespace std;
+
+#define int long long
+#define ll long long
+#define ii pair<int,int>
+#define iii tuple<int,int,int>
+#define fi first
+#define se second
+#define endl '\n'
+#define debug(x) cout << #x << ": " << x << endl
+
+#define pub push_back
+#define pob pop_back
+#define puf push_front
+#define pof pop_front
+#define lb lower_bound
+#define ub upper_bound
+
+#define rep(x,start,end) for(int x=(start)-((start)>(end));x!=(end)-((start)>(end));((start)<(end)?x++:x--))
+#define all(x) (x).begin(),(x).end()
+#define sz(x) (int)(x).size()
+
+mt19937 rng(chrono::system_clock::now().time_since_epoch().count());
+
+int n;
+ii arr[200005];
+vector<int> w[105];
+
+ii pp[200005]; //reconstruct stuff from this
+signed dp[200005][100]; //dont care about weight 100!
+double val[200005];
+
+signed main(){
+	ios::sync_with_stdio(0);
+	cin.tie(0);
+	cout.tie(0);
+	cin.exceptions(ios::badbit | ios::failbit);
+	
+	cin>>n;
+	rep(x,1,n+1) cin>>arr[x].fi>>arr[x].se;
+	rep(x,1,n+1) w[arr[x].fi].pub(arr[x].se);
+	
+	rep(x,1,100){
+		sort(all(w[x]));
+		reverse(all(w[x]));
+	}
+	
+	double ans=0;
+	
+	int sum=0;
+	for (auto it:w[100]) sum+=it;
+	
+	val[0]=1;
+	rep(x,0,200005) if (val[x]!=0){
+		if (x){
+			rep(y,1,100) dp[x][y]=dp[pp[x].fi][y];
+			dp[x][pp[x].se]++;
+		}
+		
+		rep(y,1,100){
+			if (dp[x][y]==sz(w[y])) continue;
+			if (x+w[y][dp[x][y]]>=200005) continue;
+			
+			int x2=x+w[y][dp[x][y]];
+			
+			double v=val[x];
+			v*=(double)y/100;
+			
+			if (val[x2]<v){
+				val[x2]=v;
+				pp[x2]={x,y};
+			}
+		}
+		
+		ans=max(ans,val[x]*(x+sum));
+	}
+	
+	cout<<fixed<<setprecision(12)<<ans<<endl;
+}The idea behind my solution is to have dp[∑w] store the maximum probability that we can achieve.As with the editorial, for a fixed p, we should only take a prefix of the weights (when we sort from biggest to smallest weights). So we will also store that information (in the code it is signed dp[400005][100];, for state dp[x], we take the biggest dp[x][y] elements with p=y.When we transition, we will try for all y to do dp[x][y]++.This doesn't seem right because it is possible for the optimal answer to be killed early when there is another state with a bigger probability for the same ∑w but is worse at extending to larger ∑w
+
+code because it seems people can view other's submissions right now#include <bits/stdc++.h>
+using namespace std;
+
+#define int long long
+#define ll long long
+#define ii pair<int,int>
+#define iii tuple<int,int,int>
+#define fi first
+#define se second
+#define endl '\n'
+#define debug(x) cout << #x << ": " << x << endl
+
+#define pub push_back
+#define pob pop_back
+#define puf push_front
+#define pof pop_front
+#define lb lower_bound
+#define ub upper_bound
+
+#define rep(x,start,end) for(int x=(start)-((start)>(end));x!=(end)-((start)>(end));((start)<(end)?x++:x--))
+#define all(x) (x).begin(),(x).end()
+#define sz(x) (int)(x).size()
+
+mt19937 rng(chrono::system_clock::now().time_since_epoch().count());
+
+int n;
+ii arr[200005];
+vector<int> w[105];
+
+ii pp[200005]; //reconstruct stuff from this
+signed dp[200005][100]; //dont care about weight 100!
+double val[200005];
+
+signed main(){
+	ios::sync_with_stdio(0);
+	cin.tie(0);
+	cout.tie(0);
+	cin.exceptions(ios::badbit | ios::failbit);
+	
+	cin>>n;
+	rep(x,1,n+1) cin>>arr[x].fi>>arr[x].se;
+	rep(x,1,n+1) w[arr[x].fi].pub(arr[x].se);
+	
+	rep(x,1,100){
+		sort(all(w[x]));
+		reverse(all(w[x]));
+	}
+	
+	double ans=0;
+	
+	int sum=0;
+	for (auto it:w[100]) sum+=it;
+	
+	val[0]=1;
+	rep(x,0,200005) if (val[x]!=0){
+		if (x){
+			rep(y,1,100) dp[x][y]=dp[pp[x].fi][y];
+			dp[x][pp[x].se]++;
+		}
+		
+		rep(y,1,100){
+			if (dp[x][y]==sz(w[y])) continue;
+			if (x+w[y][dp[x][y]]>=200005) continue;
+			
+			int x2=x+w[y][dp[x][y]];
+			
+			double v=val[x];
+			v*=(double)y/100;
+			
+			if (val[x2]<v){
+				val[x2]=v;
+				pp[x2]={x,y};
+			}
+		}
+		
+		ans=max(ans,val[x]*(x+sum));
+	}
+	
+	cout<<fixed<<setprecision(12)<<ans<<endl;
+}
+
+Spoiler#include <bits/stdc++.h>
+using namespace std;
+ 
+int main() {
+	int t; cin >> t;
+	while (t--) {
+		int n, k; cin >> n >> k;
+		vector<int> v(n);
+		for (int i = 0; i < n; i++) {
+			cin >> v[i];
+		}
+		int ans = 0, l = 0, m = 0;
+		sort(v.begin(), v.end());
+		for (int j = 0; j < n; j++) {
+			if (((v[j] - l) * n) + ans  < k) {
+				ans += ((v[j] - l) * n);
+				m++;
+				n--;
+				l += (v[j] - l);
+			} else {
+				cout << m + k << endl;
+				break;
+			}
+		}
+	}
+	return 0;
+}
+
+
+My way of deriving same claimThis way doesn't give me intuition, but I was able to derive what we need.Suppose we have now sum W and current probability Q, and we add item wi,qi. and we already had c of those with probability qi. Also denote A=W−wi⋅c. I don't know how to avoid this trick. But, in other words W=A+wi⋅c. Then we making worse if: (A+wi⋅(c+1))⋅Q⋅qc+1i<(A+wi⋅c)⋅Q⋅qci(A+wi⋅(c+1))⋅qi<A+wi⋅cwi⋅(c+1)⋅qi−wi⋅c<A⋅(1−qi)c⋅qi+qi−c<Awi⋅(1−qi)−c⋅(1−qi)<Awi⋅(1−qi)−qi−c<Awi−qi1−qic>qi1−qi−AwiSo, when count of same probability becomes larger than this, we only reduce value. Notice that when c>qi1−qi it also c>qi1−qi−Awi, because both A and wi are non-negative. So, when c is greater than qi1−qi=pi100−pi we won't gain any profit by adding more wi,pi pair. Note, we assume we add wi in non-increasing order.
+
+Informal proof why sorting by sum worksConsider the simple case of only 2 pairs:  a b  c d  Note that we can't do anything for the inversions within the pair itself so we don't compare a with b or c with d  Now consider the case where b < c and a < d  We can concatenate the pairs like this ( a b c d ). This won't add any unnecessary inversions.  We can rewrite the inequality ( b < c and a < d ) to be ( a + b < c + d )  We want to ensure that this inequality is true max possible amount of times, Hence this can be achieved by sorting the pairs according to the sum of each pair.
+
+code#include <bits/stdc++.h>
+using namespace std;
+const int MAXN = 500005;
+long long dp[MAXN]; vector<int> G[MAXN];
+long long ans = 0;
+void dfs(int u, int f) {
+	int d = 0; for (int v : G[u]) if (v != f) dfs(v, u), d++;
+	dp[u] = 0; for (int v : G[u]) if (v != f) dp[u] += max((u == f ? 0ll : 1ll), dp[v] - (d - 1));
+	ans += 1ll * d * (d - 1) / 2;
+}
+int main() {
+	int t; scanf("%d", &t); while (t--) {
+		int n; scanf("%d", &n);
+		for (int i = 1; i <= n; i++) G[i].clear();
+		for (int i = 1; i < n; i++) {
+			int u, v; scanf("%d %d", &u, &v);
+			G[u].push_back(v); G[v].push_back(u);
+		}
+		int rt = 1; for (int i = 2; i <= n; i++) if (G[i].size() > G[rt].size()) rt = i;
+		ans = 0; dfs(rt, rt);
+		printf("%lld\n", ans + (dp[rt] + 1) / 2);
+	}	
+}
+
+Spoilerll solve(std::vector<ll> a, ll n, ll k) {
+  ll ans = 0;
+
+  std::sort(a.begin(), a.end());
+  int ptr = 0;
+
+  ll x = std::min(a[ptr] * n, k);
+  ans += x;
+  k -= x;
+  ptr = ptr + 1;
+
+  if (k > 0)
+    ans = ans + 1;
+
+  for (ll i = 1; i < n; i++) {
+    a[i] -= a[0];
+  }
+  a[0] = 0;
+
+  //std::cout << ans << std::endl;
+
+  while (k > 0 && ptr < n) {
+    ll x = std::min(a[ptr], k);
+    a[ptr] -= x;
+    k -= x;
+    ans += x;
+    if (a[ptr] == 0 && k > 0)
+      ans = ans + 1;
+
+    ptr++;
+  }
+
+  return ans;
+}
+
+code#include <bits/stdc++.h>
+using namespace std;
+#define ll long long
+#define pb push_back
+#define sort(nums) sort(begin(nums), end(nums))
+typedef vector<ll> vll;
+int ret;
+bool can(int mid,vll& a,int k){
+    int cnt=0,tot=0;
+    for(int i=0;i<a.size();i++){
+        if(a[i]<mid){
+            cnt+=a[i]+1;
+            tot+=a[i];
+        }
+        else{
+            cnt+=min(mid,k-tot);
+            tot+=mid;
+        }
+        if(tot>=k){
+            ret=min(ret,cnt);
+            return true;
+        }
+    }
+    return false;
+}
+int main() {
+    int t;
+    cin>>t;
+    while(t--){
+        int n,k;
+        cin>>n>>k;
+        vll a(n);
+        for(int i=0;i<n;i++){
+            cin>>a[i];
+        }
+        ret=INT_MAX;
+        sort(a);
+        int l=0,r=a[n-1];
+        while(l<=r){
+            int mid=l+(r-l)/2;
+            if(can(mid,a,k)){
+                r=mid-1;
+            }
+            else{
+                l=mid+1;
+            }
+        }
+        cout<<ret<<endl;
+    }
+    return 0;
+}
+
+AnalysisDenote L=200000. We said we assume sum of wi is greater than C. This means W+wi>C. So we have: W+wi>CW>C−wiW⋅(100−pi)>(C−wi)⋅(100−pi)To prove the claim, it's enough to show that (C−wi)⋅(100−pi)≥LWith constraints: 1≤pi≤99 wi⋅pi≤LIdea is: for any fixed C we will find minimum of (C−wi)⋅(100−pi). To do so, assume C and pi are known, and find wi for which the function reach minimum. In this case 100−pi is just constant, so wi should be maximum. But we have constraint, thus wi=Lpi.Next, assume pi is variable, and find the best value for pi. (C−Lpi)⋅(100−pi)→minC⋅100−C⋅pi−100⋅Lpi+L→minC⋅pi+100⋅Lpi→maxLet f(x)=C⋅x+100⋅Lxf′(x)=C−100⋅Lx2=0C=100⋅Lx2x2=100⋅LCx=√100⋅LCWe want when 1≤x≤99 because only in this case extremum point to lie within the range. Otherwise we only need to check x=1 and x=99 points. Because only them can be minimum. √100⋅LC≥1100⋅LC≥1100⋅L≥C√100⋅LC≤99100⋅LC≤992100⋅L992≤CSo we have range:100⋅L992≤C≤100⋅LOutside this range only probability 1 and 99 matters. Substitute pi=x: C⋅√100⋅LC+100⋅L√100⋅LC=2√100⋅L⋅CSo, the value for this extremum point when pi satisfy constraints is: C⋅100+L−2√100⋅L⋅CFor all C we also need to check for pi=1: (we still use wi=Lpi) (C−wi)⋅(100−pi)≥L(C−L)⋅(100−1)≥LC−L≥L99C≥L99+L=L⋅10099And for all C we also need to check for pi=99: (C−wi)⋅(100−pi)≥L(C−L99)⋅(100−99)≥LC−L99≥LC≥L99+L=L⋅10099So, for given L, we need to have C≥L⋅10099 to meet requirements above, and also since L⋅10099≥L⋅100992 for cases when C≤100⋅L we need to make sure: C⋅100+L−2√100⋅L⋅C≥LC⋅100≥2√100⋅L⋅CC2⋅1002≥4⋅100⋅L⋅CC≥L25But L⋅10099≥L25, so we need only one requirement C≥L⋅10099. For L=200000 we get C≥200000⋅10099.A little note: extremum point happens to be the maximum. But I don't know how easy to show that it's maximum, so easier to show that it is never less than "endpoints" (pi=1 and pi=99).
+

@@ -1,0 +1,20 @@
+Evirir the dragon snuck into a wizard's castle and found a mysterious contraption, and their playful instincts caused them to play with (destroy) it...Evirir the dragon found an array a1,a2,…,an of n non-negative integers.In one operation, they can choose a non-empty subarray∗ b of a and replace it with the integer mex(b)†. They want to use this operation any number of times to make a only contain zeros. It can be proven that this is always possible under the problem constraints.What is the minimum number of operations needed?∗An array c is a subarray of an array d if c can be obtained from d by the deletion of several (possibly, zero or all) elements from the beginning and several (possibly, zero or all) elements from the end. †The minimum excluded (MEX) of a collection of integers f1,f2,…,fk is defined as the smallest non-negative integer x which does not occur in the collection f.
+
+Each test contains multiple test cases. The first line contains the number of test cases t (1≤t≤200). The description of the test cases follows. The first line of each test case contains a single integer n (1≤n≤50), the length of a.The second line of each test case contains n space-separated integers, a1,a2,…,an (0≤ai≤100).It is guaranteed that the sum of n over all test cases does not exceed 500.
+
+For each test case, output a single integer on a line, the minimum number of operations needed to make a contain only zeros.
+
+Input
+10 4 0 1 2 3 6 0 0 0 0 0 0 5 1 0 1 0 1 5 3 1 4 1 5 4 3 2 1 0 7 9 100 0 89 12 2 3 4 0 3 9 0 7 0 7 0 2 0 7 0 1 0 2 0 1
+
+Output
+1
+0
+2
+1
+1
+2
+1
+2
+0
+1

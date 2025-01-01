@@ -1,0 +1,13 @@
+Shirobon - FOX⠀You are given n points on the x axis, at increasing positive integer coordinates x1<x2<…<xn.For each pair (i,j) with 1≤i<j≤n, you draw the segment [xi,xj]. The segments are closed, i.e., a segment [a,b] contains the points a,a+1,…,b.You are given q queries. In the i-th query, you are given a positive integer ki, and you have to determine how many points with integer coordinates are contained in exactly ki segments.
+
+Each test contains multiple test cases. The first line contains the number of test cases t (1≤t≤104). The description of the test cases follows.The first line of each test case contains two integers n, q (2≤n≤105, 1≤q≤105) — the number of points and the number of queries.The second line of each test case contains n integers x1,x2,…,xn (1≤x1<x2<…<xn≤109) — the coordinates of the n points.The third line of each test case contains q integers k1,k2,…,kq (1≤ki≤1018) — the parameters of the q queries.It is guaranteed that the sum of n over all test cases does not exceed 105, and the sum of q over all test cases does not exceed 105.
+
+For each test case, output a single line with q integers: the i-th integer is the answer to the i-th query.
+
+Input
+3 2 2 101 200 2 1 6 15 1 2 3 5 6 7 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 5 8 254618033 265675151 461318786 557391198 848083778 6 9 15 10 6 9 4 4294967300
+
+Output
+0 100 
+0 0 0 0 2 0 0 0 3 0 2 0 0 0 0 
+291716045 0 0 0 291716045 0 301749698 0

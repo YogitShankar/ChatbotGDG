@@ -1,0 +1,11 @@
+{
+    "title": "B. Minimize Equal Sum Subarrays",
+    "time_limit": " 1 .5 seconds",
+    "memory_limit": " 256 megabytes",
+    "tags": [
+        "constructive algorithms",
+        "math",
+        "number theory",
+        "*1000"
+    ]
+}

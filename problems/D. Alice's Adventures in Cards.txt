@@ -1,0 +1,15 @@
+Alice is playing cards with the Queen of Hearts, King of Hearts, and Jack of Hearts. There are n different types of cards in their card game. Alice currently has a card of type 1 and needs a card of type n to escape Wonderland. The other players have one of each kind of card.In this card game, Alice can trade cards with the three other players. Each player has different preferences for the n types of cards, which can be described by permutations∗ q, k, and j for the Queen, King, and Jack, respectively. A player values card a more than card b if for their permutation p, pa>pb. Then, this player is willing to trade card b to Alice in exchange for card a. Alice's preferences are straightforward: she values card a more than card b if a>b, and she will also only trade according to these preferences.Determine if Alice can trade up from card 1 to card n subject to these preferences, and if it is possible, give a possible set of trades to do it.∗A permutation of length n is an array consisting of n distinct integers from 1 to n in arbitrary order. For example, [2,3,1,5,4] is a permutation, but [1,2,2] is not a permutation (2 appears twice in the array), and [1,3,4] is also not a permutation (n=3 but there is 4 in the array).
+
+Each test contains multiple test cases. The first line contains the number of test cases t (1≤t≤104). The description of the test cases follows.The first line of each test case contains an integer n (2≤n≤2⋅105) — the number of card types.The next three lines contain the preferences of the Queen, King, and Jack respectively. Each of these lines contains n integers p1,p2,…,pn (1≤pi≤n) — a permutation corresponding to the player's preferences.The sum of n over all test cases does not exceed 2⋅105.
+
+For each test case, on the first line output a single string "YES" or "NO" (without the quotes) denoting whether Alice can trade up to card n.If the first line was "YES", then on the next line output k — the number of trades Alice will make. On the next k lines output space separated a character c∈{q,k,j} and integer x, denoting that Alice trades with player c to get card x. It must be the case that on the k'th line, x=n. If there are multiple solutions, print any of them.You can output this answer in any case (upper or lower). For example, the strings "yEs", "yes", "Yes", and "YES" will be recognized as positive responses. The same goes for the character c denoting the player in the trade (Q,K,J will all be accepted alongside their lowercase variants).
+
+Input
+2 3 1 3 2 2 1 3 1 2 3 4 2 3 1 4 1 2 3 4 1 4 2 3
+
+Output
+YES
+2
+k 2
+q 3
+NO

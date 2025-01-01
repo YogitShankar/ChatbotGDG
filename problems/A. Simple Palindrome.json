@@ -1,0 +1,12 @@
+{
+    "title": "A. Simple Palindrome",
+    "time_limit": " 1 second",
+    "memory_limit": " 256 megabytes",
+    "tags": [
+        "combinatorics",
+        "constructive algorithms",
+        "greedy",
+        "math",
+        "*900"
+    ]
+}

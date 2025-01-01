@@ -1,0 +1,388 @@
+HintHow many times do you have to repeat the string until you know for certain whether Alice will ever reach the Red Queen?
+
+Solution2028A - Alice's Adventures in ''Chess''We can run the whole pattern $$$100\gg \max(a, b, n)$$$ times, which gives a total runtime of $$$O(100tn)$$$ (be careful in that running the pattern only 10 times is not enough!)To prove that $$$100$$$ repeats suffices, suppose that Alice's steps on the first run of the pattern are $$$(0, 0), (x_1, y_1), (x_2, y_2), \ldots, (x_n, y_n)$$$ (we will take $$$x_0 = 0, y_0 = 0$$$ for convenience) Then, Alice ends up at position $$$(a, b)$$$ if there exists a $$$t\ge 0$$$ (the number of extra repeats) such that for some $$$i$$$, $$$x_i + tx_n = a$$$ and $$$y_i + ty_n = b$$$. Certainly, if $$$x_n = y_n = 0$$$, we only need one repeat so assume WLOG that $$$x_n \neq 0$$$. Then, it must be the case that $$$t = \frac{a - x_i}{x_n}$$$. However, $$$a - x_i \le 20$$$ (since $$$x_i \ge -10$$$) and $$$|x_n|\ge 1$$$, so $$$t \le 20$$$ and therefore $$$21$$$ repeats always suffice.In fact, the above proof shows that we can solve each testcase in time $$$O(n)$$$.
+
+Codedef solve():
+    [n, a, b] = list(map(int, input().split()))
+    s = str(input())
+    x, y = 0, 0
+    for __ in range(100):
+        for c in s:
+            if c == 'N':
+                y += 1
+            elif c == 'E':
+                x += 1
+            elif c == 'S':
+                y -= 1
+            else:
+                x -= 1
+            if x == a and y == b:
+                print("YES")
+                return
+    print("NO")
+ 
+t = int(input())
+ 
+for _ in range(t):
+    solve()
+
+HintDo casework on whether b=0 or not.
+
+Solution2028B - Alice's Adventures in PermutingSuppose that $$$b = 0$$$. Then, if $$$c \ge n$$$, the answer is $$$n$$$; if $$$c = n - 1$$$ or $$$c = n - 2$$$, the answer is $$$n - 1$$$; and otherwise, it is $$$-1$$$ (for example, consider $$$c = n - 3$$$, in which case we will end up with $$$$$$a = [0, 1, \ldots, n - 4, n - 3, n - 3, n - 3] \rightarrow [0, 1, \ldots, n - 4, n - 3, n - 3, n - 2] \rightarrow [0, 1, \ldots, n - 4, n - 3, n - 3, n - 1]$$$$$$ and the last two steps alternate)Otherwise, since $$$a$$$ has distinct elements, we claim that the answer is $$$n - m$$$, where $$$m$$$ is the number of elements in $$$0, 1, \ldots, n - 1$$$ already present in the array. Equivalently, it is the number of steps until $$$\max(a) < n$$$ since we always preserve the distinctness of the elements of $$$a$$$.So, we want to find the maximum $$$i$$$ such that $$$a_i < n$$$. This happens exactly when $$$i < \frac{n - c}{b}$$$. The expected complexity is $$$O(1)$$$ per testcase.
+
+Code#include <bits/stdc++.h>
+using namespace std;
+ 
+using ll = long long;
+using ld = long double;
+using pii = pair<int, int>;
+using vi = vector<int>;
+#define rep(i, a, b) for(int i = a; i < (b); ++i)
+#define all(x) (x).begin(), (x).end()
+#define sz(x) (int)(x).size()
+#define smx(a, b) a = max(a, b)
+#define smn(a, b) a = min(a, b)
+#define pb push_back
+#define endl '\n'
+ 
+const ll MOD = 1e9 + 7;
+const ld EPS = 1e-9;
+ 
+mt19937 rng(time(0));
+ 
+int main() {
+	cin.tie(0)->sync_with_stdio(0);
+ 
+	int t; cin >> t;
+	while (t--) {
+		ll n, b, c; cin >> n >> b >> c;
+		if (b == 0) {
+			if (c >= n) {
+				cout << n << "\n";
+			} else if (c >= n - 2) {
+				cout << n - 1 << "\n";
+			} else {
+				cout << -1 << "\n";
+			}
+		} else {
+		    if (c >= n) cout << n << "\n";
+			else cout << n - max(0ll, 1 + (n - c - 1) / b) << "\n";
+		}
+	}
+}
+
+Hint 1How can you quickly determine if Alice can ever receive the piece a[i:j]=[ai,ai+1,…,aj−1]? 
+
+Hint 2For a given i, how can you quickly check the maximum j such that Alice can receive the piece a[i:j]?
+
+Solution2028C - Alice's Adventures in Cutting CakeAlice's piece of cake will be some subsegment $$$a[i:j]$$$. For a fixed $$$i$$$, how large can $$$j$$$ be? To determine this, let $$$pfx[i]$$$ be the maximum number of creatures that can be fed on $$$a[:i]$$$ and $$$sfx[j]$$$ the maximum number of creatures on $$$a[j:]$$$. Then, for a given $$$i$$$, the maximum possible $$$j$$$ is exactly the largest $$$j$$$ such that $$$pfx[i] + sfx[j] \ge m$$$. If we compute the $$$pfx$$$ and $$$sfx$$$ arrays, we can then compute these largest $$$j$$$ for all $$$i$$$ with two pointers in $$$O(n)$$$ (or with binary search in $$$O(n\log n)$$$, since $$$sfx$$$ is monotonically non-increasing).To compute $$$pfx[i]$$$, we can use prefix sums and binary search to find the maximum $$$k < i$$$ such that $$$\sum_{\ell=k}^{i}a[\ell] \ge v$$$: then $$$pfx[i] = 1 + pfx[k]$$$. We can compute $$$sfx$$$ similarly by reversing $$$a$$$. This takes time $$$O(n\log n)$$$ (it is also possible to do this with two pointers in $$$O(n)$$$, which you can see in the model solution).Expected complexity: $$$O(n)$$$ or $$$O(n\log n)$$$.
+
+Code#include <bits/stdc++.h>
+using namespace std;
+ 
+using ll = long long;
+using ld = long double;
+using pii = pair<int, int>;
+using vi = vector<int>;
+#define rep(i, a, b) for(int i = a; i < (b); ++i)
+#define all(x) (x).begin(), (x).end()
+#define sz(x) (int)(x).size()
+#define smx(a, b) a = max(a, b)
+#define smn(a, b) a = min(a, b)
+#define pb push_back
+#define endl '\n'
+ 
+const ll MOD = 1e9 + 7;
+const ld EPS = 1e-9;
+ 
+mt19937 rng(time(0));
+ 
+int main() {
+	cin.tie(0)->sync_with_stdio(0);
+ 
+	int t; cin >> t;
+	while (t--) {
+		int n, m; cin >> n >> m;
+		ll v; cin >> v;
+		vector<ll> a(n);
+		rep(i,0,n) cin >> a[i];
+ 
+		vector<ll> sums(n + 1);
+		rep(i,0,n) sums[i + 1] = sums[i] + a[i];
+ 
+		auto query = [&](int i, int j) { // [i, j)
+			return sums[j] - sums[i];
+		};
+ 
+		auto compute_pfx = [&]() -> vector<int> {
+			vector<int> pfx(n + 1, 0);
+			int end = 0, val = 0;
+			ll sum = 0;
+			for (int start = 0; start < n; start++) {
+				while (end < n && sum < v) {
+					sum += a[end];
+					++end;
+					pfx[end] = max(pfx[end], pfx[end - 1]);
+				}
+				if (sum >= v) {
+					pfx[end] = 1 + pfx[start];
+				}
+				sum -= a[start];
+			}
+			rep(i,1,n+1) {
+				pfx[i] = max(pfx[i], pfx[i - 1]);
+			}
+			return pfx;
+		};
+ 
+		auto pfx = compute_pfx();
+		reverse(all(a));
+		auto sfx = compute_pfx();
+		reverse(all(a));
+		reverse(all(sfx));
+ 
+		if (pfx[n] < m) {
+			cout << "-1\n";
+			continue;
+		}
+ 
+		int end = 0;
+		ll ans = 0;
+		for (int start = 0; start < n; start++) {
+			while (end < n && pfx[start] + sfx[end + 1] >= m) ++end;
+			if (pfx[start] + sfx[end] >= m)
+				ans = max(ans, query(start, end));
+		}
+		cout << ans << "\n";
+	}
+}
+
+HintThis is not a graph problem. Try to think about for each card i whether Alice can ever trade up from i to n.
+
+Solution2028D - Alice's Adventures in CardsWe will use DP to answer the following question for each $$$a$$$ from $$$n$$$ down to $$$1$$$: is it possible to trade up from card $$$a$$$ to card $$$n$$$?To answer this question efficiently, we need to determine for each of the three players whether there exists some $$$b > a$$$ such that $$$p(b) < p(a)$$$ and it is possible to trade up from card $$$b$$$ to card $$$n$$$. We can do this efficiently by keeping track for each player the minimum value $$$x = p(b)$$$ over all $$$b$$$ that can reach $$$n$$$: then, for a given $$$a$$$ we can check for each player if $$$p(a)$$$ exceeds $$$x$$$. If it does for some player, we can then update the values $$$x$$$ for each of the three players. Alongside these minimum values $$$x$$$ we can keep track of the $$$b$$$ achieving them to be able to reconstruct a solution.This takes time $$$O(n)$$$ since each iteration takes time $$$O(1)$$$.
+
+Code#include <bits/stdc++.h>
+using namespace std;
+ 
+using ll = long long;
+using ld = long double;
+using pii = pair<int, int>;
+using vi = vector<int>;
+#define rep(i, a, b) for(int i = a; i < (b); ++i)
+#define all(x) (x).begin(), (x).end()
+#define sz(x) (int)(x).size()
+#define smx(a, b) a = max(a, b)
+#define smn(a, b) a = min(a, b)
+#define pb push_back
+#define endl '\n'
+ 
+const ll MOD = 1e9 + 7;
+const ld EPS = 1e-9;
+ 
+mt19937 rng(time(0));
+ 
+int main() {
+	cin.tie(0)->sync_with_stdio(0);
+ 
+	int t; cin >> t;
+	std::string s = "qkj";
+	while (t--) {
+		int n; cin >> n;
+		vector p(3, vector<int>(n + 1));
+		rep(i,0,3) rep(j,1,n + 1) cin >> p[i][j];
+		vector<pair<char, int>> sol(n + 1, {'\0', -1});
+		array<int, 3> mins = {n, n, n}; // minimizing index
+		for (int i = n - 1; i >= 1; i--) {
+			int win = -1;
+			rep(j,0,3) if (p[j][i] > p[j][mins[j]]) win = j;
+			if (win == -1) continue;
+			sol[i] = {s[win], mins[win]};
+			rep(j,0,3) if (p[j][i] < p[j][mins[j]]) mins[j] = i;
+		}
+		if (sol[1].second == -1) {
+			cout << "NO\n";
+			continue;
+		}
+		cout << "YES\n";
+		vector<pair<char, int>> ans = {sol[1]};
+		while (ans.back().second >= 0) {
+			ans.push_back(sol[ans.back().second]);
+		}
+		ans.pop_back();
+		cout << sz(ans) << "\n";
+		for (auto && [c, i] : ans) {
+			cout << c << " " << i << "\n";
+		}
+	}
+}
+
+BonusSolve the same problem, but now with the additional requirement that the solution must use the minimum number of trades (same constraints).
+
+Hint 1What are Alice's and the Red Queen's optimal moves at a given position?
+
+Hint 2Solve the problem for a path (bamboo) of length n first.
+
+Hint 3Solve Hint 2 first. Now, generalize the solution to an arbitrary tree.
+
+Solution2028E - Alice's Adventures in the Rabbit HoleNote that Alice should always aim to move to the root, as this maximizes her probability of escaping (i.e., for any path from leaf to root, Alice's probability of escaping increases moving up the path). Furthermore, the Queen should always move downward for the same reason as above. Furthermore, the Queen should always move to the closest leaf in the subtree rooted at the current node.There are now a few ways to compute this, but basically all of them are $$$O(n)$$$. For one such slick way, define $$$d(v)$$$ to be the distance to the closest leaf of the subtree of $$$v$$$, $$$p(v)$$$ to be the parent of $$$v$$$, and $$$t(v)$$$ to be the probability Alice gets the treasure starting at node $$$v$$$. Then, we claim that $$$t(v) = \frac{d(v)}{d(v)+1}\cdot t(p(v))$$$ for all vertices except the root. We can populate these values as we DFS down the tree.Indeed, suppose that the tree is just a path with $$$d + 1$$$ vertices, labelled from $$$1$$$ through $$$d + 1$$$. Then, Alice's probability of getting the treasure at node $$$i$$$ is $$$1 - \frac{i - 1}{d}$$$ (this comes from solving a system of linear equations). This lines up with the above $$$t(v)$$$ calculation.Now, we can construct the answer inductively. Let $$$P$$$ be a shortest root-to-leaf path in $$$T$$$ and consider the subtrees formed by removing the edges of $$$P$$$ from $$$T$$$. Each such subtree is rooted at some node $$$v\in P$$$. Then, in a subtree $$$T'$$$ rooted at $$$v$$$, the probability of Alice getting the treasure is exactly the probability that Alice gets to node $$$v$$$ and then to node $$$1$$$ from $$$v$$$, by the chain rule of conditioning and noting that the Queen will never re-enter the subtree $$$T'$$$ and the game will only play out along $$$P$$$ from this point forward. Therefore, it suffices to deconstruct $$$T$$$ into shortest root-to-leaf paths and note that at a given vertex $$$v$$$, we only have to play along the sequence of shortest root-to-leaf paths leading from $$$v$$$ to $$$1$$$. Along each of these paths, the above probability calculation holds, so we are done.
+
+Code#include <bits/stdc++.h>
+using namespace std;
+ 
+using ll = long long;
+using ld = long double;
+using pii = pair<int, int>;
+using vi = vector<int>;
+#define rep(i, a, b) for(int i = a; i < (b); ++i)
+#define all(x) (x).begin(), (x).end()
+#define sz(x) (int)(x).size()
+#define smx(a, b) a = max(a, b)
+#define smn(a, b) a = min(a, b)
+#define pb push_back
+#define endl '\n'
+ 
+const ll MOD = 1e9 + 7;
+const ld EPS = 1e-9;
+ 
+// mt19937 rng(time(0));
+ 
+ll euclid(ll a, ll b, ll &x, ll &y) {
+	if (!b) return x = 1, y = 0, a;
+	ll d = euclid(b, a % b, y, x);
+	return y -= a/b * x, d;
+}
+ 
+const ll mod = 998244353;
+struct mint {
+	ll x;
+	mint(ll xx) : x(xx) {}
+	mint operator+(mint b) { return mint((x + b.x) % mod); }
+	mint operator-(mint b) { return mint((x - b.x + mod) % mod); }
+	mint operator*(mint b) { return mint((x * b.x) % mod); }
+	mint operator/(mint b) { return *this * invert(b); }
+	mint invert(mint a) {
+		ll x, y, g = euclid(a.x, mod, x, y);
+		assert(g == 1); return mint((x + mod) % mod);
+	}
+	mint operator^(ll e) {
+		if (!e) return mint(1);
+		mint r = *this ^ (e / 2); r = r * r;
+		return e&1 ? *this * r : r;
+	}
+};
+ 
+void solve() {
+	int n; cin >> n;
+	vector<vector<int>> t(n);
+	rep(i,0,n-1) {
+		int x, y; cin >> x >> y; --x, --y;
+		t[x].push_back(y);
+		t[y].push_back(x);
+	}
+ 
+	vector<int> d(n, n + 1);
+	function<int(int, int)> depths = [&](int curr, int par) {
+		for (auto v : t[curr]) {
+			if (v == par) continue;
+			d[curr] = min(d[curr], 1 + depths(v, curr));
+		}
+		if (d[curr] > n) d[curr] = 0;
+		return d[curr];
+	};
+ 
+	depths(0, -1);
+ 
+	vector<mint> ans(n, 0);
+	function<void(int, int, mint)> dfs = [&](int curr, int par, mint val) {
+		ans[curr] = val;
+		for (auto v : t[curr]) {
+			if (v == par) continue;
+			dfs(v, curr, val * d[v] / (d[v] + 1));
+		}
+	};
+ 
+	dfs(0, -1, mint(1));
+	for (auto x : ans) {
+		cout << x.x << " ";
+	}
+	cout << "\n";
+}
+ 
+int main() {
+	cin.tie(0)->sync_with_stdio(0);
+ 
+	int t; cin >> t;
+	while (t--) solve();
+}
+
+Hint 1Come up with a DP algorithm running in time O(n2m).
+
+Hint 2Try optimizing the Hint 1 DP to run in time O(nmlogm) when ai≥2 for all i.
+
+Hint 3Do some casework to extend Hint 2 to ai≥0.
+
+Hint 4Bitset
+
+Solution2028F - Alice's Adventures in AdditionLet $$$dp[i][j]$$$ be whether $$$a_1\circ a_2\circ \ldots \circ a_i = j$$$ can be satisfied. Then, let's case on $$$a_i$$$.  If $$$a_i = 0$$$, then $$$dp[i][j] = dp[i - 1][j] \lor dp[i - 2][j]\lor \cdots \lor dp[0][j]$$$ (where we will take $$$dp[0][j]= \boldsymbol{1}[j = 0]$$$, the indicator that $$$j = 0$$$). This is because we can multiply together any suffix to form $$$0$$$. We can do this in time $$$O(1)$$$ by keeping these prefix ORs. If $$$a_i = 1$$$, then $$$dp[i][j] = dp[i - 1][j] \lor dp[i - 1][j - 1]$$$ (since $$$m \ge 1$$$ we don't have to worry about accidentally allowing $$$0$$$s). This is because we can either multiply $$$a_{i-1}$$$ by $$$1$$$ or add $$$1$$$. Otherwise, note that we can only multiply together at most $$$\log_2(j)$$$ many $$$a_i > 1$$$ before the result exceeds $$$j$$$. So, for each $$$i$$$ let $$$\text{back}(i)$$$ denote the biggest $$$k < i$$$ such that $$$a_k \neq 1$$$. Then, we can write $$$$$$dp[i][j] = dp[i - 1][j - a_i] \lor dp[\text{back}(i) - 1][j - a_i \cdot a_{\text{back}(i)}] \lor \cdots$$$$$$ where we continue until we either reach $$$i = 0$$$, hit $$$0$$$, or exceed $$$j$$$. There is one special case: if $$$a_k = 0$$$ for any $$$k < i$$$, then we should also allow $$$dp[i][j] |= dp[k - 1][j] \lor dp[k - 2][j] \lor \cdots \lor dp[0][j]$$$. We can keep track of the last time $$$a_k = 0$$$ and use the same prefix OR idea as above.Note that all of these operations are "batch" operations: that is, we can do them for all $$$j$$$ simultaneously for a given $$$i$$$. Thus, this gives a bitset solution in time $$$O(\frac{nm\log m}{w})$$$ and with space complexity $$$O(\frac{nm}{w})$$$. However, this uses too much space. We can optimize the space complexity to only store $$$\log_2(m) + 4$$$ bitsets (with some extra integers) instead. To do this, note that for the $$$0$$$ case we only require one bitset which we can update after each $$$i$$$, for the $$$1$$$ case we only have to keep the previous bitset, and for the $$$> 1$$$ case we only need to store the most recent $$$\log_2(m)$$$ bitsets for indices $$$i$$$ with $$$a_{i+1} > 1$$$. We can keep this in a deque and pop from the back if the size exceeds $$$\log_2(m)$$$. For the special case at the end, we can keep track of a prefix bitset for the last occurrence of a $$$0$$$. Overall, this uses space complexity $$$O(\frac{m\log_2 m}{w})$$$ which is sufficient (interestingly, we don't even have to store the input!)
+
+Code#include <bits/stdc++.h>
+using namespace std;
+
+using ll = long long;
+using ld = long double;
+using pii = pair<int, int>;
+using vi = vector<int>;
+#define rep(i, a, b) for(int i = a; i < (b); ++i)
+#define all(x) (x).begin(), (x).end()
+#define sz(x) (int)(x).size()
+#define smx(a, b) a = max(a, b)
+#define smn(a, b) a = min(a, b)
+#define pb push_back
+#define endl '\n'
+
+const ll MOD = 1e9 + 7;
+const ld EPS = 1e-9;
+
+mt19937 rng(time(0));
+
+const int LOG = 14;
+const int MAX = 10000 + 1;
+
+int main() {
+    cin.tie(0)->sync_with_stdio(0);
+ 
+    int t; cin >> t;
+    while (t--) {
+        int n, m; cin >> n >> m;
+        bitset<MAX> prev(1), pfx(1), zero(0);
+        list<pair<int, bitset<MAX>>> q;
+        rep(i,0,n) {
+            int x; cin >> x;
+            bitset<MAX> curr = zero;
+
+            if (x == 0) {
+                curr |= pfx;
+                zero = curr;
+                q.push_front({0, prev});
+            } else if (x == 1) {
+                curr |= prev | (prev << 1);
+            } else {
+                int prod = 1;
+                q.push_front({x, prev});
+                for (auto const& val : q) {
+                    if (prod == 0 || prod * val.first > m) break;
+                    prod *= val.first;
+                    curr |= val.second << prod;
+                }
+            }
+            pfx |= curr;
+            prev = curr;
+            if (sz(q) > LOG) q.pop_back();
+        }
+
+        cout << (prev[m] ? "YES" : "NO") << "\n";
+    }
+}
+
+SolutionLet f(x) = max number of monsters we can satisfy using the first x pieces for all x in [0,n].Let g(x) = same as f(x) but using the last x pieces. We create a function that takes a vector and V ( min value to deem partition good), and it return f(x).To compute g(x), we just need to make a copy of a, reverse it and use the same function. if f(n) < m then we cannot feed all monsters even with all the pieces and ans = -1. Now that we have f(x) and g(x), it's a very straight forward two pointers algorithm.We consider a segment a[l:r] good, if after giving it to Alice, the rest suffices to feed all of m monsters.It's easy to notice that if some segment is good, then any segment inside it is also good. And if a segment is bad, then any segment that contains it is also bad.This is a very strong indication that the two pointers methods may be used here.I learned this for the course in Codeforces under Edu section. Check it out. It's good. Now for each r in [0,n) we find the longest good segment that ends at r, and among all of there, we pick the best of course..For this problem specifically, it was helpful to deem a segment to be good if it's empty to avoid some troubling bugs. How to check whether a segment[l, r] is good?we use all pieces in a[0:l), (l pieces) to feed monsters and max num of monsters we can feed with first l pieces is f(l),and pieces in [r+1,n) are also available, their count is n−r−1, and clearly we can now an extra g(n−r−1), if the sum >= m, segment is good so segment is good <=> segment is empty or f(l)+g(n−r−1)>=mN.B. an empty segment is indeed good because we have already checked that f(n)>=m. But if use f(l)+g(n−r−1)>=m to check if an empty segment is good, I think we can get in trouble, so it's better to use a different condition, simple r−l+1==0=>good Here is the code291149416 
+

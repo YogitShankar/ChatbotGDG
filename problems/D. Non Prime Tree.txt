@@ -1,0 +1,12 @@
+You are given a tree with nn vertices.You need to construct an array a1,a2,…,ana1,a2,…,an of length nn, consisting of unique integers from 11 to 2⋅n2⋅n, and such that for each edge ui↔viui↔vi of the tree, the value |aui−avi||aui−avi| is not a prime number.Find any array that satisfies these conditions, or report that there is no such array.
+
+Each test contains multiple test cases. The first line contains the number of test cases tt (1≤t≤1041≤t≤104). The description of the test cases follows.The first line of each test case contains a single integer nn (2≤n≤2⋅1052≤n≤2⋅105) — the number of vertices in the tree.The next n−1n−1 lines contain the edges of the tree, one edge per line. The ii-th line contains two integers uiui and vivi (1≤ui,vi≤n1≤ui,vi≤n; ui≠viui≠vi), denoting the edge between the nodes uiui and vivi.It's guaranteed that the given edges form a tree.It is guaranteed that the sum of nn over all test cases does not exceed 2⋅1052⋅105.
+
+For each test case, if an array that satisfies the conditions exists, print its elements a1,a2,…,ana1,a2,…,an. Otherwise, print −1−1.
+
+Input
+2 5 1 2 2 3 2 4 3 5 7 1 2 1 3 2 4 3 5 3 6 3 7
+
+Output
+2 10 1 6 5 
+8 7 12 1 4 6 3

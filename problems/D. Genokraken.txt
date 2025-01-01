@@ -1,0 +1,21 @@
+This is an interactive problem.Upon clearing the Waterside Area, Gretel has found a monster named Genokraken, and she's keeping it contained for her scientific studies.The monster's nerve system can be structured as a tree†† of nn nodes (really, everything should stop resembling trees all the time……), numbered from 00 to n−1n−1, with node 00 as the root.Gretel's objective is to learn the exact structure of the monster's nerve system — more specifically, she wants to know the values p1,p2,…,pn−1p1,p2,…,pn−1 of the tree, where pi (0≤pi<i) is the direct parent node of node i (1≤i≤n−1).She doesn't know exactly how the nodes are placed, but she knows a few convenient facts:  If we remove root node 0 and all adjacent edges, this tree will turn into a forest consisting of only paths‡. Each node that was initially adjacent to the node 0 will be the end of some path.  The nodes are indexed in a way that if 1≤x≤y≤n−1, then px≤py.  Node 1 has exactly two adjacent nodes (including the node 0).  The tree in this picture does not satisfy the condition, because if we remove node 0, then node 2 (which was initially adjacent to the node 0) will not be the end of the path 4−2−5.The tree in this picture does not satisfy the condition, because p3≤p4 must hold.The tree in this picture does not satisfy the condition, because node 1 has only one adjacent node. Gretel can make queries to the containment cell:  "? a b" (1≤a,b<n, a≠b) — the cell will check if the simple path between nodes a and b contains the node 0. However, to avoid unexpected consequences by overstimulating the creature, Gretel wants to query at most 2n−6 times. Though Gretel is gifted, she can't do everything all at once, so can you give her a helping hand?†A tree is a connected graph where every pair of distinct nodes has exactly one simple path connecting them.‡A path is a tree whose vertices can be listed in the order v1,v2,…,vk such that the edges are (vi,vi+1) (1≤i<k).
+
+Each test consists of multiple test cases. The first line contains a single integer t (1≤t≤500) — the number of test cases. The description of the test cases follows.The first line of each test case contains a single integer n (4≤n≤104) — the number of nodes in Genokraken's nerve system.It is guaranteed that the sum of n over all test cases does not exceed 104.
+
+ 
+
+Input
+
+
+Output
+? 2 3
+
+! 0 0 1
+
+? 2 3
+
+? 2 4
+
+! 0 0 1 2
+
+! 0 0 0 1 3 5 6 7

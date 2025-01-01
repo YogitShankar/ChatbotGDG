@@ -1,0 +1,12 @@
+{
+    "title": "D. Move Back at a Cost",
+    "time_limit": " 2 seconds",
+    "memory_limit": " 256 megabytes",
+    "tags": [
+        "binary search",
+        "data structures",
+        "greedy",
+        "sortings",
+        "*1600"
+    ]
+}

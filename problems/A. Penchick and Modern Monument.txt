@@ -1,0 +1,13 @@
+Amidst skyscrapers in the bustling metropolis of Metro Manila, the newest Noiph mall in the Philippines has just been completed! The construction manager, Penchick, ordered a state-of-the-art monument to be built with n pillars. The heights of the monument's pillars can be represented as an array h of n positive integers, where hi represents the height of the i-th pillar for all i between 1 and n.Penchick wants the heights of the pillars to be in non-decreasing order, i.e. hi≤hi+1 for all i between 1 and n−1. However, due to confusion, the monument was built such that the heights of the pillars are in non-increasing order instead, i.e. hi≥hi+1 for all i between 1 and n−1.Luckily, Penchick can modify the monument and do the following operation on the pillars as many times as necessary:  Modify the height of a pillar to any positive integer. Formally, choose an index 1≤i≤n and a positive integer x. Then, assign hi:=x. Help Penchick determine the minimum number of operations needed to make the heights of the monument's pillars non-decreasing.
+
+Each test contains multiple test cases. The first line contains the number of test cases t (1≤t≤1000). The description of the test cases follows.The first line of each test case contains a single integer n (1≤n≤50) — the number of pillars.The second line of each test case contains n integers h1,h2,…,hn (1≤hi≤n and hi≥hi+1) — the height of the pillars.Please take note that the given array h is non-increasing.Note that there are no constraints on the sum of n over all test cases.
+
+For each test case, output a single integer representing the minimum number of operations needed to make the heights of the pillars non-decreasing.
+
+Input
+3 5 5 4 3 2 1 3 2 2 1 1 1
+
+Output
+4
+1
+0

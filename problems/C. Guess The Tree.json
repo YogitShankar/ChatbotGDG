@@ -1,0 +1,16 @@
+{
+    "title": "C. Guess The Tree",
+    "time_limit": " 2 seconds",
+    "memory_limit": " 256 megabytes",
+    "tags": [
+        "binary search",
+        "brute force",
+        "dfs and similar",
+        "divide and conquer",
+        "dsu",
+        "greedy",
+        "interactive",
+        "trees",
+        "*1500"
+    ]
+}

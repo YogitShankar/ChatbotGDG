@@ -1,0 +1,16 @@
+Iris has a tree rooted at vertex 11. Each vertex has a value of 00 or 11.Let's consider a leaf of the tree (the vertex 11 is never considered a leaf) and define its weight. Construct a string formed by the values of the vertices on the path starting at the root and ending in this leaf. Then the weight of the leaf is the difference between the number of occurrences of 1010 and 0101 substrings in it.Take the following tree as an example. Green vertices have a value of 11 while white vertices have a value of 00.   Let's calculate the weight of the leaf 55: the formed string is 1011010110. The number of occurrences of substring 1010 is 22, the number of occurrences of substring 0101 is 11, so the difference is 2−1=12−1=1. Let's calculate the weight of the leaf 66: the formed string is 101101. The number of occurrences of substring 1010 is 11, the number of occurrences of substring 0101 is 11, so the difference is 1−1=01−1=0.The score of a tree is defined as the number of leaves with non-zero weight in the tree.But the values of some vertices haven't been decided and will be given to you as ??. Filling the blanks would be so boring, so Iris is going to invite Dora to play a game. On each turn, one of the girls chooses any of the remaining vertices with value ?? and changes its value to 00 or 11, with Iris going first. The game continues until there are no vertices with value ?? left in the tree. Iris aims to maximize the score of the tree, while Dora aims to minimize that.Assuming that both girls play optimally, please determine the final score of the tree.
+
+Each test consists of multiple test cases. The first line contains a single integer tt (1≤t≤5⋅1041≤t≤5⋅104) — the number of test cases. The description of the test cases follows.The first line of each test case contains a single integer nn (2≤n≤1052≤n≤105) — the number of vertices in the tree.The following n−1n−1 lines each contain two integers uu and vv (1≤u,v≤n1≤u,v≤n) — denoting an edge between vertices uu and vv.It's guaranteed that the given edges form a tree.The last line contains a string ss of length nn. The ii-th character of ss represents the value of vertex ii. It's guaranteed that ss only contains characters 00, 11 and ??.It is guaranteed that the sum of nn over all test cases doesn't exceed 2⋅1052⋅105.
+
+For each test case, output a single integer — the final score of the tree.
+
+Input
+6 4 1 2 1 3 4 1 0101 4 1 2 3 2 2 4 ???0 5 1 2 1 3 2 4 2 5 ?1?01 6 1 2 2 3 3 4 5 3 3 6 ?0???? 5 1 2 1 3 1 4 1 5 11?1? 2 2 1 ??
+
+Output
+2
+1
+1
+2
+1
+0

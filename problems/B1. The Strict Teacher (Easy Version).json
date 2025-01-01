@@ -1,0 +1,11 @@
+{
+    "title": "B1. The Strict Teacher (Easy Version)",
+    "time_limit": " 1 .5 seconds",
+    "memory_limit": " 256 megabytes",
+    "tags": [
+        "greedy",
+        "math",
+        "sortings",
+        "*1000"
+    ]
+}

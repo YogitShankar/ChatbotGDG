@@ -1,0 +1,543 @@
+Round TimelineTo denote problems, I will use quotes to denote the number of problems proposed for that postion so far (e.g. A' represents the first A proposed for the round, A'' represents second A proposed, etc). If the problem is in the final set, then it will be bolded. For dates, I will use the american standard notation (mm/dd). Also, I will not go in detail about why problems were rejected/unused because they might appear in the future.8/11: Codeforces Round 965 (Div. 2) has just concluded and sum has shipped himself off to college and won't have time due to attending frat parties his studies. I invite Proof_by_QED to problemset with me. We decide to get cooking straight away.8/12: Proof_by_QED proposes D'. Gets accepted.8/13: Proof_by_QED proposes E'. Problem accepted for backup.8/14: Proof_by_QED proposes D''. Problem accepted for backup.8/19: Proof_by_QED proposes E'', F' and G'. Both gets accepted for main set at the time. Seriously, bro just became the new BledDest.8/21: We got bored and decided to focus on Codeforces Round 971 (Div. 4). Due to difficulty issues, we transfered problem E from that contest to problem B1 and B2 for this contest. B2 ultimately became D :)8/22: Proof_by_QED proposes B', but satyam343 buffs it into F instead. Somewhere along the lines I also came up with A' and B'', both getting initially accepted.8/23: Round gets put up for testing with 7 problems.8/25: I came up with an idea for D'''. Also, Proof_by_QED proposes C, but initially gets ignored lmao. 8/26: satyam343 modifies B'' into D''''. Later, I also propose E''''.8/28: satyam343 tries to modifies B'' again into C''. sum wakes up from his slumber and proposes F''.8/29: I propose A''.8/31: Proof_by_QED proposes D''''' and gets accepted.9/2: satyam343 buffs D''' and it became NOTEQUALTREE. 9/6: Proof_by_QED and satyam343 modifies D' and it becomes G (G1). Later, A_G solved it in subquadratic, and it became G2.9/9: I modify B'' into D''''''.9/11: satyam343 modifies B'' into D'''''''. We hold a poll in our testing server to choose the victor among D'''''' and D'''''''.9/12: I invent and propose C''', but wasn't accepted. satyam343 modifies B'' into D'''''''', but unused due to difficulty issues.9/14: I invent and propose D''''''''', which was unused due to difficulty issues. Later that night, the aforementioned poll concludes, crowning D'''''' with 7 votes to 2. However, both candidates had difficulty issues so we still decided against using any of them (essentially we polled for nothing).9/15: Proof_by_QED proposes B'''' and gets initially accepted, however, was later rejected.9/17: I propose A''' but it wasn't great.9/20: Proof_by_QED brings C up again and it gets prepared.9/23: satyam343 modifies B'' into D'''''''''', but as the original author of B'', I didn't like it.9/24: satyam343 modifies D''''''''' into D''''''''''', and it gets prepared. 9/28: Proof_by_QED modifies a unused problem I proposed for Codeforces Round 965 (Div. 2) into A'''', but unused due to difficulty issues.9/30: Proof_by_QED proposes and prepares B. Later that night, satyam343 has conflicting thoughts whether to replace D''''''''''' yet again, but I  held him at gunpoint to accept the problem  spent 30 minutes convincing him that it is a good problem. This problem became E. For those of you who enjoyed the problem, you're welcome lmao.10/02 — 10/17: Final testing and preparation.10/13: Proof_by_QED proposes current A.
+
+Solution First, what is the maximum possible value of ci−bj for any i,j? Since ci is the maximum element of some subset of a and bi is the minimum element of some subset of a, the maximum possible value of ci−bj is max(a)−min(a).Also note that c1=b1 for any reordering of a. By reordering such that the largest element of a appears first and the smallest element of a appears second, the maximum possible value of the score is achieved. This results in a score of (max(a)−min(a))⋅(n−1).
+
+Code (Python)for i in range(int(input())):
+    n = int(input())
+    mx = 0
+    mn= 1000000
+    lst = input().split()
+    for j in range(n):
+        x = int(lst[j])
+        mx = max(mx, x)
+        mn = min(mn, x)
+    print((mx-mn)*(n-1))
+
+Solution Observation: f(t)−g(t) is odd.Proof: f(t)+g(t) is the set of all non-empty subsets of t, which is 2|t|−1, which is odd. The sum and difference of two integers has the same parity, so f(t)−g(t) is always odd.By including exactly one 1 in the string s, we can make f(s)=2n−1−1 and g(s)=2n−1, or f(s)−g(s)=1 by the multiplication principle. Clearly, this is the best we can do. So, we print out any string with exactly one 1.
+
+Code (C++)#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    int t;
+    cin >> t;
+    while(t--) {
+        int n;
+        cin >> n;
+        cout << '1';
+        for(int i = 1; i < n; i++) cout << '0';
+        cout << endl;
+    }
+}
+
+Solution Let's understand what Alice wants to do. She wants to separate a statement that evaluates to true between two or's. This guarantees her victory since or is evaluated after all and's.First, if the first or last boolean is true, then Alice instantly wins by placing or between the first and second, or second to last and last booleans.Otherwise, if there are two true's consecutively, Alice can also win. Alice may place or before the first of the two on her first move. If Bob does not put his operator between the two true's, then Alice will put an or between the two true's on her next move and win. Otherwise, Bob does place his operator between the two true's. However, no matter what Bob placed, the two true's will always evaluate to true, so on her second move Alice can just place an or on the other side of the two true's to win.We claim these are the only two cases where Alice wins. This is because otherwise, there does not contain two true's consecutively. Now, whenever Alice places an or adjacent to a true, Bob will respond by placing and after the true, which will invalidate this clause to be false.
+
+Code (C++)#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    int t;
+    cin >> t;
+    while(t--) {
+        int n;
+        cin >> n;
+        string s;
+        cin >> s;
+        vector<int> v(n);
+        for(int i = 0; i < n; i++) {
+            if(s[i]=='1') v[i]=1;
+        }
+        bool win = false;
+        if(v[0]||v[n-1]) win=true;
+        for(int i = 1; i < n; i++) {
+            if(v[i]&&v[i-1]) win=true;
+        }
+        if(win) cout << "YES" << endl;
+        else cout << "NO" << endl;
+    }
+}
+
+Solution Observation: Through a series of swaps, we can swap an element from position i to position j (WLOG, assume i<j) if there is no such k such that i≤k<j such that sk=L and sk+1=R.Let's mark all indices i such that si=L and si+1=R as bad. If posi represents the position of i in p, then we must make sure it is possible to swap from min(i,posi) to max(i,posi). As you can see, we can model these conditions as intervals. We must make sure there are no bad indices included in any intervals.We need to gather indices i such that i is included in at least one interval. This can be done with difference array. Let di denote the number of intervals that include i. If di>0, then we need to make sure i is not a bad index. We can keep all bad indices in a set. Notice that when we update i, we can only potentially toggle indices i and i−1 from good to bad (or vice versa). For example, if si=L, si=R, di>0 and index i is not in the bad set, then we will insert it. After each query, if the bad set is empty, then the answer is "YES".
+
+Code (C++)#include <bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+    int t;
+    cin >> t;
+    while(t--) {
+        int n,q;
+        cin >> n >> q;
+        vector<int> perm(n);
+        for(int i = 0; i < n; i++) cin >> perm[i];
+        for(int i = 0; i < n; i++) perm[i]--;
+        vector<int> invperm(n);
+        for(int i = 0; i < n; i++) invperm[perm[i]]=i;
+        vector<int> diffArr(n);
+        for(int i = 0; i < n; i++) {
+            diffArr[min(i, invperm[i])]++;
+            diffArr[max(i, invperm[i])]--;
+        }
+        for(int i = 1; i < n; i++) diffArr[i]+=diffArr[i-1];
+        string s;
+        cin >> s;
+        set<int> problems;
+        for(int i = 0; i < n-1; i++) {
+            if(s[i]=='L'&&s[i+1]=='R'&&diffArr[i]!=0) {
+                problems.insert(i);
+            } 
+        }
+        while(q--) {
+            int x;
+            cin >> x;
+            x--;
+            if(s[x]=='L') {
+                s[x]='R';
+            } else {
+                s[x]='L';
+            }
+            if(s[x-1]=='L'&&s[x]=='R'&&diffArr[x-1]!=0) {
+                problems.insert(x-1);
+            } else {
+                problems.erase(x-1);
+            }
+            if(s[x]=='L'&&s[x+1]=='R'&&diffArr[x]!=0) {
+                problems.insert(x);
+            } else {
+                problems.erase(x);
+            }
+            if(problems.size()) {
+                cout << "NO" << endl;
+            } else {
+                cout << "YES" << endl;
+            }
+        }
+    }
+}
+
+Solution Observation: The score of b is equivalent to f0 + min(f0,f1) + … + min(f0,…,fn−1) where fi stores the frequency of integer i in b.Intuition: We can greedily construct the k arrays by repeating this step: Select the minimum j such that fj=0 and min(f0,…fj−1)>0, and construct the array [0,1,…,j−1]. This is optimal because every element we add will increase the MEX by 1, which will increase the score by 1. If we add j, the MEX will not increase. Also, when we add an element, we cannot increase the score by more than 1. Adding less than j elements cannot increase MEX for future arrays.From this observation, we can see that only the frequency array of a matters. From now on, let's denote the frequency of i in a as fi. We can find the sum over all subsequences using dynamic programming.Let's denote dp[i][j] as the number of subsequences containing only the first i integers and min(f0,…,fi)=j. Initially, dp[0][i]=(f0i). To transition, we need to consider two cases: In the first case, let's assume j<min(f0,…,fi−1). The number of subsequences that can be created is (∑nk=j+1dp[i−1][k])⋅(fij). That is, all the subsequences from previous length such that it is possible for j to be the new minimum, multiplied by the number of subsequences where fi=j.In the second case, let's assume j≥min(f0,…,fi−1). The number of subsequences that can be created is (∑fik=j(fik))⋅dp[i−1][j]. That is, all subsequences containing at least j elements of i, multiplied by all previous subsequences with minimum already equal to j.The total score is dp[i][j]⋅j⋅2fi+1+⋯+fn−1 over the length of the prefix i and prefix minimum j.We can speed up the calculations for both cases using suffix sums, however, this still yields an O(n2) algorithm. However, j is bounded to the interval [1,fi] for each i. Since the sum of fi is n, the total number of secondary states is n. This becomes just a constant factor, so the total complexity is O(n).
+
+Code (C++)#include <bits/stdc++.h>
+#define int long long
+#define ll long long 
+#define pii pair<int,int> 
+#define piii pair<pii,pii>
+#define fi first
+#define se second
+#pragma GCC optimize("O3,unroll-loops")
+#pragma GCC target("avx2,bmi,bmi2,lzcnt,popcnt")
+using namespace std;
+
+const int MX = 2e5;
+ll fact[MX+1];
+ll ifact[MX+1];
+ll MOD=998244353;
+ 
+ll binPow(ll base, ll exp) {
+    ll ans = 1;
+    while(exp) {
+        if(exp%2) {
+            ans = (ans*base)%MOD;
+        }
+        base = (base*base)%MOD;
+        exp /= 2;
+    }
+    return ans;
+}
+ 
+int nCk(int N, int K) {
+    if(K>N||K<0) {
+        return 0;
+    }
+    return (fact[N]*((ifact[K]*ifact[N-K])%MOD))%MOD;
+}
+ 
+void ICombo() {
+	fact[0] = 1;
+    for(int i=1;i<=MX;i++) {
+        fact[i] = (fact[i-1]*i)%MOD;
+    }    
+    ifact[MX] = binPow(fact[MX],MOD-2);
+    for(int i=MX-1;i>=0;i--) {
+        ifact[i] = (ifact[i+1]*(i+1))%MOD;
+    }
+}
+
+void solve() {
+    int n, ans=0; cin >> n;
+    vector<int> c(n);
+    for (int r:c) {
+        cin >> r; c[r]++; 
+    }
+    vector<vector<int>> dp(n,vector<int>(1));
+    vector<int> ps, co; 
+    for (int i = 1; i <= c[0]; i++) dp[0].push_back(nCk(c[0],i));
+    for (int i = 1; i < n; i++) {
+        ps.resize(1); co=ps; 
+        for (int r:dp[i-1]) ps.push_back((ps.back()+r)%MOD); 
+        int m=ps.size()-1;
+        dp[i].resize(min(m,c[i]+1));
+        for (int j = 0; j <= c[i]; j++) co.push_back((co.back()+nCk(c[i],j))%MOD);
+        for (int j = 1; j < dp[i].size(); j++) dp[i][j]=nCk(c[i],j)*(ps[m]-ps[j]+MOD)%MOD+(co.back()-co[j+1]+MOD)*dp[i-1][j]%MOD; 
+    }
+    int j=0;
+    for (auto r:dp) {
+        n-=c[j++];
+        for (int i = 1; i < r.size(); i++) (ans+=i*r[i]%MOD*binPow(2,n))%=MOD;
+    }
+    cout << ans << "\n"; 
+}
+
+int32_t main() {
+	ios::sync_with_stdio(0); cin.tie(0);
+        ICombo();
+	int t = 1; cin >> t;
+	while (t--) solve();
+}
+
+Solution First, let's try to find whether a single array is orangutan-approved or not.Claim: The array b of size n is not orangutan-approved if and only if there exists indices 1≤w<x<y<z≤n such that bw=by, bx=bz, and bw≠bx.Proof: Let's prove this with strong induction. For n=0, the claim is true because the empty array is orangutan-approved. Now, let's suppose that the claim is true for all m<n. Now, let s be a sorted sequence such that x is in s if and only if bx=b1. Suppose s is length k. We can split the array b into disjoint subarrays c1,c2,…,ck such that ci is the subarray b[si+1…si+1−1] for all 1≤i<k and ck=b[sk+1…n] That is, ci is the subarray that lies between each occurrence of b1 in the array b.First, we note that the set of unique elements of ci and cj cannot contain any elements in common for all i≠j. This is because suppose that there exists i and j such that i<j and the set of unique values in ci and cj both contain y. Then, in the original array b, there must exist a subsequence b1,y,b1,y. This makes our premise false.By our inductive claim, each of the arrays c1,c2,…,ck must be orangutan-approved. Since there are no overlapping elements, we may delete each of the arrays c1,c2,…,ck separately. Finally, the array b is left with k copies of b1, and we can use one operation to delete all remaining elements in the array b.Now, how do we solve for all queries? First, precompute the array last, which is the array containing for each i the largest index j<i such that a[j]=a[i]. Let's then use two pointers to compute the last element j<i such that a[j…i] is orangutan-approved but a[j−1…i] is not, and store this in an array called left. Let's also keep a maximum segment tree next such that next[i] is the first element j>i such that aj=ai. As we sweep from i−1 to i, we do the following:  Set L=left[i−1] Otherwise, while max(next[L...last[i]−1]>last[i] and last[i]≠−1), increment L by 1. Set left[i]=L When the left array is fully calculated, we can solve each query in O(1).
+
+Code (C++)#pragma GCC optimize("Ofast")
+ 
+#include <bits/stdc++.h> 
+using namespace std;
+#define ll long long
+#define nline "\n"
+#define f first
+#define s second
+#define sz(x) x.size()
+#define all(x) x.begin(),x.end()
+mt19937 rng(chrono::steady_clock::now().time_since_epoch().count());
+const ll INF_ADD=1e18;
+const ll MOD=1e9+7;
+const ll MAX=1048579;
+class ST {
+public:
+    vector<ll> segs;
+    ll size = 0;
+    ll ID = 0;
+ 
+    ST(ll sz) {
+        segs.assign(2 * sz, ID);
+        size = sz;  
+    }   
+   
+    ll comb(ll a, ll b) {
+        return max(a, b);  
+    }
+ 
+    void upd(ll idx, ll val) {
+        segs[idx += size] = val;
+        for(idx /= 2; idx; idx /= 2) segs[idx] = comb(segs[2 * idx], segs[2 * idx + 1]);
+    }
+ 
+    ll query(ll l, ll r) {
+        ll lans = ID, rans = ID;
+        for(l += size, r += size + 1; l < r; l /= 2, r /= 2) {
+            if(l & 1) lans = comb(lans, segs[l++]);
+            if(r & 1) rans = comb(segs[--r], rans);
+        }
+        return comb(lans, rans);
+    }
+}; 
+void solve(){
+  ll n,q,l=1; cin>>n>>q;
+  ST track(n+5);
+  vector<ll> a(n+5),last(n+5,0),lft(n+5);
+  for(ll i=1;i<=n;i++){
+    cin>>a[i];
+    ll till=last[a[i]];
+    while(track.query(l,till)>=till+1){
+      l++;
+    }
+    if(till){
+      track.upd(till,i);
+    }
+    lft[i]=l;
+    last[a[i]]=i;
+  }
+  while(q--) {
+    ll l,r; cin>>l>>r;
+    if(lft[r]<=l){
+      cout<<"YES\n";
+    } 
+    else{
+      cout<<"NO\n";
+    }
+  }
+}
+int main()                                                                                 
+{         
+  ios_base::sync_with_stdio(false);                         
+  cin.tie(NULL);                                  
+  ll test_cases=1;                 
+  cin>>test_cases;
+  while(test_cases--){
+    solve();
+  }
+} 
+
+Solution (Easy Version)To find the score of a set of intervals ([l1,r1],[l2,r2],…,[lv,rv]), we follow these steps:Initially, the score is set to 0.We perform the following process repeatedly:  Let x be the interval with the smallest ri among all active intervals. Let y be the interval with the largest li among all active intervals. If rx<ly, add ly−rx to the score, mark intervals x and y as inactive, and continue the process. If rx≥ly, stop the process. At the end of this process, all active intervals will intersect at least one common point.Now, we need to prove that the process indeed gives us the minimum possible score. We can prove this by induction.Let S be some set of intervals, and let x and y be the intervals defined above. Consider the set S′=S∖x,y (i.e., S′ is the set S excluding x and y). We claim that: score(S)≥score(S′)+distance(x,y)This is true because, for x and y to intersect, we must perform at least distance(x,y) operations. Our construction achieves the lower bound of score(S′)+distance(x,y). Thus, score(S)=score(S′)+distance(x,y)During the process, we pair some intervals (possibly none). Specifically, in the k-th step, we pair the interval with the k-th smallest ri with the interval having the k-th largest lj, and add the distance between them to the score.In the problem G1, we can compute the contribution of each pair of intervals as follows:Suppose we consider a pair (i,j). Without loss of generality, assume that ri<lj.The pair (i,j) will be considered in some subset S if there are exactly x intervals p such that rp<ri and exactly x intervals p such that lp>lj, for some non-negative integer x.Let there be g intervals p such that rp<ri and h intervals p such that lp>lj.For (i,j) to be paired in some subset S, we must choose x intervals from the g intervals on the left and x intervals from the h intervals on the right, for some non-negative integer x. There are no restrictions on the remaining n−2−g−h intervals.Therefore, the contribution of (i,j) is: ∑gx=0(lj−ri)⋅(gx)⋅(hx)⋅2n−2−g−hWe can simplify this sum using the identity: ∑gx=0(gx)⋅(hx)=(g+hg)(This is a form of the Vandermonde Identity.)Thus, the contribution of (i,j) becomes: (lj−ri)⋅(g+hg)⋅2n−2−g−hThis can be computed in O(1) time.Note that in the explanation above, we assumed that the interval endpoints are distinct for simplicity. If they are not, we can order the intervals based on their li values to maintain consistency.
+
+Solution (Hard Version)Let us find the contribution of r[i], the right endpoint of i-th interval.Let x be the number of intervals j such that r[j]<r[i], and let y be the number of intervals j such that l[j]>r[i].To determine the contribution of r[i] to the final answer, we consider selecting p intervals from the x intervals to the left and q intervals from the y intervals to the right, with the constraint that p<q. We require p<q so that interval i is paired with some other interval on the right (as discussed in the solution for G1). Therefore, the contribution of r[i] can be expressed as: Contribution=−r[i]⋅ways(x,y)⋅2n−1−x−yHere, ways(x,y) represents the number of valid selections where p<q.Calculating ways(x,y)To compute ways(x,y), we can use the Vandermonde identity to simplify the expression: ways(x,y)=∑0≤p<q≤y(xp)(yq)This can be rewritten as: ways(x,y)=∑xp=0∑yk=1(xp)(yp+k)Define the function g(k) as: g(k)=∑xp=0(xp)(yp+k)By applying the Vandermonde identity, we get: g(k)=(x+yx+k)Thus, the total number of ways is: ways(x,y)=∑yk=1(x+yx+k)We can simplify this summation using the property of binomial coefficients: ways(x,y)=2x+y−h(x+y,x)where the function h(p,q) is defined as: h(p,q)=∑qi=0(pi)Efficient Computation of h(p,q)Note that: h(p,q)=2⋅h(p−1,q)−(p−1q)Suppose throughout the solution, we call the function h(p,q) d times for pairs (p1,q1),(p2,q2),…,(pd,qd), in that order. We can observe that: ∑di=2|pi−pi−1|+|qi−qi−1|=O(n)Since h(pi,qi) can be computed from h(pi−1,qi−1) in |pi−pi−1|+|qi−qi−1| operations, the amortized time complexity for this part is O(n).Final ContributionCombining the above results, the contribution of r[i] to the answer is: −r[i]⋅(2x+y−h(x+y,x))⋅2n−1−x−yA similar calculation can be applied to the contribution of l[i]. By summing these contributions across all relevant intervals, we obtain the final answer.
+
+G1 Code (C++)#pragma GCC optimize("Ofast")
+ 
+#include <bits/stdc++.h>   
+#include <ext/pb_ds/tree_policy.hpp>
+#include <ext/pb_ds/assoc_container.hpp>
+using namespace __gnu_pbds;   
+using namespace std;
+#define ll long long
+#define ld long double
+#define nline "\n"
+#define f first
+#define s second
+#define sz(x) (ll)x.size()
+#define vl vector<ll>
+const ll INF_MUL=1e13;
+const ll INF_ADD=1e18;
+#define all(x) x.begin(),x.end()
+mt19937 rng(chrono::steady_clock::now().time_since_epoch().count());
+typedef tree<ll, null_type, less<ll>, rb_tree_tag, tree_order_statistics_node_update> ordered_set;
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------     
+const ll MOD=998244353;
+const ll MAX=500500;
+vector<ll> fact(MAX+2,1),inv_fact(MAX+2,1);
+ll binpow(ll a,ll b,ll MOD){
+    ll ans=1;
+    a%=MOD;  
+    while(b){
+        if(b&1)
+            ans=(ans*a)%MOD;
+        b/=2;
+        a=(a*a)%MOD;
+    }
+    return ans;
+}
+ll inverse(ll a,ll MOD){
+    return binpow(a,MOD-2,MOD);
+} 
+void precompute(ll MOD){
+    for(ll i=2;i<MAX;i++){
+        fact[i]=(fact[i-1]*i)%MOD;
+    }
+    inv_fact[MAX-1]=inverse(fact[MAX-1],MOD);
+    for(ll i=MAX-2;i>=0;i--){
+        inv_fact[i]=(inv_fact[i+1]*(i+1))%MOD;
+    }
+}
+ll nCr(ll a,ll b,ll MOD){
+    if((a<0)||(a<b)||(b<0))
+        return 0;   
+    ll denom=(inv_fact[b]*inv_fact[a-b])%MOD;
+    return (denom*fact[a])%MOD;  
+}
+ll l[MAX],r[MAX],lft[MAX],rght[MAX],power[MAX];
+void solve(){ 
+  ll n; cin>>n;
+  power[0]=1;
+  for(ll i=1;i<=n;i++){
+    cin>>l[i]>>r[i];
+    power[i]=(power[i-1]*2ll)%MOD;
+  }
+  for(ll i=1;i<=n;i++){
+    lft[i]=rght[i]=0;
+    for(ll j=1;j<=n;j++){
+      if(make_pair(r[i],i)>make_pair(r[j],j)){
+        lft[i]++;
+      }
+      if(make_pair(l[i],i)<make_pair(l[j],j)){
+        rght[i]++;
+      }
+    }
+  }
+  ll ans=0;
+  for(ll i=1;i<=n;i++){
+    for(ll j=1;j<=n;j++){
+      if(r[i]<l[j]){
+        ll found=lft[i]+rght[j];
+        ll now=nCr(found,lft[i],MOD)*(l[j]-r[i]);
+        now%=MOD;
+        ll remaining=n-found-2;
+        ans=(ans+now*power[remaining])%MOD;
+      }
+    }
+  }
+  cout<<ans<<nline;
+  return;    
+}  
+int main()                                                                                 
+{         
+  ios_base::sync_with_stdio(false);                         
+  cin.tie(NULL);                              
+  ll test_cases=1;                 
+  cin>>test_cases;
+  precompute(MOD);
+  while(test_cases--){
+    solve();
+  }
+  cout<<fixed<<setprecision(12);  
+  cerr<<"Time:"<<1000*((double)clock())/(double)CLOCKS_PER_SEC<<"ms\n"; 
+} 
+
+
+G2 Code (C++)#pragma GCC optimize("Ofast")
+ 
+#include <bits/stdc++.h>   
+#include <ext/pb_ds/tree_policy.hpp>
+#include <ext/pb_ds/assoc_container.hpp>
+using namespace __gnu_pbds;   
+using namespace std;
+#define ll long long
+#define ld long double
+#define nline "\n"
+#define f first
+#define s second
+#define sz(x) (ll)x.size()
+#define vl vector<ll>
+const ll INF_MUL=1e13;
+const ll INF_ADD=1e18;
+#define all(x) x.begin(),x.end()
+mt19937 rng(chrono::steady_clock::now().time_since_epoch().count());
+typedef tree<ll, null_type, less<ll>, rb_tree_tag, tree_order_statistics_node_update> ordered_set;
+//--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------     
+const ll MOD=998244353;
+const ll MAX=5000500;
+vector<ll> fact(MAX+2,1),inv_fact(MAX+2,1);
+ll binpow(ll a,ll b,ll MOD){
+    ll ans=1;
+    a%=MOD;  
+    while(b){
+        if(b&1)
+            ans=(ans*a)%MOD;
+        b/=2;
+        a=(a*a)%MOD;
+    }
+    return ans;
+}
+ll inverse(ll a,ll MOD){
+    return binpow(a,MOD-2,MOD);
+} 
+void precompute(ll MOD){
+    for(ll i=2;i<MAX;i++){
+        fact[i]=(fact[i-1]*i)%MOD;
+    }
+    inv_fact[MAX-1]=inverse(fact[MAX-1],MOD);
+    for(ll i=MAX-2;i>=0;i--){
+        inv_fact[i]=(inv_fact[i+1]*(i+1))%MOD;
+    }
+}
+ll nCr(ll a,ll b,ll MOD){
+    if((a<0)||(a<b)||(b<0))
+        return 0;   
+    ll denom=(inv_fact[b]*inv_fact[a-b])%MOD;
+    return (denom*fact[a])%MOD;  
+}
+ll l[MAX],r[MAX],power[MAX];
+ll ans=0,on_left=0,on_right,len;
+ll x=0,y=0,ways=0,inv2;
+ll getv(){
+  while(x>=len+1){
+    ways=((ways+nCr(x-1,y,MOD))*inv2)%MOD;
+    x--;
+  }
+  while(x<=len-1){
+    ways=(2ll*ways-nCr(x,y,MOD)+MOD)%MOD;
+    x++;
+  }
+  while(y<=on_left-1){
+    ways=(ways+nCr(x,y+1,MOD))%MOD;
+    y++;
+  }
+  return ways;
+}
+void solve(){ 
+  ll n; cin>>n;
+  power[0]=1;
+  vector<array<ll,2>> track;
+  multiset<ll> consider;
+  for(ll i=1;i<=n;i++){
+    cin>>l[i]>>r[i];
+    track.push_back({r[i],l[i]});
+    consider.insert(l[i]);
+    power[i]=(power[i-1]*2ll)%MOD;
+  }
+  ans=on_left=0;
+  on_right=len=n;
+  x=y=0; ways=1;
+  sort(all(track));
+  for(auto it:track){
+    while(!consider.empty()){
+      if(*consider.begin() <= it[0]){
+        consider.erase(consider.begin());
+        on_right--,len--;
+      }
+      else{
+        break;
+      }
+    }
+    ll now=power[len]-getv();
+    now=(now*power[n-1-len])%MOD;
+    now=(now*it[0])%MOD;
+    ans=(ans+MOD-now)%MOD;
+    on_left++,len++;
+  }
+  track.clear(); consider.clear();
+  for(ll i=1;i<=n;i++){
+    track.push_back({l[i],r[i]});
+    consider.insert(r[i]);
+  }
+  sort(all(track));
+  reverse(all(track));
+  on_left=0;
+  on_right=len=n;
+  x=y=0; ways=1;
+  for(auto it:track){
+    while(!consider.empty()){
+      if(*(--consider.end()) >= it[0]){
+        consider.erase(--consider.end());
+        on_right--,len--;
+      }
+      else{
+        break;
+      }
+    }
+    ll now=power[len]-getv();
+    now=(now*power[n-1-len])%MOD;
+    now=(now*it[0])%MOD;
+    ans=(ans+now)%MOD;
+    on_left++,len++;
+  }
+  ans=(ans+MOD)%MOD;
+  cout<<ans<<nline;
+  return;    
+}  
+int main()                                                                                 
+{         
+  ios_base::sync_with_stdio(false);                         
+  cin.tie(NULL);                              
+  ll test_cases=1;                 
+  cin>>test_cases;
+  precompute(MOD);
+  inv2=inverse(2,MOD);
+  while(test_cases--){
+    solve();
+  }
+  cout<<fixed<<setprecision(12);  
+  cerr<<"Time:"<<1000*((double)clock())/(double)CLOCKS_PER_SEC<<"ms\n"; 
+} 
+
+My ThinkingI just had the key idea in my head. Is this what happens with red coders for all problems? Clearly, max c_i — b_i is when c_i is max number in array and b_i in min number in array.By placing a_max at index 0, we have c_i = a_max for all iand by placing a_min at index 1, we have b_0 = a_max, and b_i = a_min for all i > 0so we are sure now that every term from 1 to n-1 is max.but first term = 0, can we do better? it turns out that first term will always equal 0 since c_0 = b_0 always.. So this is optimal, what is the required sum in this case? easyfirst term = 0rest of terms = a_max — a_min so we have (n-1) * (a_max — a_min) 
+
+My ThinkingAfter playing around with some examples, I suspected that the optimal string is full all zeros except a single one..I had a choice now, just to assume it is write or try to prove itI decided to prove itLet's assumen -> string len if all zeros except one one, then there are n-1 zeroshow many subsequences having only zeros -> 2^(n-1)but there are one empty subsequence counted here, let's discard it so we havef(t) = 2^(n-1) — 1Key idea: for each of these subsequences there are a corresponding subsequence having the same zeros PLUS the only one we have..Thus g(t) >= f(t)but g(t) also include subsequences containing only onesAnd if there is a single one, then such subsequences count = 1Thus, g(t) = f(t) + 1this means |f(t) — g(t)| = |f(t) — f(t) — 1| = 1Yaaa, we find a way to make the required value = 1since this is the absolute value of a number >= 0 the only question now can we make that value = 0 ?Again, I had the choice of just assuming we can't, or waste more time trying to prove it during the contest.. I made the wrong decision to prove it. And here is my proof:There are two cases:1) no ones in the string, clearly g(t) = 0 but f(t) > 0 so the required value > 02) there are 1<=x<=n ones in the string , let's consider the this caseLet n0 = number of subsequences containing only zerosLet n1 = number of subsequences containing only onesIt's not difficult to see that n0*n1 = number of subsequences having at least a one and some positive number of zerosClearly, f(t) = n0 and g(t) = n1 + n0 * n1 = (1 + n1) * n0Thus, g(t) > f(t) so the required value in this case cannot be equal to 0so we proved that in all cases, the required value >= 1and we find a way to make it equal 1 which is the min possible 
+
+My ThinkingAfter understanding the problemI had the idea that Alice should always play 'or' and Bob should always play 'and'Now, it wasn't difficult to notice that Alice needs to secure the life of a single 1 while Bob will try to kill all ones A 'one' life is secured if it is guarded by 'or' from both sides, like this(exp) or 1 or (exp) It was not hard to make a number of observations nowa '1' at the beginning or end can be secured by one move only..since Alice make the first move, if such a '1' exist then it will strive to secure it and secure the victory Also, I just had another idea in my head that if there are two consecutive ones(not at boundaries), then Alice can secure one of them by force by immediately placing an 'or' in betweenThe situation reminded my of a similar situation in x-o game where the opponent is doomed because he needs to guard two places at the same time with just one move, also reminded me with double attack tactic in chess(expr) 1 'or' 1Alice is now threatening to place 'or' to the left if the first one and to the right of the second 1I couldn't see a way bob can save this situation .. so the only remaining situation is01010101010Can Bob always hold his ground in this case?Again I just had an intuitive idea that whenever Alice threatens to secure a '1' Bob will timely kill it by placing an 'and'This was enough for me to conclude this problemAlice wins if and only if string begins with 1, or ends with 1 or have two consecutive ones
+
+How did I solve it ? After wandering aimlessly, I made an important observationif s[i] = 'L' and s[i+1] = 'R' then the permutation si splitted into two isolated partsmeaning we cannot move any number at index <= i to an index > i or vice versaLet's say there is a divide at index i, if this is the case Now, if there is some number that must be moved from an index <= i to an index > i or vice versa, meaningit must cross the divide then we call this a bad divide Clearly, if the permutation is sortable then there are no bad dividesHere I made a very bold move and just assumed the converse it correct( I would be grateful if someone provided some casual compelling proof)if there are no bad divides then the permutation is sortable Thus, sortable if and only if no bad divides exists So, we have a solution if we can maintain a set of bad divides and update it efficiently after each query, thenif that set is empty , the permutation is sortable and we output yes, otherwise no So, I had two tasks now1) calc the set of bad divides initially2) update the set after each query (easy! since a query at index i may affect divides at i-1, i, i+1 only) Let's focus on how to find the bad divides in the initial statefor each i, if p[i] != i, then number p[i] must move from index i to index p[i]so any divide that would separate these two indexes will be considered bad..let lo = min(i, p[i]) , hi = max(i, p[i])Thus any divide at lo, lo+1, lo+2, ..., hi-1 is considered badTo solve this problem, I defined array is_bad[i] = 0 if a divide at i not bad and positive integer otherwiseand then I used some trick I don't recall where I learn it by marking the first of the segment and end of segmentso is_bad[lo] += 1, and is_bad[hi] -= 1then iterate through is_bad array accumulating is_bad[i] += is_bad[i-1]Can someone help me recall what is trick related to? and any better solution for this subproblem? Now, it's easy to construct the set of bad divides since it's easy to detect a divides[i] = 'L' and s[i+1] = 'R'and it's easy to check if that divide is bad by checking is_bad[i] I had all the ideas to solve the problem before the end of contest and I needed to code it under 15 minutes .. Some things helped me while solving this interesting problem:1. using 1-indexed ordering consistently, so instead of string s, I used vector s(n+1)2. I wrote one portion of code then test itso after writing the logic that computed is_bad array, I tested the codesame thing after writing bad divides set logicNow, I did that by just printing things with cout,Are there better ways without using a traditional debugger ?Thanks 
+
+How can we compute G faster?To compute G, we can note that, for each value of x, the value of G(i,x) is given the product of all j up to i of F(j,x) minus the same for x+1. Both terms are a product of F for all j up to i, so we can just store the cumulative product of each of the two of them for each value of x. Now, as we process values in ascending order, to get the result of G(i,x), we only need to include the values of F(i,x) and F(i,x+1) in the cumulative products of x we have already calculated.
+
+How can we compute F faster?Now, to compute F, we can note that we want to calculate a range sum in a row of binomial coefficients. We can precompute, for each value of fi, the prefix sums of (fik) for each k up to fi. The complexity for this is O(∑n−1i=0fi)=O(n) and we can now query range sums (and compute F) in O(1).
+
