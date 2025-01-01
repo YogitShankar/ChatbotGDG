@@ -1,0 +1,17 @@
+This is an interactive problem.Misuki has chosen a secret tree with n nodes, indexed from 1 to n, and asked you to guess it by using queries of the following type:   "? a b" — Misuki will tell you which node x minimizes |d(a,x)−d(b,x)|, where d(x,y) is the distance between nodes x and y. If more than one such node exists, Misuki will tell you the one which minimizes d(a,x). Find out the structure of Misuki's secret tree using at most 15n queries!
+
+Each test consists of multiple test cases. The first line contains a single integer t (1≤t≤200) — the number of test cases.Each test case consists of a single line with an integer n (2≤n≤1000), the number of nodes in the tree.It is guaranteed that the sum of n across all test cases does not exceed 1000.
+
+ 
+
+Input
+
+
+Output
+? 1 2
+
+? 1 3
+
+? 1 4
+
+! 1 2 1 3 3 4

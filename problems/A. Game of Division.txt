@@ -1,0 +1,21 @@
+You are given an array of integers a1,a2,…,ana1,a2,…,an of length nn and an integer kk.Two players are playing a game. The first player chooses an index 1≤i≤n1≤i≤n. Then the second player chooses a different index 1≤j≤n,i≠j1≤j≤n,i≠j. The first player wins if |ai−aj||ai−aj| is not divisible by kk. Otherwise, the second player wins.We play as the first player. Determine whether it is possible to win, and if so, which index ii should be chosen.The absolute value of a number xx is denoted by |x||x| and is equal to xx if x≥0x≥0, and −x−x otherwise.
+
+Each test contains multiple test cases. The first line of input contains a single integer tt (1≤t≤1001≤t≤100) — the number of test cases. The description of the test cases follows.The first line of each test case contains two integers nn and kk (1≤n≤1001≤n≤100; 1≤k≤1001≤k≤100) — the length of the array and the number kk.The second line of each test case contains nn integers a1,a2,…,ana1,a2,…,an (1≤ai≤1001≤ai≤100) — the elements of the array aa.
+
+For each test case, if it is impossible for the first player to win, print "NO" (without quotes).Otherwise, print "YES" (without quotes) and on the next line the appropriate index 1≤i≤n1≤i≤n. If there are multiple solutions, print any of them.You can output each letter in any case (lowercase or uppercase). For example, the strings "yEs", "yes", "Yes" and "YES" will be recognized as a positive answer.
+
+Input
+7 3 2 1 2 3 4 2 1 2 4 5 5 3 10 7 3 4 5 5 3 1 31 15 55 36 2 1 17 17 2 2 17 18 1 3 6
+
+Output
+YES
+2
+NO
+YES
+3
+NO
+NO
+YES
+2
+YES
+1

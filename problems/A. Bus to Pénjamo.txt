@@ -1,0 +1,14 @@
+Ya vamos llegando a Péeeenjamoo ♫♫♫  There are nn families travelling to Pénjamo to witness Mexico's largest-ever "walking a chicken on a leash" marathon. The ii-th family has aiai family members. All families will travel using a single bus consisting of rr rows with 22 seats each.A person is considered happy if:   Another family member is seated in the same row as them, or  They are sitting alone in their row (with an empty seat next to them). Determine the maximum number of happy people in an optimal seating arrangement. Note that everyone must be seated in the bus.It is guaranteed that all family members will fit on the bus. Formally, it is guaranteed that n∑i=1ai≤2r∑i=1nai≤2r.
+
+Each test contains multiple test cases. The first line contains the number of test cases tt (1≤t≤10001≤t≤1000). The description of the test cases follows.The first line of each test case contains two integers nn and rr (1≤n≤1001≤n≤100; 1≤r≤5001≤r≤500) — the number of families and the number of rows in the bus.The second line contains nn integers a1,a2,…,ana1,a2,…,an (1≤ai≤101≤ai≤10) — the number of family members in each family.
+
+For each test case, output the maximum number of happy people in an optimal seating arrangement.
+
+Input
+4 3 3 2 3 1 3 3 2 2 2 4 5 1 1 2 2 4 5 3 1 1 3
+
+Output
+4
+6
+6
+6

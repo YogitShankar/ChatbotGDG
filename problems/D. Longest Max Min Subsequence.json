@@ -1,0 +1,13 @@
+{
+    "title": "D. Longest Max Min Subsequence",
+    "time_limit": " 2 seconds",
+    "memory_limit": " 256 megabytes",
+    "tags": [
+        "brute force",
+        "constructive algorithms",
+        "data structures",
+        "greedy",
+        "implementation",
+        "*1900"
+    ]
+}

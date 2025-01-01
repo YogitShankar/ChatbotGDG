@@ -1,0 +1,12 @@
+{
+    "title": "B. Replace Character",
+    "time_limit": " 1 second",
+    "memory_limit": " 256 megabytes",
+    "tags": [
+        "brute force",
+        "combinatorics",
+        "greedy",
+        "strings",
+        "*900"
+    ]
+}

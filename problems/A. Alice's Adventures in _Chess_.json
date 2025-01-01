@@ -1,0 +1,11 @@
+{
+    "title": "A. Alice's Adventures in \"Chess\"",
+    "time_limit": " 1 second",
+    "memory_limit": " 256 megabytes",
+    "tags": [
+        "brute force",
+        "implementation",
+        "math",
+        "*900"
+    ]
+}

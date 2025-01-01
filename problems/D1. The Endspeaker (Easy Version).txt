@@ -1,0 +1,15 @@
+This is the easy version of this problem. The only difference is that you only need to output the minimum total cost of operations in this version. You must solve both versions to be able to hack.You're given an array a of length n, and an array b of length m (bi>bi+1 for all 1≤i<m). Initially, the value of k is 1. Your aim is to make the array a empty by performing one of these two operations repeatedly:  Type 1 — If the value of k is less than m and the array a is not empty, you can increase the value of k by 1. This does not incur any cost.  Type 2 — You remove a non-empty prefix of array a, such that its sum does not exceed bk. This incurs a cost of m−k. You need to minimize the total cost of the operations to make array a empty. If it's impossible to do this through any sequence of operations, output −1. Otherwise, output the minimum total cost of the operations.
+
+Each test contains multiple test cases. The first line contains the number of test cases t (1≤t≤1000). The description of the test cases follows.The first line of each test case contains two integers n and m (1≤n,m≤3⋅105, 1≤n⋅m≤3⋅105).The second line of each test case contains n integers a1,a2,…,an (1≤ai≤109).The third line of each test case contains m integers b1,b2,…,bm (1≤bi≤109).It is also guaranteed that bi>bi+1 for all 1≤i<m.It is guaranteed that the sum of n⋅m over all test cases does not exceed 3⋅105.
+
+For each test case, if it's possible to make a empty, then output the minimum total cost of the operations.If there is no possible sequence of operations which makes a empty, then output a single integer −1.
+
+Input
+5 4 2 9 3 4 3 11 7 1 2 20 19 18 10 2 2 5 2 1 10 3 2 9 9 6 17 9 10 11 2 2 2 2 2 2 2 2 2 2 20 18 16 14 12 10 8 6 4 2 1 1 6 10 32 16 8 4 2 1
+
+Output
+1
+-1
+2
+10
+4

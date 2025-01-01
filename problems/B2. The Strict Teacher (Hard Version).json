@@ -1,0 +1,12 @@
+{
+    "title": "B2. The Strict Teacher (Hard Version)",
+    "time_limit": " 1 .5 seconds",
+    "memory_limit": " 256 megabytes",
+    "tags": [
+        "binary search",
+        "greedy",
+        "math",
+        "sortings",
+        "*1200"
+    ]
+}

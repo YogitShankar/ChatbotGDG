@@ -1,0 +1,12 @@
+{
+    "title": "B. Maximize Mex",
+    "time_limit": " 1 second",
+    "memory_limit": " 256 megabytes",
+    "tags": [
+        "brute force",
+        "greedy",
+        "math",
+        "number theory",
+        "*1200"
+    ]
+}

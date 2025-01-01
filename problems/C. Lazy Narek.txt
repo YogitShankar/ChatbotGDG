@@ -1,0 +1,14 @@
+Narek is too lazy to create the third problem of this contest. His friend Artur suggests that he should use ChatGPT. ChatGPT creates n problems, each consisting of m letters, so Narek has n strings. To make the problem harder, he combines the problems by selecting some of the n strings possibly none and concatenating them without altering their order. His chance of solving the problem is defined as scoren−scorec, where scoren is Narek's score and scorec is ChatGPT's score.Narek calculates scoren by examining the selected string (he moves from left to right). He initially searches for the letter "n", followed by "a", "r", "e", and "k". Upon finding all occurrences of these letters, he increments scoren by 5 and resumes searching for "n" again (he doesn't go back, and he just continues from where he left off). After Narek finishes, ChatGPT scans through the array and increments scorec by 1 for each letter "n", "a", "r", "e", or "k" that Narek fails to utilize (note that if Narek fails to complete the last occurrence by finding all of the 5 letters, then all of the letters he used are counted in ChatGPT's score scorec, and Narek doesn't get any points if he doesn't finish finding all the 5 letters).Narek aims to maximize the value of scoren−scorec by selecting the most optimal subset of the initial strings.
+
+In the first line of the input, you're given a single integer t (1≤t≤105), the number of test cases. Then the description of each test case follows.In the first line of each test case, you're given two integers n,m (1≤n,m≤103), the number of strings and the length of each string.In the next n lines, you're given n strings, each having a length of m. The strings only contain lowercase letters of the English alphabet.The sum of values of n⋅m over all test cases does not exceed 106.
+
+For each test case, output a single integer: the maximal possible value of scoren−scorec.
+
+Input
+4 5 2 nn aa rr ee kk 1 5 narek 1 4 nare 5 7 nrrarek nrnekan uuuuuuu ppppppp nkarekz
+
+Output
+0
+5
+0
+7

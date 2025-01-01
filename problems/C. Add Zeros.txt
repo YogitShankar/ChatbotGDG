@@ -1,0 +1,14 @@
+You're given an array a initially containing n integers. In one operation, you must do the following:  Choose a position i such that 1<i≤|a| and ai=|a|+1−i, where |a| is the current size of the array.  Append i−1 zeros onto the end of a. After performing this operation as many times as you want, what is the maximum possible length of the array a?
+
+Each test contains multiple test cases. The first line contains the number of test cases t (1≤t≤1000). The description of the test cases follows.The first line of each test case contains n (1≤n≤3⋅105) — the length of the array a.The second line of each test case contains n integers a1,a2,…,an (1≤ai≤1012).It is guaranteed that the sum of n over all test cases does not exceed 3⋅105.
+
+For each test case, output a single integer — the maximum possible length of a after performing some sequence of operations.
+
+Input
+4 5 2 4 6 2 5 5 5 4 4 5 1 4 6 8 2 3 1 1
+
+Output
+10
+11
+10
+1

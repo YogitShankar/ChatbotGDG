@@ -1,0 +1,16 @@
+{
+    "title": "D. Penchick and Desert Rabbit",
+    "time_limit": " 3 seconds",
+    "memory_limit": " 256 megabytes",
+    "tags": [
+        "binary search",
+        "data structures",
+        "dfs and similar",
+        "dp",
+        "dsu",
+        "greedy",
+        "implementation",
+        "two pointers",
+        "*1700"
+    ]
+}

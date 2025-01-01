@@ -1,0 +1,720 @@
+Editorial[problem:2040A]$$$|x - y|$$$ is divisible by $$$k$$$ if and only if $$$x \mod k = y \mod k$$$. Let's split all numbers into groups according to the value $$$x \mod k$$$. The second player wins if he chooses a number from the same group. This means that the first player must choose the number that is the only one in its group.
+
+Solution C++#include <bits/stdc++.h>
+ 
+using namespace std;
+ 
+int main() {
+    int tt;
+    cin >> tt;
+    while (tt--) {
+        int n, k;
+        cin >> n >> k;
+        vector < vector <int> > b(k);
+        for (int i = 1; i <= n; i++) {
+            int x;
+            cin >> x;
+            b[x % k].push_back(i);
+        }
+        int res = -1;
+        for (int i = 0; i < k; i++) {
+            if ((int)b[i].size() == 1) {
+                res = b[i][0];
+                break;
+            }
+        }
+        if (res == -1) {
+            cout << "NO" << endl;
+        }
+        else {
+            cout << "YES" << endl << res << endl;
+        }
+    }
+    
+    return 0;
+}
+
+Solution Pythonfor _ in range(int(input())):
+    n, k = map(int, input().split())
+    a = list(map(int, input().split()))
+    b = [[] for _ in range(k)]
+    for i in range(0, n):
+        x = a[i]
+        b[x % k].append(i + 1)
+    res = -1
+    for i in range(k):
+        if len(b[i]) == 1:
+            res = b[i][0]
+            break
+    if res == -1:
+        print("NO")
+    else:
+        print("YES\n" + str(res))
+
+Editorial[problem:2040B]At each moment of time, the array contains a number of non-intersecting segments consisting only of ones. Using an operation of the first type can increase the number of these segments by $$$1$$$. Using an operation of the second type decreases the number of these segments by $$$x - 1$$$, where $$$x$$$ — is the number of segments that this operation covers. Therefore, the number of operations of the second type is no more than the number of operations of the first type minus $$$1$$$.The optimal strategy — is to perform one operation of the first type, and then alternate operations of the first and second types, increasing the number of ones from $$$x$$$ to $$$2 \cdot (x + 1)$$$ on each such pair of operations. There is no point in doing more operations of the first type on the prefix of operations, since we still must cover no more than two segments of ones with operations of the second type; otherwise, we will reduce the possible number of operations of the second type.
+
+Solution C++#include <bits/stdc++.h>
+ 
+using namespace std;
+ 
+int main() {
+    int tt;
+    cin >> tt;
+    while (tt--) {
+        int n;
+        cin >> n;
+        for (int ans = 1, cur = 1; ; ans++, cur = cur * 2 + 2) {
+            if (cur >= n) {
+                cout << ans << '\n';
+                break;
+            }
+        }
+    }
+    
+    return 0;
+}
+
+Solution Pythontt = int(input())
+for _ in range(tt):
+    n = int(input())
+    ans = 1
+    cur = 1
+    while True:
+        if cur >= n:
+            print(ans)
+            break
+        ans += 1
+        cur = cur * 2 + 2
+
+NotesAt some point in the development of this problem, the following alternative statement appeared: we need to minimize the total number of operations of both types. How to solve this problem?
+
+Editorial[problem:2040C]These permutations are generated as follows. We will greedily go through the numbers in order from $$$1$$$ to $$$n$$$, and we will put each one either in the first free cell or in the last one. For example, if we want to put $$$4$$$ in the permutation $$$1, 3, \circ, \circ, \dots, \circ, 2$$$, we can put it either in the third cell or in the second from the end. That is, the permutation first increases and then decreases.We can prove that the greedy algorithm works like this. Let us now want to put the number $$$i$$$. When we put this number, we can immediately say that the minimum on the segments, one of the ends of which is the chosen position, is equal to $$$i$$$ (we do not take into account already placed numbers smaller than $$$i$$$). The number of these segments is equal to $$$n - i + 1$$$. The answer we get is equal to the sum of this fixed number and what we get in the future. Assume we put the number $$$i$$$ not at the end of the array. Let's consider the optimal further answer: $$$[\dots, x_j, \dots] i [\dots, x_j, \dots]$$$. Now let's put $$$i$$$ at the end of the array and leave the order of the following elements unchanged. All segments whose ends lie on elements that are larger than $$$i$$$ may no longer cover the number $$$i$$$, but the sets of numbers larger than $$$i$$$ that they cover have not changed. So the answer got better.Since we choose one of the ends independently, there are $$$2^{n - 1}$$$ of such permutations, and we can find the $$$k$$$-th one using a simple loop, similar to converting a number into binary notation.
+
+Solution C++#include <bits/stdc++.h>
+ 
+using namespace std;
+ 
+int main() {
+    int tt;
+    cin >> tt;
+    while (tt--) {
+        int n;
+        long long k;
+        cin >> n >> k;
+        vector <int> a, b;
+        
+        if (n <= 60 && (1ll << (n - 1)) < k) {
+            cout << -1 << endl;
+            continue;
+        }
+        k--;
+        vector <int> d;
+        while (k) {
+            d.push_back(k % 2);
+            k /= 2;
+        }
+        while (d.size() < n - 1) d.push_back(0);
+        
+        for (int i = n - 2, j = 1; i >= 0; i--, j++) {
+            if (d[i] == 0) a.push_back(j);
+            else b.push_back(j);
+        }
+        
+        reverse(b.begin(), b.end());
+        for (int i : a) cout << i << ' ';
+        cout << n << ' ';
+        for (int i : b) cout << i << ' ';
+        cout << endl;
+    }
+ 
+    return 0;
+}
+
+Solution Pythontt = int(input())
+for _ in range(tt):
+    n, k = map(int, input().split())
+    a, b = [], []
+ 
+    if n <= 60 and (1 << (n - 1)) < k:
+        print(-1)
+        continue
+    k -= 1
+    d = []
+    while k:
+        d.append(k % 2)
+        k //= 2
+    while len(d) < n - 1:
+        d.append(0)
+ 
+    a, b = [], []
+    j = 1
+    for i in range(n - 2, -1, -1):
+        if d[i] == 0:
+            a.append(j)
+        else:
+            b.append(j)
+        j += 1
+ 
+    b.reverse()
+    print(*a, n, *b)
+
+Editorial2040D - Non Prime TreeThere are many array construction tactics that can be devised here. We will show two of them. We will perform a depth-first traversal of the graph and write a number $$$1$$$ greater than the previous one in the traversal order into each subsequent vertex. If the next vertex is not a leaf, then some number has already been written into its parent, which may violate the condition "$$$|a_{u_i} - a_{v_i}|$$$ is prime". If the difference is even and not equal to $$$2$$$, then the condition is satisfied. Otherwise, the condition may be satisfied, but we will still achieve an even difference not equal to $$$2$$$. If the difference is odd, first add the number $$$1$$$. If the difference becomes $$$2$$$, add another $$$2$$$. It can be shown that if we added this additional $$$2$$$, then we did not add them to the previous two vertices in the traversal order. We will write the values $$$2, 4, 6, \dots$$$ to the vertices with even depth in breadth-first order. We will write the values $$$n \cdot 2, n \cdot 2 - 2, n \cdot 2 - 4, \dots$$$ to the vertices with odd depth in breadth-first order. In such a traversal, the condition "$$$|a_{u_i} - a_{v_i}|$$$ is prime" can be violated only for one pair, and one of the vertices of this pair will be a leaf. We will change the value of this leaf to the value of the parent minus $$$1$$$.
+
+Solution 1#include <bits/stdc++.h>
+ 
+using namespace std;
+ 
+int main() {
+    int tt;
+    cin >> tt;
+    while (tt--) {
+        int n;
+        cin >> n;
+        vector < vector <int> > g(n);
+        for (int i = 0; i < n - 1; i++) {
+            int a, b;
+            cin >> a >> b;
+            a--, b--;
+            g[a].push_back(b);
+            g[b].push_back(a);
+        }
+        
+        vector <int> res(n);
+        int lst = 1;
+        res[0] = lst;
+        
+        function <void(int, int)> dfs = [&](int v, int p) {
+            for (int to : g[v]) {
+                if (to == p) continue;
+                res[to] = lst + 1;
+                while (res[to] != res[v] + 1 && 
+                      (res[to] % 2 != res[v] % 2 || res[to] - res[v] == 2)) {
+                    res[to]++;   
+                }
+                lst = res[to];
+                dfs(to, v);
+            }
+        };
+        
+        dfs(0, 0);
+        for (int i : res) cout << i << ' ';
+        cout << endl;
+    }
+    
+    return 0;
+}
+
+Solution 2 (zap4eg)#include <bits/stdc++.h>
+using namespace std;
+ 
+using ll = long long;
+ 
+void dfs(int v, vector<vector<int>>& g, vector<int>& h, int p) {
+    h[v] = h[p] + 1;
+    for (int u : g[v]) {
+        if (u == p)
+            continue;
+        dfs(u, g, h, v);
+    }
+}
+ 
+int main() {
+    ios::sync_with_stdio(0);
+    cin.tie(0);
+    cout.tie(0);
+    
+    int tt;
+    cin >> tt;
+    while (tt--) {
+        int n;
+        cin >> n;
+        vector<vector<int>> g(n);
+        for (int i = 0; i < n - 1; i++) {
+            int u, v;
+            cin >> u >> v;
+            u--, v--;
+            g[u].push_back(v);
+            g[v].push_back(u);
+        }
+        vector<int> h(n);
+        dfs(0, g, h, 0);
+        vector<vector<int>> hs(n + 1);
+        for (int i = 0; i < n; i++)
+            hs[h[i]].push_back(i);
+        int l = 2, r = 2 * n;
+        int cur = 0;
+        vector<int> ans(n);
+        for (int i = 1; i <= n; i++) {
+           if (cur) {
+               for (int v : hs[i]) {
+                    ans[v] = r;
+                    r -= 2;
+               }
+           } 
+           else {
+               for (int v : hs[i]) {
+                    ans[v] = l;
+                    l += 2;
+               }
+           }
+           cur ^= 1;
+        }
+        bool found = false;
+        for (int i = 0; i < n; i++) {
+            for (int v : g[i]) {
+                if (h[v] < h[i])
+                    continue;
+                if (abs(ans[v] - ans[i]) == 2) {
+                    ans[v] = ans[i] - 1;
+                    found = true;
+                    break;
+                }
+            }
+            if (found)
+                break;
+        }
+        for (int i = 0; i < n; i++)
+            cout << ans[i] << ' ';
+        cout << '\n';
+    }
+    
+    return 0;
+}
+
+NotesThere are many possible solutions to this problem, and almost all testers have implemented a unique solution. There are solutions that we could not prove correct, but we could not hack them either.
+
+Editorial[problem:2040E]To begin with, let's solve it without queries and forced movements. Let's consider the nature of the path. The current vertex $$$v$$$ has a parent of parent $$$u$$$. Let there be an odd move now, and the robot will go to the parent of $$$v$$$. If we're lucky, it'll go to $$$u$$$. Otherwise, it will go to the brother of vertex $$$v$$$. But this won't change anything — the next step the robot will do the same thing again. For vertex $$$v$$$ and all its brothers, the answer is the same. Let $$$d[v]$$$ be the answer for vertex $$$v$$$, and let $$$x$$$ be the number of brothers of vertex $$$v$$$, including itself. Then $$$d[v] = 2 + \frac{1}{d + 1} \cdot d[u] + \frac{d}{d + 1} \cdot d[v]$$$, whence $$$d[v] = d[u] + 2 \cdot (x + 1)$$$.We can see that our path consists of blocks of height $$$2$$$ — the robot tries to overcome the next block until it succeeds, and then proceeds to the next one.We are now ready to answer the queries. Performing an operation is essentially skipping a block — the robot will pass it on the first try, spending not $$$2 \cdot (x + 1)$$$ actions on it, but $$$2$$$. Therefore we will delete blocks with the largest $$$x$$$ greedily. We will traverse the graph and store two sets of degrees of vertices on the path to the root — one for vertices with odd depth, and the other for vertices with even depth. We will answer requests offline. Having detected a query, we will run through the first $$$p$$$ elements of the corresponding set and subtract them.Asymptotics of the trivial implementation, in which for each query we move up to the root, is $$$O(n \cdot q)$$$.Asymptotics of a possible offline solution, where we will maintain sets of vertices while traversing the graph, is $$$O(n + \sum_i{p_i} \cdot set)$$$.
+
+Solution#include <bits/stdc++.h>
+ 
+using namespace std;
+ 
+void solve() {
+    int n, q;
+    cin >> n >> q;
+    
+    vector < vector <int> > g(n);
+    for (int i = 0; i < n - 1; i++) {
+        int u, v;
+        cin >> u >> v;
+        u--, v--;
+        g[u].push_back(v);
+        g[v].push_back(u);
+    }
+    
+    vector <int> depth(n);
+    vector <int> d(n);
+    vector <int> par(n);
+ 
+    function <void(int, int)> dfs = [&](int v, int p) {
+        if (depth[v] == 1) d[v] = 1;
+        if (depth[v] > 1) d[v] = d[par[p]] + 2 * (int)g[p].size();
+        par[v] = p;
+        for(int to : g[v]) {
+            if (to == p) continue;
+            depth[to] = depth[v] + 1;
+            dfs(to, v);
+        }
+    };
+    
+    dfs(0, 0);
+    
+    while (q--) {
+        int v, p;
+        cin >> v >> p;
+        v--;
+        int res = d[v];
+        vector <int> cnt;
+        while (v != 0 && par[v] != 0) {
+            cnt.push_back((int)g[par[v]].size());
+            v = par[par[v]];
+        }
+        sort(cnt.rbegin(), cnt.rend());
+        for (int i = 0; i < min(p, (int)cnt.size()); i++) {
+            res -= 2 * (cnt[i] - 1);
+        }
+        cout << res << '\n';
+    }
+}
+ 
+int main() {
+    int tt;
+    cin >> tt;
+    while (tt--) {
+        solve();
+    }
+ 
+    return 0;
+}
+
+Solution (Notes)#include <bits/stdc++.h>
+ 
+using namespace std;
+ 
+void solve() {
+    int n, q;
+    cin >> n >> q;
+    
+    vector < vector <int> > g(n);
+    for (int i = 0; i < n - 1; i++) {
+        int u, v;
+        cin >> u >> v;
+        u--, v--;
+        g[u].push_back(v);
+        g[v].push_back(u);
+    }
+    
+    vector <int> depth(n);
+    vector <int> d(n);
+    vector < vector < pair <int,int> > > qrs(n); // <p, idx>
+    vector <int> res(q);
+    
+    for (int i = 0; i < q; i++) {
+        int v, p;
+        cin >> v >> p;
+        v--;
+        qrs[v].push_back({p, i});
+    }
+    
+    multiset <int> st[2]; // store negative number to be able to use usual foreach loop
+    
+    function <void(int, int, int)> dfs = [&](int v, int p, int pp) {
+        if (depth[v] == 1) d[v] = 1;
+        if (depth[v] > 1) d[v] = d[pp] + 2 * (int)g[p].size();
+        
+        for (pair <int, int> qr : qrs[v]) {
+            int p = qr.first, idx = qr.second;
+            int ans = d[v];
+            for (int i : st[1 - depth[v] % 2]) {
+                if (p == 0) break;
+                ans -= (-i - 1) * 2;
+                p--;
+            }
+            res[idx] = ans;
+        }
+        
+        if (depth[v] != 0) st[depth[v] % 2].insert(-(int)g[v].size());
+        
+        for (int to : g[v]) {
+            if (to == p) continue;
+            depth[to] = depth[v] + 1;
+            dfs(to, v, p);
+        }
+        
+        if (depth[v] != 0) st[depth[v] % 2].erase(st[depth[v] % 2].find(-(int)g[v].size()));
+    };
+    
+    dfs(0, 0, 0);
+    
+    for (int i = 0; i < q; i++)
+        cout << res[i] << '\n';
+}
+ 
+int main() {
+    int tt;
+    cin >> tt;
+    while (tt--) {
+        solve();
+    }
+ 
+    return 0;
+}
+
+NotesThis problem originally had the following constraints:  1≤n,q≤2⋅105 The sum of p in all queries is not greater than 2⋅105 How to solve this problem?Could you solve this problem without the second constraint? HintHowever, it is not hard thanks to a recent blog.
+
+HintHowever, it is not hard thanks to a recent blog.
+
+Editorial[problem:2040F]Recall Burnside's lemma — the number of elements up to an action group is:$$$$$$\frac{1}{|G|} \cdot \sum_{g \in G} {\sum_{x \in X}{[g x = x]}}$$$$$$, where $$$[x] = 1$$$ if $$$x = true$$$ and $$$[x] = 0$$$ if $$$x = false$$$.Let's try to iterate over the elements of the action group — all triplets of numbers $$$[0, a)$$$, $$$[0, b)$$$, $$$[0, c)$$$. When applying a fixed action $$$(i, j, l)$$$, the element moves to this vector. Let's choose a cell and add a vector to it until we reach it again. We have drawn a cycle — all cells on it must be of the same type. An example of such a traversal for $$$(a, b, c) = (9, 4, 1)$$$, $$$(i, j, k) = (3, 2, 0)$$$ (each different number in the table corresponds to a cycle): 123123123456456456123123123456456456 You can count the cycles by traversal, or you can derive formula: the length of all cycles is the same and equals $$$N = lcm(\frac{a}{gcd(a, i)}, \frac{b}{gcd(b, j)}, \frac{c}{gcd(c, l)})$$$.What's good about the equal lengths of the cycles? Because the formula for calculating the number of stationary parallelepipeds is simple. First, all $$$d_i$$$ must be divisible by $$$N$$$. Then we distribute them among the cycles. This is the multinomial coefficient for $$$(\frac{d_1}{N}, \frac{d_2}{N}, \dots, \frac{d_k}{N})$$$.Current total time $$$O(a \cdot b \cdot c \cdot k)$$$: iterated over $$$a \cdot b \cdot c$$$ vector triplets, calculated $$$N$$$, checked divisibility for all $$$k$$$ numbers, and if successful, calculated the multinomial coefficient of size $$$k$$$.Let's speed up the solution. Let's calculate $$$G = gcd(d_1, d_2, \dots, d_k)$$$. Since all $$$d_i$$$ are divisible by $$$N$$$, then $$$G$$$ is also divisible by $$$N$$$. There are no more different $$$N$$$ than the number of divisors of $$$a \cdot b \cdot c$$$. Let's calculate the number of triplets that give each value of $$$N$$$, and at the end we will calculate the multinomial coefficient for all identical values of $$$N$$$ at once.The total time is $$$O(a \cdot b \cdot c \cdot \log C + d(a \cdot b \cdot c) \cdot k)$$$, where $$$d(x)$$$ — is the number of divisors of $$$x$$$, and $$$\log$$$ appears due to the calculation of $$$gcd$$$.Let's continue to speed up the solution. There are two solutions further.Solution 1.Let's look again at the formula $$$N = lcm(\frac{a}{gcd(a, i)} \dots)$$$. For convenience, we will focus on the first element. Let's say we want the first element to be $$$x = \frac{a}{gcd(a, i)}$$$. Then $$$x$$$ is divisible by $$$a$$$ and $$$\frac{a}{x} = gcd(a, i)$$$. $$$i$$$ is divisible by $$$gcd(i, \dots)$$$, so $$$i$$$ is divisible by $$$\frac{a}{x}$$$. Then the possible $$$i$$$ are of the form $$$p \cdot \frac{a}{x}$$$, where $$$1 \le p \le x$$$, and the equality $$$gcd(a, \frac{a}{x}) = \frac{a}{x}$$$ is exactly satisfied. $$$p$$$ is coprime to $$$x$$$, otherwise the value of $$$gcd$$$ will be multiplied by their common divisor and the equality will be violated. Therefore the number of suitable $$$x$$$ is equal to $$$phi(x)$$$, where $$$phi(x)$$$ — Euler's function.So, let's enumerate triplets of divisors of $$$a$$$, $$$b$$$ and $$$c$$$. The number of ways to obtain a triple $$$(x, y, z)$$$ is equal to $$$phi(x) \cdot phi(y) \cdot phi(z)$$$. Let's calculate $$$phi(x)$$$ using the Sieve of Eratosthenes.We get a solution in $$$O(d(a) \cdot d(b) \cdot d(c) \cdot \log C + d(a \cdot b \cdot c) \cdot k)$$$ and $$$O(a \cdot b \cdot c \cdot \log \log (a \cdot b \cdot c))$$$ for pre-calculation.Solution 2.Let's calculate the same $$$N$$$ using dynamic programming. For convenience, we denote the dimensions of $$$a$$$, $$$b$$$, and $$$c$$$ by the array $$$a_i$$$. Let $$$dp[i][j]$$$ be the number of ways, having passed $$$i$$$ dimensions, to obtain $$$lcm$$$ equal to $$$j$$$. The transitions will be as follows: we will iterate over the pairs of the previous $$$lcm$$$ $$$t_1$$$ and the next divisor $$$t_2$$$ of the size of the next dimension $$$a_i$$$. Then the new $$$lcm$$$ will be equal to $$$lcm(t_1, t_2)$$$ and we make the transition $$$dp[i + 1][lcm(t_1, t_2)] += dp[i][t_1] \cdot cnt[i][t_2]$$$, where $$$cnt[i][j]$$$ — the number of such $$$x$$$ that $$$\frac{a_i}{gcd(a_i, x)} = j$$$.How to calculate the array $$$cnt[i][j]$$$. We cannot calculate it trivially in $$$O((a + b + c) \cdot \log C)$$$, since it is too long time. For simplicity, we calculate the array $$$cnt2[i][j]$$$ equal to the number of $$$x$$$ such that $$$gcd(a_i, x) = j$$$. We iterate over the divisors of $$$a_i$$$ in ascending order. Let the current divisor be $$$d_1$$$. Add $$$\frac{a_i}{d_1}$$$ to $$$cnt2[i][d_1]$$$, since that many $$$x$$$ will be divisible by $$$d_1$$$. Those $$$x$$$ that are divisible by $$$d_1$$$ but are not equal to it, we will subtract later. We iterate over the divisors $$$d_2$$$ of $$$d_1$$$. We subtract $$$cnt2[i][d_1]$$$ from $$$cnt2[i][d_2]$$$, since their $$$gcd$$$ is actually not $$$d_2$$$, but $$$d_1$$$ or a number that $$$d_1$$$ divides. Let's calculate $$$cnt[i][j] = cnt2[i][\frac{a_i}{j}]$$$.If we pre-calculate the divisors of all numbers and compress their "coordinates", we get a solution in $$$O(d(a \cdot b \cdot c)^2 \cdot \log C + d(a \cdot b \cdot c) \cdot k)$$$.
+
+Solution Phi#include <bits/stdc++.h>
+#define int long long
+ 
+using namespace std;
+ 
+const int N = 3000010;
+const int mod = 998244353;
+int fact[N], ifact[N], phi[N];
+ 
+int powmod(int a, int n) {
+    int res = 1;
+    while (n) {
+        if (n % 2 == 0) {
+            a = (a * a) % mod;
+            n /= 2;
+        }
+        else {
+            res = (res * a) % mod;
+            n--;
+        }
+    }
+    return res;
+}
+ 
+int inv(int a) {
+    return powmod(a, mod - 2);
+}
+ 
+void prepare() {
+    fact[0] = 1;
+    for (int i = 1; i < N; i++) {
+        fact[i] = (fact[i - 1] * i) % mod;
+    }
+    ifact[N - 1] = inv(fact[N - 1]);
+    for (int i = N - 2; i >= 0; i--) {
+        ifact[i] = (ifact[i + 1] * (i + 1)) % mod;
+    }
+ 
+    phi[0] = 0;
+    phi[1] = 1;
+    for (int i = 2; i < N; i++) {
+        phi[i] = i - 1;
+    }
+    for (int i = 2; i < N; i++) {
+        for (int j = i * 2; j < N; j += i) {
+            phi[j] -= phi[i];
+        }
+    }
+}
+ 
+int C(int n, int k) {
+    return ((fact[n] * ifact[k]) % mod * ifact[n - k]) % mod;
+}
+ 
+int MC(vector <int> &a) {
+    int sum=0;
+    for (int i : a) sum += i;
+    int res = fact[sum];
+    for (int i : a) {
+        res = (res * ifact[i]) % mod;
+    }
+    return res;
+}
+ 
+int lcm(int a, int b) {
+    return a / __gcd(a, b) * b;
+}
+ 
+vector <int> all_divs(int x) {
+    vector <int> d;
+    for (int i = 1; i * i <= x; i++) {
+        if (x % i == 0) {
+            d.push_back(i);
+            if (i * i != x) {
+                d.push_back(x / i);
+            }
+        }
+    }
+    return d;
+}
+ 
+void solve() {
+    int a, b, c, k;
+    cin >> a >> b >> c >> k;
+    vector <int> v(k);
+    for (int &i : v) cin >> i;
+ 
+    int g = v[0];
+    for (int i : v) g = __gcd(g, i);
+ 
+    map <int, int> mp;
+    for (int i : all_divs(a)) {
+        for (int j : all_divs(b)) {
+            for (int l : all_divs(c)) {
+                int N = lcm(i, lcm(j, l));
+                if (g % N == 0) {
+                    mp[N] += phi[i] * phi[j] * phi[l];
+                }
+            }
+        }
+    }
+ 
+    int sum = 0;
+    for (pair <int, int> pr : mp) {
+        int N = pr.first, cnt = pr.second;
+        vector <int> u;
+        for (int t : v) u.push_back(t / N);
+        sum = (sum + (MC(u) * cnt) % mod) % mod;
+    }
+ 
+    sum = (sum * inv(a * b * c)) % mod;
+ 
+    cout << sum << endl;
+}
+ 
+int32_t main() {
+    prepare();
+ 
+    int tt;
+    cin >> tt;
+    while (tt--) {
+        solve();
+    }
+ 
+    return 0;
+}
+
+Solution DP#include <bits/stdc++.h>
+#define int long long
+ 
+using namespace std;
+ 
+const int N = 3000010;
+const int mod = 998244353;
+int fact[N], ifact[N];
+int pos[N];
+ 
+int powmod(int a, int n) {
+    int res = 1;
+    while (n) {
+        if (n % 2 == 0) {
+            a = (a * a) % mod;
+            n /= 2;
+        }
+        else {
+            res = (res * a) % mod;
+            n--;
+        }
+    }
+    return res;
+}
+ 
+int inv(int a) {
+    return powmod(a, mod - 2);
+}
+ 
+void prepare() {
+    fact[0] = 1;
+    for (int i = 1;i < N; i++) {
+        fact[i] = (fact[i - 1] * i) % mod;
+    }
+    ifact[N - 1] = inv(fact[N - 1]);
+    for (int i = N - 2; i >= 0; i--) {
+        ifact[i] = (ifact[i + 1] * (i + 1)) % mod;
+    }
+}
+ 
+int C(int n, int k) {
+    return ((fact[n] * ifact[k]) % mod * ifact[n - k]) % mod;
+}
+ 
+int MC(vector <int> &a) {
+    int sum=0;
+    for (int i : a) sum += i;
+    int res = fact[sum];
+    for (int i : a) {
+        res = (res * ifact[i]) % mod;
+    }
+    return res;
+}
+ 
+int lcm(int a, int b) {
+    return a / __gcd(a, b) * b;
+}
+ 
+vector <int> all_divs(int x) {
+    vector <int> d1, d2;
+    for (int i = 1; i * i <= x; i++) {
+        if (x % i == 0) {
+            d1.push_back(i);
+            if (i * i != x) {
+                d2.push_back(x / i);
+            }
+        }
+    }
+    reverse(d2.begin(), d2.end());
+    for (int i : d2) d1.push_back(i);
+    return d1;
+}
+ 
+void solve() {
+    int a, b, c, k;
+    cin >> a >> b >> c >> k;
+    vector <int> v(k);
+    for (int &i : v) cin >> i;
+ 
+    int g = v[0];
+    for (int i : v) g = __gcd(g, i);
+    vector <int> divs_g = all_divs(g);
+ 
+    set <int> divs;
+    for (int i : all_divs(a)) divs.insert(i);
+    for (int i : all_divs(b)) divs.insert(i);
+    for (int i : all_divs(c)) divs.insert(i);
+    for (int i : all_divs(g)) divs.insert(i);
+    int D = divs.size();
+    int i = 0;
+    for (int j : divs) {
+        pos[j] = i;
+        i++;
+    }
+ 
+    int n = max({a, b, c}) + 1;
+    vector < vector <int> > tmp(3, vector <int> (D));
+    vector < vector <int> > cnt(3, vector <int> (D));
+    for (int t = 0; t < 3; t++) {
+        int x;
+        if (t == 0) x = a;
+        if (t == 1) x = b;
+        if (t == 2) x = c;
+        vector <int> divs_x = all_divs(x);
+ 
+        for (int i = (int)divs_x.size() - 1; i >= 0; i--) {
+            tmp[t][pos[divs_x[i]]] += x / divs_x[i];
+            for (int j = 0; j < i; j++) {
+                if (divs_x[i] % divs_x[j] == 0) {
+                    tmp[t][pos[divs_x[j]]] -= tmp[t][pos[divs_x[i]]];
+                }
+            }
+            cnt[t][pos[x / divs_x[i]]] = tmp[t][pos[divs_x[i]]];
+        }
+    }
+        
+    vector < vector <int> > dp(4, vector <int> (D));
+    dp[0][0] = 1;
+    for(int i = 0; i < 3; i++) {
+        for (int t1 : divs_g) {
+            for (int t2 : divs_g) {
+                int new_pos = lcm(t1, t2);
+                if (t2 < n) {
+                    dp[i + 1][pos[new_pos]] = (dp[i + 1][pos[new_pos]] + dp[i][pos[t1]] * cnt[i][pos[t2]]) % mod;
+                }
+            }
+        }
+    }
+ 
+    int sum = 0;
+    i = 0;
+    for (int j : divs) {
+        if (g % j != 0) continue;
+        int N = j, cnt = dp[3][pos[j]];
+        vector <int> u;
+        for (int t : v) u.push_back(t / N);
+        sum = (sum + (MC(u) * cnt) % mod) % mod;
+    }
+ 
+    sum = (sum * inv(a * b * c)) % mod;
+ 
+    cout << sum << endl;
+}
+ 
+int32_t main() {
+    prepare();
+ 
+    int tt;
+    cin >> tt;
+    while (tt--) {
+        solve();
+    }
+ 
+    return 0;
+}
+
+permutations for n = 51 2 3 4 5
+1 2 3 5 4
+1 2 4 5 3
+1 2 5 4 3
+1 3 4 5 2
+1 3 5 4 2
+1 4 5 3 2
+1 5 4 3 2
+

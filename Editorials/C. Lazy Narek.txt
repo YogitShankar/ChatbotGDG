@@ -1,0 +1,59 @@
+Hint 1Lets fix the count of aeiou Ca,Ce,Ci,Co,CuCa,Ce,Ci,Co,CuWhat is the minimum number of subsequence palindromes?
+
+Hint 2No of palindromes that consist of only a is 2Ca−12Ca−1 and similarly for eiou.So lowerbound on no of palindrome is 2Ca+2Ce+2Ci+2Co+2Cu−52Ca+2Ce+2Ci+2Co+2Cu−5Does there exists a permutation where this lowerbound is achievable?
+
+Hint 3This lowerbound is achieved on strings of form aaaaaaaaaeeeeeeeeeeiiiiiiiiiioooooooooouuuuuuuuu
+
+Hint 4How to find optimal values of Ca,Ce,Ci,Co,CuCa,Ce,Ci,Co,Cu?
+
+Hint 5In optimal answer |Cx−Cy|≤1|Cx−Cy|≤1.You can try to prove it using exchange arguments technique.
+
+Video Editorial
+
+HintSeparately solve for cases when David is on left side of both the teachers, in between the teachers and right side of both the teachers.
+
+Video Editorial
+
+Hint 1We need the nearest teacher on the left side and right side, and then B1 solution works. 
+
+Hint 2To find the nearest teachers, you can either use binary search or use lower_bound stl function.
+
+Video Editorial
+
+Hint 1Let's first simplify the scoring function. 
+
+Hint 2Let's say we have fixed string tt, you do we find the score?Let the no of narek strings formed is cc and total no of chars narek is tt.No of chars found by chatgpt will be t−5∗ct−5∗c.The score is 5∗c−(t−5∗c)=10∗c−t5∗c−(t−5∗c)=10∗c−t. 
+
+Hint 3Another way to see this cost function is -Chatgpt will reduce score by -1 whenever it finds any of the char narek.We will increase by +10 whenever we complete the string narek. 
+
+Hint 4Now, dp[i][j]dp[i][j] can be the maximum score so far such that we have processed the first ii string, and we have got the first jj chars of uncompleted narek string (which is required for +10).
+
+Video Editorial
+
+TLE solution
+
+Hint 1Use Minimax Algorithm
+
+Hint 2Let's say we know what positions a player playing i+1i+1 can select and still win the game.Can we use this information to find all the positions that a player playing ii move can select? 
+
+Hint 3A player selecting r,cr,c on the move ii wins the game if and only if there is no position in [r+1...n][c+1...m][r+1...n][c+1...m] which player playing i+1i+1 move can select and win. 
+
+Hint 3With careful implementation, one can solve the above problem in O(N∗M∗L)O(N∗M∗L) time complexity. 
+
+Video Editorial
+
+Hint 1First solve E1.
+
+Hint 2Consider the following testcase - 1 2 2
+2 2 1
+2 3 3
+If a player has to select 22 from somewhere, they should only select (1,3)(1,3) or (2,2)(2,2) or (3,1)(3,1).Selecting (2,1)(2,1) instead of (2,2)(2,2), will just increase no of possible moves for the opponent. 
+
+Hint 3We should ignore the nos not present in A.For each nos present X in A and each column C, we can precompute maximum R such that B[R][C]=XB[R][C]=X. 
+
+Hint 4Now, we should play this game only on these indexes.With careful implementation on can solve it in O(N∗M+N∗L)O(N∗M+N∗L).
+
+Video Editorial
+
+Chat QnA
+

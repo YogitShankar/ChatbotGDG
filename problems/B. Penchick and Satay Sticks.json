@@ -1,0 +1,11 @@
+{
+    "title": "B. Penchick and Satay Sticks",
+    "time_limit": " 1 .5 seconds",
+    "memory_limit": " 256 megabytes",
+    "tags": [
+        "brute force",
+        "greedy",
+        "sortings",
+        "*900"
+    ]
+}

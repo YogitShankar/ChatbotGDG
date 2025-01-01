@@ -1,0 +1,339 @@
+A little backstory about the round (ACGN)The Highschool CPers (HSCP) Discord server was created in April 2022 by pwned, which over time grew into a close-knit community of highschool competitive programmers. I joined in the same month of its creation, and in the next month I approached pwned about the possibility of setting a contest. Thus the HSCP round concept was born.Over the next month or so, the initial problems were born; the current problems A and F were produced in June-July 2022. We had several problem ideas by then, enough to set a div.2 round. However, as I was going to be busy in my 5th year of high school, and may not be that responsive to coordinators, the contest was in the ownership of pwned, who needed to wait until he reached master in order to propose the set on Codeforces.However, this step took almost 1.5 years as he would stay at candidate master for 57 consecutive contests, even hitting 2099 rating. Eventually, in January 2024, pwned finally reached master and submitted the round, and in May, the round began to be reviewed by our dear coordinator maomao90.It took 3 months (totally not procrastinating) to prepare all the problems, and testing commenced in August. However, the difficulty gap between problems quickly became apparent. The original problems A, C, E became the current A, D, F, and three new problems (for B, C, and E) had to be devised. Therefore, I started coming up with problems in the dead of night, hoping to finish the contest as soon as possible.Eventually, in October, all the gaps were filled, and thus the current problem set was born.Originally, I wanted to theme this round based on the game Hatsune Miku: Colorful Stage!, and in particular the current problem E was inspired by the song Hatsune Creation Myth by cosMo@Bousou-P. Go give it a listen!Ultimately, less than a week before the round, we chose to settle on a "geographical" theme, since the authors of this contest hail from different nations. We also chose Penchick, a traveling penguin chick, as the main character, but we kept a essence of the game Hatsune Miku: Colorful Stage!: Kohane (Azusawa Kohane, appearing in problem B and C) is one of the game characters, and was featured on one of my early profile pictures (before I even started playing the game). Nowadays, Kohane has been immortalized in the HSCP server as an "anime character", receiving a dedicated emoji :kohane:. 
+
+Hint 1Consider the maximum number of pillars that can be left untouched instead.
+
+Hint 2Under what conditions can k>1 pillars be untouched?
+
+SolutionNote that if pillars i and j with different heights are both untouched, then the first pillar must be taller than the second, which contradicts the fact that the heights must be non-decreasing after the adjustment. Thus, all unadjusted pillars must be of the same height.Therefore, the required number of pillars to adjust is n−k, where k is the maximum number of pillars with the same height h. This bound is reachable by, for example, adjusting all pillars to height h.To find k, we can go through each index i and find the number of pillars with the same height as i; this gives O(n2) time complexity, which is good enough for this problem. Alternatively, you can use a frequency array or std::map, or sequentially go through the list and find the longest sequence of equal terms, all of which have better time complexities.Implementation: O(n2): (by ACGN) 291675590 Frequency array: (by pavement) 291676291 Map: (by newb_programmer) 291676566 Sequential approach: (by AlperenT) 291676646
+
+Feedback Good problem: 
+
+
+
+
+273
+
+
+
+
+
+ Okay problem: 
+
+    
+
+
+69
+
+
+
+ Bad problem: 
+
+    
+
+
+54
+
+
+
+ Did not attempt: 
+
+    
+
+
+1
+
+
+
+ 
+
+Hint 1Consider which permutations you can get by reversing the operations and starting from the identity permutation
+
+Hint 2After pi and pi+1 have been swapped, i.e. pi=i+1 and pi+1=i, neither of them can then be involved in another different swap.
+
+SolutionSuppose we begin with the identity permutation. Consider what happens after swapping pi=i and pi+1=i+1. After this swap, elements p1 to pi−1 will consist of 1 to i−1, and pi+2 to pn will consist of i+2 to n. Thus, it is impossible for pi=i+1 to swap with pi−1<i, or for pi+1=i to swap with pi+2>i+1.Therefore, the swaps made must be independent of each other; in other words, the indices i chosen in the process must differ from each other than at least 2. These permutations satisfy the following: for each index i,  pi=i, or pi=i+1 and pi+1=i, or pi=i−1 and pi−1=i. One way to check for this is to iterate for i from 1 to n. If pi=i then continue, and if pi=i+1 then check if pi+1=i, then swap pi and pi+1. Otherwise, the permutation cannot be sorted.Time complexity: O(n)Implementation: (by AlperenT) 291676758
+
+Feedback Good problem: 
+
+    
+
+
+301
+
+
+
+ Okay problem: 
+
+    
+
+
+66
+
+
+
+ Bad problem: 
+
+    
+
+
+35
+
+
+
+ Did not attempt: 
+
+    
+
+
+6
+
+
+
+ 
+
+Hint 1Solve the problem for n=2 and for even n in general.
+
+Hint 2For odd n, there exists a color that appears at least thrice. What does this mean?
+
+SolutionNote that 1 is a square number; thus, for even n, the construction 1 1 2 2 3 3…n2 n2 works. For odd n, note that there exists a color that appears at least thrice, say at positions x<y<z. Then y−x, z−y and z−x are all square numbers. Note that z−x=(z−y)+(y−x), which has the smallest solution being z−x=52=25, and z−y,y−x=9,16. Therefore, there is no solution if n≤25. We devise a solution for n=27. By the above, we have the following posts filled in:1 (8 blanks) 1 (15 blanks) 1 _We can use the same color for positions 11 and 27, to obtain the following:1 (8 blanks) 1 2 (14 blanks) 1 2The remaining even-length blanks can be filled in similar to above. The result is as follows and can be hard-coded:1 3 3 4 4 5 5 6 6 1 2 7 7 8 8 9 9 10 10 11 11 12 12 13 13 1 2Then, for odd n≥27, add n−272 pairs with distance 1 to complete the construction.Note that there are different ways to construct this starting array for n=27 as well.Time complexity: O(n)Implementation: (by ACGN) 291676952
+
+Feedback Good problem: 
+
+    
+
+
+507
+
+
+
+ Okay problem: 
+
+    
+
+
+62
+
+
+
+ Bad problem: 
+
+    
+
+
+292
+
+
+
+ Did not attempt: 
+
+    
+
+
+12
+
+
+
+ 
+
+Hint 1Suppose that you have found the maximum height reachable from tree i+1. How do you find the maximum height reachable from tree i?
+
+Hint 2Let p be the highest height among trees indexed from 1 to i, and s be the lowest height among trees indexed from i+1 to n. When can tree i be reachable from tree i+1? 
+
+SolutionFirst, observe that a rabbit at tree n can reach the highest tree; if the tree has index i<n, then the rabbit can jump from tree n to i. Let ansk denote the tallest height reachable from tree k, then ansn=max(a1,a2,…an).We iteratively look at trees n−1 to 1. Suppose we have found the tallest height ansi+1 reachable from tree i+1. Note that from tree i we can reach the tallest tree with index between 1 and i, and from tree i+1 we can reach the shortest tree with index between i+1 and n. Let ax=pi=max(a1,a2,…ai) and ay=si=min(ai+1,ai+1,…an). Then if pi>si then tree i+1 is reachable from tree i by the sequence i↔x↔y↔i+1. Thus, any tree reachable from tree i is reachable from tree i+1, and vice versa; thus, ansi=ansi+1.On the other hand, if pi≤si, then for any r≤i and s≥i+1, we have r<s and ar≤pi≤si≤as. Thus, no tree between index i+1 and n inclusive is reachable from any tree from 1 and i inclusive. Similar to the first paragraph, we have ansi=max(a1,a2,…ai)=pi.Time complexity: O(n)Implementation: (by ACGN) 291677082
+
+Feedback Good problem: 
+
+    
+
+
+488
+
+
+
+ Okay problem: 
+
+    
+
+
+35
+
+
+
+ Bad problem: 
+
+    
+
+
+42
+
+
+
+ Did not attempt: 
+
+    
+
+
+29
+
+
+
+ 
+
+Hint 1Consider the tree where root 1 has k children which are all leaves. What is its minimum depth?
+
+Hint 2Consider undoing the operations from the given tree back to the perfect binary tree. Where can each child of the tree go? 
+
+SolutionAs in Hint 2, suppose that there exists a finite sequence of operations that convert a perfect binary tree Td of depth d to our target tree T. We consider where each child of vertex 1 in T is mapped to the binary tree; specifically, for each such child c, let c′ be the highest vertex in Td that maps to c under the operations. Then we can see that the subtree rooted at c′ in Td maps to the subtree rooted at c in T.Suppose that the minimum depth required for the subtree rooted at c in T is dc. Claim 1: 2d≥∑c2dc, where the sum is taken across all children c of 1. ProofNote that no two of the vc are ancestors or descendants of each other; otherwise, if vc1 is an ancestor of vc2, then c1 would be an ancestor of c2.Consider the 2d leaves of Td. Of them, for each c, 2dc of them are descendants of vc. As no leaf can be descendants of two vc's, the inequality follows.Claim 2: If 1 has only one child c, then d=dc+1; otherwise, d is the least integer that satisfies the inequality of Claim 1. ProofSuppose 1 only has one child c. Then d≤dc clearly does not suffice, but d=dc+1 does as we can merge the entire right subtree into the root 1.Suppose now that 1 has multiple children c1,c2,…ck, sorted by descending dc. For each child ci from c1 to ck, allocate vci to be the leftmost possible vertex at a height of dci. Then the leaves that are ancestors of ci form a contiguous segment, so this construction ensures that each child ci can be placed on the tree.Thus, we can apply tree dp with the transition function from dci to d described by Claim 2. However, naively implementing it has a worst-case time complexity of O(n2). Example of worst-case time complexityConsider a tree constructed this way: 2 and 3 are children of 1, 4 and 5 are children of 3, 6 and 7 are children of 5, and so on; the odd-numbered vertices form a chain with the even-numbered vertices being leaves. In such a graph, the depth d is the length of the odd-numbered chain. Thus, during the computation of d, we would have to evaluate 2x+1 for x from 1 to d≈n2. However, evaluating 2x+1 naively requires at least O(x) time, so the algorithm runs in O(n2).There are several ways to improve the time complexity of the dp transition.For example, sort dci in increasing order, then maintain the sum as a×2b, where initially a=b=0. For each ci in order, replace a by ⌈a2dci−b⌉ and replace b by dci, which essentially serves to round up the sum to the nearest 2dci. Then, increment a to add 2dci to the sum. At the end of these operations, we have d=⌈log2a⌉+b.Implementation: (by ACGN) 291677229Another way to do so is to "merge" terms from smallest to largest; importantly, since we just need to crudely bound S=∑c2dc, we can replace 2x+2y by 2max(x,y)+1. Then we can repeat this process until only one element remains. Why does this work?Suppose that x>y. Then the above operation rounds up S to the nearest 2x. Since 2d≥S>2x, rounding up S will not cause it to exceed the next power of 2, so 2d≥S remains true after the operation.Implementation: (by Dominater069) 291677365Both transitions work in O(klogk), leading to an overall time complexity of O(nlogn).UPD: Thanks to sleepyessheep for an O(n) solution, refer to this thread. Thanks!!
+
+ProofNote that no two of the vc are ancestors or descendants of each other; otherwise, if vc1 is an ancestor of vc2, then c1 would be an ancestor of c2.Consider the 2d leaves of Td. Of them, for each c, 2dc of them are descendants of vc. As no leaf can be descendants of two vc's, the inequality follows.
+
+ProofSuppose 1 only has one child c. Then d≤dc clearly does not suffice, but d=dc+1 does as we can merge the entire right subtree into the root 1.Suppose now that 1 has multiple children c1,c2,…ck, sorted by descending dc. For each child ci from c1 to ck, allocate vci to be the leftmost possible vertex at a height of dci. Then the leaves that are ancestors of ci form a contiguous segment, so this construction ensures that each child ci can be placed on the tree.
+
+Example of worst-case time complexityConsider a tree constructed this way: 2 and 3 are children of 1, 4 and 5 are children of 3, 6 and 7 are children of 5, and so on; the odd-numbered vertices form a chain with the even-numbered vertices being leaves. In such a graph, the depth d is the length of the odd-numbered chain. Thus, during the computation of d, we would have to evaluate 2x+1 for x from 1 to d≈n2. However, evaluating 2x+1 naively requires at least O(x) time, so the algorithm runs in O(n2).
+
+Why does this work?Suppose that x>y. Then the above operation rounds up S to the nearest 2x. Since 2d≥S>2x, rounding up S will not cause it to exceed the next power of 2, so 2d≥S remains true after the operation.
+
+About Problem EThe idea of the problem came from thinking about the "creation of the world" while vibing to Hatsune Creation Myth; in particular, our rooted tree is the "world" now, and the binary tree was the "original world" yet to be refined by compressing its edges.The problem came to life during a break in my lecture, when I was experimenting with "creating" a tree. Hope you liked it!
+
+Feedback Good problem: 
+
+    
+
+
+164
+
+
+
+ Okay problem: 
+
+    
+
+
+10
+
+
+
+ Bad problem: 
+
+    
+
+
+15
+
+
+
+ Did not attempt: 
+
+    
+
+
+28
+
+
+
+ 
+
+Hint 1Querying n−2 elements is very powerful.
+
+Hint 2Try to find two indices x and y such that one of px,py is strictly smaller than n2 and the other is strictly greater than n2+1. What can you do after finding these two elements?
+
+Solution 1This solution is non-deterministic and uses n2+O(1) queriesPart 1Suppose we select all elements except for two indices 1≤i,j≤n to be used in the query. Let the result we receive be (a,b) where a<b. If a=n2 and b=n2+1, it means that one of pi,pj is strictly smaller than n2 and the other is strictly larger than n2.If we do the above query randomly, there is around 50% chance of getting the above outcome. So we can just randomly select two indices to exclude from the query until we get the above result.Part 2Now that we have two elements x and y such that one of px,py is strictly smaller than n2 and the other is strictly greater than n2+1, we can query [x,y,i,j]. The median of [px,py,pi,pj] will include n2 if and only if one of pi,pj is equal to n2. The same is true for n2+1. We can iterate through all n2−1 pairs to find the two pairs that contain the median, then iterate through all (42) combinations of median to find the answer.Implementation: (by ACGN) 291677579
+
+Solution 2This solution is deterministic and uses 3n4 queriesTo make the solution deterministic, we need to find a deterministic solution to Part 1. Part 2 is already deterministic so we can just use the same solution.Let us analyse all the possible cases if we select all elements except for two indices 1≤i,j≤n to be used in the query. Let the result we receive be (a,b) where a<b.  a=n2 and b=n2+1. In this case, one of pi,pj is strictly smaller than n2 and the other is strictly larger than n2, which is exactly what we wanted to find. a=n2 and b=n2+2. In this case, one of pi,pj is strictly smaller than n2 and the other is equal to n2+1. a=n2−1 and b=n2+1. In this case, one of pi,pj is strictly larger than n2+1 and the other is equal to n2. a=n2−1 and b=n2. In this case, both of pi,pj are larger than or equal to n2+1. a=n2+1 and b=n2+2. In this case, both pi,pj are smaller than or equal to n2. a=n2−1 and b=n2+2. In this case, pi and pj are the two medians. \end{enumerate} If we have two queries such that one query is type 4 and another is type 5, then we can use one element from each pair to form the desired x and y. We have to use one additional query to make sure that the chosen elements are not part of the median. We will only ask at most n4 queries before there is at least one query of type 4 and one query of type 5. Types 2 and 3 can be treated together with types 4 and 5 with some careful handling. Implementation: (by ACGN) 291677671
+
+Solution 3This solution is deterministic and uses n2+log2n queries. Special thanks to SHZhang for discovering this solution.Call the elements of the permutation less than or equal to n2 lower elements, and call the rest upper elements. Pair up the permutation's elements (we can just pair index 1 with index 2, index 3 with index 4, and so on). Do n2 queries where the i-th query consists of all elements except those in the i-th pair. This lets us determine whether (1) both elements in the pair are lower elements, (2) both are upper elements, or (3) there is one lower and one upper element in the pair. In case (3), we can also tell if the pair contains one or both of the desired medians (Take a look at solution 2 for a more in-depth case analysis).Our goal now is to identify the pairs that the lower and upper medians belong to. It suffices to be able to find them from the pairs of type (1) and (2), since we have already found the ones in type (3) pairs. This can be done with binary search on the type (1) and (2) pairs, by balancing the number of pairs of both types and checking if the median is in the result (The two binary searches can be performed simultaneously). This is similar to Part 2 of solution 1, but instead of just using 4 elements, we can generalise to use more elements if there is an equal number of lower and upper elements.After figuring out which pair each median is in, there are four possibilities remaining for the answer. For each one, make a query consisting of all the elements but the two candidates for the two medians that we are checking. When we see (n2−1,n2+2) as the response, we know we found the answer.Implementation: (by SHZhang) 291677713
+
+ChallengeCode an adaptive grader that can kill the following solution: Use the same solution as "Solution 1". However, before the start of the actual algorithm, ask a few (around 10) random queries.This problem originally used an adaptive grader, but I didn't know how to kill the above scam as the random queries added too much restriction to the permutation that I can no longer force the randomised solution to use more queries.I think you will probably need to solve the following problem in polynomial time in order to kill the solution: Determine whether there exists a permutation that satisfies all the given queries and results so far.
+
+Feedback Good problem: 
+
+    
+
+
+62
+
+
+
+ Okay problem: 
+
+    
+
+
+6
+
+
+
+ Bad problem: 
+
+    
+
+
+7
+
+
+
+ Did not attempt: 
+
+    
+
+
+57
+
+
+
+ 
+
+A few serious words from ACGN - about problemsetting, MathForces, and moreNote that all of these have been written before the contest.When I reached master in 2022, I had a bunch of problem ideas that I compiled as unpublished problem proposals — around 30 of them. I looked through my old proposals — problems written by me 2 years ago.After 2 years of essentially quitting CP, and focusing on studies and math, I concluded that a lot of them were... garbage, or what might be most aptly described as "uninsightful mashups of number theory with random stuff".Yet more of them were too straightforward applications or "routine problems", and simply didn't feel interesting enough to me. Again, I'm on my own.Over the course of these 2 years, I've been a bit more strict with myself in terms of problem ideas. To create a good problemset requires a lot of time, effort, energy, possibly coffee. And still, the problemset might not be good enough.Throughout problemsetting, I've always had the concern of the round potentially being "mathforces". In particular, after I set a math-related problem C, my choices were B were limited. It's not easy to balance problem types, especially when I tend to lean towards math problems.Before the review process started, I was hoping for this contest to have the most ideal, interesting problems — just as every problemsetter would. However, issues happen in testing, and the final problemset wasn't exactly what I hoped for. While I still hope you all enjoyed the contest thoroughly, I've learnt just how difficult coming up with a round is — not only does a problem have to get through coordinators, it also can't create a too large or small difficulty gap — it's a very delicate balance.So, thank you to everyone on this 2-year journey towards creating these problems, and we hope you enjoyed the culmination of our efforts.- ACGN
+
+and from my own heart...the 3ish years of my CP journey has been nothing but fun. From making it to the IOI within my first year, to meeting amazing people online and getting to know (part of) the community, it has been an amazing ride with all of you. Even as I continue to study medicine and embark on another journey, I will never forget the thrills of coming up with an idea to solve a problem, debugging the code for literally days, frantically reloading the judge for a verdict, and seeing the green sacred "Accepted" texts. Now that this might very well be my formal retirement, I don't know if I'll come back to bring more joy (and problems) to the CF community. I sure have some treats left in store, but it's perhaps time to cherish the memories I've made with all of you: doing surprisingly well in Codeton 1, "grinding" math 3500s and such for fun, to ACing IOI22-circuit to save a bronze medal, solving difficult problems have always been extremely stimulating, thrilling, and exciting for me. That's why I've had so much fun in the CP world, even though I've only been here for a short time, and still don't really know how to code DFS. So, thank you to everyone on this journey, and I wish you all peace.
+
+Code#pragma GCC optimize("Ofast,unroll-loops")
+#pragma GCC target("avx,avx2,fma")
+
+#include <bits/stdc++.h>
+#include <ext/pb_ds/assoc_container.hpp>
+#include <ext/pb_ds/tree_policy.hpp>
+using namespace std;
+using namespace __gnu_pbds;
+
+typedef tree<int, null_type, less<int>, rb_tree_tag, tree_order_statistics_node_update> ordered_set;
+mt19937 rng(chrono::steady_clock::now().time_since_epoch().count());
+
+const int MAX = 1e6 + 2;
+int n;
+vector<int> a[MAX];
+
+int dfs(int x) {
+    if (int(a[x].size()) == 0) return 0;
+    priority_queue<int, vector<int>, greater<int>> pq;
+    for (auto i : a[x]) pq.push(dfs(i));
+    for (int i = 1; i <= int(a[x].size()) - 2; i++) {
+        int x = pq.top();
+        pq.pop();
+        int y = pq.top();
+        pq.pop();
+        x++; y++;
+        pq.push(x); pq.push(y);
+    }
+    while (int(pq.size()) > 1) pq.pop();
+    return pq.top() + 1;
+}
+
+void solve() {
+    cin >> n;
+    for (int i = 1; i <= n; i++) a[i].clear();
+    for (int i = 2; i <= n; i++) {
+        int p;
+        cin >> p;
+        a[p].push_back(i);
+    }
+    cout << dfs(1) << "\n";
+}
+
+int main() {
+    ios_base::sync_with_stdio(false);
+    cin.tie(nullptr);
+    int t;
+    cin >> t;
+    while (t--) solve();
+}
+

@@ -1,0 +1,20 @@
+QED is given a permutation∗ p of length n. He also has a string s of length n containing only characters L and R. QED only likes permutations that are sorted in non-decreasing order. To sort p, he can select any of the following operations and perform them any number of times:  Choose an index i such that si=L. Then, swap pi and pi−1. It is guaranteed that s1≠L.  Choose an index i such that si=R. Then, swap pi and pi+1. It is guaranteed that sn≠R. He is also given q queries. In each query, he selects an index i and changes si from L to R (or from R to L). Note that the changes are persistent. After each query, he asks you if it is possible to sort p in non-decreasing order by performing the aforementioned operations any number of times. Note that before answering each query, the permutation p is reset to its original form.∗A permutation of length n is an array consisting of n distinct integers from 1 to n in arbitrary order. For example, [2,3,1,5,4] is a permutation, but [1,2,2] is not a permutation (2 appears twice in the array), and [1,3,4] is also not a permutation (n=3 but there is 4 in the array).
+
+The first line contains t (1≤t≤104) — the number of test cases.The first line of each test case contains two integers n and q (3≤n≤2⋅105, 1≤q≤2⋅105) – the length of the permutation and the number of queries.The following line contains n integers p1,p2,…,pn (1≤pi≤n, p is a permutation).The following line contains n characters s1s2…sn. It is guaranteed that si is either L or R, s1=R, and sn=L.The following q lines contain an integer i (2≤i≤n−1), denoting that si is changed from L to R (or from R to L). It is guaranteed that the sum of n and q over all test cases does not exceed 2⋅105.
+
+For each query, output "YES" (without quotes) if it is possible, and "NO" (without quotes) otherwise.You can output "YES" and "NO" in any case (for example, strings "yES", "yes" and "Yes" will be recognized as a positive response).
+
+Input
+3 5 3 1 4 2 5 3 RLRLL 2 4 3 8 5 1 5 2 4 8 3 6 7 RRLLRRRL 4 3 5 3 4 6 2 1 2 3 4 5 6 RLRLRL 4 5
+
+Output
+YES
+YES
+NO
+NO
+YES
+NO
+NO
+NO
+YES
+YES

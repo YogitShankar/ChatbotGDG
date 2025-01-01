@@ -1,0 +1,523 @@
+Tutorial2027A - Rectangle ArrangementWe must minimize the perimeter, and an obvious way to attempt this is to maximize the overlap. To achieve this, we can place each stamp such that the lower left corner of each stamp is at the same position, like shown in the sample explanation.Now, we can observe that the perimeter of this shape is determined solely by the maximum height and width of any stamp, and these values cannot be reduced further. Therefore, the answer is $$$2 \cdot \bigl( \max(a_i) + \max(b_i) \bigr)$$$.Furthermore, it's true that any arrangement of stamps which are fully enclosed in an outer rectangular area of $$$\max(a_i)$$$ by $$$\max(b_i)$$$ will yield the same perimeter.
+
+Code#include <bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+    cin.tie(0)->sync_with_stdio(0);
+    int t;
+    cin >> t;
+    while (t--) {
+        int n;
+        cin >> n;
+        int maxw = 0, maxh = 0;
+        for (int i=0; i<n; i++) {
+            int w, h;
+            cin >> w >> h;
+            maxw = max(maxw, w);
+            maxh = max(maxh, h);
+        }
+        cout << 2 * (maxw + maxh) << "\n";
+    }
+    return 0;
+}
+
+TutorialTutorial is loading...
+
+Code#include <bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+    cin.tie(0)->sync_with_stdio(0);
+    int t;
+    cin >> t;
+    while (t--) {
+        int n;
+        cin >> n;
+        vector<int> A(n);
+        for (int i=0; i<n; i++) cin >> A[i];
+        int best = 0;
+        for (int i=0; i<n; i++) {
+            int curr = 0;
+            for (int j=i; j<n; j++) {
+                if (A[j] <= A[i]) {
+                    curr += 1;
+                }
+            }
+            best = max(best, curr);
+        }
+        cout << n - best << "\n";
+    }
+  return 0;
+}
+
+Tutorial2027C - Add ZerosLet's rearrange the equation given in the statement to find a 'required' $$$|a|$$$ value in order to use an operation at that index. We have $$$a_i = |a| + 1 - i$$$, so $$$|a| = a_i + i - 1$$$. Note that if $$$a_i = 0$$$, then the condition is never true, since $$$i - 1 < |a|$$$ always. So actually, we just need to consider the first $$$n$$$ positions. Once we use an operation at position $$$i$$$, the length of the array will increase by $$$i - 1$$$. So, for each position we require some length $$$u_i = a_i + i - 1$$$ and make a length of $$$v_i = u + i - 1$$$. So, let's create a graph containing all $$$n$$$ edges, and run some DFS or BFS on this graph starting from node $$$n$$$ (the starting value of $$$|a|$$$). It then follows that the largest node visited is the maximum length of the array we can possibly get.We should use a map to store the graph, since the length of the array can grow up to $$$\approx n^2$$$ and so the graph is very sparse. If we don't want to use a map, we can also take advantage of the fact that all edges are directed from $$$u_i$$$ to $$$v_i$$$ where $$$u_i < v_i$$$ and that all edges and nodes are fixed, so we can actually iterate through all $$$u_i$$$ and maintain a boolean array of which $$$v_i$$$ values are visited so far, updating it at any point using a binary search.
+
+Code#include <bits/stdc++.h>
+
+using namespace std;
+using ll = long long;
+
+int main() {
+  cin.tie(0)->sync_with_stdio(0);
+  int t;
+  cin >> t;
+  while (t--) {
+        int n;
+        cin >> n;
+        vector<ll> A(n);
+        for (int i=0; i<n; i++) cin >> A[i];
+        map<ll,vector<ll>> adj;
+        for (int i=1; i<n; i++) {
+            ll u = A[i] + i;
+            ll v = u + i;
+            adj[u].push_back(v);
+        }
+        set<ll> vis;
+        function<void(ll)> dfs = [&](ll u) -> void {
+            if (vis.count(u)) return;
+            vis.insert(u);
+            for (ll v : adj[u]) dfs(v);
+        };
+        dfs(n);
+        cout << *vis.rbegin() << "\n";
+  }
+  return 0;
+}
+
+Tutorial2027D1 - The Endspeaker (Easy Version)Let's use dynamic programming. We will have dpi,j be the minimum cost to remove the prefix of length i, where the current value of k is j. By a type 1 operation, we can transition from dpi,j to dpi,j+1 at no cost. Otherwise, by a type 2 operation, we need to remove some contiguous subarray ai+1,ai+2,…,ax (a prefix of the current array), to transition to dpx,j with a cost of m−k. Let r be the largest value of x possible. Given we're spending m−k whatever value of x we choose, it's clear to see that we only need to transition to dpr,j. To find r for each value of i and j, we can either binary search over the prefix sums or simply maintain r as we increase i for a fixed value of k. The answer is then dpn,k. The latter method solves the problem in O(nm).
+
+Code#include <bits/stdc++.h>
+
+using namespace std;
+using ll = long long;
+
+const int inf = 1 << 30;
+
+void chmin(int &a, int b) {
+  a = min(a, b);
+}
+
+int main() {
+  cin.tie(0)->sync_with_stdio(0);
+  int t;
+  cin >> t;
+  while (t--) {
+    int n, m;
+    cin >> n >> m;
+    vector<int> A(n+1);
+    for (int i=0; i<n; i++) cin >> A[i];
+    vector<int> B(m);
+    for (int i=0; i<m; i++) cin >> B[i];
+    vector nxt(n, vector<int>(m));
+    for (int k=0; k<m; k++) {
+      int r = -1, sum = 0;
+      for (int i=0; i<n; i++) {
+        while (r < n && sum <= B[k]) sum += A[++r];
+        nxt[i][k] = r;
+        sum -= A[i];
+      }
+    }
+    vector dp(n+1, vector<int>(m, inf));
+    dp[0][0] = 0;
+    for (int k=0; k<m; k++) {
+      for (int i=0; i<n; i++) {
+        chmin(dp[nxt[i][k]][k], dp[i][k] + m - k - 1);
+        if (k < m-1)
+          chmin(dp[i][k+1], dp[i][k]);
+      }
+    }
+    int ans = inf;
+    for (int k=0; k<m; k++) {
+      chmin(ans, dp[n][k]);
+    }
+    if (ans == inf) {
+      cout << "-1\n";
+    } else {
+      cout << ans << "\n";
+    }
+  }
+  return 0;
+}
+
+Tutorial2027D2 - The Endspeaker (Hard Version)Following on from the editorial for D1. Let's have the dp table store a pair of the minimum cost and the number of ways. Since we're now counting the ways, it's not enough just to consider the transition to dpr,j; we also need to transition to all dpx,j. Doing this naively is too slow, so let's instead find a way to perform range updates. Let's say we want to range update dpl,j,dpl+1,j,...,dpr,j. We'll store some updates in another table at either end of the range. Then, for a fixed value of k as we iterate through increasing i-values, let's maintain a map of cost to ways. Whenever the number of ways falls to zero, we can remove it from the map. On each iteration, we can set dpi,j to the smallest entry in the map, and then perform the transitions. This works in O(nmlogn).Bonus: It's also possible to solve without the logn factor. We can use the fact that dpi,k is non-increasing for a fixed value of k to make the range updates non-intersecting by updating a range strictly after the previous iteration. Then we can just update a prefix sum array, instead of using a map.
+
+Code#include <bits/stdc++.h>
+
+using namespace std;
+using ll = long long;
+
+const int inf = 1 << 30;
+const int MOD = 1000000007;
+
+int main() {
+  cin.tie(0)->sync_with_stdio(0);
+  int t;
+  cin >> t;
+  while (t--) {
+    int n, m;
+    cin >> n >> m;
+    vector<int> A(n+1);
+    for (int i=0; i<n; i++) cin >> A[i];
+    vector<int> B(m);
+    for (int i=0; i<m; i++) cin >> B[i];
+    vector nxt(n, vector<int>(m));
+    for (int k=0; k<m; k++) {
+      int r = -1, sum = 0;
+      for (int i=0; i<n; i++) {
+        while (r < n && sum <= B[k]) sum += A[++r];
+        nxt[i][k] = r;
+        sum -= A[i];
+      }
+    }
+    vector dp(n+1, vector<array<int,2>>(m, {inf, 0}));
+    vector upd(n+1, vector(m, vector<array<int,3>>()));
+    upd[0][0].push_back({0, 0, 1});
+    upd[1][0].push_back({1, 0, 1});
+    for (int k=0; k<m; k++) {
+      map<int,array<int,2>> mp;
+      for (int i=0; i<=n; i++) {
+        for (auto [t, move, count] : upd[i][k]) {
+          if (t == 0) {
+            auto &[a, b] = mp[move];
+            a += 1;
+            (b += count) %= MOD;
+          } else {
+            auto &[a, b] = mp[move];
+            a -= 1;
+            (b += MOD - count) %= MOD;
+            if (a == 0) mp.erase(move);
+          }
+        }
+        if (mp.empty()) continue;
+        auto &[move, info] = *mp.begin();
+        dp[i][k] = {move, info[1]};
+        if (i == n) continue;
+        if (k < m-1) {
+          upd[i][k+1].push_back({0, move, info[1]});
+          upd[i+1][k+1].push_back({1, move, info[1]});
+        }
+        if (nxt[i][k] > i) {
+          upd[i+1][k].push_back({0, move + (m - k - 1), info[1]});
+          if (nxt[i][k] < n) {
+            upd[nxt[i][k]+1][k].push_back({1, move + (m - k - 1), info[1]});
+          }
+        }
+      }
+    }
+    map<int,int> mp;
+    for (int k=0; k<m; k++) {
+      auto &[move, count] = dp[n][k];
+      (mp[move] += count) %= MOD;
+    }
+    auto &[move, count] = *mp.begin();
+    if (move == inf) {
+      cout << "-1\n";
+    } else {
+      cout << move << " " << count << "\n";
+    }
+  }
+  return 0;
+}
+
+Tutorial (Segment Tree)There exists an alternative solution for D1 & D2, using segment tree. We can actually consider the process in reverse; let's reformulate dpi,j to represent the minimum score required to remove all elements after the i-th element, given that the current value of k is j.Instead of using a dp table, we maintain m segment trees, each of length n. The i-th segment tree will represent the i-th column of the dp table.We precalculate for each i and j the furthest position we can remove starting from i — specifically, the maximum subarray starting from i with a sum less than bj. We store this in nxti,j. This calculation can be done in O(nm) time using a sliding window.To transition in the dp, we have: dpi,j=min(dpi,j+1,min(dpi+1,j,dpi+2,j,…,dpnxti,j,j)+m−j+1)This transition can be computed in O(logn) time thanks to range querying on the segment tree, so our total complexity is O(nmlogn). For D2, we can store the count of minimums within each segment, and simply sum these counts to get the total number of ways.
+
+Code (Segment Tree)#include <bits/stdc++.h>
+using namespace std;
+
+#define int long long
+int modN = 1e9 + 7;
+
+int mod(int n) {
+    return (n + modN) % modN;
+}
+
+struct SegmentTree { 
+    struct Node {
+        int val = 1e18;
+        int cnt = 1;
+    }; 
+ 
+    vector<Node> st;
+    int n;
+    SegmentTree(int n): n(n) {
+        st.resize(4 * n + 1, Node());
+    }
+ 
+    SegmentTree(vector<int> a): n(a.size()) {
+        st.resize(4 * n + 1, Node());
+        build(a, 1, 0, n - 1);
+    }
+ 
+    void merge(Node& a, Node& b, Node& c) {
+        a.val = min(b.val, c.val);
+        if (b.val == c.val)
+            a.cnt = mod(b.cnt + c.cnt);
+        else if (b.val < c.val)
+            a.cnt = b.cnt;
+        else if (b.val > c.val)
+            a.cnt = c.cnt;
+    }
+ 
+    void build(vector<int>& a, int id, int l, int r) {
+        if (l == r) {
+            st[id].val = a[l];
+            return;
+        }
+        int mid = (l + r) / 2;
+        build(a, id * 2, l, mid);
+        build(a, id * 2 + 1, mid + 1, r);
+        merge(st[id], st[id * 2], st[id * 2 + 1]);
+    }
+ 
+    void update(int id, int l, int r, int u, int val, int cnt) {
+        if (l == r) {
+            st[id].val = val; // or st[id].sum += val
+            st[id].cnt = cnt;
+            return;
+        }
+        int mid = (l + r) / 2;
+        if (u <= mid) update(id * 2, l, mid, u, val, cnt);
+        else update(id * 2 + 1, mid + 1, r, u, val, cnt); 
+        merge(st[id], st[id * 2], st[id * 2 + 1]);
+    }
+ 
+    void update(int idx, int val, int cnt) { //wrapper
+        update(1, 0, n - 1, idx, val, cnt);
+    }
+ 
+    Node query(int id, int l, int r, int u, int v) { //give 0, n - 1 as l and r and 1 as id
+        if (v < l || r < u) return Node();
+        if (u <= l && r <= v) {
+            return st[id];
+        }
+        int mid = (l + r) / 2;
+        auto a = query(id * 2, l, mid, u, v);
+        auto b = query(id * 2 + 1, mid + 1, r, u, v);
+        Node res;
+        merge(res, a, b);
+        return res;
+    }
+ 
+    Node query(int l, int r) { //wrapper
+        return query(1, 0, n - 1, l, r);
+    }
+};
+
+void solve() {
+    int n, m;
+    cin >> n >> m;
+    vector<int> a(n), b(m);
+    for (int &A : a) cin >> A;
+    for (int &B : b) cin >> B;
+    if (*max_element(a.begin(), a.end()) > b[0]) {
+        cout << -1 << '\n';
+        return;
+    }
+    vector<vector<int>> nxt(m, vector<int>(n));
+    for (int i = 0; i < m; i++) {
+        int curr = 0, r = -1;
+        for (int j = 0; j < n; j++) {
+            while (r + 1 < n && curr + a[r + 1] <= b[i]) 
+                curr += a[r + 1], r += 1;
+            nxt[i][j] = r + 1;
+            if (j <= r) curr -= a[j];
+            r = max(r, j);
+        }
+    }
+    vector<SegmentTree> dp(m, SegmentTree(vector<int>(n + 1, 1e18)));
+    for (int i = 0; i < m; i++)
+        dp[i].update(n, 0, 1);
+    for (int i = n - 1; i >= 0; i--) {
+        for (int j = m - 1; j >= 0; j--) {
+            auto q1 = dp[j].query(i + 1, nxt[j][i]);
+            int v1 = q1.val + m - (j + 1), ps1 = q1.cnt;
+            if (i + 1 <= nxt[j][i]) dp[j].update(i, v1, ps1); 
+            if (j != m - 1) {
+                auto q2 = dp[j + 1].query(i, i);
+                int v2 = q2.val, ps2 = q2.cnt;
+                auto q3 = dp[j].query(i, i);
+                if (v2 < q3.val)
+                    dp[j].update(i, v2, ps2);
+                else if (v2 == q3.val)
+                    dp[j].update(i, v2, mod(ps2 + q3.cnt));
+            }
+        }
+    }
+    cout << dp[0].query(0, 0).val << ' ' << dp[0].query(0, 0).cnt << '\n';
+}
+
+signed main() {
+    cin.tie(0) -> sync_with_stdio(false);
+    int t;  
+    cin >> t;
+    while (t--) 
+       solve();
+    return 0;
+} 
+
+Tutorial2027E1 - Bit Game (Easy Version)Each pile is an independent game, so let's try to find the nimber of a pile with value $$$a$$$ and size $$$x$$$ — let's denote this by $$$f(x, a)$$$. Suppose $$$x = 2^k - 1$$$ for some integer $$$k$$$; in this case, the nimber is entirely dependent on $$$a$$$. If $$$x$$$ is not in that form, consider the binary representation of $$$a$$$. If any bit in $$$a$$$ is on where $$$x$$$ is off, then it's equivalent to if $$$a$$$ had that bit off, but all lower bits were on. Let's call such a bit a 'good bit'. So we can build some value $$$a'$$$ by iterating along the bits from highest to lowest; if $$$x$$$ has an on bit in this position, then $$$a'$$$ will have an on bit in this position if and only if $$$a$$$ has one there, or we've already found a good bit. Now that the bits of $$$x$$$ and $$$a'$$$ align, we can remove all zeros from both representations and it's clear that this is an equivalent game with $$$x = 2^k - 1$$$.One small observation to make is that we can remove the ones in $$$x$$$ which correspond to leading zeros in $$$a'$$$, since we can never use these. So actually, after calculating $$$a'$$$ we only need $$$g(a') = f(2^k - 1, a')$$$, where $$$k$$$ is the smallest integer such that $$$2^k - 1 \ge a'$$$. By running a brute force using the Sprague–Grundy theorem to find the nimbers you can observe some patterns which encompass all cases:  $$$g(2^k - 2) = 0$$$, for all $$$k \ge 1$$$.  $$$g(2^k - 1) = k$$$, for all $$$k \ge 0$$$.  $$$g(2^k) = k \oplus 1$$$, for all $$$k \ge 0$$$.  $$$g(2^k+1) = g(2^k+2) = \ldots = g(2^{k+1} - 3) = k + 1$$$, for all $$$k \ge 2$$$. The first $$$3$$$ cases are nice and relatively simple to prove, but the last is a lot harder (at least, I couldn't find an easier way). Anyway, I will prove all of them here, for completeness.First, note that if at any point we have $$$x \le a$$$, then we have a standard nim-game over the $$$k$$$ bits of the number, since we can remove any of them on each operation, so the nimber of such a game would be $$$k$$$. The second case is one example of this; we have $$$x = a = 2^k - 1$$$, so its nimber is $$$k$$$. Now let's prove the first case. When $$$k = 1$$$, $$$g(0) = 0$$$ since there are no moves. For larger values of $$$k$$$, no matter which value of $$$d$$$ we choose, the resulting game has $$$x \le a$$$ where $$$x$$$ has a positive number of bits. Overall, we have the $$$\operatorname{mex}$$$ of a bunch of numbers which are all positive, so the nimber is $$$0$$$ as required. Now let's prove the third case. To reiterate, since $$$a' = 2^k$$$ we have $$$x = 2^{k+1} - 1$$$ by definition. This case is equivalent to having a nim-game with one pile of $$$k$$$ bits (all bits below the most significant one), and another pile of $$$1$$$ bit (the most significant one). This is because we can remove any amount from either pile in one move, but never both. Therefore, the nimber is $$$k \oplus 1$$$ as required.The last case is the hardest to prove. We need to show that there is some move that lands you in a game for all nimbers from $$$0$$$ to $$$k$$$, and never with nimber $$$k + 1$$$. Well, the only way that you could get a nimber of $$$k + 1$$$ is by landing in case $$$3$$$ without changing the number of bits in $$$x$$$/$$$a'$$$. Any move will change this though, since any move will remove some bits of $$$x$$$ and when $$$a'$$$ is recalculated it'll have fewer bits. Okay, now one way of getting a nimber of $$$0$$$ is just by removing all bits in $$$x$$$ which are strictly after the first zero-bit in $$$a'$$$. For example, if $$$a' = 101101$$$, then let's choose $$$d = 001111$$$; then we'll land in case $$$1$$$. As for getting the rest of the nimbers from $$$1$$$ to $$$k$$$, it helps if we can just land in case $$$2$$$ but with a varying number of bits. If $$$a' \ge 2^k + 2^{k-1} - 1$$$ this is easily possible by considering all $$$d$$$ in the range $$$2^k \le d < 2^k + 2^{k-1}$$$. On the other hand, if $$$a < 2^k + 2^{k-1} - 1$$$, let's first consider the resulting value of $$$x$$$ to be equal to $$$2^k + 2^m$$$, where $$$2^m$$$ is the lowest set bit in $$$a'$$$. This will give a nimber of $$$2$$$. Now, we can repeatedly add the highest unset bit in this $$$x$$$ to itself to generate the next nimber until we now have all nimbers from $$$2$$$ to $$$k$$$. For the nimber of $$$1$$$, just have the resulting $$$x$$$ be $$$2^k$$$.Time complexity: $$$\mathcal{O}(n \log C)$$$, where $$$C$$$ is the upper limit on $$$x_i$$$.
+
+Code#include <bits/stdc++.h>
+ 
+using namespace std;
+ 
+int nimber(int x, int a) {
+  int aprime = 0;
+  bool goodbit = false;
+  for (int bit=30; bit>=0; bit--) {
+    if (x & (1 << bit)) {
+      aprime *= 2;
+      if (goodbit || (a & (1 << bit))) {
+        aprime += 1;
+      }
+    } else if (a & (1 << bit)) {
+      goodbit = true;
+    }
+  }
+ 
+  // g(2^k - 2) = 0, for all k >= 1.
+  for (int k=1; k<=30; k++) {
+    if (aprime == (1 << k) - 2) {
+      return 0;
+    }
+  }
+ 
+  // g(2^k - 1) = k, for all k >= 1.
+  for (int k=1; k<=30; k++) {
+    if (aprime == (1 << k) - 1) {
+      return k;
+    }
+  }
+ 
+  // g(2^k) = k + (-1)^k, for all k >= 0.
+  for (int k=1; k<=30; k++) {
+    if (aprime == (1 << k)) {
+      if (k % 2) return k - 1;
+      else return k + 1;
+    }
+  }
+ 
+  // g(2^k+1) = g(2^k+2) = ... = g(2^{k+1} - 3) = k + 1, for all k >= 2.
+  for (int k=2; k<=30; k++) {
+    if ((1 << k) < aprime && aprime <= (2 << k) - 3) {
+      return k + 1;
+    }
+  }
+ 
+  // should never get to this point
+  assert(false);
+  return -1;
+}
+ 
+int main() {
+  cin.tie(0)->sync_with_stdio(0);
+  int t;
+  cin >> t;
+  while (t--) {
+    int n;
+    cin >> n;
+    vector<int> A(n);
+    for (int i=0; i<n; i++) cin >> A[i];
+    vector<int> X(n);
+    for (int i=0; i<n; i++) cin >> X[i];
+    int curr = 0;
+    for (int i=0; i<n; i++) curr ^= nimber(X[i], A[i]);
+    cout << (curr ? "Alice" : "Bob") << "\n";
+  }
+  return 0;
+}
+
+
+
+Tutorial2027E2 - Bit Game (Hard Version)Let's continue on from the editorial for E1. We figured out that the nimbers lie in one of these four cases:  $$$g(2^k - 2) = 0$$$, for all $$$k \ge 1$$$.  $$$g(2^k - 1) = k$$$, for all $$$k \ge 0$$$.  $$$g(2^k) = k + (-1)^k$$$, for all $$$k \ge 0$$$.  $$$g(2^k+1) = g(2^k+2) = \ldots = g(2^{k+1} - 3) = k + 1$$$, for all $$$k \ge 2$$$. From these, it's clear to see that the nimber of each pile is always $$$\le 31$$$ given the constraints. So, let's say we can count the amount of values of $$$x_i \le b_i$$$ exist such that $$$f(x_i, a_i) = p$$$ for all $$$p$$$, then we can easily maintain a knapsack to count the number of games where the nimbers of piles have a bitwise XOR of $$$0$$$.All that's left is to count the number of values of $$$x_i$$$ which yield some $$$a'$$$ in each of the cases above, which is probably the hardest part of the problem. We can use digit DP for this. The state should store the position of the most significant one in $$$a'$$$, and whether $$$a'$$$ is $$$0$$$ or in the form $$$1$$$, $$$11 \cdots 1$$$, $$$11 \cdots 0$$$, $$$100 \cdots 0$$$ or anything else. To find whether a $$$1$$$ added to $$$x$$$ becomes $$$0$$$ or $$$1$$$ in $$$a'$$$, have another flag to check whether a good bit has occurred yet. Also, to ensure that $$$x \le b$$$, have one more flag to check whether the current prefix has fallen strictly below $$$b$$$ yet. Please see the model code's comments for a better understanding of how the transitions are computed.Time complexity: $$$\mathcal{O}(n \log^2 C)$$$, where $$$C$$$ is the upper limit on $$$a_i$$$ and $$$b_i$$$.
+
+Code#include <bits/stdc++.h>
+ 
+using namespace std;
+        
+int dp[32][32][6][2][2];
+ 
+const int mod = 1000000007;
+ 
+int main() {
+  cin.tie(0)->sync_with_stdio(0);
+  int t;
+  cin >> t;
+  while (t--) {
+    int n;
+    cin >> n;
+    vector<int> A(n);
+    for (int i=0; i<n; i++) cin >> A[i];
+    vector<int> B(n);
+    for (int i=0; i<n; i++) cin >> B[i];
+    vector<int> curr(32);
+    curr[0] = 1; // identity
+    for (int i=0; i<n; i++) {
+      memset(dp, 0, sizeof dp);
+      dp[0][0][0][0][0] = 1;
+      for (int j=0; j<=29; j++) {
+        int p = 29 - j; // place we are going to add a bit in
+        for (int k=0; k<=29; k++) { // position of most significant one in a'
+          for (int type=0; type<6; type++) { // 0, 1, 11111, 11110, 10000, else
+            for (int good=0; good<2; good++) { // good=1 iff good bit has occured
+              for (int low=0; low<2; low++) { // low=1 iff prefix below b
+                for (int bit=0; bit<2; bit++) { // bit in x
+                  if (dp[j][k][type][good][low] == 0) 
+                    continue; // no point in transition since count is 0
+                  if (!low && (B[i] & (1 << p)) == 0 && bit == 1) 
+                    continue; // x can't go higher than B[i]
+                  if (bit == 0) {
+                    int good2 = good || (A[i] & (1 << p)) != 0; // check good bit
+                    int low2 = low || (B[i] & (1 << p)) != 0; // check if low
+                    // nothing added to a' so nothing else changes
+                    (dp[j+1][k][type][good2][low2] += dp[j][k][type][good][low]) %= mod;
+                  } else {
+                    int bita = good || (A[i] & (1 << p)) != 0; // bit in a'
+                    int k2 = type == 0 ? 0 : k + 1; // increase if MSOne exists
+                    int type2 = bita ?
+                      (
+                        type == 0 ? 1 : // add first one
+                        (type == 1 || type == 2) ? 2 : // 11111
+                        5 // can't add 1 after a 0
+                      ) : (
+                        (type == 0) ? 0 : // 0
+                        (type == 1 || type == 4) ? 4 : // 10000
+                        (type == 2) ? 3 : // 11110
+                        5 // can't have a zero in any other case
+                      );
+                    (dp[j+1][k2][type2][good][low] += dp[j][k][type][good][low]) %= mod;
+                  }
+                }
+              }
+            }
+          }
+        } 
+      }
+      vector<int> count(32); // number of x-values for each nimber
+      for (int k=0; k<=29; k++) { // position of MSOne
+        for (int good=0; good<2; good++) { // doesn't matter
+          for (int low=0; low<2; low++) { // doesn't matter
+            (count[0] += dp[30][k][0][good][low]) %= mod; // 0
+            (count[1] += dp[30][k][1][good][low]) %= mod; // 1
+            (count[k+1] += dp[30][k][2][good][low]) %= mod; // 11111
+            (count[0] += dp[30][k][3][good][low]) %= mod; // 11110
+            (count[k+(k%2?-1:1)] += dp[30][k][4][good][low]) %= mod; // 10000
+            (count[k+1] += dp[30][k][5][good][low]) %= mod; // else
+          }
+        }
+      }
+      count[0] -= 1; // remove when x=0
+      vector<int> next(32); // knapsack after adding this pile
+      for (int j=0; j<32; j++)
+        for (int k=0; k<32; k++)
+          (next[j ^ k] += 1LL * curr[j] * count[k] % mod) %= mod;
+      swap(curr, next);
+    }
+    cout << curr[0] << "\n";
+  }
+  return 0;
+}
+

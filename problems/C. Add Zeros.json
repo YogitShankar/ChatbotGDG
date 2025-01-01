@@ -1,0 +1,14 @@
+{
+    "title": "C. Add Zeros",
+    "time_limit": " 3 seconds",
+    "memory_limit": " 256 megabytes",
+    "tags": [
+        "brute force",
+        "data structures",
+        "dfs and similar",
+        "dp",
+        "graphs",
+        "greedy",
+        "*1500"
+    ]
+}

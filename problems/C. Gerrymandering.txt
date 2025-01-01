@@ -1,0 +1,14 @@
+We all steal a little bit. But I have only one hand, while my adversaries have two.Álvaro ObregónÁlvaro and José are the only candidates running for the presidency of Tepito, a rectangular grid of 22 rows and nn columns, where each cell represents a house. It is guaranteed that nn is a multiple of 33.Under the voting system of Tepito, the grid will be split into districts, which consist of any 33 houses that are connected∗∗. Each house will belong to exactly one district.Each district will cast a single vote. The district will vote for Álvaro or José respectively if at least 22 houses in that district select them. Therefore, a total of 2n32n3 votes will be cast.As Álvaro is the current president, he knows exactly which candidate each house will select. If Álvaro divides the houses into districts optimally, determine the maximum number of votes he can get.∗∗A set of cells is connected if there is a path between any 22 cells that requires moving only up, down, left and right through cells in the set.
+
+Each test contains multiple test cases. The first line contains the number of test cases tt (1≤t≤1041≤t≤104). The description of the test cases follows.The first line of each test case contains one integer nn (3≤n≤1053≤n≤105; nn is a multiple of 33) — the number of columns of Tepito.The following two lines each contain a string of length nn. The ii-th line contains the string sisi, consisting of the characters AA and JJ. If si,j=Asi,j=A, the house in the ii-th row and jj-th column will select Álvaro. Otherwise if si,j=Jsi,j=J, the house will select José.It is guaranteed that the sum of nn over all test cases does not exceed 105105.
+
+For each test case, output a single integer — the maximum number of districts Álvaro can win by optimally dividing the houses into districts.
+
+Input
+4 3 AAA AJJ 6 JAJAJJ JJAJAJ 6 AJJJAJ AJJAAA 9 AJJJJAJAJ JAAJJJJJA
+
+Output
+2
+2
+3
+2

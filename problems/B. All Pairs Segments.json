@@ -1,0 +1,10 @@
+{
+    "title": "B. All Pairs Segments",
+    "time_limit": " 1 .5 seconds",
+    "memory_limit": " 256 megabytes",
+    "tags": [
+        "implementation",
+        "math",
+        "*1200"
+    ]
+}
