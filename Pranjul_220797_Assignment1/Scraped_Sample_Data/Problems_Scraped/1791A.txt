@@ -1,0 +1,28 @@
+Problem: 1791A - Codeforces Checking
+Link: https://codeforces.com/problemset/problem/1791/A
+
+Description:
+Given a lowercase Latin character (letter), check if it appears in the string
+𝚌𝚘𝚍𝚎𝚏𝚘𝚛𝚌𝚎𝚜
+.
+
+Input Specification:
+The first line of the input contains an integer
+𝑡
+(
+1<=𝑡<=26
+) - the number of test cases.
+The only line of each test case contains a character
+𝑐
+ - a single lowercase Latin character (letter).
+
+Output Specification:
+For each test case, output "YES" (without quotes) if
+𝑐
+satisfies the condition, and "NO" (without quotes) otherwise.
+You can output the answer in any case (for example, the strings "yEs", "yes", "Yes" and "YES" will be recognized as a positive answer).
+
+Time Limit: 1 second
+Memory Limit: 256 megabytes
+
+Tags: implementation, strings, *800

@@ -1,0 +1,7 @@
+Problem: 228A - Is your horseshoe on the other hoof?
+Problem Link: https://codeforces.com/problemset/problem/228/A
+Editorial Link: https://codeforces.com/blog/entry/5404
+
+================================================================================
+
+228A - Is your horseshoe on the other hoof?In this problem you should count different numbers from input cnt and print 4–cnt. You could do it in different ways. For example, you could use set.

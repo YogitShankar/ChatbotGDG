@@ -1,0 +1,7 @@
+Problem: 427A - Police Recruits
+Problem Link: https://codeforces.com/problemset/problem/427/A
+Editorial Link: https://codeforces.com/blog/entry/12082
+
+================================================================================
+
+427A - Police Recruits ( Author : Bidhan )Maintain a variable, sum. Initially sum=0, it keeps the number of currently free police officers. With every recruitment operation, add the number of officers recruited at that time to sum. When a crime occurs, if sum > 0 then decrease the number of free officers by one, otherwise no officers are free so the crime will go untreated.Model solution : 6546268

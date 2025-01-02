@@ -1,0 +1,14 @@
+{
+    "problem_tag": "1669A",
+    "title": "Division?",
+    "link": "https://codeforces.com/problemset/problem/1669/A",
+    "description": "Codeforces separates its users into\n4\ndivisions by their rating:\nGiven a\nrating\n, print in which division the\nrating\nbelongs.",
+    "input_specification": "The first line of the input contains an integer\nt\n(\n1≤t≤104\n) — the number of testcases.\nThe description of each test consists of one line containing one integer\nrating\n(\n−5000≤rating≤5000\n).",
+    "output_specification": "For each test case, output a single line containing the correct division in the format \"Division X\", where\nX\nis an integer between\n1\nand\n4\nrepresenting the division for the corresponding rating.",
+    "time_limit": "1 second",
+    "memory_limit": "256 megabytes",
+    "tags": [
+        "implementation",
+        "*800"
+    ]
+}
