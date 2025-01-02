@@ -1,0 +1,20 @@
+You are given a string 𝑠s, consisting of digits from 00 to 99. In one operation, you can pick any digit in this string, except for 00 or the leftmost digit, decrease it by 11, and then swap it with the digit left to the picked.For example, in one operation from the string 10231023, you can get 11031103 or 10221022.Find the lexicographically maximum string you can obtain after any number of operations.
+
+The first line of the input consists of an integer 𝑡t (1≤𝑡≤1041≤t≤104)  — the number of test cases.Each test case consists of a single line consisting of a digital string 𝑠s (1≤|𝑠|≤2⋅1051≤|s|≤2⋅105), where |𝑠||s| denotes the length of 𝑠s. The string does not contain leading zeroes.It is guaranteed that the sum of |𝑠||s| of all test cases doesn't exceed 2⋅1052⋅105.
+
+For each test case, print the answer on a separate line.
+
+Input
+6 19 1709 11555 51476 9876543210 5891917899
+
+Output
+81
+6710
+33311
+55431
+9876543210
+7875567711
+
+
+Note
+NoteIn the first example, the following sequence of operations is suitable: 19→8119→81.In the second example, the following sequence of operations is suitable: 1709→1780→6180→67101709→1780→6180→6710.In the fourth example, the following sequence of operations is suitable: 51476→53176→53616→53651→55351→5543151476→53176→53616→53651→55351→55431.

@@ -1,0 +1,382 @@
+TutorialIf for all 𝑖i (1≤𝑖≤𝑛−1)(1≤i≤n−1) is true |𝑎𝑖−𝑎𝑖+1|=5|ai−ai+1|=5 or |𝑎𝑖−𝑎𝑖+1|=7|ai−ai+1|=7, the answer to the problem is “YES”, otherwise it is “NO”.Complexity: 𝑂(𝑛)O(n)
+
+Solution (myav)#include <bits/stdc++.h>
+using namespace std;
+ 
+bool solve(){
+    int n;
+    cin >> n;
+    vector<int>a(n);
+    for(int i = 0; i < n; i++) cin >> a[i];
+    for(int i = 1; i < n; i++) {
+        if(abs(a[i] - a[i - 1]) != 5 && abs(a[i] - a[i - 1]) != 7) return false;
+    }
+    return true;
+}
+int main() {
+    int t;
+    cin >> t;
+    while(t--){
+        cout << (solve() ? "YES" : "NO") << "\n";
+    }
+}
+
+
+TutorialLet's create an array brand_cost of length 𝑘k and fill it so that brand_cost[i] stores the cost of all bottles of brand 𝑖+1i+1. Then sort the array by non-growing and calculate the sum of its first min(n, k) elements, which will be the answer to the problem.Complexity: 𝑂(𝑘⋅log𝑘)O(k⋅log⁡k)
+
+Solution (Seny)#include <bits/stdc++.h>
+using namespace std;
+ 
+void solve() {
+  int n, k;
+  cin >> n >> k;
+  vector<int> brand_cost(k, 0);
+  for (int i = 0; i < k; i++) {
+    int b, c;
+    cin >> b >> c;
+    brand_cost[b - 1] += c;
+  }
+  sort(brand_cost.rbegin(), brand_cost.rend());
+  long long ans = 0;
+  for (int i = 0; i < min(n, k); i++) {
+    ans += brand_cost[i];
+  }
+  cout << ans << '\n';
+}
+ 
+int main() {
+  int t;
+  cin >> t;
+  while (t--) {
+    solve();
+  }
+  return 0;
+}
+
+
+HintWith each query, to track the change in the presence of “1100” in a row, you don't have to go through the entire row — you can check just a few neighboring cells.
+
+TutorialFirst, in a naive way, let's count 𝑐𝑜𝑢𝑛𝑡count — the number of times “1100” occurs in 𝑠s.Then for each of 𝑞q queries we will update 𝑐𝑜𝑢𝑛𝑡count: consider the substring 𝑠[max(1,𝑖−3);min(𝑖+3,𝑛)]s[max(1,i−3);min(i+3,n)] before changing 𝑠𝑖si and find 𝑏𝑒𝑓𝑜𝑟𝑒before — the number of times that “1100” occurs in it. Then update 𝑠𝑖=𝑣si=v and similarly find 𝑎𝑓𝑡𝑒𝑟after — the number of times that “1100” occurs in 𝑠[max(1,𝑖−3);min(𝑖+3,𝑛)]s[max(1,i−3);min(i+3,n)] after applying the query.Thus, by doing 𝑐𝑜𝑢𝑛𝑡=𝑐𝑜𝑢𝑛𝑡+(𝑎𝑓𝑡𝑒𝑟−𝑏𝑒𝑓𝑜𝑟𝑒)count=count+(after−before), we get the number of times that “1100” occurs in 𝑠s after the query is applied. If 𝑐𝑜𝑢𝑛𝑡>0count>0, the answer to the query is “YES”, otherwise it is “NO”.Complexity: 𝑂(|𝑠|+𝑞)O(|s|+q)
+
+Solution (m3tr0)#include <cstdio>
+#include <cstring>
+
+using namespace std;
+typedef long long l;
+
+char buf[1000000];
+l n;
+
+bool check_1100(l i) {
+	if (i < 0) return false;
+	if (i >= n - 3) return false;
+	if (buf[i] == '1' && buf[i + 1] == '1' && buf[i + 2] == '0' && buf[i + 3] == '0') return true;
+	return false;
+}
+
+void solve() {
+	scanf("%s", buf);
+	n = strlen(buf);
+	l count = 0;
+	for (l i = 0; i < n; i++)
+		if (check_1100(i)) count++;
+	
+	l q; scanf("%lld", &q);
+	while (q--) {
+		l i, v; scanf("%lld %lld", &i, &v); i--;
+		if (buf[i] != '0' + v) {
+		    bool before = check_1100(i - 3) || check_1100(i - 2) || check_1100(i - 1) || check_1100(i);
+		    buf[i] = '0' + v;
+		    bool after = check_1100(i - 3) || check_1100(i - 2) || check_1100(i - 1) || check_1100(i);
+		    count += after - before;
+		}
+		printf(count ? "YES\n" : "NO\n");
+	}
+}
+
+int main() {
+	l t; scanf("%lld", &t);
+	while (t--) solve();
+}
+
+
+TutorialWe will go through all layers of the carpet, adding to the answer the number of 15431543 records encountered on each layer. To do this, we can iterate over, for example, the top-left cells of each layer having the form (𝑖,𝑖)(i,i) for all 𝑖i in the range [1,𝑚𝑖𝑛(𝑛,𝑚)2][1,min(n,m)2], and then traverse the layer with a naive algorithm, writing the encountered digits into some array. Then traverse the array and count the 15431543 occurrences in that layer. Also, when traversing the array, we should take into account the cyclic nature of the layer, remembering to check for possible occurrences of 15431543 containing a starting cell.Complexity: 𝑂(𝑛⋅𝑚)O(n⋅m)
+
+Solution (m3tr0)#include <cstdio>
+
+char a[1005][1005];
+char layer[4005];
+
+void solve() {
+    int n, m; scanf("%d %d", &n, &m);
+    for (int i = 0; i < n; ++i) scanf("%s", a[i]);
+    
+    int count = 0;
+    for (int i = 0; (i + 1) * 2 <= n && (i + 1) * 2 <= m; ++i) {
+        int pos = 0;
+        for (int j = i; j < m - i; ++j) layer[pos++] = a[i][j];
+        for (int j = i + 1; j < n - i - 1; ++j) layer[pos++] = a[j][m - i - 1];
+        for (int j = m - i - 1; j >= i; --j) layer[pos++] = a[n - i - 1][j];
+        for (int j = n - i - 2; j >= i + 1; --j) layer[pos++] = a[j][i];
+        
+        for (int j = 0; j < pos; ++j)
+            if (layer[j] == '1' && layer[(j + 1) % pos] == '5' && layer[(j + 2) % pos] == '4' && layer[(j + 3) % pos] == '3')
+                count++;
+        
+    }
+    
+    printf("%lld\n", count);
+}
+ 
+int main() {
+    int t; scanf("%d", &t);
+    while (t--) solve();
+}
+
+
+HintFor any non-negative integers, 𝑎≤𝑎|𝑏a≤a|b, where || is the bitwise “or” operation.
+
+TutorialAfter computing the values of 𝑏𝑖,𝑗bi,j for all countries and regions, we can notice that for a fixed region 𝑗j, the values of 𝑏𝑖,𝑗bi,j increase as the index 𝑖i increases. This is because the bitwise “or” operation cannot decrease a number, but only increase or leave it unchanged. Hence, we can use binary search to quickly find the country that matches the given conditions.For each query and for each requirement, if 𝑜o = “<”, we search for the first country where 𝑏𝑖,𝑟≥𝑐bi,r≥c (this will be the first country that does not satisfy the condition). If sign 𝑜o = “>”, we look for the first country where 𝑏𝑖,𝑟≤𝑐bi,r≤c. In both cases, we can use standard binary search to find the index. If the checks leave at least one country that satisfies all the requirements, we choose the country with the lowest number.Complexity: counting values 𝑂(𝑛⋅𝑘)O(n⋅k), processing each query using binary search 𝑂(𝑚log𝑛)O(mlog⁡n), total 𝑂(𝑛⋅𝑘+𝑞⋅𝑚⋅log𝑛)O(n⋅k+q⋅m⋅log⁡n).
+
+Solution (m3tr0)#include <cstdio>
+typedef long long l;
+
+l ** arr;
+
+int main() {
+	l n, k, q; scanf("%lld %lld %lld", &n, &k, &q);
+	
+	arr = new l*[n];
+	for (l i = 0; i < n; i++) arr[i] = new l[k];
+	for (l i = 0; i < n; i++) for (l j = 0; j < k; j++) scanf("%lld", &arr[i][j]);
+	
+	for (l i = 1; i < n; i++) for (l j = 0; j < k; j++) arr[i][j] |= arr[i - 1][j];
+	
+	while (q--) {
+		l m; scanf("%lld", &m);
+		l left_pos = 0, right_pos = n - 1;
+		while (m--) {
+			l r, c; char o; scanf("%lld %c %lld", &r, &o, &c); r--;
+			if (o == '<') {
+				l le = -1, ri = n, mid;
+				while (le + 1 != ri) {
+					mid = (le + ri) / 2;
+					if (arr[mid][r] < c) le = mid;
+					else ri = mid;
+				}
+				if (le < right_pos) right_pos = le;
+			} else {
+				l le = -1, ri = n, mid;
+				while (le + 1 != ri) {
+					mid = (le + ri) / 2;
+					if (arr[mid][r] <= c) le = mid;
+					else ri = mid;
+				}
+				if (ri > left_pos) left_pos = ri;
+			}
+		}
+		if (left_pos <= right_pos) printf("%lld\n", left_pos + 1);
+		else printf("-1\n");
+	}
+}
+
+
+Hint 1Note the base of the module
+
+Hint 2Can we quickly compute XOR on the segment [𝑙,𝑟][l,r]?
+
+TutorialWe also recommend the beautiful tutorial by justlm!Let us introduce the notation XOR(𝑙,𝑟)=𝑙⊕(𝑙+1)⊕⋯⊕𝑟XOR⁡(l,r)=l⊕(l+1)⊕⋯⊕r .The first thing that comes to mind when reading the condition is that we can compute XOR of all numbers on the segment (0,𝑥)(0,x) for 𝑂(1)O(1) by the following formula: XOR(0,𝑥)=⎧⎩⎨⎪⎪𝑥1𝑥+10if 𝑥≡0(mod4)if 𝑥≡1(mod4)if 𝑥≡2(mod4)if 𝑥≡3(mod4)XOR⁡(0,x)={xif x≡0(mod4)1if x≡1(mod4)x+1if x≡2(mod4)0if x≡3(mod4)Then XOR(𝑙,𝑟)XOR⁡(l,r) can be found as XOR(0,𝑟)⊕XOR(0,𝑙−1)XOR⁡(0,r)⊕XOR⁡(0,l−1).Now note that for the answer we only need to learn for 𝑂(1)O(1) to find XOR of all uninteresting on the segment: then we can do XOR with the whole segment and get XOR of all interesting numbers already.The base of the modulus, equal to the degree of two, is not chosen by chance: we only need to “compress” 𝑙l and 𝑟r by 2𝑖2i times in such a way that the resulting range contains all uninteresting numbers shifted 𝑖i bits to the right. Then computing XOR(𝑙′,𝑟′)XOR⁡(l′,r′) we get exactly the desired XOR of uninteresting numbers, also shifted 𝑖i bits to the right. Then, to find these remaining lower 𝑖i bits, we just need to find the number of uninteresting numbers on the segment [𝑙,𝑟][l,r]. If it is odd, these 𝑖i bits will be equal to 𝑘k, since they are all equal to 𝑘mod2𝑖kmod2i, and so have the same 𝑖i minor bits equal to 𝑘k proper, and so their XOR an odd number of times will also be equal to 𝑘k.Otherwise, the lower 𝑖i bits of the answer will be 00, since we have done XOR an even number of times. The number of uninteresting numbers on the segment can be calculated in a similar way to XOR(𝑙,𝑟)XOR⁡(l,r), namely find their number on the segments [0,𝑟][0,r] and [0,𝑙−1][0,l−1] and subtract the latter from the former. The number of numbers equal to 𝑘k modulo 𝑚m and not exceeding 𝑟r is calculated as ⌊𝑟−𝑘𝑚⌋⌊r−km⌋.Time complexity of the solution: 𝑂(logr)O(log⁡r).
+
+Solution (eugenechka.boyko.2_0-0)#include <iostream>
+using namespace std;
+#define int uint64_t
+#define SPEEDY std::ios_base::sync_with_stdio(0); std::cin.tie(0); std::cout.tie(0);
+ 
+int xor_0_n(int n) {
+    int rem = n % 4;
+    if (rem == 0) {
+        return n;
+    }
+    if (rem == 1) {
+        return 1;
+    }
+    if (rem == 2) {
+        return n + 1;
+    }
+    return 0;
+}
+ 
+int xor_range(int l, int r) {
+    return xor_0_n(r) ^ xor_0_n(l - 1);
+}
+ 
+int32_t main() {
+    int t;
+    cin >> t;
+    while (t--) {
+        int l, r, i, k;
+        cin >> l >> r >> i >> k;
+        int highBits = xor_range((l - k + (1 << i) - 1) >> i, (r - k) >> i) << i;
+        int lowBits = k * (((r - k) / (1 << i) - (l - k - 1) / (1 << i)) & 1);
+        cout << (xor_range(l, r) ^ highBits ^ lowBits) << '\n';
+    }
+    return 0;
+}
+
+
+Hint 1Have you considered the cases where 𝑎⊕𝑏⊕𝑐=0a⊕b⊕c=0?
+
+Hint 2Suppose you are certain that at least one lost number is located on some segment [𝑙𝑒,𝑟𝑖][le,ri]. Can you choose a value 𝑚𝑖𝑑mid such that the queries xor {le} {mid} and xor {mid + 1} {ri} you can unambiguously understand on which of the segments ([𝑙𝑒,𝑚𝑖𝑑][le,mid] or [(𝑚𝑖𝑑+1),𝑟𝑖][(mid+1),ri]) lies at least one lost number, even if both of these queries return 00?
+
+TutorialTo begin with, we note that for any number 𝑥x, 𝑥⊕𝑥=0x⊕x=0 is satisfied. Therefore, by querying xor l r, you will get bitwise XOR of only those volume numbers that are in the library in a single copy (within the scope of querying 𝑙l and 𝑟r, of course). Also note that for two pairwise distinct numbers 𝑥x and 𝑦y, 𝑥⊕𝑦≠0x⊕y≠0 is always satisfied.Initially, our goal is — to determine the largest bit of the maximum of the lost numbers. To do this, we can go through the bits starting from the largest significant bit in n. For each 𝑖i-th bit, we will ask xor {2^i} {min(2^(i + 1) - 1, n)}. Note that all numbers on this interval have 𝑖i-th bit equal to one. Then if we get a result not equal to zero, then this bit is the desired largest bit of the maximum of the lost numbers. If we get a result equal to zero, then this bit is guaranteed not to be present in any of the numbers, i.e. all three numbers are less than 2𝑖2i.Let's prove it. If we had one or two numbers on the requested interval, their XOR would not be 00 (see the first paragraph). If all three numbers are on this interval, then the XOR of their 𝑖i-th bit is 1⊕1⊕1=11⊕1⊕1=1, and hence the XOR of the numbers themselves is also different from 00.Now that we know the largest bit 𝑖i of the desired number, we can find this number by any realization of binary search inside the interval [2𝑖;min(2𝑖+1−1,𝑛)][2i;min(2i+1−1,n)]. By the answer to any query on any interval within that interval, we can unambiguously know whether our number is present on that interval or not — the proof is similar to the one above.The first number is found. The second number can be found using any bin search, since XOR of two different numbers is always different from zero. The main thing is not to forget to “exclude” the already found number from the obtained result using the same XOR. And the third number can be found by requesting the result of the whole interval from 11 to 𝑛n and “excluding” the already found two numbers from it.Number of requests: ≈2⋅log𝑛≈120<150≈2⋅log⁡n≈120<150
+
+Solution (m3tr0)#include <cstdio>
+typedef long long l;
+
+l n, num1, num2;
+
+l req(l le, l ri, l num) {
+    if (le > n) return 0;
+    if (ri > n) ri = n;
+    
+    printf("xor %lld %lld\n", le, ri); fflush(stdout);
+    l res; scanf("%lld", &res);
+    
+    if (num > 1 && le <= num1 && num1 <= ri) res ^= num1;
+    if (num > 2 && le <= num2 && num2 <= ri) res ^= num2;
+    return res;
+}
+
+void solve() {
+    scanf("%lld", &n); num1 = 0; num2 = 0;
+    l start = 1LL << (63 - __builtin_clzll(n));
+
+    for (l i = start; i > 0; i >>= 1) {
+        l res = req(num1 | i, num1 | (i * 2 - 1), 1);
+        if (res) num1 |= i;
+    }
+
+    for (l i = start; i > 0; i >>= 1) {
+        l res = req(num2 | i, num2 | (i * 2 - 1), 2);
+        if (res) num2 |= i;
+    }
+    
+    printf("ans %lld %lld %lld\n", num1, num2, req(1, n, 3));
+    fflush(stdout);
+}
+
+int main() {
+    l t; scanf("%lld", &t);
+    while (t--) solve();
+}
+
+
+Code://Modification: In 2036F instead of 2^i we have any number x
+#include <bits/stdc++.h>
+
+using namespace std;
+using i64 = long long;
+
+void solve() {
+    i64 a, b, g, k; cin >> a >> b >> g >> k; 
+
+    bitset<64> x(a);
+    string l = x.to_string();
+    bitset<64> y(b);
+    string r = y.to_string();
+
+    i64 n = 64;
+
+    vector ddp(n, vector(2, vector(2, vector<array<i64, 2>> (g, {-1, -1}))));
+
+    auto dfs = [&](auto&& self, i64 i, i64 over, i64 under, i64 rem) -> array<i64, 2> {
+        if (i == n) return {0, rem != k};
+        
+        auto& s = ddp[i][over][under][rem];
+        if (s[1] != -1) return s;
+
+        s = {0, 0};
+        i64 o = over ? l[i] - '0' : 0;
+        i64 u = under ? r[i] - '0' : 1;
+
+        for (i64 d = o; d <= u; ++d) {
+            int nrem = (rem + (d << (n - i - 1)) % g) % g;
+            auto p = self(self, i + 1, over and (d == o), under and (d == u), nrem);
+            
+            if (d and p[1]) s[0] ^= (1LL << (n - 1 - i));
+            s[0] ^= p[0];
+            s[1] = (s[1] + p[1]) % 2;
+        }
+
+        return s;
+    };
+
+    cout << dfs(dfs, 0, 1, 1, 0)[0] << '\n';
+}
+
+signed main()
+{
+    ios::sync_with_stdio(false); cin.tie(nullptr);
+    i64 T; cin >> T;
+    while(T--) solve();
+    return 0;
+}
+
+
+Code something like thisll i, k;    
+
+bool isGood(string &t){
+    ll temp = stoll(t); 
+    return (temp % (1LL << i) != k);
+}
+
+ll dfs(string &t, string &num, int n, bool fl, bool tight){
+    if(n == 0){
+        if(isGood(t)) return stoll(t);
+        else {
+            return 0;
+        }
+    }
+    int lb = 0;
+    int ub = (tight ? num[num.size() - n] - '0' : 9);
+
+    ll ans = 0;
+    for(int dig = lb; dig <= ub; dig++){
+        t.push_back(char(dig + '0'));
+        if(isGood(t)){
+            ans ^= dfs(t, num, n - 1, true, tight && (dig == ub));
+        }
+        else {
+            ans ^= dfs(t, num, n - 1, false, tight && (dig == ub));
+        }
+        t.pop_back();
+    }
+    return ans;
+}
+
+
+void solve(){
+    ll l, r;
+    cin >> l >> r;
+    l -- ;
+    string ls = to_string(l);
+    string rs = to_string(r);
+    cin >> i >> k;
+    if(i == 0){
+        cout << 0 << nl;
+        return;
+    }
+    //dp(i, flag, tight) -> the xor of numbers from 0 
+    //such that they remain smaller than i ( tight )
+    //such that the number in the calculations are only intersting numbers
+    //ans = dp(r, true, true) ^ dp(l - 1, true, true);
+
+    string t = "";
+    // memset(dp, -1, sizeof(dp));
+    ll ans1 = dfs(t, rs, rs.size(), true, true);
+    t = "";
+    // memset(dp, -1, sizeof(dp));
+    ll ans2 = dfs(t, ls, ls.size(), true, true);
+    cout << (ans1 ^ ans2) << nl;
+}
+

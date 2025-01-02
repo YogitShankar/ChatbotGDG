@@ -1,0 +1,19 @@
+After having fun with a certain contraption and getting caught, Evirir the dragon decides to put their magical skills to good use — warping reality to escape fast!You are given a grid with n𝑛 rows and m𝑚 columns of non-negative integers and an integer k𝑘. Let (i,j)(𝑖,𝑗) denote the cell in the i𝑖-th row from the top and j𝑗-th column from the left (1≤i≤n1≤𝑖≤𝑛, 1≤j≤m1≤𝑗≤𝑚). For every cell (i,j)(𝑖,𝑗), the integer ai,j𝑎𝑖,𝑗 is written on the cell (i,j)(𝑖,𝑗).You are initially at (1,1)(1,1) and want to go to (n,m)(𝑛,𝑚). You may only move down or right. That is, if you are at (i,j)(𝑖,𝑗), you can only move to (i+1,j)(𝑖+1,𝑗) or (i,j+1)(𝑖,𝑗+1) (if the corresponding cell exists). Before you begin moving, you may do the following operation any number of times:   Choose an integer i𝑖 between 11 and n𝑛 and cyclically shift row i𝑖 to the left by 11. Formally, simultaneously set ai,j𝑎𝑖,𝑗 to ai,(jmodm)+1𝑎𝑖,(𝑗mod𝑚)+1 for all integers j𝑗 (1≤j≤m1≤𝑗≤𝑚).  Note that you may not do any operation after you start moving.After moving from (1,1)(1,1) to (n,m)(𝑛,𝑚), let x𝑥 be the number of operations you have performed before moving, and let y𝑦 be the sum of the integers written on visited cells (including (1,1)(1,1) and (n,m)(𝑛,𝑚)). Then the cost is defined as kx+y𝑘𝑥+𝑦.Find the minimum cost to move from (1,1)(1,1) to (n,m)(𝑛,𝑚).
+
+Each test contains multiple test cases. The first line contains the number of test cases t𝑡 (1≤t≤1041≤𝑡≤104). The description of the test cases follows. The first line contains three space-separated integers n𝑛, m𝑚, and k𝑘 (1≤n,m≤2001≤𝑛,𝑚≤200, 0≤k≤1090≤𝑘≤109).Then, n𝑛 lines follow. The i𝑖-th line contains m𝑚 space-separated integers, ai,1,ai,2,…,ai,m𝑎𝑖,1,𝑎𝑖,2,…,𝑎𝑖,𝑚 (0≤ai,j≤1090≤𝑎𝑖,𝑗≤109).It is guaranteed that the sum of n⋅m𝑛⋅𝑚 over all test cases does not exceed 5⋅1045⋅104.
+
+For each test case, output a single integer, the minimum cost to move from (1,1)(1,1) to (n,m)(𝑛,𝑚).
+
+Input
+5 3 3 100 3 4 9 5 2 4 0 101 101 3 4 1 10 0 0 10 0 0 10 0 10 10 0 10 1 1 3 4 3 2 3 1 2 3 6 5 4 10 10 14 58 49 25 12 89 69 8 49 71 23 45 27 65 59 36 100 73 23 5 84 82 91 54 92 53 15 43 46 11 65 61 69 71 87 67 72 51 42 55 80 1 64 8 54 61 70 47 100 84 50 86 93 43 51 47 35 56 20 33 61 100 59 5 68 15 55 69 8 8 60 33 61 20 79 69 51 23 24 56 28 67 76 3 69 58 79 75 10 65 63 6 64 73 79 17 62 55 53 61 58
+
+Output
+113
+6
+4
+13
+618
+
+
+Note
+NoteIn the first test case, the minimum cost of 113113 can be achieved as follows:   Cyclically shift row 3 once. The grid now becomes [3495241011010].⎡⎣⎢⎢3510142101940⎤⎦⎥⎥.  Move as follows: (1,1)→(1,2)→(2,2)→(2,3)→(3,3)(1,1)→(1,2)→(2,2)→(2,3)→(3,3). x=1𝑥=1 operation is done before moving. The sum of integers on visited cells is y=3+4+2+4+0=13𝑦=3+4+2+4+0=13. Therefore, the cost is kx+y=100⋅1+13=113𝑘𝑥+𝑦=100⋅1+13=113.In the second test case, one can shift row 1 once, row 2 twice, and row 3 thrice. Then, the grid becomes [001010100001010100].⎡⎣⎢⎢010100010100101000⎤⎦⎥⎥.x=6𝑥=6 operations were done before moving, and there is a path of cost y=0𝑦=0. Therefore, the cost is 6⋅1+0=66⋅1+0=6.

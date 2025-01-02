@@ -1,0 +1,17 @@
+Shohag has an integer n𝑛 and a set S𝑆 of m𝑚 unique integers. Help him find the lexicographically largest∗∗ integer array a1,a2,…,an𝑎1,𝑎2,…,𝑎𝑛 such that ai∈S𝑎𝑖∈𝑆 for each 1≤i≤n1≤𝑖≤𝑛 and agcd(i,j)≠gcd(ai,aj)𝑎gcd(𝑖,𝑗)≠gcd(𝑎𝑖,𝑎𝑗)†† is satisfied over all pairs 1≤i<j≤n1≤𝑖<𝑗≤𝑛, or state that no such array exists.∗∗An array a𝑎 is lexicographically larger than an array b𝑏 of the same length if a≠b𝑎≠𝑏, and in the first position where a𝑎 and b𝑏 differ, the array a𝑎 has a larger element than the corresponding element in b𝑏.††gcd(x,y)gcd(𝑥,𝑦) denotes the greatest common divisor (GCD) of integers x𝑥 and y𝑦.
+
+The first line contains a single integer t𝑡 (1≤t≤1041≤𝑡≤104) — the number of test cases.The first line of each test case contains two integers n𝑛 and m𝑚 (1≤m≤n≤1051≤𝑚≤𝑛≤105).The second line contains m𝑚 unique integers in increasing order, representing the elements of the set S𝑆 (1≤x≤n1≤𝑥≤𝑛 for each x∈S𝑥∈𝑆).It is guaranteed that the sum of n𝑛 over all test cases does not exceed 3⋅1053⋅105.
+
+For each test case, if there is no solution print −1−1, otherwise print n𝑛 integers — the lexicographically largest integer array that satisfies the conditions.
+
+Input
+3 6 3 3 4 6 1 1 1 2 1 2
+
+Output
+6 4 4 3 4 3 
+1 
+-1
+
+
+Note
+NoteIn the first test case, every element in the array belongs to the given set S={3,4,6}𝑆={3,4,6}, and all pairs of indices of the array satisfy the necessary conditions. In particular, for pair (2,3)(2,3), agcd(2,3)=a1=6𝑎gcd(2,3)=𝑎1=6 and gcd(a2,a3)=gcd(4,4)=4gcd(𝑎2,𝑎3)=gcd(4,4)=4, so they are not equal. There are other arrays that satisfy the conditions as well but this one is the lexicographically largest among them.In the third test case, there is no solution possible because we are only allowed to use a=[2,2]𝑎=[2,2] but for this array, for pair (1,2)(1,2), agcd(1,2)=a1=2𝑎gcd(1,2)=𝑎1=2 and gcd(a1,a2)=gcd(2,2)=2gcd(𝑎1,𝑎2)=gcd(2,2)=2, so they are equal which is not allowed!

@@ -1,0 +1,32 @@
+For an arbitrary grid, Robot defines its beauty to be the sum of elements in the grid. Robot gives you an array 𝑎 of length 𝑛 and an array 𝑏 of length 𝑚. You construct a 𝑛 by 𝑚 grid 𝑀 such that 𝑀𝑖,𝑗=𝑎𝑖⋅𝑏𝑗 for all 1≤𝑖≤𝑛 and 1≤𝑗≤𝑚.Then, Robot gives you 𝑞 queries, each consisting of a single integer 𝑥. For each query, determine whether or not it is possible to perform the following operation exactly once so that 𝑀 has a beauty of 𝑥:  Choose integers 𝑟 and 𝑐 such that 1≤𝑟≤𝑛 and 1≤𝑐≤𝑚  Set 𝑀𝑖,𝑗 to be 0 for all ordered pairs (𝑖,𝑗) such that 𝑖=𝑟, 𝑗=𝑐, or both. Note that queries are not persistent, meaning that you do not actually set any elements to 0 in the process — you are only required to output if it is possible to find 𝑟 and 𝑐 such that if the above operation is performed, the beauty of the grid will be 𝑥. Also, note that you must perform the operation for each query, even if the beauty of the original grid is already 𝑥.
+
+The first line contains three integers 𝑛, 𝑚, and 𝑞 (1≤𝑛,𝑚≤2⋅105,1≤𝑞≤5⋅104) — the length of 𝑎, the length of 𝑏, and the number of queries respectively.The second line contains 𝑛 integers 𝑎1,𝑎2,…,𝑎𝑛 (0≤|𝑎𝑖|≤𝑛).The third line contains 𝑚 integers 𝑏1,𝑏2,…,𝑏𝑚 (0≤|𝑏𝑖|≤𝑚).The following 𝑞 lines each contain a single integer 𝑥 (1≤|𝑥|≤2⋅105), the beauty of the grid you wish to achieve by setting all elements in a row and a column to 0.
+
+For each testcase, output "YES" (without quotes) if there is a way to perform the aforementioned operation such that the beauty is 𝑥, and "NO" (without quotes) otherwise.You can output "YES" and "NO" in any case (for example, strings "yES", "yes" and "Yes" will be recognized as a positive response).
+
+Input
+3 3 6 -2 3 -3 -2 2 -1 -1 1 -2 2 -3 3
+
+Output
+NO
+YES
+NO
+NO
+YES
+NO
+
+
+Input
+5 5 6 1 -2 3 0 0 0 -2 5 0 -3 4 -3 5 2 -1 2
+
+Output
+YES
+YES
+YES
+YES
+NO
+YES
+
+
+Note
+NoteIn the second example, the grid is 0 -2 5 0 -30 4 -10 0 60 -6 15 0 -90 0 0 0 00 0 0 0 0By performing the operation with 𝑟=4 and 𝑐=2, we create the following grid:0 0 5 0 -30 0 -10 0 60 0 15 0 -90 0 0 0 00 0 0 0 0which has beauty 4. Thus, we output YES.In the second query, selecting 𝑟=3 and 𝑐=5 creates a grid with beauty −3.In the third query, selecting 𝑟=3 and 𝑐=3 creates a grid with beauty 5.

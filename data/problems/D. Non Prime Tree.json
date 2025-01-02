@@ -1,0 +1,15 @@
+{
+    "title": "D. Non Prime Tree",
+    "tags": [
+        "brute force",
+        "constructive algorithms",
+        "dfs and similar",
+        "greedy",
+        "number theory",
+        "trees",
+        "two pointers",
+        "*1900"
+    ],
+    "time_limit": "2 seconds",
+    "memory_limit": "256 megabytes"
+}

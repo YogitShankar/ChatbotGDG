@@ -1,0 +1,21 @@
+Evirir the dragon has many friends. They have 3 friends! That is one more than the average dragon.You are given integers 𝑛n, 𝑥x, and 𝑦y. There are 𝑛n dragons sitting in a circle. The dragons are numbered 1,2,…,𝑛1,2,…,n. For each 𝑖i (1≤𝑖≤𝑛1≤i≤n), dragon 𝑖i is friends with dragon 𝑖−1i−1 and 𝑖+1i+1, where dragon 00 is defined to be dragon 𝑛n and dragon 𝑛+1n+1 is defined to be dragon 11. Additionally, dragons 𝑥x and 𝑦y are friends with each other (if they are already friends, this changes nothing). Note that all friendships are mutual.Output 𝑛n non-negative integers 𝑎1,𝑎2,…,𝑎𝑛a1,a2,…,an such that for each dragon 𝑖i (1≤𝑖≤𝑛1≤i≤n), the following holds:   Let 𝑓1,𝑓2,…,𝑓𝑘f1,f2,…,fk be the friends of dragon 𝑖i. Then 𝑎𝑖=mex(𝑎𝑓1,𝑎𝑓2,…,𝑎𝑓𝑘)ai=mex⁡(af1,af2,…,afk).∗∗ ∗∗The minimum excluded (MEX) of a collection of integers 𝑐1,𝑐2,…,𝑐𝑚c1,c2,…,cm is defined as the smallest non-negative integer 𝑡t which does not occur in the collection 𝑐c.
+
+Each test contains multiple test cases. The first line contains the number of test cases 𝑡t (1≤𝑡≤1041≤t≤104). The description of the test cases follows. The first and only line of each test case contains three integers 𝑛n, 𝑥x, 𝑦y (3≤𝑛≤2⋅1053≤n≤2⋅105, 1≤𝑥<𝑦≤𝑛1≤x<y≤n).It is guaranteed that the sum of 𝑛n over all test cases does not exceed 2⋅1052⋅105.
+
+For each test case, output 𝑛n space-separated non-negative integers 𝑎1,𝑎2,…,𝑎𝑛a1,a2,…,an (0≤𝑎𝑖≤1090≤ai≤109) on a line that satisfy the condition in the statement. If there are multiple solutions, print any of them. It can be proven that under the problem constraints, a solution with 0≤𝑎𝑖≤1090≤ai≤109 always exists.
+
+Input
+7 5 1 3 4 2 4 6 3 5 7 3 6 3 2 3 5 1 5 6 2 5
+
+Output
+0 2 1 0 1
+1 2 1 0
+1 2 0 1 2 0
+0 1 2 0 1 0 1
+2 0 1
+1 0 2 1 0
+0 1 2 0 2 1
+
+
+Note
+NoteFor the first test case:   𝑖=1i=1: Dragon 11's friends are dragons 2,3,52,3,5. mex(𝑎2,𝑎3,𝑎5)=mex(2,1,1)=0=𝑎1mex⁡(a2,a3,a5)=mex⁡(2,1,1)=0=a1, so the condition for dragon 11 is satisfied.  𝑖=2i=2: Dragon 22's friends are dragons 1,31,3. mex(𝑎1,𝑎3)=mex(0,1)=2=𝑎2mex⁡(a1,a3)=mex⁡(0,1)=2=a2.  𝑖=3i=3: Dragon 33's friends are dragons 1,2,41,2,4. mex(𝑎1,𝑎2,𝑎4)=mex(0,2,0)=1=𝑎3mex⁡(a1,a2,a4)=mex⁡(0,2,0)=1=a3.  𝑖=4i=4: Dragon 44's friends are dragons 3,53,5. mex(𝑎3,𝑎5)=mex(1,1)=0=𝑎4mex⁡(a3,a5)=mex⁡(1,1)=0=a4.  𝑖=5i=5: Dragon 55's friends are dragons 1,41,4. mex(𝑎1,𝑎4)=mex(0,0)=1=𝑎5mex⁡(a1,a4)=mex⁡(0,0)=1=a5.

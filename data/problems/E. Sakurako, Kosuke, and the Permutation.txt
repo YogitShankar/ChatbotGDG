@@ -1,0 +1,20 @@
+Sakurako's exams are over, and she did excellently. As a reward, she received a permutation 𝑝p. Kosuke was not entirely satisfied because he failed one exam and did not receive a gift. He decided to sneak into her room (thanks to the code for her lock) and spoil the permutation so that it becomes simple.A permutation 𝑝p is considered simple if for every 𝑖i (1≤𝑖≤𝑛)(1≤i≤n) one of the following conditions holds:  𝑝𝑖=𝑖pi=i  𝑝𝑝𝑖=𝑖ppi=i For example, the permutations [1,2,3,4][1,2,3,4], [5,2,4,3,1][5,2,4,3,1], and [2,1][2,1] are simple, while [2,3,1][2,3,1] and [5,2,1,4,3][5,2,1,4,3] are not.In one operation, Kosuke can choose indices 𝑖,𝑗i,j (1≤𝑖,𝑗≤𝑛)(1≤i,j≤n) and swap the elements 𝑝𝑖pi and 𝑝𝑗pj.Sakurako is about to return home. Your task is to calculate the minimum number of operations that Kosuke needs to perform to make the permutation simple.
+
+The first line contains one integer 𝑡t (1≤𝑡≤1041≤t≤104) — the number of test cases.Each test case is described by two lines.  The first line contains one integer 𝑛n (1≤𝑛≤1061≤n≤106) — the length of the permutation 𝑝p.  The second line contains 𝑛n integers 𝑝𝑖pi (1≤𝑝𝑖≤𝑛1≤pi≤n) — the elements of the permutation 𝑝p. It is guaranteed that the sum of 𝑛n across all test cases does not exceed 106106.It is guaranteed that 𝑝p is a permutation.
+
+For each test case, output the minimum number of operations that Kosuke needs to perform to make the permutation simple.
+
+Input
+6 5 1 2 3 4 5 5 5 4 3 2 1 5 2 3 4 5 1 4 2 3 4 1 3 1 3 2 7 2 3 1 5 6 7 4
+
+Output
+0
+0
+2
+1
+0
+2
+
+
+Note
+NoteIn the first and second examples, the permutations are already simple.In the fourth example, it is sufficient to swap 𝑝2p2 and 𝑝4p4. Thus, the permutation will become [2,1,4,3][2,1,4,3] in 11 operation.

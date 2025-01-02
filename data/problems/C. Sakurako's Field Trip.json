@@ -1,0 +1,11 @@
+{
+    "title": "C. Sakurako's Field Trip",
+    "tags": [
+        "dp",
+        "greedy",
+        "two pointers",
+        "*1400"
+    ],
+    "time_limit": "2 seconds",
+    "memory_limit": "256 megabytes"
+}

@@ -1,0 +1,19 @@
+This is the hard version of the problem. The differences between the two versions are highlighted in bold. You can only make hacks if both versions of the problem are solved.Shohag has two integers 𝑥x and 𝑚m. Help him count the number of integers 1≤𝑦≤𝑚1≤y≤m such that 𝑥⊕𝑦x⊕y is divisible∗∗ by either 𝑥x, 𝑦y, or both. Here ⊕⊕ is the bitwise XOR operator.∗∗The number 𝑎a is divisible by the number 𝑏b if there exists an integer 𝑐c such that 𝑎=𝑏⋅𝑐a=b⋅c.
+
+The first line contains a single integer 𝑡t (1≤𝑡≤1041≤t≤104) — the number of test cases.The first and only line of each test case contains two space-separated integers 𝑥x and 𝑚m (1≤𝑥≤1061≤x≤106, 1≤𝑚≤10181≤m≤1018).It is guaranteed that the sum of 𝑥x over all test cases does not exceed 107107.
+
+For each test case, print a single integer — the number of suitable 𝑦y.
+
+Input
+5 7 10 2 3 6 4 1 6 4 1
+
+Output
+3
+2
+2
+6
+1
+
+
+Note
+NoteIn the first test case, for 𝑥=7x=7, there are 33 valid values for 𝑦y among the integers from 11 to 𝑚=10m=10, and they are 11, 77, and 99.  𝑦=1y=1 is valid because 𝑥⊕𝑦=7⊕1=6x⊕y=7⊕1=6 and 66 is divisible by 𝑦=1y=1.  𝑦=7y=7 is valid because 𝑥⊕𝑦=7⊕7=0x⊕y=7⊕7=0 and 00 is divisible by both 𝑥=7x=7 and 𝑦=7y=7.  𝑦=9y=9 is valid because 𝑥⊕𝑦=7⊕9=14x⊕y=7⊕9=14 and 1414 is divisible by 𝑥=7x=7.

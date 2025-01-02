@@ -1,0 +1,14 @@
+{
+    "title": "C. Ordered Permutations",
+    "tags": [
+        "bitmasks",
+        "combinatorics",
+        "constructive algorithms",
+        "greedy",
+        "math",
+        "two pointers",
+        "*1600"
+    ],
+    "time_limit": "2 seconds",
+    "memory_limit": "256 megabytes"
+}

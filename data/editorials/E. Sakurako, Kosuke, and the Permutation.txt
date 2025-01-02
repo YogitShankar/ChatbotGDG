@@ -1,0 +1,305 @@
+Tutorial2033A - Sakurako and KosukeFor this task we could just brute-force the answer by repeatedly adding or substracting the odd numbers from the initial position 00. This would result in 𝑂(𝑛)O(n) time complexity. This is sufficient enough.
+
+Solutiondef solve():
+    n = int(input())
+    x = 0
+    c = 1
+    while -n <= x <= n:
+        if c % 2 == 1:
+            x -= 2 * c - 1
+        else:
+            x += 2 * c - 1
+        c += 1
+    if c % 2 == 0:
+        print("Sakurako")
+    else:
+        print("Kosuke")
+
+
+for tc in range(int(input())):
+    solve()
+
+Tutorial2033B - Sakurako and WaterIn this task we were supposed to find the minimal possible amount of moves that Sakurako needs to make in order to make all elements in the matrix non-negative. The key observation is to notice that Sakurako can only add simultaneously to elements that lay on one diagonal. For cell (𝑖,𝑗)(i,j), let the "index" of diagonal which it is placed on is equal to 𝑑(𝑖,𝑗)=(𝑖−𝑗)d(i,j)=(i−j). This is proven by the fact that for (𝑖,𝑗)(i,j) and (𝑖+1,𝑗+1)(i+1,j+1) the equation 𝑑(𝑖,𝑗)=𝑑(𝑖+1,𝑗+1)d(i,j)=d(i+1,j+1) holds.We are able to add to a pair of elements (𝑥,𝑦)(x,y) and (𝑥1,𝑦1)(x1,y1) simultaneously if and only if 𝑑(𝑥,𝑦)=𝑑(𝑥1,𝑦1)d(x,y)=d(x1,y1).From this we can reduce our problem to finding the amount of times that we need to add 1 to this diagonal in order for all of its elements to become non-negative.For each diagonal we find the minimal element in it and there will be two cases: 1. The minimal element is non-negative: we don't need to add anything to that diagonal.2. The minimal element is negative and equal to 𝑥x: we will need to add one at least −𝑥−x times (remember that 𝑥x is negative). After that, the answer for our task is the sum of answers for each individual diagonal.Total time complexity 𝑂(𝑛2)O(n2)
+
+Solutiondef solve():
+    n = int(input())
+    mn = dict()
+    for i in range(n):
+        a = [int(x) for x in input().split()]
+        for j in range(n):
+            mn[i - j] = min(a[j], mn.get(i - j, 0))
+    ans = 0
+    for value in mn.values():
+        ans -= value
+    print(ans)
+ 
+t = int(input())
+for _ in range(t):
+    solve()
+
+Tutorial2033C - Sakurako's Field TripNote that the answer is influenced by neighboring elements. This allows us to optimally place elements 𝑖i and 𝑛−𝑖+1n−i+1 with respect to elements 𝑖−1i−1 and 𝑛−𝑖+2n−i+2.Thus, we need to be able to choose the best order for an array of 44 elements. Let's consider several types of arrays:  [1,𝑥,𝑦,1][1,x,y,1] or [𝑥,1,1,𝑦][x,1,1,y] (the ones denote equal elements): swaps will not change the answer;  [1,1,𝑦,2][1,1,y,2]: a swap will improve the answer if 𝑦≠1y≠1, otherwise the answer will not change; Thus, if 𝑎[𝑖−1]=𝑎[𝑖]a[i−1]=a[i] or 𝑎[𝑛−𝑖+2]=𝑎[𝑛−𝑖+1]a[n−i+2]=a[n−i+1], then swapping elements 𝑎[𝑖]a[i] and 𝑎[𝑛−𝑖+1]a[n−i+1] will either not change the answer or improve it. After all swaps, we only need to calculate the final disturbance.
+
+Solution#include <bits/stdc++.h>
+using namespace std;
+int main(){
+    int t;
+    cin>>t;
+    while(t--){
+        int n;
+        cin>>n;
+        int a[n+1];
+        for(int i=1;i<=n;i++){
+            cin>>a[i];
+        }
+        for(int i=n/2-1;i>=1;i--){
+            if(a[i]==a[i+1] || a[n-i+1]==a[n-i]){
+                swap(a[i],a[n-i+1]);
+            }
+        }
+        int re=0;
+        for(int i=1;i<n;i++){
+            re+=(a[i]==a[i+1]);
+        }
+        cout<<re<<endl;
+    }
+}
+
+Tutorial2033D - Kousuke's AssignmentFor this task we were supposed to find the biggest amount of non-intersecting segments all of which have their sum equal to zero.First of all, the problem "find the maximal number of non-intersecting segments" is an exaxmple of a classic dynamic programming problem.First of all, we will sort all our segments by their right end in an increasing order.After that, we will be processing all segments one by one and updating our answer as follows:For a segment with fixed ends 𝑙,𝑟l,r, we will be updating our answer as follows.𝑑𝑝𝑟=𝑚𝑎𝑥(𝑑𝑝𝑟−1,𝑑𝑝𝑙−1+1)dpr=max(dpr−1,dpl−1+1)Because we are processing all our segments one by one in that order, when we start computing 𝑑𝑝𝑟dpr, for all 𝑖<𝑟i<r the maximal possible answer will already be computed.By filling the 𝑑𝑝dp array in this way, we are sure that the answer will always be contained in 𝑑𝑝𝑛dpn.Now back to our task:First of all, if we construct an array 𝑝p where 𝑝𝑖=∑𝑖𝑗=1𝑎𝑖pi=∑j=1iai, (𝑝0=0)(p0=0) then for every segment which has sum equal to 00, 𝑝𝑙−1=𝑝𝑟pl−1=pr. It can be easily proven that for fixed 𝑟r there is at most one segment which will be useful for the optimal answer:If there is no 𝑝𝑙pl where 𝑙<𝑟l<r such that 𝑝𝑙=𝑝𝑟pl=pr, then there is no segment that ends in position 𝑟r.Otherwise, it is sufficient to choose the one with the largest 𝑙l. That is because if we chose the one with 𝑙1<𝑙l1<l, then we would have missed segment [𝑙1+1,𝑙][l1+1,l]. Because of that miss, we would not have found the correct answer for our 𝑟r.So our final algorithm would be to find the smallest segments that end in position 𝑟r and have their sum equal to 00.After that we can compute the answer by simply solving the maximal number of non-intersecting segments problem using dynamic programming.Total tme complexity 𝑂(𝑛𝑙𝑜𝑔𝑛)O(nlogn) or 𝑂(𝑛)O(n) depending on implementation.
+
+Solution#include <bits/stdc++.h>
+using namespace std;
+int main(){
+    int t;
+    cin>>t;
+    while(t--){
+        int n;
+        cin>>n;
+        int a[n+1];
+        map<int,int>mp;
+        for(int i=1;i<=n;i++){
+            cin>>a[i];
+        }
+        int p_su[n+1];
+        p_su[0]=0;
+        int lst[n+1];
+        mp[0]=0;
+        for(int i=1;i<=n;i++){
+            p_su[i]=p_su[i-1]+a[i];
+            if(mp.find(p_su[i])==mp.end()){
+                lst[i]=-1;
+            }
+            else{
+                lst[i]=mp[p_su[i]];
+            }
+            mp[p_su[i]]=i;
+        }
+        int dp[n+1];
+        memset(dp,0,sizeof dp);
+        for(int i=1;i<=n;i++){
+            dp[i]=max(dp[i],dp[i-1]);
+            if(lst[i]!=-1){
+                dp[i]=max(dp[i],dp[lst[i]]+1);
+            }
+        }
+        cout<<*max_element(dp,dp+n+1)<<endl;
+    }
+}
+
+Tutorial2033E - Sakurako, Kosuke, and the PermutationLets make this the shortest editorial out of all.Observation 11:All permutations can be split into cycles. All cycles of permutation can be traversed in 𝑂(𝑛)O(n) time.Observation 22:When we are swapping 22 elements that belong to one cycle, we are splitting our cycle into 22 parts.If we rephrase our definition of simple permutation, we can see that the permutation is called simple if every cycle in it has length not larger than 22.Observation 33:By splitting our initial cycle of length 𝑥x repeatedly, we can achieve its division into cycles of length not larger than 22 in ⌊𝑥−12⌋⌊x−12⌋ swaps. (this is achieved by repeatedly decreasing size of the cycle by 22)Observation 44:All cycles are independent, so the answer for the initial task is the sum of answers for every cycle.Total time complexity is 𝑂(𝑛)O(n).
+
+Solution#include<bits/stdc++.h>
+using namespace std;
+int main(){
+    int t;
+    ios_base::sync_with_stdio(false);cout.tie(nullptr);cin.tie(nullptr);
+    cin>>t;
+    while(t--){
+        int n;
+        cin>>n;
+        int p[n+1];
+        for(int i=1;i<=n;i++){
+            cin>>p[i];
+        }
+        bool us[n+1];
+        memset(us,0,sizeof us);
+        int re=0;
+        for(int i=1;i<=n;i++){
+            if(!us[i]){
+                int cu=i;
+                int le=0;
+                while(us[cu]==0){
+                    le++;
+                    us[cu]=1;
+                    cu=p[cu];
+                }
+                re+=(le-1)/2;
+            }
+        }
+        cout<<re<<'\n';
+    }
+}
+
+Tutorial2033F - Kosuke's SlothThis was one of my favourite tasks untill I realised that the amount of numbers in Fibonacci cycle is either 11, 22 or 44...First of all, the length of cycle after which our sequence would be repeating for modulo 𝑘k is at most 6𝑘6k (We will just take this as a fact for now, it is too long to explain but you can read it here.Now, if we know that the amount of operations needed to take untill we are in a cycle is at most 6𝑘6k, we can brute-force our solution in 𝑂(𝑘)O(k) time.Also, one last thing that we will need to consider is the fact that if 𝐹𝑖Fi is divisible by 𝑘k, then for every 𝑗j, 𝐹𝑖⋅𝑗Fi⋅j is also divisible by 𝑘k.Proof:as we know, 𝑔𝑐𝑑(𝐹𝑛,𝐹𝑚)=𝐹𝑔𝑐𝑑(𝑛,𝑚)gcd(Fn,Fm)=Fgcd(n,m) so if we take any multiple of 𝑖i as 𝑛n and 𝑖=𝑚i=m, then the 𝑔𝑐𝑑(𝐹𝑛,𝐹𝑚)gcd(Fn,Fm) would be equal to 𝐹𝑖Fi.And because 𝐹𝑖Fi is divisible by 𝑘k, every other multiple of 𝑖i is going to be also divisible by 𝑘k.So, our final solution would be brute-forcing first 6𝑘6k Fibonacci numbers and their remainder after division by 𝑘k in order to find the first one that is divisible by 𝑘k. Then just multiply that number by 𝑛n and we will get the answer for our task. Also, don't forget to take everything via modulo 109+7109+7. (Someone kept whining about it in comments)Total time complexity 𝑂(𝑘)O(k).
+
+Solution#include <bits/stdc++.h>
+ 
+using namespace std;
+using LL = long long;
+#define ssize(x) (int)(x.size())
+#define ALL(x) (x).begin(), (x).end()
+ 
+mt19937 rng(chrono::steady_clock::now().time_since_epoch().count());
+ 
+int rd(int l, int r) {
+    return uniform_int_distribution<int>(l, r)(rng);
+}
+const LL MOD = 1e9 + 7;
+int bp(int a, int n) {
+    if (n == 0)
+        return 1;
+    if (n % 2 == 0)
+        return bp(1LL * a * a % MOD, n / 2);
+    else
+        return 1LL * bp(a, n - 1) * a % MOD;
+}
+int inv(int a) {
+    return bp(a, MOD - 2);
+}
+void solve() {
+    LL n, k;
+    cin >> n >> k;
+    n %= MOD;
+    if (k == 1) {
+        cout << n << "\n";
+        return;
+    }
+    vector<int> fib(3);
+    fib[0] = fib[1] = 1;
+    int cnt = 0;
+    for (int i = 2; i <= 10 * k; i++) {
+        fib[i % 3] = (fib[(i + 2) % 3] + fib[(i + 1) % 3]) % k;
+        if (fib[i % 3] == 0)
+            cnt++;
+        if (fib[i % 3] == 1 && fib[(i + 2) % 3] == 0) {
+            cout << 1LL * i * n % MOD * inv(cnt) % MOD << "\n";
+            return;
+        }
+    }
+}
+int main() {
+    ios_base::sync_with_stdio(0);
+    cin.tie(0);
+    cout.tie(0);
+    int t = 1;
+     cin >> t;
+    while (t--) {
+        solve();
+    }
+}
+
+Tutorial2033G - Sakurako and ChefirIn each query, Chefir can ascend from vertex 𝑣v by no more than 𝑘k. To maximize the distance, we need to first ascend 𝑥x times (0≤𝑥≤𝑘0≤x≤k), and then descend to the deepest vertex.For each vertex 𝑢u, we will find 𝑚𝑎𝑥𝑑[𝑣].𝑥maxd[v].x — the distance to the farthest descendant of vertex 𝑢u. We will also need 𝑚𝑎𝑥𝑑[𝑣].𝑦maxd[v].y — the distance to the farthest descendant of vertex 𝑢u from a different subtree of vertex 𝑣v, which will allow us to avoid counting any edges twice when searching for the answer.Now we can construct binary lifts. The lift by 2𝑖2i from vertex 𝑢u will store information about all vertices from 𝑢u to the (2𝑖)(2i)-th ancestor, excluding vertex 𝑢u itself.The value of the lift from vertex 𝑢u by 11 (i.e., to its ancestor 𝑝p) will be calculated as follows: if 𝑚𝑎𝑥𝑑[𝑣].𝑥+1<𝑚𝑎𝑥𝑑[𝑝].𝑥maxd[v].x+1<maxd[p].x, then the value is equal to 𝑚𝑎𝑥𝑑[𝑝].𝑥−ℎ(𝑝)maxd[p].x−h(p), and 𝑚𝑎𝑥𝑑[𝑝].𝑦−ℎ(𝑝)maxd[p].y−h(p) otherwise. Here, ℎ(𝑝)h(p) is the distance from vertex 𝑝p to the root. The subsequent lifts will be computed as the maximums of the corresponding values. The constructed maximums will not account for cases where any edge was traversed twice.Thus, by ascending from vertex 𝑣v by 𝑘k, we will be able to find the best value of the form max_depth−ℎ(𝑢)max_depth−h(u), and by adding ℎ(𝑣)h(v) to it, we will obtain the distance to the desired vertex.
+
+Solution#include <bits/stdc++.h>
+ 
+//#define int long long
+#define pb emplace_back
+#define mp make_pair
+#define x first
+#define y second
+#define all(a) a.begin(), a.end()
+#define rall(a) a.rbegin(), a.rend()
+ 
+typedef long double ld;
+typedef long long ll;
+ 
+using namespace std;
+ 
+mt19937 rnd(time(nullptr));
+ 
+const int inf = 1e9;
+const int M = 1e9 + 7;
+const ld pi = atan2(0, -1);
+const ld eps = 1e-6;
+ 
+void precalc(int v, int p, vector<vector<int>> &sl, vector<pair<int, int>> &maxd, vector<int> &h){
+    maxd[v] = {0, 0};
+    if (v != p) h[v] = h[p] + 1;
+    for(int u: sl[v]){
+        if (u == p) continue;
+        precalc(u, v, sl, maxd, h);
+        if (maxd[v].y < maxd[u].x + 1) {
+            maxd[v].y = maxd[u].x + 1;
+        }
+        if (maxd[v].y > maxd[v].x) {
+            swap(maxd[v].x, maxd[v].y);
+        }
+    }
+}
+ 
+void calc_binups(int v, int p, vector<vector<int>> &sl, vector<vector<pair<int, int>>> &binup, vector<pair<int, int>> &maxd, vector<int> &h){
+    binup[v][0] = {maxd[p].x, p};
+    if (maxd[p].x == maxd[v].x + 1) {
+        binup[v][0].x = maxd[p].y;
+    }
+    binup[v][0].x -= h[p];
+    for(int i = 1; i < 20; ++i){
+        binup[v][i].y = binup[binup[v][i - 1].y][i - 1].y;
+        binup[v][i].x = max(binup[v][i - 1].x, binup[binup[v][i - 1].y][i - 1].x);
+    }
+ 
+    for(int u: sl[v]){
+        if (u == p) continue;
+        calc_binups(u, v, sl, binup, maxd, h);
+    }
+}
+ 
+int get_ans(int v, int k, vector<vector<pair<int, int>>> &binup, vector<pair<int, int>> &maxd, vector<int> &h){
+    k = min(k, h[v]);
+    int res = maxd[v].x - h[v];
+    int ini = h[v];
+    for(int i = 19; i >= 0; --i){
+        if ((1 << i) <= k) {
+            res = max(res, binup[v][i].x);
+            v = binup[v][i].y;
+            k -= (1 << i);
+        }
+    }
+    return res + ini;
+}
+ 
+void solve(int tc){
+    int n;
+    cin >> n;
+    vector<vector<int>> sl(n);
+    for(int i = 1; i < n; ++i){
+        int u, v;
+        cin >> u >> v;
+        sl[--u].emplace_back(--v);
+        sl[v].emplace_back(u);
+    }
+    vector<pair<int, int>> maxd(n);
+    vector<int> h(n);
+    precalc(0, 0, sl, maxd, h);
+    vector<vector<pair<int, int>>> binup(n, vector<pair<int, int>>(20));
+    calc_binups(0, 0, sl, binup, maxd, h);
+    int q;
+    cin >> q;
+    for(int _ = 0; _ < q; ++_){
+        int v, k;
+        cin >> v >> k;
+        cout << get_ans(v - 1, k, binup, maxd, h) << " ";
+    }
+}
+ 
+bool multi = true;
+ 
+signed main() {
+    int t = 1;
+    if (multi)cin >> t;
+    for (int i = 1; i <= t; ++i) {
+        solve(i);
+        cout << "\n";
+    }
+    return 0;
+}
+
