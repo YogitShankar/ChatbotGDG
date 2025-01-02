@@ -1,3 +1,6 @@
+Name: Yuvraj Singh
+Roll no.- 221236
+
 # Codeforces Problem Scraper
 
 A Python-based web scraper for collecting programming problems and their editorials from Codeforces. This tool automatically scrapes problem statements, metadata, and editorial solutions while organizing them into a structured format.
