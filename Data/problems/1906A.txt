@@ -1,0 +1,13 @@
+Problem: A. Easy As ABC
+Time Limit: time limit per test1 second
+Memory Limit: memory limit per test1024 megabytes
+Tags: brute force, *1000
+
+Description:
+You are playing a word puzzle. The puzzle starts with a 33 by 33 grid, where each cell contains either the letter A, B, or C.
+The goal of this puzzle is to find the lexicographically smallest possible word of length 33. The word can be formed by choosing three different cells where the cell containing the first letter is adjacent to the cell containing the second letter, and the cell containing the second letter is adjacent to the cell containing the third letter.
+Two cells are adjacent to each other if they share a border or a corner, as shown in the following illustration. Formally, if (r,c)(r,c) denotes the cell in the rr-th row and c-th column, then cell (r,c) is adjacent to cell (r,c+1), (r−1,c+1), (r−1,c), (r−1,c−1), (r,c−1), (r+1,c−1), (r+1,c), and (r+1,c+1).
+Determine the lexicographically smallest possible word of length 3 that you can find within the grid.
+A string s of length n is lexicographically smaller than string t of the same length if there exists an integer 1≤i≤n such that sj=tj for all 1≤j<i, and si<ti in alphabetical order. The following illustration shows some examples on some grids and their the lexicographically smallest possible word of length 3 that you can find within the grids.
+Input consists of three lines, each containing three letters, representing the puzzle grid. Each letter in the grid can only be either A, B, or C.
+Output the lexicographically smallest possible word of length 3 that you can find within the grid.

@@ -1,0 +1,269 @@
+Editorial for Problem: B. Game with Doors
+Problem ID: 2004B
+
+Solution:
+2004A - Closest PointIdea: BledDest Tutorial2004A - Closest PointThis problem can be solved "naively" by iterating on the point we add and checking that it becomes the closest point to all elements from the set. However, there is another solution which is faster and easier to implement.When we add a point, it can become the closest only to two points from the set: one to the left, and one to the right. If there are, for example, two points to the left of the point we add, then the condition on the leftmost point won't be met (the point we add won't be the closest to it).So, if $$$n>2$$$, there is no way to add a point. If $$$n=2$$$, we want to insert a new point between the two existing points — so we need to check that they are not adjacent. Solution (BledDest)t = int(input())
+for i in range(t):
+    n = int(input())
+    x = list(map(int, input().split()))
+    if n > 2 or x[0] + 1 == x[-1]:
+        print('NO')
+    else:
+        print('YES')2004B - Game with DoorsIdea: BledDest Tutorial2004B - Game with DoorsLet's find the segment of rooms where both Alice and Bob can be. This segment is $$$[\max(L, l), \min(R, r)]$$$.If it is empty, then it is sufficient to simply block any door between Alice's segment and Bob's segment, so the answer is $$$1$$$.If it is not empty, let's denote by $$$x$$$ the number of doors in this segment — $$$\min(R, r) - \max(L, l)$$$. Each of these doors definitely needs to be blocked so that Alice and Bob cannot meet if they are in adjacent rooms within this segment. Therefore, the answer is at least $$$x$$$.However, sometimes we also need to restrict this segment on the left and/or right. If either of them is to the left of this segment (i.e., the left boundaries of their segments do not coincide), we need to block the door to the left of the intersection (and increase the answer by $$$1$$$). Similarly for the right boundary. Solution (Neon)#include <bits/stdc++.h>
+ 
+using namespace std;
+ 
+int main() {
+  int t;
+  cin >> t;
+  while (t--) {
+    int l, r, L, R;
+    cin >> l >> r >> L >> R;
+    int inter = min(r, R) - max(l, L) + 1;
+    int ans = inter - 1;
+    if (inter <= 0) {
+      ans = 1;
+    } else {
+      ans += (l != L);
+      ans += (r != R);
+    }
+    cout << ans << '\n';
+  }
+}2004C - Splitting ItemsIdea: BledDest Tutorial2004C - Splitting ItemsLet's sort the array in descending order and consider the first two moves of the game.Since Alice goes first, she takes the maximum element in the array ($$$a_1$$$). Then, during his turn, Bob takes the second-largest element ($$$a_2$$$) to minimize the score difference.Bob can increase his element in advance; however, he cannot make it larger than $$$a_1$$$ (since Alice always takes the maximum element in the array). This means that Bob needs to increase his element to $$$\min(a_1, a_2 + k)$$$. Then the game moves to a similar situation, but without the first two elements and with an updated value of $$$k$$$.Thus, to solve the problem, we can sort the array and then iterate through it while maintaining several values. If the current index is odd (corresponding to Alice's turn), increase the answer by $$$a_i$$$. If the current index is even (corresponding to Bob's turn), increase the current value of $$$a_i$$$ by $$$\min(k, a_{i - 1} - a_i)$$$, decrease $$$k$$$ by that same value, and also subtract the new value of $$$a_i$$$ from the answer. Solution (adedalic)fun main() {
+    repeat(readln().toInt()) {
+        val (n, k) = readln().split(" ").map { it.toInt() }
+        val a = readln().split(" ").map { it.toInt() }.sortedDescending().toIntArray()
+
+        var score = 0L
+        var rem = k
+        for (i in a.indices) {
+            if (i % 2 == 0) {
+                score += a[i]
+            }
+            else {
+                val needed = minOf(rem, a[i - 1] - a[i])
+                a[i] += needed
+                rem -= needed
+                score -= a[i]
+            }
+        }
+        println(score)
+    }
+}2004D - Colored PortalsIdea: BledDest Tutorial2004D - Colored PortalsIf cities $$$x$$$ and $$$y$$$ have a common portal, then the cost of the path is $$$|x-y|$$$.Otherwise, we have to move from city $$$x$$$ to some intermediate city $$$z$$$. It's important to note that the type of city $$$z$$$ should be different from the type of city $$$x$$$. Otherwise, we could skip city $$$z$$$ and go directly from $$$x$$$ to the next city in the path. Since the type of city $$$z$$$ doesn't match the type of city $$$x$$$, it must have a common portal with city $$$y$$$. Therefore, the optimal path look like this: $$$x \rightarrow z \rightarrow y$$$. Additional cities won't decrease the cost of the path.Now we have to figure out how to choose city $$$z$$$ to minimize the cost of the path. Without loss of generality, let's say that $$$x \le y$$$. Then there are three possible locations for city $$$z$$$:   $$$z < x$$$, then the cost of the path is $$$(x-z) + (y-z)$$$;  $$$x \le z \le y$$$, then the cost of the path is $$$(z-x) + (y-z) = y - x$$$;  $$$y < z$$$, then the cost of the path is $$$(z-x) + (z-y)$$$. It is easy to see that in each case, to minimize the cost of the path, we should choose $$$z$$$ as close to $$$x$$$ as possible.Let's define two arrays: $$$\mathrm{lf}_{i, j}$$$ — the index of the nearest city to the left of $$$i$$$ with type $$$j$$$, and similarly $$$\mathrm{rg}_{i, j}$$$ — the index of the nearest city to the right of $$$i$$$ with type $$$j$$$.Then the answer to the problem is the minimum value among $$$|x - \mathrm{lf}_{x, j}| + |\mathrm{lf}_{x, j} - y|$$$ and $$$|x - \mathrm{rg}_{x, j}| + |\mathrm{rg}_{x, j} - y|$$$ for all types $$$j$$$ for which there are common portals with cities $$$x$$$ and $$$y$$$. Solution (Neon)#include <bits/stdc++.h>
+ 
+using namespace std;
+ 
+const int INF = 1e9;
+const string vars[] = {"BG", "BR", "BY", "GR", "GY", "RY"};
+ 
+int main() {
+  ios::sync_with_stdio(false); cin.tie(0);
+  int t;
+  cin >> t;
+  while (t--) {
+    int n, q;
+    cin >> n >> q;
+    vector<int> a(n);
+    for (int i = 0; i < n; ++i) {
+      char s[5];
+      cin >> s;
+      a[i] = find(vars, vars + 6, s) - vars;
+    }
+    vector<vector<int>> lf(n), rg(n);
+    for (int o = 0; o < 2; ++o) {
+      vector<int> last(6, -INF);
+      for (int i = 0; i < n; ++i) {
+        last[a[i]] = (o ? n - i - 1 : i);
+        (o ? rg[n - i - 1] : lf[i]) = last;
+      }
+      reverse(a.begin(), a.end());
+    }
+    while (q--) {
+      int x, y;
+      cin >> x >> y;
+      --x; --y;
+      int ans = INF;
+      for (int j = 0; j < 6; ++j) {
+        if (a[x] + j != 5 && j + a[y] != 5) {
+          ans = min(ans, abs(x - lf[x][j]) + abs(lf[x][j] - y));
+          ans = min(ans, abs(x - rg[x][j]) + abs(rg[x][j] - y));
+        }
+      }
+      if (ans > INF / 2) ans = -1;
+      cout << ans << '\n';
+    }
+  }
+}2004E - Not a Nim ProblemIdea: BledDest Tutorial2004E - Not a Nim ProblemSo, okay, this is actually a problem related to Nim game and Sprague-Grundy theorem. If you're not familiar with it, I recommend studying it here. The following tutorial expects you to understand how Grundy values are calculated, which you can read there.The first (naive) solution to this problem would be to calculate the Grundy values for all integers from $$$1$$$ to $$$10^7$$$ via dynamic programming. That would work in $$$O(A^2 log A)$$$ or $$$O(A^2)$$$, where $$$A$$$ is the maximum value in the input, so it's not fast enough.However, coding a naive solution to this problem might still help. There is a method that allows you to (sometimes) approach these kinds of problems where you can calculate Grundy values slowly, and you need to do it faster. This method usually consists of four steps:  code a solution that calculates Grundy values naively;  run it and generate several first values of Grundy function;  try to observe some patterns and formulate a faster way to calculate Grundy functions using them;  verify your patterns on Grundy values of larger numbers and/or try to prove them. The third step is probably the most difficult, and generating too few Grundy values might lead you to wrong conclusions. For example, the first $$$8$$$ values of Grundy are $$$[1, 0, 2, 0, 3, 0, 4, 0]$$$, which may lead to an assumption that $$$g(x) = 0$$$ if $$$x$$$ is even, or $$$g(x) = \frac{x+1}{2}$$$ if $$$x$$$ is odd. However, this pattern breaks as soon as you calculate $$$g(9)$$$, which is not $$$5$$$, but $$$2$$$. You can pause reading the editorial here and try formulating a different pattern which would explain that; the next paragraph contains the solution.Okay, we claim that:  $$$g(1) = 1$$$;  $$$g(x) = 0$$$ if $$$x$$$ is even;  $$$g(x) = p(x)$$$ if $$$x$$$ is an odd prime number, where $$$p(x)$$$ is the index of $$$x$$$ in the sequence of prime numbers;  $$$g(x) = g(d(x))$$$ if $$$x$$$ is an odd composite number, where $$$d(x)$$$ is the minimum prime divisor of $$$x$$$. We can prove it with induction on $$$x$$$ and something like that:  $$$g(1) = 1$$$ can simply be verified by calculation;  if $$$x$$$ is even, there are no transitions to other even values of pile size from the current state of the game (because that would imply that both $$$x$$$ and $$$x-y$$$ are divisible by $$$2$$$, so $$$gcd(x,y)$$$ is at least $$$2$$$). Since these are the only states having Grundy values equal to $$$0$$$, the MEX of all transitions is equal to $$$0$$$;  if $$$x$$$ is an odd prime number, there are transitions to all states of the game from $$$1$$$ to $$$x-1$$$. The set of Grundy values of these transitions contains all integers from $$$0$$$ to $$$g(x')$$$, where $$$x'$$$ is the previous odd prime number; so, the MEX of this set is $$$g(x') + 1 = p(x') + 1 = p(x)$$$;  if $$$x$$$ is a composite prime number and $$$d(x)$$$ is its minimum prime divisor, then there are transitions to all states from $$$1$$$ to $$$d(x)-1$$$ (having Grundy values from $$$0$$$ to $$$g(d(x))-1$$$); but every $$$x'$$$ such that $$$g(x') = g(d(x))$$$ is divisible by $$$d(x)$$$; so, there are no transitions to those states (otherwise $$$gcd(x,y)$$$ would be at least $$$d(x)$$$). So, the MEX of all states reachable in one step is $$$g(d(x))$$$. This is almost the whole solution. However, we need to calculate $$$p(x)$$$ and $$$d(x)$$$ for every $$$x$$$ until $$$10^7$$$. Probably the easiest way to do it is using the linear prime sieve. Solution (BledDest)#include<bits/stdc++.h>
+ 
+using namespace std;
+ 
+const int MOD = 998244353;
+ 
+const int N = int(1e7) + 43;
+ 
+int lp[N + 1];
+vector<int> pr;
+int idx[N + 1];
+ 
+void precalc()
+{
+	for (int i = 2; i <= N; i++) 
+	{
+		if (lp[i] == 0) 
+		{
+			lp[i] = i;
+			pr.push_back(i);
+		}
+		for (int j = 0; j < pr.size() && pr[j] <= lp[i] && i * 1ll * pr[j] <= N; ++j)
+			lp[i * pr[j]] = pr[j];
+	}
+	for (int i = 0; i < pr.size(); i++)
+		idx[pr[i]] = i + 1; 
+}
+ 
+int get(int x)
+{
+	if(x == 1) return 1;
+ 	x = lp[x];
+ 	if(x == 2)
+ 		return 0;
+ 	else return idx[x]; 		
+}
+ 
+void solve()
+{             
+	int n;
+	scanf("%d", &n);
+	int res = 0;
+	for(int i = 0; i < n; i++)
+	{
+	 	int x;
+	 	scanf("%d", &x);
+	 	res ^= get(x);
+	}
+	if(res) puts("Alice");
+	else puts("Bob");
+}
+ 
+int main()
+{
+ 	precalc();
+ 	int t;
+ 	scanf("%d", &t);
+ 	for(int i = 0; i < t; i++) solve();
+}2004F - Make a PalindromeIdea: BledDest Tutorial2004F - Make a PalindromeTo begin with, let's find out how to solve the problem for a single subarray in linear time.If equal numbers are at both ends, we can remove them and reduce the problem to a smaller size (thus, we have decreased the length of the array by $$$2$$$ in $$$0$$$ operations, or by $$$1$$$ if there is only one element). Otherwise, we have to do something with one of these numbers: either merge the smaller one with its neighbor or split the larger one. It can be shown that it doesn't matter which of these actions we take, so let's split the larger of the two numbers at the ends in such a way that the numbers at the ends become equal, and then we can remove the equal numbers at the ends (thus, we reduce the length of the array by $$$1$$$ in $$$1$$$ operation). In this case, the answer for the array depends on the number of situations where the ends of the array have equal numbers and the number of situations where they are different.Now let's understand how to quickly calculate how many times, when processing a subarray, we encounter a situation where the ends have equal numbers. After removing these equal numbers at the ends, we obtain a subarray such that numbers with equal sums have been removed from the prefix and suffix compared to the original subarray.We can determine how many such subarrays can be obtained from the original one by removing a prefix and a suffix with equal sums. For this, we can use prefix sums. Let the prefix sum at the beginning of the segment be $$$p_l$$$, and at the end be $$$p_r$$$. If we remove a prefix and a suffix with sum $$$s$$$, the sums become $$$p_l + s$$$ and $$$p_r - s$$$. At the same time, the sum $$$p_l + p_r$$$ for the smaller subarray remains the same. Therefore, for each such subarray that results from the situation "the elements on the right and left were equal, we removed them" the sum $$$p_l + p_r$$$ is the same as that of the original segment.To calculate the number of shorter segments with the same sum $$$p_l + p_r$$$ for each segment, we can iterate through all segments in order of increasing length and store in a map the count of subarrays with each sum $$$p_l + p_r$$$. This leads us to solve the problem in $$$O(n^2 \log{n})$$$. Solution (Neon)#include <bits/stdc++.h>
+ 
+using namespace std;
+
+int main() {
+  int t;
+  cin >> t;
+  while (t--) {
+    int n;
+    cin >> n;
+    vector<int> a(n);
+    for (auto& x : a) cin >> x;
+    vector<int> p(n + 1);
+    for (int i = 0; i < n; ++i) p[i + 1] = p[i] + a[i];
+    map<int, int> cnt;
+    long long ans = 0;
+    for (int len = 0; len <= n; ++len) {
+      for (int i = 0; i <= n - len; ++i) {
+        int s = p[i] + p[i + len];
+        ans += len;
+        ans -= 2 * cnt[s];
+        ans -= (s % 2 == 1 || !binary_search(p.begin(), p.end(), s / 2));
+        cnt[s] += 1;
+      }
+    }
+    cout << ans << '\n';
+  }
+}2004G - Substring CompressionIdea: BledDest Tutorial2004G - Substring CompressionLet's start with learning how to solve the problem for a single string with any polynomial complexity.One immediately wants to use dynamic programming. For example, let dpi be the minimum length of the compressed string from the first i characters. Then, for the next transition, we could iterate over the next odd block first, and then over the next even block. This results in O(n3) complexity (O(n) states and O(n2) for transitions).Note that there is no point in taking very long odd blocks. For instance, we can always take the first digit in the first block and the rest of the string in the second block. In this case, the answer will not exceed 9n. Therefore, there is no point in taking more than 6 digits in any odd block, as that would exceed our estimate.Can we take even fewer digits? Ideally, we would like to never take more than 1 digit. Let's show that this is indeed possible.Consider two blocks: an odd block where we took a number with at least 2 digits, and the even block after it. Let's try to change them so that the first block consists only of the first digit, and all the others go into the second block. Let's estimate how the length has changed. The digits that were previously in the first block and are now in the second block will now appear in the answer 9 times in the worst case. The digits in the second block previously appeared x times, and now they appear the following number of times:   If the length was 2, then ⌊x10⌋ times. In the best case, 11→1 times, so −10. Thus, since the length was 2, one digit now appears +9 times, and at least one appears −10 times. The answer has decreased.  If the length was 3, then ⌊x100⌋ times. In the best case, 111→1 times, so −110. Thus, since the length was 3, two digits now appear +9 times (a total of +18), and at least one appears −110 times. The answer has decreased.  And so on. Now we can write the same dynamic programming in O(n2). There is no need to iterate over the odd block anymore, as it always has a length of 1. The iteration over the even block still takes O(n).We can try to make the states of the dp more complicated. What do the transitions look like now? Let j be the end of the even block that we are iterating over. Then dpj=min(dpj,dpi+ord(si)⋅(j−i−1)). That is, essentially, for each character of the string, we choose how many times it should be written in the answer. Let's put this coefficient (essentially the digit in the last chosen odd block) into the state.Let dp[i][c] be the minimum length of the compressed string from the first i characters, if the last odd block contains the digit c. Then the transitions are as follows:   dp[i+1][c]=min(dp[i+1][c],dp[i][c]+c) — append the next character to the end of the last even block;  dp[i+2][si]=min(dp[i+2][si],dp[i][c]+si) — start a new odd block at position i and immediately take another character in the subsequent even block. If we do not take another character, the dynamic programming will start accumulating empty even blocks, which is prohibited by the problem. Thus, we have learned to solve the problem in O(n) for a fixed string. The remaining task is to figure out how to solve it for all substrings of length k.Let's represent the entire set of the query substrings as a queue. That is, to transition from the substring si,i+k−1 to si+1,i+k, we need to append a character to the end and remove a character from the beginning. There is a known technique for solving problems on queues. It is called "minimum on a queue". If we figure out how to solve the problem on a stack (that is, with operations to append a character to the end and remove a character from the end), then we can solve it on a queue using two stacks.Our dynamic programming has only one drawback that slightly hinders this. One transition is at i+1, and the other is at i+2. Let's make both transitions at i+1. To do this, we can introduce a dummy state that indicates that we wrote out an odd block in the last step. That is, let dp[i][c] still mean the same when c>0, while the state c=0 is dummy.For convenience, I suggest thinking about these transitions this way. We have a vector of values dp[i] with 10 elements. We want to be able to convert it into a vector dp[i+1] with the same 10 elements, knowing the value of si. Now, this sounds like multiplying a vector by a matrix. Yes, the matrix consists of operations not ∗/+, but +/min, yet it still works.Then the solution on the stack is as follows. For each digit from 1 to 9, we pre-build the transition matrix of dynamic programming for that digit. We maintain one stack of transition matrices and another stack of the dp vectors. When we append a digit, we add elements to both stacks, multiplying the last vector by the matrix. When we remove, we pop the last elements from both stacks.If you are not familiar with the minimum on a queue, you can read this article: https://cp-algorithms.com/data_structures/stack_queue_modification.html.However, we have a slight difference from the standard technique. The minimum is a commutative operation, unlike matrix multiplication. But fixing this is not very difficult. In the first stack, we will multiply by the new matrix on the right. In the second stack, we will multiply on the left.Since the complexity of that queue is linear, we get an algorithm with a complexity of n⋅103. It can be noted that, in the transition matrix, there is a linear number of useful values (not equal to ∞). Thus, multiplying by such a matrix can be done in 102. Solution (awoo)#include <bits/stdc++.h>
+ 
+#define forn(i, n) for (int i = 0; i < int(n); i++)
+ 
+using namespace std;
+ 
+const int D = 10;
+const int INF = 1e9;
+ 
+typedef array<array<int, D>, D> mat;
+ 
+mat mul(const mat &a, const mat &b, bool fl){
+	mat c;
+	forn(i, D) forn(j, D) c[i][j] = INF;
+	if (fl){
+		forn(i, D) forn(j, D){
+			c[j][i] = min(c[j][i], min(a[j][0] + b[0][i], a[j][i] + b[i][i]));
+			c[j][0] = min(c[j][0], a[j][i] + b[i][0]);
+		}
+	}
+	else{
+		forn(i, D) forn(j, D){
+			c[i][j] = min(c[i][j], min(a[i][0] + b[0][j], a[i][i] + b[i][j]));
+			c[0][j] = min(c[0][j], a[0][i] + b[i][j]);
+		}
+	}
+	return c;
+}
+ 
+struct minqueue{
+	vector<pair<mat, mat>> st1, st2;
+	
+	void push(const mat &a){
+		if (!st1.empty())
+			st1.push_back({a, mul(st1.back().second, a, true)});
+		else
+			st1.push_back({a, a});
+	}
+	
+	void pop(){
+		if (st2.empty()){
+			st2 = st1;
+			reverse(st2.begin(), st2.end());
+			st1.clear();
+			assert(!st2.empty());
+			st2[0].second = st2[0].first;
+			forn(i, int(st2.size()) - 1)
+				st2[i + 1].second = mul(st2[i + 1].first, st2[i].second, false);
+		}
+		st2.pop_back();
+	}
+	
+	int get(){
+		if (st1.empty()) return st2.back().second[0][0];
+		if (st2.empty()) return st1.back().second[0][0];
+		int ans = INF;
+		forn(i, D) ans = min(ans, st2.back().second[0][i] + st1.back().second[i][0]);
+		return ans;
+	}
+};
+ 
+mat tran[D];
+ 
+void init(int d){
+	forn(i, D) forn(j, D) tran[d][i][j] = INF;
+	for (int i = 1; i <= 9; ++i){
+		tran[d][i][i] = i;
+		tran[d][i][0] = i;
+	}
+	tran[d][0][d] = 0;
+}
+ 
+int main() {
+	cin.tie(0);
+	ios::sync_with_stdio(false);
+	for (int i = 1; i <= 9; ++i) init(i);
+	int n, k;
+	cin >> n >> k;
+	string s;
+	cin >> s;
+	minqueue q;
+	forn(i, n){
+		q.push(tran[s[i] - '0']);
+		if (i - k >= 0) q.pop();
+		if (i - k >= -1) cout << q.get() << ' ';
+	}
+	cout << '\n';
+	return 0;
+}

@@ -1,0 +1,19 @@
+Problem: B. Matrix Stabilization
+Time Limit: time limit per test2 seconds
+Memory Limit: memory limit per test256 megabytes
+Tags: brute force, data structures, greedy, sortings, *1000
+
+Description:
+You are given a matrix of size n×m, where the rows are numbered from 1 to n from top to bottom, and the columns are numbered from 1 to m from left to right. The element at the intersection of the i-th row and the j-th column is denoted by aij.
+Consider the algorithm for stabilizing matrix a:
+In this problem, cells (a,b) and (c,d) are considered neighbors if they share a common side, i.e., |a−c|+|b−d|=1.
+Your task is to output the matrix a after the stabilization algorithm has been executed. It can be shown that this algorithm cannot run for an infinite number of iterations.
+Each test consists of multiple sets of input data. The first line contains a single integer t (1≤t≤104) — the number of sets of input data. This is followed by their description.
+The first line of each set of input data contains two integers n and m (1≤n,m≤100,n⋅m>1) — the number of rows and columns of matrix a. 
+The next n lines describe the corresponding rows of the matrix. The i-th line contains m integers ai1,ai2,…,aim (1≤aij≤109).
+It is guaranteed that the sum of n⋅m over all sets of input data does not exceed 2⋅105.
+For each set of input data, output n lines with m numbers in each line — the values of the cells of matrix a after the stabilization algorithm.
+In the first set of input data, the algorithm will select the cell (1,1) twice in a row and then terminate. 
+In the second set of input data, there is no cell whose value is strictly greater than the values of all neighboring cells.
+In the third set of input data, the algorithm will select the cell (2,2) and then terminate. 
+In the fourth set of input data, the algorithm will select the cell (1,1) three times and then the cell (2,3) twice.

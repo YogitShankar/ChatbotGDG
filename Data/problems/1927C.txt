@@ -1,0 +1,20 @@
+Problem: C. Choose the Different Ones!
+Time Limit: time limit per test2 seconds
+Memory Limit: memory limit per test256 megabytes
+Tags: brute force, greedy, math, *1000
+
+Description:
+Given an array a of n integers, an array b of m integers, and an even number k.
+Your task is to determine whether it is possible to choose exactly k2 elements from both arrays in such a way that among the chosen elements, every integer from 1 to k is included.
+For example:
+Note that you are not required to find a way to choose the elements — your program should only check whether it is possible to choose the elements in the required way.
+The first line of the input contains a single integer t (1≤t≤104) — the number of test cases. The descriptions of the test cases follow.
+The first line of each test case contains three integers n, m, and k (1≤n,m≤2⋅105, 2≤k≤2⋅min(n,m), k is even) — the length of array a, the length of array b, and the number of elements to be chosen, respectively.
+The second line of each test case contains n integers a1,a2,…,an (1≤ai≤106) — the elements of array a.
+The third line of each test case contains m integers b1,b2,…,bm (1≤bj≤106) — the elements of array b.
+It is guaranteed that the sum of values n and m over all test cases in a test does not exceed 4⋅105.
+Output t lines, each of which is the answer to the corresponding test case. As the answer, output "YES" if it is possible to choose k2 numbers from each array in such a way that among the chosen elements, every integer from 1 to k is included. Otherwise, output "NO".
+You can output each letter in any case (lowercase or uppercase). For example, the strings "yEs", "yes", "Yes", and "YES" will be accepted as a positive answer.
+In the first test case of the example, it is possible to choose elements equal to 2, 3, and 6 from array a and elements equal to 1, 4, and 5 from array b. Thus, all numbers from 1 to k=6 are included among the chosen elements.
+In the second test case of the example, it can be shown that it is not possible to choose exactly three elements from each array in the required way.
+In the third test case of the example, it is possible to choose elements equal to 1 and 3 from array a and elements equal to 2 and 4 from array b. Thus, all numbers from 1 to k=4 are included among the chosen elements.

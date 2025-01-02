@@ -1,0 +1,13 @@
+Problem: M. Minimum LCM
+Time Limit: time limit per test2 seconds
+Memory Limit: memory limit per test512 megabytes
+Tags: math, number theory, *1000
+
+Description:
+You are given an integer n.
+Your task is to find two positive (greater than 0) integers a and b such that a+b=n and the least common multiple (LCM) of a and b is the minimum among all possible values of a and b. If there are multiple answers, you can print any of them.
+The first line contains a single integer t (1≤t≤100) — the number of test cases.
+The first line of each test case contains a single integer n (2≤n≤109).
+For each test case, print two positive integers a and b — the answer to the problem. If there are multiple answers, you can print any of them.
+In the second example, there are 8 possible pairs of a and b:
+In the third example, there are 5 possible pairs of a and b:

@@ -1,0 +1,2801 @@
+Editorial for Problem: B. Rakhsh's Revival
+Problem ID: 2034B
+
+Solution:
+👋 Salam Codeforces!Here are the step-by-step solutions. Hoping you enjoy them! 😊The announcement blog is available here and you can also explore all blogs related to Rayan here!2034A - King Keykhosrow's MysteryIdea: ArshiaDadras — Preparation: AmirrzwM  Solution Step 1: Prove that for the minimum value of m, we must have m%a=m%b=0. Step 2: To prove this, show that if m%a=m%b=x>0, then m−1 will also satisfy the problem's requirements. Step 3: Since m≥min(a,b), if x>0, then m>min(a,b) must hold. Therefore, m−1≥min(a,b) implies that m−1 satisfies the requirements. Step 4: Thus, m must be divisible by both a and b. The smallest such m is lcm(a,b) which can be calculated in O(log(max(a,b))).  Implementation#include <bits/stdc++.h>
+
+using namespace std;
+
+int main(){
+  int tt;
+  cin >> tt;
+  while(tt--){
+    int a, b;
+    cin >> a >> b;
+    cout << lcm(a , b) << endl;
+  }
+}2034B - Rakhsh's RevivalIdea: MohammadParsaElahimanesh and AmirrzwM — Preparation: AmShZ SolutionWe will solve the problem using the following approach:  Start from the leftmost spot and move rightwards. Whenever a consecutive segment of m weak spots (i.e., 0's) is found, apply Timar to a segment of length k, starting from the last index of the weak segment. Repeat this process until no segment of m consecutive weak spots remains. The key idea behind this solution is that whenever we encounter a block of m consecutive 0's, we need to strengthen it. Since we can apply Timar to a segment of length k, the optimal strategy is always to apply Timar starting at the last index of the block of m consecutive 0's.Correctness Proof:  For any block of m consecutive 0's, we must apply Timar to at least one index within this block. Hence, the strengthened segment of length k must overlap with the block of weak spots. Suppose an optimal solution exists where Timar is applied to a segment starting leftward within the block. Suppose we shift this segment one step to the right (closer to the end of the block). In that case, the solution remains valid and optimal since it covers all weak spots in the block while reducing unnecessary overlap with already-strengthened areas. By always starting from the last index of a block of m consecutive 0's, this greedy strategy ensures that Timar is used in the minimum number of applications, making it correct and efficient. Implementation# include <bits/stdc++.h>
+
+using namespace std;
+
+const int xn = 2e5 + 10;
+
+int q, n, m, k, ps[xn];
+string s;
+
+int main() {
+    cin >> q;
+    while (q --) {
+        cin >> n >> m >> k >> s;
+        fill(ps, ps + n, 0);
+        int ans = 0, cnt = 0, sum = 0;
+        for (int i = 0; i < n; ++ i) {
+            sum += ps[i];
+            if (sum || s[i] == '1') cnt = 0;
+            else {
+                cnt++;
+                if (cnt == m) {
+                    sum++, ans++, cnt = 0;
+                    if (i + k < n) ps[i + k]--;
+                }
+            }
+        }
+        cout << ans << "\n";
+    }
+}2034C - Trapped in the Witch's LabyrinthIdea: MohammadParsaElahimanesh — Preparation: AmirrzwM Solution If a cell has a fixed direction (i.e., it points to another cell), and following that direction leads outside the maze, it must eventually exit the maze. Such cells cannot be part of any loop. We can analyze the remaining cells once we identify cells that lead out of the maze. Any undirected cell or ? cell might either lead to the exit or form part of a loop. If all neighboring cells of a ? cell can eventually lead out of the maze, then this ? cell will also lead out of the maze. The state of such ? cells can be determined based on their surroundings. For any remaining cells (directed cells that do not lead out of the maze, or other ? cells that cannot be determined to lead to an exit), we can assign directions such that starting from those cells will eventually lead to a loop. These cells will form the loops. To find how many cells will eventually lead to a loop, we can use a Depth-First Search (DFS) on the reversed graph, where all directions are reversed. By performing DFS starting from the "out-of-maze" cells, we can identify all cells that are reachable from the outside and thus will eventually lead out of the maze. Count the number of cells that can reach the exit. Subtract this number from the total number of cells in the maze to determine how many are part of loops (i.e., cells that cannot reach the exit).  Implementation#include <bits/stdc++.h>
+ 
+using namespace std;
+ 
+int main() 
+{
+    int tc;
+    cin >> tc;
+    while(tc--){
+        int n, m;
+        cin >> n >> m;
+        string c[n+1];
+        for(int i = 1 ; i <= n ; i++) cin >> c[i] , c[i] = "-" + c[i];
+        vector<pair<int,int>> jda[n+2][m+2];
+        for(int i = 1 ; i <= n ; i++){
+            for(int j = 1 ; j <= m ; j++){
+                if(c[i][j] == 'U') jda[i-1][j].push_back({i , j});
+                if(c[i][j] == 'R') jda[i][j+1].push_back({i , j});
+                if(c[i][j] == 'D') jda[i+1][j].push_back({i , j});
+                if(c[i][j] == 'L') jda[i][j-1].push_back({i , j});
+            }
+        }
+        int vis[n+2][m+2] = {};
+        queue<pair<int,int>> q;
+        for(int j = 0 ; j <= m+1 ; j++) vis[0][j] = 1 , q.push({0 , j});
+        for(int i = 1 ; i <= n+1 ; i++) vis[i][0] = 1 , q.push({i , 0});
+        for(int j = 1 ; j <= m+1 ; j++) vis[n+1][j] = 1 , q.push({n+1 , j});
+        for(int i = 1 ; i <= n ; i++) vis[i][m+1] = 1 , q.push({i , m+1});
+        while(q.size()){
+            auto [i , j] = q.front();
+            q.pop();
+            for(auto [a , b] : jda[i][j]){
+                if(vis[a][b] == 0){
+                    vis[a][b] = 1;
+                    q.push({a , b});
+                }
+            }
+        }
+        for(int i = 1 ; i <= n ; i++){
+            for(int j = 1 ; j <= m ; j++){
+                if(c[i][j] == '?' and
+                vis[i-1][j] and vis[i][j+1] and vis[i+1][j] and vis[i][j-1]) vis[i][j] = 1;
+            }
+        }
+        int ans = n * m;
+        for(int i = 1 ; i <= n ; i++){
+            for(int j = 1 ; j <= m ; j++){
+                if(vis[i][j] == 1) ans -= 1;
+            }
+        }
+        cout << ans << endl;
+    }
+    return 0;
+}2034D - Darius' WisdomIdea and Preparation: MohammadParsaElahimanesh Solution Step 1: Using two moves, we can move an element to any arbitrary position in the array. Thus, we can place all 0's in their correct positions with at most 2min(count(0),count(1)+count(2)) moves. Step 2: After placing all 0's, the rest of the array will contain only 1's and 2's. To sort this part of the array, we need at most min(count(1),count(2)) moves. Step 3: The first step takes at most n moves, and the second step takes at most n2 moves. However, it can be proven that the total number of moves is at most 8n7. Step 4: We can assume count(0)≤count(2) without loss of generality (Why?). So, the maximum number of moves are:  2min(count(0),count(1)+count(2))+min(count(1),count(2)) =2⋅count(0)+min(count(1),count(2)) ≤count(0)+max(count(1),count(2))+min(count(1),count(2)) =count(0)+count(1)+count(2)=nBetter approach:  Step 1: Since we are allowed to perform n moves, assign each index one "move" as its "specified cost". Step 2: While there exists an index with a value of 0 or 2 that can be fixed with just one move, fix it using its assigned cost. Step 3: After fixing all 0's, 2's, and all 1's except one, the remaining array will have the following structure and we are now allowed to use 2x+1 moves:  2 2 … 2 (x times) 1 0 0 … 0 (x times),  Step 4: First, swap the 1 with a random element (denote it as r). Then, for 2x−1 moves, swap the index with the value 1 with any index where the correct value must be placed, except r. Finally, swap 1 and r.  Implementation (first approach)#include <bits/stdc++.h>
+
+using namespace std;
+
+const int N = 200000;
+int n, cnt[3], a[N];
+vector<int> vip[3][3]; // Value In Position
+vector<pair<int, int>> swaps;
+
+inline int Pos(int index) {
+    if(index < cnt[0])
+        return 0;
+    else if(index < cnt[0]+cnt[1])
+        return 1;
+    else
+        return 2; 
+}
+
+inline void AddBack(int index) {
+    vip[a[index]][Pos(index)].push_back(index);
+}
+
+inline void RemoveBack(int index) {
+    vip[a[index]][Pos(index)].pop_back();
+}
+
+inline void Swap(int i, int j) {
+    swaps.push_back({i, j});
+    RemoveBack(i);
+    RemoveBack(j);
+    swap(a[i], a[j]);
+    AddBack(i);
+    AddBack(j);
+}
+
+inline void Fix(int x) {
+    while(!vip[1][x].empty() or !vip[2-x][x].empty()) {
+        if(vip[1][x].empty()) {
+            if(!vip[1][2-x].empty())
+                Swap(vip[2-x][x].back(), vip[1][2-x].back());
+            else
+                Swap(vip[2-x][x].back(), vip[1][1].back());
+        }
+        if(!vip[x][1].empty()) 
+            Swap(vip[1][x].back(), vip[x][1].back());
+        else
+            Swap(vip[1][x].back(), vip[x][2-x].back());
+    }  
+}
+
+
+int main() 
+{
+    ios_base::sync_with_stdio(false), cin.tie(0);
+    int t;
+    cin >> t;
+    while (t--) {
+        cin >> n;
+        for(int i = 0; i < n; i++)
+            cin >> a[i], cnt[a[i]]++;
+        for(int i = 0; i < n; i++)
+            AddBack(i);
+        if(cnt[0] <= cnt[2]) {
+            Fix(0);
+            Fix(2);
+        } else {
+            Fix(2);
+            Fix(0);
+        }
+        cout << swaps.size() << endl;
+        for(auto [i, j]: swaps)
+            cout << i+1 << ' ' << j+1 << endl;
+        cnt[0] = cnt[1] = cnt[2] = 0;
+        for(int i = 0; i < 3; i++)
+            for(int j = 0; j < 3; j++)
+                vip[i][j].clear();
+        swaps.clear();
+    }
+    return 0;
+} Implementation (second approach)// In the name of god
+#include <bits/stdc++.h>
+
+using namespace std;
+
+const int N = 200000;
+int n, cnt[3], a[N];
+vector<int> vip[3][3]; // Value In Position
+vector<pair<int, int>> swaps;
+
+inline int Pos(int index) {
+    if(index < cnt[0])
+        return 0;
+    else if(index < cnt[0]+cnt[1])
+        return 1;
+    else
+        return 2; 
+}
+
+inline void AddBack(int index) {
+    vip[a[index]][Pos(index)].push_back(index);
+}
+
+inline void RemoveBack(int index) {
+    vip[a[index]][Pos(index)].pop_back();
+}
+
+inline void Swap(int i, int j) {
+    swaps.push_back({i, j});
+    RemoveBack(i);
+    RemoveBack(j);
+    swap(a[i], a[j]);
+    AddBack(i);
+    AddBack(j);
+}
+
+inline void Fix() {
+    bool change;
+    do {
+        change = false;
+        while ((!vip[1][0].empty()) && (!vip[0][1].empty()))
+            Swap(vip[1][0].back(), vip[0][1].back()), change = true;
+        while ((!vip[1][0].empty()) && (!vip[0][2].empty()))
+            Swap(vip[1][0].back(), vip[0][2-0].back()), change = true;
+        while ((!vip[1][2].empty()) && (!vip[2][1].empty()))
+            Swap(vip[1][2].back(), vip[2][1].back()), change = true;
+        while ((!vip[1][2].empty()) && (!vip[2][0].empty()))
+            Swap(vip[1][2].back(), vip[2][0].back()), change = true;
+    } while (change);    
+}
+
+inline void PingPong() {
+    if(vip[0][2].empty())
+        return;
+    Swap(vip[1][1].back(), vip[0][2].back());
+    while (true){
+        Swap(vip[1][2].back(), vip[2][0].back());
+        if(vip[0][2].empty())
+            break;
+        Swap(vip[1][0].back(), vip[0][2].back());
+    }
+    Swap(vip[1][0].back(), vip[0][1].back());
+}
+
+int main() 
+{
+    ios_base::sync_with_stdio(false), cin.tie(0);
+    int t;
+    cin >> t;
+    while (t--) {
+        cin >> n;
+        for(int i = 0; i < n; i++)
+            cin >> a[i], cnt[a[i]]++;
+        for(int i = 0; i < n; i++)
+            AddBack(i);
+        Fix();
+        PingPong();
+        cout << swaps.size() << endl;
+        for(auto [i, j]: swaps)
+            cout << i+1 << ' ' << j+1 << endl;
+        // reset
+        cnt[0] = cnt[1] = cnt[2] = 0;
+        for(int i = 0; i < 3; i++)
+            for(int j = 0; j < 3; j++)
+                vip[i][j].clear();
+        swaps.clear();
+    }
+    return 0;
+}2034E - Permutations HarmonyIdea: AmirrzwM and MohammadParsaElahimanesh — Preparation: MohammadParsaElahimanesh Solution Step 1: There are n positions that must be equal, and their sum is n⋅(n+1)⋅k2. Hence, each position must be (n+1)⋅k2. Additionally, there must be k distinct permutations, so k≤n!. Step 2: For even k, we can group n! permutations into n!2 double handles, where each group corresponds to a solution for k=2. Then, pick k2 handles. The match for permutation a1,a2,…,an is (n+1)−a1,(n+1)−a2,…,(n+1)−an. Step 3: For k=1, n must be 1. Symmetrically, k cannot be n!−1. Solutions for other odd k will now be provided. Step 4: To construct an answer for k=3 and n=2x+1, consider the following derived using a greedy approach:     p1  p2  p3  p4  p5  …  p2x−1  p2x  p2x+1      1  2  3  4  5  …  2x−1  2x  2x+1    x+1  2x+1  x  2x  x−1  …  2  x+2  1    2x+1  x  2x  x−1  2x−1  …  x+2  1  x+1      Step 5: Now, combine the solution for even k and the k=3 solution by selecting the 3 permutations and k−32 other handles.  Implementation// In the name of God
+#include <bits/stdc++.h>
+using namespace std;
+ 
+int main() {
+    ios_base::sync_with_stdio(false), cin.tie(0);
+    int t;
+    cin >> t;
+    int f[8] = {1,1,2,6,24,120,720,5040};
+    while(t--) {
+        int n, k;
+        cin >> n >> k;
+        if(min(n, k) == 1) {
+            if(n*k == 1) {
+                cout << "Yes\n1\n";
+            } else cout << "No\n";
+        } else if(n < 8 and (f[n] < k or f[n] == k+1)) {
+            cout << "No\n";
+        } else if(n % 2 == 0 and k % 2 == 1) {
+            cout << "No\n";
+        } else {
+            vector<vector<int>> base, all;
+            vector<int> per(n);
+            for(int i = 0; i < n; i++) per[i] = i+1;
+            if(k % 2) {
+                vector<int> p1(n), p2(n);
+                for(int i = 0; i < n; i += 2) p1[i] = (n+1)/2-i/2, p2[i] = n-i/2;
+                for(int i = 1; i < n; i += 2) p1[i] = n-i/2, p2[i] = n/2-i/2;
+                all = base = {per, p1, p2};
+                k -= 3;
+            }
+            do {
+                if(k == 0)
+                    break;
+                vector<int> mirror(n);
+                for(int i = 0; i < n; i++)
+                    mirror[i] = n+1-per[i];
+                if(per < mirror) {
+                    bool used = false;
+                    for(auto &p: base) used |= (p == per), used |= (p == mirror);
+                    if(not used) {
+                        k -= 2;
+                        all.push_back(per);
+                        all.push_back(mirror);
+                    }
+                }
+            } while (next_permutation(per.begin(), per.end()));
+            cout << "Yes\n";
+            for(auto p: all) {
+                for(int i = 0; i < n; i++)
+                    cout << p[i] << (i+1==n?'\n':' ');
+            }
+        }
+    }
+ 
+    return 0;
+}
+ 
+// Thanks God
+2034F1 - Khayyam's Royal Decree (Easy Version)Idea and Preparation: TheScrasse Solution Step 1: For simplicity, redefine the special conditions for the number of rubies and sapphires in your satchel (not chest). Add two dummy states, (0,0) and (n,m) for convenience (the first one indexed as 0 and the second one indexed as k+1). Note that these dummy states won’t involve doubling the value. Step 2: Order the redefined conditions (x,y) in increasing order based on the value of x+y. Step 3: Define waysi,j as the number of ways to move from state i to state j without passing through any other special condition. This can be computed using inclusion-exclusion in O(k3). Step 4: Define costi,j, the increase in value for moving directly from state i to state j without intermediate doubling, as:  costi,j=2|xi−xj|+|yi−yj|  Step 5: Define dpi as the total sum of the value of your satchel across all ways to reach the state defined by the i-th condition. This can be computed recursively as:  dpi=2∑0≤j<iwaysj,i×(dpj+(xj+yjxj)×costj,i)  Step 6: Compute the final answer as the value of dpk+1 divided by the total number of ways to move from (0,0) to (n,m), which is (n+mn).  Implementation#include <bits/stdc++.h>
+using namespace std;
+ 
+#define nl "\n"
+#define nf endl
+#define ll long long
+#define pb push_back
+#define _ << ' ' <<
+ 
+#define INF (ll)1e18
+#define mod 998244353
+#define maxn 400010
+ 
+ll fc[maxn], nv[maxn];
+ 
+ll fxp(ll b, ll e) {
+    ll r = 1, k = b;
+    while (e != 0) {
+        if (e % 2) r = (r * k) % mod;
+        k = (k * k) % mod; e /= 2;
+    }
+    return r;
+}
+ 
+ll inv(ll x) {
+    return fxp(x, mod - 2);
+}
+ 
+ll bnm(ll a, ll b) {
+    if (a < b || b < 0) return 0;
+    ll r = (fc[a] * nv[b]) % mod;
+    r = (r * nv[a - b]) % mod;
+    return r;
+}
+ 
+int main() {
+    ios::sync_with_stdio(0);
+    cin.tie(0);
+ 
+    fc[0] = 1; nv[0] = 1;
+    for (ll i = 1; i < maxn; i++) {
+        fc[i] = (i * fc[i - 1]) % mod; nv[i] = inv(fc[i]);
+    }
+ 
+    ll t; cin >> t;
+    while (t--) {
+        ll n, m, k; cin >> n >> m >> k;
+        vector<array<ll, 2>> a(k + 2, {0, 0});
+        for (ll i = 1; i <= k; i++) {
+            cin >> a[i][0] >> a[i][1];
+            a[i][0] = n - a[i][0]; a[i][1] = m - a[i][1];
+        }
+        a[k + 1] = {n, m}; k++;
+        sort(a.begin() + 1, a.end());
+ 
+        auto paths = [&](ll i, ll j) {
+            ll dx = a[j][0] - a[i][0], dy = a[j][1] - a[i][1];
+            return bnm(dx + dy, dx);
+        };
+ 
+        auto add = [&](ll &x, ll y) {
+            x = (x + y) % mod;
+            x = (x + mod) % mod;
+        };
+ 
+        vector direct(k + 1, vector<ll>(k + 1, 0));
+        for (ll i = 1; i <= k; i++) {
+            for (ll j = i - 1; j >= 0; j--) {
+                direct[j][i] = paths(j, i);
+                for (ll l = j + 1; l < i; l++) {
+                    add(direct[j][i], -paths(j, l) * direct[l][i]);
+                }
+            }
+        }
+ 
+        vector<ll> dp(k + 1, 0);
+        for (ll i = 1; i <= k; i++) {
+            for (ll j = 0; j < i; j++) {
+                if (direct[j][i] == 0) continue;
+                ll partial = dp[j];
+                ll delta = 2 * (a[i][0] - a[j][0]) + (a[i][1] - a[j][1]);
+                add(partial, paths(0, j) * delta);
+                add(dp[i], partial * direct[j][i]);
+            }
+            if (i != k) dp[i] = (2 * dp[i]) % mod;
+        }
+ 
+        ll ans = (dp[k] * inv(bnm(n + m, m))) % mod;
+        cout << ans << nl;
+    }
+ 
+    return 0;
+}2034F2 - Khayyam's Royal Decree (Hard Version)Idea and Preparation: TheScrasse Solution Step 1: For simplicity, redefine the special conditions for the number of rubies and sapphires in your satchel (not chest). Step 2: Order the redefined conditions (x,y) in increasing order based on the value of x+y. Step 3: Define totali,j as the total number of ways to move from state i to state j (ignoring special condition constraints). This can be computed as:  totali,j=(|xi−xj|+|yi−yj||xi−xj|)  Step 4: Define weighti as the total contribution of all paths passing through condition i to reach the final state (n,m). This can be computed recursively as:  weighti=∑i<j≤ktotali,j×weightj  Step 5: The main insight is to account for the doubling effect of passing through multiple scrolls. If a path passes through a sequence of conditions s1,…,sc, each gem collected before entering s1 is counted with multiplicity 2c. Instead of explicitly multiplying by 2c, consider the number of subsets q1,…,qd of s1,…,sc. By summing over all subsets, the correct multiplicity is automatically handled. Step 6: Define dpi as the total value of all paths passing through condition i, considering the contribution of each state’s rubies and sapphires. This can be computed as:  dpi=(2xi+yi)×total0,i×weighti  Step 7: Compute the final answer as ∑dpi divided by the total number of ways to move from (0,0) to (n,m), which is equal to (n+mn). Clarification: The approach hinges on the insight that 2i can be derived from the structure of subsets of scrolls s1,…,sc. Generalizations to 3i or other multiplicative factors are possible by appropriately modifying weighti and adjusting the factor in Step 5. For example, a factor of 3 can be applied by multiplying path contributions by 2 at the relevant steps. Implementation#include <bits/stdc++.h>
+using namespace std;
+ 
+#define nl "\n"
+#define nf endl
+#define ll long long
+#define pb push_back
+#define _ << ' ' <<
+ 
+#define INF (ll)1e18
+#define mod 998244353
+#define maxn 400010
+ 
+ll fc[maxn], nv[maxn];
+ 
+ll fxp(ll b, ll e) {
+    ll r = 1, k = b;
+    while (e != 0) {
+        if (e % 2) r = (r * k) % mod;
+        k = (k * k) % mod; e /= 2;
+    }
+    return r;
+}
+ 
+ll inv(ll x) {
+    return fxp(x, mod - 2);
+}
+ 
+ll bnm(ll a, ll b) {
+    if (a < b || b < 0) return 0;
+    ll r = (fc[a] * nv[b]) % mod;
+    r = (r * nv[a - b]) % mod;
+    return r;
+}
+ 
+int main() {
+    ios::sync_with_stdio(0);
+    cin.tie(0);
+ 
+    fc[0] = 1; nv[0] = 1;
+    for (ll i = 1; i < maxn; i++) {
+        fc[i] = (i * fc[i - 1]) % mod; nv[i] = inv(fc[i]);
+    }
+ 
+    ll t; cin >> t;
+    while (t--) {
+        ll n, m, k; cin >> n >> m >> k;
+        vector<array<ll, 2>> a(k + 2, {0, 0});
+        for (ll i = 1; i <= k; i++) {
+            cin >> a[i][0] >> a[i][1];
+            a[i][0] = n - a[i][0]; a[i][1] = m - a[i][1];
+        }
+        a[k + 1] = {n, m}; k++;
+        sort(a.begin() + 1, a.end());
+ 
+        auto paths = [&](ll i, ll j) {
+            ll dx = a[j][0] - a[i][0], dy = a[j][1] - a[i][1];
+            return bnm(dx + dy, dx);
+        };
+ 
+        auto add = [&](ll &x, ll y) {
+            x = (x + y) % mod;
+            x = (x + mod) % mod;
+        };
+ 
+        vector<ll> cnt_weighted(k + 1, 0);
+        cnt_weighted[k] = 1;
+        for (ll i = k - 1; i >= 1; i--) {
+            for (ll j = i + 1; j <= k; j++) {
+                add(cnt_weighted[i], paths(i, j) * cnt_weighted[j]);
+            }
+        }
+ 
+        ll ans = 0;
+        for (ll i = 1; i <= k; i++) {
+            ll delta = 2 * a[i][0] + a[i][1];
+            add(ans, delta * paths(0, i) % mod * cnt_weighted[i]);
+        }
+ 
+        ans = (ans * inv(bnm(n + m, m))) % mod;
+        cout << ans << nl;
+    }
+ 
+    return 0;
+}Note: Thanks to peti1234 and wyrqwq for suggesting the idea of including this subtask!2034G1 - Simurgh's Watch (Easy Version)Idea: ArshiaDadras — Preparation: AmShZ and ArshiaDadras Solution It is easy to check if the solution can be achieved with only one color. For any time point x, there must be at most one interval containing x, since if multiple intervals contain x, they must be colored differently. A simple strategy is to solve the problem using three colors. First, we color some intervals with colors 1 and 2, then color others with color 3.    For each step, we find the leftmost point that has not been colored yet and color the segment that contains this point. We always choose the interval with the largest endpoint that contains the current point. By coloring the intervals alternately with colors 1 and 2, we ensure that all points are covered by exactly one of these colors.  Now, we check if we can color the intervals with just two colors using a greedy algorithm:    We iterate over the intervals sorted by start (increasingly) and then by end (decreasingly). At each point, we keep track of the number of colors used in previous intervals that are not yet closed. Let this number be I, and suppose we are currently at interval i. We color the current interval based on the value of I:      If I=0, color interval i with color 1. If I=1, color interval i with the opposite color of the current used color. If I=2, color interval i with the opposite color of the interval with the greatest endpoint among the currently open intervals.  If it is impossible to assign a unique color between overlapping intervals at any point, it can be shown that coloring the intervals using only 2 colors is impossible.  Solving G1 using G2:  It’s sufficient to check the integer points and half-points (e.g., 1.5, 2.5, …) to verify whether the coloring is valid (Why?). To handle this, we can multiply all the given points by two, effectively converting the problem into one in which only integer points exist. After this transformation, we solve the problem in the integer system of G2, where the intervals and coloring rules are defined using integer boundaries! Note: A brief explanation of why this greedy algorithm works can be found here. Implementation/* In the name of Allah */
+// Welcome to the Soldier Side!
+// Where there's no one here, but me...
+#include<bits/stdc++.h>
+using namespace std;
+
+const int N = 2e5 + 5;
+int t, n, l[N], r[N], col[N];
+vector<int> st[N << 1], en[N << 1];
+
+void compress_points() {
+    vector<int> help;
+    for (int i = 0; i < n; i++) {
+        help.push_back(l[i]);
+        help.push_back(r[i]);
+    }
+
+    sort(help.begin(), help.end());
+    help.resize(unique(help.begin(), help.end()) - help.begin());
+    for (int i = 0; i < n; i++) {
+        l[i] = lower_bound(help.begin(), help.end(), l[i]) - help.begin();
+        r[i] = lower_bound(help.begin(), help.end(), r[i]) - help.begin();
+    }
+}
+
+void record_points() {
+    for (int i = 0; i < n; i++) {
+        st[l[i]].push_back(i);
+        en[r[i] + 1].push_back(i);
+    }
+    for (int i = 0; i < 2 * n; i++)
+        sort(st[i].begin(), st[i].end(), [](int i, int j) {
+            return r[i] > r[j];
+        });
+}
+
+void try3_points() {
+    fill(col, col + n, 0);
+    int cur = -1, nxt = -1, c = 2;
+    for (int i = 0; i < 2 * n; i++) {
+        if (st[i].empty())
+            continue;
+
+        if (!~cur || i > r[cur]) {
+            if (cur ^ nxt && r[nxt] < i) {
+                col[nxt] = (c ^= 3);
+                cur = nxt;
+            }
+
+            if (cur ^ nxt)
+                cur = nxt;
+            else {
+                cur = st[i][0];
+                for (int p: st[i])
+                    if (r[p] > r[cur])
+                        cur = p;
+                nxt = cur;
+            }
+            col[cur] = (c ^= 3);
+        }
+        
+        for (int p: st[i])
+            if (r[p] > r[nxt])
+                nxt = p;
+    }
+    if (cur ^ nxt)
+        col[nxt] = c ^ 3;
+}
+
+bool is_bad(set<pair<int, int>> s[2]) {
+    int cnt1 = s[0].size(), cnt2 = s[1].size();
+    return cnt1 + cnt2 && cnt1 ^ 1 && cnt2 ^ 1;
+}
+
+void try2_points() {
+    set<pair<int, int>> s[2];
+    for (int i = 0; i <= 2 * n; i++) {
+        for (int p: en[i])
+            s[col[p]].erase({r[p], p});
+        if (is_bad(s)) {
+            try3_points();
+            return;
+        }
+
+        for (int p: st[i]) {
+            int cnt1 = s[0].size();
+            int cnt2 = s[1].size();
+            if (!cnt1 || !cnt2)
+                col[p] = cnt1 > 0;
+            else if (cnt1 ^ cnt2)
+                col[p] = cnt1 < cnt2;
+            else
+                col[p] = s[0].begin()->first > s[1].begin()->first;
+
+            s[col[p]].insert({r[p], p});
+            if (is_bad(s)) {
+                try3_points();
+                return;
+            }
+        }
+    }
+}
+
+void read_input() {
+    cin >> n;
+    for (int i = 0; i < n; i++)
+        cin >> l[i] >> r[i];
+}
+
+void solve() {
+    compress_points();
+    record_points();
+    try2_points();
+}
+
+void write_output() {
+    cout << *max_element(col, col + n) + 1 << endl;
+    for (int i = 0; i < n; i++)
+        cout << col[i] + 1 << "\n "[i < n - 1];
+}
+
+void reset_variables() {
+    for (int i = 0; i < n; i++) {
+        col[i] = 0;
+        st[l[i]].clear();
+        en[r[i] + 1].clear();
+    }
+}
+
+int main() {
+    ios:: sync_with_stdio(0), cin.tie(0), cout.tie(0);
+    for (cin >> t; t--; reset_variables())
+        read_input(), solve(), write_output();
+    return 0;
+}Note: Special thanks to Prof. Mohammad Ali Abam for proposing this problem!Fun fact: He wasn’t able to solve it himself, but when he presented it to me [Arshia is talking...], he said, “I don’t know how to solve it yet, but I guess its difficulty would be at most around E…”)2034G2 - Simurgh's Watch (Hard Version)Idea and Preparation: ArshiaDadras Solution Step 1: It is easy to check if the solution can be achieved with only one color. For any time point x, there must be at most one interval containing x, since if multiple intervals contain x, they must be colored differently. Step 2: A simple strategy is to solve the problem using three colors; First, we color some intervals with colors 1 and 2, then color others with color 3. For each step, we find the leftmost point that has not been colored yet and color the segment that contains this point. We always choose the interval with the largest endpoint that contains the current point. By coloring the intervals alternately with colors 1 and 2, we ensure that all points are covered by exactly one of these colors. Step 3: Now, we check if we can color the intervals with just two colors. For some point, x, suppose we have already colored the intervals [li,ri] with li≤x, such that all points before x have a unique color. At each step, we only need to determine which of the intervals like p that lp≤x≤rp can have a unique color. The key observation is that if an interval can be uniquely colored at time x, it can also remain uniquely colored for all times t such that x≤t≤ri.    Lemma: If an interval [li,ri] can be uniquely colored at time x, it can also be uniquely colored at all subsequent times x≤t≤ri. Proof: Consider coloring the intervals at time x. Intervals starting at x+1 will be colored with the opposite color to interval i, ensuring that the interval remains uniquely colored at time x+1. With this lemma, we can conclude that the changes in the coloring are O(n). It suffices to track the intervals that are added and removed at each point in time.  Step 4: To efficiently move from time x to x+1, we perform the following steps:    Remove the intervals that have ri=x (since they no longer contain x+1). Add the intervals that have li=x+1. Update the set of intervals that can be uniquely colored at time x+1.  Step 5: Finally, we observe that only the following points are important for the coloring:  li and ri for each interval. li−1 and ri+1, since these points mark the boundaries where intervals start or end.  Thus, we can compress the numbers to reduce the range of values we need to process. Implementation/* In the name of Allah */
+// Welcome to the Soldier Side!
+// Where there's no one here, but me...
+#include<bits/stdc++.h>
+using namespace std;
+
+const int N = 2e5 + 5;
+vector<int> st[N << 2], en[N << 2];
+int t, n, k, l[N], r[N], dp[N], col[N], prv[N];
+
+void compress_numbers() {
+    vector<int> help;
+    for (int i = 0; i < n; i++) {
+        help.push_back(l[i] - 1);
+        help.push_back(l[i]);
+        help.push_back(r[i]);
+        help.push_back(r[i] + 1);
+    }
+
+    sort(help.begin(), help.end());
+    help.resize(k = unique(help.begin(), help.end()) - help.begin());
+    for (int i = 0; i < n; i++) {
+        l[i] = lower_bound(help.begin(), help.end(), l[i]) - help.begin();
+        r[i] = lower_bound(help.begin(), help.end(), r[i]) - help.begin();
+    }
+}
+
+void save_checkpoints() {
+    for (int i = 0; i < n; i++) {
+        st[l[i]].push_back(i);
+        en[r[i]].push_back(i);
+    }
+}
+
+bool check_one() {
+    for (int i = 0, open = 0; i < k; i++) {
+        open += st[i].size();
+        if (open > 1)
+            return false;
+        open -= en[i].size();
+    }
+    return true;
+}
+
+void color_with_two() {
+    for (int i = k - 1, cur = -1; ~i; i--) {
+        if (en[i].empty())
+            continue;
+
+        while (!~cur || i < dp[cur])
+            if (~cur && ~prv[cur]) {
+                col[prv[cur]] = col[cur];
+                if (r[prv[cur]] >= l[cur])
+                    col[prv[cur]] ^= 1;
+                cur = prv[cur];
+            }
+            else
+                for (int p: en[i])
+                    if (~dp[p] && (!~cur || dp[p] < dp[cur]))
+                        cur = p;
+
+        for (int p: en[i])
+            if (p ^ cur)
+                col[p] = col[cur] ^ 1;
+    }
+}
+
+bool check_two() {
+    set<int> goods, bads;
+    fill(dp, dp + n, -1);
+    fill(prv, prv + n, -1);
+    for (int i = 0; i < k; i++) {
+        int prev = -1;
+        if (i)
+            for (int p: en[i - 1]) {
+                bads.erase(p), goods.erase(p);
+                if (~dp[p] && (!~prev || dp[p] < dp[prev]))
+                    prev = p;
+            }
+        int open = goods.size() + bads.size();
+
+        if (open == 1 || (open == 2 && !goods.empty())) {
+            for (int p: bads) {
+                if (open == 1)
+                    prv[p] = prev;
+                else
+                    prv[p] = *goods.begin();
+                goods.insert(p);
+                dp[p] = i;
+            }
+            bads.clear();
+        }
+
+        if (open == 1)
+            prev = *goods.begin();
+        for (int p: st[i])
+            if (!open || open == 1 || ~prev) {
+                goods.insert(p);
+                prv[p] = prev;
+                dp[p] = i;
+            }
+            else
+                bads.insert(p);
+        open += st[i].size();
+
+        if (open && goods.empty())
+            return false;
+    }
+
+    color_with_two();
+    return true;
+}
+
+void color_with_three() {
+    int cur = -1, nxt = -1;
+    for (int i = 0; i < k; i++) {
+        if (st[i].empty())
+            continue;
+
+        if (~cur && i > r[cur] && nxt ^ cur) {
+            col[nxt] = col[cur] ^ 3;
+            cur = nxt;
+        }
+        if (!~cur || i > r[cur]) {
+            for (int p: st[i])
+                if (!~cur || r[p] > r[cur])
+                    cur = p;
+            col[nxt = cur] = 1;
+        }
+
+        for (int p: st[i])
+            if (r[p] > r[nxt])
+                nxt = p;
+    }
+
+    if (cur ^ nxt)
+        col[nxt] = col[cur] ^ 3;
+}
+
+void read_input() {
+    cin >> n;
+    for (int i = 0; i < n; i++)
+        cin >> l[i] >> r[i];
+}
+
+void solve() {
+    compress_numbers();
+    save_checkpoints();
+    if (check_one())
+        return;
+    if (check_two())
+        return;
+    color_with_three();
+}
+
+void write_output() {
+    cout << *max_element(col, col + n) + 1 << endl;
+    for (int i = 0; i < n; i++)
+        cout << col[i] + 1 << "\n "[i < n - 1];
+}
+
+void reset_variables() {
+    fill(col, col + n, 0);
+    for (int i = 0; i < k; i++) {
+        st[i].clear();
+        en[i].clear();
+    }
+}
+
+int main() {
+    ios:: sync_with_stdio(0), cin.tie(0), cout.tie(0);
+    for (cin >> t; t--; reset_variables())
+        read_input(), solve(), write_output();
+    return 0;
+}Note: Thanks to wyrqwq and Error_Yuan for suggesting the idea of including this subtask!2034H - Rayan vs. RayanehIdea and Preparation: MohammadParsaElahimanesh Solution Step 1: According to Bézout's Identity, we can compute gcd(x1,…,xt) and all its multipliers as an integer linear combination of x1,x2,…,xt. Step 2: A set {a1,…,ak} is good (integer linearly independent) if for every i, gcd({aj∣j≠i})∤ai. Step 3: A set {a1,…,ak} is good if and only if there exists a set {p1q1,p2q2,…,pkqk} such that piqi∣aj for j≠i and piqi∤ai. Step 4: The set {a1,…,ak} can be identified by determining {p1q1,p2q2,…,pkqk}. Assume pq11<pq22<…<pqkk, where pi≠pj and pi is prime. Step 5: Let G=p1q1⋅p2q2…⋅pkqk. Then {a1,…,ak} is good if and only if Gpiqi∣ai and G∤ai for every i. Step 6: The answer is a singleton if, for every pair of numbers x and y in the array, x∣y or y∣x. Since the numbers are distinct, a good subset {a1,a2} can always be found by searching the first logM+2 elements. Step 7: Define CM[i] (count multipliers of i) as the number of x such that i∣ax. This can be computed in O(n+MlogM). Step 8: A corresponding set {a1,…,ak} exists for a set {p1q1,p2q2,…,pkqk} if and only if CM[Gpiqi]>CM[G]≥0 for all i. Step 9: Iterate over all valid sets of the form {p1q1,p2q2,…,pkqk}, and check if a corresponding {a1,a2,…,ak} exists. Note that k≥3 since a good subset {a1,a2} is found using another method. Step 10: We know Gp1q1≤M and also p1q1≤√M, as p1q1≤√p2q2⋅p3q3≤√Gp1q1≤√M. Step 11: There are ∑logM2i=1P[⌊2i√M⌋] numbers in the form p1q1, where P[i] denotes the number of primes in the range [1,i]. This count is O(√MlogM). Step 12: The value of k is at most 6 (denoted as K), as p2q2…pkqk=Gp1q1≤M, and 3⋅5⋅7⋅11⋅13≤M<3⋅5⋅7⋅11⋅13⋅17. Step 13: We can determine {a1,…,ak} from {p1q1,p2q2,…,pkqk} in O(n⋅K). The total time complexity is O(T⋅M⋅√MlogM⋅K+T⋅M⋅logM+∑Ti=0ni⋅K). Implementation/// In the name of God the most beneficent the most merciful
+
+#pragma GCC optimize("Ofast,no-stack-protector,unroll-loops,fast-math,O3")
+#include <bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+
+constexpr int T = 100;
+constexpr int M = 100001;
+constexpr int SQM = 320;
+constexpr int LGM = 20;
+vector<pair<int,int>> factor;
+int t, n[T], count_multipliers[T][M];
+bitset<M> is_composite;
+vector<int> ans[T], a[T];
+
+inline void calculate_importants() {
+    for(int i = 2; i < SQM; i++)
+        if(!is_composite[i]) {
+            for(int j = i; j < M; j *= i)
+                factor.push_back({j,i});
+            for(int j = i*i; j < M; j += i)
+                is_composite.set(j);
+        }
+    for(int i = SQM; i < M; i++)
+        if(!is_composite[i])
+            factor.push_back({i,i});
+    sort(factor.begin(), factor.end());
+}
+
+void check(vector<int> &factors, int G) {
+    if(factors.size() > 2u) {
+        for(int i = 0; i < t; i++) 
+            if(ans[i].size() < factors.size()) {
+                int count_product = (G < M? count_multipliers[i][G] : 0);
+                bool can = true;	
+                for(auto u: factors)
+                    if(count_multipliers[i][G/factor[u].first] == count_product) {
+                        can = false;
+                        break;
+                    }
+                if(can)
+                    ans[i] = factors;
+            }
+    }
+    int bound = (factors.size() == 1 ? SQM : M);
+    if(1LL*G/factor[factors[0]].first*factor[factors.back()].first > bound)
+        return;
+    for(int new_factor = factors.back(); G/factor[factors[0]].first*factor[new_factor].first <= bound; new_factor++) 
+        if(G%factor[new_factor].second) {
+            factors.push_back(new_factor);
+            check(factors, G*factor[new_factor].first);
+            factors.pop_back();
+        }
+}
+
+int main() {
+    ios_base :: sync_with_stdio(false); cin.tie(nullptr);
+    calculate_importants();
+    cin >> t;
+    for(int i = 0; i < t; i++) {
+        cin >> n[i];
+        a[i].resize(n[i]);
+        for(int j = 0; j < n[i]; j++) {
+            cin >> a[i][j];
+            count_multipliers[i][a[i][j]]++;
+        }
+        ans[i] = {a[i][0]};
+        sort(a[i].begin(), a[i].begin()+min(n[i], LGM));
+        for(int c = 0; c+1 < n[i]; c++)
+            if(a[i][c+1]%a[i][c]) {
+                ans[i] = {a[i][c], a[i][c+1]};
+                break;
+            }
+        for(int c = 1; c < M; c++)
+            for(int j = c+c; j < M; j += c)
+                count_multipliers[i][c] += count_multipliers[i][j];
+    }
+    for(int i = 0; factor[i].first < SQM; i++) {
+        vector<int> starter = {i};
+        check(starter, factor[i].first);
+    }
+    for(int i = 0; i < t; i++) {
+        int k = ans[i].size();
+        cout << k << '\n';
+        if(k == 1u) {
+            cout << ans[i][0] << '\n';
+        } else if(k == 2u) {
+            cout << ans[i][0] << ' ' << ans[i][1] << '\n';
+        } else {
+            int subset[k];
+            for(auto u: a[i]) {
+                int ls = -1;
+                for(int j = 0; j < (int)k; j++)
+                    if(u%factor[ans[i][j]].first)
+                        ls = (ls == -1? j: -2);
+                if(ls >= 0)
+                    subset[ls] = u;
+            }
+            for(int j = 0; j < k; j++)
+                cout << subset[j] << (j+1 == k? '\n' : ' ');
+        }
+    }
+    return 0;
+}
+
+/// Thank God . . .
+Here are the step-by-step solutions. Hoping you enjoy them! 😊
+The announcement blog is available here and you can also explore all blogs related to Rayan here!
+Idea: ArshiaDadras — Preparation: AmirrzwM 
+Solution Step 1: Prove that for the minimum value of m, we must have m%a=m%b=0. Step 2: To prove this, show that if m%a=m%b=x>0, then m−1 will also satisfy the problem's requirements. Step 3: Since m≥min(a,b), if x>0, then m>min(a,b) must hold. Therefore, m−1≥min(a,b) implies that m−1 satisfies the requirements. Step 4: Thus, m must be divisible by both a and b. The smallest such m is lcm(a,b) which can be calculated in O(log(max(a,b))). 
+ Step 1: Prove that for the minimum value of m, we must have m%a=m%b=0. Step 2: To prove this, show that if m%a=m%b=x>0, then m−1 will also satisfy the problem's requirements. Step 3: Since m≥min(a,b), if x>0, then m>min(a,b) must hold. Therefore, m−1≥min(a,b) implies that m−1 satisfies the requirements. Step 4: Thus, m must be divisible by both a and b. The smallest such m is lcm(a,b) which can be calculated in O(log(max(a,b))). 
+Implementation#include <bits/stdc++.h>
+
+using namespace std;
+
+int main(){
+  int tt;
+  cin >> tt;
+  while(tt--){
+    int a, b;
+    cin >> a >> b;
+    cout << lcm(a , b) << endl;
+  }
+}
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main(){
+  int tt;
+  cin >> tt;
+  while(tt--){
+    int a, b;
+    cin >> a >> b;
+    cout << lcm(a , b) << endl;
+  }
+}
+Idea: MohammadParsaElahimanesh and AmirrzwM — Preparation: AmShZ
+SolutionWe will solve the problem using the following approach:  Start from the leftmost spot and move rightwards. Whenever a consecutive segment of m weak spots (i.e., 0's) is found, apply Timar to a segment of length k, starting from the last index of the weak segment. Repeat this process until no segment of m consecutive weak spots remains. The key idea behind this solution is that whenever we encounter a block of m consecutive 0's, we need to strengthen it. Since we can apply Timar to a segment of length k, the optimal strategy is always to apply Timar starting at the last index of the block of m consecutive 0's.Correctness Proof:  For any block of m consecutive 0's, we must apply Timar to at least one index within this block. Hence, the strengthened segment of length k must overlap with the block of weak spots. Suppose an optimal solution exists where Timar is applied to a segment starting leftward within the block. Suppose we shift this segment one step to the right (closer to the end of the block). In that case, the solution remains valid and optimal since it covers all weak spots in the block while reducing unnecessary overlap with already-strengthened areas. By always starting from the last index of a block of m consecutive 0's, this greedy strategy ensures that Timar is used in the minimum number of applications, making it correct and efficient.
+We will solve the problem using the following approach:  Start from the leftmost spot and move rightwards. Whenever a consecutive segment of m weak spots (i.e., 0's) is found, apply Timar to a segment of length k, starting from the last index of the weak segment. Repeat this process until no segment of m consecutive weak spots remains. The key idea behind this solution is that whenever we encounter a block of m consecutive 0's, we need to strengthen it. Since we can apply Timar to a segment of length k, the optimal strategy is always to apply Timar starting at the last index of the block of m consecutive 0's.Correctness Proof:  For any block of m consecutive 0's, we must apply Timar to at least one index within this block. Hence, the strengthened segment of length k must overlap with the block of weak spots. Suppose an optimal solution exists where Timar is applied to a segment starting leftward within the block. Suppose we shift this segment one step to the right (closer to the end of the block). In that case, the solution remains valid and optimal since it covers all weak spots in the block while reducing unnecessary overlap with already-strengthened areas. By always starting from the last index of a block of m consecutive 0's, this greedy strategy ensures that Timar is used in the minimum number of applications, making it correct and efficient.
+We will solve the problem using the following approach:
+The key idea behind this solution is that whenever we encounter a block of m consecutive 0's, we need to strengthen it. Since we can apply Timar to a segment of length k, the optimal strategy is always to apply Timar starting at the last index of the block of m consecutive 0's.
+Correctness Proof:
+By always starting from the last index of a block of m consecutive 0's, this greedy strategy ensures that Timar is used in the minimum number of applications, making it correct and efficient.
+Implementation# include <bits/stdc++.h>
+
+using namespace std;
+
+const int xn = 2e5 + 10;
+
+int q, n, m, k, ps[xn];
+string s;
+
+int main() {
+    cin >> q;
+    while (q --) {
+        cin >> n >> m >> k >> s;
+        fill(ps, ps + n, 0);
+        int ans = 0, cnt = 0, sum = 0;
+        for (int i = 0; i < n; ++ i) {
+            sum += ps[i];
+            if (sum || s[i] == '1') cnt = 0;
+            else {
+                cnt++;
+                if (cnt == m) {
+                    sum++, ans++, cnt = 0;
+                    if (i + k < n) ps[i + k]--;
+                }
+            }
+        }
+        cout << ans << "\n";
+    }
+}
+# include <bits/stdc++.h>
+
+using namespace std;
+
+const int xn = 2e5 + 10;
+
+int q, n, m, k, ps[xn];
+string s;
+
+int main() {
+    cin >> q;
+    while (q --) {
+        cin >> n >> m >> k >> s;
+        fill(ps, ps + n, 0);
+        int ans = 0, cnt = 0, sum = 0;
+        for (int i = 0; i < n; ++ i) {
+            sum += ps[i];
+            if (sum || s[i] == '1') cnt = 0;
+            else {
+                cnt++;
+                if (cnt == m) {
+                    sum++, ans++, cnt = 0;
+                    if (i + k < n) ps[i + k]--;
+                }
+            }
+        }
+        cout << ans << "\n";
+    }
+}
+Idea: MohammadParsaElahimanesh — Preparation: AmirrzwM
+Solution If a cell has a fixed direction (i.e., it points to another cell), and following that direction leads outside the maze, it must eventually exit the maze. Such cells cannot be part of any loop. We can analyze the remaining cells once we identify cells that lead out of the maze. Any undirected cell or ? cell might either lead to the exit or form part of a loop. If all neighboring cells of a ? cell can eventually lead out of the maze, then this ? cell will also lead out of the maze. The state of such ? cells can be determined based on their surroundings. For any remaining cells (directed cells that do not lead out of the maze, or other ? cells that cannot be determined to lead to an exit), we can assign directions such that starting from those cells will eventually lead to a loop. These cells will form the loops. To find how many cells will eventually lead to a loop, we can use a Depth-First Search (DFS) on the reversed graph, where all directions are reversed. By performing DFS starting from the "out-of-maze" cells, we can identify all cells that are reachable from the outside and thus will eventually lead out of the maze. Count the number of cells that can reach the exit. Subtract this number from the total number of cells in the maze to determine how many are part of loops (i.e., cells that cannot reach the exit). 
+ If a cell has a fixed direction (i.e., it points to another cell), and following that direction leads outside the maze, it must eventually exit the maze. Such cells cannot be part of any loop. We can analyze the remaining cells once we identify cells that lead out of the maze. Any undirected cell or ? cell might either lead to the exit or form part of a loop. If all neighboring cells of a ? cell can eventually lead out of the maze, then this ? cell will also lead out of the maze. The state of such ? cells can be determined based on their surroundings. For any remaining cells (directed cells that do not lead out of the maze, or other ? cells that cannot be determined to lead to an exit), we can assign directions such that starting from those cells will eventually lead to a loop. These cells will form the loops. To find how many cells will eventually lead to a loop, we can use a Depth-First Search (DFS) on the reversed graph, where all directions are reversed. By performing DFS starting from the "out-of-maze" cells, we can identify all cells that are reachable from the outside and thus will eventually lead out of the maze. Count the number of cells that can reach the exit. Subtract this number from the total number of cells in the maze to determine how many are part of loops (i.e., cells that cannot reach the exit). 
+Implementation#include <bits/stdc++.h>
+ 
+using namespace std;
+ 
+int main() 
+{
+    int tc;
+    cin >> tc;
+    while(tc--){
+        int n, m;
+        cin >> n >> m;
+        string c[n+1];
+        for(int i = 1 ; i <= n ; i++) cin >> c[i] , c[i] = "-" + c[i];
+        vector<pair<int,int>> jda[n+2][m+2];
+        for(int i = 1 ; i <= n ; i++){
+            for(int j = 1 ; j <= m ; j++){
+                if(c[i][j] == 'U') jda[i-1][j].push_back({i , j});
+                if(c[i][j] == 'R') jda[i][j+1].push_back({i , j});
+                if(c[i][j] == 'D') jda[i+1][j].push_back({i , j});
+                if(c[i][j] == 'L') jda[i][j-1].push_back({i , j});
+            }
+        }
+        int vis[n+2][m+2] = {};
+        queue<pair<int,int>> q;
+        for(int j = 0 ; j <= m+1 ; j++) vis[0][j] = 1 , q.push({0 , j});
+        for(int i = 1 ; i <= n+1 ; i++) vis[i][0] = 1 , q.push({i , 0});
+        for(int j = 1 ; j <= m+1 ; j++) vis[n+1][j] = 1 , q.push({n+1 , j});
+        for(int i = 1 ; i <= n ; i++) vis[i][m+1] = 1 , q.push({i , m+1});
+        while(q.size()){
+            auto [i , j] = q.front();
+            q.pop();
+            for(auto [a , b] : jda[i][j]){
+                if(vis[a][b] == 0){
+                    vis[a][b] = 1;
+                    q.push({a , b});
+                }
+            }
+        }
+        for(int i = 1 ; i <= n ; i++){
+            for(int j = 1 ; j <= m ; j++){
+                if(c[i][j] == '?' and
+                vis[i-1][j] and vis[i][j+1] and vis[i+1][j] and vis[i][j-1]) vis[i][j] = 1;
+            }
+        }
+        int ans = n * m;
+        for(int i = 1 ; i <= n ; i++){
+            for(int j = 1 ; j <= m ; j++){
+                if(vis[i][j] == 1) ans -= 1;
+            }
+        }
+        cout << ans << endl;
+    }
+    return 0;
+}
+#include <bits/stdc++.h>
+ 
+using namespace std;
+ 
+int main() 
+{
+    int tc;
+    cin >> tc;
+    while(tc--){
+        int n, m;
+        cin >> n >> m;
+        string c[n+1];
+        for(int i = 1 ; i <= n ; i++) cin >> c[i] , c[i] = "-" + c[i];
+        vector<pair<int,int>> jda[n+2][m+2];
+        for(int i = 1 ; i <= n ; i++){
+            for(int j = 1 ; j <= m ; j++){
+                if(c[i][j] == 'U') jda[i-1][j].push_back({i , j});
+                if(c[i][j] == 'R') jda[i][j+1].push_back({i , j});
+                if(c[i][j] == 'D') jda[i+1][j].push_back({i , j});
+                if(c[i][j] == 'L') jda[i][j-1].push_back({i , j});
+            }
+        }
+        int vis[n+2][m+2] = {};
+        queue<pair<int,int>> q;
+        for(int j = 0 ; j <= m+1 ; j++) vis[0][j] = 1 , q.push({0 , j});
+        for(int i = 1 ; i <= n+1 ; i++) vis[i][0] = 1 , q.push({i , 0});
+        for(int j = 1 ; j <= m+1 ; j++) vis[n+1][j] = 1 , q.push({n+1 , j});
+        for(int i = 1 ; i <= n ; i++) vis[i][m+1] = 1 , q.push({i , m+1});
+        while(q.size()){
+            auto [i , j] = q.front();
+            q.pop();
+            for(auto [a , b] : jda[i][j]){
+                if(vis[a][b] == 0){
+                    vis[a][b] = 1;
+                    q.push({a , b});
+                }
+            }
+        }
+        for(int i = 1 ; i <= n ; i++){
+            for(int j = 1 ; j <= m ; j++){
+                if(c[i][j] == '?' and
+                vis[i-1][j] and vis[i][j+1] and vis[i+1][j] and vis[i][j-1]) vis[i][j] = 1;
+            }
+        }
+        int ans = n * m;
+        for(int i = 1 ; i <= n ; i++){
+            for(int j = 1 ; j <= m ; j++){
+                if(vis[i][j] == 1) ans -= 1;
+            }
+        }
+        cout << ans << endl;
+    }
+    return 0;
+}
+Idea and Preparation: MohammadParsaElahimanesh
+Solution Step 1: Using two moves, we can move an element to any arbitrary position in the array. Thus, we can place all 0's in their correct positions with at most 2min(count(0),count(1)+count(2)) moves. Step 2: After placing all 0's, the rest of the array will contain only 1's and 2's. To sort this part of the array, we need at most min(count(1),count(2)) moves. Step 3: The first step takes at most n moves, and the second step takes at most n2 moves. However, it can be proven that the total number of moves is at most 8n7. Step 4: We can assume count(0)≤count(2) without loss of generality (Why?). So, the maximum number of moves are:  2min(count(0),count(1)+count(2))+min(count(1),count(2)) =2⋅count(0)+min(count(1),count(2)) ≤count(0)+max(count(1),count(2))+min(count(1),count(2)) =count(0)+count(1)+count(2)=nBetter approach:  Step 1: Since we are allowed to perform n moves, assign each index one "move" as its "specified cost". Step 2: While there exists an index with a value of 0 or 2 that can be fixed with just one move, fix it using its assigned cost. Step 3: After fixing all 0's, 2's, and all 1's except one, the remaining array will have the following structure and we are now allowed to use 2x+1 moves:  2 2 … 2 (x times) 1 0 0 … 0 (x times),  Step 4: First, swap the 1 with a random element (denote it as r). Then, for 2x−1 moves, swap the index with the value 1 with any index where the correct value must be placed, except r. Finally, swap 1 and r. 
+ Step 1: Using two moves, we can move an element to any arbitrary position in the array. Thus, we can place all 0's in their correct positions with at most 2min(count(0),count(1)+count(2)) moves. Step 2: After placing all 0's, the rest of the array will contain only 1's and 2's. To sort this part of the array, we need at most min(count(1),count(2)) moves. Step 3: The first step takes at most n moves, and the second step takes at most n2 moves. However, it can be proven that the total number of moves is at most 8n7. Step 4: We can assume count(0)≤count(2) without loss of generality (Why?). So, the maximum number of moves are:  2min(count(0),count(1)+count(2))+min(count(1),count(2)) =2⋅count(0)+min(count(1),count(2)) ≤count(0)+max(count(1),count(2))+min(count(1),count(2)) =count(0)+count(1)+count(2)=nBetter approach:  Step 1: Since we are allowed to perform n moves, assign each index one "move" as its "specified cost". Step 2: While there exists an index with a value of 0 or 2 that can be fixed with just one move, fix it using its assigned cost. Step 3: After fixing all 0's, 2's, and all 1's except one, the remaining array will have the following structure and we are now allowed to use 2x+1 moves:  2 2 … 2 (x times) 1 0 0 … 0 (x times),  Step 4: First, swap the 1 with a random element (denote it as r). Then, for 2x−1 moves, swap the index with the value 1 with any index where the correct value must be placed, except r. Finally, swap 1 and r. 
+Better approach:
+Implementation (first approach)#include <bits/stdc++.h>
+
+using namespace std;
+
+const int N = 200000;
+int n, cnt[3], a[N];
+vector<int> vip[3][3]; // Value In Position
+vector<pair<int, int>> swaps;
+
+inline int Pos(int index) {
+    if(index < cnt[0])
+        return 0;
+    else if(index < cnt[0]+cnt[1])
+        return 1;
+    else
+        return 2; 
+}
+
+inline void AddBack(int index) {
+    vip[a[index]][Pos(index)].push_back(index);
+}
+
+inline void RemoveBack(int index) {
+    vip[a[index]][Pos(index)].pop_back();
+}
+
+inline void Swap(int i, int j) {
+    swaps.push_back({i, j});
+    RemoveBack(i);
+    RemoveBack(j);
+    swap(a[i], a[j]);
+    AddBack(i);
+    AddBack(j);
+}
+
+inline void Fix(int x) {
+    while(!vip[1][x].empty() or !vip[2-x][x].empty()) {
+        if(vip[1][x].empty()) {
+            if(!vip[1][2-x].empty())
+                Swap(vip[2-x][x].back(), vip[1][2-x].back());
+            else
+                Swap(vip[2-x][x].back(), vip[1][1].back());
+        }
+        if(!vip[x][1].empty()) 
+            Swap(vip[1][x].back(), vip[x][1].back());
+        else
+            Swap(vip[1][x].back(), vip[x][2-x].back());
+    }  
+}
+
+
+int main() 
+{
+    ios_base::sync_with_stdio(false), cin.tie(0);
+    int t;
+    cin >> t;
+    while (t--) {
+        cin >> n;
+        for(int i = 0; i < n; i++)
+            cin >> a[i], cnt[a[i]]++;
+        for(int i = 0; i < n; i++)
+            AddBack(i);
+        if(cnt[0] <= cnt[2]) {
+            Fix(0);
+            Fix(2);
+        } else {
+            Fix(2);
+            Fix(0);
+        }
+        cout << swaps.size() << endl;
+        for(auto [i, j]: swaps)
+            cout << i+1 << ' ' << j+1 << endl;
+        cnt[0] = cnt[1] = cnt[2] = 0;
+        for(int i = 0; i < 3; i++)
+            for(int j = 0; j < 3; j++)
+                vip[i][j].clear();
+        swaps.clear();
+    }
+    return 0;
+}
+#include <bits/stdc++.h>
+
+using namespace std;
+
+const int N = 200000;
+int n, cnt[3], a[N];
+vector<int> vip[3][3]; // Value In Position
+vector<pair<int, int>> swaps;
+
+inline int Pos(int index) {
+    if(index < cnt[0])
+        return 0;
+    else if(index < cnt[0]+cnt[1])
+        return 1;
+    else
+        return 2; 
+}
+
+inline void AddBack(int index) {
+    vip[a[index]][Pos(index)].push_back(index);
+}
+
+inline void RemoveBack(int index) {
+    vip[a[index]][Pos(index)].pop_back();
+}
+
+inline void Swap(int i, int j) {
+    swaps.push_back({i, j});
+    RemoveBack(i);
+    RemoveBack(j);
+    swap(a[i], a[j]);
+    AddBack(i);
+    AddBack(j);
+}
+
+inline void Fix(int x) {
+    while(!vip[1][x].empty() or !vip[2-x][x].empty()) {
+        if(vip[1][x].empty()) {
+            if(!vip[1][2-x].empty())
+                Swap(vip[2-x][x].back(), vip[1][2-x].back());
+            else
+                Swap(vip[2-x][x].back(), vip[1][1].back());
+        }
+        if(!vip[x][1].empty()) 
+            Swap(vip[1][x].back(), vip[x][1].back());
+        else
+            Swap(vip[1][x].back(), vip[x][2-x].back());
+    }  
+}
+
+
+int main() 
+{
+    ios_base::sync_with_stdio(false), cin.tie(0);
+    int t;
+    cin >> t;
+    while (t--) {
+        cin >> n;
+        for(int i = 0; i < n; i++)
+            cin >> a[i], cnt[a[i]]++;
+        for(int i = 0; i < n; i++)
+            AddBack(i);
+        if(cnt[0] <= cnt[2]) {
+            Fix(0);
+            Fix(2);
+        } else {
+            Fix(2);
+            Fix(0);
+        }
+        cout << swaps.size() << endl;
+        for(auto [i, j]: swaps)
+            cout << i+1 << ' ' << j+1 << endl;
+        cnt[0] = cnt[1] = cnt[2] = 0;
+        for(int i = 0; i < 3; i++)
+            for(int j = 0; j < 3; j++)
+                vip[i][j].clear();
+        swaps.clear();
+    }
+    return 0;
+}
+Implementation (second approach)// In the name of god
+#include <bits/stdc++.h>
+
+using namespace std;
+
+const int N = 200000;
+int n, cnt[3], a[N];
+vector<int> vip[3][3]; // Value In Position
+vector<pair<int, int>> swaps;
+
+inline int Pos(int index) {
+    if(index < cnt[0])
+        return 0;
+    else if(index < cnt[0]+cnt[1])
+        return 1;
+    else
+        return 2; 
+}
+
+inline void AddBack(int index) {
+    vip[a[index]][Pos(index)].push_back(index);
+}
+
+inline void RemoveBack(int index) {
+    vip[a[index]][Pos(index)].pop_back();
+}
+
+inline void Swap(int i, int j) {
+    swaps.push_back({i, j});
+    RemoveBack(i);
+    RemoveBack(j);
+    swap(a[i], a[j]);
+    AddBack(i);
+    AddBack(j);
+}
+
+inline void Fix() {
+    bool change;
+    do {
+        change = false;
+        while ((!vip[1][0].empty()) && (!vip[0][1].empty()))
+            Swap(vip[1][0].back(), vip[0][1].back()), change = true;
+        while ((!vip[1][0].empty()) && (!vip[0][2].empty()))
+            Swap(vip[1][0].back(), vip[0][2-0].back()), change = true;
+        while ((!vip[1][2].empty()) && (!vip[2][1].empty()))
+            Swap(vip[1][2].back(), vip[2][1].back()), change = true;
+        while ((!vip[1][2].empty()) && (!vip[2][0].empty()))
+            Swap(vip[1][2].back(), vip[2][0].back()), change = true;
+    } while (change);    
+}
+
+inline void PingPong() {
+    if(vip[0][2].empty())
+        return;
+    Swap(vip[1][1].back(), vip[0][2].back());
+    while (true){
+        Swap(vip[1][2].back(), vip[2][0].back());
+        if(vip[0][2].empty())
+            break;
+        Swap(vip[1][0].back(), vip[0][2].back());
+    }
+    Swap(vip[1][0].back(), vip[0][1].back());
+}
+
+int main() 
+{
+    ios_base::sync_with_stdio(false), cin.tie(0);
+    int t;
+    cin >> t;
+    while (t--) {
+        cin >> n;
+        for(int i = 0; i < n; i++)
+            cin >> a[i], cnt[a[i]]++;
+        for(int i = 0; i < n; i++)
+            AddBack(i);
+        Fix();
+        PingPong();
+        cout << swaps.size() << endl;
+        for(auto [i, j]: swaps)
+            cout << i+1 << ' ' << j+1 << endl;
+        // reset
+        cnt[0] = cnt[1] = cnt[2] = 0;
+        for(int i = 0; i < 3; i++)
+            for(int j = 0; j < 3; j++)
+                vip[i][j].clear();
+        swaps.clear();
+    }
+    return 0;
+}
+// In the name of god
+#include <bits/stdc++.h>
+
+using namespace std;
+
+const int N = 200000;
+int n, cnt[3], a[N];
+vector<int> vip[3][3]; // Value In Position
+vector<pair<int, int>> swaps;
+
+inline int Pos(int index) {
+    if(index < cnt[0])
+        return 0;
+    else if(index < cnt[0]+cnt[1])
+        return 1;
+    else
+        return 2; 
+}
+
+inline void AddBack(int index) {
+    vip[a[index]][Pos(index)].push_back(index);
+}
+
+inline void RemoveBack(int index) {
+    vip[a[index]][Pos(index)].pop_back();
+}
+
+inline void Swap(int i, int j) {
+    swaps.push_back({i, j});
+    RemoveBack(i);
+    RemoveBack(j);
+    swap(a[i], a[j]);
+    AddBack(i);
+    AddBack(j);
+}
+
+inline void Fix() {
+    bool change;
+    do {
+        change = false;
+        while ((!vip[1][0].empty()) && (!vip[0][1].empty()))
+            Swap(vip[1][0].back(), vip[0][1].back()), change = true;
+        while ((!vip[1][0].empty()) && (!vip[0][2].empty()))
+            Swap(vip[1][0].back(), vip[0][2-0].back()), change = true;
+        while ((!vip[1][2].empty()) && (!vip[2][1].empty()))
+            Swap(vip[1][2].back(), vip[2][1].back()), change = true;
+        while ((!vip[1][2].empty()) && (!vip[2][0].empty()))
+            Swap(vip[1][2].back(), vip[2][0].back()), change = true;
+    } while (change);    
+}
+
+inline void PingPong() {
+    if(vip[0][2].empty())
+        return;
+    Swap(vip[1][1].back(), vip[0][2].back());
+    while (true){
+        Swap(vip[1][2].back(), vip[2][0].back());
+        if(vip[0][2].empty())
+            break;
+        Swap(vip[1][0].back(), vip[0][2].back());
+    }
+    Swap(vip[1][0].back(), vip[0][1].back());
+}
+
+int main() 
+{
+    ios_base::sync_with_stdio(false), cin.tie(0);
+    int t;
+    cin >> t;
+    while (t--) {
+        cin >> n;
+        for(int i = 0; i < n; i++)
+            cin >> a[i], cnt[a[i]]++;
+        for(int i = 0; i < n; i++)
+            AddBack(i);
+        Fix();
+        PingPong();
+        cout << swaps.size() << endl;
+        for(auto [i, j]: swaps)
+            cout << i+1 << ' ' << j+1 << endl;
+        // reset
+        cnt[0] = cnt[1] = cnt[2] = 0;
+        for(int i = 0; i < 3; i++)
+            for(int j = 0; j < 3; j++)
+                vip[i][j].clear();
+        swaps.clear();
+    }
+    return 0;
+}
+Idea: AmirrzwM and MohammadParsaElahimanesh — Preparation: MohammadParsaElahimanesh
+Solution Step 1: There are n positions that must be equal, and their sum is n⋅(n+1)⋅k2. Hence, each position must be (n+1)⋅k2. Additionally, there must be k distinct permutations, so k≤n!. Step 2: For even k, we can group n! permutations into n!2 double handles, where each group corresponds to a solution for k=2. Then, pick k2 handles. The match for permutation a1,a2,…,an is (n+1)−a1,(n+1)−a2,…,(n+1)−an. Step 3: For k=1, n must be 1. Symmetrically, k cannot be n!−1. Solutions for other odd k will now be provided. Step 4: To construct an answer for k=3 and n=2x+1, consider the following derived using a greedy approach:     p1  p2  p3  p4  p5  …  p2x−1  p2x  p2x+1      1  2  3  4  5  …  2x−1  2x  2x+1    x+1  2x+1  x  2x  x−1  …  2  x+2  1    2x+1  x  2x  x−1  2x−1  …  x+2  1  x+1      Step 5: Now, combine the solution for even k and the k=3 solution by selecting the 3 permutations and k−32 other handles. 
+ Step 1: There are n positions that must be equal, and their sum is n⋅(n+1)⋅k2. Hence, each position must be (n+1)⋅k2. Additionally, there must be k distinct permutations, so k≤n!. Step 2: For even k, we can group n! permutations into n!2 double handles, where each group corresponds to a solution for k=2. Then, pick k2 handles. The match for permutation a1,a2,…,an is (n+1)−a1,(n+1)−a2,…,(n+1)−an. Step 3: For k=1, n must be 1. Symmetrically, k cannot be n!−1. Solutions for other odd k will now be provided. Step 4: To construct an answer for k=3 and n=2x+1, consider the following derived using a greedy approach:     p1  p2  p3  p4  p5  …  p2x−1  p2x  p2x+1      1  2  3  4  5  …  2x−1  2x  2x+1    x+1  2x+1  x  2x  x−1  …  2  x+2  1    2x+1  x  2x  x−1  2x−1  …  x+2  1  x+1      Step 5: Now, combine the solution for even k and the k=3 solution by selecting the 3 permutations and k−32 other handles. 
+Implementation// In the name of God
+#include <bits/stdc++.h>
+using namespace std;
+ 
+int main() {
+    ios_base::sync_with_stdio(false), cin.tie(0);
+    int t;
+    cin >> t;
+    int f[8] = {1,1,2,6,24,120,720,5040};
+    while(t--) {
+        int n, k;
+        cin >> n >> k;
+        if(min(n, k) == 1) {
+            if(n*k == 1) {
+                cout << "Yes\n1\n";
+            } else cout << "No\n";
+        } else if(n < 8 and (f[n] < k or f[n] == k+1)) {
+            cout << "No\n";
+        } else if(n % 2 == 0 and k % 2 == 1) {
+            cout << "No\n";
+        } else {
+            vector<vector<int>> base, all;
+            vector<int> per(n);
+            for(int i = 0; i < n; i++) per[i] = i+1;
+            if(k % 2) {
+                vector<int> p1(n), p2(n);
+                for(int i = 0; i < n; i += 2) p1[i] = (n+1)/2-i/2, p2[i] = n-i/2;
+                for(int i = 1; i < n; i += 2) p1[i] = n-i/2, p2[i] = n/2-i/2;
+                all = base = {per, p1, p2};
+                k -= 3;
+            }
+            do {
+                if(k == 0)
+                    break;
+                vector<int> mirror(n);
+                for(int i = 0; i < n; i++)
+                    mirror[i] = n+1-per[i];
+                if(per < mirror) {
+                    bool used = false;
+                    for(auto &p: base) used |= (p == per), used |= (p == mirror);
+                    if(not used) {
+                        k -= 2;
+                        all.push_back(per);
+                        all.push_back(mirror);
+                    }
+                }
+            } while (next_permutation(per.begin(), per.end()));
+            cout << "Yes\n";
+            for(auto p: all) {
+                for(int i = 0; i < n; i++)
+                    cout << p[i] << (i+1==n?'\n':' ');
+            }
+        }
+    }
+ 
+    return 0;
+}
+ 
+// Thanks God
+
+// In the name of God
+#include <bits/stdc++.h>
+using namespace std;
+ 
+int main() {
+    ios_base::sync_with_stdio(false), cin.tie(0);
+    int t;
+    cin >> t;
+    int f[8] = {1,1,2,6,24,120,720,5040};
+    while(t--) {
+        int n, k;
+        cin >> n >> k;
+        if(min(n, k) == 1) {
+            if(n*k == 1) {
+                cout << "Yes\n1\n";
+            } else cout << "No\n";
+        } else if(n < 8 and (f[n] < k or f[n] == k+1)) {
+            cout << "No\n";
+        } else if(n % 2 == 0 and k % 2 == 1) {
+            cout << "No\n";
+        } else {
+            vector<vector<int>> base, all;
+            vector<int> per(n);
+            for(int i = 0; i < n; i++) per[i] = i+1;
+            if(k % 2) {
+                vector<int> p1(n), p2(n);
+                for(int i = 0; i < n; i += 2) p1[i] = (n+1)/2-i/2, p2[i] = n-i/2;
+                for(int i = 1; i < n; i += 2) p1[i] = n-i/2, p2[i] = n/2-i/2;
+                all = base = {per, p1, p2};
+                k -= 3;
+            }
+            do {
+                if(k == 0)
+                    break;
+                vector<int> mirror(n);
+                for(int i = 0; i < n; i++)
+                    mirror[i] = n+1-per[i];
+                if(per < mirror) {
+                    bool used = false;
+                    for(auto &p: base) used |= (p == per), used |= (p == mirror);
+                    if(not used) {
+                        k -= 2;
+                        all.push_back(per);
+                        all.push_back(mirror);
+                    }
+                }
+            } while (next_permutation(per.begin(), per.end()));
+            cout << "Yes\n";
+            for(auto p: all) {
+                for(int i = 0; i < n; i++)
+                    cout << p[i] << (i+1==n?'\n':' ');
+            }
+        }
+    }
+ 
+    return 0;
+}
+ 
+// Thanks God
+
+Idea and Preparation: TheScrasse
+Solution Step 1: For simplicity, redefine the special conditions for the number of rubies and sapphires in your satchel (not chest). Add two dummy states, (0,0) and (n,m) for convenience (the first one indexed as 0 and the second one indexed as k+1). Note that these dummy states won’t involve doubling the value. Step 2: Order the redefined conditions (x,y) in increasing order based on the value of x+y. Step 3: Define waysi,j as the number of ways to move from state i to state j without passing through any other special condition. This can be computed using inclusion-exclusion in O(k3). Step 4: Define costi,j, the increase in value for moving directly from state i to state j without intermediate doubling, as:  costi,j=2|xi−xj|+|yi−yj|  Step 5: Define dpi as the total sum of the value of your satchel across all ways to reach the state defined by the i-th condition. This can be computed recursively as:  dpi=2∑0≤j<iwaysj,i×(dpj+(xj+yjxj)×costj,i)  Step 6: Compute the final answer as the value of dpk+1 divided by the total number of ways to move from (0,0) to (n,m), which is (n+mn). 
+ Step 1: For simplicity, redefine the special conditions for the number of rubies and sapphires in your satchel (not chest). Add two dummy states, (0,0) and (n,m) for convenience (the first one indexed as 0 and the second one indexed as k+1). Note that these dummy states won’t involve doubling the value. Step 2: Order the redefined conditions (x,y) in increasing order based on the value of x+y. Step 3: Define waysi,j as the number of ways to move from state i to state j without passing through any other special condition. This can be computed using inclusion-exclusion in O(k3). Step 4: Define costi,j, the increase in value for moving directly from state i to state j without intermediate doubling, as:  costi,j=2|xi−xj|+|yi−yj|  Step 5: Define dpi as the total sum of the value of your satchel across all ways to reach the state defined by the i-th condition. This can be computed recursively as:  dpi=2∑0≤j<iwaysj,i×(dpj+(xj+yjxj)×costj,i)  Step 6: Compute the final answer as the value of dpk+1 divided by the total number of ways to move from (0,0) to (n,m), which is (n+mn). 
+Implementation#include <bits/stdc++.h>
+using namespace std;
+ 
+#define nl "\n"
+#define nf endl
+#define ll long long
+#define pb push_back
+#define _ << ' ' <<
+ 
+#define INF (ll)1e18
+#define mod 998244353
+#define maxn 400010
+ 
+ll fc[maxn], nv[maxn];
+ 
+ll fxp(ll b, ll e) {
+    ll r = 1, k = b;
+    while (e != 0) {
+        if (e % 2) r = (r * k) % mod;
+        k = (k * k) % mod; e /= 2;
+    }
+    return r;
+}
+ 
+ll inv(ll x) {
+    return fxp(x, mod - 2);
+}
+ 
+ll bnm(ll a, ll b) {
+    if (a < b || b < 0) return 0;
+    ll r = (fc[a] * nv[b]) % mod;
+    r = (r * nv[a - b]) % mod;
+    return r;
+}
+ 
+int main() {
+    ios::sync_with_stdio(0);
+    cin.tie(0);
+ 
+    fc[0] = 1; nv[0] = 1;
+    for (ll i = 1; i < maxn; i++) {
+        fc[i] = (i * fc[i - 1]) % mod; nv[i] = inv(fc[i]);
+    }
+ 
+    ll t; cin >> t;
+    while (t--) {
+        ll n, m, k; cin >> n >> m >> k;
+        vector<array<ll, 2>> a(k + 2, {0, 0});
+        for (ll i = 1; i <= k; i++) {
+            cin >> a[i][0] >> a[i][1];
+            a[i][0] = n - a[i][0]; a[i][1] = m - a[i][1];
+        }
+        a[k + 1] = {n, m}; k++;
+        sort(a.begin() + 1, a.end());
+ 
+        auto paths = [&](ll i, ll j) {
+            ll dx = a[j][0] - a[i][0], dy = a[j][1] - a[i][1];
+            return bnm(dx + dy, dx);
+        };
+ 
+        auto add = [&](ll &x, ll y) {
+            x = (x + y) % mod;
+            x = (x + mod) % mod;
+        };
+ 
+        vector direct(k + 1, vector<ll>(k + 1, 0));
+        for (ll i = 1; i <= k; i++) {
+            for (ll j = i - 1; j >= 0; j--) {
+                direct[j][i] = paths(j, i);
+                for (ll l = j + 1; l < i; l++) {
+                    add(direct[j][i], -paths(j, l) * direct[l][i]);
+                }
+            }
+        }
+ 
+        vector<ll> dp(k + 1, 0);
+        for (ll i = 1; i <= k; i++) {
+            for (ll j = 0; j < i; j++) {
+                if (direct[j][i] == 0) continue;
+                ll partial = dp[j];
+                ll delta = 2 * (a[i][0] - a[j][0]) + (a[i][1] - a[j][1]);
+                add(partial, paths(0, j) * delta);
+                add(dp[i], partial * direct[j][i]);
+            }
+            if (i != k) dp[i] = (2 * dp[i]) % mod;
+        }
+ 
+        ll ans = (dp[k] * inv(bnm(n + m, m))) % mod;
+        cout << ans << nl;
+    }
+ 
+    return 0;
+}
+#include <bits/stdc++.h>
+using namespace std;
+ 
+#define nl "\n"
+#define nf endl
+#define ll long long
+#define pb push_back
+#define _ << ' ' <<
+ 
+#define INF (ll)1e18
+#define mod 998244353
+#define maxn 400010
+ 
+ll fc[maxn], nv[maxn];
+ 
+ll fxp(ll b, ll e) {
+    ll r = 1, k = b;
+    while (e != 0) {
+        if (e % 2) r = (r * k) % mod;
+        k = (k * k) % mod; e /= 2;
+    }
+    return r;
+}
+ 
+ll inv(ll x) {
+    return fxp(x, mod - 2);
+}
+ 
+ll bnm(ll a, ll b) {
+    if (a < b || b < 0) return 0;
+    ll r = (fc[a] * nv[b]) % mod;
+    r = (r * nv[a - b]) % mod;
+    return r;
+}
+ 
+int main() {
+    ios::sync_with_stdio(0);
+    cin.tie(0);
+ 
+    fc[0] = 1; nv[0] = 1;
+    for (ll i = 1; i < maxn; i++) {
+        fc[i] = (i * fc[i - 1]) % mod; nv[i] = inv(fc[i]);
+    }
+ 
+    ll t; cin >> t;
+    while (t--) {
+        ll n, m, k; cin >> n >> m >> k;
+        vector<array<ll, 2>> a(k + 2, {0, 0});
+        for (ll i = 1; i <= k; i++) {
+            cin >> a[i][0] >> a[i][1];
+            a[i][0] = n - a[i][0]; a[i][1] = m - a[i][1];
+        }
+        a[k + 1] = {n, m}; k++;
+        sort(a.begin() + 1, a.end());
+ 
+        auto paths = [&](ll i, ll j) {
+            ll dx = a[j][0] - a[i][0], dy = a[j][1] - a[i][1];
+            return bnm(dx + dy, dx);
+        };
+ 
+        auto add = [&](ll &x, ll y) {
+            x = (x + y) % mod;
+            x = (x + mod) % mod;
+        };
+ 
+        vector direct(k + 1, vector<ll>(k + 1, 0));
+        for (ll i = 1; i <= k; i++) {
+            for (ll j = i - 1; j >= 0; j--) {
+                direct[j][i] = paths(j, i);
+                for (ll l = j + 1; l < i; l++) {
+                    add(direct[j][i], -paths(j, l) * direct[l][i]);
+                }
+            }
+        }
+ 
+        vector<ll> dp(k + 1, 0);
+        for (ll i = 1; i <= k; i++) {
+            for (ll j = 0; j < i; j++) {
+                if (direct[j][i] == 0) continue;
+                ll partial = dp[j];
+                ll delta = 2 * (a[i][0] - a[j][0]) + (a[i][1] - a[j][1]);
+                add(partial, paths(0, j) * delta);
+                add(dp[i], partial * direct[j][i]);
+            }
+            if (i != k) dp[i] = (2 * dp[i]) % mod;
+        }
+ 
+        ll ans = (dp[k] * inv(bnm(n + m, m))) % mod;
+        cout << ans << nl;
+    }
+ 
+    return 0;
+}
+Idea and Preparation: TheScrasse
+Solution Step 1: For simplicity, redefine the special conditions for the number of rubies and sapphires in your satchel (not chest). Step 2: Order the redefined conditions (x,y) in increasing order based on the value of x+y. Step 3: Define totali,j as the total number of ways to move from state i to state j (ignoring special condition constraints). This can be computed as:  totali,j=(|xi−xj|+|yi−yj||xi−xj|)  Step 4: Define weighti as the total contribution of all paths passing through condition i to reach the final state (n,m). This can be computed recursively as:  weighti=∑i<j≤ktotali,j×weightj  Step 5: The main insight is to account for the doubling effect of passing through multiple scrolls. If a path passes through a sequence of conditions s1,…,sc, each gem collected before entering s1 is counted with multiplicity 2c. Instead of explicitly multiplying by 2c, consider the number of subsets q1,…,qd of s1,…,sc. By summing over all subsets, the correct multiplicity is automatically handled. Step 6: Define dpi as the total value of all paths passing through condition i, considering the contribution of each state’s rubies and sapphires. This can be computed as:  dpi=(2xi+yi)×total0,i×weighti  Step 7: Compute the final answer as ∑dpi divided by the total number of ways to move from (0,0) to (n,m), which is equal to (n+mn). Clarification: The approach hinges on the insight that 2i can be derived from the structure of subsets of scrolls s1,…,sc. Generalizations to 3i or other multiplicative factors are possible by appropriately modifying weighti and adjusting the factor in Step 5. For example, a factor of 3 can be applied by multiplying path contributions by 2 at the relevant steps.
+ Step 1: For simplicity, redefine the special conditions for the number of rubies and sapphires in your satchel (not chest). Step 2: Order the redefined conditions (x,y) in increasing order based on the value of x+y. Step 3: Define totali,j as the total number of ways to move from state i to state j (ignoring special condition constraints). This can be computed as:  totali,j=(|xi−xj|+|yi−yj||xi−xj|)  Step 4: Define weighti as the total contribution of all paths passing through condition i to reach the final state (n,m). This can be computed recursively as:  weighti=∑i<j≤ktotali,j×weightj  Step 5: The main insight is to account for the doubling effect of passing through multiple scrolls. If a path passes through a sequence of conditions s1,…,sc, each gem collected before entering s1 is counted with multiplicity 2c. Instead of explicitly multiplying by 2c, consider the number of subsets q1,…,qd of s1,…,sc. By summing over all subsets, the correct multiplicity is automatically handled. Step 6: Define dpi as the total value of all paths passing through condition i, considering the contribution of each state’s rubies and sapphires. This can be computed as:  dpi=(2xi+yi)×total0,i×weighti  Step 7: Compute the final answer as ∑dpi divided by the total number of ways to move from (0,0) to (n,m), which is equal to (n+mn). Clarification: The approach hinges on the insight that 2i can be derived from the structure of subsets of scrolls s1,…,sc. Generalizations to 3i or other multiplicative factors are possible by appropriately modifying weighti and adjusting the factor in Step 5. For example, a factor of 3 can be applied by multiplying path contributions by 2 at the relevant steps.
+Clarification: The approach hinges on the insight that 2i can be derived from the structure of subsets of scrolls s1,…,sc. Generalizations to 3i or other multiplicative factors are possible by appropriately modifying weighti and adjusting the factor in Step 5. For example, a factor of 3 can be applied by multiplying path contributions by 2 at the relevant steps.
+Implementation#include <bits/stdc++.h>
+using namespace std;
+ 
+#define nl "\n"
+#define nf endl
+#define ll long long
+#define pb push_back
+#define _ << ' ' <<
+ 
+#define INF (ll)1e18
+#define mod 998244353
+#define maxn 400010
+ 
+ll fc[maxn], nv[maxn];
+ 
+ll fxp(ll b, ll e) {
+    ll r = 1, k = b;
+    while (e != 0) {
+        if (e % 2) r = (r * k) % mod;
+        k = (k * k) % mod; e /= 2;
+    }
+    return r;
+}
+ 
+ll inv(ll x) {
+    return fxp(x, mod - 2);
+}
+ 
+ll bnm(ll a, ll b) {
+    if (a < b || b < 0) return 0;
+    ll r = (fc[a] * nv[b]) % mod;
+    r = (r * nv[a - b]) % mod;
+    return r;
+}
+ 
+int main() {
+    ios::sync_with_stdio(0);
+    cin.tie(0);
+ 
+    fc[0] = 1; nv[0] = 1;
+    for (ll i = 1; i < maxn; i++) {
+        fc[i] = (i * fc[i - 1]) % mod; nv[i] = inv(fc[i]);
+    }
+ 
+    ll t; cin >> t;
+    while (t--) {
+        ll n, m, k; cin >> n >> m >> k;
+        vector<array<ll, 2>> a(k + 2, {0, 0});
+        for (ll i = 1; i <= k; i++) {
+            cin >> a[i][0] >> a[i][1];
+            a[i][0] = n - a[i][0]; a[i][1] = m - a[i][1];
+        }
+        a[k + 1] = {n, m}; k++;
+        sort(a.begin() + 1, a.end());
+ 
+        auto paths = [&](ll i, ll j) {
+            ll dx = a[j][0] - a[i][0], dy = a[j][1] - a[i][1];
+            return bnm(dx + dy, dx);
+        };
+ 
+        auto add = [&](ll &x, ll y) {
+            x = (x + y) % mod;
+            x = (x + mod) % mod;
+        };
+ 
+        vector<ll> cnt_weighted(k + 1, 0);
+        cnt_weighted[k] = 1;
+        for (ll i = k - 1; i >= 1; i--) {
+            for (ll j = i + 1; j <= k; j++) {
+                add(cnt_weighted[i], paths(i, j) * cnt_weighted[j]);
+            }
+        }
+ 
+        ll ans = 0;
+        for (ll i = 1; i <= k; i++) {
+            ll delta = 2 * a[i][0] + a[i][1];
+            add(ans, delta * paths(0, i) % mod * cnt_weighted[i]);
+        }
+ 
+        ans = (ans * inv(bnm(n + m, m))) % mod;
+        cout << ans << nl;
+    }
+ 
+    return 0;
+}
+#include <bits/stdc++.h>
+using namespace std;
+ 
+#define nl "\n"
+#define nf endl
+#define ll long long
+#define pb push_back
+#define _ << ' ' <<
+ 
+#define INF (ll)1e18
+#define mod 998244353
+#define maxn 400010
+ 
+ll fc[maxn], nv[maxn];
+ 
+ll fxp(ll b, ll e) {
+    ll r = 1, k = b;
+    while (e != 0) {
+        if (e % 2) r = (r * k) % mod;
+        k = (k * k) % mod; e /= 2;
+    }
+    return r;
+}
+ 
+ll inv(ll x) {
+    return fxp(x, mod - 2);
+}
+ 
+ll bnm(ll a, ll b) {
+    if (a < b || b < 0) return 0;
+    ll r = (fc[a] * nv[b]) % mod;
+    r = (r * nv[a - b]) % mod;
+    return r;
+}
+ 
+int main() {
+    ios::sync_with_stdio(0);
+    cin.tie(0);
+ 
+    fc[0] = 1; nv[0] = 1;
+    for (ll i = 1; i < maxn; i++) {
+        fc[i] = (i * fc[i - 1]) % mod; nv[i] = inv(fc[i]);
+    }
+ 
+    ll t; cin >> t;
+    while (t--) {
+        ll n, m, k; cin >> n >> m >> k;
+        vector<array<ll, 2>> a(k + 2, {0, 0});
+        for (ll i = 1; i <= k; i++) {
+            cin >> a[i][0] >> a[i][1];
+            a[i][0] = n - a[i][0]; a[i][1] = m - a[i][1];
+        }
+        a[k + 1] = {n, m}; k++;
+        sort(a.begin() + 1, a.end());
+ 
+        auto paths = [&](ll i, ll j) {
+            ll dx = a[j][0] - a[i][0], dy = a[j][1] - a[i][1];
+            return bnm(dx + dy, dx);
+        };
+ 
+        auto add = [&](ll &x, ll y) {
+            x = (x + y) % mod;
+            x = (x + mod) % mod;
+        };
+ 
+        vector<ll> cnt_weighted(k + 1, 0);
+        cnt_weighted[k] = 1;
+        for (ll i = k - 1; i >= 1; i--) {
+            for (ll j = i + 1; j <= k; j++) {
+                add(cnt_weighted[i], paths(i, j) * cnt_weighted[j]);
+            }
+        }
+ 
+        ll ans = 0;
+        for (ll i = 1; i <= k; i++) {
+            ll delta = 2 * a[i][0] + a[i][1];
+            add(ans, delta * paths(0, i) % mod * cnt_weighted[i]);
+        }
+ 
+        ans = (ans * inv(bnm(n + m, m))) % mod;
+        cout << ans << nl;
+    }
+ 
+    return 0;
+}
+Note: Thanks to peti1234 and wyrqwq for suggesting the idea of including this subtask!
+Idea: ArshiaDadras — Preparation: AmShZ and ArshiaDadras
+Solution It is easy to check if the solution can be achieved with only one color. For any time point x, there must be at most one interval containing x, since if multiple intervals contain x, they must be colored differently. A simple strategy is to solve the problem using three colors. First, we color some intervals with colors 1 and 2, then color others with color 3.    For each step, we find the leftmost point that has not been colored yet and color the segment that contains this point. We always choose the interval with the largest endpoint that contains the current point. By coloring the intervals alternately with colors 1 and 2, we ensure that all points are covered by exactly one of these colors.  Now, we check if we can color the intervals with just two colors using a greedy algorithm:    We iterate over the intervals sorted by start (increasingly) and then by end (decreasingly). At each point, we keep track of the number of colors used in previous intervals that are not yet closed. Let this number be I, and suppose we are currently at interval i. We color the current interval based on the value of I:      If I=0, color interval i with color 1. If I=1, color interval i with the opposite color of the current used color. If I=2, color interval i with the opposite color of the interval with the greatest endpoint among the currently open intervals.  If it is impossible to assign a unique color between overlapping intervals at any point, it can be shown that coloring the intervals using only 2 colors is impossible.  Solving G1 using G2:  It’s sufficient to check the integer points and half-points (e.g., 1.5, 2.5, …) to verify whether the coloring is valid (Why?). To handle this, we can multiply all the given points by two, effectively converting the problem into one in which only integer points exist. After this transformation, we solve the problem in the integer system of G2, where the intervals and coloring rules are defined using integer boundaries! Note: A brief explanation of why this greedy algorithm works can be found here.
+ It is easy to check if the solution can be achieved with only one color. For any time point x, there must be at most one interval containing x, since if multiple intervals contain x, they must be colored differently. A simple strategy is to solve the problem using three colors. First, we color some intervals with colors 1 and 2, then color others with color 3.    For each step, we find the leftmost point that has not been colored yet and color the segment that contains this point. We always choose the interval with the largest endpoint that contains the current point. By coloring the intervals alternately with colors 1 and 2, we ensure that all points are covered by exactly one of these colors.  Now, we check if we can color the intervals with just two colors using a greedy algorithm:    We iterate over the intervals sorted by start (increasingly) and then by end (decreasingly). At each point, we keep track of the number of colors used in previous intervals that are not yet closed. Let this number be I, and suppose we are currently at interval i. We color the current interval based on the value of I:      If I=0, color interval i with color 1. If I=1, color interval i with the opposite color of the current used color. If I=2, color interval i with the opposite color of the interval with the greatest endpoint among the currently open intervals.  If it is impossible to assign a unique color between overlapping intervals at any point, it can be shown that coloring the intervals using only 2 colors is impossible.  Solving G1 using G2:  It’s sufficient to check the integer points and half-points (e.g., 1.5, 2.5, …) to verify whether the coloring is valid (Why?). To handle this, we can multiply all the given points by two, effectively converting the problem into one in which only integer points exist. After this transformation, we solve the problem in the integer system of G2, where the intervals and coloring rules are defined using integer boundaries! Note: A brief explanation of why this greedy algorithm works can be found here.
+Solving G1 using G2:
+Note: A brief explanation of why this greedy algorithm works can be found here.
+Implementation/* In the name of Allah */
+// Welcome to the Soldier Side!
+// Where there's no one here, but me...
+#include<bits/stdc++.h>
+using namespace std;
+
+const int N = 2e5 + 5;
+int t, n, l[N], r[N], col[N];
+vector<int> st[N << 1], en[N << 1];
+
+void compress_points() {
+    vector<int> help;
+    for (int i = 0; i < n; i++) {
+        help.push_back(l[i]);
+        help.push_back(r[i]);
+    }
+
+    sort(help.begin(), help.end());
+    help.resize(unique(help.begin(), help.end()) - help.begin());
+    for (int i = 0; i < n; i++) {
+        l[i] = lower_bound(help.begin(), help.end(), l[i]) - help.begin();
+        r[i] = lower_bound(help.begin(), help.end(), r[i]) - help.begin();
+    }
+}
+
+void record_points() {
+    for (int i = 0; i < n; i++) {
+        st[l[i]].push_back(i);
+        en[r[i] + 1].push_back(i);
+    }
+    for (int i = 0; i < 2 * n; i++)
+        sort(st[i].begin(), st[i].end(), [](int i, int j) {
+            return r[i] > r[j];
+        });
+}
+
+void try3_points() {
+    fill(col, col + n, 0);
+    int cur = -1, nxt = -1, c = 2;
+    for (int i = 0; i < 2 * n; i++) {
+        if (st[i].empty())
+            continue;
+
+        if (!~cur || i > r[cur]) {
+            if (cur ^ nxt && r[nxt] < i) {
+                col[nxt] = (c ^= 3);
+                cur = nxt;
+            }
+
+            if (cur ^ nxt)
+                cur = nxt;
+            else {
+                cur = st[i][0];
+                for (int p: st[i])
+                    if (r[p] > r[cur])
+                        cur = p;
+                nxt = cur;
+            }
+            col[cur] = (c ^= 3);
+        }
+        
+        for (int p: st[i])
+            if (r[p] > r[nxt])
+                nxt = p;
+    }
+    if (cur ^ nxt)
+        col[nxt] = c ^ 3;
+}
+
+bool is_bad(set<pair<int, int>> s[2]) {
+    int cnt1 = s[0].size(), cnt2 = s[1].size();
+    return cnt1 + cnt2 && cnt1 ^ 1 && cnt2 ^ 1;
+}
+
+void try2_points() {
+    set<pair<int, int>> s[2];
+    for (int i = 0; i <= 2 * n; i++) {
+        for (int p: en[i])
+            s[col[p]].erase({r[p], p});
+        if (is_bad(s)) {
+            try3_points();
+            return;
+        }
+
+        for (int p: st[i]) {
+            int cnt1 = s[0].size();
+            int cnt2 = s[1].size();
+            if (!cnt1 || !cnt2)
+                col[p] = cnt1 > 0;
+            else if (cnt1 ^ cnt2)
+                col[p] = cnt1 < cnt2;
+            else
+                col[p] = s[0].begin()->first > s[1].begin()->first;
+
+            s[col[p]].insert({r[p], p});
+            if (is_bad(s)) {
+                try3_points();
+                return;
+            }
+        }
+    }
+}
+
+void read_input() {
+    cin >> n;
+    for (int i = 0; i < n; i++)
+        cin >> l[i] >> r[i];
+}
+
+void solve() {
+    compress_points();
+    record_points();
+    try2_points();
+}
+
+void write_output() {
+    cout << *max_element(col, col + n) + 1 << endl;
+    for (int i = 0; i < n; i++)
+        cout << col[i] + 1 << "\n "[i < n - 1];
+}
+
+void reset_variables() {
+    for (int i = 0; i < n; i++) {
+        col[i] = 0;
+        st[l[i]].clear();
+        en[r[i] + 1].clear();
+    }
+}
+
+int main() {
+    ios:: sync_with_stdio(0), cin.tie(0), cout.tie(0);
+    for (cin >> t; t--; reset_variables())
+        read_input(), solve(), write_output();
+    return 0;
+}
+/* In the name of Allah */
+// Welcome to the Soldier Side!
+// Where there's no one here, but me...
+#include<bits/stdc++.h>
+using namespace std;
+
+const int N = 2e5 + 5;
+int t, n, l[N], r[N], col[N];
+vector<int> st[N << 1], en[N << 1];
+
+void compress_points() {
+    vector<int> help;
+    for (int i = 0; i < n; i++) {
+        help.push_back(l[i]);
+        help.push_back(r[i]);
+    }
+
+    sort(help.begin(), help.end());
+    help.resize(unique(help.begin(), help.end()) - help.begin());
+    for (int i = 0; i < n; i++) {
+        l[i] = lower_bound(help.begin(), help.end(), l[i]) - help.begin();
+        r[i] = lower_bound(help.begin(), help.end(), r[i]) - help.begin();
+    }
+}
+
+void record_points() {
+    for (int i = 0; i < n; i++) {
+        st[l[i]].push_back(i);
+        en[r[i] + 1].push_back(i);
+    }
+    for (int i = 0; i < 2 * n; i++)
+        sort(st[i].begin(), st[i].end(), [](int i, int j) {
+            return r[i] > r[j];
+        });
+}
+
+void try3_points() {
+    fill(col, col + n, 0);
+    int cur = -1, nxt = -1, c = 2;
+    for (int i = 0; i < 2 * n; i++) {
+        if (st[i].empty())
+            continue;
+
+        if (!~cur || i > r[cur]) {
+            if (cur ^ nxt && r[nxt] < i) {
+                col[nxt] = (c ^= 3);
+                cur = nxt;
+            }
+
+            if (cur ^ nxt)
+                cur = nxt;
+            else {
+                cur = st[i][0];
+                for (int p: st[i])
+                    if (r[p] > r[cur])
+                        cur = p;
+                nxt = cur;
+            }
+            col[cur] = (c ^= 3);
+        }
+        
+        for (int p: st[i])
+            if (r[p] > r[nxt])
+                nxt = p;
+    }
+    if (cur ^ nxt)
+        col[nxt] = c ^ 3;
+}
+
+bool is_bad(set<pair<int, int>> s[2]) {
+    int cnt1 = s[0].size(), cnt2 = s[1].size();
+    return cnt1 + cnt2 && cnt1 ^ 1 && cnt2 ^ 1;
+}
+
+void try2_points() {
+    set<pair<int, int>> s[2];
+    for (int i = 0; i <= 2 * n; i++) {
+        for (int p: en[i])
+            s[col[p]].erase({r[p], p});
+        if (is_bad(s)) {
+            try3_points();
+            return;
+        }
+
+        for (int p: st[i]) {
+            int cnt1 = s[0].size();
+            int cnt2 = s[1].size();
+            if (!cnt1 || !cnt2)
+                col[p] = cnt1 > 0;
+            else if (cnt1 ^ cnt2)
+                col[p] = cnt1 < cnt2;
+            else
+                col[p] = s[0].begin()->first > s[1].begin()->first;
+
+            s[col[p]].insert({r[p], p});
+            if (is_bad(s)) {
+                try3_points();
+                return;
+            }
+        }
+    }
+}
+
+void read_input() {
+    cin >> n;
+    for (int i = 0; i < n; i++)
+        cin >> l[i] >> r[i];
+}
+
+void solve() {
+    compress_points();
+    record_points();
+    try2_points();
+}
+
+void write_output() {
+    cout << *max_element(col, col + n) + 1 << endl;
+    for (int i = 0; i < n; i++)
+        cout << col[i] + 1 << "\n "[i < n - 1];
+}
+
+void reset_variables() {
+    for (int i = 0; i < n; i++) {
+        col[i] = 0;
+        st[l[i]].clear();
+        en[r[i] + 1].clear();
+    }
+}
+
+int main() {
+    ios:: sync_with_stdio(0), cin.tie(0), cout.tie(0);
+    for (cin >> t; t--; reset_variables())
+        read_input(), solve(), write_output();
+    return 0;
+}
+Note: Special thanks to Prof. Mohammad Ali Abam for proposing this problem!
+Fun fact: He wasn’t able to solve it himself, but when he presented it to me [Arshia is talking...], he said, “I don’t know how to solve it yet, but I guess its difficulty would be at most around E…”)
+Idea and Preparation: ArshiaDadras
+Solution Step 1: It is easy to check if the solution can be achieved with only one color. For any time point x, there must be at most one interval containing x, since if multiple intervals contain x, they must be colored differently. Step 2: A simple strategy is to solve the problem using three colors; First, we color some intervals with colors 1 and 2, then color others with color 3. For each step, we find the leftmost point that has not been colored yet and color the segment that contains this point. We always choose the interval with the largest endpoint that contains the current point. By coloring the intervals alternately with colors 1 and 2, we ensure that all points are covered by exactly one of these colors. Step 3: Now, we check if we can color the intervals with just two colors. For some point, x, suppose we have already colored the intervals [li,ri] with li≤x, such that all points before x have a unique color. At each step, we only need to determine which of the intervals like p that lp≤x≤rp can have a unique color. The key observation is that if an interval can be uniquely colored at time x, it can also remain uniquely colored for all times t such that x≤t≤ri.    Lemma: If an interval [li,ri] can be uniquely colored at time x, it can also be uniquely colored at all subsequent times x≤t≤ri. Proof: Consider coloring the intervals at time x. Intervals starting at x+1 will be colored with the opposite color to interval i, ensuring that the interval remains uniquely colored at time x+1. With this lemma, we can conclude that the changes in the coloring are O(n). It suffices to track the intervals that are added and removed at each point in time.  Step 4: To efficiently move from time x to x+1, we perform the following steps:    Remove the intervals that have ri=x (since they no longer contain x+1). Add the intervals that have li=x+1. Update the set of intervals that can be uniquely colored at time x+1.  Step 5: Finally, we observe that only the following points are important for the coloring:  li and ri for each interval. li−1 and ri+1, since these points mark the boundaries where intervals start or end.  Thus, we can compress the numbers to reduce the range of values we need to process.
+ Step 1: It is easy to check if the solution can be achieved with only one color. For any time point x, there must be at most one interval containing x, since if multiple intervals contain x, they must be colored differently. Step 2: A simple strategy is to solve the problem using three colors; First, we color some intervals with colors 1 and 2, then color others with color 3. For each step, we find the leftmost point that has not been colored yet and color the segment that contains this point. We always choose the interval with the largest endpoint that contains the current point. By coloring the intervals alternately with colors 1 and 2, we ensure that all points are covered by exactly one of these colors. Step 3: Now, we check if we can color the intervals with just two colors. For some point, x, suppose we have already colored the intervals [li,ri] with li≤x, such that all points before x have a unique color. At each step, we only need to determine which of the intervals like p that lp≤x≤rp can have a unique color. The key observation is that if an interval can be uniquely colored at time x, it can also remain uniquely colored for all times t such that x≤t≤ri.    Lemma: If an interval [li,ri] can be uniquely colored at time x, it can also be uniquely colored at all subsequent times x≤t≤ri. Proof: Consider coloring the intervals at time x. Intervals starting at x+1 will be colored with the opposite color to interval i, ensuring that the interval remains uniquely colored at time x+1. With this lemma, we can conclude that the changes in the coloring are O(n). It suffices to track the intervals that are added and removed at each point in time.  Step 4: To efficiently move from time x to x+1, we perform the following steps:    Remove the intervals that have ri=x (since they no longer contain x+1). Add the intervals that have li=x+1. Update the set of intervals that can be uniquely colored at time x+1.  Step 5: Finally, we observe that only the following points are important for the coloring:  li and ri for each interval. li−1 and ri+1, since these points mark the boundaries where intervals start or end.  Thus, we can compress the numbers to reduce the range of values we need to process.
+Step 5: Finally, we observe that only the following points are important for the coloring:
+Thus, we can compress the numbers to reduce the range of values we need to process.
+Implementation/* In the name of Allah */
+// Welcome to the Soldier Side!
+// Where there's no one here, but me...
+#include<bits/stdc++.h>
+using namespace std;
+
+const int N = 2e5 + 5;
+vector<int> st[N << 2], en[N << 2];
+int t, n, k, l[N], r[N], dp[N], col[N], prv[N];
+
+void compress_numbers() {
+    vector<int> help;
+    for (int i = 0; i < n; i++) {
+        help.push_back(l[i] - 1);
+        help.push_back(l[i]);
+        help.push_back(r[i]);
+        help.push_back(r[i] + 1);
+    }
+
+    sort(help.begin(), help.end());
+    help.resize(k = unique(help.begin(), help.end()) - help.begin());
+    for (int i = 0; i < n; i++) {
+        l[i] = lower_bound(help.begin(), help.end(), l[i]) - help.begin();
+        r[i] = lower_bound(help.begin(), help.end(), r[i]) - help.begin();
+    }
+}
+
+void save_checkpoints() {
+    for (int i = 0; i < n; i++) {
+        st[l[i]].push_back(i);
+        en[r[i]].push_back(i);
+    }
+}
+
+bool check_one() {
+    for (int i = 0, open = 0; i < k; i++) {
+        open += st[i].size();
+        if (open > 1)
+            return false;
+        open -= en[i].size();
+    }
+    return true;
+}
+
+void color_with_two() {
+    for (int i = k - 1, cur = -1; ~i; i--) {
+        if (en[i].empty())
+            continue;
+
+        while (!~cur || i < dp[cur])
+            if (~cur && ~prv[cur]) {
+                col[prv[cur]] = col[cur];
+                if (r[prv[cur]] >= l[cur])
+                    col[prv[cur]] ^= 1;
+                cur = prv[cur];
+            }
+            else
+                for (int p: en[i])
+                    if (~dp[p] && (!~cur || dp[p] < dp[cur]))
+                        cur = p;
+
+        for (int p: en[i])
+            if (p ^ cur)
+                col[p] = col[cur] ^ 1;
+    }
+}
+
+bool check_two() {
+    set<int> goods, bads;
+    fill(dp, dp + n, -1);
+    fill(prv, prv + n, -1);
+    for (int i = 0; i < k; i++) {
+        int prev = -1;
+        if (i)
+            for (int p: en[i - 1]) {
+                bads.erase(p), goods.erase(p);
+                if (~dp[p] && (!~prev || dp[p] < dp[prev]))
+                    prev = p;
+            }
+        int open = goods.size() + bads.size();
+
+        if (open == 1 || (open == 2 && !goods.empty())) {
+            for (int p: bads) {
+                if (open == 1)
+                    prv[p] = prev;
+                else
+                    prv[p] = *goods.begin();
+                goods.insert(p);
+                dp[p] = i;
+            }
+            bads.clear();
+        }
+
+        if (open == 1)
+            prev = *goods.begin();
+        for (int p: st[i])
+            if (!open || open == 1 || ~prev) {
+                goods.insert(p);
+                prv[p] = prev;
+                dp[p] = i;
+            }
+            else
+                bads.insert(p);
+        open += st[i].size();
+
+        if (open && goods.empty())
+            return false;
+    }
+
+    color_with_two();
+    return true;
+}
+
+void color_with_three() {
+    int cur = -1, nxt = -1;
+    for (int i = 0; i < k; i++) {
+        if (st[i].empty())
+            continue;
+
+        if (~cur && i > r[cur] && nxt ^ cur) {
+            col[nxt] = col[cur] ^ 3;
+            cur = nxt;
+        }
+        if (!~cur || i > r[cur]) {
+            for (int p: st[i])
+                if (!~cur || r[p] > r[cur])
+                    cur = p;
+            col[nxt = cur] = 1;
+        }
+
+        for (int p: st[i])
+            if (r[p] > r[nxt])
+                nxt = p;
+    }
+
+    if (cur ^ nxt)
+        col[nxt] = col[cur] ^ 3;
+}
+
+void read_input() {
+    cin >> n;
+    for (int i = 0; i < n; i++)
+        cin >> l[i] >> r[i];
+}
+
+void solve() {
+    compress_numbers();
+    save_checkpoints();
+    if (check_one())
+        return;
+    if (check_two())
+        return;
+    color_with_three();
+}
+
+void write_output() {
+    cout << *max_element(col, col + n) + 1 << endl;
+    for (int i = 0; i < n; i++)
+        cout << col[i] + 1 << "\n "[i < n - 1];
+}
+
+void reset_variables() {
+    fill(col, col + n, 0);
+    for (int i = 0; i < k; i++) {
+        st[i].clear();
+        en[i].clear();
+    }
+}
+
+int main() {
+    ios:: sync_with_stdio(0), cin.tie(0), cout.tie(0);
+    for (cin >> t; t--; reset_variables())
+        read_input(), solve(), write_output();
+    return 0;
+}
+/* In the name of Allah */
+// Welcome to the Soldier Side!
+// Where there's no one here, but me...
+#include<bits/stdc++.h>
+using namespace std;
+
+const int N = 2e5 + 5;
+vector<int> st[N << 2], en[N << 2];
+int t, n, k, l[N], r[N], dp[N], col[N], prv[N];
+
+void compress_numbers() {
+    vector<int> help;
+    for (int i = 0; i < n; i++) {
+        help.push_back(l[i] - 1);
+        help.push_back(l[i]);
+        help.push_back(r[i]);
+        help.push_back(r[i] + 1);
+    }
+
+    sort(help.begin(), help.end());
+    help.resize(k = unique(help.begin(), help.end()) - help.begin());
+    for (int i = 0; i < n; i++) {
+        l[i] = lower_bound(help.begin(), help.end(), l[i]) - help.begin();
+        r[i] = lower_bound(help.begin(), help.end(), r[i]) - help.begin();
+    }
+}
+
+void save_checkpoints() {
+    for (int i = 0; i < n; i++) {
+        st[l[i]].push_back(i);
+        en[r[i]].push_back(i);
+    }
+}
+
+bool check_one() {
+    for (int i = 0, open = 0; i < k; i++) {
+        open += st[i].size();
+        if (open > 1)
+            return false;
+        open -= en[i].size();
+    }
+    return true;
+}
+
+void color_with_two() {
+    for (int i = k - 1, cur = -1; ~i; i--) {
+        if (en[i].empty())
+            continue;
+
+        while (!~cur || i < dp[cur])
+            if (~cur && ~prv[cur]) {
+                col[prv[cur]] = col[cur];
+                if (r[prv[cur]] >= l[cur])
+                    col[prv[cur]] ^= 1;
+                cur = prv[cur];
+            }
+            else
+                for (int p: en[i])
+                    if (~dp[p] && (!~cur || dp[p] < dp[cur]))
+                        cur = p;
+
+        for (int p: en[i])
+            if (p ^ cur)
+                col[p] = col[cur] ^ 1;
+    }
+}
+
+bool check_two() {
+    set<int> goods, bads;
+    fill(dp, dp + n, -1);
+    fill(prv, prv + n, -1);
+    for (int i = 0; i < k; i++) {
+        int prev = -1;
+        if (i)
+            for (int p: en[i - 1]) {
+                bads.erase(p), goods.erase(p);
+                if (~dp[p] && (!~prev || dp[p] < dp[prev]))
+                    prev = p;
+            }
+        int open = goods.size() + bads.size();
+
+        if (open == 1 || (open == 2 && !goods.empty())) {
+            for (int p: bads) {
+                if (open == 1)
+                    prv[p] = prev;
+                else
+                    prv[p] = *goods.begin();
+                goods.insert(p);
+                dp[p] = i;
+            }
+            bads.clear();
+        }
+
+        if (open == 1)
+            prev = *goods.begin();
+        for (int p: st[i])
+            if (!open || open == 1 || ~prev) {
+                goods.insert(p);
+                prv[p] = prev;
+                dp[p] = i;
+            }
+            else
+                bads.insert(p);
+        open += st[i].size();
+
+        if (open && goods.empty())
+            return false;
+    }
+
+    color_with_two();
+    return true;
+}
+
+void color_with_three() {
+    int cur = -1, nxt = -1;
+    for (int i = 0; i < k; i++) {
+        if (st[i].empty())
+            continue;
+
+        if (~cur && i > r[cur] && nxt ^ cur) {
+            col[nxt] = col[cur] ^ 3;
+            cur = nxt;
+        }
+        if (!~cur || i > r[cur]) {
+            for (int p: st[i])
+                if (!~cur || r[p] > r[cur])
+                    cur = p;
+            col[nxt = cur] = 1;
+        }
+
+        for (int p: st[i])
+            if (r[p] > r[nxt])
+                nxt = p;
+    }
+
+    if (cur ^ nxt)
+        col[nxt] = col[cur] ^ 3;
+}
+
+void read_input() {
+    cin >> n;
+    for (int i = 0; i < n; i++)
+        cin >> l[i] >> r[i];
+}
+
+void solve() {
+    compress_numbers();
+    save_checkpoints();
+    if (check_one())
+        return;
+    if (check_two())
+        return;
+    color_with_three();
+}
+
+void write_output() {
+    cout << *max_element(col, col + n) + 1 << endl;
+    for (int i = 0; i < n; i++)
+        cout << col[i] + 1 << "\n "[i < n - 1];
+}
+
+void reset_variables() {
+    fill(col, col + n, 0);
+    for (int i = 0; i < k; i++) {
+        st[i].clear();
+        en[i].clear();
+    }
+}
+
+int main() {
+    ios:: sync_with_stdio(0), cin.tie(0), cout.tie(0);
+    for (cin >> t; t--; reset_variables())
+        read_input(), solve(), write_output();
+    return 0;
+}
+Note: Thanks to wyrqwq and Error_Yuan for suggesting the idea of including this subtask!
+Idea and Preparation: MohammadParsaElahimanesh
+Solution Step 1: According to Bézout's Identity, we can compute gcd(x1,…,xt) and all its multipliers as an integer linear combination of x1,x2,…,xt. Step 2: A set {a1,…,ak} is good (integer linearly independent) if for every i, gcd({aj∣j≠i})∤ai. Step 3: A set {a1,…,ak} is good if and only if there exists a set {p1q1,p2q2,…,pkqk} such that piqi∣aj for j≠i and piqi∤ai. Step 4: The set {a1,…,ak} can be identified by determining {p1q1,p2q2,…,pkqk}. Assume pq11<pq22<…<pqkk, where pi≠pj and pi is prime. Step 5: Let G=p1q1⋅p2q2…⋅pkqk. Then {a1,…,ak} is good if and only if Gpiqi∣ai and G∤ai for every i. Step 6: The answer is a singleton if, for every pair of numbers x and y in the array, x∣y or y∣x. Since the numbers are distinct, a good subset {a1,a2} can always be found by searching the first logM+2 elements. Step 7: Define CM[i] (count multipliers of i) as the number of x such that i∣ax. This can be computed in O(n+MlogM). Step 8: A corresponding set {a1,…,ak} exists for a set {p1q1,p2q2,…,pkqk} if and only if CM[Gpiqi]>CM[G]≥0 for all i. Step 9: Iterate over all valid sets of the form {p1q1,p2q2,…,pkqk}, and check if a corresponding {a1,a2,…,ak} exists. Note that k≥3 since a good subset {a1,a2} is found using another method. Step 10: We know Gp1q1≤M and also p1q1≤√M, as p1q1≤√p2q2⋅p3q3≤√Gp1q1≤√M. Step 11: There are ∑logM2i=1P[⌊2i√M⌋] numbers in the form p1q1, where P[i] denotes the number of primes in the range [1,i]. This count is O(√MlogM). Step 12: The value of k is at most 6 (denoted as K), as p2q2…pkqk=Gp1q1≤M, and 3⋅5⋅7⋅11⋅13≤M<3⋅5⋅7⋅11⋅13⋅17. Step 13: We can determine {a1,…,ak} from {p1q1,p2q2,…,pkqk} in O(n⋅K). The total time complexity is O(T⋅M⋅√MlogM⋅K+T⋅M⋅logM+∑Ti=0ni⋅K).
+ Step 1: According to Bézout's Identity, we can compute gcd(x1,…,xt) and all its multipliers as an integer linear combination of x1,x2,…,xt. Step 2: A set {a1,…,ak} is good (integer linearly independent) if for every i, gcd({aj∣j≠i})∤ai. Step 3: A set {a1,…,ak} is good if and only if there exists a set {p1q1,p2q2,…,pkqk} such that piqi∣aj for j≠i and piqi∤ai. Step 4: The set {a1,…,ak} can be identified by determining {p1q1,p2q2,…,pkqk}. Assume pq11<pq22<…<pqkk, where pi≠pj and pi is prime. Step 5: Let G=p1q1⋅p2q2…⋅pkqk. Then {a1,…,ak} is good if and only if Gpiqi∣ai and G∤ai for every i. Step 6: The answer is a singleton if, for every pair of numbers x and y in the array, x∣y or y∣x. Since the numbers are distinct, a good subset {a1,a2} can always be found by searching the first logM+2 elements. Step 7: Define CM[i] (count multipliers of i) as the number of x such that i∣ax. This can be computed in O(n+MlogM). Step 8: A corresponding set {a1,…,ak} exists for a set {p1q1,p2q2,…,pkqk} if and only if CM[Gpiqi]>CM[G]≥0 for all i. Step 9: Iterate over all valid sets of the form {p1q1,p2q2,…,pkqk}, and check if a corresponding {a1,a2,…,ak} exists. Note that k≥3 since a good subset {a1,a2} is found using another method. Step 10: We know Gp1q1≤M and also p1q1≤√M, as p1q1≤√p2q2⋅p3q3≤√Gp1q1≤√M. Step 11: There are ∑logM2i=1P[⌊2i√M⌋] numbers in the form p1q1, where P[i] denotes the number of primes in the range [1,i]. This count is O(√MlogM). Step 12: The value of k is at most 6 (denoted as K), as p2q2…pkqk=Gp1q1≤M, and 3⋅5⋅7⋅11⋅13≤M<3⋅5⋅7⋅11⋅13⋅17. Step 13: We can determine {a1,…,ak} from {p1q1,p2q2,…,pkqk} in O(n⋅K). The total time complexity is O(T⋅M⋅√MlogM⋅K+T⋅M⋅logM+∑Ti=0ni⋅K).
+The total time complexity is O(T⋅M⋅√MlogM⋅K+T⋅M⋅logM+∑Ti=0ni⋅K).
+Implementation/// In the name of God the most beneficent the most merciful
+
+#pragma GCC optimize("Ofast,no-stack-protector,unroll-loops,fast-math,O3")
+#include <bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+
+constexpr int T = 100;
+constexpr int M = 100001;
+constexpr int SQM = 320;
+constexpr int LGM = 20;
+vector<pair<int,int>> factor;
+int t, n[T], count_multipliers[T][M];
+bitset<M> is_composite;
+vector<int> ans[T], a[T];
+
+inline void calculate_importants() {
+    for(int i = 2; i < SQM; i++)
+        if(!is_composite[i]) {
+            for(int j = i; j < M; j *= i)
+                factor.push_back({j,i});
+            for(int j = i*i; j < M; j += i)
+                is_composite.set(j);
+        }
+    for(int i = SQM; i < M; i++)
+        if(!is_composite[i])
+            factor.push_back({i,i});
+    sort(factor.begin(), factor.end());
+}
+
+void check(vector<int> &factors, int G) {
+    if(factors.size() > 2u) {
+        for(int i = 0; i < t; i++) 
+            if(ans[i].size() < factors.size()) {
+                int count_product = (G < M? count_multipliers[i][G] : 0);
+                bool can = true;	
+                for(auto u: factors)
+                    if(count_multipliers[i][G/factor[u].first] == count_product) {
+                        can = false;
+                        break;
+                    }
+                if(can)
+                    ans[i] = factors;
+            }
+    }
+    int bound = (factors.size() == 1 ? SQM : M);
+    if(1LL*G/factor[factors[0]].first*factor[factors.back()].first > bound)
+        return;
+    for(int new_factor = factors.back(); G/factor[factors[0]].first*factor[new_factor].first <= bound; new_factor++) 
+        if(G%factor[new_factor].second) {
+            factors.push_back(new_factor);
+            check(factors, G*factor[new_factor].first);
+            factors.pop_back();
+        }
+}
+
+int main() {
+    ios_base :: sync_with_stdio(false); cin.tie(nullptr);
+    calculate_importants();
+    cin >> t;
+    for(int i = 0; i < t; i++) {
+        cin >> n[i];
+        a[i].resize(n[i]);
+        for(int j = 0; j < n[i]; j++) {
+            cin >> a[i][j];
+            count_multipliers[i][a[i][j]]++;
+        }
+        ans[i] = {a[i][0]};
+        sort(a[i].begin(), a[i].begin()+min(n[i], LGM));
+        for(int c = 0; c+1 < n[i]; c++)
+            if(a[i][c+1]%a[i][c]) {
+                ans[i] = {a[i][c], a[i][c+1]};
+                break;
+            }
+        for(int c = 1; c < M; c++)
+            for(int j = c+c; j < M; j += c)
+                count_multipliers[i][c] += count_multipliers[i][j];
+    }
+    for(int i = 0; factor[i].first < SQM; i++) {
+        vector<int> starter = {i};
+        check(starter, factor[i].first);
+    }
+    for(int i = 0; i < t; i++) {
+        int k = ans[i].size();
+        cout << k << '\n';
+        if(k == 1u) {
+            cout << ans[i][0] << '\n';
+        } else if(k == 2u) {
+            cout << ans[i][0] << ' ' << ans[i][1] << '\n';
+        } else {
+            int subset[k];
+            for(auto u: a[i]) {
+                int ls = -1;
+                for(int j = 0; j < (int)k; j++)
+                    if(u%factor[ans[i][j]].first)
+                        ls = (ls == -1? j: -2);
+                if(ls >= 0)
+                    subset[ls] = u;
+            }
+            for(int j = 0; j < k; j++)
+                cout << subset[j] << (j+1 == k? '\n' : ' ');
+        }
+    }
+    return 0;
+}
+
+/// Thank God . . .
+/// In the name of God the most beneficent the most merciful
+
+#pragma GCC optimize("Ofast,no-stack-protector,unroll-loops,fast-math,O3")
+#include <bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+
+constexpr int T = 100;
+constexpr int M = 100001;
+constexpr int SQM = 320;
+constexpr int LGM = 20;
+vector<pair<int,int>> factor;
+int t, n[T], count_multipliers[T][M];
+bitset<M> is_composite;
+vector<int> ans[T], a[T];
+
+inline void calculate_importants() {
+    for(int i = 2; i < SQM; i++)
+        if(!is_composite[i]) {
+            for(int j = i; j < M; j *= i)
+                factor.push_back({j,i});
+            for(int j = i*i; j < M; j += i)
+                is_composite.set(j);
+        }
+    for(int i = SQM; i < M; i++)
+        if(!is_composite[i])
+            factor.push_back({i,i});
+    sort(factor.begin(), factor.end());
+}
+
+void check(vector<int> &factors, int G) {
+    if(factors.size() > 2u) {
+        for(int i = 0; i < t; i++) 
+            if(ans[i].size() < factors.size()) {
+                int count_product = (G < M? count_multipliers[i][G] : 0);
+                bool can = true;	
+                for(auto u: factors)
+                    if(count_multipliers[i][G/factor[u].first] == count_product) {
+                        can = false;
+                        break;
+                    }
+                if(can)
+                    ans[i] = factors;
+            }
+    }
+    int bound = (factors.size() == 1 ? SQM : M);
+    if(1LL*G/factor[factors[0]].first*factor[factors.back()].first > bound)
+        return;
+    for(int new_factor = factors.back(); G/factor[factors[0]].first*factor[new_factor].first <= bound; new_factor++) 
+        if(G%factor[new_factor].second) {
+            factors.push_back(new_factor);
+            check(factors, G*factor[new_factor].first);
+            factors.pop_back();
+        }
+}
+
+int main() {
+    ios_base :: sync_with_stdio(false); cin.tie(nullptr);
+    calculate_importants();
+    cin >> t;
+    for(int i = 0; i < t; i++) {
+        cin >> n[i];
+        a[i].resize(n[i]);
+        for(int j = 0; j < n[i]; j++) {
+            cin >> a[i][j];
+            count_multipliers[i][a[i][j]]++;
+        }
+        ans[i] = {a[i][0]};
+        sort(a[i].begin(), a[i].begin()+min(n[i], LGM));
+        for(int c = 0; c+1 < n[i]; c++)
+            if(a[i][c+1]%a[i][c]) {
+                ans[i] = {a[i][c], a[i][c+1]};
+                break;
+            }
+        for(int c = 1; c < M; c++)
+            for(int j = c+c; j < M; j += c)
+                count_multipliers[i][c] += count_multipliers[i][j];
+    }
+    for(int i = 0; factor[i].first < SQM; i++) {
+        vector<int> starter = {i};
+        check(starter, factor[i].first);
+    }
+    for(int i = 0; i < t; i++) {
+        int k = ans[i].size();
+        cout << k << '\n';
+        if(k == 1u) {
+            cout << ans[i][0] << '\n';
+        } else if(k == 2u) {
+            cout << ans[i][0] << ' ' << ans[i][1] << '\n';
+        } else {
+            int subset[k];
+            for(auto u: a[i]) {
+                int ls = -1;
+                for(int j = 0; j < (int)k; j++)
+                    if(u%factor[ans[i][j]].first)
+                        ls = (ls == -1? j: -2);
+                if(ls >= 0)
+                    subset[ls] = u;
+            }
+            for(int j = 0; j < k; j++)
+                cout << subset[j] << (j+1 == k? '\n' : ' ');
+        }
+    }
+    return 0;
+}
+
+/// Thank God . . .

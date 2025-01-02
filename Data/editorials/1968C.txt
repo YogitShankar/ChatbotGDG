@@ -1,0 +1,555 @@
+Editorial for Problem: C. Assembly via Remainders
+Problem ID: 1968C
+
+Solution:
+We thank everyone who participated in the round.1968A - Maximize?Author: SashaT9 Hint 1Try to find the upper bound of gcd(x,y)+y. Hint 2gcd(x,y)+y=gcd(x−y,y)+y. Hint 3gcd(x,y)+y≤x. Try to find such y, that gcd(x,y)+y=x? Solution1968A - Maximize?The core idea is to find the upper bound of $$$\gcd(x,y)+y$$$.Let us look closer at the formula $$$\gcd(x,y)+y$$$. It is a well-known fact that $$$\gcd(a,b)=\gcd(a-b,b)$$$ for $$$a\geq b$$$. Applying it to our formula, we get $$$\gcd(x-y,y)+y$$$.Using the fact that $$$\gcd(x-y,y)\le x-y$$$, we get $$$\gcd(x-y,y)+y\le x-y+y=x$$$. Hence, $$$\gcd(x,y)+y\le x$$$ for $$$1\le y<x$$$.For $$$y=x-1$$$, we have $$$\gcd(x,x-1)+x-1=1+x-1=x$$$, which is the maximal possible value.Note that the constraints allow finding the optimal $$$y$$$ in $$$O(x)$$$, while the above solution works in $$$O(1)$$$. Implementation#include<iostream>
+using namespace std;
+int main(){
+	int t;
+	cin>>t;
+	while(t--){
+		int x;
+		cin>>x;
+		cout<<x-1<<"\n";
+	}
+} Rate the problem Didn't solve 
+
+
+
+
+54
+
+
+
+
+
+ Good task 
+
+    
+
+
+451
+
+
+
+ Average task 
+
+    
+
+
+49
+
+
+
+ Bad task 
+
+    
+
+
+36
+
+
+
+ 1968B - PrefiquenceAuthor: FBI Hint 1Try to check for every k if the prefix of a of length k is a subsequence of b. Solution1968B - PrefiquenceWe will be solving this task using dynamic programming.Let us define $$$dp_i$$$ as the maximal prefix of $$$a$$$ that is contained in $$$b_1,\dots,b_i$$$ as a subsequence.Then the transitions are as follows:  if $$$b_i$$$ is equal to $$$a_{dp_{i-1}+1}$$$ then $$$dp_i = dp_{i-1} + 1$$$.  otherwise $$$dp_i=dp_{i-1}$$$. The answer is $$$dp_{m}$$$. Implementation#include<iostream>
+#include<vector>
+using namespace std;
+int main(){
+	int t;
+	cin>>t;
+	while(t--){
+		int n,m;
+		cin>>n>>m;
+		vector<char>a(n+1),b(m+1);
+		for(int i=1;i<=n;i++){
+			cin>>a[i];
+		}
+		for(int i=1;i<=m;i++){
+			cin>>b[i];
+		}
+		vector<int>dp(m+1);
+		dp[1]=(a[1]==b[1]?1:0);
+		for(int i=2;i<=m;i++){
+			if(dp[i-1]!=n && b[i]==a[dp[i-1]+1]){
+				dp[i]=dp[i-1]+1;
+			}else{
+				dp[i]=dp[i-1];
+			}
+		}
+		cout<<dp[m]<<"\n";
+	}
+} Rate the problem Didn't solve 
+
+    
+
+
+33
+
+
+
+ Good task 
+
+    
+
+
+185
+
+
+
+ Average task 
+
+    
+
+
+107
+
+
+
+ Bad task 
+
+    
+
+
+32
+
+
+
+ 1968C - Assembly via RemaindersAuthor: SashaT9 Hint 1Why constraints are small? Hint 2Try to think about increacing a1,…,an. Hint 3((a+b)moda)=b for 0≤b<a. Solution1968C - Assembly via RemaindersNotice that $$$((a+b) \bmod a)=b$$$ for $$$0\le b< a$$$. So we may try to generate a sequence with $$$b=x_i$$$.Let us take $$$a_1=1000$$$, because $$$1000$$$ is larger than any of $$$x_i$$$. Then, we can take $$$a_i$$$ as $$$a_{i-1}+x_i$$$, since $$$((a_{i-1}+x_i)\bmod a_{i-1})=x_i$$$ will be hold.The maximal value of $$$a$$$ will be at most $$$1000+500n$$$ what is smaller than $$$10^9$$$. Implementation#include<iostream>
+using namespace std;
+int main(){
+	int t;
+	cin>>t;
+	while(t--){
+		int n;
+		cin>>n;
+		int S=1000;
+		cout<<S<<" ";
+		for(int i=2;i<=n;i++){
+			int x;
+			cin>>x;
+			S+=x;
+			cout<<S<<" ";
+		}
+		cout<<"\n";
+	}
+} Rate the problem Didn't solve 
+
+    
+
+
+55
+
+
+
+ Good task 
+
+    
+
+
+335
+
+
+
+ Average task 
+
+    
+
+
+53
+
+
+
+ Bad task 
+
+    
+
+
+33
+
+
+
+ 1968D - Permutation GameAuthor: FBI Hint 1Consider a cycle of the permutation. Hint 2When it is optimal to stay on the same place till the end of the game? Solution1968D - Permutation GameBecause $$$p$$$ is a permutation, it will be divided into cycles.For every player it is optimal to move during the first $$$min(n,k)$$$ turns. We will answer the question by calculating maximal possible score for both players.Let us define $$$sum_i$$$ and $$$pos_i$$$:  sum of values in the positions that occur during the first $$$i$$$ turns.  position in which player will stop if he decides to move $$$i$$$ times.  We will calculate them as follows:   $$$sum_i = sum_{i-1} + a_{pos_{i}}$$$  $$$pos_i$$$=$$$p_{pos_{i-1}}$$$. Now the maximal possible answer for one player is equal to:$$$$$$ans=\max\limits_{0\le i\le \min(n,k)}(sum_i+(k-i)a_{pos_i})$$$$$$Now we will compare maximal possible answers for every player. Implementation#include<bits/stdc++.h>
+using namespace std;
+long long score(vector<int>&p,vector<int>&a,int s,int k){
+	int n=p.size();
+	long long mx=0,cur=0;
+	vector<bool>vis(n);
+	while(!vis[s]&&k>0){
+		vis[s]=1;
+		mx=max(mx,cur+1ll*k*a[s]);
+		cur+=a[s];
+		k--;
+		s=p[s];
+	}
+	return mx;
+}
+int main(){
+	int t;
+	cin>>t;
+	while(t--){
+		int n,k,s1,s2;
+		cin>>n>>k>>s1>>s2;
+		vector<int>p(n),a(n);
+		for(auto&e:p){
+			cin>>e;
+			e--;
+		}
+		for(auto&e:a){
+			cin>>e;
+		}
+		long long A=score(p,a,s1-1,k),B=score(p,a,s2-1,k);
+		cout<<(A>B?"Bodya\n":A<B?"Sasha\n":"Draw\n");
+	}
+}
+ Rate the problem Didn't solve 
+
+    
+
+
+97
+
+
+
+ Good task 
+
+    
+
+
+413
+
+
+
+ Average task 
+
+    
+
+
+30
+
+
+
+ Bad task 
+
+    
+
+
+22
+
+
+
+ 1968E - Cells ArrangementAuthor: SashaT9 Hint 1What is the maximal possible size of H? Hint 2Can you always get that size for n≥4? Hint 3Consider odd and even distances independently. SolutionLet us find an interesting pattern for n≥4. Pattern for n=4 Pattern for n=5Can you generalize the pattern? We put n−2 cells on the main diagonal. Then put two cells at (n−1,n) and (n,n).But why does it work? Interesting fact, that in such way we generate all possible Manhattan distances. Odd distances are generated between cells from the main diagonal and (n−1,n). Even distances are generated between cells from the main diagonal and (n,n). Implementation#include<iostream>
+using namespace std;
+int main(){
+	int t;
+	cin>>t;
+	while(t--){
+		int n;
+		cin>>n;
+		for(int i=1;i<=n-2;i++){
+			cout<<i<<' '<<i<<"\n";
+		}
+		cout<<n-1<<' '<<n<<"\n"<<n<<' '<<n<<"\n";
+	}
+} Rate the problem Didn't solve 
+
+    
+
+
+100
+
+
+
+ Good task 
+
+    
+
+
+273
+
+
+
+ Average task 
+
+    
+
+
+31
+
+
+
+ Bad task 
+
+    
+
+
+361
+
+
+
+ 1968F - Equal XOR SegmentsAuthor: SashaT9 Hint 1Is it useful to divide the segment into more than three segments? Hint 2Use the fact, that x⊕x=0 and x⊕x⊕x=x. Hint 3When you can divide the segment into 2 parts? Hint 4When can you divide the segment into 3 parts? Solution1968F - Equal XOR SegmentsObservation: any division on more than $$$k>3$$$ segments can be reduced to at most $$$3$$$ segments.Proof: suppose the XORs of elements from the segments are $$$x_1,\dots,x_k$$$. The condition $$$x_1=x_2=\dots=x_k$$$ must be fulfilled. If $$$k>3$$$ we may take any three consecutive segments and merge them into one, because $$$x\oplus x\oplus x=x$$$. In such way, we reduce $$$k$$$ by two. We may repeat this process while $$$k>3$$$.Let us construct an array $$$b_1=a_1$$$ and $$$b_i=b_{i-1}\oplus a_i$$$ for $$$i\geq 2$$$. Now, $$$a_l\oplus a_{l+1}\oplus \dots \oplus a_r=b_r\oplus b_{l-1}$$$.There are two cases:   $$$k=2$$$, meaning that we divide the segment $$$[l,r]$$$ into two segments. Suppose the segments are $$$[l,m]$$$ and $$$[m+1,r]$$$. In such case we must check if $$$b_m\oplus b_{l-1}=b_{r}\oplus b_m$$$. This equality reduces to $$$b_{l-1}=b_r$$$.  $$$k=3$$$, meaning that we divide segment $$$[l,r]$$$ into $$$[l,s]$$$, $$$[s+1,t]$$$ and $$$[t+1,r]$$$. We must check if $$$b_s\oplus b_{l-1}=b_{t}\oplus b_s$$$ and $$$b_s \oplus b_{t}=b_r \oplus b_{t}$$$. It is equivalent to check if $$$b_{l-1}=b_t$$$ and $$$b_s=b_r$$$. Also, $$$s<t$$$ must be fulfilled. Hence, we may find the largest $$$t < r$$$ that $$$b_t=b_{l-1}$$$ and the minimal $$$s\geq l$$$ that $$$b_s=b_r$$$. It can be done using binary search on the positions of a certain value.  Implementation#include<bits/stdc++.h>
+using namespace std;
+const int N=200005;
+int a[N];
+int main(){
+	int t;
+	cin>>t;
+	while(t--){
+		int n,q;
+		cin>>n>>q;
+		map<int,vector<int>>id;
+		id[0].push_back(0);
+		for(int i=1;i<=n;i++){
+			cin>>a[i];
+			a[i]^=a[i-1];
+			id[a[i]].push_back(i);
+		}
+		while(q--){
+			int l,r;
+			cin>>l>>r;
+			if(a[r]==a[l-1]){
+				cout<<"YES\n";
+				continue;
+			}
+			int pL=*--lower_bound(id[a[l-1]].begin(),id[a[l-1]].end(),r);
+			int pR=*lower_bound(id[a[r]].begin(),id[a[r]].end(),l);
+			cout<<(pL>pR?"YES\n":"NO\n");
+		}
+		if(t)cout << "\n";
+	}
+} Rate the problem Didn't solve 
+
+    
+
+
+80
+
+
+
+ Good task 
+
+    
+
+
+348
+
+
+
+ Average task 
+
+    
+
+
+14
+
+
+
+ Bad task 
+
+    
+
+
+15
+
+
+
+ 1968G1 - Division + LCP (easy version)Author: SashaT9 Hint 1Binary search. Hint 2How to check if two strings are equal? Solution1968G1 - Division + LCP (easy version)Consider $$$F_{\ell}$$$ is a function which returns true iff it is possible to divide the string into at least $$$k$$$ segments with their LCP equal to $$$\ell$$$. Notice that $$$F_{\ell}$$$ implies $$$F_{\ell - 1}$$$ for $$$\ell > 0$$$. So we may find the maximal $$$\ell$$$ using binary search, which will be the answer for the problem.How to compute $$$F_{\ell}$$$? Let us find Z-function $$$z_1,\dots,z_n$$$ of the given string. Notice that in the division $$$w_1,\dots,w_k$$$ we have $$$w_1$$$ as the prefix of the given string and all the strings have the common prefix with $$$w_1$$$ of length $$$\ell$$$. Notice that $$$z_p$$$ gives us the longest common prefix with $$$w_1$$$ and a segment starting at $$$p$$$. So if $$$z_p\geq \ell$$$ we may take this segment into account. In such greedy approach we count the maximal number of segments we can divide our string into. If this number is at least $$$k$$$, then $$$F_{\ell}$$$ is true.The complexity is $$$O(n\log n)$$$. Implementation#include<bits/stdc++.h>
+using namespace std;
+vector<int>Zfunc(string& str){
+	int n=str.size();
+	vector<int>z(n);
+	int l=0,r=0;
+	for(int i=1;i<n;i++){
+		if(i<=r){
+			z[i]=min(r-i+1,z[i-l]);
+		}
+		while(i+z[i]<n&&str[z[i]]==str[i+z[i]]){
+			z[i]++;
+		}
+		if(i+z[i]-1>r){
+			l=i;
+			r=i+z[i]-1;
+		}
+	}
+	return z;
+}
+int f(vector<int>&z,int len){
+	int n=z.size();
+	int cnt=1;
+	for(int i=len;i<n;){
+		if(z[i]>=len){
+			cnt++;
+			i+=len;
+		}else{
+			i++;
+		}
+	}
+	return cnt;
+}
+int main(){
+	int t;
+	cin>>t;
+	while(t--){
+		int n,k;
+		string s;
+		cin>>n>>k>>k>>s;
+		vector<int>z=Zfunc(s);
+		int l=0,r=n+1;
+		while(r-l>1){
+			int mid=(l+r)/2;
+			if(f(z,mid)>=k){
+				l=mid;
+			}else{
+				r=mid;
+			}
+		}
+		cout<<l<<"\n";
+	}
+} Rate the problem Didn't solve 
+
+    
+
+
+31
+
+
+
+ Good task 
+
+    
+
+
+125
+
+
+
+ Average task 
+
+    
+
+
+27
+
+
+
+ Bad task 
+
+    
+
+
+8
+
+
+
+ 1968G2 - Division + LCP (hard version)Author: SashaT9 Hint 1Consider the general case: L=1 and R=n. Hint 2You must find the answer for each k in the range [1,n]. Consider the cases k≤√n and k≥√n. Solution1968G2 - Division + LCP (hard version)In general, in this version we must answer for each $$$k\in\{1,2,\dots,n\}$$$. We will use a similar idea as in the easy version considering two cases:   $$$k\le \sqrt{n}$$$. We may calculate these values as in the easy version in $$$O(n\sqrt{n}\log n)$$$.  $$$k> \sqrt{n}$$$. As we divide the string into $$$k$$$ segments and the LCP is $$$\ell$$$, then $$$k\cdot \ell\le n$$$. We get, that $$$\ell\le \sqrt{n}$$$. We may find the maximal possible $$$k$$$ for a fixed $$$\ell$$$ as our answer. It works in $$$O(n\sqrt{n})$$$. There are other approaches to solving this problem, but the authors believe this solution is the simplest one. Implementation#include<bits/stdc++.h>
+using namespace std;
+vector<int>Zfunc(string& str){
+	int n=str.size();
+	vector<int>z(n);
+	int l=0,r=0;
+	for(int i=1;i<n;i++){
+		if(i<=r){
+			z[i]=min(r-i+1,z[i-l]);
+		}
+		while(i+z[i]<n&&str[z[i]]==str[i+z[i]]){
+			z[i]++;
+		}
+		if(i+z[i]-1>r){
+			l=i;
+			r=i+z[i]-1;
+		}
+	}
+	return z;
+}
+int f(vector<int>&z,int len){
+	int n=z.size();
+	int cnt=1;
+	for(int i=len;i<n;){
+		if(z[i]>=len){
+			cnt++;
+			i+=len;
+		}else{
+			i++;
+		}
+	}
+	return cnt;
+}
+int main(){
+	int t;
+	cin>>t;
+	while(t--){
+		int n,L,R;
+		string s;
+		cin>>n>>L>>R>>s;
+		vector<int>z=Zfunc(s);
+		const int E=ceil(sqrt(n));
+		vector<int>ans(n+1);
+		for(int k=1;k<=E;k++){
+			int l=0,r=n+1;
+			while(r-l>1){
+				int mid=(l+r)/2;
+				if(f(z,mid)>=k){
+					l=mid;
+				}else{
+					r=mid;
+				}
+			}
+			ans[k]=l;
+		}
+		for(int len=1;len<=E;len++){
+			int k=1;
+			for(int i=len;i<n;){
+				if(z[i]>=len){
+					k++;
+					i+=len;
+				}else{
+					i++;
+				}
+			}
+			ans[k]=max(ans[k],len);
+		}
+		for(int i=n-1;i>=1;i--){
+			ans[i]=max(ans[i],ans[i+1]);
+		}
+		for(int i=L;i<=R;i++){
+			cout<<ans[i]<<' ';
+		}
+		cout<<"\n";
+	}
+}
+ Rate the problem Didn't solve 
+
+    
+
+
+55
+
+
+
+ Good task 
+
+    
+
+
+129
+
+
+
+ Average task 
+
+    
+
+
+5
+
+
+
+ Bad task 
+
+    
+
+
+17
+
+
+
+ 
+We thank everyone who participated in the round.

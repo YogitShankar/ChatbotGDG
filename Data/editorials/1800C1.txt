@@ -1,0 +1,374 @@
+Editorial for Problem: C1. Powering the Hero (easy version)
+Problem ID: 1800C1
+
+Solution:
+1800A - Is It a Cat?Idea: Vladosiya, MikeMirzayanov Tutorial1800A - Is It a Cat?To solve the problem, you may convert the string to lower case, strip all duplicated characters from it and compare the result to "meow" string.To exclude duplicate characters, you can, for example, use the unique function in C++. Solution#include <bits/stdc++.h>
+using namespace std;
+
+void solve(){
+    int n;
+    cin >> n;
+    string s;
+    cin >> s;
+    transform(s.begin(), s.end(), s.begin(), [] (char c) {
+        return tolower(c);
+    });
+    s.erase(unique(s.begin(), s.end()), s.end());
+    cout << (s == "meow" ? "YES" : "NO") << "\n";
+}
+
+int main(){
+    int t;
+    cin >> t;
+    while(t--) solve();
+}1800B - Count the Number of PairsIdea: myav Tutorial1800B - Count the Number of PairsCount two arrays $$$big$$$ and $$$small$$$, such that $$$big[i]$$$ contains the number of occurrences of $$$i$$$th letter of the alphabet in the string in upper case, while $$$small[i]$$$ — in lower case.Let's add all existing pairs to the answer, so let's add $$$min(small[i], big[i])$$$ to it for each letter. Subtract this minimum from $$$small[i]$$$ and $$$big[i]$$$ to get the number of unpaired identical letters.Next, we will act greedily: if there is some set of at least two identical letters in the same case, we can apply the operation to half of them and get new pairs. Therefore, for each letter we will add $$$\frac{min(k, max(small[i], big[i]))}{2}$$$ to the answer and decrease $$$k$$$ by that amount. Solution#include <bits/stdc++.h>
+using namespace std;
+const int N = 26;
+
+void solve(){
+    int n, k;
+    cin >> n >> k;
+    string s;
+    cin >> s;
+    vector<int>big(N, 0), small(N, 0);
+    for(auto &i : s){
+        if('A' <= i && 'Z' >= i) big[i - 'A']++;
+        else small[i - 'a']++;
+    }
+    int answer = 0;
+    for(int i = 0; i < N; i++){
+        int pairs = min(small[i], big[i]);
+        answer += pairs;
+        small[i] -=pairs; big[i] -= pairs;
+        int add = min(k, max(small[i], big[i]) / 2);
+        k -= add; answer += add;
+    }
+    cout << answer << endl;
+}
+int main(){
+    int t;
+    cin >> t;
+    while(t--) solve();
+    return 0;
+}1800C1 - Powering the Hero (easy version)Idea: Vladosiya Tutorial1800C1 - Powering the Hero (easy version)To solve it, it should be noted that despite the way the deck with bonuses works, the order in which they will be applied is not important. Then, when we meet the hero card, we just need to add to the answer the maximum of the available bonuses.Constraints allow you to sort the current array with bonus values each time and remove the maximum element. Solutiondef solve():
+    n = int(input())
+    s = [int(x) for x in input().split()]
+    ans = 0
+    buffs = [0] * n
+    for e in s:
+        if e > 0:
+            buffs += [e]
+            j = len(buffs) - 1
+            while buffs[j] < buffs[j - 1]:
+                buffs[j], buffs[j - 1] = buffs[j - 1], buffs[j]
+                j -= 1
+        else:
+            ans += buffs.pop()
+    print(ans)
+
+
+t = int(input())
+for _ in range(t):
+    solve()1800C2 - Powering the Hero (hard version)Idea: Vladosiya Tutorial1800C2 - Powering the Hero (hard version)To solve it, it should be noted that despite the way the deck with bonuses works, the order in which they will be applied is not important. Then, when we meet the hero card, we just need to add to the answer the maximum of the available bonuses.Constraints make you use structures such as a priority queue to quickly find and extract the maximum. Solutionfrom queue import PriorityQueue
+
+
+def solve():
+    n = int(input())
+    s = [int(x) for x in input().split()]
+    ans = 0
+    buffs = PriorityQueue()
+    for e in s:
+        if e > 0:
+            buffs.put(-e)
+        elif not buffs.empty():
+            ans -= buffs.get()
+    print(ans)
+
+
+t = int(input())
+for _ in range(t):
+    solve()1800D - Remove Two LettersIdea: MikeMirzayanov Tutorial1800D - Remove Two LettersConsider deleting characters with numbers $$$i$$$ and $$$i + 1$$$, as well as characters with numbers $$$i + 1$$$ and $$$i + 2$$$. In the first case, the symbol with the number $$$i + 2$$$ remains, in the second - $$$i$$$. Symbols with numbers less than $$$i$$$ or more than $$$i + 2$$$ remain in both cases. Therefore, the same strings will be obtained if the characters with the numbers $$$i$$$ and $$$i + 2$$$ match. Therefore, we just need to count the number of $$$i: 1 \le i\le n - 2: s_i =s_{i+2}$$$, and subtract this value from $$$n - 1$$$. Solution#include <iostream>
+#include <vector>
+#include <queue>
+#include <map>
+#include <set>
+
+using namespace std;
+
+void solve() {
+    int n;
+    cin >> n;
+    string s;
+    cin >> s;
+    int res = n - 1;
+    for (int i = 1; i + 1 < n; ++i) {
+        if (s[i - 1] == s[i + 1]) {
+            res--;
+        }
+    }
+    cout << res << '\n';
+}
+
+int main(int argc, char* argv[]) {
+    int t;
+    cin >> t;
+    for (int i = 0; i < t; ++i) {
+        solve();
+    }
+}1800E1 - Unforgivable Curse (easy version)Idea: Aris, talant Tutorial1800E1 - Unforgivable Curse (easy version)In these constraints , the problem could be solved as follows:Note that for strings of length $$$6$$$ and more, it is enough to check that the strings $$$s$$$ and $$$t$$$ match character by character, that is, up to permutation, since each character can be moved to the desired half, and then moved to the desired side by length $$$1$$$ by applying two operations on the length is $$$3$$$ and $$$4$$$.For example, there was a string "abudance" and we want to shift the $$$c$$$ character to the left, then we can first get the string "acudab" and then the string "aaudcb". Well, we can restore the used symbols by putting them in their place "budka". That is, we were able to simply swap two adjacent characters.Thus, with such a clipping, it was possible to solve the problem by brute force for $$$n\le 5$$$. To iterate, it was possible to store $$$map$$$ of strings, which we can get and iterate through all the strings using $$$bfs$$$. Solution#include <bits/stdc++.h>
+
+using namespace std;
+
+#define sz(v) (int)v.size()
+#define all(v) v.begin(),v.end()
+#define eb emplace_back
+
+
+void slow_solve(int n, int k, string s, string t) {
+    set<string> was;
+
+    queue<string> q;
+    q.push(s);
+    was.insert(s);
+
+    auto add = [&](string& s, int i, int j) {
+        if (i >= 0 && i < j && j < n) {
+            swap(s[i], s[j]);
+            if (!was.count(s)) {
+                was.insert(s);
+                q.push(s);
+            }
+            swap(s[i], s[j]);
+        }
+
+    };
+
+    while (!q.empty()) {
+        s = q.front(); q.pop();
+        for (int i = 0; i < n; ++i) {
+            add(s, i, i+k);
+            add(s, i, i+k+1);
+            add(s, i-k, i);
+            add(s, i-k-1, i);
+        }
+    }
+    cout << (was.count(t) ? "Yes" : "No") << '\n';
+}
+
+void solve() {
+    int n,k; cin >> n >> k;
+    string s; cin >> s;
+    string t; cin >> t;
+
+    if (n <= 5) {
+        slow_solve(n, k, s, t);
+        return;
+    }
+    map<char, int> cnt;
+    for (char c : s) {
+        cnt[c]++;
+    }
+
+    for (char c : t) {
+        cnt[c]--;
+    }
+
+    bool ok = true;
+    for (auto [c, x] : cnt) {
+        ok &= x == 0;
+    }
+    cout << (ok ? "Yes" : "No") << '\n';
+}
+
+int main() {
+    int t;
+    cin >> t;
+
+    while (t--) {
+        solve();
+    }
+}1800E2 - Unforgivable Curse (hard version)Idea: Aris, Vladosiya Tutorial1800E2 - Unforgivable Curse (hard version)The solution of the problem $$$E1$$$ hints to us that with the help of such operations, it is possible to move the symbol in the right direction by $$$1$$$ using two operations. Then we can show that among the symbols that we can swap with at least one other symbol, we can get any permutation.For example, you can apply such a greedy solution: we will build an answer from the boundaries of the string $$$t$$$ to the middle. Since we can move the symbol by a distance of $$$1$$$, we can move it to the border and thus we can build any string $$$t$$$.Thus, it is enough to check that the sets of characters that can be swapped with some other match. And for the rest of the characters, check that they just match. Solution#include <bits/stdc++.h>
+
+using namespace std;
+
+#define sz(v) (int)v.size()
+#define all(v) v.begin(),v.end()
+#define eb emplace_back
+
+void solve() {
+    int n, k; cin >> n >> k;
+    string s; cin >> s;
+    string t; cin >> t;
+    vector<int> cnt(26, 0);
+
+    bool ok = true;
+    for (int i = 0; i < n; ++i) {
+        if (i >= k || i+k < n){
+            cnt[s[i] - 'a']++;
+            cnt[t[i] - 'a']--;
+        } else {
+            ok &= s[i] == t[i];
+        }
+    }
+
+    cout << (ok && count(all(cnt), 0) == 26 ? "YES" : "NO") << '\n';
+}
+
+int main() {
+    int t;
+    cin >> t;
+
+    while (t--) {
+        solve();
+    }
+}1800F - Dasha and NightmaresIdea: Gornak40 Tutorial1800F - Dasha and NightmaresObservation $$$1$$$: the product of odd numbers is odd, so the condition for the length of nightmare is automatically completed.Denote by $$$f(x)$$$ the number of ones in binary representation of $$$x$$$. Let's enumerate the letters of the Latin alphabet from $$$0$$$ to $$$25$$$.Observation $$$2$$$: for each word, it is enough to know the set of letters included in it and the evenness of their numbers. There are only $$$26$$$ letters in the alphabet, so it is convenient to store the word characteristic $$$s_i$$$ as a pair of masks $$$\langle a_i, b_i \rangle$$$. The bit with the number $$$j$$$ in $$$a_i$$$ will be responsible for the availability of the letter $$$j$$$ in $$$s_i$$$. The bit with the number $$$j$$$ in $$$b_i$$$ will be responsible for the evenness of the number of letters $$$j$$$ in $$$s_i$$$.Observation $$$3$$$: strings $$$s_is_j$$$ creates nightmare if and only if $$$f(a_i|a_j) = f(b_i \oplus b_j) = 25$$$.Let's fix the number $$$k$$$ — the index of the letter that will not be in nightmares. Let's throw out all the words with the letter $$$k$$$, now we can look at the words in turn and look for a pair of them among those already considered. It is easy to see that the condition $$$f(a_i| a_j) = 25$$$ follows from the condition $$$f(b_i\oplus b_j) = 25$$$ if one letter is banned.To count the number of pairs that include our word, we need to count the number of words with the characteristic $$$b_j = b_i \oplus (2^{26}-1)$$$. We can do this by bin-searching through a sorted array of $$$b$$$ or using standard data structures. We got the solution for $$$O(\sum |s| + 26 \cdot n \cdot \log n)$$$. Solution#pragma GCC optimize("O3")
+#pragma GCC optimize("unroll-loops")
+#pragma GCC target("avx2,avx,fma,bmi2")
+
+#include <bits/stdc++.h>
+#include <immintrin.h>
+#include <ext/pb_ds/assoc_container.hpp>
+using namespace std;
+using namespace __gnu_pbds;
+
+#define endl '\n'
+//#define int long long
+#define all(arr) arr.begin(), arr.end()
+#define multitest() int _gorilla_silverback; cin >> _gorilla_silverback; while (_gorilla_silverback --> 0)
+#define pikachu push_back
+#define ls(id) (id << 1 | 1)
+#define rs(id) ((id << 1) + 2)
+#define sqr(x) ((x) * (x))
+#define dlg(x) (31 - __builtin_clz(x))
+#define ulg(x) (32 - __builtin_clz(x))
+
+typedef pair<int, int> ipair;
+typedef tree<int, null_type, less<int>, rb_tree_tag, tree_order_statistics_node_update> treap;
+mt19937 rng(chrono::steady_clock::now().time_since_epoch().count());
+
+const int MAXN = 200200;
+const int L = 26;
+
+int n;
+string srr[MAXN];
+int arr[MAXN], brr[MAXN], crr[MAXN];
+
+void build() {
+	for (int i = 0; i < n; ++i) {
+		for (char c: srr[i]) {
+			arr[i] ^= (1 << (c - 'a'));
+			brr[i] |= (1 << (c - 'a'));
+		}
+	}
+}
+
+long long calc(int c) {
+	int k = 0;
+	for (int i = 0; i < n; ++i)
+		if (brr[i] >> c & 1 ^ 1) crr[k++] = arr[i];
+	sort(crr, crr + k);
+	int mask = -1 & ((1 << L) - 1) ^ (1 << c);
+	long long ans = 0;
+	for (int i = 0; i < k; ++i) {
+		auto itl = lower_bound(crr, crr + k, crr[i] ^ mask);
+		auto itr = upper_bound(crr, crr + k, crr[i] ^ mask);
+		ans += itr - itl;
+	}
+	return ans >> 1LL;
+}
+
+long long solve() {
+	long long ans = 0;
+	for (int c = 0; c < L; ++c)
+		ans += calc(c);
+	return ans;
+}
+
+signed main() {
+	ios_base::sync_with_stdio(false), cin.tie(NULL), cout.tie(NULL);
+	cin >> n;
+	for (int i = 0; i < n; ++i)
+		cin >> srr[i];
+	build();
+	cout << solve() << endl;
+}1800G - SymmetreeIdea: Vladosiya Tutorial1800G - SymmetreeNote that if one subtree is a mirror image of another, then they are isomorphic (that is, equal without taking into account the vertex numbers). To check the subtrees for isomorphism, we use hashing of root trees.Now we just have to learn how to check trees for symmetry. To do this, let's calculate how many children of each type our vertex has (let's denote the hash of its subtree by the vertex type). In order for the vertex subtree to be symmetric, each child must have a pair of the same type, except perhaps one, which must also be symmetric. We can calculate the symmetry of the subtrees while counting their hash to simplify this task. Solution#include <bits/stdc++.h>
+
+#define int long long
+#define pb emplace_back
+#define mp make_pair
+#define x first
+#define y second
+#define all(a) a.begin(), a.end()
+#define rall(a) a.rbegin(), a.rend()
+
+typedef long double ld;
+typedef long long ll;
+
+using namespace std;
+
+mt19937 rnd(time(nullptr));
+
+const int inf = 2e18;
+const ll M = 1e9;
+const ld pi = atan2(0, -1);
+const ld eps = 1e-6;
+
+int last;
+map<vector<int>, int> eq;
+map<int, bool> symmetrical;
+
+int dfs(int v, int p, vector<vector<int>> &sl){
+    vector<int> children;
+    for(int u: sl[v]){
+        if(u == p) continue;
+        children.emplace_back(dfs(u, v, sl));
+    }
+    sort(all(children));
+    if(!eq.count(children)){
+        map<int, int> cnt;
+        for(int e: children){
+            cnt[e]++;
+        }
+        int odd = 0, bad = 0;
+        for(auto e: cnt){
+            if(e.y & 1){
+                odd++;
+                bad += !symmetrical[e.x];
+            }
+        }
+        eq[children] = last;
+        symmetrical[last] = odd < 2 && bad == 0;
+        last++;
+    }
+    return eq[children];
+}
+
+void solve(int tc){
+    int n;
+    cin >> n;
+    eq.clear();
+    symmetrical.clear();
+    eq[vector<int>(0)] = 0;
+    symmetrical[0] = true;
+    last = 1;
+    vector<vector<int>> sl(n);
+    for(int i = 1; i < n; ++i){
+        int u, v;
+        cin >> u >> v;
+        sl[--u].emplace_back(--v);
+        sl[v].emplace_back(u);
+    }
+    cout << (symmetrical[dfs(0, 0, sl)]? "YES" : "NO");
+}
+
+bool multi = true;
+
+signed main() {
+    int t = 1;
+    if (multi)cin >> t;
+    for (int i = 1; i <= t; ++i) {
+        solve(i);
+        cout << "\n";
+    }
+    return 0;
+}
