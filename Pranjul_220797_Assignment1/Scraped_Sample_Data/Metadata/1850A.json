@@ -1,0 +1,15 @@
+{
+    "problem_tag": "1850A",
+    "title": "To My Critics",
+    "link": "https://codeforces.com/problemset/problem/1850/A",
+    "description": "Suneet has three digits\na\n,\nb\n, and\nc\n.\nSince math isn't his strongest point, he asks you to determine if you can choose any two digits to make a sum greater or equal to\n10\n.\nOutput \"YES\" if there is such a pair, and \"NO\" otherwise.",
+    "input_specification": "The first line contains a single integer\nt\n(\n1≤t≤1000\n) — the number of test cases.\nThe only line of each test case contains three digits\na\n,\nb\n,\nc\n(\n0≤a,b,c≤9\n).",
+    "output_specification": "For each test case, output \"YES\" if such a pair exists, and \"NO\" otherwise.\nYou can output the answer in any case (for example, the strings \"yEs\", \"yes\", \"Yes\" and \"YES\" will be recognized as a positive answer).",
+    "time_limit": "1 second",
+    "memory_limit": "256 megabytes",
+    "tags": [
+        "implementation",
+        "sortings",
+        "*800"
+    ]
+}

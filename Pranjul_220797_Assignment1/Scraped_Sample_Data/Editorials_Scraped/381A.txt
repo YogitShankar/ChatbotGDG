@@ -1,0 +1,7 @@
+Problem: 381A - Sereja and Dima
+Problem Link: https://codeforces.com/problemset/problem/381/A
+Editorial Link: https://codeforces.com/blog/entry/10363
+
+================================================================================
+
+381A - Sereja and DimaSimply do the process described in the statment.

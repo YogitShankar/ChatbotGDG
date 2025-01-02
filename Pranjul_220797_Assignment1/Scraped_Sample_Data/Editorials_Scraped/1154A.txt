@@ -1,0 +1,25 @@
+Problem: 1154A - Restoring Three Numbers
+Problem Link: https://codeforces.com/problemset/problem/1154/A
+Editorial Link: https://codeforces.com/blog/entry/66586
+
+================================================================================
+
+1154A - Restoring Three NumbersIdea: MikeMirzayanov Tutorial1154A - Restoring Three NumbersLet 𝑥1=𝑎+𝑏, 𝑥2=𝑎+𝑐, 𝑥3=𝑏=𝑐 and 𝑥4=𝑎+𝑏+𝑐. Then we can construct the following answer: 𝑐=𝑥4−𝑥1, 𝑏=𝑥4−𝑥2 and 𝑎=𝑥4−𝑥3.Because all numbers in the answer are positive, we can assume that the maximum element of 𝑥 is 𝑎+𝑏+𝑐. So let's sort the input array 𝑥 consisting of four elements and just print 𝑥4−𝑥1,𝑥4−𝑥2 and 𝑥4−𝑥3. Solution#include <bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+#ifdef _DEBUG
+	freopen("input.txt", "r", stdin);
+//	freopen("output.txt", "w", stdout);
+#endif
+	
+	vector<int> a(4);
+	for (int i = 0; i < 4; ++i) {
+		cin >> a[i];
+	}
+	sort(a.begin(), a.end());
+	cout << a[3] - a[0] << " " << a[3] - a[1] << " " << a[3] - a[2] << endl;
+	
+	return 0;
+}

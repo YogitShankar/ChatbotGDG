@@ -1,0 +1,26 @@
+Problem: 1850A - To My Critics
+Problem Link: https://codeforces.com/problemset/problem/1850/A
+Editorial Link: https://codeforces.com/blog/entry/118466
+
+================================================================================
+
+1850A - To My CriticsIdea: mesanu Tutorial1850A - To My CriticsOne way to solve the problem is to check if 𝑎+𝑏+𝑐−𝑚𝑖𝑛(𝑎,𝑏,𝑐)≥10 using an if statement. Solution#include <bits/stdc++.h>
+using namespace std;
+ 
+void solve()
+{
+    int a, b, c;
+    cin >> a >> b >> c;
+    cout << (a+b+c-min({a,b,c}) >= 10 ? "YES\n" : "NO\n");
+    
+}
+ 
+int main()
+{
+    int t;
+    cin >> t;
+    while(t--)
+    {
+        solve();
+    }
+}

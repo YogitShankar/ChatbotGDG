@@ -1,0 +1,14 @@
+{
+    "problem_tag": "1692A",
+    "title": "Marathon",
+    "link": "https://codeforces.com/problemset/problem/1692/A",
+    "description": "You are given four distinct integers\na\n,\nb\n,\nc\n,\nd\n.\nTimur and three other people are running a marathon. The value\na\nis the distance that Timur has run and\nb\n,\nc\n,\nd\ncorrespond to the distances the other three participants ran.\nOutput the number of participants in front of Timur.",
+    "input_specification": "The first line contains a single integer\nt\n(\n1≤t≤104\n) — the number of test cases.\nThe description of each test case consists of four distinct integers\na\n,\nb\n,\nc\n,\nd\n(\n0≤a,b,c,d≤104\n).",
+    "output_specification": "For each test case, output a single integer — the number of participants in front of Timur.",
+    "time_limit": "1 second",
+    "memory_limit": "256 megabytes",
+    "tags": [
+        "implementation",
+        "*800"
+    ]
+}

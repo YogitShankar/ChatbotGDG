@@ -1,0 +1,7 @@
+Problem: 617A - Elephant
+Problem Link: https://codeforces.com/problemset/problem/617/A
+Editorial Link: https://codeforces.com/blog/entry/22971
+
+================================================================================
+
+617A - ElephantIt's optimal to do the biggest possible step everytime. So elephant should do several steps by distance 5 and one or zero step by smaller distance. Answer equals to Solution 15550796

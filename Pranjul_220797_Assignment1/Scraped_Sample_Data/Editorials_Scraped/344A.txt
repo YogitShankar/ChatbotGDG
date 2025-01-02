@@ -1,0 +1,7 @@
+Problem: 344A - Magnets
+Problem Link: https://codeforces.com/problemset/problem/344/A
+Editorial Link: https://codeforces.com/blog/entry/8860
+
+================================================================================
+
+344A - MagnetsBy the definition each block consists of a number of consequent and equally oriented dominoes. That means that in places where adjacent dominoes are not oriented equally, one block ends and another block starts. So, if there are x such places, the answer is equal to x + 1.Solution complexity: O(n). Problem author: gen.Bonus: The problem was created a day before the contest and filled in the last part of a physically flavoured DivII complect. :]

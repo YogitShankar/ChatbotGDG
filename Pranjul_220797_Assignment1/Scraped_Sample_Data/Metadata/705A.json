@@ -1,0 +1,14 @@
+{
+    "problem_tag": "705A",
+    "title": "Hulk",
+    "link": "https://codeforces.com/problemset/problem/705/A",
+    "description": "Dr. Bruce Banner hates his enemies (like others don't). As we all know, he can barely talk when he turns into the incredible Hulk. That's why he asked you to help him to express his feelings.\nHulk likes the Inception so much, and like that his feelings are complicated. They have n layers. The first layer is hate, second one is love, third one is hate and so on...\nFor example if n = 1, then his feeling is \"I hate it\" or if n = 2 it's \"I hate that I love it\", and if n = 3 it's \"I hate that I love that I hate it\" and so on.\nPlease help Dr. Banner.",
+    "input_specification": "The only line of the input contains a single integer n (1 ≤ n ≤ 100) — the number of layers of love and hate.",
+    "output_specification": "Print Dr.Banner's feeling in one line.",
+    "time_limit": "1 second",
+    "memory_limit": "256 megabytes",
+    "tags": [
+        "implementation",
+        "*800"
+    ]
+}

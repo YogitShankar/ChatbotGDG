@@ -1,0 +1,7 @@
+Problem: 996A - Hit the Lottery
+Problem Link: https://codeforces.com/problemset/problem/996/A
+Editorial Link: https://codeforces.com/blog/entry/60217
+
+================================================================================
+
+996A - Hit the LotteryThe problem is to minimize 𝑥1+𝑥2+𝑥3+𝑥4+𝑥5 given that 𝑥1+5𝑥2+10𝑥3+20𝑥4+100𝑥5=𝑛. It is pretty simple to see that we can operate greedily: take as many 100 as we can, then 20, then 10, etc.The solutions works because each number in the sequence 1,5,10,20,100 is a divisor of the number after it.

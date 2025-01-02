@@ -1,0 +1,29 @@
+Problem: 1999A - A+B Again?
+Link: https://codeforces.com/problemset/problem/1999/A
+
+Description:
+Given a two-digit positive integer
+n
+, find the sum of its digits.
+
+Input Specification:
+The first line contains an integer
+t
+(
+1<=t<=90
+) - the number of test cases.
+The only line of each test case contains a single two-digit positive integer
+n
+(
+10<=n<=99
+).
+
+Output Specification:
+For each test case, output a single integer - the sum of the digits of
+n
+.
+
+Time Limit: 1 second
+Memory Limit: 256 megabytes
+
+Tags: implementation, math, *800

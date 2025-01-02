@@ -1,0 +1,7 @@
+Problem: 732A - Buy a Shovel
+Problem Link: https://codeforces.com/problemset/problem/732/A
+Editorial Link: https://codeforces.com/blog/entry/47890
+
+================================================================================
+
+732A - Buy a ShovelIn this problem we have to find the minimal possible value of x such that k·x mod 10 = 0 or k·x mod 10 = r. It's easy to see that this x always exists and it is not greater than 10 (because k·10 mod 10 = 0). Let's iterate on x, and if its current value satisfies any of the requirements, we print the answer. Time complexity: O(const), where const = 10.

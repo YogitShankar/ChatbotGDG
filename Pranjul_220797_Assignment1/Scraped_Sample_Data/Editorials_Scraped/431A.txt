@@ -1,0 +1,9 @@
+Problem: 431A - Black Square
+Problem Link: https://codeforces.com/problemset/problem/431/A
+Editorial Link: https://codeforces.com/blog/entry/12369
+
+================================================================================
+
+431A - Black SquareTo solve this problem, you must only do the process described in statement. for i = 1 .. s.size()
+ if (s[i] = '1') ans += a[1];
+ else ...Complexity: O(N) Solution: 6676675

@@ -1,0 +1,7 @@
+Problem: 231A - Team
+Problem Link: https://codeforces.com/problemset/problem/231/A
+Editorial Link: https://codeforces.com/blog/entry/5486
+
+================================================================================
+
+231A - TeamIt is needed just to implement actions described in statement. You had to read data and to calculate number of members of team, which were sure about the solution, for every task. If this number is greater than one, the answer must be increased by one.

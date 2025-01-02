@@ -1,0 +1,17 @@
+Problem: 1985A - Creating Words
+Problem Link: https://codeforces.com/problemset/problem/1985/A
+Editorial Link: https://codeforces.com/blog/entry/129620
+
+================================================================================
+
+1985A - Creating WordsProblem Credits: cry  Analysis: cry SolutionTo swap the first character of the strings, you can use the built-in method std::swap in C++, or for each string, separate the first character from the rest of the string and concatenate it with the other string. Code (C++)#include <bits/stdc++.h>
+using namespace std;
+
+int main(){
+	int t; cin >> t;
+	while(t--){
+		string a, b; cin >> a >> b;
+		swap(a[0], b[0]);
+		cout << a << " " << b << endl;
+	}
+}

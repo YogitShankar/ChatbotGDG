@@ -1,0 +1,14 @@
+{
+    "problem_tag": "1722A",
+    "title": "Spell Check",
+    "link": "https://codeforces.com/problemset/problem/1722/A",
+    "description": "Timur likes his name. As a spelling of his name, he allows any permutation of the letters of the name. For example, the following strings are valid spellings of his name: Timur, miurT, Trumi, mriTu. Note that the correct spelling must have uppercased T and lowercased other letters.\nToday he wrote string\ns\nof length\nn\nconsisting only of uppercase or lowercase Latin letters. He asks you to check if\ns\nis the correct spelling of his name.",
+    "input_specification": "The first line of the input contains an integer\nt\n(\n1≤t≤103\n) — the number of test cases.\nThe first line of each test case contains an integer\nn\n(1≤n≤10)\n — the length of string\ns\n.\nThe second line of each test case contains a string\ns\nconsisting of only uppercase or lowercase Latin characters.",
+    "output_specification": "For each test case, output \"YES\" (without quotes) if\ns\nsatisfies the condition, and \"NO\" (without quotes) otherwise.\nYou can output the answer in any case (for example, the strings \"yEs\", \"yes\", \"Yes\" and \"YES\" will be recognized as a positive answer).",
+    "time_limit": "1 second",
+    "memory_limit": "256 megabytes",
+    "tags": [
+        "implementation",
+        "*800"
+    ]
+}

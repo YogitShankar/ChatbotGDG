@@ -1,0 +1,15 @@
+{
+    "problem_tag": "1915A",
+    "title": "Odd One Out",
+    "link": "https://codeforces.com/problemset/problem/1915/A",
+    "description": "You are given three digits\na\n,\nb\n,\nc\n. Two of them are equal, but the third one is different from the other two.\nFind the value that occurs exactly once.",
+    "input_specification": "The first line contains a single integer\nt\n(\n1≤t≤270\n) — the number of test cases.\nThe only line of each test case contains three digits\na\n,\nb\n,\nc\n(\n0≤a\n,\nb\n,\nc≤9\n). Two of the digits are equal, but the third one is different from the other two.",
+    "output_specification": "For each test case, output the value that occurs exactly once.",
+    "time_limit": "1 second",
+    "memory_limit": "256 megabytes",
+    "tags": [
+        "bitmasks",
+        "implementation",
+        "*800"
+    ]
+}

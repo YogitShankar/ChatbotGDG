@@ -1,0 +1,26 @@
+Problem: 1409A - Yet Another Two Integers Problem
+Problem Link: https://codeforces.com/problemset/problem/1409/A
+Editorial Link: https://codeforces.com/blog/entry/82284
+
+================================================================================
+
+1409A - Yet Another Two Integers ProblemIdea: vovuh Tutorial1409A - Yet Another Two Integers ProblemWe can add or subtract 10 until the difference between 𝑎 and 𝑏 becomes less than 10. And if it is not 0 after all such moves, we need one additional move.Let 𝑑=|𝑎−𝑏| is the absolute difference between 𝑎 and 𝑏. The final answer is ⌊𝑑10⌋ plus one if 𝑑mod10>0. This formula can be represented as 𝑑 divided by 10 rounded up, in other words ⌊𝑑+910⌋. Solution#include <bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+#ifdef _DEBUG
+	freopen("input.txt", "r", stdin);
+//	freopen("output.txt", "w", stdout);
+#endif
+	
+	int t;
+	cin >> t;
+	while (t--) {
+		int a, b;
+		cin >> a >> b;
+		cout << (abs(a - b) + 9) / 10 << endl;
+	}
+	
+	return 0;
+}

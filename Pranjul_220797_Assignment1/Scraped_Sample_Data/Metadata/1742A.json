@@ -1,0 +1,14 @@
+{
+    "problem_tag": "1742A",
+    "title": "Sum",
+    "link": "https://codeforces.com/problemset/problem/1742/A",
+    "description": "You are given three integers\na\n,\nb\n, and\nc\n. Determine if one of them is the sum of the other two.",
+    "input_specification": "The first line contains a single integer\nt\n(\n1≤t≤9261\n) — the number of test cases.\nThe description of each test case consists of three integers\na\n,\nb\n,\nc\n(\n0≤a,b,c≤20\n).",
+    "output_specification": "For each test case, output \"YES\" if one of the numbers is the sum of the other two, and \"NO\" otherwise.\nYou can output the answer in any case (for example, the strings \"yEs\", \"yes\", \"Yes\" and \"YES\" will be recognized as a positive answer).",
+    "time_limit": "1 second",
+    "memory_limit": "256 megabytes",
+    "tags": [
+        "implementation",
+        "*800"
+    ]
+}

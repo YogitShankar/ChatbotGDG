@@ -1,0 +1,15 @@
+{
+    "problem_tag": "785A",
+    "title": "Anton and Polyhedrons",
+    "link": "https://codeforces.com/problemset/problem/785/A",
+    "description": "Anton's favourite geometric figures are regular polyhedrons. Note that there are five kinds of regular polyhedrons:\nAll five kinds of polyhedrons are shown on the picture below:\nAnton has a collection of n polyhedrons. One day he decided to know, how many faces his polyhedrons have in total. Help Anton and find this number!",
+    "input_specification": "The first line of the input contains a single integer n (1 ≤ n ≤ 200 000) — the number of polyhedrons in Anton's collection.\nEach of the following n lines of the input contains a string si — the name of the i-th polyhedron in Anton's collection. The string can look like this:",
+    "output_specification": "Output one number — the total number of faces in all the polyhedrons in Anton's collection.",
+    "time_limit": "2 seconds",
+    "memory_limit": "256 megabytes",
+    "tags": [
+        "implementation",
+        "strings",
+        "*800"
+    ]
+}

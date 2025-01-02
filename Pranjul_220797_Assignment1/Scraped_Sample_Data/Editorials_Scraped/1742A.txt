@@ -1,0 +1,25 @@
+Problem: 1742A - Sum
+Problem Link: https://codeforces.com/problemset/problem/1742/A
+Editorial Link: https://codeforces.com/blog/entry/107962
+
+================================================================================
+
+1742A - SumIdea: flamestorm Tutorial1742A - SumYou only need to write an if statement and check if any of these are true: 𝑎+𝑏=𝑐, 𝑏+𝑐=𝑎, 𝑐+𝑎=𝑏. Solution#include <bits/stdc++.h>
+
+using namespace std;
+
+const int MAX = 200007;
+const int MOD = 1000000007;
+
+void solve() {
+	int a, b, c;
+	cin >> a >> b >> c;
+	cout << ((a + b == c || c + a == b || b + c == a) ? "YES\n" : "NO\n");
+}
+
+int main() {
+	ios::sync_with_stdio(false);
+	cin.tie(nullptr);
+	int tt; cin >> tt; for (int i = 1; i <= tt; i++) {solve();}
+	// solve();
+}

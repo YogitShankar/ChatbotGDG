@@ -1,0 +1,29 @@
+Problem: 1370A - Maximum GCD
+Problem Link: https://codeforces.com/problemset/problem/1370/A
+Editorial Link: https://codeforces.com/blog/entry/79107
+
+================================================================================
+
+1370A - Maximum GCD Tutorial1370A - Maximum GCDKey Idea:Answer for any 𝑛≥2 is equal to ⌊𝑛2⌋ .Solution:Let the maximum gcd be equal to 𝑔. Since the two numbers in a pair are distinct, one of them must be >𝑔 and both of them must be divisible by 𝑔. The smallest multiple of 𝑔, greater than 𝑔, is 2⋅𝑔. Since each number in the pair must be <=𝑛, we must have 2⋅𝑔<=𝑛, or 𝑔<=⌊𝑛2⌋. We can achieve 𝑔=⌊𝑛2⌋, by choosing ⌊𝑛2⌋ and 2⋅⌊𝑛2⌋.Time Complexity: 𝑂(1) Code
+#include < bits/stdc++.h >
+using namespace std;
+ 
+#define IOS ios::sync_with_stdio(0); cin.tie(0); cout.tie(0);
+#define endl "\n"
+#define int long long
+
+const int N = 1e5 + 5;
+
+int32_t main()
+{
+	IOS;
+	int t;
+	cin >> t;
+	while(t--)
+	{
+		int n;
+		cin >> n;
+		cout << n / 2 << endl;
+	}
+	return 0;
+}This problem was prepared by the_hyp0cr1t3

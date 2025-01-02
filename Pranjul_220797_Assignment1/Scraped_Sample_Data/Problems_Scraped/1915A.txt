@@ -1,0 +1,40 @@
+Problem: 1915A - Odd One Out
+Link: https://codeforces.com/problemset/problem/1915/A
+
+Description:
+You are given three digits
+a
+,
+b
+,
+c
+. Two of them are equal, but the third one is different from the other two.
+Find the value that occurs exactly once.
+
+Input Specification:
+The first line contains a single integer
+t
+(
+1<=t<=270
+) - the number of test cases.
+The only line of each test case contains three digits
+a
+,
+b
+,
+c
+(
+0<=a
+,
+b
+,
+c<=9
+). Two of the digits are equal, but the third one is different from the other two.
+
+Output Specification:
+For each test case, output the value that occurs exactly once.
+
+Time Limit: 1 second
+Memory Limit: 256 megabytes
+
+Tags: bitmasks, implementation, *800
