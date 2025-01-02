@@ -1,0 +1,36 @@
+Hint 1:
+To create the most polygons, you should use as few sticks as possible per polygon. What polygon has the least number of sides?
+
+Solution:
+1957A - StickogonThe first observation that needs to be made in this problem is that we have to greedily try to build triangles from the sticks available.The number of triangles that can be created simultaneously by 𝑆S sticks of the same length is ⌊𝑆3⌋⌊S3⌋. Hence, the answer is just the sum of the count of all triangles for all stick lengths, ∑𝑖=1100⌊𝑆𝑖3⌋∑i=1100⌊Si3⌋, where 𝑆𝑖Si denotes the number of sticks of length 𝑖i.The time complexity of the problem is therefore 𝑂(𝑛)+𝑂(100)=𝑂(𝑛)O(n)+O(100)=O(n).
+
+Rate this Problem:
+  95: 95
+  276: 276
+  23: 23
+  11: 11
+
+C++ Code:
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main(){ 
+  int t; 
+  cin >> t;
+  while(t--) {
+    int n; 
+    cin >> n; 
+    vector<int> a(101, 0);
+    for (int i = 0; i < n; i++) {
+      int x; 
+      cin >> x;
+      a[x]++;
+    }
+    int sum = 0;
+    for (auto& s : a) 
+      sum += s / 3;
+    cout << sum << "\n";
+  }
+}
+

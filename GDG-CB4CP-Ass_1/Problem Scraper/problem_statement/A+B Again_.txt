@@ -1,0 +1,38 @@
+Title: A. A+B Again?
+
+Time Limit: time limit per test1 second
+Memory Limit: memory limit per test256 megabytes
+
+Statement:
+Given a two-digit positive integer n, find the sum of its digits.
+
+The first line contains an integer t (1 ≤q t ≤q 90) — the number of test cases.
+
+The only line of each test case contains a single two-digit positive integer n (10 ≤q n ≤q 99).
+
+For each test case, output a single integer — the sum of the digits of n.
+
+
+
+Sample Tests:
+Sample Input:
+8
+77
+21
+40
+34
+19
+84
+10
+99
+
+Sample Output:
+14
+3
+4
+7
+10
+12
+1
+18
+

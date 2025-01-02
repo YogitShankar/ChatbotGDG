@@ -1,0 +1,1162 @@
+[
+    {
+        "contest_id_problem_index": "2011-B",
+        "title": "Shuffle",
+        "url": "https://codeforces.com/problemset/problem/2011/B",
+        "tags": [
+            "*special problem"
+        ],
+        "time_limit": "time limit per test2 seconds",
+        "memory_limit": "memory limit per test512 megabytes"
+    },
+    {
+        "contest_id_problem_index": "2011-A",
+        "title": "Problem Solving",
+        "url": "https://codeforces.com/problemset/problem/2011/A",
+        "tags": [
+            "*special problem"
+        ],
+        "time_limit": "time limit per test2 seconds",
+        "memory_limit": "memory limit per test512 megabytes"
+    },
+    {
+        "contest_id_problem_index": "2010-C2",
+        "title": "Message Transmission Error (hard version)",
+        "url": "https://codeforces.com/problemset/problem/2010/C2",
+        "tags": [
+            "hashing",
+            "string suffix structures",
+            "strings",
+            "two pointers"
+        ],
+        "time_limit": "time limit per test2 seconds",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "contest_id_problem_index": "2010-C1",
+        "title": "Message Transmission Error (easy version)",
+        "url": "https://codeforces.com/problemset/problem/2010/C1",
+        "tags": [
+            "brute force",
+            "strings"
+        ],
+        "time_limit": "time limit per test2 seconds",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "contest_id_problem_index": "2010-B",
+        "title": "Three Brothers",
+        "url": "https://codeforces.com/problemset/problem/2010/B",
+        "tags": [
+            "brute force",
+            "implementation",
+            "math"
+        ],
+        "time_limit": "time limit per test1 second",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "contest_id_problem_index": "2010-A",
+        "title": "Alternating Sum of Numbers",
+        "url": "https://codeforces.com/problemset/problem/2010/A",
+        "tags": [
+            "brute force",
+            "implementation",
+            "math"
+        ],
+        "time_limit": "time limit per test2 seconds",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "contest_id_problem_index": "2009-G3",
+        "title": "Yunli's Subarray Queries (extreme version)",
+        "url": "https://codeforces.com/problemset/problem/2009/G3",
+        "tags": [
+            "data structures",
+            "dp",
+            "implementation"
+        ],
+        "time_limit": "time limit per test3 seconds",
+        "memory_limit": "memory limit per test512 megabytes"
+    },
+    {
+        "contest_id_problem_index": "2009-G2",
+        "title": "Yunli's Subarray Queries (hard version)",
+        "url": "https://codeforces.com/problemset/problem/2009/G2",
+        "tags": [
+            "binary search",
+            "data structures",
+            "dp"
+        ],
+        "time_limit": "time limit per test3 seconds",
+        "memory_limit": "memory limit per test512 megabytes"
+    },
+    {
+        "contest_id_problem_index": "2009-G1",
+        "title": "Yunli's Subarray Queries (easy version)",
+        "url": "https://codeforces.com/problemset/problem/2009/G1",
+        "tags": [
+            "binary search",
+            "data structures",
+            "two pointers"
+        ],
+        "time_limit": "time limit per test3 seconds",
+        "memory_limit": "memory limit per test512 megabytes"
+    },
+    {
+        "contest_id_problem_index": "2009-F",
+        "title": "Firefly's Queries",
+        "url": "https://codeforces.com/problemset/problem/2009/F",
+        "tags": [
+            "bitmasks",
+            "data structures",
+            "flows",
+            "math"
+        ],
+        "time_limit": "time limit per test2 seconds",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "contest_id_problem_index": "2009-E",
+        "title": "Klee's SUPER DUPER LARGE Array!!!",
+        "url": "https://codeforces.com/problemset/problem/2009/E",
+        "tags": [
+            "binary search",
+            "math",
+            "ternary search"
+        ],
+        "time_limit": "time limit per test2 seconds",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "contest_id_problem_index": "2009-D",
+        "title": "Satyam and Counting",
+        "url": "https://codeforces.com/problemset/problem/2009/D",
+        "tags": [
+            "geometry",
+            "math"
+        ],
+        "time_limit": "time limit per test2 seconds",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "contest_id_problem_index": "2009-C",
+        "title": "The Legend of Freya the Frog",
+        "url": "https://codeforces.com/problemset/problem/2009/C",
+        "tags": [
+            "implementation",
+            "math"
+        ],
+        "time_limit": "time limit per test2 seconds",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "contest_id_problem_index": "2009-B",
+        "title": "osu!mania",
+        "url": "https://codeforces.com/problemset/problem/2009/B",
+        "tags": [
+            "brute force",
+            "implementation"
+        ],
+        "time_limit": "time limit per test1 second",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "contest_id_problem_index": "2009-A",
+        "title": "Minimize!",
+        "url": "https://codeforces.com/problemset/problem/2009/A",
+        "tags": [
+            "brute force",
+            "math"
+        ],
+        "time_limit": "time limit per test1 second",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "contest_id_problem_index": "2008-H",
+        "title": "Sakurako's Test",
+        "url": "https://codeforces.com/problemset/problem/2008/H",
+        "tags": [
+            "binary search",
+            "brute force",
+            "greedy",
+            "math",
+            "number theory"
+        ],
+        "time_limit": "time limit per test1 second",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "contest_id_problem_index": "2008-G",
+        "title": "Sakurako's Task",
+        "url": "https://codeforces.com/problemset/problem/2008/G",
+        "tags": [
+            "binary search",
+            "greedy",
+            "math",
+            "number theory"
+        ],
+        "time_limit": "time limit per test2 seconds",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "contest_id_problem_index": "2008-F",
+        "title": "Sakurako's Box",
+        "url": "https://codeforces.com/problemset/problem/2008/F",
+        "tags": [
+            "combinatorics",
+            "math",
+            "number theory"
+        ],
+        "time_limit": "time limit per test2 seconds",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "contest_id_problem_index": "2008-E",
+        "title": "Alternating String",
+        "url": "https://codeforces.com/problemset/problem/2008/E",
+        "tags": [
+            "brute force",
+            "data structures",
+            "dp",
+            "greedy",
+            "implementation",
+            "strings"
+        ],
+        "time_limit": "time limit per test2 seconds",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "contest_id_problem_index": "2008-D",
+        "title": "Sakurako's Hobby",
+        "url": "https://codeforces.com/problemset/problem/2008/D",
+        "tags": [
+            "dp",
+            "dsu",
+            "graphs",
+            "math"
+        ],
+        "time_limit": "time limit per test2 seconds",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "contest_id_problem_index": "2008-C",
+        "title": "Longest Good Array",
+        "url": "https://codeforces.com/problemset/problem/2008/C",
+        "tags": [
+            "binary search",
+            "brute force",
+            "math"
+        ],
+        "time_limit": "time limit per test2 seconds",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "contest_id_problem_index": "2008-B",
+        "title": "Square or Not",
+        "url": "https://codeforces.com/problemset/problem/2008/B",
+        "tags": [
+            "brute force",
+            "math",
+            "strings"
+        ],
+        "time_limit": "time limit per test2 seconds",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "contest_id_problem_index": "2008-A",
+        "title": "Sakurako's Exam",
+        "url": "https://codeforces.com/problemset/problem/2008/A",
+        "tags": [
+            "brute force",
+            "constructive algorithms",
+            "greedy",
+            "math"
+        ],
+        "time_limit": "time limit per test1 second",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "contest_id_problem_index": "2007-C",
+        "title": "Dora and C++",
+        "url": "https://codeforces.com/problemset/problem/2007/C",
+        "tags": [
+            "math",
+            "number theory"
+        ],
+        "time_limit": "time limit per test2 seconds",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "contest_id_problem_index": "2007-B",
+        "title": "Index and Maximum Value",
+        "url": "https://codeforces.com/problemset/problem/2007/B",
+        "tags": [
+            "data structures",
+            "greedy"
+        ],
+        "time_limit": "time limit per test1 second",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "contest_id_problem_index": "2007-A",
+        "title": "Dora's Set",
+        "url": "https://codeforces.com/problemset/problem/2007/A",
+        "tags": [
+            "greedy",
+            "math",
+            "number theory"
+        ],
+        "time_limit": "time limit per test1 second",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "contest_id_problem_index": "2006-F",
+        "title": "Dora's Paint",
+        "url": "https://codeforces.com/problemset/problem/2006/F",
+        "tags": [
+            "brute force",
+            "combinatorics",
+            "constructive algorithms",
+            "graphs",
+            "implementation"
+        ],
+        "time_limit": "time limit per test3 seconds",
+        "memory_limit": "memory limit per test512 megabytes"
+    },
+    {
+        "contest_id_problem_index": "2006-E",
+        "title": "Iris's Full Binary Tree",
+        "url": "https://codeforces.com/problemset/problem/2006/E",
+        "tags": [
+            "brute force",
+            "data structures",
+            "dfs and similar",
+            "trees"
+        ],
+        "time_limit": "time limit per test4 seconds",
+        "memory_limit": "memory limit per test1024 megabytes"
+    },
+    {
+        "contest_id_problem_index": "2006-D",
+        "title": "Iris and Adjacent Products",
+        "url": "https://codeforces.com/problemset/problem/2006/D",
+        "tags": [
+            "data structures",
+            "greedy",
+            "implementation",
+            "math"
+        ],
+        "time_limit": "time limit per test3 seconds",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "contest_id_problem_index": "2006-C",
+        "title": "Eri and Expanded Sets",
+        "url": "https://codeforces.com/problemset/problem/2006/C",
+        "tags": [
+            "data structures",
+            "divide and conquer",
+            "math",
+            "number theory",
+            "two pointers"
+        ],
+        "time_limit": "time limit per test3 seconds",
+        "memory_limit": "memory limit per test512 megabytes"
+    },
+    {
+        "contest_id_problem_index": "2006-B",
+        "title": "Iris and the Tree",
+        "url": "https://codeforces.com/problemset/problem/2006/B",
+        "tags": [
+            "brute force",
+            "data structures",
+            "dfs and similar",
+            "dsu",
+            "math",
+            "trees"
+        ],
+        "time_limit": "time limit per test3 seconds",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "contest_id_problem_index": "2006-A",
+        "title": "Iris and Game on the Tree",
+        "url": "https://codeforces.com/problemset/problem/2006/A",
+        "tags": [
+            "constructive algorithms",
+            "dfs and similar",
+            "games",
+            "graphs",
+            "greedy",
+            "trees"
+        ],
+        "time_limit": "time limit per test2 seconds",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "contest_id_problem_index": "2005-E2",
+        "title": "Subtangle Game (Hard Version)",
+        "url": "https://codeforces.com/problemset/problem/2005/E2",
+        "tags": [
+            "data structures",
+            "dp",
+            "games",
+            "greedy",
+            "implementation"
+        ],
+        "time_limit": "time limit per test2 seconds",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "contest_id_problem_index": "2005-E1",
+        "title": "Subtangle Game (Easy Version)",
+        "url": "https://codeforces.com/problemset/problem/2005/E1",
+        "tags": [
+            "dp",
+            "games",
+            "greedy",
+            "implementation"
+        ],
+        "time_limit": "time limit per test2 seconds",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "contest_id_problem_index": "2005-D",
+        "title": "Alter the GCD",
+        "url": "https://codeforces.com/problemset/problem/2005/D",
+        "tags": [
+            "binary search",
+            "brute force",
+            "data structures",
+            "divide and conquer",
+            "implementation",
+            "number theory"
+        ],
+        "time_limit": "time limit per test4 seconds",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "contest_id_problem_index": "2005-C",
+        "title": "Lazy Narek",
+        "url": "https://codeforces.com/problemset/problem/2005/C",
+        "tags": [
+            "dp",
+            "implementation",
+            "strings"
+        ],
+        "time_limit": "time limit per test2 seconds",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "contest_id_problem_index": "2005-B2",
+        "title": "The Strict Teacher (Hard Version)",
+        "url": "https://codeforces.com/problemset/problem/2005/B2",
+        "tags": [
+            "binary search",
+            "greedy",
+            "math",
+            "sortings"
+        ],
+        "time_limit": "time limit per test1.5 seconds",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "contest_id_problem_index": "2005-B1",
+        "title": "The Strict Teacher (Easy Version)",
+        "url": "https://codeforces.com/problemset/problem/2005/B1",
+        "tags": [
+            "greedy",
+            "math",
+            "sortings"
+        ],
+        "time_limit": "time limit per test1.5 seconds",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "contest_id_problem_index": "2005-A",
+        "title": "Simple Palindrome",
+        "url": "https://codeforces.com/problemset/problem/2005/A",
+        "tags": [
+            "combinatorics",
+            "constructive algorithms",
+            "greedy",
+            "math"
+        ],
+        "time_limit": "time limit per test1 second",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "contest_id_problem_index": "2004-G",
+        "title": "Substring Compression",
+        "url": "https://codeforces.com/problemset/problem/2004/G",
+        "tags": [
+            "data structures",
+            "dp",
+            "matrices"
+        ],
+        "time_limit": "time limit per test2 seconds",
+        "memory_limit": "memory limit per test1024 megabytes"
+    },
+    {
+        "contest_id_problem_index": "2004-F",
+        "title": "Make a Palindrome",
+        "url": "https://codeforces.com/problemset/problem/2004/F",
+        "tags": [
+            "binary search",
+            "brute force",
+            "data structures",
+            "greedy",
+            "math"
+        ],
+        "time_limit": "time limit per test5 seconds",
+        "memory_limit": "memory limit per test512 megabytes"
+    },
+    {
+        "contest_id_problem_index": "2004-E",
+        "title": "Not a Nim Problem",
+        "url": "https://codeforces.com/problemset/problem/2004/E",
+        "tags": [
+            "brute force",
+            "games",
+            "math",
+            "number theory"
+        ],
+        "time_limit": "time limit per test2 seconds",
+        "memory_limit": "memory limit per test512 megabytes"
+    },
+    {
+        "contest_id_problem_index": "2004-D",
+        "title": "Colored Portals",
+        "url": "https://codeforces.com/problemset/problem/2004/D",
+        "tags": [
+            "binary search",
+            "brute force",
+            "data structures",
+            "graphs",
+            "greedy",
+            "implementation",
+            "shortest paths"
+        ],
+        "time_limit": "time limit per test2 seconds",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "contest_id_problem_index": "2004-C",
+        "title": "Splitting Items",
+        "url": "https://codeforces.com/problemset/problem/2004/C",
+        "tags": [
+            "games",
+            "greedy",
+            "sortings"
+        ],
+        "time_limit": "time limit per test2 seconds",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "contest_id_problem_index": "2004-B",
+        "title": "Game with Doors",
+        "url": "https://codeforces.com/problemset/problem/2004/B",
+        "tags": [
+            "brute force",
+            "greedy"
+        ],
+        "time_limit": "time limit per test2 seconds",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "contest_id_problem_index": "2004-A",
+        "title": "Closest Point",
+        "url": "https://codeforces.com/problemset/problem/2004/A",
+        "tags": [
+            "implementation",
+            "math"
+        ],
+        "time_limit": "time limit per test2 seconds",
+        "memory_limit": "memory limit per test512 megabytes"
+    },
+    {
+        "contest_id_problem_index": "2003-F",
+        "title": "Turtle and Three Sequences",
+        "url": "https://codeforces.com/problemset/problem/2003/F",
+        "tags": [
+            "brute force",
+            "data structures",
+            "dp",
+            "greedy",
+            "math",
+            "probabilities",
+            "two pointers"
+        ],
+        "time_limit": "time limit per test3 seconds",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "contest_id_problem_index": "2003-E2",
+        "title": "Turtle and Inversions (Hard Version)",
+        "url": "https://codeforces.com/problemset/problem/2003/E2",
+        "tags": [
+            "brute force",
+            "data structures",
+            "divide and conquer",
+            "dp",
+            "greedy",
+            "math",
+            "two pointers"
+        ],
+        "time_limit": "time limit per test2 seconds",
+        "memory_limit": "memory limit per test512 megabytes"
+    },
+    {
+        "contest_id_problem_index": "2003-E1",
+        "title": "Turtle and Inversions (Easy Version)",
+        "url": "https://codeforces.com/problemset/problem/2003/E1",
+        "tags": [
+            "brute force",
+            "divide and conquer",
+            "dp",
+            "greedy",
+            "math"
+        ],
+        "time_limit": "time limit per test2 seconds",
+        "memory_limit": "memory limit per test512 megabytes"
+    },
+    {
+        "contest_id_problem_index": "2003-D2",
+        "title": "Turtle and a MEX Problem (Hard Version)",
+        "url": "https://codeforces.com/problemset/problem/2003/D2",
+        "tags": [
+            "dfs and similar",
+            "dp",
+            "graphs",
+            "greedy",
+            "implementation",
+            "math"
+        ],
+        "time_limit": "time limit per test2 seconds",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "contest_id_problem_index": "2003-D1",
+        "title": "Turtle and a MEX Problem (Easy Version)",
+        "url": "https://codeforces.com/problemset/problem/2003/D1",
+        "tags": [
+            "greedy",
+            "math"
+        ],
+        "time_limit": "time limit per test2 seconds",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "contest_id_problem_index": "2003-C",
+        "title": "Turtle and Good Pairs",
+        "url": "https://codeforces.com/problemset/problem/2003/C",
+        "tags": [
+            "constructive algorithms",
+            "greedy",
+            "sortings",
+            "strings"
+        ],
+        "time_limit": "time limit per test2 seconds",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "contest_id_problem_index": "2003-B",
+        "title": "Turtle and Piggy Are Playing a Game 2",
+        "url": "https://codeforces.com/problemset/problem/2003/B",
+        "tags": [
+            "games",
+            "greedy",
+            "sortings"
+        ],
+        "time_limit": "time limit per test1 second",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "contest_id_problem_index": "2003-A",
+        "title": "Turtle and Good Strings",
+        "url": "https://codeforces.com/problemset/problem/2003/A",
+        "tags": [
+            "greedy",
+            "strings"
+        ],
+        "time_limit": "time limit per test1 second",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "contest_id_problem_index": "2002-H",
+        "title": "Counting 101",
+        "url": "https://codeforces.com/problemset/problem/2002/H",
+        "tags": [
+            "greedy"
+        ],
+        "time_limit": "time limit per test10.1 seconds",
+        "memory_limit": "memory limit per test1010 megabytes"
+    },
+    {
+        "contest_id_problem_index": "2002-G",
+        "title": "Lattice Optimizing",
+        "url": "https://codeforces.com/problemset/problem/2002/G",
+        "tags": [
+            "bitmasks",
+            "brute force",
+            "hashing",
+            "meet-in-the-middle"
+        ],
+        "time_limit": "time limit per test7 seconds",
+        "memory_limit": "memory limit per test1024 megabytes"
+    },
+    {
+        "contest_id_problem_index": "2002-F2",
+        "title": "Court Blue (Hard Version)",
+        "url": "https://codeforces.com/problemset/problem/2002/F2",
+        "tags": [
+            "brute force",
+            "dp",
+            "math",
+            "number theory"
+        ],
+        "time_limit": "time limit per test4 seconds",
+        "memory_limit": "memory limit per test512 megabytes"
+    },
+    {
+        "contest_id_problem_index": "2002-F1",
+        "title": "Court Blue (Easy Version)",
+        "url": "https://codeforces.com/problemset/problem/2002/F1",
+        "tags": [
+            "brute force",
+            "dfs and similar",
+            "dp",
+            "math",
+            "number theory"
+        ],
+        "time_limit": "time limit per test3 seconds",
+        "memory_limit": "memory limit per test512 megabytes"
+    },
+    {
+        "contest_id_problem_index": "2002-E",
+        "title": "Cosmic Rays",
+        "url": "https://codeforces.com/problemset/problem/2002/E",
+        "tags": [
+            "brute force",
+            "data structures",
+            "dp"
+        ],
+        "time_limit": "time limit per test2 seconds",
+        "memory_limit": "memory limit per test512 megabytes"
+    },
+    {
+        "contest_id_problem_index": "2002-D2",
+        "title": "DFS Checker (Hard Version)",
+        "url": "https://codeforces.com/problemset/problem/2002/D2",
+        "tags": [
+            "binary search",
+            "data structures",
+            "dfs and similar",
+            "graphs",
+            "hashing",
+            "trees"
+        ],
+        "time_limit": "time limit per test2 seconds",
+        "memory_limit": "memory limit per test512 megabytes"
+    },
+    {
+        "contest_id_problem_index": "2002-D1",
+        "title": "DFS Checker (Easy Version)",
+        "url": "https://codeforces.com/problemset/problem/2002/D1",
+        "tags": [
+            "brute force",
+            "data structures",
+            "dfs and similar",
+            "graphs",
+            "hashing",
+            "trees"
+        ],
+        "time_limit": "time limit per test2 seconds",
+        "memory_limit": "memory limit per test512 megabytes"
+    },
+    {
+        "contest_id_problem_index": "2002-C",
+        "title": "Black Circles",
+        "url": "https://codeforces.com/problemset/problem/2002/C",
+        "tags": [
+            "brute force",
+            "geometry",
+            "greedy",
+            "math"
+        ],
+        "time_limit": "time limit per test2 seconds",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "contest_id_problem_index": "2002-B",
+        "title": "Removals Game",
+        "url": "https://codeforces.com/problemset/problem/2002/B",
+        "tags": [
+            "constructive algorithms",
+            "games"
+        ],
+        "time_limit": "time limit per test1 second",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "contest_id_problem_index": "2002-A",
+        "title": "Distanced Coloring",
+        "url": "https://codeforces.com/problemset/problem/2002/A",
+        "tags": [
+            "constructive algorithms",
+            "implementation",
+            "math"
+        ],
+        "time_limit": "time limit per test1 second",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "contest_id_problem_index": "2001-E2",
+        "title": "Deterministic Heap (Hard Version)",
+        "url": "https://codeforces.com/problemset/problem/2001/E2",
+        "tags": [
+            "combinatorics",
+            "dp",
+            "trees"
+        ],
+        "time_limit": "time limit per test4 seconds",
+        "memory_limit": "memory limit per test512 megabytes"
+    },
+    {
+        "contest_id_problem_index": "2001-E1",
+        "title": "Deterministic Heap (Easy Version)",
+        "url": "https://codeforces.com/problemset/problem/2001/E1",
+        "tags": [
+            "combinatorics",
+            "dp",
+            "math",
+            "trees"
+        ],
+        "time_limit": "time limit per test3 seconds",
+        "memory_limit": "memory limit per test512 megabytes"
+    },
+    {
+        "contest_id_problem_index": "2001-D",
+        "title": "Longest Max Min Subsequence",
+        "url": "https://codeforces.com/problemset/problem/2001/D",
+        "tags": [
+            "brute force",
+            "constructive algorithms",
+            "data structures",
+            "greedy",
+            "implementation"
+        ],
+        "time_limit": "time limit per test2 seconds",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "contest_id_problem_index": "2001-C",
+        "title": "Guess The Tree",
+        "url": "https://codeforces.com/problemset/problem/2001/C",
+        "tags": [
+            "binary search",
+            "brute force",
+            "dfs and similar",
+            "divide and conquer",
+            "dsu",
+            "greedy",
+            "interactive",
+            "trees"
+        ],
+        "time_limit": "time limit per test2 seconds",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "contest_id_problem_index": "2001-B",
+        "title": "Generate Permutation",
+        "url": "https://codeforces.com/problemset/problem/2001/B",
+        "tags": [
+            "constructive algorithms"
+        ],
+        "time_limit": "time limit per test1.5 seconds",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "contest_id_problem_index": "2001-A",
+        "title": "Make All Equal",
+        "url": "https://codeforces.com/problemset/problem/2001/A",
+        "tags": [
+            "greedy",
+            "implementation"
+        ],
+        "time_limit": "time limit per test1 second",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "contest_id_problem_index": "2000-H",
+        "title": "Ksyusha and the Loaded Set",
+        "url": "https://codeforces.com/problemset/problem/2000/H",
+        "tags": [
+            "binary search",
+            "brute force",
+            "data structures",
+            "implementation"
+        ],
+        "time_limit": "time limit per test3 seconds",
+        "memory_limit": "memory limit per test512 megabytes"
+    },
+    {
+        "contest_id_problem_index": "2000-G",
+        "title": "Call During the Journey",
+        "url": "https://codeforces.com/problemset/problem/2000/G",
+        "tags": [
+            "binary search",
+            "brute force",
+            "graphs",
+            "greedy",
+            "shortest paths"
+        ],
+        "time_limit": "time limit per test4 seconds",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "contest_id_problem_index": "2000-F",
+        "title": "Color Rows and Columns",
+        "url": "https://codeforces.com/problemset/problem/2000/F",
+        "tags": [
+            "dp",
+            "greedy",
+            "implementation",
+            "math"
+        ],
+        "time_limit": "time limit per test3 seconds",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "contest_id_problem_index": "2000-E",
+        "title": "Photoshoot for Gorillas",
+        "url": "https://codeforces.com/problemset/problem/2000/E",
+        "tags": [
+            "combinatorics",
+            "data structures",
+            "greedy",
+            "math"
+        ],
+        "time_limit": "time limit per test2 seconds",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "contest_id_problem_index": "2000-D",
+        "title": "Right Left Wrong",
+        "url": "https://codeforces.com/problemset/problem/2000/D",
+        "tags": [
+            "greedy",
+            "implementation",
+            "two pointers"
+        ],
+        "time_limit": "time limit per test2 seconds",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "contest_id_problem_index": "2000-C",
+        "title": "Numeric String Template",
+        "url": "https://codeforces.com/problemset/problem/2000/C",
+        "tags": [
+            "data structures",
+            "strings"
+        ],
+        "time_limit": "time limit per test2 seconds",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "contest_id_problem_index": "2000-B",
+        "title": "Seating in a Bus",
+        "url": "https://codeforces.com/problemset/problem/2000/B",
+        "tags": [
+            "two pointers"
+        ],
+        "time_limit": "time limit per test2 seconds",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "contest_id_problem_index": "2000-A",
+        "title": "Primary Task",
+        "url": "https://codeforces.com/problemset/problem/2000/A",
+        "tags": [
+            "implementation",
+            "math",
+            "strings"
+        ],
+        "time_limit": "time limit per test1 second",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "contest_id_problem_index": "1999-G2",
+        "title": "Ruler (hard version)",
+        "url": "https://codeforces.com/problemset/problem/1999/G2",
+        "tags": [
+            "binary search",
+            "interactive",
+            "ternary search"
+        ],
+        "time_limit": "time limit per test1 second",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "contest_id_problem_index": "1999-G1",
+        "title": "Ruler (easy version)",
+        "url": "https://codeforces.com/problemset/problem/1999/G1",
+        "tags": [
+            "binary search",
+            "interactive"
+        ],
+        "time_limit": "time limit per test1 second",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "contest_id_problem_index": "1999-F",
+        "title": "Expected Median",
+        "url": "https://codeforces.com/problemset/problem/1999/F",
+        "tags": [
+            "combinatorics",
+            "math"
+        ],
+        "time_limit": "time limit per test3 seconds",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "contest_id_problem_index": "1999-E",
+        "title": "Triple Operations",
+        "url": "https://codeforces.com/problemset/problem/1999/E",
+        "tags": [
+            "dp",
+            "implementation",
+            "math"
+        ],
+        "time_limit": "time limit per test1 second",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "contest_id_problem_index": "1999-D",
+        "title": "Slavic's Exam",
+        "url": "https://codeforces.com/problemset/problem/1999/D",
+        "tags": [
+            "greedy",
+            "implementation",
+            "strings"
+        ],
+        "time_limit": "time limit per test2 seconds",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "contest_id_problem_index": "1999-C",
+        "title": "Showering",
+        "url": "https://codeforces.com/problemset/problem/1999/C",
+        "tags": [
+            "greedy",
+            "implementation"
+        ],
+        "time_limit": "time limit per test2 seconds",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "contest_id_problem_index": "1999-B",
+        "title": "Card Game",
+        "url": "https://codeforces.com/problemset/problem/1999/B",
+        "tags": [
+            "brute force",
+            "constructive algorithms",
+            "implementation"
+        ],
+        "time_limit": "time limit per test2 seconds",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "contest_id_problem_index": "1999-A",
+        "title": "A+B Again?",
+        "url": "https://codeforces.com/problemset/problem/1999/A",
+        "tags": [
+            "implementation",
+            "math"
+        ],
+        "time_limit": "time limit per test1 second",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "contest_id_problem_index": "1998-E2",
+        "title": "Eliminating Balls With Merging (Hard Version)",
+        "url": "https://codeforces.com/problemset/problem/1998/E2",
+        "tags": [
+            "binary search",
+            "brute force",
+            "data structures",
+            "divide and conquer",
+            "greedy",
+            "implementation"
+        ],
+        "time_limit": "time limit per test4 seconds",
+        "memory_limit": "memory limit per test512 megabytes"
+    },
+    {
+        "contest_id_problem_index": "1998-E1",
+        "title": "Eliminating Balls With Merging (Easy Version)",
+        "url": "https://codeforces.com/problemset/problem/1998/E1",
+        "tags": [
+            "binary search",
+            "brute force",
+            "data structures",
+            "divide and conquer",
+            "greedy"
+        ],
+        "time_limit": "time limit per test4 seconds",
+        "memory_limit": "memory limit per test512 megabytes"
+    },
+    {
+        "contest_id_problem_index": "1998-D",
+        "title": "Determine Winning Islands in Race",
+        "url": "https://codeforces.com/problemset/problem/1998/D",
+        "tags": [
+            "data structures",
+            "dp",
+            "graphs",
+            "greedy",
+            "shortest paths"
+        ],
+        "time_limit": "time limit per test2 seconds",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "contest_id_problem_index": "1998-C",
+        "title": "Perform Operations to Maximize Score",
+        "url": "https://codeforces.com/problemset/problem/1998/C",
+        "tags": [
+            "binary search",
+            "brute force",
+            "constructive algorithms",
+            "greedy",
+            "implementation"
+        ],
+        "time_limit": "time limit per test3 seconds",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "contest_id_problem_index": "1998-B",
+        "title": "Minimize Equal Sum Subarrays",
+        "url": "https://codeforces.com/problemset/problem/1998/B",
+        "tags": [
+            "constructive algorithms",
+            "math",
+            "number theory"
+        ],
+        "time_limit": "time limit per test1.5 seconds",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "contest_id_problem_index": "1998-A",
+        "title": "Find K Distinct Points with Fixed Center",
+        "url": "https://codeforces.com/problemset/problem/1998/A",
+        "tags": [
+            "constructive algorithms",
+            "implementation",
+            "math"
+        ],
+        "time_limit": "time limit per test1 second",
+        "memory_limit": "memory limit per test256 megabytes"
+    }
+]
