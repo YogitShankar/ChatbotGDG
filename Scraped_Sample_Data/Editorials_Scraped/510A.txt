@@ -1,0 +1,17 @@
+Problem: 510A - Fox And Snake
+Problem Link: https://codeforces.com/problemset/problem/510/A
+Editorial Link: https://codeforces.com/blog/entry/16173
+
+================================================================================
+
+510A - Fox And SnakeThere are 2 different ways to solve this kind of task:First one is to simulate the movement of the snake head, and you draw '#'s on the board. The code will look like: head = (1, 1)
+repeat:
+	repeat m-1 times: head move to right
+	repeat 2 times: head move down
+	repeat 2 times: head move down
+	repeat m-1 times: head move to left
+	repeat 2 times: head move down
+	repeat 2 times: head move down
+until head is out of the boardAnother way is to do some observation about the result, you can find this pattern: (4k+1) / (4k+3) line: "#######"
+(4k+2) line: ".......#"
+(4k+0) line: "#......."
