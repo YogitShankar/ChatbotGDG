@@ -1,0 +1,21 @@
+Problem: 1030A - In Search of an Easy Problem
+Problem Link: https://codeforces.com/problemset/problem/1030/A
+Editorial Link: https://codeforces.com/blog/entry/62013
+
+================================================================================
+
+1030A - In Search of an Easy Problem Tutorial1030A - In Search of an Easy ProblemCodebait. Comforting problem.Find max𝑖=1..𝑛(answer𝑖), if it's equal to 1 then answer is HARD, otherwise - EASY. Solution#include<bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+	int n; cin >> n;
+	
+	int curMax = 0;
+	for(int i = 0; i < n; i++) {
+		int curAns; cin >> curAns;
+		curMax = max(curMax, curAns);
+	}
+	puts(curMax > 0 ? "HARD" : "EASY");
+	return 0;
+}

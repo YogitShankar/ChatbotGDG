@@ -1,0 +1,7 @@
+Problem: 723A - The New Year: Meeting Friends
+Problem Link: https://codeforces.com/problemset/problem/723/A
+Editorial Link: https://codeforces.com/blog/entry/47502
+
+================================================================================
+
+723A - The New Year: Meeting FriendsTo solve this problem you need to understand that friends must meet in the middle point of the given points, so friends who live in the leftmost and in the rightmost points must go to the middle point. Because of that the answer equals to max(x1, x2, x3) - min(x1, x2, x3).

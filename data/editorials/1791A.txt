@@ -1,0 +1,27 @@
+Problem: 1791A - Codeforces Checking
+Problem Link: https://codeforces.com/problemset/problem/1791/A
+Editorial Link: https://codeforces.com/blog/entry/112282
+
+================================================================================
+
+1791A - Codeforces CheckingIdea: flamestorm Tutorial1791A - Codeforces CheckingYou need to implement what is written in the statement. You can either use an if-statement for each of the characters {𝚌,𝚘,𝚍,𝚎,𝚏,𝚛,𝚜}, or you can iterate through the string 𝚌𝚘𝚍𝚎𝚏𝚘𝚛𝚌𝚎𝚜 check if the current character equals 𝑐. Solution#include <bits/stdc++.h>
+
+using namespace std;
+
+const string s = "codeforces";
+
+void solve() {
+	char c;
+	cin >> c;
+	for (char i : s) {
+		if (i == c) {cout << "YES\n"; return;}
+	}
+	cout << "NO\n";
+}
+
+int main() {
+	ios::sync_with_stdio(false);
+	cin.tie(nullptr);
+	int tt; cin >> tt; for (int i = 1; i <= tt; i++) {solve();}
+	// solve();
+}

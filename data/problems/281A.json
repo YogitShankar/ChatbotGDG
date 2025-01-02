@@ -1,0 +1,15 @@
+{
+    "problem_tag": "281A",
+    "title": "Word Capitalization",
+    "link": "https://codeforces.com/problemset/problem/281/A",
+    "description": "Capitalization is writing a word with its first letter as a capital letter. Your task is to capitalize the given word.\nNote, that during capitalization all the letters except the first one remains unchanged.",
+    "input_specification": "A single line contains a non-empty word. This word consists of lowercase and uppercase English letters. The length of the word will not exceed 103.",
+    "output_specification": "Output the given word after capitalization.",
+    "time_limit": "2 seconds",
+    "memory_limit": "256 megabytes",
+    "tags": [
+        "implementation",
+        "strings",
+        "*800"
+    ]
+}

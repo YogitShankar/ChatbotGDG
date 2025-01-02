@@ -1,0 +1,11 @@
+Problem: 750A - New Year and Hurry
+Problem Link: https://codeforces.com/problemset/problem/750/A
+Editorial Link: https://codeforces.com/blog/entry/49412
+
+================================================================================
+
+750A - New Year and HurryDo you see what is produced by the following piece of code? int total = 0;
+for(int i = 1; i <= n; ++i) {
+	total += 5 * i;
+	printf("%d\n", total);
+}We iterate over problems (a variable i denotes the index of problem) and in a variable total we store the total time needed to solve them. The code above would print numbers 5, 15, 30, 50, ... - the i-th of these numbers is the number of minutes the hero would spend to solve easiest i problems.Inside the loop you should also check if there is enough time to make it to the party, i.e. check if total + k <= 240.simple C++ code:24067296shorter but harder C++ code: 24067301python: 24067479

@@ -1,0 +1,7 @@
+Problem: 758A - Holiday Of Equality
+Problem Link: https://codeforces.com/problemset/problem/758/A
+Editorial Link: https://codeforces.com/blog/entry/49880
+
+================================================================================
+
+758A - Holiday Of EqualityAs it's impossible to decrease numbers, we have to increase them to at least max(a1, a2, ..., an). If all the numbers are already equal to max(a1, a2, ..., an) then there is no need to increase any of them as it will cost extra operations. So you should find max(a1, a2, ..., an) using one iteration over the array. Then iterate one more time summing up differences between ai and maximum. And the answer is . Overall complexity - O(n).Problem author: MikeMirzayanov.

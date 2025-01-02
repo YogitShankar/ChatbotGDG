@@ -1,0 +1,37 @@
+Problem: 977A - Wrong Subtraction
+Link: https://codeforces.com/problemset/problem/977/A
+
+Description:
+Little girl Tanya is learning how to decrease a number by one, but she does it wrong with a number consisting of two or more digits. Tanya subtracts one from a number by the following algorithm:
+You are given an integer number
+n
+. Tanya will subtract one from it
+k
+times. Your task is to print the result after all
+k
+subtractions.
+It is guaranteed that the result will be positive integer number.
+
+Input Specification:
+The first line of the input contains two integer numbers
+n
+and
+k
+(
+2<=n<=109
+,
+1<=k<=50
+) - the number from which Tanya will subtract and the number of subtractions correspondingly.
+
+Output Specification:
+Print one integer number - the result of the decreasing
+n
+by one
+k
+times.
+It is guaranteed that the result will be positive integer number.
+
+Time Limit: 1 second
+Memory Limit: 256 megabytes
+
+Tags: implementation, *800

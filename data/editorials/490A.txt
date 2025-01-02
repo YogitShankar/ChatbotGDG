@@ -1,0 +1,7 @@
+Problem: 490A - Team Olympiad
+Problem Link: https://codeforces.com/problemset/problem/490/A
+Editorial Link: https://codeforces.com/blog/entry/14849
+
+================================================================================
+
+490A - Team OlympiadThe teams could be formed using greedy algorithm. We can choose any three children with different skills who are not participants of any team yet and form a new team using them. After some time we could not form any team, so the answer to the problem is minimum of the number of ones, twos and threes in given array. We can get O(N) solution if we add children with different skills into three different arrays. Also the problem could be solved in O(N2) - every iteration find new three children for new team.

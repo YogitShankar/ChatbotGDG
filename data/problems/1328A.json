@@ -1,0 +1,14 @@
+{
+    "problem_tag": "1328A",
+    "title": "Divisibility Problem",
+    "link": "https://codeforces.com/problemset/problem/1328/A",
+    "description": "You are given two positive integers\na\nand\nb\n. In one move you can increase\na\nby\n1\n(replace\na\nwith\na+1\n). Your task is to find the minimum number of moves you need to do in order to make\na\ndivisible by\nb\n. It is possible, that you have to make\n0\nmoves, as\na\nis already divisible by\nb\n. You have to answer\nt\nindependent test cases.",
+    "input_specification": "The first line of the input contains one integer\nt\n(\n1≤t≤104\n) — the number of test cases. Then\nt\ntest cases follow.\nThe only line of the test case contains two integers\na\nand\nb\n(\n1≤a,b≤109\n).",
+    "output_specification": "For each test case print the answer — the minimum number of moves you need to do in order to make\na\ndivisible by\nb\n.",
+    "time_limit": "1 second",
+    "memory_limit": "256 megabytes",
+    "tags": [
+        "math",
+        "*800"
+    ]
+}

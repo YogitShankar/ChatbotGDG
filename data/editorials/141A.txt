@@ -1,0 +1,7 @@
+Problem: 141A - Amusing Joke
+Problem Link: https://codeforces.com/problemset/problem/141/A
+Editorial Link: https://codeforces.com/blog/entry/3571
+
+================================================================================
+
+141A - Amusing Joke It was enough for solving this problem to calculate for each letter: ac - amount of occurrences of letter c in first and second strings in input, bc - amount of occurrences of letter c in third string in input. If  the answer is "YES" else "NO".

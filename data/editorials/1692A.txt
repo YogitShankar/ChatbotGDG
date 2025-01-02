@@ -1,0 +1,11 @@
+Problem: 1692A - Marathon
+Problem Link: https://codeforces.com/problemset/problem/1692/A
+Editorial Link: https://codeforces.com/blog/entry/103883
+
+================================================================================
+
+1692A - MarathonIdea: mesanu Tutorial1692A - MarathonWe can re-word the problem to count the number of numbers from 𝑏,𝑐,𝑑 that are larger than 𝑎. A possible way to do this is by keeping a variable that gets incremented every time we checked using the if statement whether a number is larger than 𝑎. The complexity is (1). Solutiont = int(input())
+for test in range(t):
+    a,b,c,d = map(int, input().split())
+    rs = (b > a) + (c > a) + (d > a)
+    print(rs)

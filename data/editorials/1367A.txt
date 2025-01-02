@@ -1,0 +1,28 @@
+Problem: 1367A - Short Substrings
+Problem Link: https://codeforces.com/problemset/problem/1367/A
+Editorial Link: https://codeforces.com/blog/entry/78864
+
+================================================================================
+
+1367A - Short SubstringsAuthor: MikeMirzayanov Editorial1367A - Short SubstringsNote that the first two characters of 𝑎 match the first two characters of 𝑏. The third character of the string 𝑏 again matches the second character of 𝑎 (since it is the first character in the second substring, which contains the second and the third character of 𝑎). The fourth character 𝑏 matches with the third character of 𝑎.It is easy to notice that such a pattern continues further. That is, the string 𝑎 consists of the first character 𝑏 and all characters at even positions in 𝑏. Solution#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+	int t;
+	cin >> t;
+
+	for (int test = 1; test <= t; test++) {
+		string b;
+		cin >> b;
+
+		string a = b.substr(0, 2);
+
+		for (int i = 3; i < b.size(); i += 2) {
+			a += b[i];
+		}
+
+		cout << a << endl;
+	}
+
+	return 0;
+}

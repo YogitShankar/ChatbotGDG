@@ -1,0 +1,15 @@
+{
+    "problem_tag": "1873A",
+    "title": "Short Sort",
+    "link": "https://codeforces.com/problemset/problem/1873/A",
+    "description": "There are three cards with letters\na\n,\nb\n,\nc\nplaced in a row in some order. You can do the following operation at most once:",
+    "input_specification": "The first line contains a single integer\nt\n(\n1≤t≤6\n) — the number of test cases.\nThe only line of each test case contains a single string consisting of each of the three characters\na\n,\nb\n, and\nc\nexactly once, representing the cards.",
+    "output_specification": "For each test case, output \"YES\" if you can make the row\nabc\nwith at most one operation, or \"NO\" otherwise.\nYou can output the answer in any case (for example, the strings \"yEs\", \"yes\", \"Yes\" and \"YES\" will be recognized as a positive answer).",
+    "time_limit": "1 second",
+    "memory_limit": "256 megabytes",
+    "tags": [
+        "brute force",
+        "implementation",
+        "*800"
+    ]
+}

@@ -1,0 +1,15 @@
+{
+    "problem_tag": "1791A",
+    "title": "Codeforces Checking",
+    "link": "https://codeforces.com/problemset/problem/1791/A",
+    "description": "Given a lowercase Latin character (letter), check if it appears in the string\n𝚌𝚘𝚍𝚎𝚏𝚘𝚛𝚌𝚎𝚜\n.",
+    "input_specification": "The first line of the input contains an integer\n𝑡\n(\n1≤𝑡≤26\n) — the number of test cases.\nThe only line of each test case contains a character\n𝑐\n — a single lowercase Latin character (letter).",
+    "output_specification": "For each test case, output \"YES\" (without quotes) if\n𝑐\nsatisfies the condition, and \"NO\" (without quotes) otherwise.\nYou can output the answer in any case (for example, the strings \"yEs\", \"yes\", \"Yes\" and \"YES\" will be recognized as a positive answer).",
+    "time_limit": "1 second",
+    "memory_limit": "256 megabytes",
+    "tags": [
+        "implementation",
+        "strings",
+        "*800"
+    ]
+}

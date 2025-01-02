@@ -1,0 +1,19 @@
+Problem: 1669A - Division?
+Problem Link: https://codeforces.com/problemset/problem/1669/A
+Editorial Link: https://codeforces.com/blog/entry/102101
+
+================================================================================
+
+1669A - Division?Idea: SlavicG Tutorial1669A - Division?For this problem you just need to implement what it asks you. To be able to implement it you need to know about the "if" statement. Solution#include "bits/stdc++.h"
+using namespace std;
+
+int main() {
+    int t; cin >> t;
+    while(t--) {
+        int x; cin >> x;
+        if(x < 1400) cout << "Division 4\n";
+        else if(x < 1600) cout << "Division 3\n";
+        else if(x < 1900) cout << "Division 2\n";
+        else cout << "Division 1\n";
+    }
+}

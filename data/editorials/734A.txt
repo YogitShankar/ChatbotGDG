@@ -1,0 +1,23 @@
+Problem: 734A - Anton and Danik
+Problem Link: https://codeforces.com/problemset/problem/734/A
+Editorial Link: https://codeforces.com/blog/entry/48397
+
+================================================================================
+
+734A - Anton and DanikLet ka will be amount of characters "A" in the string and kd will be amount of characters "D" in the string. Then, if ka > kd, we print "Anton". If ka < kd, we print "Danik". If ka = kd, we print "Friendship".Time complexity is . Code#include <iostream>
+#include <string>
+
+using namespace std;
+
+int main()
+{
+	int n; cin >> n;
+	string s; cin >> s;
+	int k_a = 0, k_d = 0;
+	for (int i = 0; i < n; i++)
+		if (s[i] == 'A') k_a++; else k_d++;
+	if (k_a > k_d) cout << "Anton" << endl;
+	if (k_a < k_d) cout << "Danik" << endl;
+	if (k_a == k_d) cout << "Friendship" << endl;
+	return 0;
+}

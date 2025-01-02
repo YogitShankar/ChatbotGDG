@@ -1,0 +1,14 @@
+{
+    "problem_tag": "1030A",
+    "title": "In Search of an Easy Problem",
+    "link": "https://codeforces.com/problemset/problem/1030/A",
+    "description": "When preparing a tournament, Codeforces coordinators try treir best to make the first problem as easy as possible. This time the coordinator had chosen some problem and asked\nn\npeople about their opinions. Each person answered whether this problem is easy or hard.\nIf at least one of these\nn\npeople has answered that the problem is hard, the coordinator decides to change the problem. For the given responses, check if the problem is easy enough.",
+    "input_specification": "The first line contains a single integer\nn\n(\n1≤n≤100\n) — the number of people who were asked to give their opinions.\nThe second line contains\nn\nintegers, each integer is either\n0\nor\n1\n. If\ni\n-th integer is\n0\n, then\ni\n-th person thinks that the problem is easy; if it is\n1\n, then\ni\n-th person thinks that the problem is hard.",
+    "output_specification": "Print one word: \"EASY\" if the problem is easy according to all responses, or \"HARD\" if there is at least one person who thinks the problem is hard.\nYou may print every letter in any register: \"EASY\", \"easy\", \"EaSY\" and \"eAsY\" all will be processed correctly.",
+    "time_limit": "1 second",
+    "memory_limit": "256 megabytes",
+    "tags": [
+        "implementation",
+        "*800"
+    ]
+}

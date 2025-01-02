@@ -1,0 +1,7 @@
+Problem: 200B - Drinks
+Problem Link: https://codeforces.com/problemset/problem/200/B
+Editorial Link: https://codeforces.com/blog/entry/4769
+
+================================================================================
+
+200B - DrinksThis problem was the easiest problem of the contest. There you had to find average of the given numbers. The most participants solved this problem.

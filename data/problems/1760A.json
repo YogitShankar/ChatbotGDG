@@ -1,0 +1,15 @@
+{
+    "problem_tag": "1760A",
+    "title": "Medium Number",
+    "link": "https://codeforces.com/problemset/problem/1760/A",
+    "description": "Given three distinct integers\na\n,\nb\n, and\nc\n, find the medium number between all of them.\nThe medium number is the number that is neither the minimum nor the maximum of the given three numbers.\nFor example, the median of\n5,2,6\nis\n5\n, since the minimum is\n2\nand the maximum is\n6\n.",
+    "input_specification": "The first line contains a single integer\nt\n(\n1≤t≤6840\n) — the number of test cases.\nThe description of each test case consists of three distinct integers\na\n,\nb\n,\nc\n(\n1≤a,b,c≤20\n).",
+    "output_specification": "For each test case, output a single integer — the medium number of the three numbers.",
+    "time_limit": "1 second",
+    "memory_limit": "256 megabytes",
+    "tags": [
+        "implementation",
+        "sortings",
+        "*800"
+    ]
+}
