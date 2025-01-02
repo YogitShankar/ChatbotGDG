@@ -1,0 +1,697 @@
+Solution For any 𝑛n, Cube can set 𝑎a = any integer between 11 and 𝑛−1n−1 inclusive, and set 𝑏=𝑛−𝑎b=n−a. 𝑎a cannot be less than 11, because then it would be non-positive, and 𝑎a cannot be greater than 𝑛−1n−1, because then 𝑏b would be less than 11, which would make it non-positive. Therefore the answer is just 𝑛−1n−1 for all 𝑛n.
+
+Code (Python)input = sys.stdin.readline
+for _ in range(int(input())):
+    print(int(input())-1)
+
+Solution The letters she reads that comprise string 𝑏b are just the letters that comprise string 𝑎a, flipped left-to-right. This means that 'p' becomes 'q', 'q' becomes 'p', and 'w' stays 'w', since it is vertically symmetrical. The order in which the letters are read is also reversed, because what used to be the left side of string 𝑎a gets flipped over to the right side of string 𝑏b, and vice versa.We now have an algorithm for constructing string 𝑏b, which is to iterate from right-to-left on string 𝑎a, outputting 'p' when there is a 'q', 'q' when there is a 'p', and 'w' when there is a 'w'.
+
+Code (C++)#include <bits/stdc++.h>
+using namespace std;
+#define ll long long
+#define pll pair<ll, ll>
+
+int t;
+
+int main() {
+	cin.tie(0)->sync_with_stdio(0);
+	cin >> t;
+	while (t--) {
+		string s;
+		cin >> s;
+		reverse(s.begin(), s.end());
+		for (char &c : s) if (c == 'q') c = 'p'; else if (c == 'p') c = 'q';
+		cout << s << '\n';
+	}
+}
+
+Solution Let 𝐴A, 𝐵B, 𝐶C be three sets of monkeys, such that monkeys in 𝐴A can only sit in row 11, 𝐵B in row 22, and 𝐶C can sit anywhere. It is clear that if there is free space in row 11, and there are monkeys left in set 𝐴A, it is optimal to seat a monkey from set 𝐴A onto row 11. This is because a monkey from set 𝐶C can be seated on either row, and there might be space left on the other row for that same monkey in set 𝐶C after you've already seated the monkey from set 𝐴A. However, this is not the case if you start by seating the monkeys in set 𝐶C in the front row, since you might now leave empty seats at the back, but then have monkeys from set 𝐴A still left unseated.Therefore, the strategy is as follows: seat as many monkeys from set 𝐴A as you can in the front row, then seat as many monkeys from set 𝐵B as you can in the back row, then seat as many monkeys from set 𝐶C as you can, and that yields the answer.
+
+Code (C++)#include<bits/stdc++.h>
+#define ll long long
+using namespace std;
+
+
+int main()
+{
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+    int tt;
+    cin>>tt;
+    while(tt--)
+    {
+        int m,a,b,c;
+        cin>>m>>a>>b>>c;
+        int ans=0,rem=0;
+        ans+=min(m,a);rem+=m-min(m,a);
+        ans+=min(m,b);rem+=m-min(m,b);
+        ans+=min(rem,c);
+        cout<<ans<<'\n';
+    }
+    return 0;
+}
+
+Solution Observe that if you have an array where all elements are unique, they will all have frequency 11, therefore they can all be classified as the mode. Therefore, it follows that the strategy for the construction is to just construct an array where for each prefix, the last element of this prefix appears in the array at least once. An easy way of doing is this is such:For each element 𝑎𝑖ai, if this value has appeared previously in the array (you can use a set to check this), set 𝑏𝑖bi equal to some random integer that isn't used elsewhere in the list 𝑎a, and keep going. Otherwise, set 𝑏𝑖=𝑎𝑖bi=ai.
+
+Code (C++)#include<bits/stdc++.h>
+#define ll long long
+using namespace std;
+
+
+int main()
+{
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+    int tt;
+    cin>>tt;
+    while(tt--)
+    {
+        int n;
+        cin>>n;
+        vector<int> a(n+1),b(n);
+        for(int i=0;i<n;i++)
+        {
+            int x;
+            cin>>x;
+            if(!a[x])
+            {
+                b[i]=x;
+                a[x]=1;
+            }
+        }
+        queue<int> q;
+        for(int i=1;i<=n;i++)
+            if(!a[i])
+                q.push(i);
+        for(int i=0;i<n;i++)
+        {
+            if(!b[i])
+            {
+                b[i]=q.front();
+                q.pop();
+            }
+        }
+        for(int i=0;i<n;i++)
+            cout<<b[i]<<" \n"[i==n-1];
+    }
+    return 0;
+}
+
+Solution 1 (Binary Search)Clearly, trying to bruteforce over all possible values of 𝑥x or 𝑦y is too slow, because the bounds are 1≤𝑙1≤𝑟1≤1091≤l1≤r1≤109. However, there is another variable that you can actually bruteforce over — and that is 𝑛n. This is because exponentiation famously makes numbers very big very quickly — and if we set 𝑘k as small as possible (i.e. 22), we only need to check 1≤𝑛≤321≤n≤32. This is because 232>109232>109, so there cannot possibly be any solutions for 𝑛>32n>32 for any 𝑘k.Now, let's rephrase the problem. We need to find pairs (𝑥,𝑦)(x,y) such that 𝑥⋅𝑘𝑛=𝑦x⋅kn=y. Now, we can check every value of 𝑛n from 11 to 3232, and for each, binary search to find the smallest 𝑥x such that 𝑦y fits the conditions, and the largest 𝑥x. Now, we can subtract these two values and add this to the answer.
+
+Solution 2 (Intervals)Note that we do not need to care about more than 3232 different values of 𝑘𝑛kn, because obviously 𝑘32≥232>109k32≥232>109. From here and on, we focus on solving for only one value of 𝑘𝑛kn.When 𝑘𝑛kn is fixed and you are given 𝑦𝑥=𝑘𝑛yx=kn, notice 𝑦y is fixed as 𝑥𝑘𝑛xkn. Therefore, if we count the values 𝑥x such that 𝑦y is in the given interval as well, we will be properly counting the ordered pairs.Formally, this condition can be cleared out as:  𝑙2≤𝑥𝑘𝑛≤𝑟2l2≤xkn≤r2 𝑙2𝑘𝑛≤𝑥≤𝑟2𝑘𝑛l2kn≤x≤r2kn Because 𝑥x is an integer, ⌈𝑙2𝑘𝑛⌉≤𝑥≤⌊𝑟2𝑘𝑛⌋⌈l2kn⌉≤x≤⌊r2kn⌋ Thus, when we intersect the two intervals, we get the following interval at last. max(𝑙1,⌈𝑙2𝑘𝑛⌉)≤𝑥≤min(𝑟1,⌊𝑟2𝑘𝑛⌋)max(l1,⌈l2kn⌉)≤x≤min(r1,⌊r2kn⌋)Compute the size of this interval for all 𝑘𝑛kn (at most 3232 values) and the answer can be found.Do note the following details while implementing:  When 𝑟<𝑙r<l, the size of the interval is 00, not negative. Beware of overflows. Dealing with big integers can be helpful in avoiding this, but it may make your solution slow. Do not round up a fraction using the ceil function; This has been a recurring issue in almost every Div.4! 
+
+Code (C++)#include<bits/stdc++.h>
+#define ll long long
+using namespace std;
+
+
+int main()
+{
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+    int tt;
+    cin>>tt;
+    while(tt--)
+    {
+        ll k,l1,r1,l2,r2;
+        cin>>k>>l1>>r1>>l2>>r2;
+        ll kn=1,ans=0;
+        for(int n=0;r2/kn>=l1;n++)
+        {
+            ans+=max(0ll,min(r2/kn,r1)-max((l2-1)/kn+1,l1)+1ll);
+            kn*=k;
+        }
+        cout<<ans<<'\n';
+    }
+    return 0;
+}
+
+Are you a python user and failing test 12?This is an anti-hash test for python sets and dictionaries. Before you call us evil, we saved you from getting hacked in open hack phase. Beware!
+
+Solution Let's denote the beauty of the matrix as 𝐵B, and denote SumASumA as the sum of all the elements in the array 𝑎a, and SumBSumB as the sum of all the elements in the array 𝑏b.Before applying an operation, the beauty of the matrix can be expressed as:𝐵=𝑏1⋅𝑎1+𝑏1⋅𝑎2+𝑏1⋅𝑎3+𝑏2⋅𝑎1+𝑏2⋅𝑎2+…B=b1⋅a1+b1⋅a2+b1⋅a3+b2⋅a1+b2⋅a2+…After factoring, this simplifies to:𝐵=𝑏1⋅(𝑎1+𝑎2+𝑎3+…)+𝑏2⋅(𝑎1+𝑎2+𝑎3+…)+…B=b1⋅(a1+a2+a3+…)+b2⋅(a1+a2+a3+…)+…Further factoring gives:𝐵=(𝑎1+𝑎2+𝑎3+𝑎4+…)⋅(𝑏1+𝑏2+𝑏3+…)B=(a1+a2+a3+a4+…)⋅(b1+b2+b3+…)This can be written as:𝐵=SumA⋅SumBB=SumA⋅SumBNow, consider the effect of an operation on a column 𝐶C. The beauty decreases by 𝐴𝑐⋅SumBAc⋅SumB. Similarly, when an operation is done on a row 𝑅R, the beauty decreases by 𝐵𝑟⋅SumABr⋅SumA.An important observation is that the element at position (𝑟,𝑐)(r,c) is counted twice, so we must account for this in the formula.After considering this, let the beauty after the operations be denoted as 𝑋X. Using the observations above:𝑋=𝐵−(𝑏𝑖⋅SumA+𝑎𝑗⋅SumB−𝑎𝑗⋅𝑏𝑖)X=B−(bi⋅SumA+aj⋅SumB−aj⋅bi)Simplifying further:𝑋=SumA⋅SumB−𝑏𝑖⋅SumA−𝑎𝑗⋅SumB+𝑎𝑗⋅𝑏𝑖X=SumA⋅SumB−bi⋅SumA−aj⋅SumB+aj⋅biFactoring terms, we obtain:𝑋=SumA⋅(SumB−𝑏𝑖)−𝑎𝑗⋅(SumB−𝑏𝑖)X=SumA⋅(SumB−bi)−aj⋅(SumB−bi)Finally:𝑋=(SumB−𝑏𝑖)⋅(SumA−𝑎𝑗)X=(SumB−bi)⋅(SumA−aj)At this stage, it is sufficient to iterate over the divisors of 𝑋X. For each ordered pair of divisors whose product is 𝑋X, we check whether the required values of SumB−𝑏𝑖SumB−bi and SumA−𝑎𝑗SumA−aj can be achieved.This can be implemented using a simple map or boolean vector for faster computation, although such optimization is not required for this problem.
+
+Code (C++)#include <bits/stdc++.h>
+using namespace std;
+#define FOR(i,a,b) for (int i = (a); i < (b); ++i)
+#define F0R(i,a) FOR(i,0,a)
+#define int long long
+#define vt vector
+#define endl "\n"
+
+const int N = 4e5 + 5;
+bool apos[N], aneg[N], bpos[N], bneg[N], posspos[N], possneg[N];
+
+signed main() {
+    ios_base::sync_with_stdio(false); 
+    cin.tie(0);
+    int n,m,q;
+    cin >> n >> m >> q;
+    vector<int> a(n), b(m);
+    int asum = 0, bsum = 0;
+    F0R(i, n) {
+        cin >> a[i];
+        asum += a[i];
+    }
+    F0R(i, m) {
+        cin >> b[i];
+        bsum += b[i];
+    }
+    F0R(i, n) {
+        if(abs(asum-a[i]) < N) {
+            if(asum-a[i]<0) aneg[a[i]-asum]=true;   
+            else apos[asum-a[i]]=true;
+        } 
+    }
+    F0R(i, m) {
+        if(abs(bsum-b[i]) < N) {
+            if(bsum-b[i]<0) bneg[b[i]-bsum]=true;   
+            else bpos[bsum-b[i]]=true;
+        } 
+    }
+    FOR(i, 1, N) {
+        FOR(j, 1, N) {
+            if(i * j > N) break;
+            if(apos[i]&&bpos[j]) posspos[i*j]=true;
+            if(apos[i]&&bneg[j]) possneg[i*j]=true;
+            if(aneg[i]&&bpos[j]) possneg[i*j]=true;
+            if(aneg[i]&&bneg[j]) posspos[i*j]=true;
+        }
+    }
+    while(q--) {
+        int x;
+        cin >> x;
+        if(x>0) {
+            if(posspos[x]) {
+                cout << "YES" << endl;
+            } else {
+                cout << "NO" << endl;
+            }
+        } else {
+            if(possneg[-x]) {
+                cout << "YES" << endl;
+            } else {
+                cout << "NO" << endl;
+            }
+        }
+    }
+    return 0;
+}
+
+Solution This problem deals with a specific subclass of graphs called "functional graphs", also known as "successor graphs". The key feature that they have is that each node only has one successor. Therefore, the graph in the problem will necessarily be split into 𝑘≥1k≥1 components, where each component necessarily contains one cycle, and each node will either be in the cycle, or it will be on a path leading towards the cycle.Observe that if a node that is not on a cycle currently has a plushie, this plushie will cause the arrangement to be unstable until the plushie reaches the cycle. Proof: suppose node 𝑢u has the plushie on day 𝑖i. On the next day, 𝑢u will no longer have this plushie, because they will have passed it down to 𝑟𝑢ru, therefore, the arrangement has changed. This continues inductively until the plushie reaches the cycle of its component.From this, we know that the answer is at least the distance of any node to the cycle. Now, since every node in the cycle already has a plushie, we know that these plushies just get passed round and round, so actually, nodes within the cycle cannot change the answer. Therefore, we've already found the final answer. 
+
+Code (C++)#include<bits/stdc++.h>
+#define ll long long
+using namespace std;
+
+
+int main()
+{
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+    int tt;
+    cin>>tt;
+    while(tt--)
+    {
+        int n;
+        cin>>n;
+        vector<int> r(n+1),d(n+1);
+        for(int i=1;i<=n;i++)
+        {
+            cin>>r[i];
+            d[r[i]]++;
+        }
+        set<pair<int,int> > s;
+        for(int i=1;i<=n;i++)
+            s.insert({d[i],i});
+        int ans=2;
+        queue<int> q;
+        while(!s.empty()&&(*s.begin()).first==0)
+        {
+            while(!s.empty()&&(*s.begin()).first==0)
+            {
+                int k=(*s.begin()).second;
+                auto it=s.find({d[r[k]],r[k]});
+                d[r[k]]--;
+                if(it!=s.end())
+                {
+                    s.erase(it);
+                    q.push(r[k]);
+                }
+                s.erase(s.begin());
+            }
+            while(!q.empty())
+                s.insert({d[q.front()],q.front()}),q.pop();
+            ans++;
+        }
+        cout<<ans<<'\n';
+    }
+    return 0;
+}
+
+Solution Note that similarly to G1, once all plushies end up in the hands of spiders who are in a loop, the process becomes stable. Let's model the input as a collection of rooted forests. For each spider 𝑖i, if 𝑖i is part of a loop, then let's compress the loop into a single node and use that as the root of a tree. Otherwise, if spider 𝑖i gives a present to spider 𝑟𝑖ri, then let's draw an edge from 𝑖i to 𝑟𝑖ri. Now, let 𝑖i be any node that is not part of a loop. How long will it take until spider 𝑖i runs out of presents? We can see that it is the subtree size of 𝑖i, as one present leaves the subtree each year.Thus, our challenge now is to process the nodes in an efficient order such that we can find the subtree size of all nodes. This can be done with topological sorting, which gives us an order that processes all nodes starting from the leaf upwards. After the topological sort, we may do dynamic programming to find subtree sizes of all nodes. Let 𝑑𝑝[𝑖]dp[i] be the number of days until spider 𝑖i runs out of presents. Let's suppose that we already calculated 𝑑𝑝[𝑖]dp[i] (we initialize it to be 11 for all nodes since each spider starts with a present). Then, we should add 𝑑𝑝[𝑖]dp[i] to 𝑑𝑝[𝑟𝑖]dp[ri]. Doing this and adding up all 𝑑𝑝dp values of nodes directly before a cycle will yield the answer. 
+
+Code (C++)#include<bits/stdc++.h>
+#define ll long long
+using namespace std;
+
+
+int main()
+{
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+    int tt;
+    cin>>tt;
+    while(tt--)
+    {
+        int n;
+        cin>>n;
+        vector<int> r(n+1),d(n+1),v(n+1,1);
+        for(int i=1;i<=n;i++)
+        {
+            cin>>r[i];
+            d[r[i]]++;
+        }
+        set<pair<int,int> > s;
+        for(int i=1;i<=n;i++)
+        {
+            s.insert({d[i],i});
+        }
+        int ans=2;
+        queue<int> q;
+        while(!s.empty()&&(*s.begin()).first==0)
+        {
+            while(!s.empty()&&(*s.begin()).first==0)
+            {
+                int k=(*s.begin()).second;
+                ans=max(ans,v[k]+2);v[r[k]]+=v[k];
+                auto it=s.find({d[r[k]],r[k]});
+                d[r[k]]--;
+                if(it!=s.end())
+                {
+                    s.erase(it);
+                    q.push(r[k]);
+                }
+                s.erase(s.begin());
+            }
+            while(!q.empty())
+                s.insert({d[q.front()],q.front()}),q.pop();
+        }
+        cout<<ans<<'\n';
+    }
+    return 0;
+}
+
+Solution Consider translating the sum back onto the matrix. For simplicity we discuss about querying the whole matrix.The sum we would like to find is ∑𝑖𝑖⋅𝐴𝑖∑ii⋅Ai. Here, 𝐴𝑖Ai corresponds to 𝑀(𝑥,𝑦)M(x,y), so we will translate this to ∑𝑥,𝑦𝑖⋅𝑀(𝑥,𝑦)∑x,yi⋅M(x,y). The issue left is on the 𝑖i multiplied to it.Remember that we index the entries in increasing order of 𝑦y, and then increasing order of 𝑥x. Assuming 𝑦y and 𝑥x were 00-indexed, this will mean entry (𝑥,𝑦)(x,y) corresponds to 𝑥⋅𝑛+𝑦x⋅n+y (also 00-indexed). You can notice that this naturally corresponds to the order we had defined as well.Then, what we want to find is ∑𝑥,𝑦(𝑥⋅𝑛+𝑦+1)⋅𝑀(𝑥,𝑦)∑x,y(x⋅n+y+1)⋅M(x,y). Notice 𝑥⋅𝑛x⋅n, 𝑦y, 11 are independent, and we can split them into sums ∑𝑥𝑥⋅𝑛⋅𝑀(𝑥,𝑦)∑xx⋅n⋅M(x,y), ∑𝑦𝑦⋅𝑀(𝑥,𝑦)∑yy⋅M(x,y), ∑𝑀(𝑥,𝑦)∑M(x,y). Each of these three sums can be precomputed entry by entry, and a 2D prefix sum can solve the answer for the entire matrix.The query for a submatrix is very similar. Formally, you have to care about:  That we have 𝑦2−𝑦1+1y2−y1+1 columns instead of 𝑛n now; That the precomputed values might not start from 00 on the first row/column of the query. Still, these two issues can be fixed using the three sums we have precomputed. The time complexity becomes (𝑛2+𝑞)O(n2+q).
+
+Code (C++)#include <bits/stdc++.h>
+using namespace std;
+using ll = long long;
+using vll = vector <ll>;
+using ii = pair <ll, ll>;
+using vii = vector <ii>;
+
+void tc () {
+    ll n, Q;
+    cin >> n >> Q;
+    vector <vll> mat(n, vll(n));
+    for (vll &ve : mat) {
+        for (ll &i : ve) cin >> i;
+    }
+    vector <vll> psR(n, vll(n+1)), psRr(n, vll(n+1)), psRc(n+1, vll(n+1)), ps(n+1, vll(n+1)), psRrc(n+1, vll(n+1));
+    for (ll i = 0; i < n; i++) {
+        for (ll j = 0; j < n; j++) {
+            psR[i][j+1] = psR[i][j] + mat[i][j];
+        }
+    }
+    for (ll i = 0; i < n; i++) {
+        for (ll j = 0; j < n; j++) {
+            psRr[i][j+1] = psRr[i][j] + mat[i][j]*(j+1);
+        }
+    }
+    for (ll i = 0; i < n; i++) {
+        for (ll j = 0; j <= n; j++) {
+            psRc[i+1][j] = psRc[i][j] + psR[i][j]*(i+1);
+        }
+    }
+    for (ll i = 0; i < n; i++) {
+        for (ll j = 0; j <= n; j++) {
+            psRrc[i+1][j] = psRrc[i][j] + psRr[i][j];
+        }
+    }
+    for (ll i = 0; i < n; i++) {
+        for (ll j = 0; j <= n; j++) {
+            ps[i+1][j] = ps[i][j] + psR[i][j];
+        }
+    }
+    while (Q--) {
+        ll x1, y1, x2, y2;
+        cin >> x1 >> y1 >> x2 >> y2;
+        x1--; y1--; x2--; y2--;
+        ll ans = 0;
+        ans += -(ps[x2+1][y2+1]-ps[x2+1][y1]-ps[x1][y2+1]+ps[x1][y1])*x1*(y2-y1+1);
+        ans += (psRc[x2+1][y2+1] - psRc[x1][y2+1] - (ps[x2+1][y2+1]-ps[x1][y2+1]))*(y2-y1+1);
+
+        ans += (psRc[x2+1][y1] - psRc[x1][y1] - (ps[x2+1][y1]-ps[x1][y1]))*-(y2-y1+1);
+        ans += (ps[x2+1][y2+1]-ps[x1][y2+1])*-y1;
+        ans += (ps[x2+1][y1]-ps[x1][y1])*y1;
+
+        ans += psRrc[x2+1][y2+1] - psRrc[x1][y2+1];
+        ans +=-(psRrc[x2+1][y1] - psRrc[x1][y1]);
+        cout << ans << ' ';
+    }
+    cout << '\n';
+}
+
+int main () {
+    cin.tie(nullptr) -> sync_with_stdio(false);
+    ll T; cin >> T; while (T--) { tc(); }
+    return 0;
+}
+
+Spoiler1
+5 1 2 6 9
+
+SpoilerWe want to find Σ𝑥,𝑦((𝑥−𝑥1)⋅𝑤+(𝑦−𝑦1)+1)⋅𝑀(𝑥,𝑦)Σx,y((x−x1)⋅w+(y−y1)+1)⋅M(x,y) where 𝑤w is the width of the submatrix. Note that 𝑥x, 𝑦y, 𝑥1x1, 𝑦1y1 are all 0-indexed.
+
+My Code// First I find the range hi and lo instead of iterating 1 to 31. Even with using 1 to 31 it gives the same wrong answer.
+
+int cal(int cur, int R, int L, int x) {
+    int cnt = 0;
+    while (cur <= R) {
+        if (cur >= L) {
+            cnt += 1;
+        }
+        cur *= x;
+    }
+    return cnt;
+}
+void solve() {
+    int x, l, r, L, R;
+    cin >> x >> l >> r >> L >> R;
+    if (R < l) {
+        cout << 0 << "\n";
+        return;
+    }
+    int cur = l, cnt = 0;
+    while (cur <= R) {
+        if (cur >= L){
+            cnt += 1;
+        }
+        cur *= x;
+    }
+    int hi = cnt;
+    cur = r, cnt = 0;
+    while (cur <= R) {
+        if (cur >= L) {
+            cnt += 1;
+        }
+        cur *= x;
+    }
+    int lo = cnt;
+    int ans = 0;
+    for (int i = lo; i <= hi; i++) {
+        int left = l, right = r;
+        while (left <= right) {
+            int m = (left + right) / 2;
+            if (cal(m, R, L, x) <= i) {
+                right = m - 1;
+            } else if (cal(m, R, L, x) > i) {
+                left = m + 1;
+            } 
+        }
+        int ll = left;
+        left = l, right = r;
+        while (left <= right) {
+            int m = (left + right) / 2;
+            if (cal(m, R, L, x) < i) {
+                right = m - 1;
+            } else if (cal(m, R, L, x) >= i) {
+                left = m + 1;
+            } 
+        }
+        int rr = right;
+        ans += i * (rr - ll + 1);
+    }
+    cout << ans << "\n";
+}
+
+Java Code G1import java.util.*;
+
+public class Main {
+
+    static class UnionFind {
+        int par[];
+        int size[];
+ 
+        UnionFind(int n) {
+            par = new int[n];
+            size = new int[n];
+ 
+            for (int i = 0; i < n; i++) {
+                par[i] = i;
+                size[i] = 1;
+            }
+        }
+ 
+        int find(int val) {
+            if (par[val] == val) {
+                return val;
+            }
+            return par[val] = find(par[val]);
+        }
+ 
+        boolean union(int a, int b) {
+            int pa = find(a);
+            int pb = find(b);
+ 
+            if (pa == pb) return false;
+ 
+            if (size[pa] > size[pb]) {
+                return union(b, a);
+            }
+ 
+            par[pa] = pb;
+            size[pb] += size[pa];
+ 
+            return true;
+        }
+    }
+
+
+    static UnionFind uf;
+    static List<Integer> cycleSeeds;
+    static List<List<Integer>> rev;
+    static int depth[];
+    static int cycle[];
+    static int vis[];
+    static int compID[];
+
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        int t = sc.nextInt(); 
+        StringBuilder result = new StringBuilder();
+
+        while (t-- > 0) {
+            int n = sc.nextInt(); 
+
+            uf = new UnionFind(n + 1);
+            int[] recipients = new int[n + 1];
+            depth = new int[n + 1];
+            cycle = new int[n + 1];
+            vis = new int[n + 1];
+            compID = new int[n + 1];
+
+            
+            rev = new ArrayList<>();
+            cycleSeeds = new ArrayList<>();
+
+
+            for(int i = 0; i <= n; i++) rev.add(new ArrayList<>());
+
+            for (int i = 1; i <= n; i++) {
+                recipients[i] = sc.nextInt();
+                rev.get(recipients[i]).add(i);
+                if (!uf.union(i, recipients[i])) {
+                    cycleSeeds.add(i);
+                }
+
+            }
+
+            int currComp = 0;
+            for (int i : cycleSeeds) {
+                if (vis[i] == 0) {
+                    dfs(i, currComp);
+                    currComp++;
+                }
+            }
+
+            vis = new int[n + 1];
+
+            int maxPathLength = 2;
+
+            for(int i = 1; i <= n; i++) {
+                if(vis[i] == 0 && cycle[i] == 0) {
+                    int len = dfs2(i, recipients);
+                    maxPathLength = Math.max(maxPathLength, len + 2);
+                }
+            }
+
+
+            result.append(maxPathLength).append("\n");
+        }
+
+        System.out.print(result);
+    }
+
+    public static int dfs2(int node, int [] recipients) {
+        vis[node] = 1;
+ 
+        int child = recipients[node];
+        int len = 1;
+        if (cycle[child] == 0) {
+            len += dfs2(child, recipients);
+        }
+        return len;
+    }
+
+    public static void dfs(int node, int currComp) {
+        vis[node] = 1;
+        compID[node] = currComp;
+ 
+        for (int child : rev.get(node)) {
+            if (vis[child] == 0) {
+                depth[child] = depth[node] + 1;
+                dfs(child, currComp);
+            } else {
+                cycle[child] = depth[node] + 1;
+            }
+            cycle[node] = Math.max(cycle[node], cycle[child]);
+        }
+    }
+
+}
+
+Converted C++ code G1#include <iostream>
+#include <vector>
+#include <algorithm>
+using namespace std;
+
+class UnionFind {
+public:
+    vector<int> par, size;
+
+    UnionFind(int n) {
+        par.resize(n);
+        size.resize(n, 1);
+        for (int i = 0; i < n; i++) {
+            par[i] = i;
+        }
+    }
+
+    int find(int val) {
+        if (par[val] == val) return val;
+        return par[val] = find(par[val]);
+    }
+
+    bool unionSets(int a, int b) {
+        int pa = find(a);
+        int pb = find(b);
+
+        if (pa == pb) return false;
+
+        if (size[pa] > size[pb]) {
+            swap(pa, pb);
+        }
+
+        par[pa] = pb;
+        size[pb] += size[pa];
+
+        return true;
+    }
+};
+
+UnionFind* uf;
+vector<int> cycleSeeds;
+vector<vector<int>> rev;
+vector<int> depth, cycle, vis, compID;
+
+void dfs(int node, int currComp) {
+    vis[node] = 1;
+    compID[node] = currComp;
+
+    for (int child : rev[node]) {
+        if (vis[child] == 0) {
+            depth[child] = depth[node] + 1;
+            dfs(child, currComp);
+        } else {
+            cycle[child] = depth[node] + 1;
+        }
+        cycle[node] = max(cycle[node], cycle[child]);
+    }
+}
+
+int dfs2(int node, const vector<int>& recipients) {
+    vis[node] = 1;
+
+    int child = recipients[node];
+    int len = 1;
+    if (cycle[child] == 0) {
+        len += dfs2(child, recipients);
+    }
+    return len;
+}
+
+int main() {
+    int t;
+    cin >> t;
+
+    while (t-- > 0) {
+        int n;
+        cin >> n;
+
+        uf = new UnionFind(n + 1);
+        vector<int> recipients(n + 1);
+        depth.assign(n + 1, 0);
+        cycle.assign(n + 1, 0);
+        vis.assign(n + 1, 0);
+        compID.assign(n + 1, 0);
+
+        rev.assign(n + 1, vector<int>());
+        cycleSeeds.clear();
+
+        for (int i = 1; i <= n; i++) {
+            cin >> recipients[i];
+            rev[recipients[i]].push_back(i);
+            if (!uf->unionSets(i, recipients[i])) {
+                cycleSeeds.push_back(i);
+            }
+        }
+
+        int currComp = 0;
+        for (int i : cycleSeeds) {
+            if (vis[i] == 0) {
+                dfs(i, currComp);
+                currComp++;
+            }
+        }
+
+        vis.assign(n + 1, 0);
+
+        int maxPathLength = 2;
+        for (int i = 1; i <= n; i++) {
+            if (vis[i] == 0 && cycle[i] == 0) {
+                int len = dfs2(i, recipients);
+                maxPathLength = max(maxPathLength, len + 2);
+            }
+        }
+
+        cout << maxPathLength << "\n";
+    }
+
+    return 0;
+}
+
+

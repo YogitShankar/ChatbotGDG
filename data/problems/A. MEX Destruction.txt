@@ -1,0 +1,24 @@
+Evirir the dragon snuck into a wizard's castle and found a mysterious contraption, and their playful instincts caused them to play with (destroy) it...Evirir the dragon found an array 𝑎1,𝑎2,…,𝑎𝑛a1,a2,…,an of 𝑛n non-negative integers.In one operation, they can choose a non-empty subarray∗∗ 𝑏b of 𝑎a and replace it with the integer mex(𝑏)mex⁡(b)††. They want to use this operation any number of times to make 𝑎a only contain zeros. It can be proven that this is always possible under the problem constraints.What is the minimum number of operations needed?∗∗An array 𝑐c is a subarray of an array 𝑑d if 𝑐c can be obtained from 𝑑d by the deletion of several (possibly, zero or all) elements from the beginning and several (possibly, zero or all) elements from the end. ††The minimum excluded (MEX) of a collection of integers 𝑓1,𝑓2,…,𝑓𝑘f1,f2,…,fk is defined as the smallest non-negative integer 𝑥x which does not occur in the collection 𝑓f.
+
+Each test contains multiple test cases. The first line contains the number of test cases 𝑡t (1≤𝑡≤2001≤t≤200). The description of the test cases follows. The first line of each test case contains a single integer 𝑛n (1≤𝑛≤501≤n≤50), the length of 𝑎a.The second line of each test case contains 𝑛n space-separated integers, 𝑎1,𝑎2,…,𝑎𝑛a1,a2,…,an (0≤𝑎𝑖≤1000≤ai≤100).It is guaranteed that the sum of 𝑛n over all test cases does not exceed 500500.
+
+For each test case, output a single integer on a line, the minimum number of operations needed to make 𝑎a contain only zeros.
+
+Input
+10 4 0 1 2 3 6 0 0 0 0 0 0 5 1 0 1 0 1 5 3 1 4 1 5 4 3 2 1 0 7 9 100 0 89 12 2 3 4 0 3 9 0 7 0 7 0 2 0 7 0 1 0 2 0 1
+
+Output
+1
+0
+2
+1
+1
+2
+1
+2
+0
+1
+
+
+Note
+NoteIn the first test case, Evirir can choose the subarray 𝑏=[1,2,3]b=[1,2,3] and replace it with mex(1,2,3)=0mex⁡(1,2,3)=0, changing 𝑎a from [0,1,2,3⎯⎯⎯⎯⎯⎯⎯⎯⎯][0,1,2,3_] to [0,0][0,0] (where the chosen subarray is underlined). Therefore, the answer is 11.In the second test case, 𝑎a already contains only 00s, so no operation is needed.In the third test case, Evirir can change 𝑎a as follows: [1,0,1,0,1⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯]→[1,2⎯⎯⎯⎯⎯⎯]→[0][1,0,1,0,1_]→[1,2_]→[0]. Here, mex(0,1,0,1)=2mex⁡(0,1,0,1)=2 and mex(1,2)=0mex⁡(1,2)=0.In the fourth test case, Evirir can choose 𝑏b to be the entire array 𝑎a, changing 𝑎a from [3,1,4,1,5⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯][3,1,4,1,5_] to [0][0].

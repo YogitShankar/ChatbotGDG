@@ -1,0 +1,17 @@
+You are given an array 𝑎a of length 𝑛n and 𝑞q queries 𝑙l, 𝑟r.For each query, find the maximum possible 𝑚m, such that all elements 𝑎𝑙al, 𝑎𝑙+1al+1, ..., 𝑎𝑟ar are equal modulo 𝑚m. In other words, 𝑎𝑙mod𝑚=𝑎𝑙+1mod𝑚=⋯=𝑎𝑟mod𝑚almodm=al+1modm=⋯=armodm, where 𝑎mod𝑏amodb — is the remainder of division 𝑎a by 𝑏b. In particular, when 𝑚m can be infinite, print 00.
+
+The first line contains a single integer 𝑡t (1≤𝑡≤1041≤t≤104) — the number of test cases.The first line of each test case contains two integers 𝑛n, 𝑞q (1≤𝑛,𝑞≤2⋅1051≤n,q≤2⋅105) — the length of the array and the number of queries.The second line of each test case contains 𝑛n integers 𝑎𝑖ai (1≤𝑎𝑖≤1091≤ai≤109) — the elements of the array.In the following 𝑞q lines of each test case, two integers 𝑙l, 𝑟r are provided (1≤𝑙≤𝑟≤𝑛1≤l≤r≤n) — the range of the query.It is guaranteed that the sum of 𝑛n across all test cases does not exceed 2⋅1052⋅105, and the sum of 𝑞q does not exceed 2⋅1052⋅105.
+
+For each query, output the maximum value 𝑚m described in the statement.
+
+Input
+3 5 5 5 14 2 6 3 4 5 1 4 2 4 3 5 1 1 1 1 7 1 1 3 2 1 7 8 2 3 1 2
+
+Output
+3 1 4 1 0 
+0 
+1 6
+
+
+Note
+NoteIn the first query of the first sample, 6mod3=3mod3=06mod3=3mod3=0. It can be shown that for greater 𝑚m, the required condition will not be fulfilled.In the third query of the first sample, 14mod4=2mod4=6mod4=214mod4=2mod4=6mod4=2. It can be shown that for greater 𝑚m, the required condition will not be fulfilled.

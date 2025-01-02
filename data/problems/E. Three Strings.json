@@ -1,0 +1,11 @@
+{
+    "title": "E. Three Strings",
+    "tags": [
+        "dp",
+        "implementation",
+        "strings",
+        "*1500"
+    ],
+    "time_limit": "2.5 seconds",
+    "memory_limit": "256 megabytes"
+}

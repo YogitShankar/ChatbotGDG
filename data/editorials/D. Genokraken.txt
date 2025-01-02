@@ -1,0 +1,1846 @@
+README: Notice about solutionsAll editorial codes contain solutions wrapped in classes. I'll only paste the important part (namespace solution in C++, class Solution in Python 3) as plaintext in the solution code section (along with the corresponding AC submission link). You might want to see the code template here. C++ template#include <bits/stdc++.h>
+using namespace std;
+
+namespace solution {
+    bool hasMultipleTests = true;
+
+    void preprocess() {
+        // something
+    }
+
+    void input(int testcase) {
+        // something
+    }
+
+    void solve(int testcase) {
+        // something
+    }
+}
+
+int main() {
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+
+    solution::preprocess();
+
+    int t = 1;
+    if (solution::hasMultipleTests) cin >> t;
+
+    for (int testcase=1; testcase<=t; testcase++) {
+        solution::input(testcase);
+        solution::solve(testcase);
+    }
+
+    return 0;
+} Python 3 templateimport sys
+input = sys.stdin.readline
+
+
+class Solution:
+    hasMultipleTests = True
+
+    @classmethod
+    def preprocess(cls):
+        pass
+
+    @classmethod
+    def input(cls, testcase):
+        pass
+
+    @classmethod
+    def solve(cls, testcase):
+        pass
+
+# end Solution
+
+
+if __name__ == '__main__':
+    Solution.preprocess()
+
+    t = int(input()) if Solution.hasMultipleTests else 1
+    for testcase in range(1, t+1):
+        Solution.input(testcase)
+        Solution.solve(testcase)Also, per my own custom ever since 2019, solution codes will only be published after system testing, to ensure all codes used here guarantee AC. Thank you for your patience.
+
+C++ template#include <bits/stdc++.h>
+using namespace std;
+
+namespace solution {
+    bool hasMultipleTests = true;
+
+    void preprocess() {
+        // something
+    }
+
+    void input(int testcase) {
+        // something
+    }
+
+    void solve(int testcase) {
+        // something
+    }
+}
+
+int main() {
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
+
+    solution::preprocess();
+
+    int t = 1;
+    if (solution::hasMultipleTests) cin >> t;
+
+    for (int testcase=1; testcase<=t; testcase++) {
+        solution::input(testcase);
+        solution::solve(testcase);
+    }
+
+    return 0;
+}
+
+Python 3 templateimport sys
+input = sys.stdin.readline
+
+
+class Solution:
+    hasMultipleTests = True
+
+    @classmethod
+    def preprocess(cls):
+        pass
+
+    @classmethod
+    def input(cls, testcase):
+        pass
+
+    @classmethod
+    def solve(cls, testcase):
+        pass
+
+# end Solution
+
+
+if __name__ == '__main__':
+    Solution.preprocess()
+
+    t = int(input()) if Solution.hasMultipleTests else 1
+    for testcase in range(1, t+1):
+        Solution.input(testcase)
+        Solution.solve(testcase)
+
+Hint #1In which cases would a light be on?
+
+Hint #2AImagine that you have 𝑥x white socks and 𝑦y black socks. What would you do to make the maximum pairs of matched socks?
+
+Hint #2BImagine that you have 𝑥x white socks and 𝑦y black socks. What would you do to make the maximum pairs of unmatched socks?
+
+Tutorial2032A - CircuitObserve that an even number of switch toggles on the same light will not change that light's status. In other words, a light is on if and only if exactly one of the two switches connecting to it is on.Let's denote cnt0cnt0 and cnt1cnt1 as the number of off switches and on switches in the circuit. We see that   The maximum number of on lights is min(cnt0,cnt1)min(cnt0,cnt1): we can't achieve more than this amount since any on light decreases both cnt0cnt0 and cnt1cnt1 by 11, and we can achieve this amount by matching min(cnt0,cnt1)min(cnt0,cnt1) pairs of one off switch and one on switch, and the rest can be matched arbitrarily.  The minimum number of on lights is cnt0mod2cnt0mod2. Since cnt0+cnt1=2𝑛cnt0+cnt1=2n, they have the same parity. Then, we can easily see that when both cnt0cnt0 and cnt1cnt1 are even, we can match 𝑛n pairs of the same type of switches, so there are no on lights in this case. When both cnt0cnt0 and cnt1cnt1 are odd, we must match one on switch with one off switch to make cnt0cnt0 and cnt1cnt1 even, so there is one on light in this case. The calculation of cnt0cnt0 and cnt1cnt1 can be easily done by a simple iteration over the switches.Time complexity: (𝑛)O(n).
+
+Solution (C++)Submission link: 289291089 Plaintextnamespace solution {
+    bool hasMultipleTests = true;
+
+    int n;
+    vector<int> a;
+
+    void preprocess() {
+
+    }
+
+    void input(int testcase) {
+        cin >> n;
+        a.clear();
+        a.resize(n * 2);
+        for (auto &z: a) cin >> z;
+    }
+
+    void solve(int testcase) {
+        int cnt0 = 0;
+
+        for (auto &z: a) {
+            cnt0 += z;
+        }
+
+        cout << (cnt0 & 1) << " " << min(cnt0, n * 2 - cnt0) << endl;
+    }
+}
+
+Plaintextnamespace solution {
+    bool hasMultipleTests = true;
+
+    int n;
+    vector<int> a;
+
+    void preprocess() {
+
+    }
+
+    void input(int testcase) {
+        cin >> n;
+        a.clear();
+        a.resize(n * 2);
+        for (auto &z: a) cin >> z;
+    }
+
+    void solve(int testcase) {
+        int cnt0 = 0;
+
+        for (auto &z: a) {
+            cnt0 += z;
+        }
+
+        cout << (cnt0 & 1) << " " << min(cnt0, n * 2 - cnt0) << endl;
+    }
+}
+
+Solution (Python 3)Submission link: 289291082 Plaintextclass Solution:
+    hasMultipleTests = True
+
+    n: int = None
+    a: list = None
+
+    @classmethod
+    def preprocess(cls):
+        pass
+
+    @classmethod
+    def input(cls, testcase):
+        cls.n = int(input())
+        cls.a = list(map(int, input().split()))
+
+    @classmethod
+    def solve(cls, testcase):
+        cnt0 = sum(cls.a)
+        
+        print(cnt0 & 1, min(cnt0, cls.n*2 - cnt0))
+
+# end Solution
+
+Plaintextclass Solution:
+    hasMultipleTests = True
+
+    n: int = None
+    a: list = None
+
+    @classmethod
+    def preprocess(cls):
+        pass
+
+    @classmethod
+    def input(cls, testcase):
+        cls.n = int(input())
+        cls.a = list(map(int, input().split()))
+
+    @classmethod
+    def solve(cls, testcase):
+        cnt0 = sum(cls.a)
+        
+        print(cnt0 & 1, min(cnt0, cls.n*2 - cnt0))
+
+# end Solution
+
+Feedback Didn't attempt 
+
+
+
+
+2
+
+
+
+
+
+ Great problem 
+
+    
+
+
+23
+
+
+
+ Nice problem 
+
+    
+
+
+55
+
+
+
+ OK problem 
+
+    
+
+
+114
+
+
+
+ Bad problem 
+
+    
+
+
+5
+
+
+
+ Terrible problem 
+
+    
+
+
+12
+
+
+
+ 
+
+Hint #1There is always exactly one solution for 𝑛=1n=1. For 𝑛≥3n≥3, for which 𝑘k should there be no solution at all?
+
+Hint #2ATry to find a solution with 𝑘=2k=2 and 𝑘=4k=4, assuming 𝑛n allows at least one solution to exist. Can you find a pattern and generalize it for all even 𝑘k?
+
+Hint #2BTry to find a solution with 𝑘=3k=3 and 𝑘=5k=5, assuming 𝑛n allows at least one solution to exist. Can you find a pattern and generalize it for all odd 𝑘k?
+
+Tutorial2032B - MediansFor 𝑛=1n=1 (and 𝑘=1k=1 as well), the obvious answer would be not partitioning anything, i.e., partition with 1 subarray being itself.For 𝑛>1n>1, we see that 𝑘=1k=1 and 𝑘=𝑛k=n cannot yield a satisfactory construction. Proof is as follows:  𝑚=1m=1 will yield 𝑎𝑛𝑠=⌊𝑛+12⌋ans=⌊n+12⌋, which will never be equal to 11 or 𝑛n when 𝑛≥3n≥3.  If 𝑚>1m>1, considering the case of 𝑘=1k=1, we see that median(𝑏𝑖)=1median⁡(bi)=1 iff 𝑖≥2i≥2, and since the original array 𝑎a is an increasingly-sorted permutation, we can conclude that median(𝑏1)<1median⁡(b1)<1. This is not possible.  Similarly, 𝑘=𝑛k=n also doesn't work with 𝑚>1m>1, as it'll require median(𝑏𝑚)>𝑛median⁡(bm)>n. Apart from these cases, any other 𝑘k can yield an answer with 𝑚=3m=3  — a prefix subarray 𝑏1b1, a middle subarray 𝑏2b2 containing 𝑘k (𝑏2b2 will be centered at 𝑘k, of course), and a suffix subarray 𝑏3b3. This way, the answer will be median(𝑏2)=𝑘median⁡(b2)=k.The length of 𝑏2b2 can be either 11 or 33, depending on the parity of 𝑘k (so that 𝑏1b1 and 𝑏3b3 could have odd lengths). In detail: 𝑏2b2 will have length 11 (i.e., [𝑘][k]) if 𝑘k is an even integer, and length 33 (i.e., [𝑘−1,𝑘,𝑘+1][k−1,k,k+1]) if 𝑘k is an odd integer.Time complexity: (1)O(1).
+
+Solution (C++)Submission link: 289291698 Plaintextnamespace solution {
+    bool hasMultipleTests = true;
+
+    int n, k;
+
+    void preprocess() {
+
+    }
+
+    void input(int testcase) {
+        cin >> n >> k;
+    }
+
+    void solve(int testcase) {
+        if (n == 1) {cout << "1\n1\n"; return;}
+
+        if (k == 1 || k == n) {cout << "-1\n"; return;}
+
+        int p2 = k - k % 2;
+        int p3 = k + 1 + k % 2;
+        cout << "3\n1 " << p2 << " " << p3 << endl;
+    }
+}
+
+Plaintextnamespace solution {
+    bool hasMultipleTests = true;
+
+    int n, k;
+
+    void preprocess() {
+
+    }
+
+    void input(int testcase) {
+        cin >> n >> k;
+    }
+
+    void solve(int testcase) {
+        if (n == 1) {cout << "1\n1\n"; return;}
+
+        if (k == 1 || k == n) {cout << "-1\n"; return;}
+
+        int p2 = k - k % 2;
+        int p3 = k + 1 + k % 2;
+        cout << "3\n1 " << p2 << " " << p3 << endl;
+    }
+}
+
+Solution (Python 3)Submission link: 289291693 Plaintextclass Solution:
+    hasMultipleTests = True
+
+    n: int = None
+    k: int = None
+
+    @classmethod
+    def preprocess(cls):
+        pass
+
+    @classmethod
+    def input(cls, testcase):
+        cls.n, cls.k = map(int, input().split())
+
+    @classmethod
+    def solve(cls, testcase):
+        if cls.n == 1: return(print('1\n1'))
+
+        if cls.k in {1, cls.n}: return(print(-1))
+
+        p2, p3 = cls.k - cls.k % 2, cls.k + 1 + cls.k % 2
+        print(f'3\n1 {p2} {p3}')
+
+# end Solution
+
+Plaintextclass Solution:
+    hasMultipleTests = True
+
+    n: int = None
+    k: int = None
+
+    @classmethod
+    def preprocess(cls):
+        pass
+
+    @classmethod
+    def input(cls, testcase):
+        cls.n, cls.k = map(int, input().split())
+
+    @classmethod
+    def solve(cls, testcase):
+        if cls.n == 1: return(print('1\n1'))
+
+        if cls.k in {1, cls.n}: return(print(-1))
+
+        p2, p3 = cls.k - cls.k % 2, cls.k + 1 + cls.k % 2
+        print(f'3\n1 {p2} {p3}')
+
+# end Solution
+
+Feedback Didn't attempt 
+
+    
+
+
+0
+
+
+
+ Great problem 
+
+    
+
+
+33
+
+
+
+ Nice problem 
+
+    
+
+
+134
+
+
+
+ OK problem 
+
+    
+
+
+19
+
+
+
+ Bad problem 
+
+    
+
+
+7
+
+
+
+ Terrible problem 
+
+    
+
+
+64
+
+
+
+ 
+
+Hint #1Without loss of generality, you can rewrite the triangle inequality into a much more compacted form if the side lengths are properly ordered.
+
+Hint #2AGiven four integers 𝑎≤𝑏≤𝑐≤𝑑a≤b≤c≤d, if (𝑎,𝑏,𝑑)(a,b,d) are side lengths of a non-degenerate triangle, so does (𝑎,𝑏,𝑐)(a,b,c).
+
+Hint #2BGiven four integers 𝑎≤𝑏≤𝑐≤𝑑a≤b≤c≤d, if (𝑎,𝑏,𝑑)(a,b,d) are side lengths of a non-degenerate triangle, so does (𝑎,𝑐,𝑑)(a,c,d).
+
+Hint #2CGiven four integers 𝑎≤𝑏≤𝑐≤𝑑a≤b≤c≤d, if (𝑎,𝑏,𝑑)(a,b,d) are side lengths of a non-degenerate triangle, so does (𝑏,𝑐,𝑑)(b,c,d).
+
+Hint #3To make a sorted array [𝑏1,𝑏2,…,𝑏𝑚] (𝑚≥3)[b1,b2,…,bm] (m≥3) satisfy the problem, we must ensure that 𝑏1+𝑏2>𝑏𝑚b1+b2>bm.
+
+Hint #4Fix the result array to have two minimas and one maxima at respectively 𝑎𝑥ax, 𝑎𝑦ay and 𝑎𝑧az. How many operations are required to do so?
+
+Hint #5Is there a fast and optimal way to try all possible (𝑎𝑥,𝑎𝑦,𝑎𝑧)(ax,ay,az) triplets?
+
+Tutorial2032C - TrinityWithout loss of generality, we assume that every array mentioned below is sorted in non-descending order.An array 𝑏b of 𝑘k elements (𝑘≥3k≥3) will satisfy the problem's criteria iff 𝑏1+𝑏2>𝑏𝑘b1+b2>bk. The proof is that 𝑏1+𝑏2b1+b2 is the minimum sum possible of any pair of distinct elements of array 𝑏b, and if it is larger than the largest element of 𝑏b, every pair of distinct elements of 𝑏b will be larger than any element of 𝑏b on its own.The upper bound for our answer is 𝑛−2n−2. This can be done as follows: we will turn every value from 𝑎2a2 to 𝑎𝑛−1an−1 to 𝑎𝑛an — this way, we only have two types of triangles: (𝑎1,𝑎𝑛,𝑎𝑛)(a1,an,an) and (𝑎𝑛,𝑎𝑛,𝑎𝑛)(an,an,an). Since 𝑎1≥1>0a1≥1>0, we have 𝑎1+𝑎𝑛>𝑎𝑛a1+an>an, which means the former type of triangles is non-degenerate. The latter is also trivially one, as it is a regular/equilateral triangle.Otherwise, we'll need a pair of indices (𝑖,𝑗)(i,j) (1≤𝑖≤𝑛−21≤i≤n−2, 𝑖+2≤𝑗≤𝑛i+2≤j≤n), so that in the final array after applying operations to 𝑎a, 𝑎𝑖ai and 𝑎𝑖+1ai+1 will be respectively the smallest and second smallest element, and 𝑎𝑗aj will be the largest element. Such indices must satisfy 𝑎𝑖+𝑎𝑖+1>𝑎𝑗ai+ai+1>aj.Let's consider a pair (𝑖,𝑗)(i,j) that satisfies the above condition, then we need to turn elements outside of it (i.e. those before 𝑖i or after 𝑗j) into some elements within the range [𝑎𝑖+1,𝑎𝑗][ai+1,aj], and indeed we can change them into 𝑎𝑖+1ai+1 — this way, we have everything in place while keeping the relative rankings of 𝑎𝑖ai, 𝑎𝑖+1ai+1 and 𝑎𝑗aj as what they are initially. Therefore, for such a pair, the number of operations needed is 𝑛−(𝑗−𝑖+1)n−(j−i+1). This means that for every 𝑖i, we need to find the largest 𝑗>𝑖j>i that satisfies the condition, which can easily be done using two pointers.Sorting complexity: (𝑛log𝑛)O(nlog⁡n).Two-pointer complexity: (𝑛)O(n).
+
+Solution (C++)Submission link: 289292343 Plaintextnamespace solution {
+    bool hasMultipleTests = true;
+
+    int n;
+    vector<int> a;
+
+    void preprocess() {
+
+    }
+
+    void input(int testcase) {
+        cin >> n;
+        a.clear();
+        a.resize(n);
+        for (auto &z: a) cin >> z;
+    }
+
+    void solve(int testcase) {
+        sort(a.begin(), a.end());
+
+        int l = 0, ans = n - 2;
+        for (int r = 2; r < n; r++) {
+            while (r - l >= 2 && a[l] + a[l+1] <= a[r]) l++;
+            ans = min(ans, n - (r - l + 1));
+        }
+
+        cout << ans << endl;
+    }
+}
+
+Plaintextnamespace solution {
+    bool hasMultipleTests = true;
+
+    int n;
+    vector<int> a;
+
+    void preprocess() {
+
+    }
+
+    void input(int testcase) {
+        cin >> n;
+        a.clear();
+        a.resize(n);
+        for (auto &z: a) cin >> z;
+    }
+
+    void solve(int testcase) {
+        sort(a.begin(), a.end());
+
+        int l = 0, ans = n - 2;
+        for (int r = 2; r < n; r++) {
+            while (r - l >= 2 && a[l] + a[l+1] <= a[r]) l++;
+            ans = min(ans, n - (r - l + 1));
+        }
+
+        cout << ans << endl;
+    }
+}
+
+Solution (Python 3)Submission link: 289292338 Plaintextclass Solution:
+    hasMultipleTests = True
+
+    n: int = None
+    a: list = None
+
+    @classmethod
+    def preprocess(cls):
+        pass
+
+    @classmethod
+    def input(cls, testcase):
+        cls.n = int(input())
+        cls.a = list(map(int, input().split()))
+
+    @classmethod
+    def solve(cls, testcase):
+        cls.a.sort()
+        l, r, ans = 0, 2, cls.n - 2
+        while r < cls.n:
+            while r - l >= 2 and cls.a[l] + cls.a[l+1] <= cls.a[r]: l += 1
+            ans = min(ans, cls.n - (r - l + 1))
+            r += 1
+        print(ans)
+
+# end Solution
+
+Plaintextclass Solution:
+    hasMultipleTests = True
+
+    n: int = None
+    a: list = None
+
+    @classmethod
+    def preprocess(cls):
+        pass
+
+    @classmethod
+    def input(cls, testcase):
+        cls.n = int(input())
+        cls.a = list(map(int, input().split()))
+
+    @classmethod
+    def solve(cls, testcase):
+        cls.a.sort()
+        l, r, ans = 0, 2, cls.n - 2
+        while r < cls.n:
+            while r - l >= 2 and cls.a[l] + cls.a[l+1] <= cls.a[r]: l += 1
+            ans = min(ans, cls.n - (r - l + 1))
+            r += 1
+        print(ans)
+
+# end Solution
+
+Feedback Didn't attempt 
+
+    
+
+
+15
+
+
+
+ Great problem 
+
+    
+
+
+78
+
+
+
+ Nice problem 
+
+    
+
+
+205
+
+
+
+ OK problem 
+
+    
+
+
+43
+
+
+
+ Bad problem 
+
+    
+
+
+13
+
+
+
+ Terrible problem 
+
+    
+
+
+46
+
+
+
+ 
+
+Hint #1There are many specific constraints on the system tree.First, notice that 1≤𝑥≤𝑦≤𝑛−11≤x≤y≤n−1 if and only if 𝑝𝑥≤𝑝𝑦px≤py. Draw a few trees with this constraint and start pointing your finger on the nodes from 00 to 𝑛−1n−1. Notice the pattern your finger is making.
+
+Hint #2Incorporate hint #1 with the fact that the "tentacles" of the Genokraken are just paths. Try to draw more detailed conclusion about that pattern.
+
+Hint #3AIs there a way to know how many tentacles there are?
+
+Hint #3BWhat use could we make of the fact that node 11 has exactly two adjacent nodes?
+
+Hint #4The query limit is very small. Is there a way to query that the information obtained in each query should (at least partially) determine a node?
+
+Hint #5For each "tentacle", can we know when its path has ended? How many queries should it take?
+
+Tutorial2032D - Genokraken  For simplicity, we'll use the term "tentacle" to call each path tree in the forest made by cutting off node 00. We also notice that in each tentacle, two nodes will never have the same distance from root node 00.The condition of 𝑝𝑥≤𝑝𝑦px≤py iff 𝑥≤𝑦x≤y leads to a crucial observation of the system: it is indexed in accordance to a BFS order of the tree. Hence, we now have two goals:  Determine 𝑚m — the number of tentacles.  From node 𝑚+1m+1 to 𝑛−1n−1, assign every node to their respective tentacles. Due to the BFS order, at the moment of assignment, the previous tip of the tentacle is the parent of the current node, and the current node becomes the new tip of the tentacle. For the first objective, we see that node 11 is guaranteed to be connected with nodes 00 and 𝑚+1m+1. Furthermore, 𝑚+1m+1 is the first non-zero node where the path between it and 11 does not cross 00. Therefore, you can keep querying (1,𝑗)(1,j) for increasing 𝑗j until you find a 00 to get 𝑚m.For the second objective, we need to find the tentacle that each node 𝑖i (𝑚+2≤𝑖≤𝑛−1m+2≤i≤n−1) belongs to; in other words, find the node 1≤𝑖≤𝑚1≤i≤m so that query (𝑖,𝑗)(i,j) yields a 00. Denote 𝑡(𝑗)t(j) as the tentacle associated with node 𝑗j, then note that:   If 𝑗−1j−1 and 𝑗j share the same distance from 00, then obviously 𝑡(𝑗−1)<𝑡(𝑗)t(j−1)<t(j), i.e., 𝑡(𝑗)t(j) will be a tentacle at the forward direction from 𝑡(𝑗−1)t(j−1) in the tentacle list.  If 𝑗−1j−1 and 𝑗j don't share the same distance from 00, then 𝑡(𝑗)t(j) can be any tentacle in the list. So we can approach this objective like this: denote next(𝑡(𝑗−1))next(t(j−1)) as the next tentacle in the list after 𝑡(𝑗−1)t(j−1) (or 11 if 𝑡(𝑗−1)t(j−1) was at the end of the list), starting from 𝑖=𝑡(𝑗−1)i=t(j−1), we'll keep re-assigning 𝑖=next(𝑖)i=next(i) until query (𝑖,𝑗)(i,j) yields a 00.From hindsight, it looks like we'll need (𝑛2)O(n2) query count order to finish this part, but there is another crucial observation: due to the nodes being indexed in BFS order, if any tentacle yields a 11 during probing, that tentacle will never be extended again — proof for this is pretty intuitive but a bit lengthy to express in words, so we'll leave it as an exercise for the reader — thus if you reach an 𝑖i that has already been deactivated before, you ignore it and call nextnext again, which wouldn't count towards the queries as it is your internal processing.Let's count the number of queries we used. Let 𝑚≤𝑛−2m≤n−2 be the number of tentacles, then  If 𝑚=𝑛−2m=n−2, the second objective wouldn't be needed, so we end up with 𝑛−2≤2𝑛−6n−2≤2n−6 queries in total (as 𝑛≤4n≤4).  If 𝑚≤𝑛−3m≤n−3, note that each time we process a query, either a node is appended to a tentacle, or a tentacle is removed. Since at most 𝑚−1m−1 tentacles can be removed and there are 𝑛−𝑚−2n−m−2 nodes to be processed, the second phase uses at most 𝑛−3n−3 queries, so in total we use 𝑛+𝑚−3≤2𝑛−6n+m−3≤2n−6 queries. To process the list of tentacles, there are a few options:  Naively mark the tentacles as active/inactive to know when to stop by for queries and when to skip. Time complexity will be (𝑛2)O(n2), and though it can still pass (in fact one such solution from the author passed nicely), it is not recommended.  Maintain the list of tentacles in a set, if a node is known to be inactive, remove it. Time complexity will be (𝑛log𝑛)O(nlog⁡n).  Maintain the list of tentacles in a similar manner as above, but using a doubly linked list this time. Time complexity will be (𝑛)O(n). 
+
+Solution (C++)Submission link: 289292866 Plaintextnamespace datastruct {
+    // A doubly-linked list that only supports modify and (pseudo) deletion at pointer
+    class DeleteOnly_DLL {
+    public:
+        vector<int> values;
+        vector<int> prev;
+        vector<int> next;
+        int pointer;
+        
+        DeleteOnly_DLL(int size) {
+            values.resize(size);
+            prev.resize(size);
+            next.resize(size);
+            
+            for (int i = 0; i < size; i++) {
+                prev[i] = (i + size - 1) % size;
+                next[i] = (i +        1) % size;
+            }
+            
+            pointer = 0;
+        }
+        
+        int current() {
+            return values[pointer];
+        }
+        
+        // Set value at pointer and move pointer to next
+        void set_and_move(int val) {
+            values[pointer] = val;
+            pointer = next[pointer];
+        }
+        
+        // "Delete" node and move pointer to next
+        void erase() {
+            if (prev[pointer] != -1) {
+                next[prev[pointer]] = next[pointer];
+            }
+            if (next[pointer] != -1) {
+                prev[next[pointer]] = prev[pointer];
+            }
+            
+            int next_id = next[pointer];
+            prev[pointer] = next[pointer] = -1;
+            pointer = next_id;
+        }
+    };
+}
+
+namespace solution {
+    bool hasMultipleTests = true;
+
+    int n;
+    
+    int ask(int a, int b) {
+        cout << "? " << a << " " << b << endl;
+        cout.flush();
+        
+        int res; cin >> res;
+        return res;
+    }
+    
+    void answer(vector<int> &p) {
+        cout << "!";
+        for (int i=1; i<n; i++) {
+            cout << " " << p[i];
+        }
+        cout << endl;
+        cout.flush();
+    }
+
+    void preprocess() {
+
+    }
+
+    void input(int testcase) {
+        cin >> n;
+    }
+
+    void solve(int testcase) {
+        vector<int> p(n, -1);
+        p[1] = 0;
+        
+        int r = 2;
+        while (true) {
+            int response = ask(1, r);
+            if (response == -1) exit(2226);
+            
+            if (response == 1) {
+                p[r] = 0;
+                r++;
+            }
+            else break;
+        }
+        
+        int tentacle_count = r - 1;
+        
+        datastruct::DeleteOnly_DLL tentacles = datastruct::DeleteOnly_DLL(tentacle_count);
+        for (int i = 0; i < tentacle_count; i++) {
+            tentacles.set_and_move(i + 1);
+        }
+
+        p[r] = tentacles.current();
+        tentacles.set_and_move(r);
+        r++;
+        
+        while (r < n) {
+            int response = ask(tentacles.current(), r);
+            if (response == -1) exit(2226);
+            
+            if (response == 1) {
+                tentacles.erase();
+            }
+            else {
+                p[r] = tentacles.current();
+                tentacles.set_and_move(r);
+                r++;
+            }
+        }
+        
+        answer(p);
+    }
+}
+
+Plaintextnamespace datastruct {
+    // A doubly-linked list that only supports modify and (pseudo) deletion at pointer
+    class DeleteOnly_DLL {
+    public:
+        vector<int> values;
+        vector<int> prev;
+        vector<int> next;
+        int pointer;
+        
+        DeleteOnly_DLL(int size) {
+            values.resize(size);
+            prev.resize(size);
+            next.resize(size);
+            
+            for (int i = 0; i < size; i++) {
+                prev[i] = (i + size - 1) % size;
+                next[i] = (i +        1) % size;
+            }
+            
+            pointer = 0;
+        }
+        
+        int current() {
+            return values[pointer];
+        }
+        
+        // Set value at pointer and move pointer to next
+        void set_and_move(int val) {
+            values[pointer] = val;
+            pointer = next[pointer];
+        }
+        
+        // "Delete" node and move pointer to next
+        void erase() {
+            if (prev[pointer] != -1) {
+                next[prev[pointer]] = next[pointer];
+            }
+            if (next[pointer] != -1) {
+                prev[next[pointer]] = prev[pointer];
+            }
+            
+            int next_id = next[pointer];
+            prev[pointer] = next[pointer] = -1;
+            pointer = next_id;
+        }
+    };
+}
+
+namespace solution {
+    bool hasMultipleTests = true;
+
+    int n;
+    
+    int ask(int a, int b) {
+        cout << "? " << a << " " << b << endl;
+        cout.flush();
+        
+        int res; cin >> res;
+        return res;
+    }
+    
+    void answer(vector<int> &p) {
+        cout << "!";
+        for (int i=1; i<n; i++) {
+            cout << " " << p[i];
+        }
+        cout << endl;
+        cout.flush();
+    }
+
+    void preprocess() {
+
+    }
+
+    void input(int testcase) {
+        cin >> n;
+    }
+
+    void solve(int testcase) {
+        vector<int> p(n, -1);
+        p[1] = 0;
+        
+        int r = 2;
+        while (true) {
+            int response = ask(1, r);
+            if (response == -1) exit(2226);
+            
+            if (response == 1) {
+                p[r] = 0;
+                r++;
+            }
+            else break;
+        }
+        
+        int tentacle_count = r - 1;
+        
+        datastruct::DeleteOnly_DLL tentacles = datastruct::DeleteOnly_DLL(tentacle_count);
+        for (int i = 0; i < tentacle_count; i++) {
+            tentacles.set_and_move(i + 1);
+        }
+
+        p[r] = tentacles.current();
+        tentacles.set_and_move(r);
+        r++;
+        
+        while (r < n) {
+            int response = ask(tentacles.current(), r);
+            if (response == -1) exit(2226);
+            
+            if (response == 1) {
+                tentacles.erase();
+            }
+            else {
+                p[r] = tentacles.current();
+                tentacles.set_and_move(r);
+                r++;
+            }
+        }
+        
+        answer(p);
+    }
+}
+
+Solution (Python 3)Submission link: 289292865 Plaintextclass DeleteOnly_DLL:
+    def __init__(self, size: int):
+        self.values = [None for _ in range(size)]
+        self.prev = [(i + size - 1) % size for i in range(size)]
+        self.next = [(i +        1) % size for i in range(size)]
+        self.pointer = 0
+    
+    def current(self):
+        return self.values[self.pointer]
+    
+    # Set value at pointer and move pointer to next
+    def set_and_move(self, val):
+        self.values[self.pointer] = val
+        self.pointer = self.next[self.pointer]
+        
+    # "Delete" node and move pointer to next
+    def erase(self):
+        if self.prev[self.pointer] != -1:
+            self.next[self.prev[self.pointer]] = self.next[self.pointer]
+        if self.next[self.pointer] != -1:
+            self.prev[self.next[self.pointer]] = self.prev[self.pointer]
+        
+        next_id = self.next[self.pointer]
+        self.prev[self.pointer] = self.next[self.pointer] = -1
+        self.pointer = next_id
+    
+# end DeleteOnly_DLL
+
+
+class Solution:
+    hasMultipleTests = True
+
+    n: int = None
+    
+    @classmethod
+    def ask(cls, a: int, b: int):
+        print(f'? {a} {b}', flush=True)
+        return int(input())
+    
+    @classmethod
+    def answer(cls, p: list):
+        print(f'! {" ".join(map(str, p[1:]))}', flush=True)
+
+    @classmethod
+    def preprocess(cls):
+        pass
+
+    @classmethod
+    def input(cls, testcase):
+        cls.n = int(input())
+
+    @classmethod
+    def solve(cls, testcase):
+        p = [-1 for _ in range(cls.n)]
+        p[1] = 0
+        
+        r = 2
+        while True:
+            response = cls.ask(1, r)
+            if response == -1: exit(2226)
+            
+            if response == 1:
+                p[r] = 0
+                r += 1
+            else: break
+        
+        tentacle_count = r - 1
+        
+        tentacles = DeleteOnly_DLL(size = tentacle_count)
+        for i in range(tentacle_count):
+            tentacles.set_and_move(i + 1)
+
+        p[r] = tentacles.current()
+        tentacles.set_and_move(r)
+        r += 1
+        
+        while r < cls.n:
+            response = cls.ask(tentacles.current(), r)
+            if response == -1: exit(2226)
+            
+            if response == 1:
+                tentacles.erase()
+            else:
+                p[r] = tentacles.current()
+                tentacles.set_and_move(r)
+                r += 1
+        
+        cls.answer(p)
+
+# end Solution
+
+Plaintextclass DeleteOnly_DLL:
+    def __init__(self, size: int):
+        self.values = [None for _ in range(size)]
+        self.prev = [(i + size - 1) % size for i in range(size)]
+        self.next = [(i +        1) % size for i in range(size)]
+        self.pointer = 0
+    
+    def current(self):
+        return self.values[self.pointer]
+    
+    # Set value at pointer and move pointer to next
+    def set_and_move(self, val):
+        self.values[self.pointer] = val
+        self.pointer = self.next[self.pointer]
+        
+    # "Delete" node and move pointer to next
+    def erase(self):
+        if self.prev[self.pointer] != -1:
+            self.next[self.prev[self.pointer]] = self.next[self.pointer]
+        if self.next[self.pointer] != -1:
+            self.prev[self.next[self.pointer]] = self.prev[self.pointer]
+        
+        next_id = self.next[self.pointer]
+        self.prev[self.pointer] = self.next[self.pointer] = -1
+        self.pointer = next_id
+    
+# end DeleteOnly_DLL
+
+
+class Solution:
+    hasMultipleTests = True
+
+    n: int = None
+    
+    @classmethod
+    def ask(cls, a: int, b: int):
+        print(f'? {a} {b}', flush=True)
+        return int(input())
+    
+    @classmethod
+    def answer(cls, p: list):
+        print(f'! {" ".join(map(str, p[1:]))}', flush=True)
+
+    @classmethod
+    def preprocess(cls):
+        pass
+
+    @classmethod
+    def input(cls, testcase):
+        cls.n = int(input())
+
+    @classmethod
+    def solve(cls, testcase):
+        p = [-1 for _ in range(cls.n)]
+        p[1] = 0
+        
+        r = 2
+        while True:
+            response = cls.ask(1, r)
+            if response == -1: exit(2226)
+            
+            if response == 1:
+                p[r] = 0
+                r += 1
+            else: break
+        
+        tentacle_count = r - 1
+        
+        tentacles = DeleteOnly_DLL(size = tentacle_count)
+        for i in range(tentacle_count):
+            tentacles.set_and_move(i + 1)
+
+        p[r] = tentacles.current()
+        tentacles.set_and_move(r)
+        r += 1
+        
+        while r < cls.n:
+            response = cls.ask(tentacles.current(), r)
+            if response == -1: exit(2226)
+            
+            if response == 1:
+                tentacles.erase()
+            else:
+                p[r] = tentacles.current()
+                tentacles.set_and_move(r)
+                r += 1
+        
+        cls.answer(p)
+
+# end Solution
+
+Feedback Didn't attempt 
+
+    
+
+
+13
+
+
+
+ Great problem 
+
+    
+
+
+136
+
+
+
+ Nice problem 
+
+    
+
+
+25
+
+
+
+ OK problem 
+
+    
+
+
+26
+
+
+
+ Bad problem 
+
+    
+
+
+7
+
+
+
+ Terrible problem 
+
+    
+
+
+18
+
+
+
+ 
+
+Hint #1Why is 𝑛n odd? Does it imply anything of the availability of a solution?
+
+Hint #2𝑛=1n=1 is trivial. Try to solve this problem if 𝑛=3n=3 and 𝑎1=𝑎3a1=a3.
+
+Hint #3Try to solve this problem for any array with 𝑛=3n=3. Is there any way to solve this without going pass a state of 𝑎1=𝑎3a1=a3 (or 𝑎1=𝑎2a1=a2 or 𝑎2=𝑎3a2=a3)?
+
+Hint #4Assume that 𝑛=5n=5, 𝑎1=𝑎5a1=a5 and 𝑎2=𝑎3=𝑎4a2=a3=a4. Now refer to hint #2, can you see any similarity in the solution?
+
+Hint #5Refer to hint #4. What would happen if we apply an operation to index 22 and another to index 44?
+
+Hint #6For any array with 𝑛=5n=5, how would you convert it into the form stated in hint #4?
+
+Hint #7Refer to hint #6. How would you make 𝑎1=𝑎5a1=a5 and 𝑎2=𝑎4a2=a4? Does the fact that 𝑛n is odd help in any way?
+
+Hint #8Can you draw a generalized conclusion?
+
+Tutorial2032E - BalancedTo simplify this problem a little bit before starting, we will temporarily allow "negative" operation: choose an index 1≤𝑖≤𝑛1≤i≤n and increase 𝑎𝑖−1ai−1 by −1−1, 𝑎𝑖ai by −2−2, and 𝑎𝑖+1ai+1 by −1−1. This is counted as −1−1 operation on index 𝑖i. Should we get negative elements in array 𝑣v in the end, we can normalize it just fine by subtracting all 𝑣𝑖vi with min𝑣𝑖minvi so that the final array 𝑣v is valid — it's trivial to prove that applying the same amount of operations in all indices does not change the relative difference between any two values in the array.Imagine we have 𝑛=3n=3 and array 𝑎=[𝑎1,𝑎2,𝑎3]a=[a1,a2,a3] where 𝑎1≥𝑎2≤𝑎3a1≥a2≤a3; i.e., a trench. This array always has at least one solution: try to balance 𝑎1a1 and 𝑎3a3 by adding an amount of operation on either side based on their difference — here we have something we'll denote as a "balanced trench", then add another amount of operations on index 22 to balance them three, and due to the cyclic nature of 𝑎a.In fact, every array with 𝑛=3n=3, without regards to value intensity, can be thought of this form — if 𝑎2a2 is higher than both 𝑎1a1 and 𝑎3a3, the act of "raising" 𝑎2a2 is actually applying a negative amount of operations to index 22.How to make a "balanced trench" for 𝑛>3n>3?At least, we can balance 𝑎1a1 and 𝑎𝑛an in the same fashion as we did for 𝑛=3n=3. Can we balance 𝑎2a2 and 𝑎𝑛−1an−1 without breaking the balance we achieved between 𝑎1a1 and 𝑎𝑛an?Assuming we have an array [0,𝑥,𝑦,𝑥+1,0][0,x,y,x+1,0].By logic, we want to increase the value of index 22.Applying an operation to index 11 won't do, as the new array would be [2,𝑥+1,𝑦,𝑥+1,1][2,x+1,y,x+1,1]. We are balancing the inner elements by sacrificing the outer ones.Applying an operation to index 33 also won't do as it increases both sides.Applying an operation to index 22 will make the array become [1,𝑥+2,𝑦+1,𝑥+1,0][1,x+2,y+1,x+1,0]. By applying another operation to index 55, we'll reach our desired goal with array [2,𝑥+2,𝑦+1,𝑥+2,2][2,x+2,y+1,x+2,2].In fact, a series of operations in "consecutive" indices of the same parity would have this effect, regardless of how long that series is.To be precise, without loss of generality, a series of operations in indices 2,4,…,𝑖2,4,…,i, with 𝑖≤𝑛−1i≤n−1, will increase 𝑎1a1 and 𝑎𝑖+1ai+1 by 11, and all values with indices in range [2,𝑖][2,i] by 22.The catch here is that we mitigate 11 unit of difference between sides with each operation series by adding just 11 unit to the higher side, while the corresponding other 11 would be further beyond the lower side.If we aim to balance the sides from outwards to inwards, that exceeding 11 will either fall into a deeper-inwards layer, or the center of the array (since 𝑛n is odd), which will not harm whatever we have achieved at first.Take an example with array [48,18,26,57,39][48,18,26,57,39].  First, we'll balance index 11 and index 55. We can simply apply 99 operations to index 55. The new array would be [57,18,26,66,57][57,18,26,66,57].  Then, we'll balance index 22 and index 44. From index 22, we'll move to the left until it reaches index 55, and apply 4848 operations for every 22 steps. In other words, apply 4848 operations to index 22 and 4848 operations to index 55. This array is now a balanced trench: [153,114,64,114,153][153,114,64,114,153]. Now, achieving the desired array (we'll call it a "plateau") from a balanced trench is easy: starting from the rightmost element of the left side before the center going leftwards, compare the value to its adjacent element to the right, and apply a corresponding amount of operations.Now, take the balanced trench we just acquired.  First, we'll check index 22. Clearly, we want to rise index 33 to close the 5050 unit gap, thus we'll apply 5050 operations to index 33. The new array will become [153,164,164,164,153][153,164,164,164,153].  Then, we'll check index 11. Our objective is to decrease 1111 for all elements with indices in range [2,4][2,4]. Using the similar operation series as discussed earlier, this can be done like this: apply −11−11 operations to index 22, then apply −11−11 operations to index 44. The final array will be [142,142,142,142,142][142,142,142,142,142].  That operation series can be used here because the range of elements changing by 22 units per series has an odd size, and since we're growing the plateau from the center point outwards, its size is always odd as well. With this, the non-normalized array 𝑣v will be [0,46,50,−11,57][0,46,50,−11,57].Implementing this method can be separated into two separate steps:  Step 11 (creating the balanced trench): for each pair of indices (𝑖,𝑛+1−𝑖)(i,n+1−i) with difference 𝑎𝑛+1−𝑖−𝑎𝑖=𝑑an+1−i−ai=d, apply 𝑑d operations for each index of the cyclic range [𝑛+3−𝑖,𝑖][n+3−i,i] with step 22.  Step 22 (creating the plateau): for each pair of indices (𝑖,𝑖+1)(i,i+1) with difference 𝑎𝑖−𝑎𝑖+1=𝑑ai−ai+1=d, apply 𝑑d operations for each index of the range [𝑖+1,𝑛−𝑖][i+1,n−i] with step 22. Some extra notes:  Each step requires an independent prefix-sum structure to quickly maintain the operation updates. Notice that the prefix sum here takes account of parity, since only the other index in a range is updated, not every one of them.  Remember that after each index considered, its value will alter based on the amount of operations just applied on it, so keep track of it properly.  To avoid confusion, it's advised to apply the operations of step 11 directly into array 𝑎a before proceeding with step 22.  Remember to normalize array 𝑣v before outputting to get rid of negative values.  Refer to the model solution for more details. Time complexity: (𝑛)O(n).
+
+Solution (C++)Submission link: 289293300 Plaintextnamespace solution {
+    bool hasMultipleTests = true;
+
+    int n;
+    vector<int> a;
+    
+    void apply_prefixes(vector<long long> &prefixes, vector<long long> &v) {
+        for (int i = 2; i < n * 2; i++) {
+            prefixes[i] += prefixes[i - 2];
+        }
+        
+        for (int i = 0; i < n * 2; i++) {
+            v[i % n] += prefixes[i];
+        }
+    }
+    
+    void construct_trench(vector<long long> &arr, vector<long long> &v) {
+        vector<long long> prefixes(n * 2, 0LL);
+        vector<long long> delta(n, 0LL);
+        
+        for (int i = 0; i < n / 2; i++) {
+            long long diff = arr[n - 1 - i] - (arr[i] + delta[i]);
+            
+            delta[i] += 2 * diff;
+            delta[i + 1] += diff;
+            
+            prefixes[n - i] += diff;
+            prefixes[n + i + 2] -= diff;
+        }
+        
+        apply_prefixes(prefixes, v);
+        
+        for (int i = 0; i < n; i++) {
+            arr[i] += v[i] * 2;
+            arr[(i + 1) % n] += v[i];
+            arr[(i + n - 1) % n] += v[i];
+        }
+    }
+    
+    void construct_plateau(vector<long long> &arr, vector<long long> &v) {
+        vector<long long> prefixes(n * 2, 0LL);
+        vector<long long> delta(n, 0LL);
+        
+        for (int i = n / 2 - 1; i >= 0; i--) {
+            long long diff = arr[i] - (arr[i + 1] + delta[i + 1]);
+            
+            delta[i] += diff;
+            
+            prefixes[i + 1] += diff;
+            prefixes[n - i] -= diff;
+        }
+        
+        apply_prefixes(prefixes, v);
+    }
+
+    void preprocess() {
+        
+    }
+
+    void input(int testcase) {
+        cin >> n;
+        a.clear();
+        a.resize(n);
+        for (auto &z: a) cin >> z;
+    }
+
+    void solve(int testcase) {
+        if (n == 1) {
+            cout << "0\n";
+            return;
+        }
+        
+        vector<long long> v(n, 0LL);
+        vector<long long> arr(n);
+        for (int i = 0; i < n; i++) {
+            arr[i] = 1LL * a[i];
+        }
+        
+        construct_trench(arr, v);
+        construct_plateau(arr, v);
+        
+        long long offset = *ranges::min_element(v);
+        
+        for (auto &z: v) cout << z - offset << " ";
+        cout << endl;
+    }
+}
+
+Plaintextnamespace solution {
+    bool hasMultipleTests = true;
+
+    int n;
+    vector<int> a;
+    
+    void apply_prefixes(vector<long long> &prefixes, vector<long long> &v) {
+        for (int i = 2; i < n * 2; i++) {
+            prefixes[i] += prefixes[i - 2];
+        }
+        
+        for (int i = 0; i < n * 2; i++) {
+            v[i % n] += prefixes[i];
+        }
+    }
+    
+    void construct_trench(vector<long long> &arr, vector<long long> &v) {
+        vector<long long> prefixes(n * 2, 0LL);
+        vector<long long> delta(n, 0LL);
+        
+        for (int i = 0; i < n / 2; i++) {
+            long long diff = arr[n - 1 - i] - (arr[i] + delta[i]);
+            
+            delta[i] += 2 * diff;
+            delta[i + 1] += diff;
+            
+            prefixes[n - i] += diff;
+            prefixes[n + i + 2] -= diff;
+        }
+        
+        apply_prefixes(prefixes, v);
+        
+        for (int i = 0; i < n; i++) {
+            arr[i] += v[i] * 2;
+            arr[(i + 1) % n] += v[i];
+            arr[(i + n - 1) % n] += v[i];
+        }
+    }
+    
+    void construct_plateau(vector<long long> &arr, vector<long long> &v) {
+        vector<long long> prefixes(n * 2, 0LL);
+        vector<long long> delta(n, 0LL);
+        
+        for (int i = n / 2 - 1; i >= 0; i--) {
+            long long diff = arr[i] - (arr[i + 1] + delta[i + 1]);
+            
+            delta[i] += diff;
+            
+            prefixes[i + 1] += diff;
+            prefixes[n - i] -= diff;
+        }
+        
+        apply_prefixes(prefixes, v);
+    }
+
+    void preprocess() {
+        
+    }
+
+    void input(int testcase) {
+        cin >> n;
+        a.clear();
+        a.resize(n);
+        for (auto &z: a) cin >> z;
+    }
+
+    void solve(int testcase) {
+        if (n == 1) {
+            cout << "0\n";
+            return;
+        }
+        
+        vector<long long> v(n, 0LL);
+        vector<long long> arr(n);
+        for (int i = 0; i < n; i++) {
+            arr[i] = 1LL * a[i];
+        }
+        
+        construct_trench(arr, v);
+        construct_plateau(arr, v);
+        
+        long long offset = *ranges::min_element(v);
+        
+        for (auto &z: v) cout << z - offset << " ";
+        cout << endl;
+    }
+}
+
+Solution (Python 3)Submission link: 289293299 Plaintextclass Solution:
+    hasMultipleTests = True
+
+    n: int = None
+    a: list = None
+
+    @classmethod
+    def apply_prefixes(cls, prefixes, v):
+        for i in range(2, cls.n*2):
+            prefixes[i] += prefixes[i - 2]
+        
+        for i in range(cls.n*2):
+            v[i % cls.n] += prefixes[i]
+
+    @classmethod
+    def construct_trench(cls, arr, v):
+        prefixes = [0 for _ in range(cls.n * 2)]
+        delta = [0 for _ in range(cls.n)]
+        
+        for i in range(cls.n // 2):
+            diff = arr[cls.n - 1 - i] - (arr[i] + delta[i])
+            
+            delta[i] += 2 * diff
+            delta[i + 1] += diff
+            
+            prefixes[cls.n - i] += diff
+            prefixes[cls.n + i + 2] -= diff
+        
+        cls.apply_prefixes(prefixes, v)
+        
+        for i in range(cls.n):
+            arr[i] += v[i] * 2
+            arr[(i + 1) % cls.n] += v[i]
+            arr[(i + cls.n - 1) % cls.n] += v[i]
+
+    @classmethod
+    def construct_plateau(cls, arr, v):
+        prefixes = [0 for _ in range(cls.n * 2)]
+        delta = [0 for _ in range(cls.n)]
+        
+        for i in range(cls.n // 2 - 1, -1, -1):
+            diff = arr[i] - (arr[i + 1] + delta[i + 1])
+            
+            delta[i] += diff
+            
+            prefixes[i + 1] += diff
+            prefixes[cls.n - i] -= diff
+        
+        cls.apply_prefixes(prefixes, v)
+
+    @classmethod
+    def preprocess(cls):
+        pass
+
+    @classmethod
+    def input(cls, testcase):
+        cls.n = int(input())
+        cls.a = list(map(int, input().split()))
+
+    @classmethod
+    def solve(cls, testcase):
+        if cls.n == 1:
+            return(print(0))
+        
+        v = [0 for _ in range(cls.n)]
+        
+        cls.construct_trench(cls.a, v)
+        cls.construct_plateau(cls.a, v)
+        
+        offset = min(v)
+        v = list(map(lambda x: x - offset, v))
+        
+        print(*v)
+
+# end Solution
+
+Plaintextclass Solution:
+    hasMultipleTests = True
+
+    n: int = None
+    a: list = None
+
+    @classmethod
+    def apply_prefixes(cls, prefixes, v):
+        for i in range(2, cls.n*2):
+            prefixes[i] += prefixes[i - 2]
+        
+        for i in range(cls.n*2):
+            v[i % cls.n] += prefixes[i]
+
+    @classmethod
+    def construct_trench(cls, arr, v):
+        prefixes = [0 for _ in range(cls.n * 2)]
+        delta = [0 for _ in range(cls.n)]
+        
+        for i in range(cls.n // 2):
+            diff = arr[cls.n - 1 - i] - (arr[i] + delta[i])
+            
+            delta[i] += 2 * diff
+            delta[i + 1] += diff
+            
+            prefixes[cls.n - i] += diff
+            prefixes[cls.n + i + 2] -= diff
+        
+        cls.apply_prefixes(prefixes, v)
+        
+        for i in range(cls.n):
+            arr[i] += v[i] * 2
+            arr[(i + 1) % cls.n] += v[i]
+            arr[(i + cls.n - 1) % cls.n] += v[i]
+
+    @classmethod
+    def construct_plateau(cls, arr, v):
+        prefixes = [0 for _ in range(cls.n * 2)]
+        delta = [0 for _ in range(cls.n)]
+        
+        for i in range(cls.n // 2 - 1, -1, -1):
+            diff = arr[i] - (arr[i + 1] + delta[i + 1])
+            
+            delta[i] += diff
+            
+            prefixes[i + 1] += diff
+            prefixes[cls.n - i] -= diff
+        
+        cls.apply_prefixes(prefixes, v)
+
+    @classmethod
+    def preprocess(cls):
+        pass
+
+    @classmethod
+    def input(cls, testcase):
+        cls.n = int(input())
+        cls.a = list(map(int, input().split()))
+
+    @classmethod
+    def solve(cls, testcase):
+        if cls.n == 1:
+            return(print(0))
+        
+        v = [0 for _ in range(cls.n)]
+        
+        cls.construct_trench(cls.a, v)
+        cls.construct_plateau(cls.a, v)
+        
+        offset = min(v)
+        v = list(map(lambda x: x - offset, v))
+        
+        print(*v)
+
+# end Solution
+
+Alternative tutorial (Kuroni, rephrased by AkiLotus)We have some observations here. Our only allowed operation is [1,2,1][1,2,1], but by stacking it in the right way (and normalizing the differences) we could obtain simpler operations. In details:  We can apply operation [−1,−1][−1,−1] to index 𝑖i (decrease values at index 𝑖i and 𝑖+1i+1 by 11) by applying operation [1,2,1][1,2,1] to index 𝑖+2i+2, 𝑖+4i+4, and so on until 𝑖−1i−1 (please treat these addition/subtraction of indices in a cyclic array context). Doing so will increase every index's value by 22, except 𝑖i and 𝑖+1i+1 only get increase by 11, so relatively, indices 𝑖i and 𝑖+1i+1 got their values lowered by 11 compared to the rest. We can apply operation [1][1] to index 𝑖i (increase value at index 𝑖i by 11) by applying operation [−1,−1][−1,−1] to index 𝑖+1i+1, 𝑖+3i+3, and so on until 𝑖−1i−1. Proof for this is trivial. 
+
+Feedback Didn't attempt 
+
+    
+
+
+13
+
+
+
+ Great problem 
+
+    
+
+
+37
+
+
+
+ Nice problem 
+
+    
+
+
+55
+
+
+
+ OK problem 
+
+    
+
+
+8
+
+
+
+ Bad problem 
+
+    
+
+
+4
+
+
+
+ Terrible problem 
+
+    
+
+
+22
+
+
+
+ 
+
+Hint #1Try to solve if all pockets are in the same box. Does the problem seem familiar?
+
+Hint #2There's one kind of cases for a box that its game has a fixed move sequence, and thus a fixed outcome. What is it?
+
+Hint #3Let's take the cases found in hint #2 out of the equation from here on. Is there any way for a player to win in two consecutive boxes?
+
+Hint #4If a player can win a box if both play optimally to win, can they also lose it if both play optimally to lose?
+
+Tutorial2032F - Peanuts  Let's get the trivial case out of the way: If the peanut pockets always contain 11 nut each, then partitioning the pockets doesn't affect the game's outcome at all:  Alice will always win if 𝑛n is odd, and there are 2𝑛−12n−1 ways to partition 𝑛n pockets.  Jack will always win if 𝑛n is even. Proof for the trivial case is, indeed, trivial.For the main problem, we see that this is a derivative of a game of Nim. To be exact, each box is a vanilla Nim game. To determine the winner of a vanilla Nim game when both players play optimally is trivial — if not for you, I strongly suggest reading about the game and the Sprague-Grundy theorem before continuing.In short, the Nim-sum of a Nim game is the xor sum of all values presented, and if that value is at least 11, the first player will win if they play optimally.The original game of this problem is a series of consecutive Nim games, with the loser of the previous game becoming the first player of the next game. Clearly, trying to win all the boxes isn't a correct approach — one of the simplest counterexamples is a partition with two boxes, both with the first player winning if played optimally, so of course if the first player "wins" the first box, they immediately lose the second one and thus lose the whole game.In short, sometimes, tactically "losing" some boxes might be required. But how to know which player would lose if they both aimed for it?Now, introducing the "mirrored" version of a Nim game — a Misère Nim game, where the winning condition is the original Nim game's losing condition.If the peanut pockets always contain 11 nut each, then the winner of a Misère Nim game can be easily declared by the parity of 𝑛n. Otherwise, the winner of a Misère Nim game can be decided using the same nimber used in a regular Nim game: if the nimber is not 00, the first player wins both the original and the Misère version; otherwise, the second player wins — the optimal strategies to acquire such outcome have the exact mirror intents of those in a regular Nim game.Also, surpassing the leading 11s in array 𝑎a, both Alice and Jack have the rights to tactically lose. Thus, any of them would win the game if and only if they could win the first box containing non-trivial pockets (here defined as pockets with more than 11 nut, we'll call a box having at least one non-trivial pocket a non-trivial box) if both play optimally until there — as proven above, if they could theoretically win it, they could also tactically lose it, thus they would have full control of the game, and they could make a decision in accordance with whatever partition coming next in the remaining pockets.We'll denote 𝑙l as the number of trivial pockets (i.e. pockets with 11 nut each) standing at the left side of array 𝑎a, i.e., the (𝑙+1)𝑡ℎ(l+1)th pocket will be the leftmost one to have more than 11 nut. We'll consider all possible options for first boxes containing non-trivial pockets, and thus we'll iterate 𝑟r in range [𝑙+1,𝑛][l+1,n]:  First, we denote 𝑃(𝑟)P(r) as the xor sum of all elements of the prefix of array 𝑎a up until the 𝑟𝑡ℎrth element. This value will determine how much control Alice would have.  If 𝑃(𝑟)=0P(r)=0, Alice will lose in all cases with the first non-trivial box ending at 𝑟r. Proof is simple: if this box has an even amount of 11s before it, obviously Alice will be the starting player of a game with nimber of 00 and thus cannot control it to her will; and if the amount of preceding 11s is odd, then the first non-trivial box is a game with nimber of 11 and Jack as first player, thus Jack retains full control.  If 𝑃(𝑟)=1P(r)=1, Alice will win in all cases with the first non-trivial box ending at 𝑟r. Proof is literally the reverse of the above case.  If 𝑃(𝑟)>1P(r)>1, both Alice and Jack have full control to win it, thus Alice will win if and only if she is the starting player of the game at the first non-trivial box. So we have the detailed winning condition. Now, towards the maths.  First, whatever pockets after the first non-trivial box doesn't matter. Thus, for each 𝑟r, there exists 2max(0,𝑛−𝑟−1)2max(0,n−r−1) different partitions of the pockets following the 𝑟𝑡ℎrth one.  We don't consider cases with 𝑃(𝑟)=0P(r)=0, obviously.  If 𝑃(𝑟)=1P(r)=1, all partitions involving only the first 𝑙l pockets are allowed. In fact, there are 𝑙+1l+1 items here: 𝑙l trivial pockets, and the first non-trivial blob always coming last, thus the number of different partitions of the pockets preceding the 𝑟𝑡ℎrth one in this case is 2𝑙2l.  If 𝑃(𝑟)>1P(r)>1, we'll consider all even 𝑙0l0 in range [0,𝑙][0,l], with 𝑙0l0 denoting the number of 11s not within the first non-trivial box. Clearly, for each 𝑙0l0, the number of different partitions would be 2max(0,𝑙0−1)2max(0,l0−1). And since 𝑙l is fixed and this process has no relation with 𝑟r, this value could be pre-calculated. In more details, denoting that value as 𝑀M, we have 𝑀=∑⌊𝑙02⌋𝑖=02max(0,2𝑖−1)M=∑i=0⌊l02⌋2max(0,2i−1).  All powers of 22 could be pre-calculated as well, saving a considerable amount of runtime. All pre-calculations have time complexity in linear order of the maximum size of array 𝑎a. Time complexity: (𝑛)O(n).
+
+Solution (C++)Submission link: 289293663 Plaintextnamespace solution {
+    bool hasMultipleTests = true;
+
+    int n;
+    vector<int> a;
+    
+    const int MAXN = 1000000;
+    const int MOD  = 998244353;
+    int pow2[MAXN];
+
+    void preprocess() {
+        pow2[0] = 1;
+        for (int i = 1; i < MAXN; i++) {
+            pow2[i] = (2LL * pow2[i-1]) % MOD;
+        }
+    }
+
+    void input(int testcase) {
+        cin >> n;
+        a.clear();
+        a.resize(n);
+        for (auto &z: a) cin >> z;
+    }
+
+    void solve(int testcase) {
+        if (*ranges::max_element(a) == 1) {
+            cout << (n & 1 ? pow2[n-1] : 0) << endl;
+            return;
+        }
+        
+        int ans = 0;
+        
+        // The critical layer (assuming prefix Grundy > 1) can only fall into Alice's control
+        // if and only if before it is an even amount of pockets
+        int alice_at_critical = 1;
+        int prefix_1 = 0;
+        while (a[prefix_1] == 1) {
+            prefix_1++;
+            if (prefix_1 % 2 == 0) {
+                alice_at_critical = (alice_at_critical + pow2[prefix_1 - 1]) % MOD;
+            }
+        }
+        
+        int grundy = (prefix_1 & 1);
+        for (int r = prefix_1; r < n; r++) {
+            grundy ^= a[r];
+            
+            if (!grundy) continue;
+            
+            int post_critical = (r < n - 1 ? pow2[n - 2 - r] : 1);
+            int pre_critical = (grundy == 1 ? pow2[prefix_1] : alice_at_critical);
+            
+            ans += (1LL * pre_critical * post_critical) % MOD;
+            ans %= MOD;
+        }
+        
+        cout << ans << endl;
+    }
+}
+
+Plaintextnamespace solution {
+    bool hasMultipleTests = true;
+
+    int n;
+    vector<int> a;
+    
+    const int MAXN = 1000000;
+    const int MOD  = 998244353;
+    int pow2[MAXN];
+
+    void preprocess() {
+        pow2[0] = 1;
+        for (int i = 1; i < MAXN; i++) {
+            pow2[i] = (2LL * pow2[i-1]) % MOD;
+        }
+    }
+
+    void input(int testcase) {
+        cin >> n;
+        a.clear();
+        a.resize(n);
+        for (auto &z: a) cin >> z;
+    }
+
+    void solve(int testcase) {
+        if (*ranges::max_element(a) == 1) {
+            cout << (n & 1 ? pow2[n-1] : 0) << endl;
+            return;
+        }
+        
+        int ans = 0;
+        
+        // The critical layer (assuming prefix Grundy > 1) can only fall into Alice's control
+        // if and only if before it is an even amount of pockets
+        int alice_at_critical = 1;
+        int prefix_1 = 0;
+        while (a[prefix_1] == 1) {
+            prefix_1++;
+            if (prefix_1 % 2 == 0) {
+                alice_at_critical = (alice_at_critical + pow2[prefix_1 - 1]) % MOD;
+            }
+        }
+        
+        int grundy = (prefix_1 & 1);
+        for (int r = prefix_1; r < n; r++) {
+            grundy ^= a[r];
+            
+            if (!grundy) continue;
+            
+            int post_critical = (r < n - 1 ? pow2[n - 2 - r] : 1);
+            int pre_critical = (grundy == 1 ? pow2[prefix_1] : alice_at_critical);
+            
+            ans += (1LL * pre_critical * post_critical) % MOD;
+            ans %= MOD;
+        }
+        
+        cout << ans << endl;
+    }
+}
+
+Solution (Python 3)Submission link: 289293585 Plaintextclass Solution:
+    hasMultipleTests = True
+
+    n: int = None
+    a: list = None
+    
+    MAXN: int = 1000000
+    MOD: int = 998244353
+    pow2: list = None
+
+    @classmethod
+    def preprocess(cls):
+        cls.pow2 = [None for _ in range(cls.MAXN)]
+        for i in range(cls.MAXN):
+            cls.pow2[i] = 1 if i == 0 else (2 * cls.pow2[i-1]) % cls.MOD
+
+    @classmethod
+    def input(cls, testcase):
+        cls.n = int(input())
+        cls.a = list(map(int, input().split()))
+
+    @classmethod
+    def solve(cls, testcase):
+        if max(cls.a) == 1:
+            return(print(cls.pow2[cls.n-1] if cls.n & 1 else 0))
+        
+        ans = 0
+
+        # The critical layer (assuming prefix Grundy > 1) can only fall into Alice's control
+        # if and only if before it is an even amount of pockets
+        alice_at_critical = 1
+        prefix_1 = 0
+        while cls.a[prefix_1] == 1:
+            prefix_1 += 1
+            
+            if prefix_1 % 2 == 0:
+                alice_at_critical = (alice_at_critical + cls.pow2[prefix_1 - 1]) % cls.MOD
+                
+        grundy = prefix_1 & 1
+        for r in range(prefix_1, cls.n):
+            grundy ^= cls.a[r]
+            
+            if grundy == 0: continue
+        
+            post_critical = cls.pow2[cls.n - 2 - r] if r < cls.n - 1 else 1
+            pre_critical = cls.pow2[prefix_1] if grundy == 1 else alice_at_critical
+            
+            ans = (ans + pre_critical * post_critical) % cls.MOD
+            
+        print(ans)
+
+# end Solution
+
+Plaintextclass Solution:
+    hasMultipleTests = True
+
+    n: int = None
+    a: list = None
+    
+    MAXN: int = 1000000
+    MOD: int = 998244353
+    pow2: list = None
+
+    @classmethod
+    def preprocess(cls):
+        cls.pow2 = [None for _ in range(cls.MAXN)]
+        for i in range(cls.MAXN):
+            cls.pow2[i] = 1 if i == 0 else (2 * cls.pow2[i-1]) % cls.MOD
+
+    @classmethod
+    def input(cls, testcase):
+        cls.n = int(input())
+        cls.a = list(map(int, input().split()))
+
+    @classmethod
+    def solve(cls, testcase):
+        if max(cls.a) == 1:
+            return(print(cls.pow2[cls.n-1] if cls.n & 1 else 0))
+        
+        ans = 0
+
+        # The critical layer (assuming prefix Grundy > 1) can only fall into Alice's control
+        # if and only if before it is an even amount of pockets
+        alice_at_critical = 1
+        prefix_1 = 0
+        while cls.a[prefix_1] == 1:
+            prefix_1 += 1
+            
+            if prefix_1 % 2 == 0:
+                alice_at_critical = (alice_at_critical + cls.pow2[prefix_1 - 1]) % cls.MOD
+                
+        grundy = prefix_1 & 1
+        for r in range(prefix_1, cls.n):
+            grundy ^= cls.a[r]
+            
+            if grundy == 0: continue
+        
+            post_critical = cls.pow2[cls.n - 2 - r] if r < cls.n - 1 else 1
+            pre_critical = cls.pow2[prefix_1] if grundy == 1 else alice_at_critical
+            
+            ans = (ans + pre_critical * post_critical) % cls.MOD
+            
+        print(ans)
+
+# end Solution
+
+Feedback Didn't attempt 
+
+    
+
+
+22
+
+
+
+ Great problem 
+
+    
+
+
+14
+
+
+
+ Nice problem 
+
+    
+
+
+1
+
+
+
+ OK problem 
+
+    
+
+
+6
+
+
+
+ Bad problem 
+
+    
+
+
+0
+
+
+
+ Terrible problem 
+
+    
+
+
+9
+
+
+
+ 
+
+SpoilerDoes your solution for the second test case really have 𝑚=1m=1?
+
+AnswerOutput should be 11. SpoilerIt's not always the best idea to keep the largest element as you have done.
+
+SpoilerIt's not always the best idea to keep the largest element as you have done.
+

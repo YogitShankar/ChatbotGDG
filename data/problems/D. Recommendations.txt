@@ -1,0 +1,28 @@
+Suppose you are working in some audio streaming service. The service has 𝑛 active users and 109 tracks users can listen to. Users can like tracks and, based on likes, the service should recommend them new tracks.Tracks are numbered from 1 to 109. It turned out that tracks the 𝑖-th user likes form a segment [𝑙𝑖,𝑟𝑖].Let's say that the user 𝑗 is a predictor for user 𝑖 (𝑗≠𝑖) if user 𝑗 likes all tracks the 𝑖-th user likes (and, possibly, some other tracks too).Also, let's say that a track is strongly recommended for user 𝑖 if the track is not liked by the 𝑖-th user yet, but it is liked by every predictor for the 𝑖-th user.Calculate the number of strongly recommended tracks for each user 𝑖. If a user doesn't have any predictors, then print 0 for that user.
+
+The first line contains one integer 𝑡 (1≤𝑡≤104) — the number of test cases. Next, 𝑡 cases follow.The first line of each test case contains one integer 𝑛 (1≤𝑛≤2⋅105) — the number of users.The next 𝑛 lines contain two integers 𝑙𝑖 and 𝑟𝑖 per line (1≤𝑙𝑖≤𝑟𝑖≤109) — the segment of tracks the 𝑖-th user likes.Additional constraint on the input: the sum of 𝑛 over all test cases doesn't exceed 2⋅105.
+
+For each test case, print 𝑛 integers, where the 𝑖-th integer is the number of strongly recommended tracks for the 𝑖-th user (or 0, if that user doesn't have any predictors).
+
+Input
+4 3 3 8 2 5 4 5 2 42 42 1 1000000000 3 42 42 1 1000000000 42 42 6 1 10 3 10 3 7 5 7 4 4 1 2
+
+Output
+0
+0
+1
+999999999
+0
+0
+0
+0
+0
+2
+3
+2
+4
+8
+
+
+Note
+NoteIn the first test case:   the first user has no predictors;  the second user has no predictors;  the third user has two predictors: users 1 and 2; only track 3 is liked by both of them and not liked by the third user. In the second test case, the second user is a predictor for the first user. Therefore, all tracks, except 42, are strongly recommended for the first user.In the third test case, the first user has two predictors: users 2 and 3, but there is no track that is liked by them and not liked by the first user himself.

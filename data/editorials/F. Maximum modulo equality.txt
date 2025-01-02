@@ -1,0 +1,264 @@
+Решение2050A - Line BreaksAn important condition in the problem: we can take x words on the first line from the beginning and we cannot skip any word.The main idea is to compute the total length of words as we keep adding them, and stop when we reach a word where adding the next word would exceed the capacity of the first strip (which equals m).It is important to take into account the case when all words can be placed on the first line or none will fit, but our solution takes this into account.
+
+Кодdef solve():
+    n, m = [int(i) for i in input().split()]
+
+    ans = 0
+    for i in range(n):
+        l = input()
+        if len(l) <= m:
+            m -= len(l)
+            ans += 1
+        else:
+            for i in range(i + 1, n):
+                input()
+            break
+
+    print(ans)
+
+
+t = int(input())
+for i in range(t):
+    solve()
+
+Решение2050B - TransfusionThe main idea of this problem is that these operations only change elements on the positions with the same parity. So, we can solve for elements on odd and even positions independently.Let's make two arrays $$$od$$$ and $$$ev$$$  — the first one will consist of all the elements on the odd positions, and the second one will consist of all the elements on the even positions. Now we can rewrite given operations as: pick any array $$$od$$$ or $$$ev$$$, after that pick any two adjacent elements and subtract $$$1$$$ from one of these elements and add $$$1$$$ to another. In order to make all the elements in array $$$od$$$ equal, the sum of all elements in $$$od$$$ must be divisible by $$$|od|$$$, and also the sum of all the elements in $$$ev$$$ must be divisible by $$$|ev|$$$, where $$$|a|$$$ is the length of array $$$a$$$. And also to make all the elements of the initial array equal, $$$\frac{sum(od)}{|od|} = \frac{sum(ev)}{|ev|}$$$ must be satisfied. If all these conditions are satisfied, the answer is "YES", otherwise "NO".
+
+Код#include <bits/stdc++.h>
+
+using namespace std;
+
+void solve() {
+    int n; cin >> n;
+    vector<int> a(n);
+    for (int &x : a) cin >> x;
+    
+    long long ods = 0, evs = 0;
+    for (int i = 0; i < n; i++) {
+        if (i & 1) ods += a[i];
+        else evs += a[i];
+    }
+    int odc = n / 2, evc = n / 2;
+    if (n & 1) evc++;
+
+    if (ods % odc != 0 || evs % evc != 0 || ods / odc != evs / evc) {
+        cout << "NO";
+        return;
+    }
+    cout << "YES";
+}
+
+int main() {
+    int TESTS; cin >> TESTS;
+    while (TESTS --> 0) {
+        solve();
+        cout << '\n';
+    }
+    return 0;
+}
+
+Решение2050C - Uninteresting NumberThe requirement that a digit must remain a digit imposes the following restrictions on transformations: we can transform $$$0$$$ into $$$0$$$, $$$1$$$ into $$$1$$$, $$$2$$$ into $$$4$$$, and $$$3$$$ into $$$9$$$. Any other digit squared will exceed 9, therefore, it cannot be transformed. Transformations involving $$$0$$$ and $$$1$$$ are useless, leaving us with two possible actions: squaring the digit $$$2$$$ or the digit $$$3$$$.We will use the divisibility rule for $$$9$$$. It states that a number is divisible by $$$9$$$ if and only if the sum of its digits is divisible by $$$9$$$. Let's see how the sum of the digits will change with the possible transformations. If we square $$$2$$$, the sum of the digits increases by $$$2^2 - 2 = 2$$$, and if we square $$$3$$$, the sum of the digits increases by $$$3^2 - 3 = 6$$$.We will count the number of digits $$$2$$$ in the number and the number of digits $$$3$$$ in the number. We can choose how many of the available digits $$$2$$$ and $$$3$$$ we will transform. Transforming more than 8 twos and more than 8 threes is pointless because remainders modulo $$$9$$$ their transformation adds to the sum will repeat.Thus, the final solution looks like this: we calculate the sum of the digits in the number, count the number of digits $$$2$$$ and $$$3$$$. We will iterate over how many digits $$$2$$$ we change (possibly 0, but no more than 8), and how many digits $$$3$$$ we change (possibly 0, but also no more than 8). Let's say we changed $$$x$$$ digits $$$2$$$ and $$$y$$$ digits $$$3$$$, then the sum of the digits in the number increased by $$$x * 2 + y * 6$$$. If new sum is divisible by $$$9$$$, the answer is "YES". If such a situation was never reached during the iteration, then the answer is "NO".
+
+Кодdef solve():
+    s = [int(x) for x in list(input())]
+
+    sm = sum(s)
+    twos = s.count(2)
+    threes = s.count(3)
+
+    for i in range(min(10, twos + 1)):
+        for j in range(min(10, threes + 1)):
+            if (sm + i * 2 + j * 6) % 9 == 0:
+                print('YES')
+                return
+    print('NO')
+
+
+t = int(input())
+for _ in range(t):
+    solve()
+
+РешениеTutorial is loading...
+
+Код#include <bits/stdc++.h>
+
+using namespace std;
+
+void solve() {
+    string s; cin >> s;
+    for (int i = 0; i < s.size(); i++) {
+        int best = s[i] - '0', pos = i;
+        for (int j = i; j < min(i + 10, (int) s.size()); j++) {
+            if (s[j] - '0' - (j - i) > best) {
+                best = s[j] - '0' - (j - i);
+                pos = j;
+            }
+        }
+        while (pos > i) {
+            swap(s[pos], s[pos - 1]);
+            pos--;
+        }
+        s[i] = char(best + '0');
+    }
+    cout << s;
+}
+
+int main() {
+    int TESTS = 1; cin >> TESTS;
+    while (TESTS --> 0) {
+        solve();
+        cout << '\n';
+    }
+    return 0;
+}
+
+РешениеTutorial is loading...
+
+Код#include <iostream>
+#include <algorithm>
+
+static const int inf = 1e9;
+
+void solve() {
+    std::string a, b, res;
+    std::cin >> a >> b >> res;
+    int n = (int) a.size(), m = (int) b.size();
+    int dp[n + 1][m + 1];
+    std::fill(&dp[0][0], &dp[0][0] + (n + 1) * (m + 1), inf);
+    dp[0][0] = 0;
+    for (int i = 0; i < n; i++) {
+        dp[i + 1][0] = dp[i][0] + (a[i] != res[i]);
+    }
+    for (int j = 0; j < m; j++) {
+        dp[0][j + 1] = dp[0][j] + (b[j] != res[j]);
+    }
+    for (int i = 1; i <= n; i++) {
+        for (int j = 1; j <= m; j++) {
+            dp[i][j] = std::min(dp[i - 1][j] + (a[i - 1] != res[i + j - 1]),
+                                dp[i][j - 1] + (b[j - 1] != res[i + j - 1]));
+        }
+    }
+    std::cout << dp[n][m] << std::endl;
+}
+
+int main() {
+    int tests;
+    std::cin >> tests;
+    while (tests--) {
+        solve();
+    }
+}
+
+РешениеTutorial is loading...
+
+Код#include <bits/stdc++.h>
+
+using namespace std;
+
+const int LOGN = 20;
+
+vector<vector<int>> stGCD;
+
+int get_gcd(int l, int r) {
+    int k = __lg(r - l + 1);
+    return __gcd(stGCD[k][l], stGCD[k][r - (1 << k) + 1]);
+}
+
+void solve() {
+    stGCD.clear();
+    int n, q; cin >> n >> q;
+    vector<int> a(n);
+    for (int &x : a) cin >> x;
+
+    vector<int> b;
+    for (int i = 1; i < n; i++)
+        b.push_back(abs(a[i - 1] - a[i]));
+
+    stGCD.resize(LOGN, vector<int>(b.size(), 1));
+    for (int i = 0; i < b.size(); i++)
+        stGCD[0][i] = b[i];
+    for (int i = 1; i < LOGN; i++)
+        for (int j = 0; j + (1 << (i - 1)) < b.size(); j++)
+            stGCD[i][j] = __gcd(stGCD[i - 1][j], stGCD[i - 1][j + (1 << (i - 1))]);
+
+    while (q--) {
+        int l, r; cin >> l >> r;
+        if (l == r) {
+            cout << 0 << " ";
+            continue;
+        }
+        l--; r -= 2;
+        int gcd = get_gcd(l, r);
+        cout << gcd << " ";
+    }
+}
+
+int main() {
+    int TESTS = 1; cin >> TESTS;
+    while (TESTS --> 0) {
+        solve();
+        cout << "\n";
+    }
+    return 0;
+}
+
+РешениеTutorial is loading...
+
+Код#include <bits/stdc++.h>
+
+#define int long long
+#define x first
+#define y second
+
+using namespace std;
+
+void dfs(int v, int p, vector<vector<int>> &sl, vector<pair<int, int>> &dp){
+    dp[v].x = sl[v].size();
+    int m1 = -1, m2 = -1;
+    for(int u: sl[v]){
+        if(u == p){
+            continue;
+        }
+        dfs(u, v, sl, dp);
+        dp[v].x = max(dp[v].x, dp[u].x + (int)sl[v].size() - 2);
+        m2 = max(m2, dp[u].x);
+        if(m1 < m2) swap(m1, m2);
+    }
+    dp[v].y = dp[v].x;
+    if(m2 != -1){
+        dp[v].y = m1 + m2 + sl[v].size() - 4;
+    }
+}
+
+void solve(int tc){
+    int n;
+    cin >> n;
+    vector<vector<int>> sl(n);
+    for(int i = 1; i < n; ++i){
+        int u, v;
+        cin >> u >> v;
+        sl[--u].emplace_back(--v);
+        sl[v].emplace_back(u);
+    }
+    vector<pair<int, int>> dp(n);
+    dfs(0, 0, sl, dp);
+    int ans = 0;
+    for(int i = 0; i < n; ++i){
+        ans = max(ans, max(dp[i].x, dp[i].y));
+    }
+    cout << ans;
+}
+
+bool multi = true;
+
+signed main() {
+    int t = 1;
+    if (multi)cin >> t;
+    for (int i = 1; i <= t; ++i) {
+        solve(i);
+        cout << "\n";
+    }
+    return 0;
+}
+
+Hence, This works!Implementation: 296305754
+

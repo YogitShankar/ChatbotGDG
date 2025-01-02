@@ -1,0 +1,385 @@
+Tutorial2042A - Greedy MonocarpConsider several first chests that Monocarp will take before exceeding the limit if we don't add any coins; so, this will be the set of several largest chests such that the sum of this set is 𝑠≤𝑘s≤k, but if the next chest is taken, the sum would exceed 𝑘k.For this set, the minimum number of coins that should be added is 𝑘−𝑠k−s. We can add exactly that amount if we increase the maximum element, the set of chests will include exactly the same elements, but now their sum is equal to 𝑘k.Now we have to consider the case where we add coins to some chest that is not the part of this set. Suppose Monocarp took some chest 𝑖i, which initially had 𝑎𝑖ai coins, but did not take chest 𝑗j, such that 𝑎𝑗>𝑎𝑖aj>ai. In order for chest 𝑖i to be taken, its final value must be at least 𝑎𝑗aj, as Monocarp selects the maximum chest from the available ones. Let's suppose that 𝑥x coins were added to chest 𝑖i, so that 𝑎𝑖+𝑥≥𝑎𝑗ai+x≥aj. However, instead, we could have increased chest 𝑗j to the value 𝑎𝑖+𝑥ai+x, and this would require fewer coins, since 𝑎𝑗>𝑎𝑖aj>ai. Thus, we have shown that it is not optimal to "change" the order of the chests, so we can always assume that Monocarp takes several chests that were the largest in the original order.
+
+Solution (Neon)#include <bits/stdc++.h>
+ 
+using namespace std;
+
+int main() {
+  int t;
+  cin >> t;
+  while (t--) {
+    int n, k;
+    cin >> n >> k;
+    vector<int> a(n);
+    for (auto& x : a) cin >> x;
+    sort(a.begin(), a.end(), greater<int>());
+    int sum = 0;
+    for (auto& x : a) {
+      if (sum + x <= k) sum += x;
+      else break;
+    }
+    cout << k - sum << '\n';
+  }
+}
+
+Tutorial2042B - Game with Colored MarblesIt's fairly intuitive that if there is at least one unique marble available (a marble is unique if there are no other marbles with the same color), taking it is optimal: if Alice takes that marble, she gets 22 points, and if Bob takes that marble, he denies 22 points to Alice. So, initially, both players take unique marbles one by one, until there is none left. Let's denote the number of unique marbles as 𝑢u; then, Alice takes ⌈𝑢2⌉⌈u2⌉ unique marbles and gets 22 points for each of them.After that, all remaining marbles are non-unique; for each remaining color, there are at least two marbles. Let's denote the number of remaining colors as 𝑘k. We can show that Alice can get 𝑘k more points no matter how Bob plays, but she can't get more points if Bob plays optimally.There exists a symmetric strategy for each player: if during the previous turn, your opponent took the first marble of some color, respond by taking a marble of the same color; otherwise, play any legal move. This symmetric strategy ensures that Alice gets exactly 11 point for each remaining color, since each color will be shared between two players. So, Alice can always achieve 𝑘k points, and Bob can make sure she doesn't get more than 𝑘k.So, to solve this problem, you need to calculate the number of marbles for each color. Then, let the number of colors with exactly one marble be 𝑢u, and the number of colors with more than 11 marble be 𝑘k. Alice's score will be 2⋅⌈𝑢2⌉+𝑘2⋅⌈u2⌉+k.
+
+Solution (BledDest)#include<bits/stdc++.h>
+
+using namespace std;
+
+int main()
+{
+    int t;
+    scanf("%d", &t);
+    for(int _ = 0; _ < t; _++)
+    {
+        int n;
+        scanf("%d", &n);
+        vector<int> c(n);
+        for(int i = 0; i < n; i++)
+        {
+            scanf("%d", &c[i]);
+            --c[i];
+        }
+        vector<int> cnt(n);
+        for(auto x : c) cnt[x]++;
+        int exactly1 = 0, morethan1 = 0;
+        for(auto x : cnt)
+            if (x == 1)
+                exactly1++;
+            else if(x > 1)
+                morethan1++;
+        printf("%d\n", morethan1 + (exactly1 + 1) / 2 * 2);
+    }
+}
+
+Tutorial2042C - Competitive FishingThe main idea we need to solve this problem is the following one. For each fish, its value will be equal to the number of groups before its group. So, each "border" between two groups increases the value of every fish after the border by 11.Let 𝑠𝑖si be the number of Bob's fishes minus the number of Alice's fishes among the fishes with indices 𝑖,𝑖+1,…,𝑛−1,𝑛i,i+1,…,n−1,n; also, let 𝑎𝑗aj be the index of the fish from which the 𝑗j-th group starts.Then the difference in scores between Bob and Alice is equal to 0⋅(𝑠𝑎1−𝑠𝑎2)+1⋅(𝑠𝑎2−𝑠𝑎3)+⋯+(𝑚−1)⋅𝑠𝑎𝑚0⋅(sa1−sa2)+1⋅(sa2−sa3)+⋯+(m−1)⋅sam, where 𝑚m is the number of groups. This sum can be rewritten as: 0⋅𝑠𝑎1+(2−1)⋅𝑠𝑎2+(3−2)⋅𝑠𝑎3+⋯+𝑠𝑎𝑚0⋅sa1+(2−1)⋅sa2+(3−2)⋅sa3+⋯+sam. So, 𝑠𝑖si denotes how the difference between Bob's score and Alice's score changes if we split the 𝑖i-th fish and the (𝑖−1)(i−1)-th fish into different groups.From this, it is clear that the final score is the sum of certain elements of the array 𝑠s. Since we have to minimize the number of groups (the number of selected elements from the array 𝑠s), it is optimal to choose the maximum elements.So, the solution is the following: construct the array 𝑠s, sort it, and take the next maximum element until the sum is less than 𝑘k. The answer to the problem is the number of selected elements plus 11.
+
+Solution (Neon)#include <bits/stdc++.h>
+ 
+using namespace std;
+
+int main() {
+  int t;
+  cin >> t;
+  while (t--) {
+    int n, k;
+    string s;
+    cin >> n >> k >> s;
+    vector<int> vals;
+    int sum = 0;
+    for (int i = n - 1; i > 0; --i) {
+      sum += (s[i] == '1' ? 1 : -1);
+      if (sum > 0) vals.push_back(sum);
+    }
+    sort(vals.begin(), vals.end());
+    int ans = 1;
+    while (k > 0 && !vals.empty()) {
+      k -= vals.back();
+      vals.pop_back();
+      ++ans;
+    }
+    cout << (k > 0 ? -1 : ans) << '\n';
+  }
+}
+
+Tutorial2042D - RecommendationsFirstly, if several segments are equal, then the answer for all of them is zero. Now let's move to the problem where all segments are distinct.User 𝑗j is a predictor for user 𝑖i iff 𝑙𝑗≤𝑙𝑖≤𝑟𝑖≤𝑟𝑗lj≤li≤ri≤rj. Also, a track is strongly recommended if it is in all predictor segments, i. e. the track belongs to the intersection [𝐿,𝑅][L,R] of all predictors. Since the segment [𝑙𝑖,𝑟𝑖][li,ri] also belongs to [𝐿,𝑅][L,R], then the tracks we need to find form two intervals [𝐿,𝑙𝑖)[L,li) and (𝑟𝑖,𝑅](ri,R].Let's focus on finding interval (𝑟𝑖,𝑅](ri,R]. Since the right border of the intersection is the minimum among right borders, then our task is to find the minimum among 𝑟𝑗rj-s such that 𝑟𝑗≥𝑟𝑖rj≥ri while 𝑙𝑗≤𝑙𝑖lj≤li.Let's do it in the following way: let's sort all segments by 𝑙𝑖li in increasing order; in case of equal 𝑙𝑖li-s, sort them by 𝑟𝑖ri in decreasing order. If we process segments in the given order, then by the moment we process the 𝑖i-th segment, all its predictors will be already processed.Let's keep 𝑟𝑖ri-s of all processed segments so far in an "ordered set" 𝑆S (std::set, for example). Suppose we process segment 𝑖i. Since the right borders of all predictors are already in 𝑆S and their 𝑟𝑗≥𝑟𝑖rj≥ri, then finding the minimum among them is equivalent to just taking 𝑅=𝑆.lower_bound(𝑟𝑖)R=S.lower_bound(ri). Then we can add 𝑅−𝑟𝑖R−ri to the answer for the 𝑖i-th segment.In order to calculate intervals [𝐿,𝑙𝑖)[L,li) we can just reflect all segments and solve the same problem.The complexity of the solution is 𝑂(𝑛log𝑛)O(nlog⁡n).
+
+Solution (adedalic)#include<bits/stdc++.h>
+using namespace std;
+
+#define fore(i, l, r) for(int i = int(l); i < int(r); i++)
+#define sz(a) int((a).size())
+
+struct Seg {
+	int l, r;
+
+	bool operator< (const Seg &oth) const {
+		if (l != oth.l)
+			return l < oth.l;
+		return r < oth.r;
+	};
+};
+
+void solve() {
+	int n;
+	cin >> n;
+	vector<Seg> seg(n);
+	for (int i = 0; i < n; i++)
+		cin >> seg[i].l >> seg[i].r;
+	
+	vector<int> ans(n, 0);
+	for (int k = 0; k < 2; k++) {
+		vector<int> ord(n);
+		iota(ord.begin(), ord.end(), 0);
+
+		sort(ord.begin(), ord.end(), [&seg](int i, int j){
+			if (seg[i].l != seg[j].l)
+				return seg[i].l < seg[j].l;
+			return seg[i].r > seg[j].r;
+		});
+
+		set<int> bounds;
+		for (int i : ord) {
+			auto it = bounds.lower_bound(seg[i].r);
+			if (it != bounds.end())
+				ans[i] += *it - seg[i].r;
+			bounds.insert(seg[i].r);
+		}
+
+		for (auto &s : seg) {
+			s.l = -s.l;
+			s.r = -s.r;
+			swap(s.l, s.r);
+		}
+	}
+
+	map<Seg, int> cnt;
+	for (auto s: seg)
+		cnt[s]++;
+	for (int i = 0; i < n; i++)
+		if (cnt[seg[i]] > 1)
+			ans[i] = 0;
+	
+	for (int a : ans)
+		cout << a << '\n';
+}
+
+int main() {
+	ios_base::sync_with_stdio(false);
+	cin.tie(0);
+	
+	int t; cin >> t;
+	while (t--)
+		solve();
+	return 0;
+}
+
+Tutorial2042E - Vertex PairsNote that the cost function of a subset actually states the following: you are asked to choose the minimum lexicographic subset if the vertices are ordered in descending order. This can be shown by looking at the binary representations of the subset costs.Intuitively, we want to implement the following process. Iterate over the vertices in descending order and check whether we have to take the current vertex in the subset, or we can skip it. If we can, we skip it; otherwise, we take it.How to write this checking function? I think that it is easier to do this if we root the tree by a vertex that will definitely be in the answer. Finding such a vertex is easy — out of two vertices with the value 11, at least one will definitely be in the answer. Iterate over it and take the best answer from the two options. We can compare the answers by their by binary representations.In the rooted tree, where the root is always taken, it is easier to check connectivity. If a vertex is taken in the subset, then its parent must also be taken. Otherwise, the subset will definitely be disconnected.A vertex must be taken in the subset if there is a value such that both vertices with this value are in its subtree. However, sometimes it happens that one of the two vertices with some value has already been prohibited from being taken. In this case, for this value, we need to check that only the non-prohibited vertex is in the subtree.Let's maintain the state of each vertex:   the vertex must be taken in the subset;  the vertex must not be taken in the subset;  it has not been determined whether to take the vertex or not. Initially, we know that for each value, we must take the vertices that are on both paths from the vertices with this value to the root. So, on the path from their LCA (lowest common ancestor) to the root. If at least one such vertex is not taken, then that value will not appear in the subset.A vertex can be skipped if its state is not determined. When we decide not to take a vertex, the following happens. The vertices in its subtree must also not be taken. And if for some vertex it is marked that it must not be taken in the subset, then another vertex with the same value must now be taken.We will write two auxiliary functions.The first function marks the state as "must take". So, it takes a vertex 𝑣v and jumps over the parents of vertex 𝑣v until it either reaches the root or an already marked vertex. In total, this function will make 𝑂(𝑛)O(n) iterations, as with each successful iteration of the loop, another vertex gets marked.The second function marks the state as "must not take". That is, it takes a vertex 𝑣v and traverses the subtree of vertex 𝑣v, marking all descendants as "must not take". I chose to implement this function using a breadth-first search. Again, we can stop the traversal when we see that a vertex is already marked as "must not take". In total, there will also be 𝑂(𝑛)O(n) iterations. When we mark a vertex, we call the first function from another vertex with its value.Overall complexity: 𝑂(𝑛log𝑛)O(nlog⁡n) (where everything except LCA works in 𝑂(𝑛)O(n)).
+
+Solution (awoo)#include <bits/stdc++.h>
+ 
+#define forn(i, n) for (int i = 0; i < int(n); i++)
+ 
+using namespace std;
+ 
+vector<vector<int>> g;
+ 
+struct LCA {
+	vector<vector<pair<int, int>>> st;
+	vector<int> pw;
+ 
+	void build(vector<pair<int, int>> a) {
+		int n = a.size();
+		int lg = 32 - __builtin_clz(n);
+		st.resize(lg, vector<pair<int, int>>(n));
+		st[0] = a;
+		for (int j = 1; j < lg; ++j) {
+			for (int i = 0; i < n; ++i) {
+				st[j][i] = st[j - 1][i];
+				if (i + (1 << (j - 1)) < n)
+					st[j][i] = min(st[j][i], st[j - 1][i + (1 << (j - 1))]);
+			}
+		}
+		pw.resize(n + 1);
+		for (int i = 2; i <= n; ++i)
+			pw[i] = pw[i / 2] + 1;
+	}
+ 
+	vector<int> d, fst, par;
+	vector<pair<int, int>> ord;
+ 
+	int lca(int v, int u) {
+		int l = fst[v], r = fst[u];
+		if (l > r) swap(l, r);
+		++r;
+		int len = pw[r - l];
+		assert(len < int(st.size()));
+		return min(st[len][l], st[len][r - (1 << len)]).second;
+	}
+ 
+	void init(int v, int p = -1) {
+		if (fst[v] == -1) fst[v] = ord.size();
+		ord.push_back({ d[v], v });
+		for (int u : g[v]) if (u != p) {
+			par[u] = v;
+			d[u] = d[v] + 1;
+			init(u, v);
+			ord.push_back({ d[v], v });
+		}
+	}
+ 
+	LCA(int r = 0) {
+		int n = g.size();
+		d.resize(n);
+		fst.assign(n, -1);
+		par.assign(n, -1);
+		ord.clear();
+		init(r);
+ 
+		build(ord);
+	}
+};
+
+int main() {
+	cin.tie(0);
+	ios::sync_with_stdio(false);
+	int n;
+	cin >> n;
+	vector<int> a(2 * n);
+	forn(i, 2 * n){
+		cin >> a[i];
+		--a[i];
+	}
+	g.resize(2 * n);
+	forn(i, 2 * n - 1){
+		int v, u;
+		cin >> v >> u;
+		--v, --u;
+		g[v].push_back(u);
+		g[u].push_back(v);
+	}
+	vector<int> l(n, -1), r(n, -1);
+	forn(i, 2 * n){
+		if (l[a[i]] == -1) l[a[i]] = i;
+		else r[a[i]] = i;
+	}
+	vector<char> res(2 * n, 1);
+	forn(rt, 2 * n) if (a[rt] == 0){
+		LCA d(rt);
+		vector<int> state(2 * n, 0);
+		
+		auto mark = [&](int v){
+			while (v != -1 && state[v] != 1){
+                state[v] = 1;
+				v = d.par[v];
+			}
+		};
+		auto markdel = [&](int v){
+			queue<int> q;
+			q.push(v);
+			state[v] = -1;
+			while (!q.empty()){
+				int v = q.front();
+				q.pop();
+				mark(l[a[v]] ^ r[a[v]] ^ v);
+				for (int u : g[v]) if (u != d.par[v] && state[u] == 0){
+					state[u] = -1;
+					q.push(u);
+				}
+			}
+		};
+		
+		forn(i, n) mark(d.lca(l[i], r[i]));
+		for (int i = 2 * n - 1; i >= 0; --i) if (state[i] == 0)
+			markdel(i);
+		vector<char> cur(2 * n, 0);
+        for (int i = 0; i < 2 * n; ++i) if (state[i] == 1)
+            cur[i] = 1;
+        reverse(cur.begin(), cur.end());
+		res = min(res, cur);
+	}
+	reverse(res.begin(), res.end());
+	cout << count(res.begin(), res.end(), 1) << '\n';
+	forn(i, 2 * n) if (res[i])
+		cout << i + 1 << " ";
+	cout << '\n';
+	return 0;
+}
+
+
+Tutorial2042F - Two SubarraysTo begin with, let's understand how to calculate the answer if we consider only one query of the third type. For this, we can use the following dynamic programming: 𝑑𝑝𝑖,𝑘dpi,k — the maximum result if we have considered the first 𝑖i elements and chosen 𝑘k boundaries of subsegments (i.e., 𝑘=0k=0 — the first segment has not started yet, 𝑘=1k=1 — the first segment has started, 𝑘=2k=2 — the first segment is finished, but the second segment hasn't started yet, and so on). The transitions in this dynamic programming are quite straightforward: we can select the current element as the next boundary of the subsegment (increase 𝑘k by 11), in which case we have to increase the value of dynamic programming by 𝑏𝑙+𝑖bl+i; or we can keep the current value of 𝑘k. Additionally, the dynamic programming value needs to be increased by 𝑎𝑙+𝑖al+i if the value of 𝑘k corresponds to an open segment (𝑘=1k=1 or 𝑘=3k=3). Note that an element can be both the left and the right border of the segment at the same time; so we also need a transition from 𝑘=0k=0 to 𝑘=2k=2 and from 𝑘=2k=2 to 𝑘=4k=4.Note that the transition from 𝑑𝑝𝑖dpi to 𝑑𝑝𝑖+1dpi+1 requires only 77 numbers: 𝑎𝑖ai, 𝑏𝑖bi, 𝑑𝑝𝑖,0,𝑑𝑝𝑖,1,…,𝑑𝑝𝑖,4dpi,0,dpi,1,…,dpi,4. Therefore, this dynamic programming can be easily packaged within some data structure, for example, a segment tree.In each vertex of the segment tree, let's store a transition matrix 𝑚𝑎𝑡𝑖,𝑗mati,j of size 5×55×5 — the maximum result if we started in this segment in state with 𝑘=𝑖k=i and must end in state with 𝑘=𝑗k=j. This matrix is easy to update when changing values in the arrays 𝑎a and 𝑏b, and it is also easy to merge (to merge two such matrices, it is necessary to consider triples of the form 0≤𝑖≤𝑗≤𝑘≤40≤i≤j≤k≤4, and there are only 3535 of them).Thus, we know how to perform one query in 𝑂(35log𝑛)O(35log⁡n).Note that you should keep a static size array in each vertex of the segment tree (for example, you can use std::array) in C++; if you use something like a std::vector, it will consume much more memory (static arrays require about 200200 bytes for each vertex of the segment tree, which is already a lot). This also works faster in practice, even though the asymptotic complexity of the solution is the same.
+
+Solution (Neon)#include <bits/stdc++.h>
+ 
+using namespace std;
+
+#define forn(i, n) for (int i = 0; i < int(n); ++i)
+
+const int N = 200 * 1000 + 13;
+const int K = 5;
+
+using li = long long;
+using mat = array<array<li, K>, K>;
+
+const li INF = 1e18;
+
+int n, q;
+li a[N], b[N];
+mat t[4 * N];
+
+mat init(li a, li b) {
+  mat c;
+  forn(i, K) forn(j, i + 1) c[j][i] = -INF;
+  c[0][0] = c[2][2] = c[4][4] = 0;
+  c[0][1] = c[2][3] = a + b;
+  c[0][2] = c[2][4] = a + b + b;
+  c[1][1] = c[3][3] = a;
+  c[1][2] = c[3][4] = a + b;
+  return c;
+}
+
+mat combine(mat a, mat b) {
+  mat c = init(-INF, -INF);
+  forn(i, K) forn(j, i + 1) forn(k, j + 1)
+    c[k][i] = max(c[k][i], a[k][j] + b[j][i]);
+  return c;
+}
+
+void build(int v, int l, int r) {
+  if (l + 1 == r) {
+    t[v] = init(a[l], b[l]);
+    return;
+  }
+  int m = (l + r) / 2;
+  build(v * 2 + 1, l, m);
+  build(v * 2 + 2, m, r);
+  t[v] = combine(t[v * 2 + 1], t[v * 2 + 2]);
+}
+
+void upd(int v, int l, int r, int p) {
+  if (l + 1 == r) {
+    t[v] = init(a[l], b[l]);
+    return;
+  }
+  int m = (l + r) / 2;
+  if (p < m) upd(v * 2 + 1, l, m, p);
+  else upd(v * 2 + 2, m, r, p);
+  t[v] = combine(t[v * 2 + 1], t[v * 2 + 2]);
+}
+
+mat get(int v, int l, int r, int L, int R) {
+  if (L >= R) return init(-INF, -INF);
+  if (l == L && r == R) return t[v];
+  int m = (l + r) / 2;
+  return combine(
+    get(v * 2 + 1, l, m, L, min(m, R)),
+    get(v * 2 + 2, m, r, max(m, L), R)
+  );
+}
+
+int main() {
+  ios::sync_with_stdio(false); cin.tie(0);
+  cin >> n;
+  forn(i, n) cin >> a[i];
+  forn(i, n) cin >> b[i];
+  build(0, 0, n);
+  cin >> q;
+  forn(_, q) {
+    int t, x, y;
+    cin >> t >> x >> y;
+    --x;
+    if (t == 1) {
+      a[x] = y;
+      upd(0, 0, n, x);
+    } else if (t == 2) {
+      b[x] = y;
+      upd(0, 0, n, x);
+    } else {
+      auto res = get(0, 0, n, x, y);
+      cout << res[0][4] << '\n';
+    }
+  }
+}
+

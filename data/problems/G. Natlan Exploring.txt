@@ -1,0 +1,36 @@
+You are exploring the stunning region of Natlan! This region consists of 𝑛n cities, and each city is rated with an attractiveness 𝑎𝑖ai. A directed edge exists from City 𝑖i to City 𝑗j if and only if 𝑖<𝑗i<j and gcd(𝑎𝑖,𝑎𝑗)≠1gcd(ai,aj)≠1, where gcd(𝑥,𝑦)gcd(x,y) denotes the greatest common divisor (GCD) of integers 𝑥x and 𝑦y.Starting from City 11, your task is to determine the total number of distinct paths you can take to reach City 𝑛n, modulo 998244353998244353. Two paths are different if and only if the set of cities visited is different.
+
+The first line contains an integer 𝑛n (2≤𝑛≤2⋅1052≤n≤2⋅105) — the number of cities.The second line contains 𝑛n integers 𝑎1,𝑎2,…,𝑎𝑛a1,a2,…,an (2≤𝑎𝑖≤1062≤ai≤106) — the attractiveness of each city.
+
+Output the total number of distinct paths you can take to reach City 𝑛n, modulo 998244353998244353.
+
+Input
+5 2 6 3 4 6
+
+Output
+5
+
+
+Input
+5 4 196 2662 2197 121
+
+Output
+2
+
+
+Input
+7 3 6 8 9 11 12 20
+
+Output
+7
+
+
+Input
+2 2 3
+
+Output
+0
+
+
+Note
+NoteIn the first example, the five paths are the following:   City 1→1→ City 55  City 1→1→ City 2→2→ City 55  City 1→1→ City 2→2→ City 3→3→ City 55  City 1→1→ City 2→2→ City 4→4→ City 55  City 1→1→ City 4→4→ City 55 In the second example, the two paths are the following:   City 1→1→ City 3→3→ City 55  City 1→1→ City 2→2→ City 3→3→ City 55

@@ -1,0 +1,18 @@
+You are given an array 𝑎a of 𝑛n elements 𝑎1,𝑎2,…,𝑎𝑛a1,a2,…,an.You can perform the following operation any number (possibly 00) of times:  Choose two integers 𝑖i and 𝑗j, where 1≤𝑖,𝑗≤𝑛1≤i,j≤n, and assign 𝑎𝑖:=𝑎𝑗ai:=aj. Find the minimum number of operations required to make the array 𝑎a satisfy the condition:  For every pairwise distinct triplet of indices (𝑥,𝑦,𝑧)(x,y,z) (1≤𝑥,𝑦,𝑧≤𝑛1≤x,y,z≤n, 𝑥≠𝑦x≠y, 𝑦≠𝑧y≠z, 𝑥≠𝑧x≠z), there exists a non-degenerate triangle with side lengths 𝑎𝑥ax, 𝑎𝑦ay and 𝑎𝑧az, i.e. 𝑎𝑥+𝑎𝑦>𝑎𝑧ax+ay>az, 𝑎𝑦+𝑎𝑧>𝑎𝑥ay+az>ax and 𝑎𝑧+𝑎𝑥>𝑎𝑦az+ax>ay.
+
+Each test consists of multiple test cases. The first line contains a single integer 𝑡t (1≤𝑡≤1041≤t≤104) — the number of test cases. The description of the test cases follows.The first line of each test case contains a single integer 𝑛n (3≤𝑛≤2⋅1053≤n≤2⋅105) — the number of elements in the array 𝑎a.The second line of each test case contains 𝑛n integers 𝑎1,𝑎2,…,𝑎𝑛a1,a2,…,an (1≤𝑎𝑖≤1091≤ai≤109) — the elements of the array 𝑎a.It is guaranteed that the sum of 𝑛n over all test cases does not exceed 2⋅1052⋅105.
+
+For each test case, output a single integer — the minimum number of operations required.
+
+Input
+4 7 1 2 3 4 5 6 7 3 1 3 2 3 4 5 3 15 9 3 8 1 6 5 3 8 2 1 4 2 9 4 7
+
+Output
+3
+1
+0
+8
+
+
+Note
+NoteIn the first test case, one of the possible series of operations would be:  Assign 𝑎1:=𝑎4=4a1:=a4=4. The array will become [4,2,3,4,5,6,7][4,2,3,4,5,6,7].  Assign 𝑎2:=𝑎5=5a2:=a5=5. The array will become [4,5,3,4,5,6,7][4,5,3,4,5,6,7].  Assign 𝑎7:=𝑎1=4a7:=a1=4. The array will become [4,5,3,4,5,6,4][4,5,3,4,5,6,4]. It can be proven that any triplet of elements with pairwise distinct indices in the final array forms a non-degenerate triangle, and there is no possible answer using less than 33 operations.In the second test case, we can assign 𝑎1:=𝑎2=3a1:=a2=3 to make the array 𝑎=[3,3,2]a=[3,3,2].In the third test case, since 33, 44 and 55 are valid side lengths of a triangle, we don't need to perform any operation to the array.

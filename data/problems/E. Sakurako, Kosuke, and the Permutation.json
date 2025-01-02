@@ -1,0 +1,15 @@
+{
+    "title": "E. Sakurako, Kosuke, and the Permutation",
+    "tags": [
+        "brute force",
+        "data structures",
+        "dfs and similar",
+        "dsu",
+        "graphs",
+        "greedy",
+        "math",
+        "*1400"
+    ],
+    "time_limit": "2 seconds",
+    "memory_limit": "256 megabytes"
+}

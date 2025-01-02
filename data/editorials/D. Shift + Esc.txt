@@ -1,0 +1,451 @@
+Tutorial2049A - MEX DestructionCase 1: All elements are 00. Then the answer is 00.Case 2: Some element is non-zero, and all non-zero elements form a contiguous subarray. Then the answer is 11 since we can choose that subarray and replace it with a 00.Case 3: Otherwise, the answer is 22.  We can replace the entire array with a non-zero element (since 00 is in the array), then replace the entire array again with a 00 (since the only element left is non-zero). 11 operation is not enough. If we only use 11 operation, the selected subarray must contain all non-zero elements. Since the non-zero elements do not form a subarray, the selected subarray must contain a 00, thus the MEXMEX will be non-zero. 
+
+Solution#include <bits/stdc++.h>
+using namespace std;
+
+void solve()
+{
+    int n; cin >> n;
+    vector<int> a(n);
+    for (int i = 0; i < n; i++)
+        cin >> a[i];
+
+    while (!a.empty() && a.back() == 0)
+        a.pop_back();
+
+    reverse(a.begin(), a.end());
+    while (!a.empty() && a.back() == 0)
+        a.pop_back();
+    reverse(a.begin(), a.end());
+
+    if (a.empty())
+    {
+        cout << 0 << '\n';
+        return;
+    }
+
+    bool hasZero = false;
+    for (const auto x : a)
+        hasZero |= x == 0;
+    if (hasZero)
+        cout << 2 << '\n';
+    else
+        cout << 1 << '\n';
+}
+
+int main()
+{
+    int t;
+    cin >> t;
+    for (int i = 0; i < t; i++)
+        solve();
+
+    return 0;
+}
+
+Tutorial2049B - pspspspsSince the entire 𝑝p must be a permutation, if 𝑠1=s1=s, we can set 𝑠1=s1=., and if 𝑠𝑛=sn=p, we can set 𝑠𝑛=sn=..After that, the answer is YES if and only if all non-dot characters in 𝑠s are all p or s.If all non-dot characters are p, we can choose the permutation 𝑝=[1,2,…,𝑛]p=[1,2,…,n]. If all non-dot characters are s, we can choose 𝑝=[𝑛,𝑛−1,…,1]p=[n,n−1,…,1].Otherwise, there exists both a p and a s. Suppose for contradiction that there is a solution. Let 𝑎a and 𝑏b represent the subarrays represented by the p and s respectively. Without loss of generality, suppose 𝑎a is the shorter subarray.  Since 𝑏b is also a permutation, the elements of 𝑎a must be in 𝑏b. Since 𝑝p is a permutation, 𝑎a must be a subarray of 𝑏b. However, 𝑏b cannot contain 𝑎a: since 𝑏b is not the entire 𝑝p, 𝑏b does not contain 𝑝1p1. However, 𝑎a contains 𝑝1p1. Contradiction. 
+
+Solution#include <bits/stdc++.h>
+using namespace std;
+
+void solve()
+{
+    int n; cin >> n;
+    string s; cin >> s;
+    if (s[0] == 's') s[0] = '.';
+    if (s.back() == 'p') s.back() = '.';
+    bool found_p = false;
+    bool found_s = false;
+    for (const auto c : s)
+    {
+        switch (c)
+        {
+        case 'p':
+            found_p = true;
+            break;
+        case 's':
+            found_s = true;
+            break;
+        }
+    }
+    cout << (found_p && found_s ? "NO" : "YES") << '\n';
+}
+
+int main()
+{
+    int t; cin >> t;
+    for (int i = 0; i < t; i++) solve();
+
+    return 0;
+}
+
+Tutorial2049C - MEX CycleThere are many possible solutions. The simplest one we can find (thanks to Kaey) is as follows:  Set 𝑎𝑥=0,𝑎𝑥+1=1,𝑎𝑥+2=0,…ax=0,ax+1=1,ax+2=0,…, alternating between 0 and 1, wrapping around accordingly. Formally, using 0-based indexing, set 𝑎(𝑥+𝑖)mod𝑛=𝑖mod2a(x+i)modn=imod2 for all 𝑖i (0≤𝑖≤𝑛−10≤i≤n−1). If 𝑛n is odd or if 𝑥−𝑦x−y is even, set 𝑎𝑥=2ax=2. Why this works:  If 𝑛n is even and 𝑥−𝑦x−y is odd, all 00's are only friends with 11's and vice versa. If 𝑛n is odd, 𝑎𝑥ax will be adjacent to 00 and 11, so we set 𝑎𝑥=2ax=2. Now 𝑎a is valid ignoring the extra friendship. Adding in the extra friendship, 𝑎a is still valid since 𝑎𝑥=2>𝑎𝑦ax=2>ay, so it will not affect 𝑎𝑦ay. If 𝑛n is even and 𝑥−𝑦x−y is even, the extra friendship connects two 00 or two 11. Setting 𝑎𝑥=2ax=2 works because dragon 𝑥x's friends still have another neighbor to maintain their MEXMEX. 
+
+Solution#include <iostream>
+#include <vector>
+using namespace std;
+
+void solve() {
+    int n, x, y;
+    cin >> n >> x >> y;
+    --x; --y;
+    vector<int> ans(n);
+    for (int i = 0; i < n; ++i) ans[(x + i) % n] = i % 2;
+    if (n % 2 || (x - y) % 2 == 0)
+        ans[x] = 2;
+    for (auto x : ans)cout << x << ' ';
+    cout << endl;
+}
+
+int main() {
+    int T;
+    cin >> T;
+    while (T--) solve();
+}
+
+Tutorial2049D - Shift + EscLet 𝑓(𝑖,𝑗)f(i,j) be the minimum cost to move to cell (𝑖,𝑗)(i,j) after shifting and 𝑔(𝑖,𝑗,𝑥)g(i,j,x) be the minimum cost to move to (𝑖,𝑗)(i,j) assuming row 𝑖i is shifted to the left by 𝑥x.For simplicity sake, we will add a row with all zeros above the first row. Also note that the operations with states denoting columns are all under modulo 𝑚m, I am omitting the notation to avoid clutter.The transitions are as follows:Base cases: 𝑓(0,𝑗)𝑔(0,𝑗,𝑥)=0(0≤𝑗<𝑚)=𝑘𝑥(0≤𝑗,𝑥<𝑚)f(0,j)=0(0≤j<m)g(0,j,x)=kx(0≤j,x<m)From row 𝑖i to row 𝑖+1i+1: 𝑔(𝑖,𝑗,𝑥)𝑓(𝑖,𝑗)=min(𝑓(𝑖−1,𝑗)+𝑘𝑥,𝑔(𝑖,𝑗−1,𝑥))+𝑎(𝑖,𝑗+𝑥)(∗)=min𝑥𝑔(𝑖,𝑗,𝑥)g(i,j,x)=min(f(i−1,j)+kx,g(i,j−1,x))+a(i,j+x)(∗)f(i,j)=minxg(i,j,x)In (∗)(∗), the 𝑓(𝑖−1,𝑗)f(i−1,j) term is from the case where you move from (𝑖−1,𝑗)(i−1,j) to (𝑖,𝑗)(i,j). Similarly the 𝑔(𝑖,𝑗−1,𝑥)g(i,j−1,x) term is from the case where you move from (𝑖,𝑗−1)(i,j−1) to (𝑖,𝑗)(i,j). The final answer is 𝑓(𝑛,𝑚−1)f(n,m−1). The overall complexity is 𝑂(𝑛𝑚2)O(nm2).
+
+Solution#include<bits/stdc++.h>
+using namespace std;
+typedef long long int ll;
+ll dp[511][511],a[511][511];
+
+void solve()
+{
+    int n,m,k;
+    cin>>n>>m>>k;
+    for(int i=1;i<=n;i++){
+        for(int j=0;j<m;j++)cin>>a[i][j];
+    }
+    for(int i=0;i<=n;i++){
+        for(int j=0;j<m;j++)dp[i][j] = 1e18;
+    }
+
+    dp[0][0] = 0;
+    for(int i=1;i<=n;i++){
+        for(int shift = 0;shift<m;shift++){
+            vector<ll>tmp(m,1e18);
+            for(int j=0;j<m;j++)tmp[j] = dp[i-1][j] + a[i][(j+shift)%m] + k*1LL*shift;
+
+            for(int j=0;j<m;j++)tmp[j] = min(tmp[j],tmp[(j+m-1)%m] + a[i][(j+shift)%m]);
+            for(int j=0;j<m;j++)tmp[j] = min(tmp[j],tmp[(j+m-1)%m] + a[i][(j+shift)%m]);
+            for(int j=0;j<m;j++)dp[i][j] = min(dp[i][j],tmp[j]);
+        }
+        //for(int j=0;j<m;j++)cout<<dp[i][j]<<" ";
+       // cout<<'\n';
+    }
+    cout<<dp[n][m-1]<<endl;
+}
+
+int main()
+{
+    int t; cin>>t;
+    for (int i = 0; i < t; i++) solve();
+}
+
+Tutorial2049E - Broken QueriesMake 2 queries [1,𝑛/4][1,n/4] and [𝑛/4+1,𝑛/2][n/4+1,n/2]. This tells us which half the 1 is in: it is in [1,𝑛/2][1,n/2] if the query results are different and [𝑛/2+1,𝑛][n/2+1,n] otherwise.Make 1 query: query [1,𝑛/2][1,n/2] if the 1 is in it or [𝑛/2+1,𝑛][n/2+1,n] otherwise. This tells us that 𝑘<𝑛/2k<n/2 if the result is 11 and 𝑘≥𝑛/2k≥n/2 otherwise.Without loss of generality, assume that the 1 is in [1,𝑛/2][1,n/2]. Now we can binary search for 𝑘k in [1,𝑛/2][1,n/2] or [𝑛/2+1,𝑛][n/2+1,n]. Let 𝑘′k′ be our guess.  If 𝑘<𝑛/2k<n/2, query [𝑛/2+1,𝑛/2+𝑘′][n/2+1,n/2+k′]. The result is 11 if 𝑘′≥𝑘k′≥k and 00 otherwise. If 𝑘≥𝑛/2k≥n/2, query [1,𝑘′][1,k′]. The result is 00 if 𝑘′≥𝑘k′≥k and 11 otherwise. In both cases, the binary search takes log𝑛−1≤29log⁡n−1≤29 queries. Overall, this takes at most 2+1+29=322+1+29=32 queries.The limit of 3333 queries (instead of 3232) is to allow less optimized solutions and other solutions. For example, one can instead do 3 queries in the beginning [1,𝑛/4][1,n/4], [𝑛/4+1,𝑛/2][n/4+1,n/2], [𝑛/2+1,3𝑛/4][n/2+1,3n/4] to determine which quarter the 1 is in.
+
+Solution#include <bits/stdc++.h>
+using namespace std;
+
+int qry(int l, int r, bool rev = 0, int n = 0) {
+    if (rev) {
+        int t = n - l;
+        l = n - r;
+        r = t;
+    }
+    cout << "? " << l + 1 << ' ' << r << endl;
+    cin >> r;
+    return r;
+}
+
+void solve() {
+    int n;
+    cin >> n;
+    int a = qry(0, n / 4);
+    int b = qry(n / 4, n / 2);
+    bool kSmall = 1;
+    bool firstHalf = 1;
+    if (a == b) firstHalf = 0;
+    int bs = 0;
+    if (qry(0, n / 2, firstHalf, n) == 0) kSmall = 0;
+    if (kSmall) {
+        for (int k = n / 4; k; k /= 2)
+            if (qry(0, bs + k, firstHalf, n) == 0) bs += k;
+    } else {
+        bs = n / 2 - 1;
+        for (int k = n / 4; k; k /= 2)
+            if (qry(0, bs + k, 1-firstHalf, n) == 1) bs += k;
+    }
+    cout << "! " << bs + 1 << endl;
+}
+
+int main() {
+    int T = 1;
+    cin >> T;
+    while (T--) solve();
+    return 0;
+}
+
+Tutorial2049F - MEX OR ManiaLet's figure out when a sequence is good. Let 𝑚m be the maximum element of the sequence. Notice that the bitwise OR of the sequence is at least 𝑚m and as MEX −− OR =1=1, that means MEX has to be at least 𝑚+1m+1. Which means all elements from 00 to 𝑚m has to be present in the sequence. As MEX can't be greater than 𝑚+1m+1, the MEX has to be exactly 𝑚+1m+1.Now we need to check for which 𝑚m the bitwise OR of the elements from 00 to 𝑚m is exactly 𝑚m. It's not hard to see that this is true for 𝑚=2𝑘−1m=2k−1 for some integer 𝑘≥0k≥0. The reason is that all bits from 00 to 𝑘−1k−1 have to be set in 𝑚m for the OR to be 𝑚m and it's only possible if 𝑚m is of the form 2𝑘−12k−1.So, a sequence is good if the maximum element is 𝑚=2𝑘−1m=2k−1 for some integer 𝑘k and all elements from 00 to 𝑚m are present in the sequence.Now, let's see how to answer the queries without any updates. To find the longest good subarray, we can use a two-pointers approach. But a better way to do this is to fix the power 𝑘(0≤𝑘≤log2𝑛)k(0≤k≤log2⁡n) and find the longest good subarray with maximum element 2𝑘−12k−1. To do this, ignore the elements greater than 2𝑘−12k−1 and then split the array into segments of consecutive numbers where each segment has elements from 00 to 2𝑘−12k−1. To check if a segment is good, we can track the number of distinct elements in the segment. If the number of distinct elements is 2𝑘2k, then the segment is good.So to sum it up, for each power 𝑘k, we will track some segments/components and the number of distinct elements in them and also the lengths of the segments to get the longest one during queries.Now regarding the updates, it is hard to track everything if we do the updates normally. But its's easier if we look at them in reverse order!Then each update will be decreasing the value of 𝑎𝑖ai by 𝑥x. Then for each power 𝑘k, we will have to add a new element to a component or merge two components. For tracking distinct elements, we can use a map or unordered map and to merge we can use DSU with small to large merging. And that's pretty much it.Please check my code for more details.Overall complexity is 𝑂((𝑛+𝑞)log2𝑛)O((n+q)log2⁡n) or 𝑂((𝑛+𝑞)log3𝑛)O((n+q)log3⁡n) depending on if you use an unordered map or a map.
+
+Solution#include<bits/stdc++.h>
+using namespace std;
+ 
+const int N = 1e5 + 9, Q = 3e5 + 9;
+using ll = long long;
+ 
+struct GoodSet { // insert, erase and track distinct and total elements
+  map<int, int> mp;
+  int size;
+  int k;
+  GoodSet() {}
+  GoodSet(int _k): k(_k), size(0) { };
+  void insert(int x, int c = 1) {
+    mp[x] += c;
+    size += c;
+  }
+  void erase(int x) {
+    if (mp[x] == 1) {
+      mp.erase(x);
+    }
+    else {
+      mp[x]--;
+    }
+    size -= 1;
+  }
+  void merge(GoodSet oth) {
+    for (auto [x, c]: oth.mp) {
+      insert(x, c);
+    }
+  }
+  bool is_good() { // check if all elements from 0 to 2^k - 1 exists in the set
+    return (int) mp.size() == (1 << k);
+  }
+  int get_value() {
+    if (is_good()) return size;
+    return 0;
+  }
+};
+ 
+struct MaxSet { // insert, erase and track max element
+  map<int, int> mp;
+  MaxSet() {}
+  void insert(int x) {
+    mp[x]++;
+  }
+  void erase(int x) {
+    mp[x]--;
+    if (mp[x] == 0) mp.erase(x);
+  }
+  int get_max() {
+    return mp.rbegin() -> first;
+  }
+};
+ 
+struct DSU { // DSU for each power of 2
+  int n;
+  int k;
+  vector<int> par;
+  vector<GoodSet> comp;
+  MaxSet good_lengths;
+  DSU() {}
+  DSU(int _n, int _k): n(_n), k(_k) {
+    par.resize(n + 1);
+    comp.resize(n + 1);
+    for (int i = 1; i <= n; i++) {
+      par[i] = i;
+      comp[i] = GoodSet(k);
+      good_lengths.insert(comp[i].get_value());
+    }
+  }
+  int find(int u) {
+    return par[u] = (par[u] == u ? u : find(par[u]));
+  }
+  void merge(int u, int v) {
+    u = find(u); v = find(v);
+    if (u == v) return;
+    good_lengths.erase(comp[u].get_value());
+    good_lengths.erase(comp[v].get_value());
+ 
+    // small to large merging
+    if (comp[u].mp.size() < comp[v].mp.size()) {
+      comp[u].mp.swap(comp[v].mp);
+      swap(comp[u].size, comp[v].size);
+    }
+    comp[u].merge(comp[v]);
+    comp[v].mp.clear(); // clear to save up memory
+ 
+    good_lengths.insert(comp[u].get_value());
+    par[v] = u;
+  }
+  // insert or erase an element from the component that u belongs to
+  void update_in_component(int u, int x, bool insert = true) {
+    u = find(u);
+    good_lengths.erase(comp[u].get_value());
+    if (insert) comp[u].insert(x);
+    else comp[u].erase(x);
+    good_lengths.insert(comp[u].get_value());
+  }
+};
+DSU f[18];
+ll a[N]; // make it long long as total sum can be huge
+int id[Q], x[Q], ans[Q];
+void solve() {
+  int n, q; cin >> n >> q;
+  for (int i = 1; i <= n; i++) {
+    cin >> a[i];
+  }
+  for (int i = 1; i <= q; i++) {
+    cin >> id[i] >> x[i];
+    a[id[i]] += x[i];
+  }
+  MaxSet se;
+  for (int k = 0; (1 << k) <= n; k++) {
+    f[k] = DSU(n, k);
+    for (int i = 1; i <= n; i++) {
+      if (a[i] < (1 << k)) {
+        f[k].update_in_component(i, a[i], true);
+      }
+    }
+    for (int i = 2; i <= n; i++) {
+      if (a[i] < (1 << k) and a[i - 1] < (1 << k)) {
+        f[k].merge(i - 1, i);
+      }
+    }
+    se.insert(f[k].good_lengths.get_max());
+  }
+  for (int qid = q; qid >= 1; qid--) {
+    ans[qid] = se.get_max();
+    int i = id[qid], sub = x[qid];
+    for (int k = 0; (1 << k) <= n; k++) {
+      se.erase(f[k].good_lengths.get_max());
+ 
+      if (a[i] < (1 << k)) f[k].update_in_component(i, a[i], false);
+      if (a[i] - sub < (1 << k)) f[k].update_in_component(i, a[i] - sub, true);
+ 
+      if (a[i] >= (1 << k) and a[i] - sub < (1 << k)) {
+        if (i > 1 and a[i - 1] < (1 << k)) {
+          f[k].merge(i - 1, i);
+        }
+        if (i + 1 <= n and a[i + 1] < (1 << k)) {
+          f[k].merge(i, i + 1);
+        }
+      }
+ 
+      se.insert(f[k].good_lengths.get_max());
+    }
+    a[i] -= sub;
+  }
+ 
+  for (int i = 1; i <= q; i++) {
+    cout << ans[i] << '\n';
+  }
+}
+ 
+int32_t main() {
+  ios_base::sync_with_stdio(0);
+  cin.tie(0);
+  int t = 1;
+  cin >> t;
+  while (t--) {
+    solve();
+  }
+  return 0;
+}
+
+My Code#include <bits/stdc++.h>
+using namespace std;
+
+typedef long long ll;
+const ll INF = 1e18; 
+
+void print_dp(vector<vector<vector<ll>>>& dp) {
+    for (int i = 0; i < dp.size(); i++) {
+        cout << "i = " << i << ":\n";
+        for (int j = 0; j < dp[i].size(); j++) {
+            cout << "j = " << j << ": ";
+            for (int x = 0; x < dp[i][j].size(); x++) {
+                cout << dp[i][j][x] << " ";
+            }
+            cout << endl;
+        }
+        cout << endl;
+    }
+}
+
+void solve() {
+    ll n, m, k;
+    cin >> n >> m >> k;
+    vector<vector<ll>> a(n, vector<ll>(m));
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < m; j++) {
+            cin >> a[i][j];
+        }
+    }
+
+    vector<vector<vector<ll>>> dp(n, vector<vector<ll>>(m, vector<ll>(m, INF)));
+    // dp[i][j][x] = min cost from (i,j) to (n-1,m-1) if x ops performed on row i
+
+    // base case
+    for (int x = 0; x < m; x++) {
+        dp[n - 1][m - 1][x] = a[n - 1][(m - 1 + x) % m] + k * x;
+    }
+
+    // transition
+    for (int i = n - 1; i >= 0; i--) {
+        for (int j = m - 1; j >= 0; j--) {
+            if (i == n - 1 && j == m - 1) continue;
+            for (int x = 0; x < m; x++) {
+                ll right = INF, down = INF;
+
+                // right
+                if (((j + x) % m) + 1 < m) {
+                    right = dp[i][(j + x) % m + 1][x];
+                }
+
+                // down
+                if (i + 1 < n) {
+                    for (int x2 = 0; x2 < m; x2++) {
+                        down = min(down, dp[i + 1][j][x2]);
+                    }
+                }
+                // TODO: Optimize min value using another array
+
+                dp[i][j][x] = a[i][(j + x) % m] + min(right, down) + k * x;
+
+                dp[i][j][x] = min(dp[i][j][x], INF);
+            }
+        }
+    }
+
+    ll result = INF;
+    for (int x = 0; x < m; x++) {
+        result = min(result, dp[0][0][x]);
+    }
+
+    // print_dp(dp);
+
+    cout << result << endl;
+}
+
+int main() {
+    ios::sync_with_stdio(0);
+    cin.tie(0);
+    cout.tie(0);
+    int t;
+    cin >> t;
+    while (t--) {
+        solve();
+    }
+    return 0;
+}
+
+SpoilerSpoiler exists.
+
+Part 1: What the F?Firstly, for complex equation which means nothing at first look, we do this deduction :  For a subarray, let MEX = A, then we know all elements from 0 to A-1 should be present. OR of subarray will therefore be >= A-1 For OR to be exactly A-1, A-1 should not have any unset bits otherwise OR from 0 to A-1 will exceed A-1. Thus A-1 should be equal to (2^k — 1) for some k. Thus, the MEX should always be equal to 2^k for some k. Note that the MEX of an array for size N can never be more than N. Thus, the only powers for 2 that interests us are from 2^0 to 2^16. Solve for each power of 2 individually. 
+
+Part 2: Solve without updates Now consider that MEX is 2^k, find all subarrays in the array which have values strictly between 0 and 2^k — 1. These subarrays are possible candidates for answer. We will call this a Range. You can do this using 2-pointers. Corresponding to each Range, store a freq map. If the size of this freq map is 2^k, all elements from 0 to 2^k — 1 lie and the MEX is 2^k, store this as potential answer. Do this for all values of k from 0 to 16 to create a set of Ranges at each level and store all potential answers in a multiset. 
+
+Part 3 : Handling updatesHandling updates requires a major observation.The values of a particular element will only increase. This means that the ranges we calculated in the 2nd part can only be broken down into smaller pieces. They can not merge, or increase in size.This observation leads to a simple idea :We stored a freq map corresponding to each Range in 2nd part, we will use that here :  If the new value doesn't break the range (i.e becomes >= 2^k), update the freq map and check if the new map constitutes an answer. If the new value does break the range, brute force on the smaller part of the broken range to create a new freq map. Split the range into essentially two ranges with their own freq maps. I spent hours trying to step 3 thinking this will give me linear complexity before realizing the combined splits on a level will always result in nlogn complexity across queries.
+

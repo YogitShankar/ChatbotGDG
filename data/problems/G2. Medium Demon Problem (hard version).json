@@ -1,0 +1,14 @@
+{
+    "title": "G2. Medium Demon Problem (hard version)",
+    "tags": [
+        "dfs and similar",
+        "dp",
+        "dsu",
+        "graphs",
+        "implementation",
+        "trees",
+        "*1900"
+    ],
+    "time_limit": "2 seconds",
+    "memory_limit": "256 megabytes"
+}

@@ -1,0 +1,12 @@
+{
+    "title": "C2. Shohag Loves XOR (Hard Version)",
+    "tags": [
+        "bitmasks",
+        "brute force",
+        "math",
+        "number theory",
+        "*1800"
+    ],
+    "time_limit": "2 seconds",
+    "memory_limit": "256 megabytes"
+}

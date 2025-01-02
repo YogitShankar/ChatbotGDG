@@ -1,0 +1,12 @@
+{
+    "title": "D. Digital string maximization",
+    "tags": [
+        "brute force",
+        "greedy",
+        "math",
+        "strings",
+        "*1300"
+    ],
+    "time_limit": "2 seconds",
+    "memory_limit": "256 megabytes"
+}

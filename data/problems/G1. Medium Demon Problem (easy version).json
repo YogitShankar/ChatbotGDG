@@ -1,0 +1,13 @@
+{
+    "title": "G1. Medium Demon Problem (easy version)",
+    "tags": [
+        "dfs and similar",
+        "graph matchings",
+        "graphs",
+        "implementation",
+        "trees",
+        "*1700"
+    ],
+    "time_limit": "2 seconds",
+    "memory_limit": "256 megabytes"
+}

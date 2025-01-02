@@ -1,0 +1,16 @@
+You are given a tree with 𝑛 vertices.You need to construct an array 𝑎1,𝑎2,…,𝑎𝑛 of length 𝑛, consisting of unique integers from 1 to 2⋅𝑛, and such that for each edge 𝑢𝑖↔𝑣𝑖 of the tree, the value |𝑎𝑢𝑖−𝑎𝑣𝑖| is not a prime number.Find any array that satisfies these conditions, or report that there is no such array.
+
+Each test contains multiple test cases. The first line contains the number of test cases 𝑡 (1≤𝑡≤104). The description of the test cases follows.The first line of each test case contains a single integer 𝑛 (2≤𝑛≤2⋅105) — the number of vertices in the tree.The next 𝑛−1 lines contain the edges of the tree, one edge per line. The 𝑖-th line contains two integers 𝑢𝑖 and 𝑣𝑖 (1≤𝑢𝑖,𝑣𝑖≤𝑛; 𝑢𝑖≠𝑣𝑖), denoting the edge between the nodes 𝑢𝑖 and 𝑣𝑖.It's guaranteed that the given edges form a tree.It is guaranteed that the sum of 𝑛 over all test cases does not exceed 2⋅105.
+
+For each test case, if an array that satisfies the conditions exists, print its elements 𝑎1,𝑎2,…,𝑎𝑛. Otherwise, print −1.
+
+Input
+2 5 1 2 2 3 2 4 3 5 7 1 2 1 3 2 4 3 5 3 6 3 7
+
+Output
+2 10 1 6 5 
+8 7 12 1 4 6 3
+
+
+Note
+NoteThe possible answers are shown below. Instead of the vertex numbers, the corresponding elements of the array 𝑎 are written in them. The image of the tree in the first test case   The image of the tree in the second test case

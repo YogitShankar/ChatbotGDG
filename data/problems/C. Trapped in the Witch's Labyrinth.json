@@ -1,0 +1,12 @@
+{
+    "title": "C. Trapped in the Witch's Labyrinth",
+    "tags": [
+        "constructive algorithms",
+        "dfs and similar",
+        "graphs",
+        "implementation",
+        "*1400"
+    ],
+    "time_limit": "3 seconds",
+    "memory_limit": "256 megabytes"
+}
