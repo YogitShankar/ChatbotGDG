@@ -1,0 +1,16 @@
+{
+  "title": "A. Winner",
+  "time_limit": "time limit per test1 second",
+  "memory_limit": "memory limit per test64 megabytes",
+  "tags": [
+    "hashing",
+    "implementation",
+    "*1500"
+  ],
+  "samples": [
+    {
+      "input": "3mike 3andrew 5mike 2",
+      "output": "andrew"
+    }
+  ]
+}

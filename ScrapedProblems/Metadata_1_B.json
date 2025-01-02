@@ -1,0 +1,16 @@
+{
+  "title": "B. Spreadsheets",
+  "time_limit": "time limit per test10 seconds",
+  "memory_limit": "memory limit per test64 megabytes",
+  "tags": [
+    "implementation",
+    "math",
+    "*1600"
+  ],
+  "samples": [
+    {
+      "input": "2R23C55BC23",
+      "output": "BC23R23C55"
+    }
+  ]
+}

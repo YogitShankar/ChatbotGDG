@@ -1,0 +1,16 @@
+{
+  "title": "B. Lorry",
+  "time_limit": "time limit per test2 seconds",
+  "memory_limit": "memory limit per test64 megabytes",
+  "tags": [
+    "greedy",
+    "sortings",
+    "*1900"
+  ],
+  "samples": [
+    {
+      "input": "3 21 22 71 3",
+      "output": "72"
+    }
+  ]
+}

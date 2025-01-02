@@ -1,0 +1,16 @@
+{
+  "title": "B. The least round way",
+  "time_limit": "time limit per test2 seconds",
+  "memory_limit": "memory limit per test64 megabytes",
+  "tags": [
+    "dp",
+    "math",
+    "*2000"
+  ],
+  "samples": [
+    {
+      "input": "31 2 34 5 67 8 9",
+      "output": "0DDRR"
+    }
+  ]
+}
