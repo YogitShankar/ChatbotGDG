@@ -1,0 +1,4 @@
+Problem URL: https://codeforces.com/problemset/problem/2053/I1
+Tutorial URL: https://codeforces.com/blog/entry/136455
+
+What is the minimized LIS?
