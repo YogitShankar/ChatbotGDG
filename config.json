@@ -1,0 +1,17 @@
+{
+    "rate_limit_delay": 2,
+    "max_problems": 10,
+    "paths": {
+        "root": "C:\\Users\\DELL\\Desktop\\codeforces-scraper",
+        "data": "data",
+        "problems": "data/problems",
+        "editorials": "data/editorials",
+        "metadata": "data/metadata",
+        "docs": "docs",
+        "samples": "data/samples"
+    },
+    "selenium": {
+        "headless": true,
+        "timeout": 10
+    }
+}
