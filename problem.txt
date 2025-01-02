@@ -1,0 +1,4 @@
+A. Greedy Monocarp
+There are nn chests; the ii-th chest initially contains aiai coins. For each chest, you can choose any non-negative (00 or greater) number of coins to add to that chest, with one constraint: the total number of coins in all chests must become at least kk.
+After you've finished adding coins to the chests, greedy Monocarp comes, who wants the coins. He will take the chests one by one, and since he is greedy, he will always choose the chest with the maximum number of coins. Monocarp will stop as soon as the total number of coins in chests he takes is at least kk.
+You want Monocarp to take as few coins as possible, so you have to add coins to the chests in such a way that, when Monocarp stops taking chests, he will have exactly kk coins. Calculate the minimum number of coins you have to add.
