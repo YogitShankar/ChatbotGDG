@@ -1,0 +1,453 @@
+solution :#include <bits/stdc++.h>
+ 
+using namespace std;
+
+int main() {
+  int t;
+  cin >> t;
+  while (t--) {
+    int n, k;
+    cin >> n >> k;
+    vector<int> a(n);
+    for (auto& x : a) cin >> x;
+    sort(a.begin(), a.end(), greater<int>());
+    int sum = 0;
+    for (auto& x : a) {
+      if (sum + x <= k) sum += x;
+      else break;
+    }
+    cout << k - sum << '\n';
+  }
+}solution :#include<bits/stdc++.h>
+
+using namespace std;
+
+int main()
+{
+    int t;
+    scanf("%d", &t);
+    for(int _ = 0; _ < t; _++)
+    {
+        int n;
+        scanf("%d", &n);
+        vector<int> c(n);
+        for(int i = 0; i < n; i++)
+        {
+            scanf("%d", &c[i]);
+            --c[i];
+        }
+        vector<int> cnt(n);
+        for(auto x : c) cnt[x]++;
+        int exactly1 = 0, morethan1 = 0;
+        for(auto x : cnt)
+            if (x == 1)
+                exactly1++;
+            else if(x > 1)
+                morethan1++;
+        printf("%d\n", morethan1 + (exactly1 + 1) / 2 * 2);
+    }
+}solution :#include <bits/stdc++.h>
+ 
+using namespace std;
+
+int main() {
+  int t;
+  cin >> t;
+  while (t--) {
+    int n, k;
+    string s;
+    cin >> n >> k >> s;
+    vector<int> vals;
+    int sum = 0;
+    for (int i = n - 1; i > 0; --i) {
+      sum += (s[i] == '1' ? 1 : -1);
+      if (sum > 0) vals.push_back(sum);
+    }
+    sort(vals.begin(), vals.end());
+    int ans = 1;
+    while (k > 0 && !vals.empty()) {
+      k -= vals.back();
+      vals.pop_back();
+      ++ans;
+    }
+    cout << (k > 0 ? -1 : ans) << '\n';
+  }
+}solution :#include<bits/stdc++.h>
+using namespace std;
+
+#define fore(i, l, r) for(int i = int(l); i < int(r); i++)
+#define sz(a) int((a).size())
+
+struct Seg {
+	int l, r;
+
+	bool operator< (const Seg &oth) const {
+		if (l != oth.l)
+			return l < oth.l;
+		return r < oth.r;
+	};
+};
+
+void solve() {
+	int n;
+	cin >> n;
+	vector<Seg> seg(n);
+	for (int i = 0; i < n; i++)
+		cin >> seg[i].l >> seg[i].r;
+	
+	vector<int> ans(n, 0);
+	for (int k = 0; k < 2; k++) {
+		vector<int> ord(n);
+		iota(ord.begin(), ord.end(), 0);
+
+		sort(ord.begin(), ord.end(), [&seg](int i, int j){
+			if (seg[i].l != seg[j].l)
+				return seg[i].l < seg[j].l;
+			return seg[i].r > seg[j].r;
+		});
+
+		set<int> bounds;
+		for (int i : ord) {
+			auto it = bounds.lower_bound(seg[i].r);
+			if (it != bounds.end())
+				ans[i] += *it - seg[i].r;
+			bounds.insert(seg[i].r);
+		}
+
+		for (auto &s : seg) {
+			s.l = -s.l;
+			s.r = -s.r;
+			swap(s.l, s.r);
+		}
+	}
+
+	map<Seg, int> cnt;
+	for (auto s: seg)
+		cnt[s]++;
+	for (int i = 0; i < n; i++)
+		if (cnt[seg[i]] > 1)
+			ans[i] = 0;
+	
+	for (int a : ans)
+		cout << a << '\n';
+}
+
+int main() {
+	ios_base::sync_with_stdio(false);
+	cin.tie(0);
+	
+	int t; cin >> t;
+	while (t--)
+		solve();
+	return 0;
+}solution :#include <bits/stdc++.h>
+ 
+#define forn(i, n) for (int i = 0; i < int(n); i++)
+ 
+using namespace std;
+ 
+vector<vector<int>> g;
+ 
+struct LCA {
+	vector<vector<pair<int, int>>> st;
+	vector<int> pw;
+ 
+	void build(vector<pair<int, int>> a) {
+		int n = a.size();
+		int lg = 32 - __builtin_clz(n);
+		st.resize(lg, vector<pair<int, int>>(n));
+		st[0] = a;
+		for (int j = 1; j < lg; ++j) {
+			for (int i = 0; i < n; ++i) {
+				st[j][i] = st[j - 1][i];
+				if (i + (1 << (j - 1)) < n)
+					st[j][i] = min(st[j][i], st[j - 1][i + (1 << (j - 1))]);
+			}
+		}
+		pw.resize(n + 1);
+		for (int i = 2; i <= n; ++i)
+			pw[i] = pw[i / 2] + 1;
+	}
+ 
+	vector<int> d, fst, par;
+	vector<pair<int, int>> ord;
+ 
+	int lca(int v, int u) {
+		int l = fst[v], r = fst[u];
+		if (l > r) swap(l, r);
+		++r;
+		int len = pw[r - l];
+		assert(len < int(st.size()));
+		return min(st[len][l], st[len][r - (1 << len)]).second;
+	}
+ 
+	void init(int v, int p = -1) {
+		if (fst[v] == -1) fst[v] = ord.size();
+		ord.push_back({ d[v], v });
+		for (int u : g[v]) if (u != p) {
+			par[u] = v;
+			d[u] = d[v] + 1;
+			init(u, v);
+			ord.push_back({ d[v], v });
+		}
+	}
+ 
+	LCA(int r = 0) {
+		int n = g.size();
+		d.resize(n);
+		fst.assign(n, -1);
+		par.assign(n, -1);
+		ord.clear();
+		init(r);
+ 
+		build(ord);
+	}
+};
+
+int main() {
+	cin.tie(0);
+	ios::sync_with_stdio(false);
+	int n;
+	cin >> n;
+	vector<int> a(2 * n);
+	forn(i, 2 * n){
+		cin >> a[i];
+		--a[i];
+	}
+	g.resize(2 * n);
+	forn(i, 2 * n - 1){
+		int v, u;
+		cin >> v >> u;
+		--v, --u;
+		g[v].push_back(u);
+		g[u].push_back(v);
+	}
+	vector<int> l(n, -1), r(n, -1);
+	forn(i, 2 * n){
+		if (l[a[i]] == -1) l[a[i]] = i;
+		else r[a[i]] = i;
+	}
+	vector<char> res(2 * n, 1);
+	forn(rt, 2 * n) if (a[rt] == 0){
+		LCA d(rt);
+		vector<int> state(2 * n, 0);
+		
+		auto mark = [&](int v){
+			while (v != -1 && state[v] != 1){
+                state[v] = 1;
+				v = d.par[v];
+			}
+		};
+		auto markdel = [&](int v){
+			queue<int> q;
+			q.push(v);
+			state[v] = -1;
+			while (!q.empty()){
+				int v = q.front();
+				q.pop();
+				mark(l[a[v]] ^ r[a[v]] ^ v);
+				for (int u : g[v]) if (u != d.par[v] && state[u] == 0){
+					state[u] = -1;
+					q.push(u);
+				}
+			}
+		};
+		
+		forn(i, n) mark(d.lca(l[i], r[i]));
+		for (int i = 2 * n - 1; i >= 0; --i) if (state[i] == 0)
+			markdel(i);
+		vector<char> cur(2 * n, 0);
+        for (int i = 0; i < 2 * n; ++i) if (state[i] == 1)
+            cur[i] = 1;
+        reverse(cur.begin(), cur.end());
+		res = min(res, cur);
+	}
+	reverse(res.begin(), res.end());
+	cout << count(res.begin(), res.end(), 1) << '\n';
+	forn(i, 2 * n) if (res[i])
+		cout << i + 1 << " ";
+	cout << '\n';
+	return 0;
+}solution :#include <bits/stdc++.h>
+ 
+using namespace std;
+
+#define forn(i, n) for (int i = 0; i < int(n); ++i)
+
+const int N = 200 * 1000 + 13;
+const int K = 5;
+
+using li = long long;
+using mat = array<array<li, K>, K>;
+
+const li INF = 1e18;
+
+int n, q;
+li a[N], b[N];
+mat t[4 * N];
+
+mat init(li a, li b) {
+  mat c;
+  forn(i, K) forn(j, i + 1) c[j][i] = -INF;
+  c[0][0] = c[2][2] = c[4][4] = 0;
+  c[0][1] = c[2][3] = a + b;
+  c[0][2] = c[2][4] = a + b + b;
+  c[1][1] = c[3][3] = a;
+  c[1][2] = c[3][4] = a + b;
+  return c;
+}
+
+mat combine(mat a, mat b) {
+  mat c = init(-INF, -INF);
+  forn(i, K) forn(j, i + 1) forn(k, j + 1)
+    c[k][i] = max(c[k][i], a[k][j] + b[j][i]);
+  return c;
+}
+
+void build(int v, int l, int r) {
+  if (l + 1 == r) {
+    t[v] = init(a[l], b[l]);
+    return;
+  }
+  int m = (l + r) / 2;
+  build(v * 2 + 1, l, m);
+  build(v * 2 + 2, m, r);
+  t[v] = combine(t[v * 2 + 1], t[v * 2 + 2]);
+}
+
+void upd(int v, int l, int r, int p) {
+  if (l + 1 == r) {
+    t[v] = init(a[l], b[l]);
+    return;
+  }
+  int m = (l + r) / 2;
+  if (p < m) upd(v * 2 + 1, l, m, p);
+  else upd(v * 2 + 2, m, r, p);
+  t[v] = combine(t[v * 2 + 1], t[v * 2 + 2]);
+}
+
+mat get(int v, int l, int r, int L, int R) {
+  if (L >= R) return init(-INF, -INF);
+  if (l == L && r == R) return t[v];
+  int m = (l + r) / 2;
+  return combine(
+    get(v * 2 + 1, l, m, L, min(m, R)),
+    get(v * 2 + 2, m, r, max(m, L), R)
+  );
+}
+
+int main() {
+  ios::sync_with_stdio(false); cin.tie(0);
+  cin >> n;
+  forn(i, n) cin >> a[i];
+  forn(i, n) cin >> b[i];
+  build(0, 0, n);
+  cin >> q;
+  forn(_, q) {
+    int t, x, y;
+    cin >> t >> x >> y;
+    --x;
+    if (t == 1) {
+      a[x] = y;
+      upd(0, 0, n, x);
+    } else if (t == 2) {
+      b[x] = y;
+      upd(0, 0, n, x);
+    } else {
+      auto res = get(0, 0, n, x, y);
+      cout << res[0][4] << '\n';
+    }
+  }
+}solution :ex. cut between (2, 3), (4, 5), (7, 8):
+       **
+    *****
+  *******
+--------->
+123456789solution :1 8
+2 9
+3 7solution :void solve(){
+    int n;
+    cin>>n;
+
+    vector<array<int, 2>> v(n);
+    for(auto &curr: v)
+        for(auto &it: curr)
+            cin>>it;
+
+    vector<array<int, 3>> a(n);
+    map<array<int, 2>, int> m;
+    for(int i=0; i<n; ++i)
+        a[i][0] = v[i][0], a[i][1] = v[i][1], a[i][2] = i, ++m[v[i]];
+
+    vector<int> ans(n);
+    sort(a.begin(), a.end(), [&](const array<int, 3> &a1, const array<int, 3> &a2){
+        if(a1[0] < a2[0]) return true;
+        if(a1[0] > a2[0]) return false;
+        return a1[1] >= a2[1];
+    });
+
+    set<int> s;
+    s.insert(a[0][1]);
+    for(int i=1; i<n; ++i){
+        int currS = a[i][0], currE = a[i][1], idx = a[i][2];
+
+        auto it = s.lower_bound(currE);
+        if(it == s.end()){
+            s.insert(currE);
+            continue;
+        }
+
+        ans[idx] += (*it - currE);
+        s.insert(currE);
+    }
+
+    sort(a.begin(), a.end(), [&](const array<int, 3> &a1, const array<int, 3> &a2){
+        if(a1[1] < a2[1]) return false;
+        if(a1[1] > a2[1]) return true;
+        return a1[0] <= a2[0];
+    });
+
+    s.clear();
+    s.insert(a[0][0]);
+    for(int i=1; i<n; ++i){
+        int currS = a[i][0], currE = a[i][1], idx = a[i][2];
+
+        auto it = s.upper_bound(currS);
+        if(it == s.begin()){
+            s.insert(currS);
+            continue;
+        }
+        --it;
+
+        ans[idx] += (currS - *it);
+        s.insert(currS);
+    }
+
+    for(int i=0; i<n; ++i)
+        if(m[v[i]] > 1)
+            ans[i] = 0;
+
+    for(int i=0; i<n; ++i)
+        cout<<ans[i]<<"\n";
+}solution :for (const auto& [pos, event] : q) {
+    for (int i : event.open) {
+        open_by_l.insert(l[i]);
+        open_by_r.insert(r[i]);
+    }
+    for (int i : event.open) {
+        auto it = open_by_r.lower_bound(r[i]);
+        if (it != open_by_r.end() && next(it) != open_by_r.end()) {
+            ans[i] += *next(it) - r[i];
+        }
+    }
+    for (int i : event.close) {
+        auto it = open_by_l.upper_bound(l[i]);
+        if (it != open_by_l.begin() && prev(it) != open_by_l.begin()) {
+            ans[i] += l[i] - *prev(prev(it));
+        }
+    }
+    for (int i : event.close) {
+        open_by_l.extract(l[i]);
+        open_by_r.extract(r[i]);
+    }
+}
