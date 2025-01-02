@@ -1,0 +1,26 @@
+Problem: 1807A - Plus or Minus
+Problem Link: https://codeforces.com/problemset/problem/1807/A
+Editorial Link: https://codeforces.com/blog/entry/114143
+
+================================================================================
+
+1807A - Plus or MinusIdea: flamestorm Tutorial1807A - Plus or MinusYou need to implement what is given in the statement; for example, you can use an if-statement to output + if 𝑎+𝑏=𝑐, and - otherwise. Solution#include <bits/stdc++.h>
+ 
+using namespace std;
+ 
+const int MAX = 200007;
+const int MOD = 1000000007;
+ 
+void solve() {
+	int a, b, c;
+	cin >> a >> b >> c;
+	if (a + b == c) {cout << "+\n";}
+	else {cout << "-\n";}	
+}
+ 
+int main() {
+	ios::sync_with_stdio(false);
+	cin.tie(nullptr);
+	int tt; cin >> tt; for (int i = 1; i <= tt; i++) {solve();}
+	// solve();
+}

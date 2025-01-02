@@ -1,0 +1,14 @@
+{
+    "problem_tag": "1950A",
+    "title": "Stair, Peak, or Neither?",
+    "link": "https://codeforces.com/problemset/problem/1950/A",
+    "description": "You are given three digits\na\n,\nb\n, and\nc\n. Determine whether they form a stair, a peak, or neither.",
+    "input_specification": "The first line contains a single integer\nt\n(\n1≤t≤1000\n) — the number of test cases.\nThe only line of each test case contains three digits\na\n,\nb\n,\nc\n(\n0≤a\n,\nb\n,\nc≤9\n).",
+    "output_specification": "For each test case, output \"STAIR\" if the digits form a stair, \"PEAK\" if the digits form a peak, and \"NONE\" otherwise (output the strings without quotes).",
+    "time_limit": "1 second",
+    "memory_limit": "256 megabytes",
+    "tags": [
+        "implementation",
+        "*800"
+    ]
+}

@@ -1,0 +1,14 @@
+{
+    "problem_tag": "1374A",
+    "title": "Required Remainder",
+    "link": "https://codeforces.com/problemset/problem/1374/A",
+    "description": "You are given three integers\nx,y\nand\nn\n. Your task is to find the maximum integer\nk\nsuch that\n0≤k≤n\nthat\nkmodx=y\n, where\nmod\nis modulo operation. Many programming languages use percent operator % to implement it.\nIn other words, with given\nx,y\nand\nn\nyou need to find the maximum possible integer from\n0\nto\nn\nthat has the remainder\ny\nmodulo\nx\n.\nYou have to answer\nt\nindependent test cases. It is guaranteed that such\nk\nexists for each test case.",
+    "input_specification": "The first line of the input contains one integer\nt\n(\n1≤t≤5⋅104\n) — the number of test cases. The next\nt\nlines contain test cases.\nThe only line of the test case contains three integers\nx,y\nand\nn\n(\n2≤x≤109; 0≤y<x; y≤n≤109\n).\nIt can be shown that such\nk\nalways exists under the given constraints.",
+    "output_specification": "For each test case, print the answer — maximum non-negative integer\nk\nsuch that\n0≤k≤n\nand\nkmodx=y\n. It is guaranteed that the answer always exists.",
+    "time_limit": "1 second",
+    "memory_limit": "256 megabytes",
+    "tags": [
+        "math",
+        "*800"
+    ]
+}

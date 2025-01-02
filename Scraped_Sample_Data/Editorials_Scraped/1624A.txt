@@ -1,0 +1,37 @@
+Problem: 1624A - Plus One on the Subset
+Problem Link: https://codeforces.com/problemset/problem/1624/A
+Editorial Link: https://codeforces.com/blog/entry/98942
+
+================================================================================
+
+1624A - Plus One on the SubsetIdea: MikeMirzayanov Tutorial1624A - Plus One on the SubsetLet's sort the numbers in ascending order. It becomes immediately clear that it is not profitable for us to increase the numbers that are equal to the last number (the maximum of the array). It turns out that every time you need to take such a subset of the array, in which all the numbers, except the maximums. And once for each operation, the numbers in the subset are increased by one, then how many times can the operation be performed on the array? Accordingly 𝑚𝑎𝑥(𝑎)−𝑚𝑖𝑛(𝑎). Solution#include <bits/stdc++.h>
+
+using namespace std;
+
+typedef long long ll;
+
+#define forn(i, n) for (int i = 0; i < int(n); i++)
+
+
+void solve() {
+    int n;
+    cin >> n;
+    int a[n];
+    for (int i = 0; i < n; ++i) {
+        cin >> a[i];
+    }
+    int MIN = INT_MAX;
+    int MAX = INT_MIN;
+    for (int i = 0; i < n; ++i) {
+        MIN = min(MIN, a[i]);
+        MAX = max(MAX, a[i]);
+    }
+    cout << MAX - MIN << '\n';
+}
+int main() {
+    int tests;
+    cin >> tests;
+    forn(tt, tests) {
+        solve();
+    }
+}

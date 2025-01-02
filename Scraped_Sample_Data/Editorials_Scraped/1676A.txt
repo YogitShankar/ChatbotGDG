@@ -1,0 +1,27 @@
+Problem: 1676A - Lucky?
+Problem Link: https://codeforces.com/problemset/problem/1676/A
+Editorial Link: https://codeforces.com/blog/entry/102710
+
+================================================================================
+
+1676A - Счастливый?Idea: mesanu and SlavicG Tutorial1676A - Lucky?We need to check if the sum of the first three digits is equal to the sum of the last three digits. This is doable by scanning the input as a string, then comparing the sum of the first three characters with the sum of the last three characters using the if statement and the addition operation. Solution#include <bits/stdc++.h>
+using namespace std;
+
+void solve() {
+	string s;
+	cin >> s;
+	if(s[0]+s[1]+s[2] == s[3]+s[4]+s[5]) {
+		cout << "YES" << endl;
+	}
+	else {
+		cout << "NO" << endl;
+	}
+}
+
+int main() {
+	int t = 1;
+	cin >> t;
+	while (t--) {
+		solve();
+	}
+}

@@ -1,0 +1,7 @@
+Problem: 271A - Beautiful Year
+Problem Link: https://codeforces.com/problemset/problem/271/A
+Editorial Link: https://codeforces.com/blog/entry/6662
+
+================================================================================
+
+271A - Beautiful YearThis is a very straight forward problem. Just add 1 to a year number while it still has equal digits.

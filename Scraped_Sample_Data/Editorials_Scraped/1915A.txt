@@ -1,0 +1,25 @@
+Problem: 1915A - Odd One Out
+Problem Link: https://codeforces.com/problemset/problem/1915/A
+Editorial Link: https://codeforces.com/blog/entry/123952
+
+================================================================================
+
+1915A - ВыбросIdea: flamestorm Tutorial1915A - ВыбросYou can write three if-statements to find the equal pair, and output the correct answer.A shorter solution: output the bitwise 𝖷𝖮𝖱 of 𝑎, 𝑏, and 𝑐. It works, since any number 𝖷𝖮𝖱ed with itself is 0, so the two equal numbers will "cancel" and you will be left with the odd number out. Solution#include <bits/stdc++.h>
+
+using namespace std;
+
+const int MAX = 200'007;
+const int MOD = 1'000'000'007;
+
+void solve() {
+	int a, b, c;
+	cin >> a >> b >> c;
+	cout << (a ^ b ^ c) << '\n';
+}
+
+int main() {
+	ios::sync_with_stdio(false);
+	cin.tie(nullptr);
+	int tt; cin >> tt; for (int i = 1; i <= tt; i++) {solve();}
+	// solve();
+}

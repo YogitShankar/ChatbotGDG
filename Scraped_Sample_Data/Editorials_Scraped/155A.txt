@@ -1,0 +1,7 @@
+Problem: 155A - I_love_\%username\%
+Problem Link: https://codeforces.com/problemset/problem/155/A
+Editorial Link: https://codeforces.com/blog/entry/3969
+
+================================================================================
+
+155A - I_love_\%username\%You should do what is written: go through the sequence and count the elements which are greater or less than all of its predecessors. We don't even have to store the whole sequence, just the current minimum and maximum. Complexity - O(N), but squared still works fine.

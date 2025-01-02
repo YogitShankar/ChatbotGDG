@@ -1,0 +1,30 @@
+Problem: 1352A - Sum of Round Numbers
+Problem Link: https://codeforces.com/problemset/problem/1352/A
+Editorial Link: https://codeforces.com/blog/entry/77161
+
+================================================================================
+
+1352A - Sum of Round Numbers Tutorial1352A - Sum of Round NumbersFirstly, we need to understand the minimum amount of round numbers we need to represent 𝑛. It equals the number of non-zero digits in 𝑛. Why? Because we can "remove" exactly one non-zero digit in 𝑛 using exactly one round number (so we need at most this amount of round numbers) and, on the other hand, the sum of two round numbers has at most two non-zero digits (the sum of three round numbers has at most three non-zero digits and so on) so this is useless to try to remove more than one digit using the sum of several round numbers.So we need to find all digits of 𝑛 and print the required number for each of these digits. For example, if 𝑛=103 then 𝑛=1⋅102+0⋅101+3⋅100, so we need two round numbers: 1⋅102 and 3⋅100.Because the last digit of 𝑛 is 𝑛%10 (the remainder of 𝑛 modulo 10) and we can remove the last digit of the number by integer division on 10, we can use the following code to solve the problem:int n;cin >> n;vector<int> ans;int power = 1;while (n > 0) {	if (n % 10 > 0) {		ans.push_back((n % 10) * power);	}	n /= 10;	power *= 10;}cout << ans.size() << endl;for (auto number : ans) cout << number << " ";cout << endl; Solution#include <bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+	int t;
+	cin >> t;
+	while (t--) {
+		int n;
+		cin >> n;
+		vector<int> ans;
+		int power = 1;
+		while (n > 0) {
+			if (n % 10 > 0) {
+				ans.push_back((n % 10) * power);
+			}
+			n /= 10;
+			power *= 10;
+		}
+		cout << ans.size() << endl;
+		for (auto number : ans) cout << number << " ";
+		cout << endl;
+	}
+}

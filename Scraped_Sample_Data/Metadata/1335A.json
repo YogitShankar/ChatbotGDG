@@ -1,0 +1,14 @@
+{
+    "problem_tag": "1335A",
+    "title": "Candies and Two Sisters",
+    "link": "https://codeforces.com/problemset/problem/1335/A",
+    "description": "There are two sisters Alice and Betty. You have\nn\ncandies. You want to distribute these\nn\ncandies between two sisters in such a way that:\nYour task is to calculate the number of ways to distribute exactly\nn\ncandies between sisters in a way described above. Candies are indistinguishable.\nFormally, find the number of ways to represent\nn\nas the sum of\nn=a+b\n, where\na\nand\nb\nare positive integers and\na>b\n.\nYou have to answer\nt\nindependent test cases.",
+    "input_specification": "The first line of the input contains one integer\nt\n(\n1≤t≤104\n) — the number of test cases. Then\nt\ntest cases follow.\nThe only line of a test case contains one integer\nn\n(\n1≤n≤2⋅109\n) — the number of candies you have.",
+    "output_specification": "For each test case, print the answer — the number of ways to distribute exactly\nn\ncandies between two sisters in a way described in the problem statement. If there is no way to satisfy all the conditions, print\n0\n.",
+    "time_limit": "1 second",
+    "memory_limit": "256 megabytes",
+    "tags": [
+        "math",
+        "*800"
+    ]
+}

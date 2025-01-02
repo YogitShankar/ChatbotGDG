@@ -1,0 +1,7 @@
+Problem: 236A - Boy or Girl
+Problem Link: https://codeforces.com/problemset/problem/236/A
+Editorial Link: https://codeforces.com/blog/entry/5592
+
+================================================================================
+
+236A - Boy or GirlIt is a very simple problem, just count how many distinct chars in the input and output the correct answer.

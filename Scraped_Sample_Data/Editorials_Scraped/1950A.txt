@@ -1,0 +1,21 @@
+Problem: 1950A - Stair, Peak, or Neither?
+Problem Link: https://codeforces.com/problemset/problem/1950/A
+Editorial Link: https://codeforces.com/blog/entry/127664
+
+================================================================================
+
+1950A - Stair, Peak, or Neither?Idea: SlavicG Tutorial1950A - Stair, Peak, or Neither?You just need to write two if-statements and check the two cases. Please note that some languages like C++ won't allow a chain of comparisons like a < b < c, and you should instead write it as a < b && b < c. Solution#include <iostream>
+
+void solve() {
+	int a, b, c;
+	std::cin >> a >> b >> c;
+	if(a < b && b < c) std::cout << "STAIR"<< "\n";
+	else if(a < b && b > c) std::cout << "PEAK"<< "\n";
+	else std::cout << "NONE" << "\n";
+}
+
+int main() {
+	int tt; std::cin >> tt;
+	while(tt--) 
+	    solve();
+}

@@ -1,0 +1,7 @@
+Problem: 520A - Pangram
+Problem Link: https://codeforces.com/problemset/problem/520/A
+Editorial Link: https://codeforces.com/blog/entry/16736
+
+================================================================================
+
+520A - PangramIdea: EndagorionPreparation: EndagorionTo check that every letter is present in the string we can just make a boolean array of size 26 and for every letter set the corresponding variable to TRUE. In the end check that there are 26 TRUEs. That is an O(n) solution. Also don't forget to change all letters to lowercase (or all to uppercase). To make all the letters lowercase, one could use standard functions, like tolower in Python. Also, it is known that the letters from a to z have consecutive ASCII numbers, as well as A to Z; an ASCII number of symbol is ord(c) in most languages. So, to get the number of a lowercase letter in the alphabet one can use ord(c) - ord('a') in most languages, or simply c - 'a' in C++ or C (because a char in C/C++ can be treated as a number); to check if a letter is lowercase, the inequality ord('a') <= ord(c) && ord(c) <= ord('z') should be checked.Challenge: how many pangrams of length n are there? Strings that differ only in capitalization of some letters are considered distinct. Can you find the answer modulo some prime p in linear time?

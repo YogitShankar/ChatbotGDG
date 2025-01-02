@@ -1,0 +1,7 @@
+Problem: 151A - Soft Drinking
+Problem Link: https://codeforces.com/problemset/problem/151/A
+Editorial Link: https://codeforces.com/blog/entry/3905
+
+================================================================================
+
+151A - Soft DrinkingSoda will be enough for gas = (K * L) / (N * l) toasts.Limes will last for laim = (C * D) / N toasts.Salt is enough for sol = P / (p * N) toasts.Total result: res = min(gas, laim, sol).

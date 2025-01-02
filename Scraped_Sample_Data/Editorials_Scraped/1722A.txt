@@ -1,0 +1,27 @@
+Problem: 1722A - Spell Check
+Problem Link: https://codeforces.com/problemset/problem/1722/A
+Editorial Link: https://codeforces.com/blog/entry/106478
+
+================================================================================
+
+1722A - Spell CheckIdea: mesanu, MikeMirzayanov Tutorial1722A - Spell CheckCheck if the string has length 5 and if it has the characters 𝚃,𝚒,𝚖,𝚞,𝚛. The complexity is (𝑛). You can also sort the string, and check if it is 𝚃𝚒𝚖𝚞𝚛 when sorted (which is 𝚃𝚒𝚖𝚛𝚞). Solution#include <bits/stdc++.h>
+
+using namespace std;
+
+#define forn(i, n) for (int i = 0; i < int(n); i++)
+
+int main() {
+    string name = "Timur";
+    sort(name.begin(), name.end());
+
+    int n;
+    cin >> n;
+    forn(i, n) {
+        int m;
+        cin >> m;
+        string s;
+        cin >> s;
+        sort(s.begin(), s.end());
+        cout << (s == name ? "YES" : "NO") << endl;
+    }
+}

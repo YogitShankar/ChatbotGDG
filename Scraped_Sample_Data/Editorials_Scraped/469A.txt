@@ -1,0 +1,7 @@
+Problem: 469A - I Wanna Be the Guy
+Problem Link: https://codeforces.com/problemset/problem/469/A
+Editorial Link: https://codeforces.com/blog/entry/13896
+
+================================================================================
+
+469A - I Wanna Be the GuyI Wanna Be the Guy is an interesting game. I strongly recommend it to you.The problem itself is easy. Just check if all the levels could be passed by Little X or Little Y.7894174

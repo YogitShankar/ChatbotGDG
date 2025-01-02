@@ -1,0 +1,15 @@
+{
+    "problem_tag": "1520A",
+    "title": "Do Not Be Distracted!",
+    "link": "https://codeforces.com/problemset/problem/1520/A",
+    "description": "Polycarp has\n26\ntasks. Each task is designated by a capital letter of the Latin alphabet.\nThe teacher asked Polycarp to solve tasks in the following way: if Polycarp began to solve some task, then he must solve it to the end, without being distracted by another task. After switching to another task, Polycarp cannot return to the previous task.\nPolycarp can only solve one task during the day. Every day he wrote down what task he solved. Now the teacher wants to know if Polycarp followed his advice.\nFor example, if Polycarp solved tasks in the following order: \"DDBBCCCBBEZ\", then the teacher will see that on the third day Polycarp began to solve the task 'B', then on the fifth day he got distracted and began to solve the task 'C', on the eighth day Polycarp returned to the task 'B'. Other examples of when the teacher is suspicious: \"BAB\", \"AABBCCDDEEBZZ\" and \"AAAAZAAAAA\".\nIf Polycarp solved the tasks as follows: \"FFGZZZY\", then the teacher cannot have any suspicions. Please note that Polycarp is not obligated to solve all tasks. Other examples of when the teacher doesn't have any suspicious: \"BA\", \"AFFFCC\" and \"YYYYY\".\nHelp Polycarp find out if his teacher might be suspicious.",
+    "input_specification": "The first line contains an integer\nt\n(\n1≤t≤1000\n). Then\nt\ntest cases follow.\nThe first line of each test case contains one integer\nn\n(\n1≤n≤50\n) — the number of days during which Polycarp solved tasks.\nThe second line contains a string of length\nn\n, consisting of uppercase Latin letters, which is the order in which Polycarp solved the tasks.",
+    "output_specification": "For each test case output:\nYou may print every letter in any case you want (so, for example, the strings yEs, yes, Yes and YES are all recognized as positive answer).",
+    "time_limit": "1 second",
+    "memory_limit": "256 megabytes",
+    "tags": [
+        "brute force",
+        "implementation",
+        "*800"
+    ]
+}

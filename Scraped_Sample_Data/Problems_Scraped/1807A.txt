@@ -1,0 +1,37 @@
+Problem: 1807A - Plus or Minus
+Link: https://codeforces.com/problemset/problem/1807/A
+
+Description:
+You are given three integers
+a
+,
+b
+, and
+c
+such that exactly one of these two equations is true:
+
+Input Specification:
+The first line contains a single integer
+t
+(
+1<=t<=162
+) - the number of test cases.
+The description of each test case consists of three integers
+a
+,
+b
+,
+c
+(
+1<=a,b<=9
+,
+−8<=c<=18
+). The additional constraint on the input: it will be generated so that exactly one of the two equations will be true.
+
+Output Specification:
+For each test case, output either + or - on a new line, representing the correct equation.
+
+Time Limit: 1 second
+Memory Limit: 256 megabytes
+
+Tags: implementation, *800

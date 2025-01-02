@@ -1,0 +1,15 @@
+{
+    "problem_tag": "1360A",
+    "title": "Minimal Square",
+    "link": "https://codeforces.com/problemset/problem/1360/A",
+    "description": "Find the minimum area of a square land on which you can place two identical rectangular\na×b\nhouses. The sides of the houses should be parallel to the sides of the desired square land.\nFormally,\nTwo rectangles can touch each other (side or corner), but cannot intersect. Rectangles can also touch the sides of the square but must be completely inside it. You can rotate the rectangles. Take a look at the examples for a better understanding.",
+    "input_specification": "The first line contains an integer\nt\n(\n1≤t≤10000\n) —the number of test cases in the input. Then\nt\ntest cases follow.\nEach test case is a line containing two integers\na\n,\nb\n(\n1≤a,b≤100\n) — side lengths of the rectangles.",
+    "output_specification": "Print\nt\nanswers to the test cases. Each answer must be a single integer — minimal area of square land, that contains two rectangles with dimensions\na×b\n.",
+    "time_limit": "2 seconds",
+    "memory_limit": "256 megabytes",
+    "tags": [
+        "greedy",
+        "math",
+        "*800"
+    ]
+}

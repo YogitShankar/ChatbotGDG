@@ -1,0 +1,28 @@
+Problem: 977A - Wrong Subtraction
+Problem Link: https://codeforces.com/problemset/problem/977/A
+Editorial Link: https://codeforces.com/blog/entry/59281
+
+================================================================================
+
+977A - Wrong Subtraction Tutorial977A - Wrong SubtractionIn this problem you just need to simulate the process described in the statement (i.e. 𝑘 times repeat the following operation: if 𝑛%10=0 then 𝑛:=𝑛/10 else 𝑛:=𝑛−1) and print the result. Solution (Vovuh)#include <bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+#ifdef _DEBUG
+	freopen("input.txt", "r", stdin);
+//	freopen("output.txt", "w", stdout);
+#endif
+
+	int n, k;
+	cin >> n >> k;
+	
+	for (int i = 0; i < k; ++i) {
+		if (n % 10 == 0) n /= 10;
+		else n--;
+	}
+	
+	cout << n << endl;
+	
+	return 0;
+}

@@ -1,0 +1,15 @@
+{
+    "problem_tag": "1367B",
+    "title": "Even Array",
+    "link": "https://codeforces.com/problemset/problem/1367/B",
+    "description": "You are given an array\na[0…n−1]\nof length\nn\nwhich consists of non-negative integers. Note that array indices start from zero.\nAn array is called good if the parity of each index matches the parity of the element at that index. More formally, an array is good if for all\ni\n(\n0≤i≤n−1\n) the equality\nimod2=a[i]mod2\nholds, where\nxmod2\nis the remainder of dividing\nx\nby 2.\nFor example, the arrays [\n0,5,2,1\n] and [\n0,17,0,3\n] are good, and the array [\n2,4,6,7\n] is bad, because for\ni=1\n, the parities of\ni\nand\na[i]\nare different:\nimod2=1mod2=1\n, but\na[i]mod2=4mod2=0\n.\nIn one move, you can take any two elements of the array and swap them (these elements are not necessarily adjacent).\nFind the minimum number of moves in which you can make the array\na\ngood, or say that this is not possible.",
+    "input_specification": "The first line contains a single integer\nt\n(\n1≤t≤1000\n) — the number of test cases in the test. Then\nt\ntest cases follow.\nEach test case starts with a line containing an integer\nn\n(\n1≤n≤40\n) — the length of the array\na\n.\nThe next line contains\nn\nintegers\na0,a1,…,an−1\n(\n0≤ai≤1000\n) — the initial array.",
+    "output_specification": "For each test case, output a single integer — the minimum number of moves to make the given array\na\ngood, or -1 if this is not possible.",
+    "time_limit": "2 seconds",
+    "memory_limit": "256 megabytes",
+    "tags": [
+        "greedy",
+        "math",
+        "*800"
+    ]
+}

@@ -1,0 +1,15 @@
+{
+    "problem_tag": "2009A",
+    "title": "Minimize!",
+    "link": "https://codeforces.com/problemset/problem/2009/A",
+    "description": "You are given two integers\na\nand\nb\n(\na≤b\n). Over all possible integer values of\nc\n(\na≤c≤b\n), find the minimum value of\n(c−a)+(b−c)\n.",
+    "input_specification": "The first line contains\nt\n(\n1≤t≤55\n) — the number of test cases.\nEach test case contains two integers\na\nand\nb\n(\n1≤a≤b≤10\n).",
+    "output_specification": "For each test case, output the minimum possible value of\n(c−a)+(b−c)\non a new line.",
+    "time_limit": "1 second",
+    "memory_limit": "256 megabytes",
+    "tags": [
+        "brute force",
+        "math",
+        "*800"
+    ]
+}

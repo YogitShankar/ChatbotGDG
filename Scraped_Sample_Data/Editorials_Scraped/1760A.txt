@@ -1,0 +1,26 @@
+Problem: 1760A - Medium Number
+Problem Link: https://codeforces.com/problemset/problem/1760/A
+Editorial Link: https://codeforces.com/blog/entry/109348
+
+================================================================================
+
+1760A - Medium NumberIdea: flamestorm Tutorial1760A - Medium NumberHere are two ways to implement what's given in the problem:  Take input as an array [𝑎1,𝑎2,𝑎3], and sort it. Output the middle element.  Write two if-statements. The first: if (𝑎>𝑏 and 𝑎<𝑐) or (𝑎<𝑏 and 𝑎>𝑐), output 𝑎. Else, if (𝑏>𝑎 and 𝑏<𝑐) or (𝑏<𝑎 and 𝑏>𝑐), output 𝑏. Else, output 𝑐.  Solution#include <bits/stdc++.h>
+
+using namespace std;
+
+const int MAX = 200007;
+const int MOD = 1000000007;
+
+void solve() {
+	int a[3];
+	cin >> a[0] >> a[1] >> a[2];
+	sort(a, a + 3);
+	cout << a[1] << '\n';	
+}
+
+int main() {
+	ios::sync_with_stdio(false);
+	cin.tie(nullptr);
+	int tt; cin >> tt; for (int i = 1; i <= tt; i++) {solve();}
+	// solve();
+}

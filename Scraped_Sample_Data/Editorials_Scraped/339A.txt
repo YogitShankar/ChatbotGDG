@@ -1,0 +1,7 @@
+Problem: 339A - Helpful Maths
+Problem Link: https://codeforces.com/problemset/problem/339/A
+Editorial Link: https://codeforces.com/blog/entry/8725
+
+================================================================================
+
+339A - Helpful MathsTutorial by Fefer_IvanTo solve this problem we can count the number of digits 1, 2 and 3 in the input. If there are c1 digits 1, c2 digits 2 and c3 digits 3. Then we must print the sequence of c1 digits 1, c2 digits 2 and c3 digits 3. Digits must be separated by + sign.
