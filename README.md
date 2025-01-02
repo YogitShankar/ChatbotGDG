@@ -1,2 +1,0 @@
-# ChatbotGDG
-Project Submission repository 
