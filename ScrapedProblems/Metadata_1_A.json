@@ -1,0 +1,15 @@
+{
+  "title": "A. Theatre Square",
+  "time_limit": "time limit per test1 second",
+  "memory_limit": "memory limit per test256 megabytes",
+  "tags": [
+    "math",
+    "*1000"
+  ],
+  "samples": [
+    {
+      "input": "6 6 4",
+      "output": "4"
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "title": "C. Registration system",
+  "time_limit": "time limit per test5 seconds",
+  "memory_limit": "memory limit per test64 megabytes",
+  "tags": [
+    "data structures",
+    "hashing",
+    "implementation",
+    "*1300"
+  ],
+  "samples": [
+    {
+      "input": "4abacabaacabaabacabaacab",
+      "output": "OKOKabacaba1OK"
+    }
+  ]
+}

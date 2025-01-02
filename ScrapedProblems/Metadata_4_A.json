@@ -1,0 +1,16 @@
+{
+  "title": "A. Watermelon",
+  "time_limit": "time limit per test1 second",
+  "memory_limit": "memory limit per test64 megabytes",
+  "tags": [
+    "brute force",
+    "math",
+    "*800"
+  ],
+  "samples": [
+    {
+      "input": "8",
+      "output": "YES"
+    }
+  ]
+}

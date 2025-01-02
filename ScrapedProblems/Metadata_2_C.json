@@ -1,0 +1,15 @@
+{
+  "title": "C. Commentator problem",
+  "time_limit": "time limit per test1 second",
+  "memory_limit": "memory limit per test64 megabytes",
+  "tags": [
+    "geometry",
+    "*2600"
+  ],
+  "samples": [
+    {
+      "input": "0 0 1060 0 1030 30 10",
+      "output": "30.00000 0.00000"
+    }
+  ]
+}
