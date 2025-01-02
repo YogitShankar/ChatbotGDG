@@ -1,0 +1,14 @@
+{
+    "tags": [
+        "brute force",
+        "dp",
+        "*1900"
+    ],
+    "contest_id": 2049,
+    "problem_index": "D",
+    "problem_name": "Shift + Esc",
+    "time limit per test": "2.5 seconds",
+    "memory limit per test": "512 megabytes",
+    "input": "standard input",
+    "output": "standard output"
+}

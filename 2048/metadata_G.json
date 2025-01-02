@@ -1,0 +1,16 @@
+{
+    "tags": [
+        "brute force",
+        "combinatorics",
+        "dp",
+        "math",
+        "*2800"
+    ],
+    "contest_id": 2048,
+    "problem_index": "G",
+    "problem_name": "Kevin and Matrices",
+    "time limit per test": "6 seconds",
+    "memory limit per test": "256 megabytes",
+    "input": "standard input",
+    "output": "standard output"
+}

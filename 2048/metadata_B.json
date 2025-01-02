@@ -1,0 +1,14 @@
+{
+    "tags": [
+        "constructive algorithms",
+        "greedy",
+        "*900"
+    ],
+    "contest_id": 2048,
+    "problem_index": "B",
+    "problem_name": "Kevin and Permutation",
+    "time limit per test": "1 second",
+    "memory limit per test": "256 megabytes",
+    "input": "standard input",
+    "output": "standard output"
+}

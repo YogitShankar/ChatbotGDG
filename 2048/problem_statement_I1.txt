@@ -1,0 +1,34 @@
+Problem Statement
+This is the easy version of the problem. The difference between the versions is that in this version, you need to find any one good array. You can hack only if you solved all versions of this problem.
+Kevin is visiting the Red Church, and he found a puzzle on the wall.
+For an array a , let c(l,r) indicate how many distinct numbers are among al,al+1,…,ar . In particular, if l>r , define c(l,r)=0 .
+You are given a string s of length n consisting of letters L and R only. Let a non-negative array a be called good, if the following conditions hold for 1≤i≤n :
+- if si=L , then c(1,i−1)=ai ;
+- if si=R , then c(i+1,n)=ai .
+If there is a good array a , print any of the good arrays. Otherwise, report that no such arrays exists.
+
+No Footnote present
+
+Input
+Input
+Each test contains multiple test cases. The first line contains a single integer t ( 1≤t≤104 ) — the number of test cases. The description of the test cases follows.
+The first line of each test case contains a single integer n ( 2≤n≤2⋅105 ) — the length of string s .
+The second line of each test case contains a string s with a length n , containing only English uppercase letters L and R .
+It is guaranteed that the sum of n over all test cases does not exceed 2⋅105 .
+
+Output
+Output
+For each test case, if a good array exists, print n non-negative integers: a good array a . Otherwise, print a single integer −1 .
+If there are multiple arrays a satisfying the conditions, you can output any of them.
+
+Example
+[{'input': ['3', 'LLR'], 'output': '0'}, {'input': ['3', 'RRL'], 'output': '1'}, {'input': ['4', 'RRLR'], 'output': '0'}, {'input': ['5', 'LLRLR'], 'output': '2'}]
+
+Note
+Note
+In the first test case, the array [0,1,0] satisfies the conditions because:
+- When i=1 , si=L , and c(1,0)=0 ;
+- When i=2 , si=L , and c(1,1)=1 , since there is only one distinct number in a1 ;
+- When i=3 , si=R , and c(4,3)=0 .
+In the second test case, another suitable answer is [1,1,1] .
+In the third test case, it can be proven that there's no array satisfying the conditions.

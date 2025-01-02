@@ -1,0 +1,15 @@
+{
+    "tags": [
+        "data structures",
+        "greedy",
+        "sortings",
+        "*1200"
+    ],
+    "contest_id": 2047,
+    "problem_index": "C",
+    "problem_name": "Swap Columns and Find a Path",
+    "time limit per test": "2 seconds",
+    "memory limit per test": "512 megabytes",
+    "input": "standard input",
+    "output": "standard output"
+}

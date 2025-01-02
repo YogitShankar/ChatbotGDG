@@ -1,0 +1,17 @@
+{
+    "tags": [
+        "bitmasks",
+        "brute force",
+        "data structures",
+        "dsu",
+        "implementation",
+        "*2700"
+    ],
+    "contest_id": 2049,
+    "problem_index": "F",
+    "problem_name": "MEX OR Mania",
+    "time limit per test": "4 seconds",
+    "memory limit per test": "1024 megabytes",
+    "input": "standard input",
+    "output": "standard output"
+}

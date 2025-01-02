@@ -1,0 +1,25 @@
+Problem Statement
+Kevin has been transported to Sacred Heart Hospital, which contains all the n×m matrices with integer values in the range [1,v] .
+Now, Kevin wants to befriend some matrices, but he is willing to befriend a matrix a if and only if the following condition is satisfied:
+min 1≤i≤n ( max 1≤j≤m ai,j)≤ max 1≤j≤m ( min 1≤i≤n ai,j).
+Please count how many matrices in Sacred Heart Hospital can be friends with Kevin.
+Since Kevin is very friendly, there could be many matrices that meet this condition. Therefore, you only need to output the result modulo 998244353 .
+
+No Footnote present
+
+Input
+Input
+Each test contains multiple test cases. The first line contains the number of test cases t ( 1≤t≤8⋅103 ).
+The only line of each test case contains three integers n , m , v ( 1≤n,v,n⋅v≤106 , 1≤m≤109 ).
+It is guaranteed that the sum of n⋅v over all test cases doesn't exceed 106 .
+
+Output
+Output
+For each test case, output one integer — the number of matrices that can be friends with Kevin modulo 998244353 .
+
+Example
+[{'input': ['2 2 2'], 'output': '14'}, {'input': ['2 3 4'], 'output': '2824'}, {'input': ['11 45 14'], 'output': '883799966'}]
+
+Note
+Note
+In the first test case, besides the matrices a=[ 1 2 2 1 ] and a=[ 2 1 1 2 ] , which do not satisfy the condition, the remaining 22⋅2−2=14 matrices can all be friends with Kevin.

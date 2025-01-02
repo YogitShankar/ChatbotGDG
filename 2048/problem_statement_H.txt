@@ -1,0 +1,25 @@
+Problem Statement
+Kevin is exploring problems related to binary strings in Chinatown. When he was at a loss, a stranger approached him and introduced a peculiar operation:
+- Suppose the current binary string is t , with a length of |t| . Choose an integer 1≤p≤|t| . For all 1≤i<p , simultaneously perform the operation ti=max(ti,ti+1) , and then delete tp .
+For example, suppose the current binary string is 01001, and you choose p=4 . Perform ti=max(ti,ti+1) for t1 , t2 , and t3 , transforming the string into 11001, then delete t4 , resulting in 1101.
+Kevin finds this strange operation quite interesting. Thus, he wants to ask you: Given a binary string s , how many distinct non-empty binary strings can you obtain through any number of operations (possibly zero)?
+Since the answer may be very large, you only need to output the result modulo 998244353 .
+
+No Footnote present
+
+Input
+Input
+Each test contains multiple test cases. The first line contains a single integer t ( 1≤t≤104 ) — the number of test cases.
+For each test case, the only line contains a binary string s ( 1≤|s|≤106 ).
+It is guaranteed that the sum of |s| over all test cases does not exceed 106 .
+
+Output
+Output
+For each test case, print a single integer in the only line of the output — the number of distinct non-empty binary strings you can obtain, modulo 998244353 .
+
+Example
+[{'input': ['11001'], 'output': '9'}, {'input': ['000110111001100'], 'output': '73'}]
+
+Note
+Note
+In the first test case, all the binary strings you can obtain are: 11001, 1001, 1101, 001, 101, 111, 01, 11, and 1. There are 9 in total.

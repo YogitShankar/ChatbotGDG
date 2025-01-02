@@ -1,0 +1,17 @@
+{
+    "tags": [
+        "brute force",
+        "greedy",
+        "implementation",
+        "math",
+        "number theory",
+        "*800"
+    ],
+    "contest_id": 2048,
+    "problem_index": "A",
+    "problem_name": "Kevin and Combination Lock",
+    "time limit per test": "1 second",
+    "memory limit per test": "256 megabytes",
+    "input": "standard input",
+    "output": "standard output"
+}

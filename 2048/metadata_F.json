@@ -1,0 +1,19 @@
+{
+    "tags": [
+        "brute force",
+        "data structures",
+        "divide and conquer",
+        "dp",
+        "implementation",
+        "math",
+        "trees",
+        "*2500"
+    ],
+    "contest_id": 2048,
+    "problem_index": "F",
+    "problem_name": "Kevin and Math Class",
+    "time limit per test": "2 seconds",
+    "memory limit per test": "1024 megabytes",
+    "input": "standard input",
+    "output": "standard output"
+}

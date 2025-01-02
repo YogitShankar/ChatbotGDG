@@ -1,0 +1,18 @@
+{
+    "tags": [
+        "binary search",
+        "bitmasks",
+        "brute force",
+        "constructive algorithms",
+        "implementation",
+        "interactive",
+        "*2400"
+    ],
+    "contest_id": 2049,
+    "problem_index": "E",
+    "problem_name": "Broken Queries",
+    "time limit per test": "2 seconds",
+    "memory limit per test": "256 megabytes",
+    "input": "standard input",
+    "output": "standard output"
+}

@@ -1,0 +1,17 @@
+{
+    "tags": [
+        "bitmasks",
+        "brute force",
+        "greedy",
+        "implementation",
+        "strings",
+        "*1200"
+    ],
+    "contest_id": 2048,
+    "problem_index": "C",
+    "problem_name": "Kevin and Binary Strings",
+    "time limit per test": "2 seconds",
+    "memory limit per test": "256 megabytes",
+    "input": "standard input",
+    "output": "standard output"
+}
