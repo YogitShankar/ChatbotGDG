@@ -1,0 +1,129 @@
+Section 1:
+Hint 1
+What if $$$w = 2$$$? Is it optimal to increase $$$\sum\limits_{i=0}^n [a_i \neq a_{i+1}]$$$ (suppose $$$a_0 = a_{n+1} = 2$$$)?
+
+Section 2:
+Hint 2
+If $$$w \geq 3$$$, what's the answer to the first question?
+
+Section 3:
+Hint 3
+If $$$a_i = a_{i+1}$$$, after the operation we can obtain $$$a_{i-1} = a_i$$$ or $$$a_{i+1} = a_{i+2}$$$ (and possibly, both).
+
+Section 4:
+Hint 4
+Try to think of the whole process reversedly. If $$$w \geq 3$$$, $$$1 \leq a_i \leq w - 1$$$, can you solve the problem?
+
+Section 5:
+Hint 5
+How many extra operations are required for each $$$1 \leq i \leq n$$$ if $$$a_i = w$$$, in the above scheme you use for $$$a_i \leq w - 1$$$?
+
+Section 6:
+Solution
+Read the Hints.
+$$$w = 2$$$
+After any operation, $$$k = \sum\limits_{i=0}^n [a_i \neq a_{i+1}]$$$ won't decrease (suppose $$$a_0 = a_{n+1} = 2$$$). For a fixed $$$k$$$, the maximal $$$\sum a_i = 2n - \frac{1}{2}k$$$ and can be reached by each time turning a $$$[2, 1, 1]$$$ into $$$[2, 2, 1]$$$ (or symmetrically, $$$[1, 1, 2] \rightarrow [1, 2, 2]$$$.
+$$$w \geq 3$$$
+No initial operations can be conducted, or $$$\min(a_i) = w$$$
+This case is trivial.
+$$$w \geq 3$$$
+Some initial operations can be conducted
+We claim that the answer to the first question is $$$nw - 1$$$. For the second question, let's study some rather easier cases below.
+$$$w \geq 3$$$
+Some initial operations can be conducted
+$$$a_i \neq w$$$
+We pretend that the final sequence is $$$[w, w, \dots, w, (w-1), w, w, \dots, w]$$$, then since $$$(a_i, a_{i+1})$$$ must be different after the operation, the last operation can only occur on $$$[w, (w-1)]$$$ (or $$$[(w-1), w]$$$). And since initially $$$a_i \neq w$$$, each position must have been operated on at least once.
+This gives us states such as $$$[w, \dots, w, x, x, w, \dots, w]$$$, $$$[w, \dots, w, y, y, x, w, \dots, w]$$$, etc. To the leftmost positions, we get $$$a_1 = a_2$$$ (essentially based on Hint 3). Also, we get ...... $$$a_{n-1} = a_n$$$? This is if and only if the initial $$$[w, (w - 1)]$$$ is neither at the beginning nor at the end. If the initial $$$[w, (w - 1)]$$$ is at the beginning, we only need $$$a_{n-1} = a_n$$$ to achieve the goal, and symmetrically the same. Less is more. Obviously, we only need to satisfy either $$$a_1 = a_2$$$ or $$$a_{n-1} = a_n$$$, and then use $$$n - 1$$$ more operations to reach the target situation.
+How do we get to $$$a_1 = a_2$$$ (symmetrically the same)? Based on Hint 3, we find the smallest $$$x$$$ that satisfies $$$a_x = a_{x+1}$$$, and then follow the example above, again using $$$x - 1$$$ operations to conduct the equality sign to $$$a_1 = a_2$$$.
+Why is it optimal?
+Lemma 1
+: We can never choose an index $$$a_i = w$$$, fix it (i.e. avoid changing $$$a_i$$$ in the following operations), and then use some operations to reach $$$\sum a_i = nw - 1$$$ unless $$$[a_1, \ldots, a_i] = [w, \ldots, w]$$$ or $$$[a_i, \ldots, a_n] = [w, \ldots, w]$$$.
+Proof
+: If not so, the array is split into two parts: $$$[a_1, \ldots, a_{i-1}]$$$ and $$$[a_{i+1}, \ldots, a_n]$$$. We have: after some operations, the maximum $$$\sum a_i$$$ we can get for each part are respectively $$$(i-1)w - 1, (n-i)w - 1$$$, and add them up and we get $$$nw - 2$$$, which is less than $$$nw - 1$$$, so it's never optimal.
+Lemma 2
+: Look at the final array $$$a$$$, consisting of $$$n - 1$$$ element $$$w$$$ and $$$1$$$ element $$$(w - 1)$$$. Obtain an array $$$a'$$$ by keeping the elements with the value of $$$w$$$. Denote $$$t_i$$$ as the last round in which $$${a'}_i$$$ was changed to $$$w$$$ (and then become fixed). Then, there exists some $$$k$$$ such that $$$t_1 < t_2 < \dots < t_k > t_{k+1} > \dots > t_{n-1}$$$.
+Proof
+: This follows from
+Lemma 1
+.
+According to
+Lemma 2
+, we can see the pattern that we used above is optimal.
+$$$w \geq 3$$$
+Some initial operations can be conducted
+$$$a_1 \neq w, a_n \neq w$$$
+Basically, the idea remains to reach $$$a_1 = a_2$$$ in the same way first (symmetrically the same), and then to extend to all positions. However, at this point, in the second stage, some problems may arise as follows:
+$$$[\dots \underline{a_k}\ a_{k+1}\ w\ a_{k+3} \dots]$$$
+$$$[\dots \underline{\color{red}{a_{k+1}}\ a_{k+1}}\ w\ a_{k+3} \dots]$$$
+$$$[\dots \color{red}s\ \underline{\color{red}w\ w}\ a_{k+3} \dots]$$$
+$$$[\dots \color{red}{\underline{s\ s}}\ t\ a_{k+3} \dots]$$$
+$$$[\dots \color{red}w\ \underline{\color{red}t\ t}\ a_{k+3} \dots]$$$
+$$$[\dots \color{red}{w\ w}\ \underline{\color{red}{a_{k+3}}\ a_{k+3}} \dots]$$$
+In which $$$s, t, w$$$ are three distinct integers in the range $$$[1, w]$$$ (This also explains why we need to specially deal with the $$$w = 2$$$ case). Since we cannot fix $$$a_{k+2} = w$$$ at the beginning (refer to the "Why is it optimal?" spoiler above), we have to first change $$$a_{k+2}$$$ into something not equal to $$$w$$$, and that cost at least $$$2$$$ extra operations, which is shown here.
+Do we always need $$$2$$$ extra operations?
+One may note that if $$$a_i = a_{i+1} = w$$$, in which the two elements are both in the way of expansion, we can only use $$$1$$$ operation to vanish their existence. Formally, if there is a maximum continuous subsegment of $$$w$$$ in the way of expansion, let its length be $$$L$$$, then we will spend $$$\lceil \frac{L}{2} \rceil + [L = 1]$$$ extra operations.
+What is 'in the way of expansion'?
+Suppose in the first stage, we pick $$$a_x = a_{x+1}$$$ and keep operating on it until $$$a_1 = a_2$$$. Then after it, $$$\forall 3 \leq k \leq x + 1$$$, $$$a_k$$$ can be an arbitrary number which is different from the initial $$$a_{k-1}$$$, thus we can always force it to be $$$\neq w$$$.
+In the above case, only elements $$$[a_{x+2}, \ldots, a_n]$$$ are considered 'in the way of expansion', and symmetrically the same.
+$$$w \geq 3$$$
+Some initial operations can be conducted
+No additional constraints
+It may come to you that if $$$a_1 = w$$$, we can ignore $$$a_1$$$; if $$$a_1 = a_2 = w$$$, we can ignore $$$a_2$$$. Symmetrically the same. And so on... Then we boil the problem down to the case above.
+It is correct unless in some rare cases when we ignore all the prefixes and suffixes, there will be no remaining $$$a_i = a_{i+1}$$$; or if we pick any pair $$$a_i = a_{i+1}$$$ as the starting pair in the remaining array, it is not optimal compared to picking an $$$a_k = a_{k+1} = w (a_{k+2} \neq w)$$$ (symmetrically the same). So, we have to special handle the deleted prefix and suffix, once it has a length greater than $$$2$$$.
+In summary, the problem can be solved in $$$\mathcal O(n)$$$.
+
+Section 7:
+Code (C++)
+#include <bits/stdc++.h>
+
+#define MAXN 200005
+int a[MAXN];
+
+void solve() {
+	int N, w; scanf("%d%d", &N, &w);
+	for (int i = 1; i <= N; ++i) scanf("%d", a + i);
+	if (N == 1) return (void)printf("%d 0\n", a[1]);
+	if (*std::min_element(a + 1, a + N + 1) == w)
+		return (void)printf("%lld 0\n", 1ll * w * N);
+	if (w == 2) {
+		int ans = N * 2, pans = 0;
+		for (int i = 1, j = 1; i <= N; i = ++j) if (a[i] == 1) {
+			--ans; while (j < N && a[j + 1] == 1) ++j; pans += j - i;
+		}
+		return (void)printf("%d %d\n", ans, pans);
+	}
+	bool flag = true;
+	for (int i = 1; i < N; ++i) if (a[i] == a[i + 1]) flag = false;
+	if (flag) return (void)printf("%lld 0\n", std::accumulate(a + 1, a + N + 1, 0ll));
+	printf("%lld ", 1ll * w * N - 1);
+	if (std::accumulate(a + 1, a + N + 1, 0ll) == 1ll * w * N - 1) return (void)puts("0");
+	int ans = 0x3f3f3f3f, l = (a[1] == w ? 2 : 1), r = (a[N] == w ? N - 1 : N);
+	if ((a[1] == w && a[2] == w) || (a[N] == w && a[N - 1] == w)) {
+		int Lw = 0, Rw = N + 1;
+		while (a[Lw + 1] == w) ++Lw; while (a[Rw - 1] == w) --Rw;
+		int pans = Rw - Lw;
+		for (int i = Lw + 1, j = i; i < Rw; i = ++j) if (a[i] == w) {
+			while (j + 1 < Rw && a[j + 1] == w) ++j;
+			pans += (i == j ? 2 : ((j - i) >> 1) + 1);
+		}
+		ans = pans, l = Lw + 1, r = Rw - 1;
+	}
+	for (int d = 0; d < 2; std::reverse(a + l, a + r + 1), ++d) 
+		for (int i = l - 1, pre = 0, len = 0; i + 2 <= r; ) {
+			if (a[i + 1] == a[i + 2]) 
+				ans = std::min(r - (i + 1) + r - l - 1 + pre - ((len == 1) && i + 2 < r && a[i + 3] != w ? 1 : 0), ans);
+			++i; if (a[i] == w) ++len, pre += (len == 1 ? 2 : len == 2 ? -1 : (len & 1)); else len = 0;
+	}
+	printf("%d\n", ans);
+}
+
+int main() { int T; scanf("%d", &T); while (T--) solve(); return 0; }
+
+Section 8:
+Rate the Problem
+Amazing problem:
+Good problem:
+Average problem:
+Bad problem:
+Didn't solve:
+
