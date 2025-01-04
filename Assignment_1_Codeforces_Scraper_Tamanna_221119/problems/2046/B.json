@@ -1,0 +1,12 @@
+{
+    "url": "https://codeforces.com/problemset/problem/2046/B",
+    "title": "B. Move Back at a Cost",
+    "tags": [
+        "binary search",
+        "data structures",
+        "greedy",
+        "sortings",
+        "*1600"
+    ],
+    "content": "B. Move Back at a Costtime limit per test2 secondsmemory limit per test256 megabytesinputstandard inputoutputstandard output You are given an array of integers \ud835\udc4ea of length \ud835\udc5bn. You can perform the following operation zero or more times:   In one operation choose an index \ud835\udc56i (1\u2264\ud835\udc56\u2264\ud835\udc5b1\u2264i\u2264n), assign \ud835\udc4e\ud835\udc56:=\ud835\udc4e\ud835\udc56+1ai:=ai+1, and then move \ud835\udc4e\ud835\udc56ai to the back of the array (to the rightmost position). For example, if \ud835\udc4e=[3,5,1,9]a=[3,5,1,9], and you choose \ud835\udc56=2i=2, the array becomes [3,1,9,6][3,1,9,6]. Find the lexicographically smallest\u2217\u2217 array you can get by performing these operations.\u2217\u2217An array \ud835\udc50c is lexicographically smaller than an array \ud835\udc51d if and only if one of the following holds:   \ud835\udc50c is a prefix of \ud835\udc51d, but \ud835\udc50\u2260\ud835\udc51c\u2260d; or  in the first position where \ud835\udc50c and \ud835\udc51d differ, the array \ud835\udc50c has a smaller element than the corresponding element in \ud835\udc51d.  InputEach test contains multiple test cases. The first line contains the number of test cases \ud835\udc61t (1\u2264\ud835\udc61\u22641041\u2264t\u2264104). The description of the test cases follows. The first line contains a single integer \ud835\udc5bn (1\u2264\ud835\udc5b\u22641051\u2264n\u2264105), the length of the array.The second line contains \ud835\udc5bn integers \ud835\udc4e1,\ud835\udc4e2,\u2026,\ud835\udc4e\ud835\udc5ba1,a2,\u2026,an (1\u2264\ud835\udc4e\ud835\udc56\u22641091\u2264ai\u2264109), the elements of the array.It is guaranteed that the sum of \ud835\udc5bn over all test cases does not exceed 105105. OutputFor each test case, print the lexicographically smallest array you can get.ExampleInputCopy332 1 351 2 2 1 461 2 3 6 5 4OutputCopy1 3 3 \n1 1 3 3 5 \n1 2 3 4 6 7..."
+}
