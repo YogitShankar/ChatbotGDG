@@ -18,7 +18,7 @@ After extraction saved the data in two separate folders named **problems_text** 
 ***
 ### Result
 ***
-Succesfully scraped 800+ problems with their respective data stored in files named after the problem's titles.
+Succesfully scraped 400+ problems with their respective data stored in files named after the problem's titles.
 
 ***
 ### Difficulties
