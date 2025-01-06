@@ -1,0 +1,8 @@
+{
+  "name": "G. Secret Message",
+  "time_limit": "time limit per test2 seconds",
+  "memory_limit": "memory limit per test256 megabytes",
+  "input": "InputThe first line contains the number $$$t$$$ ($$$1 \\le t \\le 80\\,000$$$) — the number of test cases.In the first line of each test case, the numbers $$$n$$$ and $$$m$$$ ($$$1 \\le n, m \\le 2 \\cdot 10^6$$$) — the dimensions of the grid are given.The following $$$n$$$ lines contain the description of the grid.It is guaranteed that the sum of $$$n \\cdot m$$$ across all test cases does not exceed $$$2 \\cdot 10^6$$$.",
+  "output": "OutputFor each test case, output $$$n$$$ lines consisting of $$$m$$$ symbols, where each symbol encodes the state of the cell:  \"#\" — the cell is in $$$A$$$ but not in $$$S$$$;  \"S\" — the cell is in both $$$A$$$ and $$$S$$$;  \".\" — the cell is neither in $$$A$$$ nor in $$$S$$$.",
+  "description": "G. Secret Messagetime limit per test2 secondsmemory limit per test256 megabytesinputstandard inputoutputstandard output"
+}
