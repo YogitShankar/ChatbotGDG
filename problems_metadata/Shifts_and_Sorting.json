@@ -1,0 +1,17 @@
+{
+    "time_limit": "2 seconds",
+    "memory_limit": "256 megabytes",
+    "tags": [
+        "constructive algorithms",
+        "greedy",
+        "*1000"
+    ],
+    "solution": [
+        "Let's look at the operation as the following: you choose (l,r)(l,r), erase the element at position rr and then insert it before the element at position ll. We can also interpret the cost of such operation as the following: you pay 11 for the element at position rr you \"teleport\" to the left and 11 for each element you teleport through (element inside segment [l,r\u22121][l,r\u22121]).",
+        "Now let's look at two indices x<yx<y where ax=1ax=1 and ay=0ay=0. Since at the end, all zeroes should be before ones, you have to move ayay to the left of axax. But the only thing that moves to the left is element arar, so you have to make at least one operation ending at ayay.",
+        "What does it mean? It means:",
+        "The thoughts above gave us the lower bound on the answer, and it's not hard to come up with some constructive algorithms that will give us exactly that cost.",
+        "To calculate the lower bound, you just need to maintain some info while iterating from left to right: for example, the number of 0-s and 1-s to the left of the current position and the total number of 0-s in ss. It's enough to check: is there any 1 to the left of the current position, and how many 0-s are to the right.",
+        "Instead of calculating the lower bound itself, you can also implement one of the algorithms that reach that lower bound, and it may be even a little easier."
+    ]
+}

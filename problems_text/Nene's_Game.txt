@@ -1,0 +1,5 @@
+Nene invented a new game based on an increasing sequence of integers a 1 , a 2 , … , a k a 1 , a 2 , … , a k .
+In this game, initially n n players are lined up in a row. In each of the rounds of this game, the following happens:
+Once no one is kicked out of the game in some round, all the players that are still in the game are declared as winners.
+For example, consider the game with a = [ 3 , 5 ] a = [ 3 , 5 ] and n = 5 n = 5 players. Let the players be named player A , player B , … … , player E in the order they are lined up initially. Then,
+Nene has not yet decided how many people would join the game initially. Nene gave you q q integers n 1 , n 2 , … , n q n 1 , n 2 , … , n q and you should answer the following question for each 1 ≤ i ≤ q 1 ≤ i ≤ q independently :

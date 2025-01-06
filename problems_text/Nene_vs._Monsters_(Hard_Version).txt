@@ -1,0 +1,5 @@
+This is the hard version of the problem. The only difference between the versions is the constraints on a i a i . You can make hacks only if both versions of the problem are solved.
+Nene is fighting with n n monsters, located in a circle. These monsters are numbered from 1 1 to n n , and the i i -th ( 1 ≤ i ≤ n 1 ≤ i ≤ n ) monster's current energy level is a i a i .
+Since the monsters are too strong, Nene decided to fight with them using the Attack Your Neighbour spell. When Nene uses this spell, the following actions happen in the following order one by one :
+When the monster with energy level x x attacks the monster with the energy level y y , the energy level of the defending monster becomes max ( 0 , y − x ) max ( 0 , y − x ) (the energy level of the attacking monster remains equal to x x ).
+Nene is going to use this spell 10 100 10 100 times and deal with the monsters that will still have a non-zero energy level herself. She wants you to determine which monsters will have a non-zero energy level once she will use the described spell 10 100 10 100 times.

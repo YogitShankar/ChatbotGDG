@@ -1,0 +1,7 @@
+You have some cards. An integer between 1 1 and n n is written on each card: specifically, for each i i from 1 1 to n n , you have a i a i cards which have the number i i written on them.
+
+There is also a shop which contains unlimited cards of each type. You have k k coins, so you can buy at most k k new cards in total, and the cards you buy can contain any integer between 1 1 and n n , inclusive.
+
+After buying the new cards, you must partition all your cards into decks, according to the following rules:
+
+Find the maximum possible size of a deck after buying cards and partitioning them optimally.

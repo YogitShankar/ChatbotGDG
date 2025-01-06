@@ -1,0 +1,12 @@
+{
+    "time_limit": "1 second",
+    "memory_limit": "256 megabytes",
+    "tags": [
+        "greedy",
+        "math",
+        "*800"
+    ],
+    "solution": [
+        "Note that on one screen we can put no more than two 2\u00d722\u00d72 icons. Thus, we need at least Z=\u2308y/2\u2309Z=\u2308y/2\u2309 screens. Then, we check how many 1\u00d711\u00d71 icons we can put on these screens: 15\u22c5Z\u22124\u22c5y15\u22c5Z\u22124\u22c5y. The 1\u00d711\u00d71 icons left we need to put on additional screens."
+    ]
+}

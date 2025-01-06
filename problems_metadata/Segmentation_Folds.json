@@ -1,0 +1,11 @@
+{
+    "time_limit": "1 second",
+    "memory_limit": "1024 megabytes",
+    "tags": [
+        "brute force",
+        "dfs and similar",
+        "number theory",
+        "*2400"
+    ],
+    "solution": null
+}

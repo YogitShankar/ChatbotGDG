@@ -1,0 +1,12 @@
+{
+    "time_limit": "2 seconds",
+    "memory_limit": "256 megabytes",
+    "tags": [
+        "bitmasks",
+        "brute force",
+        "math",
+        "number theory",
+        "*1800"
+    ],
+    "solution": "2039C1 - Shohag Loves XOR (Easy Version)THOUGHT:Herex>0x>0andy>0y>0. Sox\u2295yx\u2295yis neither equal toxxnoryy. Sox\u2295yx\u2295yis a divisor ofxxoryyandx\u2295y<xx\u2295y<xorx\u2295y<yx\u2295y<y.OBSERVATION:Any divisorddofppsuch thatd<pd<pwe know thatd\u2264\u230ap2\u230bd\u2264\u230ap2\u230b.Also, the highest bits ofddandppare different whend\u2264\u230ap2\u230bd\u2264\u230ap2\u230b.THOUGHT:Wait butx\u2295yx\u2295yhas the same highest bit asyyify\u22652\u22c5xy\u22652\u22c5x.CONCLUSION:So ify\u22652\u22c5xy\u22652\u22c5x, thenx\u2295yx\u2295ycan not be a divisor ofyy.THOUGHT:But can it be a divisor ofxx?OBSERVATION:Ify\u22652\u22c5xy\u22652\u22c5x, thenx\u2295y>xx\u2295y>xbecause the highest bit inx\u2295yx\u2295yis greater than that inxx. Sox\u2295yx\u2295ycan not be a divisor ofxx.CONCLUSION:Ify\u22652\u22c5xy\u22652\u22c5x, thenx\u2295yx\u2295ycan not be a divisor ofxxoryy. So no solution in this case.THOUGHT:Now we need to consider the case wheny<2\u22c5xy<2\u22c5x. Butxxis small in this problem, making it feasible to iterate over all possible values ofyy.ACTION:Iterate over all possible values ofy<2\u22c5xy<2\u22c5xand check ifx\u2295yx\u2295yis a divisor of eitherxxoryy.Time Complexity:O(x)O(x)."
+}

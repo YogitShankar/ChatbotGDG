@@ -1,0 +1,5 @@
+This is an interactive problem.
+Kostyanych has chosen a complete undirected graph † † with n n vertices, and then removed exactly ( n − 2 ) ( n − 2 ) edges from it. You can ask queries of the following type:
+Find a Hamiltonian path ‡ ‡ in the original graph in at most n n queries. It can be proven that under these constraints, a Hamiltonian path always exists.
+† † A complete undirected graph is a graph in which there is exactly one undirected edge between any pair of distinct vertices. Thus, a complete undirected graph with n n vertices contains n ( n − 1 ) 2 n ( n − 1 ) 2 edges.
+‡ ‡ A Hamiltonian path in a graph is a path that passes through each vertex exactly once.

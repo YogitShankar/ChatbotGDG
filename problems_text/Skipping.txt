@@ -1,0 +1,9 @@
+It is already the year 3024 3024 , ideas for problems have long run out, and the olympiad now takes place in a modified individual format. The olympiad consists of n n problems, numbered from 1 1 to n n . The i i -th problem has its own score a i a i and a certain parameter b i b i ( 1 ≤ b i ≤ n 1 ≤ b i ≤ n ).
+
+Initially, the testing system gives the participant the first problem. When the participant is given the i i -th problem, they have two options:
+
+Then, the testing system selects the next problem for the participant from problems with indices j j , such that:
+
+Among these problems, it selects the problem with the maximum index that it has not previously given to the participant (he has neither submitted nor skipped it before). If there is no such problem, then the competition for the participant ends , and their result is equal to the sum of points for all submitted problems. In particular, if the participant submits the first problem, then the competition for them ends. Note that the participant receives each problem at most once .
+
+Prokhor has prepared thoroughly for the olympiad, and now he can submit any problem. Help him determine the maximum number of points he can achieve.

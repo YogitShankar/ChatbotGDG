@@ -1,0 +1,4 @@
+Let's say that two strings a a and b b are equal if you can get the string b b by cyclically shifting string a a . For example, the strings 0100110 and 1100100 are equal, while 1010 and 1100 are not.
+You are given a binary string s s of length n n . Its first c c characters are 1 -s, and its last n − c n − c characters are 0 -s.
+In one operation, you can replace one 0 with 1 .
+Calculate the number of unique strings you can get using no more than k k operations. Since the answer may be too large, print it modulo 10 9 + 7 10 9 + 7 .

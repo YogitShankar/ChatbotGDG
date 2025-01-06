@@ -1,0 +1,13 @@
+{
+    "time_limit": "1.5 seconds",
+    "memory_limit": "512 megabytes",
+    "tags": [
+        "binary search",
+        "brute force",
+        "greedy",
+        "sortings",
+        "two pointers",
+        "*1100"
+    ],
+    "solution": null
+}

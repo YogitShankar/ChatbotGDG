@@ -1,0 +1,11 @@
+There is an array a a consisting of n n integers. Initially, all elements of a a are equal to 0 0 .
+
+Kevin can perform several operations on the array. Each operation is one of the following two types:
+
+In the country of KDOI, people think that the integer v v is balanced. Thus, Iris gives Kevin an array c c consisting of n n integers and defines the beauty of the array a a as follows:
+
+Kevin wants to maximize the beauty of a a after all the operations. However, he had already performed m m operations when he was sleepy. Now, he can perform an arbitrary number (possibly zero) of new operations.
+
+You have to help Kevin find the maximum possible beauty if he optimally performs the new operations.
+
+However, to make sure that you are not just rolling the dice, Kevin gives you an integer V V , and you need to solve the problem for each 1 ≤ v ≤ V 1 ≤ v ≤ V .

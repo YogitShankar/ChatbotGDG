@@ -1,0 +1,3 @@
+The price of one yogurt at the "Vosmiorochka" store is a a burles, but there is a promotion where you can buy two yogurts for b b burles.
+Maxim needs to buy exactly n n yogurts. When buying two yogurts, he can choose to buy them at the regular price or at the promotion price.
+What is the minimum amount of burles Maxim should spend to buy n n yogurts?

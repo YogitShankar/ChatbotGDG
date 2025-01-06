@@ -1,0 +1,2 @@
+You're a linguist studying a mysterious ancient language. You know that
+You have a single text written in this language. Unfortunately, as the language is really ancient, spaces between words are missing and all letters are uppercase. You wonder what is the minimum number of cases the language can have. Can you find this out?

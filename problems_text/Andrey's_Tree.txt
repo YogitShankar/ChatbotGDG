@@ -1,0 +1,5 @@
+Master Andrey loves trees † † very much, so he has a tree consisting of n n vertices.
+But it's not that simple. Master Timofey decided to steal one vertex from the tree. If Timofey stole vertex v v from the tree, then vertex v v and all edges with one end at vertex v v are removed from the tree, while the numbers of other vertices remain unchanged. To prevent Andrey from getting upset, Timofey decided to make the resulting graph a tree again. To do this, he can add edges between any vertices a a and b b , but when adding such an edge, he must pay | a − b | | a − b | coins to the Master's Assistance Center.
+Note that the resulting tree does not contain vertex v v .
+Timofey has not yet decided which vertex v v he will remove from the tree, so he wants to know for each vertex 1 ≤ v ≤ n 1 ≤ v ≤ n , the minimum number of coins needed to be spent to make the graph a tree again after removing vertex v v , as well as which edges need to be added.
+† † A tree is an undirected connected graph without cycles.

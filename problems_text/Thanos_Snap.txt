@@ -1,0 +1,3 @@
+There is an array a a of size 2 k 2 k for some positive integer k k , which is initially a permutation of values from 1 1 to 2 k 2 k . Alice and Bob play the following game on the array a a . First, a value t t between 1 1 and k k is shown to both Alice and Bob. Then, for exactly t t turns, the following happens:
+The score of the game is defined as the maximum value in a a after all t t turns have been played. Alice wants to maximize this score, while Bob wants to minimize it.
+You need to output k k numbers: the score of the game if both Alice and Bob play optimally for t t from 1 1 to k k .

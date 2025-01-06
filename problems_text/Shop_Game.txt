@@ -1,0 +1,4 @@
+Alice and Bob are playing a game in the shop. There are n n items in the shop; each item has two parameters: a i a i (item price for Alice) and b i b i (item price for Bob).
+Alice wants to choose a subset (possibly empty) of items and buy them. After that, Bob does the following:
+Alice's profit is equal to ∑ i ∈ S b i − ∑ j ∈ T a j ∑ i ∈ S b i − ∑ j ∈ T a j , where S S is the set of items Bob buys from Alice, and T T is the set of items Alice buys from the shop. In other words, Alice's profit is the difference between the amount Bob pays her and the amount she spends buying the items.
+Alice wants to maximize her profit, Bob wants to minimize Alice's profit. Your task is to calculate Alice's profit if both Alice and Bob act optimally.

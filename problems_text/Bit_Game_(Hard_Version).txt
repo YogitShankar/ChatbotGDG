@@ -1,0 +1,11 @@
+This is the hard version of this problem. The only difference is that you need to output the number of choices of games where Bob wins in this version, where the number of stones in each pile are not fixed. You must solve both versions to be able to hack.
+
+Alice and Bob are playing a familiar game where they take turns removing stones from n n piles. Initially, there are x i x i stones in the i i -th pile, and it has an associated value a i a i . A player can take d d stones away from the i i -th pile if and only if both of the following conditions are met:
+
+The player who cannot make a move loses, and Alice goes first.
+
+You're given the a i a i values of each pile, but the number of stones in the i i -th pile has not been determined yet. For the i i -th pile, x i x i can be any integer between 1 1 and b i b i , inclusive. That is, you can choose an array x 1 , x 2 , … , x n x 1 , x 2 , … , x n such that the condition 1 ≤ x i ≤ b i 1 ≤ x i ≤ b i is satisfied for all piles.
+
+Your task is to count the number of games where Bob wins if both players play optimally. Two games are considered different if the number of stones in any pile is different, i.e., the arrays of x x differ in at least one position.
+
+Since the answer can be very large, please output the result modulo 10 9 + 7 10 9 + 7 .

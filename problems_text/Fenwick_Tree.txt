@@ -1,0 +1,5 @@
+Let lowbit ( x ) lowbit ⁡ ( x ) denote the value of the lowest binary bit of x x , e.g. lowbit ( 12 ) = 4 lowbit ⁡ ( 12 ) = 4 , lowbit ( 8 ) = 8 lowbit ⁡ ( 8 ) = 8 .
+For an array a a of length n n , if an array s s of length n n satisfies s k = ( ∑ i = k − lowbit ( k ) + 1 k a i ) mod 998 244 353 s k = ( ∑ i = k − lowbit ⁡ ( k ) + 1 k a i ) mod 998 244 353 for all k k , then s s is called the Fenwick Tree of a a . Let's denote it as s = f ( a ) s = f ( a ) .
+For a positive integer k k and an array a a , f k ( a ) f k ( a ) is defined as follows:
+
+You are given an array b b of length n n and a positive integer k k . Find an array a a that satisfies 0 ≤ a i < 998 244 353 0 ≤ a i < 998 244 353 and f k ( a ) = b f k ( a ) = b . It can be proved that an answer always exists. If there are multiple possible answers, you may print any of them.

@@ -1,0 +1,4 @@
+You are at a dueling arena. You also possess n n Pokémons. Initially, only the 1 1 -st Pokémon is standing in the arena.
+Each Pokémon has m m attributes. The j j -th attribute of the i i -th Pokémon is a i , j a i , j . Each Pokémon also has a cost to be hired: the i i -th Pokémon's cost is c i c i .
+You want to have the n n -th Pokémon stand in the arena. To do that, you can perform the following two types of operations any number of times in any order:
+Find the minimum cost you need to pay to have the n n -th Pokémon stand in the arena.

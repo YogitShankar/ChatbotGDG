@@ -1,0 +1,12 @@
+{
+    "time_limit": "2 seconds",
+    "memory_limit": "256 megabytes",
+    "tags": [
+        "binary search",
+        "dp",
+        "greedy",
+        "two pointers",
+        "*1600"
+    ],
+    "solution": "2028C - Alice's Adventures in Cutting CakeAlice's piece of cake will be some subsegmenta[i:j]a[i:j]. For a fixedii, how large canjjbe?To determine this, letpfx[i]pfx[i]be the maximum number of creatures that can be fed ona[:i]a[:i]andsfx[j]sfx[j]the maximum number of creatures ona[j:]a[j:]. Then, for a givenii, the maximum possiblejjis exactly the largestjjsuch thatpfx[i]+sfx[j]\u2265mpfx[i]+sfx[j]\u2265m.If we compute thepfxpfxandsfxsfxarrays, we can then compute these largestjjfor alliiwith two pointers inO(n)O(n)(or with binary search inO(nlogn)O(nlog\u2061n), sincesfxsfxis monotonically non-increasing).To computepfx[i]pfx[i], we can use prefix sums and binary search to find the maximumk<ik<isuch that\u2211i\u2113=ka[\u2113]\u2265v\u2211\u2113=kia[\u2113]\u2265v: thenpfx[i]=1+pfx[k]pfx[i]=1+pfx[k]. We can computesfxsfxsimilarly by reversingaa. This takes timeO(nlogn)O(nlog\u2061n)(it is also possible to do this with two pointers inO(n)O(n), which you can see in the model solution).Expected complexity:O(n)O(n)orO(nlogn)O(nlog\u2061n)."
+}

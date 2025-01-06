@@ -1,0 +1,11 @@
+{
+    "time_limit": "3 seconds",
+    "memory_limit": "1024 megabytes",
+    "tags": [
+        "bitmasks",
+        "dfs and similar",
+        "dp",
+        "*2000"
+    ],
+    "solution": null
+}

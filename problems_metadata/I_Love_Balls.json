@@ -1,0 +1,19 @@
+{
+    "time_limit": "2 seconds",
+    "memory_limit": "256 megabytes",
+    "tags": [
+        "combinatorics",
+        "math",
+        "probabilities",
+        "*2300"
+    ],
+    "solution": [
+        "When there are no special balls, Alice and Bob alternately pick balls starting with Alice. This means Alice picks n+12n+12 balls if nn is odd or n2n2 if nn is even. The total value of all balls is \u2211vi\u2211vi. On average, Alice's score is \u230an+12\u230b\u22c5\u2211vin\u230an+12\u230b\u22c5\u2211vin.",
+        "With kk special balls, the picking order can be interrupted, allowing the same player to pick again. We need to distribute kk special balls into n\u2212k+1n\u2212k+1 possible positions (gaps). The expected number of special balls picked by Alice can be derived as the expected number of gaps encountered by Alice (\u230an\u2212k+22\u230b\u230an\u2212k+22\u230b) times the expected number of special balls per gap(kn\u2212k+1kn\u2212k+1). The formula is (\u230an\u2212k+22\u230b)\u22c5kn\u2212k+1(\u230an\u2212k+22\u230b)\u22c5kn\u2212k+1.",
+        "Expected value without special balls: \u230an+12\u230b\u22c5\u2211vin\u230an+12\u230b\u22c5\u2211vin.",
+        "Expected special balls for Alice: (\u230an\u2212k2\u230b+1)\u22c5kn\u2212k+1(\u230an\u2212k2\u230b+1)\u22c5kn\u2212k+1.",
+        "Expected normal balls for Alice when there are non-zero special balls: \u230an\u2212k+12\u230b\u230an\u2212k+12\u230b",
+        "Therefore, expected score of Alice: (\u230an\u2212k2\u230b+1)\u22c5kn\u2212k+1\u22c5\u2211i\u2208{1,2,\u22c5\u22c5\u22c5k}vik+\u230an\u2212k+12\u230b\u22c5\u2211i\u2208{k+1,k+2,\u22c5\u22c5\u22c5n}vin\u2212k(\u230an\u2212k2\u230b+1)\u22c5kn\u2212k+1\u22c5\u2211i\u2208{1,2,\u22c5\u22c5\u22c5k}vik+\u230an\u2212k+12\u230b\u22c5\u2211i\u2208{k+1,k+2,\u22c5\u22c5\u22c5n}vin\u2212k",
+        "Similarly, expected score of Bob: (k\u2212(\u230an\u2212k2\u230b+1)\u22c5kn\u2212k+1)\u22c5\u2211i\u2208{1,2,\u22c5\u22c5\u22c5k}vik+(n\u2212k\u2212\u230an\u2212k+12\u230b)\u22c5\u2211i\u2208{k+1,k+2,\u22c5\u22c5\u22c5n}vin\u2212k(k\u2212(\u230an\u2212k2\u230b+1)\u22c5kn\u2212k+1)\u22c5\u2211i\u2208{1,2,\u22c5\u22c5\u22c5k}vik+(n\u2212k\u2212\u230an\u2212k+12\u230b)\u22c5\u2211i\u2208{k+1,k+2,\u22c5\u22c5\u22c5n}vin\u2212k"
+    ]
+}

@@ -1,0 +1,5 @@
+You are given n n points on the x x axis, at increasing positive integer coordinates x 1 < x 2 < … < x n x 1 < x 2 < … < x n .
+
+For each pair ( i , j ) ( i , j ) with 1 ≤ i < j ≤ n 1 ≤ i < j ≤ n , you draw the segment [ x i , x j ] [ x i , x j ] . The segments are closed, i.e., a segment [ a , b ] [ a , b ] contains the points a , a + 1 , … , b a , a + 1 , … , b .
+
+You are given q q queries. In the i i -th query, you are given a positive integer k i k i , and you have to determine how many points with integer coordinates are contained in exactly k i k i segments.

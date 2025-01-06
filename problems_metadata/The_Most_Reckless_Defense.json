@@ -1,0 +1,19 @@
+{
+    "time_limit": "3 seconds",
+    "memory_limit": "256 megabytes",
+    "tags": [
+        "bitmasks",
+        "brute force",
+        "constructive algorithms",
+        "dp",
+        "flows",
+        "graph matchings",
+        "shortest paths",
+        "*2300"
+    ],
+    "solution": [
+        "Let's solve the problem for a single tower. The tower's area of effect is a circle, so the theoretically possible number of cells in which a tower with radius rr will deal damage is \u03c0\u22c5r2\u03c0\u22c5r2. In total, the tower will deal pi\u22c5\u03c0\u22c5r2pi\u22c5\u03c0\u22c5r2 damage to the enemy. At the same time, the initial health of the enemy will be increased by 3r3r, so in fact, this health increase needs to be subtracted from the tower's damage. Thus, the maximum radius for the tower can be found from the inequality 500\u22c5\u03c0\u22c5r2\u22123r>0500\u22c5\u03c0\u22c5r2\u22123r>0, assuming that the tower has a damage of pi=500pi=500. This estimate gives R=12R=12, above which the enemy's health increase is too large for the tower to overcome.",
+        "So, there are not so many radii, and each radius can be applied to no more than one tower. We will use the subset dynamic programming method: dpi,maskdpi,mask \u2014 the maximum damage that the first ii towers will deal with the optimal distribution of the radii in the maskmask. The transitions are quite simple: dpi,mask=maxr\u2208mask(dpi\u22121,mask,dpi\u22121,mask\u2295r+pi\u22c5cover(i,r))dpi,mask=maxr\u2208mask(dpi\u22121,mask,dpi\u22121,mask\u2295r+pi\u22c5cover(i,r)). The answer will be the maximum value maxmask(dpk,mask\u2212\u2211r\u2208mask3r)maxmask(dpk,mask\u2212\u2211r\u2208mask3r).",
+        "cover(i,r)cover(i,r) \u2014 this is the number of cells covered by the ii-th tower when the radius is set to rr. It can be calculated for one tower and for one radius in O(r2)O(r2) time, just iterate through the square with a side length of 2\u22c5r2\u22c5r and a center coinciding with the location of the tower. In total, the precalculation of covercover for all towers and all radii will take O(k\u22c5R3)O(k\u22c5R3) time. The complexity of calculating the dynamic programming values is O(k\u22c5R\u22c52R)O(k\u22c5R\u22c52R), so the final complexity of the solution is O(k\u22c5R\u22c5(2R+R2))O(k\u22c5R\u22c5(2R+R2))."
+    ]
+}

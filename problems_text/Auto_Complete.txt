@@ -1,0 +1,7 @@
+You are designing a snazzy new text editor, and you want to add a nifty auto-complete feature to help users save time. Here is how it will work: if a user types " App ", your editor will magically suggest the word " Application "! Even better, users can personalize the words that auto-complete in your editor.
+
+Your editor will support 4 kinds of operations (Let's say the current text in your editor is t t ):
+
+After each action, your editor should suggest an auto-complete candidate i i that matches the following criteria:
+
+For example, let us say we have three candidates: " alice ", " bob ", and " charlie ", with ID 1, 2, and 3. At first, there is nothing on the screen, so " charlie " (3) should be suggested because it is the longest. Then, let us say the user types " b ". You should suggest " bob " (2) because it is the only one that starts with " b ". Finally, let us say the user type " body ". You should print -1 because there is no matched pattern.

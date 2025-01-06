@@ -1,0 +1,25 @@
+In an interdisciplinary collaboration, an ecosystem scientist and a computer scientist join forces to analyze the structure of a complex ecosystem using computational methods. The ecosystem scientist models the ecosystem as a directed graph D = ( V , A ) D = ( V , A ) , where each species is represented by a node v ∈ V v ∈ V , and each feeding relationship is represented as a directed edge ( x , y ) ∈ A ( x , y ) ∈ A from prey x x to predator y y . This graph structure allows them to simulate the flow of energy throughout the ecosystem from one species to another.
+
+Two essential features of the ecosystem are defined:
+
+
+
+Consider an ecosystem with n = 4 n = 4 species and m = 3 m = 3 feeding relationships:
+
+The directed edges representing the feeding relationships are as follows:
+
+Now, consider the set S = { 3 , 4 } S = { 3 , 4 } (Foxes and Hawks). There are no directed paths between Foxes (Node 3) and Hawks (Node 4); Foxes cannot reach Hawks, and Hawks cannot reach Foxes through any directed paths. Therefore, this set qualifies as an independent trophic group.
+
+Examination of Species
+
+
+
+
+
+
+
+
+
+Among these species, Rabbits have the smallest absolute difference of 1 1 , indicating that they are a trophic balance species within the ecosystem.
+
+It is known that any independent trophic group in the ecosystem has a size of at most k k . The task is to find the set of all trophic balance species in the ecosystem.

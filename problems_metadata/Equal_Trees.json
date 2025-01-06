@@ -1,0 +1,21 @@
+{
+    "time_limit": "2 seconds",
+    "memory_limit": "256 megabytes",
+    "tags": [
+        "*special problem",
+        "graphs",
+        "meet-in-the-middle",
+        "*3100"
+    ],
+    "solution": [
+        "The constraint n\u226440n\u226440 might imply that we are looking for a meet-in-the-middle approach. Let's try to reduce this problem to one of the problems that can be solved using meet-in-the-middle.",
+        "The first key observation that we need is that if ii is an ancestor of jj, and we don't remove any of these vertices from the tree, ii will always be an ancestor of jj.",
+        "Let's try to figure out when two vertices ii and jj cannot be left in the answer together. If ii is an ancestor of jj in one of the trees, but not in the other tree (same for swapping ii and jj), then leaving them both in the answer means that the trees won't be equal.",
+        "The second key observation is that any set of vertices such that the \"ancestor relations\" between them are the same in both trees is a valid set (i.\u2009e. if we leave only vertices from these sets, both trees will be equal). This is because if we know the set of ancestors for every vertex, the structure of the rooted tree is uniquely determined (for every vertex ii, its parent is the vertex jj such that it is an ancestor of ii and not an ancestor of any other ancestor of ii).",
+        "So, let's construct a graph on nn vertices, where an edge between ii and jj means that the \"ancestor relation\" between ii and jj is the same in both trees. We have to find the maximum clique in this graph, and this clique will be the set of vertices we don't delete.",
+        "We can use meet-in-the-middle to find the maximum clique. However, I want to showcase a very cool technique of finding the maximum clique in O(n\u22c520.5n)O(n\u22c520.5n) without using meet-in-the-middle.",
+        "Let's write a recursive brute force approach. Let the current \"state\" of brute force be the bitmask of vertices such that they are adjacent to every vertex we already picked. Also, let our recursive function return the maximum number of vertices from the mask we can take.",
+        "Find the first vertex in the mask (let it be vv). There are two cases:",
+        "If we add memoization (save the answer for every recursive call), it works in O(n\u22c520.5n)O(n\u22c520.5n)! This exclamation mark is not the factorial sign. To prove it, consider the depth of recursion:"
+    ]
+}

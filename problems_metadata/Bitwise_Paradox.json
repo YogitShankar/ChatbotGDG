@@ -1,0 +1,13 @@
+{
+    "time_limit": "5 seconds",
+    "memory_limit": "1024 megabytes",
+    "tags": [
+        "binary search",
+        "bitmasks",
+        "data structures",
+        "greedy",
+        "two pointers",
+        "*3100"
+    ],
+    "solution": null
+}

@@ -1,0 +1,12 @@
+{
+    "time_limit": "2 seconds",
+    "memory_limit": "1024 megabytes",
+    "tags": [
+        "combinatorics",
+        "dp",
+        "greedy",
+        "math",
+        "*2900"
+    ],
+    "solution": "At some timett, consider the minimal interval[l,r][l,r]that contains all the cities withai\u2264tai\u2264t(let's call it \"the minimal interval at timett\"). You have to visit all this interval within timett, otherwise there are some cities withai\u2264tai\u2264twhich you do not visit in time. So if this interval has length>t>t, you cannot visit it all within timett, and the answer is00.Otherwise, the answer is at least11. A possible construction is visiting \"the minimal interval at time11\", then \"the minimal interval at time22\", ..., then \"the minimal interval at timenn\". Note that, when you visit \"the minimal interval at timett\", the actual time is equal to the length of the interval, which is\u2264t\u2264t. In this way, at timettyou will have conquered all the cities in the minimal interval at timett, and possibly other cities.Starting from cityxxis equivalent to settingax=1ax=1. After this operation, you have to guarantee that, for eachii, the minimal interval at timettis short enough. If this interval is[l,r][l,r]before the operation, it can become either[x,r][x,r](ifx<lx<l), or[l,x][l,x](ifx>rx>r), or stay the same. In all this cases, the resulting length must be\u2264t\u2264t. With some calculations (e.g.,r\u2212x+1\u2264tr\u2212x+1\u2264t), you can get thanxxmust be contained in[r\u2212t+1,l+t\u22121][r\u2212t+1,l+t\u22121]. So it's enough to calculate and intersect the intervals obtained att=1,\u2026,nt=1,\u2026,n, and print the length of the final interval.You can calculate the minimal intervals by iterating on the cities in increasing order ofaiai. Again, if the old interval is[l,r][l,r]and the new city has indexxx, the new possible intervals are[x,r][x,r],[l,r][l,r],[l,x][l,x].Another correct solution is to intersect the intervals[i\u2212ai+1,i+ai\u22121][i\u2212ai+1,i+ai\u22121]. The proof is contained in the editorial of2018F3 - Speedbreaker Counting (Hard Version).Complexity:O(n)O(n)"
+}

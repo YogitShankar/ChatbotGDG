@@ -1,0 +1,2 @@
+Given two integers n n and x x , find the number of triplets ( a , b , c a , b , c ) of positive integers such that a b + a c + b c ≤ n a b + a c + b c ≤ n and a + b + c ≤ x a + b + c ≤ x .
+Note that order matters (e.g. ( 1 , 1 , 2 1 , 1 , 2 ) and ( 1 , 2 , 1 1 , 2 , 1 ) are treated as different) and a a , b b , c c must be strictly greater than 0 0 .

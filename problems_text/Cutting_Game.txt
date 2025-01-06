@@ -1,0 +1,3 @@
+Alice and Bob were playing a game again. They have a grid of size a × b a × b ( 1 ≤ a , b ≤ 10 9 1 ≤ a , b ≤ 10 9 ), on which there are n n chips, with at most one chip in each cell. The cell at the intersection of the x x -th row and the y y -th column has coordinates ( x , y ) ( x , y ) .
+Alice made the first move, and the players took turns. On each move, a player could cut several (but not all) rows or columns from the beginning or end of the remaining grid and earn a point for each chip that was on the cut part of the grid. Each move can be described by the character ' U ', ' D ', ' L ', or ' R ' and an integer k k :
+Based on the initial state of the grid and the players' moves, determine the number of points earned by Alice and Bob, respectively.

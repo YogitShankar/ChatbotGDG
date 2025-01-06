@@ -1,0 +1,7 @@
+Peter loves folding segments. There is a segment on a number line occupying the interval [ ℓ , r ] [ ℓ , r ] . Since it is the prime time for folding the segments, Peter decides to fold the segment carefully. In each step, he chooses one of the two following operations whenever possible:
+
+A folding sequence refers to a sequence of operations specified above. Peter wants to fold the segment several times, resulting in the shortest possible interval whose length that cannot be further reduced. The length of an interval [ ℓ , r ] [ ℓ , r ] is defined naturally to be r − ℓ r − ℓ . Let's consider the following example. Suppose that we are folding a segment initially occupying the interval [ 1 , 30 ] [ 1 , 30 ] . There are three folding sequences that lead to the shortest possible resulting interval, as shown in the following figure.
+
+Please help Peter determine the number of folding sequences such that the resulting interval has a shortest possible length. Output the number modulo 998244353 998244353 .
+
+∗ ∗ Recall that an integer p > 1 p > 1 is a prime number if there do not exist integers a , b > 1 a , b > 1 such that p = a b p = a b .

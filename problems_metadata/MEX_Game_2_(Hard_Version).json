@@ -1,0 +1,21 @@
+{
+    "time_limit": "2 seconds",
+    "memory_limit": "256 megabytes",
+    "tags": [
+        "binary search",
+        "greedy",
+        "two pointers",
+        "*3300"
+    ],
+    "solution": [
+        "Instead of doing the check for ans\u2265ians\u2265i in O(m3)O(m3), we will do it in O(m)O(m).",
+        "For an array ff of length nn. Let s=f1+f2+\u2026+fns=f1+f2+\u2026+fn be the sum of the element. ff will be called flat if fi=\u230as+i\u22121n\u230bfi=\u230as+i\u22121n\u230b. That is, it has the form x,\u2026,x,x+1,\u2026x+1x,\u2026,x,x+1,\u2026x+1. All flat array can be characters by 22 integers (n,s)(n,s) only.",
+        "Imagine simulating Bob's strategy without simulating Alice's moves of removing the first element of the array. For some prefix of the moves, the actual simulation will be a suffix of this simulation. This is because to subtract something from index \u2264i\u2264i, we must have fi+1=fi+2=\u2026=fnfi+1=fi+2=\u2026=fn.",
+        "As an example, let k=4k=4.",
+        "With Alice moves: [1,2,3,5,5]\u2192[2,3,3,3]\u2192[1,2,2][1,2,3,5,5]\u2192[2,3,3,3]\u2192[1,2,2]",
+        "Without Alice moves: [1,2,3,5,5]\u2192[1,2,3,3,3]\u2192[1,1,2,2,2][1,2,3,5,5]\u2192[1,2,3,3,3]\u2192[1,1,2,2,2]",
+        "[1,2,2][1,2,2] is not a suffix of [1,1,2,2,2][1,1,2,2,2] and is the first time such a thing happens.",
+        "Suppose that the first time this happens is after pp moves. Then the resulting array is the flat array (n\u2212p,fp+1+fp+2+\u2026+fn\u2212pk)(n\u2212p,fp+1+fp+2+\u2026+fn\u2212pk). To find the necessary value of pp, we can binary search or run 22-pointers to check if the suffix of the array can reach fpfp with the amount of subtraction operations till then. (What we basically did is find the suffix of the array that actually gets operated on, since that makes it much more easier to solve)",
+        "Then, since the flat array (n,s)(n,s) becomes (n\u22121,s\u2212\u230asn\u230b\u2212k)(n\u22121,s\u2212\u230asn\u230b\u2212k), we can figure out whether each flat array evantually becomes a losing or winning state as we can calculate for each nn, the minimum ss such that (n,s)(n,s) is a winning state."
+    ]
+}

@@ -1,0 +1,4 @@
+Mocha likes arrays, so before her departure, 378QAQ gave her an array a a consisting of n n positive integers as a gift.
+Mocha thinks that a a is beautiful if there exist two numbers i i and j j ( 1 ≤ i , j ≤ n 1 ≤ i , j ≤ n , i ≠ j i ≠ j ) such that for all k k ( 1 ≤ k ≤ n 1 ≤ k ≤ n ), a k a k is divisible † † by either a i a i or a j a j .
+Determine whether a a is beautiful.
+† † x x is divisible by y y if there exists an integer z z such that x = y ⋅ z x = y ⋅ z .

@@ -1,0 +1,3 @@
+There are n n cows participating in a coding tournament. Cow i i has a Cowdeforces rating of a i a i (all distinct), and is initially in position i i . The tournament consists of n − 1 n − 1 matches as follows:
+You are the owner of cow k k . For you, winning the tournament is not important; rather, you want your cow to win in as many matches as possible. As an acquaintance of the tournament organizers, you can ask them to swap the position of your cow with another cow only once , or you can choose to do nothing.
+Find the maximum number of wins your cow can achieve.

@@ -1,0 +1,12 @@
+{
+    "time_limit": "3 seconds",
+    "memory_limit": "256 megabytes",
+    "tags": [
+        "dp",
+        "*1800"
+    ],
+    "solution": [
+        "Let's consider the classic knapsack problem. Let dp[j]dp[j] be the minimum cost required to achieve happiness jj. In the ii-th month, we iterate through dp[k]dp[k] and check if dp[k]+ci\u2264(i\u22121)\u22c5xdp[k]+ci\u2264(i\u22121)\u22c5x, and if so, we can afford to transition to dp[k+hi]dp[k+hi] and accordingly update dp[k+hi]dp[k+hi].",
+        "The complexity is O(m\u22c5\u2211ihi)O(m\u22c5\u2211ihi) for each set of input data."
+    ]
+}

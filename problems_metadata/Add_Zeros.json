@@ -1,0 +1,14 @@
+{
+    "time_limit": "3 seconds",
+    "memory_limit": "256 megabytes",
+    "tags": [
+        "brute force",
+        "data structures",
+        "dfs and similar",
+        "dp",
+        "graphs",
+        "greedy",
+        "*1500"
+    ],
+    "solution": "2027C - Add ZerosLet's rearrange the equation given in the statement to find a 'required'|a||a|value in order to use an operation at that index. We haveai=|a|+1\u2212iai=|a|+1\u2212i, so|a|=ai+i\u22121|a|=ai+i\u22121. Note that ifai=0ai=0, then the condition is never true, sincei\u22121<|a|i\u22121<|a|always. So actually, we just need to consider the firstnnpositions.Once we use an operation at positionii, the length of the array will increase byi\u22121i\u22121. So, for each position we require some lengthui=ai+i\u22121ui=ai+i\u22121and make a length ofvi=u+i\u22121vi=u+i\u22121. So, let's create a graph containing allnnedges, and run some DFS or BFS on this graph starting from nodenn(the starting value of|a||a|). It then follows that the largest node visited is the maximum length of the array we can possibly get.We should use a map to store the graph, since the length of the array can grow up to\u2248n2\u2248n2and so the graph is very sparse. If we don't want to use a map, we can also take advantage of the fact that all edges are directed fromuiuitoviviwhereui<viui<viand that all edges and nodes are fixed, so we can actually iterate through alluiuiand maintain a boolean array of whichvivivalues are visited so far, updating it at any point using a binary search."
+}

@@ -1,0 +1,12 @@
+{
+    "time_limit": "1 second",
+    "memory_limit": "256 megabytes",
+    "tags": [
+        "bitmasks",
+        "dp",
+        "number theory",
+        "two pointers",
+        "*1900"
+    ],
+    "solution": null
+}

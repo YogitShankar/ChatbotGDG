@@ -1,0 +1,5 @@
+Shohag has an integer n n . Please help him find an increasing integer sequence 1 ≤ a 1 < a 2 < … < a n ≤ 100 1 ≤ a 1 < a 2 < … < a n ≤ 100 such that a i mod i ≠ a j mod j a i mod i ≠ a j mod j ∗ ∗ is satisfied over all pairs 1 ≤ i < j ≤ n 1 ≤ i < j ≤ n .
+
+It can be shown that such a sequence always exists under the given constraints.
+
+∗ ∗ a mod b a mod b denotes the remainder of a a after division by b b . For example, 7 mod 3 = 1 , 8 mod 4 = 0 7 mod 3 = 1 , 8 mod 4 = 0 and 69 mod 10 = 9 69 mod 10 = 9 .

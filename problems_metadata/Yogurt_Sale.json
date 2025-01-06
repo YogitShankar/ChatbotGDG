@@ -1,0 +1,13 @@
+{
+    "time_limit": "1 second",
+    "memory_limit": "256 megabytes",
+    "tags": [
+        "math",
+        "*800"
+    ],
+    "solution": [
+        "You can always buy yogurts one by one without using the promotion, then the answer is n\u22c5an\u22c5a.",
+        "Suppose it is more advantageous to buy yogurts on promotion than one by one, that is, b<2\u22c5ab<2\u22c5a. If nn is even, the answer is n2\u22c5bn2\u22c5b, otherwise (n\u22121)2\u22c5b+a(n\u22121)2\u22c5b+a.",
+        "Now you just need to choose whether to buy yogurts one by one or on promotion, taking the minimum of the two options."
+    ]
+}

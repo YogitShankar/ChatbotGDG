@@ -1,0 +1,9 @@
+You have an n × n n × n grid and two integers a a and b b . Both the rows and the columns are numbered from 1 1 to n n . Let's denote the cell at the intersection of the i i -th row and the j j -th column as ( i , j ) ( i , j ) .
+
+You are standing in the cell ( 1 , 1 ) ( 1 , 1 ) and want to move into the cell ( n , n ) ( n , n ) .
+
+Suppose you are in the cell ( i , j ) ( i , j ) ; in one step, you can move either into the cell ( i , j + 1 ) ( i , j + 1 ) or into the cell ( i + 1 , j ) ( i + 1 , j ) if the corresponding cells exist.
+
+Let's define the cost of the cell ( i , j ) ( i , j ) as c ( i , j ) = gcd ( i , a ) + gcd ( j , b ) c ( i , j ) = gcd ( i , a ) + gcd ( j , b ) (here, gcd ( x , y ) gcd ( x , y ) denotes the greatest common divisor of x x and y y ). The cost of the route from ( 1 , 1 ) ( 1 , 1 ) to ( n , n ) ( n , n ) is the sum of costs of the visited cells (including the starting cell and the finishing cell).
+
+Find the route with minimum possible cost and print its cost.

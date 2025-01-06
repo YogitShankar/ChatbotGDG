@@ -1,0 +1,12 @@
+{
+    "time_limit": "3 seconds",
+    "memory_limit": "256 megabytes",
+    "tags": [
+        "bitmasks",
+        "games",
+        "greedy",
+        "interactive",
+        "*2400"
+    ],
+    "solution": null
+}

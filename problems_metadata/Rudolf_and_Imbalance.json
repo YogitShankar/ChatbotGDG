@@ -1,0 +1,16 @@
+{
+    "time_limit": "3 seconds",
+    "memory_limit": "256 megabytes",
+    "tags": [
+        "binary search",
+        "greedy",
+        "sortings",
+        "two pointers",
+        "*1800"
+    ],
+    "solution": [
+        "Let's consider the differences ai\u2212ai\u22121ai\u2212ai\u22121. Since we can only insert one problem, we can reduce the difference in difficulty in only one place. If we insert a problem not between the tasks whose difference in difficulty is maximum (denote them as apap and ap+1ap+1), then the imbalance will not change. The best way to insert a problem in this way is to choose the middle between these tasks, so the larger of the differences di+fj\u2212apdi+fj\u2212ap and ap+1\u2212di\u2212fjap+1\u2212di\u2212fj will be minimal.",
+        "We also cannot forget about the other tasks. Let's find the second maximum among the values ai\u2212ai\u22121ai\u2212ai\u22121. Since we insert a problem in another place, this difference will not decrease, and therefore the answer cannot be less than it.",
+        "To understand what answer we can achieve, let's sort the functions and iterate through all the models. For the model didi, using binary search, we will find the maximum index ll such that di+fl\u2264\u230aap+ap+12\u230bdi+fl\u2264\u230aap+ap+12\u230b. For inserting with the selected model, the best fit will be either a problem of difficulty di+fldi+fl or a problem of difficulty di+fl+1di+fl+1 (if l<kl<k) since it is the closest problems to the middle. We will check both options and update the answer."
+    ]
+}

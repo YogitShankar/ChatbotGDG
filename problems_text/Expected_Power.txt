@@ -1,0 +1,7 @@
+You are given an array of n n integers a 1 , a 2 , … , a n a 1 , a 2 , … , a n . You are also given an array p 1 , p 2 , … , p n p 1 , p 2 , … , p n .
+
+Let S S denote the random multiset (i. e., it may contain equal elements) constructed as follows:
+
+Denote f ( S ) f ( S ) as the bitwise XOR of all elements of S S . Please calculate the expected value of ( f ( S ) ) 2 ( f ( S ) ) 2 . Output the answer modulo 10 9 + 7 10 9 + 7 .
+
+Formally, let M = 10 9 + 7 M = 10 9 + 7 . It can be shown that the answer can be expressed as an irreducible fraction p q p q , where p p and q q are integers and q ≢ 0 ( mod M ) q ≢ 0 ( mod M ) . Output the integer equal to p ⋅ q − 1 mod M p ⋅ q − 1 mod M . In other words, output such an integer x x that 0 ≤ x < M 0 ≤ x < M and x ⋅ q ≡ p ( mod M ) x ⋅ q ≡ p ( mod M ) .

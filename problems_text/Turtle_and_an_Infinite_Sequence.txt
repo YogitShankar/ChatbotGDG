@@ -1,0 +1,3 @@
+There is a sequence a 0 , a 1 , a 2 , … a 0 , a 1 , a 2 , … of infinite length. Initially a i = i a i = i for every non-negative integer i i .
+After every second, each element of the sequence will simultaneously change. a i a i will change to a i − 1 ∣ a i ∣ a i + 1 a i − 1 ∣ a i ∣ a i + 1 for every positive integer i i . a 0 a 0 will change to a 0 ∣ a 1 a 0 ∣ a 1 . Here, | | denotes bitwise OR .
+Turtle is asked to find the value of a n a n after m m seconds. In particular, if m = 0 m = 0 , then he needs to find the initial value of a n a n . He is tired of calculating so many values, so please help him!

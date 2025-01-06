@@ -1,0 +1,4 @@
+You are given two arrays a a and b b of size n n along with a fixed integer v v .
+An interval [ l , r ] [ l , r ] is called a good interval if ( b l ∣ b l + 1 ∣ … ∣ b r ) ≥ v ( b l ∣ b l + 1 ∣ … ∣ b r ) ≥ v , where | | denotes the bitwise OR operation . The beauty of a good interval is defined as max ( a l , a l + 1 , … , a r ) max ( a l , a l + 1 , … , a r ) .
+You are given q q queries of two types:
+Please process all queries.

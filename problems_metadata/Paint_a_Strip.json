@@ -1,0 +1,11 @@
+{
+    "time_limit": "1 second",
+    "memory_limit": "256 megabytes",
+    "tags": [
+        "constructive algorithms",
+        "greedy",
+        "math",
+        "*1000"
+    ],
+    "solution": "[problem:2040B]At each moment of time, the array contains a number of non-intersecting segments consisting only of ones. Using an operation of the first type can increase the number of these segments by11. Using an operation of the second type decreases the number of these segments byx\u22121x\u22121, wherexx\u2014 is the number of segments that this operation covers. Therefore, the number of operations of the second type is no more than the number of operations of the first type minus11.The optimal strategy\u00a0\u2014 is to perform one operation of the first type, and then alternate operations of the first and second types, increasing the number of ones fromxxto2\u22c5(x+1)2\u22c5(x+1)on each such pair of operations. There is no point in doing more operations of the first type on the prefix of operations, since we still must cover no more than two segments of ones with operations of the second type; otherwise, we will reduce the possible number of operations of the second type."
+}

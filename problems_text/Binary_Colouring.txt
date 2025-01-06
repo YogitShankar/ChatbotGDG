@@ -1,0 +1,2 @@
+You are given a positive integer x x . Find any array of integers a 0 , a 1 , … , a n − 1 a 0 , a 1 , … , a n − 1 for which the following holds:
+It can be proven that under the constraints of the problem, a valid array always exists.

@@ -1,0 +1,5 @@
+n n ships set out to explore the depths of the ocean. The ships are numbered from 1 1 to n n and follow each other in ascending order; the i i -th ship has a durability of a i a i .
+The Kraken attacked the ships k k times in a specific order. First, it attacks the first of the ships, then the last, then the first again, and so on.
+Each attack by the Kraken reduces the durability of the ship by 1 1 . When the durability of the ship drops to 0 0 , it sinks and is no longer subjected to attacks (thus the ship ceases to be the first or last, and the Kraken only attacks the ships that have not yet sunk). If all the ships have sunk, the Kraken has nothing to attack and it swims away.
+For example, if n = 4 n = 4 , k = 5 k = 5 , and a = [ 1 , 2 , 4 , 3 ] a = [ 1 , 2 , 4 , 3 ] , the following will happen:
+How many ships were sunk after the Kraken's attack?

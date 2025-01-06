@@ -1,0 +1,13 @@
+{
+    "time_limit": "4 seconds",
+    "memory_limit": "512 megabytes",
+    "tags": [
+        "binary search",
+        "data structures",
+        "dp",
+        "implementation",
+        "math",
+        "*1900"
+    ],
+    "solution": "2026D - Sums of SegmentsIn the editorial, we will treat all elements as00-indexed.The arraybbconsists ofnn\"blocks\", the first block has the elements[s(0,0),s(0,1),\u2026,s(0,n\u22121)][s(0,0),s(0,1),\u2026,s(0,n\u22121)], the second block contains[s(1,1),s(1,2),\u2026,s(1,n\u22121)][s(1,1),s(1,2),\u2026,s(1,n\u22121)], and so on. Each position of element inbbcan be converted into a pair of the form \"index of the block, index of element in the block\" using either a formula or binary search.Let's analyze a query of the form \"get the sum from thei1i1-th element in thej1j1-th block to thei2i2-th element in thej2j2-th block\". Let's initialize the result with the sum of all blocks fromj1j1toj2j2(inclusive), then drop some first elements from the blockj1j1, and then drop some last elements from the blockj2j2.We have to be able to calculate the following values:given an index of the blockbband the indices of elementsllandrrfrom this block, calculate the sum from thell-th element to therr-th element in that block;given two indices of blocksllandrr, calculate the sum from blockllto blockrr.In the first case, we need to calculates(b,l+b)+s(b,l+b+1)+\u22ef+s(b,r+b)s(b,l+b)+s(b,l+b+1)+\u22ef+s(b,r+b). Letpipibe the sum of the firstiielements from the given array. The sum can be rewritten as(pl+b+1\u2212pb)+(pl+b+2\u2212pb)+\u22ef+(pr+b+1\u2212pb)(pl+b+1\u2212pb)+(pl+b+2\u2212pb)+\u22ef+(pr+b+1\u2212pb). This is equal to\u2211i=l+b+1r+b+1pi\u2212(r\u2212l+1)\u22c5pl\u2211i=l+b+1r+b+1pi\u2212(r\u2212l+1)\u22c5pl; the first value can be calculated inO(1)O(1)by building prefix sums over the arraypp.The easiest way to calculate the sum over several blocks is the following one:for each block, calculate the sum in it the same way as we calculate the sum over part of the block;build prefix sums over sums in blocks.Depending on the implementation, the resulting complexity will be eitherO(n)O(n)orO(nlogn)O(nlog\u2061n)."
+}

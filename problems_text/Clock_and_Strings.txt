@@ -1,0 +1,3 @@
+There is a clock labeled with the numbers 1 1 through 12 12 in clockwise order, as shown below.
+In this example, ( a , b , c , d ) = ( 2 , 9 , 10 , 6 ) ( a , b , c , d ) = ( 2 , 9 , 10 , 6 ) , and the strings intersect.
+Alice and Bob have four distinct integers a a , b b , c c , d d not more than 12 12 . Alice ties a red string connecting a a and b b , and Bob ties a blue string connecting c c and d d . Do the strings intersect? (The strings are straight line segments.)

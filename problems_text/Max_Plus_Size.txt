@@ -1,0 +1,5 @@
+You are given an array a 1 , a 2 , … , a n a 1 , a 2 , … , a n of positive integers.
+
+You can color some elements of the array red, but there cannot be two adjacent red elements (i.e., for 1 ≤ i ≤ n − 1 1 ≤ i ≤ n − 1 , at least one of a i a i and a i + 1 a i + 1 must not be red).
+
+Your score is the maximum value of a red element plus the number of red elements. Find the maximum score you can get.

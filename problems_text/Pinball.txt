@@ -1,0 +1,4 @@
+There is a one-dimensional grid of length n n . The i i -th cell of the grid contains a character s i s i , which is either ' < ' or ' > '.
+When a pinball is placed on one of the cells, it moves according to the following rules:
+You need to answer n n independent queries. In the i i -th query, a pinball will be placed on the i i -th cell. Note that we always place a pinball on the initial grid.
+For each query, calculate how many seconds it takes the pinball to leave the grid. It can be shown that the pinball will always leave the grid within a finite number of steps.

@@ -1,0 +1,13 @@
+{
+    "time_limit": "1 second",
+    "memory_limit": "256 megabytes",
+    "tags": [
+        "implementation",
+        "strings",
+        "*800"
+    ],
+    "solution": [
+        "Since the string is length at most 1010, we can try all swaps of two characters of the string. This is O(|s|2)O(|s|2) per test case, which is fast enough. If none of them create a different string, then all characters in the original string are the same, so the answer is NO.",
+        "Bonus: Actually, it's enough to try all swaps with the first character, solving the problem in O(|s|)O(|s|). Why?"
+    ]
+}

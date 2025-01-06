@@ -1,0 +1,14 @@
+{
+    "time_limit": "2 seconds",
+    "memory_limit": "256 megabytes",
+    "tags": [
+        "implementation",
+        "sortings",
+        "strings",
+        "*800"
+    ],
+    "solution": [
+        "Let's construct a string rr according to the definition from the condition: we write down all the letters from ss once in ascending order.",
+        "After that, we just need to replace all the characters in ss with their symmetric characters in the string rr. The length of string rr does not exceed 2626, so the position of this character can be found by linear search."
+    ]
+}

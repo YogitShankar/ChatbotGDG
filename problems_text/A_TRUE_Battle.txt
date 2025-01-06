@@ -1,0 +1,7 @@
+Alice and Bob are playing a game. There is a list of n n booleans, each of which is either true or false , given as a binary string ∗ ∗ of length n n (where 1 1 represents true , and 0 0 represents false ). Initially, there are no operators between the booleans.
+
+Alice and Bob will take alternate turns placing and or or between the booleans, with Alice going first. Thus, the game will consist of n − 1 n − 1 turns since there are n n booleans. Alice aims for the final statement to evaluate to true , while Bob aims for it to evaluate to false . Given the list of boolean values, determine whether Alice will win if both players play optimally.
+
+To evaluate the final expression, repeatedly perform the following steps until the statement consists of a single true or false :
+
+∗ ∗ A binary string is a string that only consists of characters 0 0 and 1 1

@@ -1,0 +1,5 @@
+Mocha likes arrays, so before her departure, Chamo gave her an array a a consisting of n n positive integers as a gift.
+Mocha doesn't like arrays containing different numbers, so Mocha decides to use magic to change the array. Mocha can perform the following three-step operation some (possibly, zero) times:
+Suppose a = [ 1 , 2 , 3 , 4 , 5 ] a = [ 1 , 2 , 3 , 4 , 5 ] initially:
+Mocha will perform the operation until the array contains only the same number. Mocha wants to know what is the maximum possible value of this number.
+† † The median in an array b b of length m m is an element that occupies position number ⌊ m + 1 2 ⌋ ⌊ m + 1 2 ⌋ after we sort the elements in non-decreasing order. For example, the median of [ 3 , 1 , 4 , 1 , 5 ] [ 3 , 1 , 4 , 1 , 5 ] is 3 3 and the median of [ 5 , 25 , 20 , 24 ] [ 5 , 25 , 20 , 24 ] is 20 20 .

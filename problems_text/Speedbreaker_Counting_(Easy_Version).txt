@@ -1,0 +1,9 @@
+This is the easy version of the problem. In the three versions, the constraints on n n and the time limit are different. You can make hacks only if all the versions of the problem are solved.
+
+This is the statement of Problem D1B :
+
+You win if, for each i i , you conquer city i i at a time no later than a i a i . A winning strategy may or may not exist, also depending on the starting city. How many starting cities allow you to win?
+
+For each 0 ≤ k ≤ n 0 ≤ k ≤ n , count the number of arrays of positive integers a 1 , a 2 , … , a n a 1 , a 2 , … , a n such that
+
+The answer can be very large, so you have to calculate it modulo a given prime p p .

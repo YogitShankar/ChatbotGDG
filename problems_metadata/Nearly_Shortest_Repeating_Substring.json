@@ -1,0 +1,17 @@
+{
+    "time_limit": "2 seconds",
+    "memory_limit": "256 megabytes",
+    "tags": [
+        "brute force",
+        "implementation",
+        "number theory",
+        "strings",
+        "*1500"
+    ],
+    "solution": [
+        "Let's call a string a period if it can be multiplied to the same length as ss",
+        "What are the possibilities for the lengths of the period? Clearly, it must be a divisor of nn. So the solution is to check all divisors of nn and see the smallest one that works.",
+        "To check if length ll works, multiply the prefix of length ll until it's the same length as ss and check how many differences there are. However, the different letter can be in the prefix(for example, hshahahshaha and l=2l=2), so we also check the same for the suffix of length ll. If either of them is true, output ll.",
+        "All numbers at most 105105 have at most 128128 divisors, so this will take \u223c128\u22c5105\u223c128\u22c5105 operations, which is fast enough."
+    ]
+}

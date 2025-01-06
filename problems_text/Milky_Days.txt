@@ -1,0 +1,9 @@
+Little John is as little as night is day — he was known to be a giant, at possibly 2.1 2.1 metres tall. It has everything to do with his love for milk.
+
+His dairy diary has n n entries, showing that he acquired a i a i pints of fresh milk on day d i d i . Milk declines in freshness with time and stays drinkable for a maximum of k k days. In other words, fresh milk acquired on day d i d i will be drinkable between days d i d i and d i + k − 1 d i + k − 1 inclusive.
+
+Every day, Little John drinks drinkable milk, up to a maximum of m m pints. In other words, if there are less than m m pints of milk, he will drink them all and not be satisfied; if there are at least m m pints of milk, he will drink exactly m m pints and be satisfied, and it's a milk satisfaction day .
+
+Little John always drinks the freshest drinkable milk first.
+
+Determine the number of milk satisfaction days for Little John.

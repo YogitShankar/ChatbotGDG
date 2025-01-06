@@ -1,0 +1,4 @@
+Let b i t ( x ) b i t ( x ) denote the number of ones in the binary representation of a non-negative integer x x .
+A subarray of an array is called k k -good if it consists only of numbers with no more than k k ones in their binary representation, i.e., a subarray ( l , r ) ( l , r ) of array a a is good if for any i i such that l ≤ i ≤ r l ≤ i ≤ r condition b i t ( a i ) ≤ k b i t ( a i ) ≤ k is satisfied.
+You are given an array a a of length n n , consisting of consecutive non-negative integers starting from 0 0 , i.e., a i = i a i = i for 0 ≤ i ≤ n − 1 0 ≤ i ≤ n − 1 (in 0 0 -based indexing). You need to count the number of k k -good subarrays in this array.
+As the answer can be very large, output it modulo 10 9 + 7 10 9 + 7 .

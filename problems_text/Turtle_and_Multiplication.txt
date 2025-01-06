@@ -1,0 +1,4 @@
+Turtle just learned how to multiply two integers in his math class, and he was very excited.
+Then Piggy gave him an integer n n , and asked him to construct a sequence a 1 , a 2 , … , a n a 1 , a 2 , … , a n consisting of integers which satisfied the following conditions:
+Of all such sequences, Piggy asked Turtle to find the one with the minimum number of distinct elements.
+Turtle definitely could not solve the problem, so please help him!

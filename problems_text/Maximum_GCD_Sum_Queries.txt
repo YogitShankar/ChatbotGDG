@@ -1,0 +1,4 @@
+For k k positive integers x 1 , x 2 , … , x k x 1 , x 2 , … , x k , the value gcd ( x 1 , x 2 , … , x k ) gcd ( x 1 , x 2 , … , x k ) is the greatest common divisor of the integers x 1 , x 2 , … , x k x 1 , x 2 , … , x k — the largest integer z z such that all the integers x 1 , x 2 , … , x k x 1 , x 2 , … , x k are divisible by z z .
+You are given three arrays a 1 , a 2 , … , a n a 1 , a 2 , … , a n , b 1 , b 2 , … , b n b 1 , b 2 , … , b n and c 1 , c 2 , … , c n c 1 , c 2 , … , c n of length n n , containing positive integers.
+You also have a machine that allows you to swap a i a i and b i b i for any i i ( 1 ≤ i ≤ n 1 ≤ i ≤ n ). Each swap costs you c i c i coins.
+Find the maximum possible value of

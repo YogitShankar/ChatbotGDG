@@ -1,0 +1,13 @@
+{
+    "time_limit": "2 seconds",
+    "memory_limit": "256 megabytes",
+    "tags": [
+        "constructive algorithms",
+        "greedy",
+        "implementation",
+        "*1400"
+    ],
+    "solution": [
+        "For the string SS, calculate the 2D-coordinates (x,y)(x,y) of the point obtained as a result of sequentially executing all instructions (for example, N decreases yy by 1, S increases yy by 1, E increases xx by 1, W decreases xx by 1). Consider the following cases:"
+    ]
+}

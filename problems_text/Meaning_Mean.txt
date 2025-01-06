@@ -1,0 +1,9 @@
+Pak Chanek has an array a a of n n positive integers. Since he is currently learning how to calculate the floored average of two numbers, he wants to practice it on his array a a .
+
+While the array a a has at least two elements, Pak Chanek will perform the following three-step operation:
+
+For example, suppose that a = [ 5 , 4 , 3 , 2 , 1 , 1 ] a = [ 5 , 4 , 3 , 2 , 1 , 1 ] . If we choose i = 1 i = 1 and j = 5 j = 5 , the resulting array will be a = [ 4 , 3 , 2 , 1 , 3 ] a = [ 4 , 3 , 2 , 1 , 3 ] . If we choose i = 4 i = 4 and j = 3 j = 3 , the resulting array will be a = [ 5 , 4 , 1 , 1 , 2 ] a = [ 5 , 4 , 1 , 1 , 2 ] .
+
+After all operations, the array will consist of a single element x x . Find the maximum possible value of x x if Pak Chanek performs the operations optimally.
+
+∗ ∗ ⌊ x ⌋ ⌊ x ⌋ denotes the floor function of x x , which is the greatest integer that is less than or equal to x x . For example, ⌊ 6 ⌋ = 6 ⌊ 6 ⌋ = 6 , ⌊ 2.5 ⌋ = 2 ⌊ 2.5 ⌋ = 2 , ⌊ − 3.6 ⌋ = − 4 ⌊ − 3.6 ⌋ = − 4 and ⌊ π ⌋ = 3 ⌊ π ⌋ = 3

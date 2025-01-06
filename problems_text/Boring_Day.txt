@@ -1,0 +1,3 @@
+On another boring day, Egor got bored and decided to do something. But since he has no friends, he came up with a game to play.
+Egor has a deck of n n cards, the i i -th card from the top has a number a i a i written on it. Egor wants to play a certain number of rounds until the cards run out. In each round, he takes a non-zero number of cards from the top of the deck and finishes the round. If the sum of the numbers on the cards collected during the round is between l l and r r , inclusive, the round is won; otherwise, it is lost.
+Egor knows by heart the order of the cards. Help Egor determine the maximum number of rounds he can win in such a game. Note that Egor is not required to win rounds consecutively.

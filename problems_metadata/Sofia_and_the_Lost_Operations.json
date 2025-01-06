@@ -1,0 +1,13 @@
+{
+    "time_limit": "2 seconds",
+    "memory_limit": "256 megabytes",
+    "tags": [
+        "constructive algorithms",
+        "greedy",
+        "*1300"
+    ],
+    "solution": [
+        "First, in the array b1,b2,\u2026,bnb1,b2,\u2026,bn, the number dmdm must be present. Second, if ai=biai=bi, we will not apply any operations to ii. All extra operations can be applied to ajaj, where bj=dmbj=dm, they will be overwritten by the operation dmdm. For all other ii (ai\u2260biai\u2260bi) we must apply the operation dk=bidk=bi, so it remains to check that the multiset of such bibi is included in the multiset d1,d2,\u2026,dmd1,d2,\u2026,dm.",
+        "This solution can be implemented using sorting and two pointers or std::map, resulting in a time complexity of O((n+m)logn)O((n+m)log\u2061n). If you used std::unordered_map or dict, you were most likely hacked. Check out this post."
+    ]
+}

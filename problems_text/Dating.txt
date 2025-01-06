@@ -1,0 +1,3 @@
+You are the developer of a dating app which ignores gender completely. The app has n n users, indexed from 1 1 to n n . Each user's profile features a list of the activities they enjoy doing. There are m m possible activities, indexed from 1 1 to m m .
+A match between two users is good if they share at least one activity and, at the same time, both of them like at least one activity that the other user does not like.
+Find a good match if it exists.

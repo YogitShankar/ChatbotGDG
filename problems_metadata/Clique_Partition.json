@@ -1,0 +1,18 @@
+{
+    "time_limit": "3 seconds",
+    "memory_limit": "512 megabytes",
+    "tags": [
+        "brute force",
+        "constructive algorithms",
+        "graphs",
+        "greedy",
+        "implementation",
+        "*2100"
+    ],
+    "solution": [
+        "There are two main steps to solve the problem:",
+        "Firstly, the maximum size of a clique cannot exceed kk. If there are at least k+1k+1 vertices in the same clique, then at least two of them (call them ii and jj) have |i\u2212j|\u2265k|i\u2212j|\u2265k. And since ai\u2260ajai\u2260aj, then |ai\u2212aj|\u22651|ai\u2212aj|\u22651. So, |i\u2212j|+|ai\u2212aj||i\u2212j|+|ai\u2212aj| is at least k+1k+1, so these two vertices won't have an edge connecting them (and cannot belong to the same clique).",
+        "Secondly, let's try to find a construction that always allows us to get cliques of size kk. To do this, try to solve the problem when k=nk=n; and if n>kn>k, we can split all vertices into \u2308nk\u2309\u2308nk\u2309 cliques as follows: for each clique, we assign a consecutive block of vertices and numbers that will be assigned to them (for example, vertices from 11 to kk and numbers from 11 to kk belong to the first clique, vertices from k+1k+1 to 2k2k and numbers from k+1k+1 to 2k2kn belong to the second clique), and then use the solution for n=kn=k on each of these blocks.",
+        "To obtain a solution for n=kn=k, you can either try bruteforcing it locally on, say, n\u226410n\u226410 and analyzing the results. One of the possible constructions is as follows: let m=\u2308k2\u2309m=\u2308k2\u2309; split all vertices and numbers from 11 to kk into two blocks: [1,m][1,m] and [m+1,k][m+1,k]; and then, in each block, the greater the index of the vertex, the less the integer it gets. So it looks as follows: a1=m,a2=m\u22121,\u2026,am=1,am+1=n,am+2=n\u22121,\u2026,an=m+1a1=m,a2=m\u22121,\u2026,am=1,am+1=n,am+2=n\u22121,\u2026,an=m+1. We can show that the \"distance\" between any two vertices in different halves is exactly kk, and the distance between any two vertices in the same half is at most 2(m\u22121)2(m\u22121), which never exceeds kk."
+    ]
+}

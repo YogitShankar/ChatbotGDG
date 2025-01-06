@@ -1,0 +1,5 @@
+This is an interactive problem.
+This is the game version of the problem. Note that the solution of this problem may or may not share ideas with the solution of the solo version. You can solve and get points for both versions independently.
+Alice and Bob are playing a game. The game starts with a positive integer n n , with players taking turns. On each turn of the game, the following sequence of events takes place:
+As Alice, your goal is to win. You can execute a maximum of 63 63 break operations. You have the choice to play first or second. The system will act for Bob.
+Here ⊕ ⊕ denotes the bitwise XOR operation .

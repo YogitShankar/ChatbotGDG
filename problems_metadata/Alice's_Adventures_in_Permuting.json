@@ -1,0 +1,11 @@
+{
+    "time_limit": "1 second",
+    "memory_limit": "256 megabytes",
+    "tags": [
+        "binary search",
+        "implementation",
+        "math",
+        "*1400"
+    ],
+    "solution": "2028B - Alice's Adventures in PermutingSuppose thatb=0b=0. Then, ifc\u2265nc\u2265n, the answer isnn; ifc=n\u22121c=n\u22121orc=n\u22122c=n\u22122, the answer isn\u22121n\u22121; and otherwise, it is\u22121\u22121(for example, considerc=n\u22123c=n\u22123, in which case we will end up witha=[0,1,\u2026,n\u22124,n\u22123,n\u22123,n\u22123]\u2192[0,1,\u2026,n\u22124,n\u22123,n\u22123,n\u22122]\u2192[0,1,\u2026,n\u22124,n\u22123,n\u22123,n\u22121]a=[0,1,\u2026,n\u22124,n\u22123,n\u22123,n\u22123]\u2192[0,1,\u2026,n\u22124,n\u22123,n\u22123,n\u22122]\u2192[0,1,\u2026,n\u22124,n\u22123,n\u22123,n\u22121]and the last two steps alternate)Otherwise, sinceaahas distinct elements, we claim that the answer isn\u2212mn\u2212m, wheremmis the number of elements in0,1,\u2026,n\u221210,1,\u2026,n\u22121already present in the array. Equivalently, it is the number of steps untilmax(a)<nmax(a)<nsince we always preserve the distinctness of the elements ofaa.So, we want to find the maximumiisuch thatai<nai<n. This happens exactly wheni<n\u2212cbi<n\u2212cb. The expected complexity isO(1)O(1)per testcase."
+}

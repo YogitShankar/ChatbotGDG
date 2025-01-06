@@ -1,0 +1,15 @@
+{
+    "time_limit": "2 seconds",
+    "memory_limit": "256 megabytes",
+    "tags": [
+        "greedy",
+        "implementation",
+        "math",
+        "number theory",
+        "*1400"
+    ],
+    "solution": [
+        "Let's loop through the initial array aa, counting the GCD of neighbouring elements. If at some point, the GCD of the previous pair becomes greater than the GCD of the next pair, we remember the index ii of the first element of the pair that gave the greater GCD and stop the loop.",
+        "Then consider the following cases:"
+    ]
+}

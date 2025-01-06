@@ -1,0 +1,2 @@
+Alice has n n books. The 1 1 -st book contains a 1 a 1 pages, the 2 2 -nd book contains a 2 a 2 pages, … … , the n n -th book contains a n a n pages. Alice does the following:
+Alice loves reading very much. Help her find the maximum total number of pages she can read by dividing the books into two piles.

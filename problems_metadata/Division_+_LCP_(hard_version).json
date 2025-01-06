@@ -1,0 +1,16 @@
+{
+    "time_limit": "3 seconds",
+    "memory_limit": "256 megabytes",
+    "tags": [
+        "binary search",
+        "brute force",
+        "data structures",
+        "dp",
+        "hashing",
+        "math",
+        "string suffix structures",
+        "strings",
+        "*2200"
+    ],
+    "solution": null
+}

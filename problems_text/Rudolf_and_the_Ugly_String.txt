@@ -1,0 +1,5 @@
+Rudolf has a string s s of length n n . Rudolf considers the string s s to be ugly if it contains the substring † † " pie " or the substring " map ", otherwise the string s s will be considered beautiful.
+For example, " ppiee ", " mmap ", " dfpiefghmap " are ugly strings, while " mathp ", " ppiiee " are beautiful strings.
+Rudolf wants to shorten the string s s by removing some characters to make it beautiful.
+The main character doesn't like to strain, so he asks you to make the string beautiful by removing the minimum number of characters. He can remove characters from any positions in the string (not just from the beginning or end of the string).
+† † String a a is a substring of b b if there exists a consecutive segment of characters in string b b equal to a a .

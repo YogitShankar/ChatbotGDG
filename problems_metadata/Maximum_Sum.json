@@ -1,0 +1,14 @@
+{
+    "time_limit": "1 second",
+    "memory_limit": "256 megabytes",
+    "tags": [
+        "dp",
+        "greedy",
+        "math",
+        "*1100"
+    ],
+    "solution": [
+        "Let's denote ss as the sum of the original array and xx as the sum of the subarray with the maximum sum from the original array.",
+        "We solve the problem when kk equals 11. In this case, we need to find the subarray of the array with the maximum sum and insert this sum anywhere in the array, so the answer is s+xs+x. Now, let kk be 22. In this case, there is already a value where we insert the sum of the subarray with the maximum sum. Then we can increase the sum of the subarray with the maximum sum by no more than xx (we can increase it by xx simply by inserting it into the subarray with the maximum sum), and obtain the sum of the subarray with the maximum sum 2\u22c5x2\u22c5x. Then insert it anywhere in the array, thus obtaining the sum of the final array equal to s+x+2\u22c5xs+x+2\u22c5x. Similarly, for any kk, the sum of the subarray with the maximum sum is initially xx, then 2\u22c5x2\u22c5x, then 4\u22c5x4\u22c5x, \u2026\u2026, 2k\u22121\u22c5x2k\u22121\u22c5x, then the answer is equal to s+x+2\u22c5x+\u22ef+2k\u22121\u22c5x=s+2k\u22c5x\u2212xs+x+2\u22c5x+\u22ef+2k\u22121\u22c5x=s+2k\u22c5x\u2212x."
+    ]
+}

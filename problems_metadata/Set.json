@@ -1,0 +1,15 @@
+{
+    "time_limit": "2 seconds",
+    "memory_limit": "512 megabytes",
+    "tags": [
+        "bitmasks",
+        "brute force",
+        "combinatorics",
+        "dfs and similar",
+        "divide and conquer",
+        "dp",
+        "math",
+        "*2600"
+    ],
+    "solution": null
+}

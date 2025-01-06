@@ -1,0 +1,9 @@
+You have a binary string ∗ ∗ s s of length n n , and Iris gives you another binary string r r of length n − 1 n − 1 .
+
+Iris is going to play a game with you. During the game, you will perform n − 1 n − 1 operations on s s . In the i i -th operation ( 1 ≤ i ≤ n − 1 1 ≤ i ≤ n − 1 ):
+
+If all the n − 1 n − 1 operations are performed successfully, you win.
+
+Determine whether it is possible for you to win this game.
+
+∗ ∗ A binary string is a string where each character is either 0 0 or 1 1 .

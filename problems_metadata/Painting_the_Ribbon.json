@@ -1,0 +1,14 @@
+{
+    "time_limit": "2 seconds",
+    "memory_limit": "512 megabytes",
+    "tags": [
+        "constructive algorithms",
+        "greedy",
+        "math",
+        "*900"
+    ],
+    "solution": [
+        "When is Bob able to get a ribbon where each part has color ii? There should be at least n\u2212kn\u2212k parts of color ii. So if the number of parts with color ii is less than n\u2212kn\u2212k, Bob cannot repaint the whole ribbon into color ii.",
+        "So, Alice has to paint the ribbon in such a way that for every color, there are at most n\u2212k\u22121n\u2212k\u22121 parts of that color. There are at least two ways to check if it is possible: for example, you can calculate the maximum possible length of the ribbon such that it contains no more than n\u2212k\u22121n\u2212k\u22121 parts of every color; or you can calculate the maximum number of parts among all colors if you try to color the ribbon as evenly as possible."
+    ]
+}

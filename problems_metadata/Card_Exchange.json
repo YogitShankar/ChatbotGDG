@@ -1,0 +1,17 @@
+{
+    "time_limit": "1 second",
+    "memory_limit": "256 megabytes",
+    "tags": [
+        "constructive algorithms",
+        "games",
+        "greedy",
+        "*800"
+    ],
+    "solution": [
+        "If you don't initially have at least kk copies of any number, you can't perform any operations, so the answer is nn.",
+        "Otherwise, we can show that we can always get down to k\u22121k\u22121 cards, with the following algorithm:",
+        "Since the total number of cards decreases at each step, this process will always terminate, so you will always end up with k\u22121k\u22121 cards.",
+        "Also, since the total number of cards decreases by exactly 11 at each step, and you can't do any operations if you have less than kk cards, it is impossible to do better than k\u22121k\u22121, so our solution of k\u22121k\u22121 is optimal.",
+        "Complexity: O(n)O(n) or O(nlogn)O(nlog\u2061n) depending on implementation."
+    ]
+}

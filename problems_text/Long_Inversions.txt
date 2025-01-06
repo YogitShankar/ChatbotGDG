@@ -1,0 +1,5 @@
+A binary string s s of length n n is given. A binary string is a string consisting only of the characters ' 1 ' and ' 0 '.
+You can choose an integer k k ( 1 ≤ k ≤ n 1 ≤ k ≤ n ) and then apply the following operation any number of times: choose k k consecutive characters of the string and invert them, i.e., replace all ' 0 ' with ' 1 ' and vice versa.
+Using these operations, you need to make all the characters in the string equal to ' 1 '.
+For example, if n = 5 n = 5 , s = 00100 s = 00100 , you can choose k = 3 k = 3 and proceed as follows:
+Find the maximum value of k k for which it is possible to make all the characters in the string equal to ' 1 ' using the described operations. Note that the number of operations required to achieve this is not important.

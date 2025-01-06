@@ -1,0 +1,5 @@
+You have an array of zeros a 1 , a 2 , … , a n a 1 , a 2 , … , a n of length n n .
+
+You can perform two types of operations on it:
+
+What is the minimum number of operations of the first type needed to make all elements of the array equal to one?

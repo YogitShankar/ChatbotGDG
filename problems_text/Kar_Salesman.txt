@@ -1,0 +1,3 @@
+Karel is a salesman in a car dealership. The dealership has n n different models of cars. There are a i a i cars of the i i -th model. Karel is an excellent salesperson and can convince customers to buy up to x x cars (of Karel's choice), as long as the cars are from different models.
+
+Determine the minimum number of customers Karel has to bring in to sell all the cars.

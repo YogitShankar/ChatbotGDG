@@ -1,0 +1,17 @@
+{
+    "time_limit": "3 seconds",
+    "memory_limit": "256 megabytes",
+    "tags": [
+        "*special problem",
+        "*2400"
+    ],
+    "solution": [
+        "Let's start with a simple case: the points are visible from different towers. That is, for each point, we need to find a tower to increase as little as possible, and add the two answers together.",
+        "Let's solve for point ll. There are three possibilities here. The point is already covered by some tower, there is a tower to the left of the point, and there is a tower to the right of the point.",
+        "Let's start with the case to the left. Which points are visible from the towers to the left? We don't care about the left boundaries, and the right boundaries are equal to xi+hixi+hi for all such ii that xi<lxi<l. If we increase the height by kk, it will be xi+hi+kxi+hi+k. So, we need to find the tower with the greatest value of xi+hixi+hi. Then the answer will be l\u2212(xi+hi)l\u2212(xi+hi). You can notice that if xi+hi\u2265lxi+hi\u2265l, then we can take the maximum with 00 in the formula, and the first case will disappear by itself. For the tower to the right, the situation is symmetric: we need to find the tower with the smallest value of xi\u2212hixi\u2212hi, and the answer will be max(0,(xi\u2212hi)\u2212l)max(0,(xi\u2212hi)\u2212l).",
+        "Thus, we can build prefix maximums based on the values of xi+hixi+hi at position xixi and suffix minimums based on the values of xi\u2212hixi\u2212hi at position xixi and make queries in O(1)O(1).",
+        "Now the case where both points are covered by the same tower. Again, we will divide the problem into two cases. Either we will first see point ll from the tower, and then rr, or vice versa. Where should the tower be for each case? Obviously, in the first case it is closer to ll, and in the second case it is closer to rr. That is, if xi\u2264l+r2xi\u2264l+r2 (formula without rounding), then the first case, otherwise the second.",
+        "It turns out that we have now reduced the problem to the case with independent towers. In the first case, we need to find a tower on the prefix up to the middle between ll and rr, from which rr will be visible as soon as possible\u00a0\u2014 maximum by xi+hixi+hi. In the second case\u00a0\u2014 a tower on the suffix from the middle between ll and rr, from which ll will be visible as soon as possible\u00a0\u2014 minimum by xi\u2212hixi\u2212hi. That is, we can use the same prefix and suffix arrays.",
+        "Overall complexity: O(n+q)O(n+q)."
+    ]
+}

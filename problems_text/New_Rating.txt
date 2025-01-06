@@ -1,0 +1,7 @@
+Kevin used to be a participant of Codeforces. Recently, the KDOI Team has developed a new Online Judge called Forcescode.
+
+Kevin has participated in n n contests on Forcescode. In the i i -th contest, his performance rating is a i a i .
+
+Now he has hacked into the backend of Forcescode and will select an interval [ l , r ] [ l , r ] ( 1 ≤ l ≤ r ≤ n 1 ≤ l ≤ r ≤ n ), then skip all of the contests in this interval. After that, his rating will be recalculated in the following way:
+
+You have to help Kevin to find his maximum possible rating after the recalculation if he chooses the interval [ l , r ] [ l , r ] optimally. Note that Kevin has to skip at least one contest.

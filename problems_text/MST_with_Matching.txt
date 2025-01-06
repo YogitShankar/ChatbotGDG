@@ -1,0 +1,4 @@
+You are given an undirected connected graph on n n vertices. Each edge of this graph has a weight; the weight of the edge connecting vertices i i and j j is w i , j w i , j (or w i , j = 0 w i , j = 0 if there is no edge between i i and j j ). All weights are positive integers.
+You are also given a positive integer c c .
+You have to build a spanning tree of this graph; i. e. choose exactly ( n − 1 ) ( n − 1 ) edges of this graph in such a way that every vertex can be reached from every other vertex by traversing some of the chosen edges. The cost of the spanning tree is the sum of two values:
+Find any spanning tree with the minimum cost. Since the graph is connected, there exists at least one spanning tree.

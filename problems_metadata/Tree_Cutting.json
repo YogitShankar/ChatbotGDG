@@ -1,0 +1,18 @@
+{
+    "time_limit": "3 seconds",
+    "memory_limit": "512 megabytes",
+    "tags": [
+        "binary search",
+        "dp",
+        "greedy",
+        "implementation",
+        "trees",
+        "*1600"
+    ],
+    "solution": [
+        "Let's hang the tree from an arbitrary vertex, for definiteness let's hang the tree from vertex 11 (proof is given below). First of all, notice that if we can obtain some answer xx, then we can also obtain the answer x\u22121x\u22121 (exactly the same way as for xx), so we can do a binary search for xx.",
+        "To check the condition for a fixed xx, we will use a greedy algorithm. We will find the maximum number of connected components into which we can cut our tree so that each component has at least xx vertices. We will start a dfs from vertex 11, let's say we are currently at vertex vv and the number of vertices in its subtree is greater than or equal to xx, then it is advantageous for us to remove the edge from vertex vv to its parent. If after this process there are at least k+1k+1 connected components, then the condition is satisfied for this xx, otherwise it is not.",
+        "Proof that it doesn't matter which vertex to hang the tree from:",
+        "We need to prove that the greedy algorithm will obtain the same number of cuts for all roots. We will prove this in the order of depth-first search. It is also important to note that it doesn't matter in which order to run the greedy algorithm from the children. Let the initial root be 11, and we want to prove it for its child 22. Then let's see how the greedy algorithm will act in the first case: it will start from vertex 22, and then from all its adjacent vertices except 11, and remove some edges. When we run the greedy algorithm in the second case, we can reorder the vertices, and first run it from all adjacent vertices except 11, and there will be the same removals. Then we will run the greedy algorithm from vertex 11, it will perform the same removals as in the first case, if we made vertex 22 the last one. So the only edge that may not coincide in these removals is 1\u221221\u22122. If this edge did not participate in the removals the first time, then the size of the remaining part of vertex 2<x2<x, so we cannot remove it now. If the edge 1\u221221\u22122 was removed in the first variant, then the size of the component 11 was \u2265x\u2265x, and there were no vertices of subtree 22 in it. Then when running the greedy algorithm from the second vertex, it will cut the edge 1\u221221\u22122, because the size of this part became \u2265x\u2265x, so the set of edges coincides."
+    ]
+}

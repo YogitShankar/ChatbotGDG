@@ -1,0 +1,12 @@
+{
+    "time_limit": "1 second",
+    "memory_limit": "256 megabytes",
+    "tags": [
+        "brute force",
+        "greedy",
+        "math",
+        "number theory",
+        "*1200"
+    ],
+    "solution": "2021B - Maximize MexFor theMEXMEXto be at leastkk, then each non-negative integer from00tok\u22121k\u22121must appear at least once in the array.First, notice that since there are onlynnelements in the array, there are at mostnndifferent values, so theMEXMEXcan only be at mostnn. And since we can only increase an element's value, that means every element with values bigger thannncan be ignored.We construct a frequency arrayfreqfreqsuch thatfreq[k]freq[k]is the number of elements inaawith valuekk.Notice that the values just need to appear at least once to contribute to theMEXMEX, so two or more elements with the same value should be split into different values to yield a potentially better result. To find the maximum possibleMEXMEX, we iterate each indexkkin the arrayfreqfreqfrom00tonn. In each iteration ofkk, if we findfreq[k]>0freq[k]>0, that means it's possible to have theMEXMEXbe bigger thankk, so we can iteratekkto the next value. Before we iterate to the next value, if we findfreq[k]>1freq[k]>1, that indicates duplicates, so we should do an operation to all except one of those values to change them intok+xk+x, which increasesfreq[k+x]freq[k+x]byfreq[k]\u22121freq[k]\u22121and changesfreq[k]freq[k]into11. In each iteration ofkk, if we findfreq[k]=0freq[k]=0, that means,kkis the maximumMEXMEXwe can get, and we should end the process.Time complexity for each test case:O(n)O(n)"
+}

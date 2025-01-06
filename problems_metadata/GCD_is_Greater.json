@@ -1,0 +1,19 @@
+{
+    "time_limit": "3 seconds",
+    "memory_limit": "512 megabytes",
+    "tags": [
+        "brute force",
+        "data structures",
+        "math",
+        "number theory",
+        "*2600"
+    ],
+    "solution": [
+        "Let's notice that it is sufficient to take the greatest common divisor (GCD) of two numbers. Indeed, suppose we take the GCD of a larger number of numbers. Then we can move one of them to the set of AND. Then the GCD will not decrease, and the AND will not increase.",
+        "Also, pre-calculate the number of ones in the given numbers and remember it.",
+        "Notice that if a certain bit yy is equal to zero in more than two numbers, then in the AND of all these numbers bit yy will also be zero. For all the bits that are equal to zero in no more than two numbers, we will save these numbers. We will iterate through each of these numbers as one of the red numbers, and iterate through the second one for nn. This will require O(2\u22c5log(maxA)\u22c5log(maxA)\u22c5n)O(2\u22c5log\u2061(maxA)\u22c5log\u2061(maxA)\u22c5n) time. The additional logarithm comes from calculating the GCD for a pair of numbers. After this, we remove all such numbers from our list.",
+        "Let AA be the bitwise AND of all the numbers in the initial array.",
+        "Now we can consider that the GCD should be greater than A+XA+X.",
+        "We will iterate through the GCD from (A+X+1A+X+1) to maxA and check: if there is a pair of numbers in the array (not counting the discarded ones) that are divisible by it, then the answer is to color these numbers in red, and the rest in blue. Otherwise, if such a GCD is not found, the answer is \"NO\"."
+    ]
+}

@@ -1,0 +1,7 @@
+This is the easy version of the problem. The only difference is the maximum number of operations you can perform. You can only make hacks if both versions are solved.
+
+You are given an array a a of size n n .
+
+A cool swap walk is the following process:
+
+You can perform at most 2 n + 4 2 n + 4 cool swap walks . Sort the array a 1 , a 2 , … , a n a 1 , a 2 , … , a n in non-decreasing order. We can show that it's always possible to do so.

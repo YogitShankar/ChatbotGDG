@@ -1,0 +1,12 @@
+{
+    "time_limit": "2 seconds",
+    "memory_limit": "256 megabytes",
+    "tags": [
+        "constructive algorithms",
+        "geometry",
+        "greedy",
+        "math",
+        "*900"
+    ],
+    "solution": "2026A - Perpendicular SegmentsLet's look at all segments with a fixed angle between them and the X-axis. Let's take the shortest one with integer coordinates and length at leastKKasABAB. Let's say that a bounding box ofABABhas widthwwand heighthh.It's easy to see that a bounding box of segmentCDCDwill have width at leasthhand height at leastww, since the shortest segmentCDCDwill be just the segmentABABrotated at ninety degrees.So, in order to fit both segmentsABABandCDCD, bothhhandwwshould be at mostM=min(X,Y)M=min(X,Y). But if bothw\u2264Mw\u2264Mandh\u2264Mh\u2264M, then what is the longest segment that can fit in such a bounding box? The answer is to seth=w=Mh=w=M, then the length|AB|\u2264M2\u2013\u221a|AB|\u2264M2.In such a way, we found out thatKKmust not exceedM2\u2013\u221aM2, but ifK\u2264M2\u2013\u221aK\u2264M2, then we can always take the following two segments:(0,0)\u2212(M,M)(0,0)\u2212(M,M)and(0,M)\u2212(M,0)(0,M)\u2212(M,0)whereM=min(X,Y)M=min(X,Y). They are perpendicular, fit in the allowed rectangle, and have length exactlyM2\u2013\u221aM2."
+}

@@ -1,0 +1,5 @@
+You can never buy enough happiness, so here we go again! In this version, you can only buy h i = 1 h i = 1 unit of happiness each month, but the number of months is hugely increased. We are in the realm of quantum happiness and time dilation.
+Being a physicist, Charlie likes to plan his life in simple and precise terms.
+For the next m m months, starting with no money, Charlie will work hard and earn x x pounds per month. For the i i -th month ( 1 ≤ i ≤ m ) ( 1 ≤ i ≤ m ) , there'll be a single opportunity of paying cost c i c i pounds to obtain one unit of happiness. You cannot buy more than one unit each month.
+Borrowing is not allowed. Money earned in the i i -th month can only be spent in a later j j -th month ( j > i j > i ).
+Since physicists don't code, help Charlie find the maximum reachable units of happiness.

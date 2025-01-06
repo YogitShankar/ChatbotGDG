@@ -1,0 +1,2 @@
+An array of integers a 1 , a 2 , ⋯ , a n a 1 , a 2 , ⋯ , a n is beautiful subject to an integer k k if it satisfies the following:
+It can be shown that an answer always exists.

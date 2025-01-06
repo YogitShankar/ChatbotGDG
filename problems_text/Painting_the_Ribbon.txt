@@ -1,0 +1,5 @@
+Alice and Bob have bought a ribbon consisting of n n parts. Now they want to paint it.
+First, Alice will paint every part of the ribbon into one of m m colors. For each part, she can choose its color arbitrarily.
+Then, Bob will choose at most k k parts of the ribbon and repaint them into the same color (he chooses the affected parts and the color arbitrarily).
+Bob would like all parts to have the same color. However, Alice thinks that this is too dull, so she wants to paint the ribbon in such a way that Bob cannot make all parts have the same color.
+Is it possible to paint the ribbon in such a way?

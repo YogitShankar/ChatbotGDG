@@ -1,0 +1,7 @@
+There is a shop that sells action figures near Monocarp's house. A new set of action figures will be released shortly; this set contains n n figures, the i i -th figure costs i i coins and is available for purchase from day i i to day n n .
+
+For each of the n n days, Monocarp knows whether he can visit the shop.
+
+Every time Monocarp visits the shop, he can buy any number of action figures which are sold in the shop (of course, he cannot buy an action figure that is not yet available for purchase). If Monocarp buys at least two figures during the same day, he gets a discount equal to the cost of the most expensive figure he buys (in other words, he gets the most expensive of the figures he buys for free).
+
+Monocarp wants to buy exactly one 1 1 -st figure, one 2 2 -nd figure, ..., one n n -th figure from the set. He cannot buy the same figure twice. What is the minimum amount of money he has to spend?

@@ -1,0 +1,2 @@
+You are given two integers x x and y y .
+Output two integers: the minimum of x x and y y , followed by the maximum of x x and y y .

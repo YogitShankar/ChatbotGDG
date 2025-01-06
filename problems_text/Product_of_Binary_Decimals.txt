@@ -1,0 +1,2 @@
+Let's call a number a binary decimal if it is a positive integer and all digits in its decimal notation are either 0 0 or 1 1 . For example, 1 010 111 1 010 111 is a binary decimal, while 10 201 10 201 and 787 788 787 788 are not.
+Given a number n n , you are asked whether or not it is possible to represent n n as a product of some (not necessarily distinct) binary decimals.

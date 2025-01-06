@@ -1,0 +1,14 @@
+{
+    "time_limit": "2 seconds",
+    "memory_limit": "1024 megabytes",
+    "tags": [
+        "data structures",
+        "dfs and similar",
+        "divide and conquer",
+        "dp",
+        "implementation",
+        "trees",
+        "*2700"
+    ],
+    "solution": "2026F - Bermart Ice CreamLet's try to solve the problem without queries of type11. This leads to a data structure where elements are added to the end and removed from the beginning. In other words, a queue. The query is a dynamic programming problem of the \"knapsack\" type.To implement a knapsack on a queue, we can use the technique of implementing a queue with two stacks. This is commonly referred to as a \"queue with minimum\", as it is usually used to maintain the minimum. You can read more about it oncp-algorithms. We replace the operation of taking the minimum with the operation of adding a new item to the knapsack inO(P)O(P), wherePPis the maximum price in the queries. This gives us a solution with a time complexity ofO(qP)O(qP).Now, let's return to the original problem. A type11operation essentially adds the necessity to make the data structure persistent. However, this is only true if we need to respond to queries in the order they are given. In this problem, this is not the case\u00a0\u2014 we can try to transition to an \"offline\" solution.Let's build a version tree of our persistent structure. For each query of type11,22, or33, create a new version. The edge between versions will store information about the type of change: a simple copy, an addition of an element, or a deletion of an element. Queries of type44will be stored in a list for each vertex to which they are addressed.We will perform a depth-first traversal of the version tree. During the transition along an edge, we need to be able to do the following. If the transition is of the \"add element\" type, we need to add the element to the end, then process the subtree of the vertex, answer the queries for that vertex, and upon exiting, remove the element from the end. For a transition of the \"remove element\" type, we need to remove the element from the beginning and then add an element to the beginning. Thus, a structure of the \"deque\" type is sufficient. It turns out that a deque that maintains a minimum also exists. You can read about it ina blog by k1r1t0.Overall complexity:O(qP)O(qP), wherePPis the maximum price in the queries."
+}

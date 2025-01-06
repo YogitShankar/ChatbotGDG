@@ -1,0 +1,11 @@
+There is a team of n n software engineers numbered from 1 1 to n n . Their boss promises to give them a bonus if they complete an additional project. The project requires k k units of work in total. The bonus promised to the i i -th engineer is a i a i burles. The boss doesn't assign specific tasks to engineers; it is expected that every engineer will voluntarily complete some integer amount of work units. The bonus will be paid to the entire team only if the project is completed; in other words, if the total amount of voluntary work units on the project is greater than or equal to k k .
+
+The amount of work that can be performed by each engineer is not limited. However, all engineers value their labour. The i i -th engineer estimates one unit of their work as b i b i burles. If the bonus is paid, the benefit s i s i of the i i -th engineer for completing c c units of work is defined as s i = a i − c ⋅ b i s i = a i − c ⋅ b i . If the bonus is not paid, the engineer will not volunteer to do any work.
+
+Engineers work together for many years, so they know how the bonus is going to be distributed and how much their colleagues value the labour. That is, all a i a i and all b i b i are known to every engineer in the team.
+
+Engineers are eager to get the bonus, so they agreed on the following process of work distribution between them:
+
+Every engineer voices c i c i in a way to maximize their own benefit s i s i . If the expected benefit is going to be zero, an engineer will still agree to work to get the experience and to help their colleagues obtain the bonus. However, if the benefit is expected to be negative for some reason (an engineer needs to perform an excessive amount of work or the project is not going to be completed), that engineer will not work at all (completes zero amount of work units).
+
+Given that every engineer acts perfectly, your task is to find out the numbers c i c i voiced by every engineer.

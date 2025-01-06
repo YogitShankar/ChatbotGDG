@@ -1,0 +1,7 @@
+One fine evening, Alice sat down to play the classic game "Connect the Dots", but with a twist.
+
+To play the game, Alice draws a straight line and marks n n points on it, indexed from 1 1 to n n . Initially, there are no arcs between the points, so they are all disjoint. After that, Alice performs m m operations of the following type:
+
+After performing all m m operations, she wants to know the number of connected components † † these points form. Please help her find this number.
+
+† † Two points are said to be in one connected component if there is a path between them via several (possibly zero) arcs and other points.

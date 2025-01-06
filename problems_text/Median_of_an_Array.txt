@@ -1,0 +1,5 @@
+You are given an array a a of n n integers.
+The median of an array q 1 , q 2 , … , q k q 1 , q 2 , … , q k is the number p ⌈ k 2 ⌉ p ⌈ k 2 ⌉ , where p p is the array q q sorted in non-decreasing order. For example, the median of the array [ 9 , 5 , 1 , 2 , 6 ] [ 9 , 5 , 1 , 2 , 6 ] is 5 5 , as in the sorted array [ 1 , 2 , 5 , 6 , 9 ] [ 1 , 2 , 5 , 6 , 9 ] , the number at index ⌈ 5 2 ⌉ = 3 ⌈ 5 2 ⌉ = 3 is 5 5 , and the median of the array [ 9 , 2 , 8 , 3 ] [ 9 , 2 , 8 , 3 ] is 3 3 , as in the sorted array [ 2 , 3 , 8 , 9 ] [ 2 , 3 , 8 , 9 ] , the number at index ⌈ 4 2 ⌉ = 2 ⌈ 4 2 ⌉ = 2 is 3 3 .
+You are allowed to choose an integer i i ( 1 ≤ i ≤ n 1 ≤ i ≤ n ) and increase a i a i by 1 1 in one operation.
+Your task is to find the minimum number of operations required to increase the median of the array.
+Note that the array a a may not necessarily contain distinct numbers.

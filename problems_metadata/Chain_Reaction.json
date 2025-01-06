@@ -1,0 +1,28 @@
+{
+    "time_limit": "3 seconds",
+    "memory_limit": "512 megabytes",
+    "tags": [
+        "binary search",
+        "data structures",
+        "dsu",
+        "greedy",
+        "implementation",
+        "math",
+        "number theory",
+        "*2200"
+    ],
+    "solution": [
+        "Let's solve the problem for a single kk. We'll start with k=1k=1 for simplicity.",
+        "The first lightning can be launched at any monster, as it will always spread to all of them. We will continue launching lightnings until a monster dies. When one or more monsters die, the problem breaks down into several independent subproblems, because no lightning will pass through dead monsters. This means that there is no concept of \"minimum number of seconds\"\u00a0\u2014 the answer does not depend on the choice of monsters to launch the lightnings.",
+        "Great, so how do we calculate this answer? The idea is as follows. We will attack the first monster until it dies. This will take a1a1 seconds. We then move on to the second monster. If it has more health than the first one, we need to launch an additional a2\u2212a1a2\u2212a1 lightnings to kill it. Otherwise, it will already be dead. How much damage will the third monster receive in both cases? Let's say it has a lot of health. In the first case, it will receive a2a2 damage, because all the lightnings will reach it. But in the second case, it will also receive a2a2 damage, because the lightnings launched at the first monster after the death of the second one will not reach the third one. This means that we now need to compare the health of the second monster with the third one in the same way. And so on. This means that the ii-th monster needs to be hit with max(0,ai\u2212ai\u22121)max(0,ai\u2212ai\u22121) lightnings.",
+        "Then the answer for k=1k=1 is equal to a1+\u2211i=2nmax(0,ai\u2212ai\u22121)a1+\u2211i=2nmax(0,ai\u2212ai\u22121).",
+        "How to calculate the answer for any kk? In fact, the difference is not very significant. It is sufficient to change the health of each monster from aiai to \u2308aik\u2309\u2308aik\u2309, and the entire process described earlier will remain the same. Therefore, the answer for any kk is equal to \u2308a1k\u2309+\u2211i=2nmax(0,\u2308aik\u2309\u2212\u2308ai\u22121k\u2309)\u2308a1k\u2309+\u2211i=2nmax(0,\u2308aik\u2309\u2212\u2308ai\u22121k\u2309).",
+        "To further optimize this solution, another transformation is needed. Ideally, we would like each aiai to contribute to the answer independently of other values. And this can almost be achieved. Notice that the maximum returns 00 only if ai<ai\u22121ai<ai\u22121 for any kk, not just for k=1k=1. This may require proof, but it is quite obvious.",
+        "This means that the coefficient for \u2308aik\u2309\u2308aik\u2309 in the answer depends on two conditions:",
+        "Let's call this coefficient for the ii-th monster cici. Therefore, we need to calculate \u2211i=1nci\u22c5\u2308aik\u2309\u2211i=1nci\u22c5\u2308aik\u2309.",
+        "There are two ways to optimize the solution further.",
+        "The first option is to notice that \u2308aik\u2309\u2308aik\u2309 doesn't take a lot of different values for different kk. More precisely, it is O(ai\u2212\u2212\u221a)O(ai). This can be shown as follows. Consider \u2308aik\u2309=x\u2308aik\u2309=x. Either k\u2264ai\u2212\u2212\u221ak\u2264ai, or x\u2264ai\u2212\u2212\u221ax\u2264ai. Therefore, xx takes no more than 2ai\u2212\u2212\u221a2ai different values.",
+        "Then the solution can be implemented as follows. For each aiai, we will identify all possible values that the rounding result takes. For each of them, we will find the range of kk for which the result is equal to that. And we will add the contribution of the ii-th monster within this range of values to the result. This can be done using a difference array to achieve a complexity of O(n\u22c5A\u2212\u2212\u221a)O(n\u22c5A).",
+        "The second option is a bit smarter. Let's take another look at the formula for calculating the answer for a fixed kk: \u2211i=1nci\u22c5\u2308aik\u2309\u2211i=1nci\u22c5\u2308aik\u2309. Let's group the terms by equal values of \u2308aik\u2309\u2308aik\u2309. What do they look like? Numbers from 11 to kk give the value 11. Numbers from k+1k+1 to 2k2k give the value 22, and so on. This means that for a certain kk, there are AkAk segments, on each of which we need to calculate the sum of cici for those ii for which aiai fall into this segment. The total number of segments for all kk is O(AlogA)O(Alog\u2061A). The complexity of the solution will then be O(n+AlogA)O(n+Alog\u2061A)."
+    ]
+}

@@ -1,0 +1,14 @@
+{
+    "time_limit": "2 seconds",
+    "memory_limit": "256 megabytes",
+    "tags": [
+        "data structures",
+        "sortings",
+        "*1900"
+    ],
+    "solution": [
+        "Consider a fixed number kk\u00a0\u2014 the amount of mushrooms in the elixir. In this case, we need to maximize the minimum of the taken numbers. We will iterate through the numbers in descending order: until we collect kk numbers, we iterate over the next number. If its index is greater than or equal to kk, we take this number as the answer, otherwise we skip it.",
+        "If we iterate through kk, we get a solution in O(n2)O(n2) time. How can we speed it up? Notice that at incrementing kk, only a few numbers change: vpkvpk becomes zero, if we have already taken it, then we need to take the next one in descending order. Also, we need to take the next number in descending order, because we are incrementing kk. After sorting, we can traverse the array in linear time. We keep a pointer jj to the last taken element, as well as an array usedused\u00a0\u2014 whether the ii-th number is taken, and an array zerozero\u00a0\u2014 whether the ii-th number is turned into zero. Every time we move jj, we check that zeroj=falsezeroj=false, and if so, we take the number and set usedj=trueusedj=true.",
+        "Complexity: O(nlogn)O(nlog\u2061n)."
+    ]
+}

@@ -1,0 +1,2 @@
+In the evenings during the hike, Kirill and Anton decided to take out an array of integers a a of length n n from their backpack and play a game with it. The rules are as follows:
+Help Kirill to beat Anton or tell if it's impossible.

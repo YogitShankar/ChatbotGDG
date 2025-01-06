@@ -1,0 +1,18 @@
+{
+    "time_limit": "2 seconds",
+    "memory_limit": "256 megabytes",
+    "tags": [
+        "binary search",
+        "dp",
+        "greedy",
+        "implementation",
+        "two pointers",
+        "*1600"
+    ],
+    "solution": [
+        "Let's naively calculate the answer for the (n+m+1)(n+m+1)-th candidate. While calculating it, let's store two values: typeitypei\u00a0\u2014 the type of job the ii-th candidate was hired for; badbad\u00a0\u2014 the index of the first candidate who was hired for a suboptimal role.",
+        "We can show that this first candidate badbad who was hired for a suboptimal role is the only possible candidate who can change his role if another candidate doesn't show up. So, for all other candidates among the first n+mn+m candidates, their roles are fixed.",
+        "To prove this, we can consider the following cases:",
+        "Now we can use the (n+m+1)(n+m+1)-th candidate's answer to calculate the answer for the ii-th candidate as follows:"
+    ]
+}

@@ -1,0 +1,4 @@
+You are given two integers x x and y y of the same length, consisting of digits from 1 1 to 9 9 .
+You can perform the following operation any number of times (possibly zero): swap the i i -th digit in x x and the i i -th digit in y y .
+For example, if x = 73 x = 73 and y = 31 y = 31 , you can swap the 2 2 -nd digits and get x = 71 x = 71 and y = 33 y = 33 .
+Your task is to maximize the product of x x and y y using the aforementioned operation any number of times. If there are multiple answers, print any of them.

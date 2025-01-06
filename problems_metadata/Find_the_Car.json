@@ -1,0 +1,16 @@
+{
+    "time_limit": "3 seconds",
+    "memory_limit": "256 megabytes",
+    "tags": [
+        "binary search",
+        "math",
+        "sortings",
+        "*1500"
+    ],
+    "solution": [
+        "For each query, we binary search to find the last sign we passed (since the array aa is sorted). Say it is arar. Then, brbr minutes have passed.",
+        "To find out how much time has passed since we left that sign, we know that the speed between sign rr and r+1r+1 is ar+1\u2212arbr+1\u2212brdistanceminutear+1\u2212arbr+1\u2212brdistanceminute (by the usual formula for speed).",
+        "We have passed a distance c\u2212arc\u2212ar since the last sign, so the total number of minutes since the last sign is",
+        "Be careful about using floating-point numbers, as they can behave strangely. Our solution below doesn't use them at all."
+    ]
+}

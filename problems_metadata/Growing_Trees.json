@@ -1,0 +1,13 @@
+{
+    "time_limit": "5 seconds",
+    "memory_limit": "512 megabytes",
+    "tags": [
+        "binary search",
+        "constructive algorithms",
+        "flows",
+        "graphs",
+        "greedy",
+        "*3200"
+    ],
+    "solution": null
+}

@@ -1,0 +1,13 @@
+{
+    "time_limit": "2 seconds",
+    "memory_limit": "512 megabytes",
+    "tags": [
+        "*special problem",
+        "*1500"
+    ],
+    "solution": [
+        "Suppose kk is not divisible by 2m2m (mm is an arbitrary positive integer). Then we should have at least one log with weight not divisible by 2m2m, since if all logs are divisible by 2m2m, we cannot get the sum of log weights which is not divisible by 2m2m.",
+        "So, let dd be the maximum integer such that kk is divisible by 2d2d. After we split the logs, there should be at least one log having weight 2d2d or less. So, we need to do at least n\u2212dn\u2212d actions.",
+        "And we can show that n\u2212dn\u2212d actions are always sufficient. Split the smallest log every time, so you get logs of size 2n\u22121,2n\u22122,2n\u22123,\u2026,2d+1,2d,2d2n\u22121,2n\u22122,2n\u22123,\u2026,2d+1,2d,2d. We can always choose a subset of logs with total weight equal to kk, if kk is divisible by 2d2d and less than nn. For example, we can make this subset if for every bit set to 11 in kk, we take the corresponding log."
+    ]
+}

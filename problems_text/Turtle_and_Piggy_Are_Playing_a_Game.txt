@@ -1,0 +1,4 @@
+Turtle and Piggy are playing a number game.
+First, Turtle will choose an integer x x , such that l ≤ x ≤ r l ≤ x ≤ r , where l , r l , r are given. It's also guaranteed that 2 l ≤ r 2 l ≤ r .
+Then, Piggy will keep doing the following operation until x x becomes 1 1 :
+The score is initially 0 0 . Both Turtle and Piggy want to maximize the score. Please help them to calculate the maximum score.

@@ -1,0 +1,22 @@
+{
+    "time_limit": "2 seconds",
+    "memory_limit": "512 megabytes",
+    "tags": [
+        "dp",
+        "greedy",
+        "hashing",
+        "implementation",
+        "*3000"
+    ],
+    "solution": [
+        "It's pretty obvious that every time we have a pair of equal cards in hand, we should play one of these pairs. If you're interested in a formal proof, please read the paragraph in italic, otherwise skip it.",
+        "Formal proof: suppose we have a pair of cards of type xx, but we play a card of type yy and a card of type zz in the optimal solution, where z\u2260xz\u2260x and z\u2260yz\u2260y. Let's show that playing a pair of cards of type xx can also be optimal. If y=xy=x, then let's find the next moment when we play a card of type xx. By swapping that card with a card of type zz, we \"fix\" the current pair and possibly \"break\" the pair from which we took the card of type xx, so our number of coins won't go down.",
+        "If y\u2260xy\u2260x, almost the same proof can be used: find the first two cards of type xx we play after that moment. Either they are played at the same moment, then we can swap the pairs we used at the current moment and at that moment. Or they are played at different moments t1t1 and t2t2; by swapping these two cards with cards of type yy and zz, we \"fix\" the pair we played at the current moment, we might \"break\" the pair played at the moment t2t2, but we cannot \"break\" the pair played at the moment t1t1, since the cards played at that moment are different.",
+        "Whenever we have a pair of equal cards, we will always play it at some moment and earn a coin, and it does not matter in which order we play different pairs. So we have to make a meaningful choice about which cards we play only when all kk cards in our hand are different.",
+        "In the ideal situation, if there are cici cards of type ii, we want to earn \u230aci2\u230b\u230aci2\u230b coins by playing these cards. But whenever we play only one card of type ii and there is an odd number of cards of type ii left (both in hand and in deck), we \"lose\" a coin, because the number of pairs we can make decreases by 11. Let's calculate the answer as the maximum possible number of pairs we can form (equal to \u2211i=1k\u230aci2\u230b\u2211i=1k\u230aci2\u230b), minus the minimum number of coins we \"lose\" in such a way.",
+        "Since we play a pair when we have at least one pair, we can \"lose\" coins only when all cards in our hand are different. So, let's try to use a dynamic programming of the form: dpidpi is the minimum number of coins we could lose when we have drawn ii first cards from the deck, and all cards in our hand are different.",
+        "Let's analyze the transitions of this dynamic programming. When transitioning out of dpidpi, we can iterate on the pair of cards we play (since we consider the situation when all cards in our hand are different, we can play any pair of different cards); for each of these two cards, check if we \"lose\" a coin by playing them, and try to find the next moment when all kk cards in our hand will be different (or update the answer if there is no such moment).",
+        "However, when implemented naively, it is too slow (might take up to O(n5)O(n5)). We can use the following optimizations to improve it:",
+        "Combining these two optimizations results in a solution in O(n3)O(n3) or O(n2logn)O(n2log\u2061n), but there are other optimizations you can try."
+    ]
+}

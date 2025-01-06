@@ -1,0 +1,7 @@
+Kevin has recently learned the definition of variance. For an array a a of length n n , the variance of a a is defined as follows:
+
+Now, Kevin gives you an array a a consisting of n n integers, as well as an integer k k . You can perform the following operation on a a :
+
+For each 1 ≤ p ≤ m 1 ≤ p ≤ m , you have to find the minimum possible variance of a a after exactly p p operations are performed, independently for each p p .
+
+For simplicity, you only need to output the answers multiplied by n 2 n 2 . It can be proven that the results are always integers.

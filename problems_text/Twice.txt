@@ -1,0 +1,5 @@
+Kinich wakes up to the start of a new day. He turns on his phone, checks his mailbox, and finds a mysterious present. He decides to unbox the present.
+
+Kinich unboxes an array a a with n n integers. Initially, Kinich's score is 0 0 . He will perform the following operation any number of times:
+
+Output the maximum score Kinich can achieve after performing the aforementioned operation any number of times.

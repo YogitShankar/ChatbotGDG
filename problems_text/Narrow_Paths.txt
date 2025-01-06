@@ -1,0 +1,6 @@
+Monocarp is wandering through a matrix consisting of 2 2 rows and n n columns. Let's denote the cell in the i i -th row and j j -th column as ( i , j ) ( i , j ) . Monocarp starts at cell ( 1 , 1 ) ( 1 , 1 ) and wants to reach cell ( 2 , n ) ( 2 , n ) .
+In one move, Monocarp can move in one of two directions:
+Monocarp can't go outside the matrix.
+Polycarp wants to prevent Monocarp from freely wandering through the matrix. To do this, he wants to choose exactly k k different cells in the matrix and block them. He cannot choose cells ( 1 , 1 ) ( 1 , 1 ) and ( 2 , n ) ( 2 , n ) .
+For each i i from 0 0 to n n , Polycarp wants to know how many ways he can block exactly k k cells, so that Monocarp has exactly i i different paths from ( 1 , 1 ) ( 1 , 1 ) to ( 2 , n ) ( 2 , n ) . Two paths are considered different if there exists a cell that Monocarp visits in one path but not in the other.
+As the number of ways can be quite large, output it modulo 10 9 + 7 10 9 + 7 .

@@ -1,0 +1,5 @@
+You are given a tree with n n vertices.
+
+You need to construct an array a 1 , a 2 , … , a n a 1 , a 2 , … , a n of length n n , consisting of unique integers from 1 1 to 2 ⋅ n 2 ⋅ n , and such that for each edge u i ↔ v i u i ↔ v i of the tree, the value | a u i − a v i | | a u i − a v i | is not a prime number.
+
+Find any array that satisfies these conditions, or report that there is no such array.

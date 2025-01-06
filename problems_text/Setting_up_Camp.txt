@@ -1,0 +1,4 @@
+The organizing committee plans to take the participants of the Olympiad on a hike after the tour. Currently, the number of tents needed to be taken is being calculated. It is known that each tent can accommodate up to 3 3 people.
+Among the participants, there are a a introverts, b b extroverts, and c c universals:
+The organizing committee respects the wishes of each participant very much, so they want to fulfill all of them.
+Tell us the minimum number of tents needed to be taken so that all participants can be accommodated according to their preferences. If it is impossible to accommodate the participants in a way that fulfills all the wishes, output − 1 − 1 .

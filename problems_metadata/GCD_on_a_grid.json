@@ -1,0 +1,18 @@
+{
+    "time_limit": "3 seconds",
+    "memory_limit": "256 megabytes",
+    "tags": [
+        "brute force",
+        "dfs and similar",
+        "dp",
+        "implementation",
+        "math",
+        "number theory",
+        "*1900"
+    ],
+    "solution": [
+        "First, let's learn how to check for a fixed xx if there exists a path from (1,1)(1,1) to (n,m)(n,m) with a GCD of xx. It is necessary for all numbers along the path to be divisible by xx. Let's define a grid bb of size nn by mm, where bi,j=1bi,j=1 if ai,jai,j is divisible by xx, and bi,j=0bi,j=0 otherwise. If there exists a path of ones in bb, then there exists a path in aa with a GCD of xx.",
+        "To check if there exists a path consisting entirely of ones, dynamic programming can be used. Let dpi,jdpi,j denote whether it is possible to reach (i,j)(i,j) from (1,1)(1,1). Then the transitions are dpi,j=dpi\u22121,j\u2228dpi,j\u22121dpi,j=dpi\u22121,j\u2228dpi,j\u22121, with the base case of the dynamic programming being dp1,1=b1,1dp1,1=b1,1.",
+        "Since the path will definitely pass through the cells (1,1)(1,1) and (n,m)(n,m), we iterate through all divisors of the number g=gcd(a1,1,an,m)g=gcd(a1,1,an,m), check for each one if there exists a path with that GCD, and take the maximum such divisor. The complexity of the solution is O(n\u22c5m\u22c5A\u2212\u2212\u221a3)O(n\u22c5m\u22c5A3), where A\u2264106A\u2264106."
+    ]
+}

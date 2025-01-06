@@ -1,0 +1,2 @@
+Alice and Bob are playing a game on n n piles of stones. On each player's turn, they select a positive integer k k that is at most the size of the smallest nonempty pile and remove k k stones from each nonempty pile at once. The first player who is unable to make a move (because all piles are empty) loses.
+Given that Alice goes first, who will win the game if both players play optimally?

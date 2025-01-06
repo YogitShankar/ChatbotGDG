@@ -1,0 +1,7 @@
+Recently, akshiM met a task that needed binomial coefficients to solve. He wrote a code he usually does that looked like this:
+
+Unfortunately, he made an error, since the right formula is the following:
+
+But his team member keblidA is interested in values that were produced using the wrong formula. Please help him to calculate these coefficients for t t various pairs ( n i , k i ) ( n i , k i ) . Note that they should be calculated according to the first (wrong) formula.
+
+Since values C [ n i ] [ k i ] C [ n i ] [ k i ] may be too large, print them modulo 10 9 + 7 10 9 + 7 .

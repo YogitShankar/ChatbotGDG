@@ -1,0 +1,7 @@
+This is the hard version of the problem. The only difference between the two versions is the constraint on t t , m m and the sum of m m . You can make hacks only if both versions of the problem are solved.
+Alice and Bob play yet another game on an array a a of size n n . Alice starts with an empty array c c . Both players take turns playing, with Alice starting first.
+On Alice's turn, she picks one element from a a , appends that element to c c , and then deletes it from a a .
+On Bob's turn, he picks at most k k elements from a a , and then deletes it from a a .
+The game ends when the array a a is empty. Alice's score is defined to be the MEX † † of c c . Alice wants to maximize her score while Bob wants to minimize it. Find Alice's final score if both players play optimally.
+The array will be given in compressed format. Instead of giving the elements present in the array, we will be giving their frequencies. Formally, you will be given m m , the maximum element in the array, and then m + 1 m + 1 integers f 0 , f 1 , … , f m f 0 , f 1 , … , f m , where f i f i represents the number of times i i occurs in the array a a .
+† † The MEX MEX (minimum excludant) of an array of integers is defined as the smallest non-negative integer which does not occur in the array. For example:

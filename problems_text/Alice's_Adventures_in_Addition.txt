@@ -1,0 +1,5 @@
+Note that the memory limit is unusual.
+
+The Cheshire Cat has a riddle for Alice: given n n integers a 1 , a 2 , … , a n a 1 , a 2 , … , a n and a target m m , is there a way to insert + + and × × into the circles of the expression
+
+Although Alice is excellent at chess, she is not good at math. Please help her so she can find a way out of Wonderland!

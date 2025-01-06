@@ -1,0 +1,7 @@
+Given an integer array a a of size n n .
+
+Let's define the value of the array as its size minus the number of set bits in the bitwise OR of all elements of the array.
+
+For example, for the array [ 1 , 0 , 1 , 2 ] [ 1 , 0 , 1 , 2 ] , the bitwise OR is 3 3 (which contains 2 2 set bits), and the value of the array is 4 − 2 = 2 4 − 2 = 2 .
+
+Your task is to calculate the maximum possible value of some subsequence of the given array.

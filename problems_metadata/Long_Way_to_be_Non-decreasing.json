@@ -1,0 +1,14 @@
+{
+    "time_limit": "4 seconds",
+    "memory_limit": "512 megabytes",
+    "tags": [
+        "binary search",
+        "dfs and similar",
+        "graphs",
+        "implementation",
+        "shortest paths",
+        "two pointers",
+        "*2800"
+    ],
+    "solution": null
+}

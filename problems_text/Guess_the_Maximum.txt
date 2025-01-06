@@ -1,0 +1,2 @@
+Alice and Bob came up with a rather strange game. They have an array of integers a 1 , a 2 , … , a n a 1 , a 2 , … , a n . Alice chooses a certain integer k k and tells it to Bob, then the following happens:
+Help Alice find the maximum k k at which she is guaranteed to win.

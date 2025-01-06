@@ -1,0 +1,9 @@
+Suppose you are working in the Ministry of Digital Development of Berland, and your task is to monitor the industry of video blogging.
+
+There are n n bloggers in Berland. Recently, due to the poor state of the main video platform in Berland, two alternative platforms were introduced. That's why bloggers started to reupload their videos to these alternative platforms. You've got the statistics that the i i -th blogger uploaded v i v i videos to the first alternative platform and r i r i videos to the second alternative platform.
+
+You think that a potential user will be upset if even at least one of his favorite bloggers doesn't upload anything. However, if a blogger uploads videos to both platforms, the user will watch that blogger on the platform where more videos are available. So, you've come up with the following function to estimate user experience. Suppose a user watches k k bloggers b 1 , b 2 , … , b k b 1 , b 2 , … , b k ; then, let user experience be
+
+In order to get some statistics, you want to calculate the value a v g k a v g k that is equal to an average experience among all subsets of bloggers of size k k . Also, you have to calculate a v g k a v g k for each k k from 1 1 to n n .
+
+Since answers may be too large, print them modulo 998 244 353 998 244 353 .

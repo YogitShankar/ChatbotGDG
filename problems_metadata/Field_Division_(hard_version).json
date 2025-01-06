@@ -1,0 +1,16 @@
+{
+    "time_limit": "3 seconds",
+    "memory_limit": "256 megabytes",
+    "tags": [
+        "math",
+        "sortings",
+        "*2400"
+    ],
+    "solution": [
+        "First, read the editorial of the easy version.",
+        "Let's use the solution of the easy version to precalculate the stored information on the prefix.",
+        "The fountain will stop being a corner only when it is removed, because the leftmost corner on the prefix could not become further left as a result of removal.",
+        "To calculate the change in area, let's make an important observation: if fountain jj is not a corner, then it either cannot become one, or will become one only after the removal of the last corner that comes before it in sorted order. It was the leftmost corner that came before fountain jj, and the next corner in sorted order will be strictly higher.",
+        "Thus, we need to do the following: for each corner, calculate the area without considering it until the next corner, and this will be helped by the precalculation we did when calculating the area. Each fountain will be processed only once, so the time complexity is O(n)O(n)."
+    ]
+}

@@ -1,0 +1,14 @@
+{
+    "time_limit": "2 seconds",
+    "memory_limit": "512 megabytes",
+    "tags": [
+        "binary search",
+        "brute force",
+        "greedy",
+        "implementation",
+        "sortings",
+        "two pointers",
+        "*1300"
+    ],
+    "solution": "2025C - New GameLet's fix the value of the first selected cardxx. Then it is optimal to take the cards as follows: take all cards with the numberxx, then all cards with the numberx+1x+1, ..., all cards with the numberx+k\u22121x+k\u22121. If any of the intermediate numbers are not present in the deck, we stop immediately.Let's sort the arrayaa. Then the answer can be found as follows. Start at some positioniiand move to the right from it as long as the following conditions are met: the difference between the next number and the current one does not exceed11(otherwise, some number between them occurs00times) and the difference between the next number andaiaiis strictly less thankk(otherwise, we will take more thankkdifferent numbers).It is easy to notice that asiiincreases, the position we reach through this process also increases. Therefore, we can use two pointers to solve the problem. We will maintain a pointer to this position and update the answer at eachiiwith the distance betweeniiand the pointer.Overall complexity:O(nlogn)O(nlog\u2061n)for each test case."
+}

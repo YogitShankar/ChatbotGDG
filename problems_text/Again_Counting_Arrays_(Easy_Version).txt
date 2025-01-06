@@ -1,0 +1,7 @@
+This is the easy version of the problem. The differences between the two versions are the constraints on n , m , b 0 n , m , b 0 and the time limit. You can make hacks only if both versions are solved.
+Little R has counted many sets before, and now she decides to count arrays.
+Little R thinks an array b 0 , … , b n b 0 , … , b n consisting of non-negative integers is continuous if and only if, for each i i such that 1 ≤ i ≤ n 1 ≤ i ≤ n , | b i − b i − 1 | = 1 | b i − b i − 1 | = 1 is satisfied. She likes continuity, so she only wants to generate continuous arrays.
+If Little R is given b 0 b 0 and a 1 , … , a n a 1 , … , a n , she will try to generate a non-negative continuous array b b , which has no similarity with a a . More formally, for all 1 ≤ i ≤ n 1 ≤ i ≤ n , a i ≠ b i a i ≠ b i holds.
+However, Little R does not have any array a a . Instead, she gives you n n , m m and b 0 b 0 . She wants to count the different integer arrays a 1 , … , a n a 1 , … , a n satisfying:
+Note that b i ≥ 0 b i ≥ 0 , but the b i b i can be arbitrarily large.
+Since the actual answer may be enormous, please just tell her the answer modulo 998 244 353 998 244 353 .

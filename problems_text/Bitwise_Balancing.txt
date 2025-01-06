@@ -1,0 +1,5 @@
+You are given three non-negative integers b b , c c , and d d .
+
+Please find a non-negative integer a ∈ [ 0 , 2 61 ] a ∈ [ 0 , 2 61 ] such that ( a | b ) − ( a & c ) = d ( a | b ) − ( a & c ) = d , where | | and & & denote the bitwise OR operation and the bitwise AND operation , respectively.
+
+If such an a a exists, print its value. If there is no solution, print a single integer − 1 − 1 . If there are multiple solutions, print any of them.

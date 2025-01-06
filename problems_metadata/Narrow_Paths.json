@@ -1,0 +1,20 @@
+{
+    "time_limit": "2 seconds",
+    "memory_limit": "256 megabytes",
+    "tags": [
+        "*special problem",
+        "combinatorics",
+        "*2000"
+    ],
+    "solution": [
+        "If there are no blocked cells, then there are a total of nn different paths. Initially, Monocarp goes to the right, then descends in some column and goes all the way to the right. That is, the chosen column determines the path.",
+        "Now with blocked cells. Why might a path be inaccessible? Either Monocarp cannot go further to the right, or one of the cells in the column is blocked, or it cannot reach the end to the right. From this, the following conclusion can be drawn. In the first row, only the leftmost blocked cell is important, and in the second row, only the rightmost one is important.",
+        "If in the first row the leftmost blocked cell is at position xx, and the rightmost in the second row is at position yy, then Monocarp has access to x\u2212y+1x\u2212y+1 paths. We will deal with the case when there are no blocked cells in one of the rows later.",
+        "It can be noticed that the difference can be non-positive, but this simply means that there are 00 paths. In practice, this case can be eliminated by calculating all the positive answers and subtracting them from the total number of ways to choose kk blocked cells out of 2n\u221222n\u22122 options.",
+        "Let's say we have fixed x\u2212y=dx\u2212y=d. Then the two fixed cells can be at positions (d+1,1),(d+2,2),\u2026,(n,n\u2212d)(d+1,1),(d+2,2),\u2026,(n,n\u2212d). In the case of (d+1,1)(d+1,1), the remaining k\u22122k\u22122 cells can be chosen from among n\u2212(d+1)n\u2212(d+1) to the right of the first cell and among 00 to the left of the second cell, totaling n\u2212(d+1)n\u2212(d+1). In the case of (d+1,1)(d+1,1), this is n\u2212(d+2)n\u2212(d+2) and 11, again totaling n\u2212(d+1)n\u2212(d+1). That is, with a fixed difference, we always have the same number of ways to choose the remaining k\u22122k\u22122 cells\u00a0\u2014 (n\u2212d\u22121k\u22122)(n\u2212d\u22121k\u22122). And we know that the positions for the two cells can be chosen in n\u2212dn\u2212d ways. That is, the contribution to the answer for d\u22121d\u22121 is (n\u2212d\u22121k\u22122)\u22c5(n\u2212d)(n\u2212d\u22121k\u22122)\u22c5(n\u2212d).",
+        "We still need to deal with the ways in which one of the rows has no blocked cells. Let's assume this is the case for the second row. Then the number of paths is still determined by the position of the leftmost blocked cell in the first row. Let's iterate over it and count the ways to arrange the remaining k\u22121k\u22121 cells. There are (n\u2212i\u22121k\u22121)(n\u2212i\u22121k\u22121) ways for the cell at position ii.",
+        "If there are no blocked cells in the second row, then the answer is exactly the same. We iterate over the position of the rightmost cell and arrange the rest. It turns out to be symmetrical to the first method, so the formula is the same. We just calculate it once and multiply by 22.",
+        "You can pre-calculate factorials to compute the binomial coefficient in O(n+logMOD)O(n+log\u2061MOD).",
+        "Overall complexity: O(n+logMOD)O(n+log\u2061MOD)."
+    ]
+}

@@ -1,0 +1,7 @@
+For two integers x x and y y ( x , y ≥ 2 x , y ≥ 2 ), we will say that x x is a generator of y y if and only if x x can be transformed to y y by performing the following operation some number of times (possibly zero):
+
+For example,
+
+Now, Kevin gives you an array a a consisting of n n pairwise distinct integers ( a i ≥ 2 a i ≥ 2 ).
+
+You have to find an integer x ≥ 2 x ≥ 2 such that for each 1 ≤ i ≤ n 1 ≤ i ≤ n , x x is a generator of a i a i , or determine that such an integer does not exist.

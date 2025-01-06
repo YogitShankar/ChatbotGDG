@@ -1,0 +1,14 @@
+{
+    "time_limit": "2 seconds",
+    "memory_limit": "256 megabytes",
+    "tags": [
+        "binary search",
+        "dp",
+        "graphs",
+        "greedy",
+        "implementation",
+        "two pointers",
+        "*1700"
+    ],
+    "solution": "2027D1 - The Endspeaker (Easy Version)Let's use dynamic programming. We will havedpi,jdpi,jbe the minimum cost to remove the prefix of lengthii, where the current value ofkkisjj. By a type11operation, we can transition fromdpi,jdpi,jtodpi,j+1dpi,j+1at no cost. Otherwise, by a type22operation, we need to remove some contiguous subarrayai+1,ai+2,\u2026,axai+1,ai+2,\u2026,ax(a prefix of the current array), to transition todpx,jdpx,jwith a cost ofm\u2212km\u2212k.Letrrbe the largest value ofxxpossible. Given we're spendingm\u2212km\u2212kwhatever value ofxxwe choose, it's clear to see that we only need to transition todpr,jdpr,j. To findrrfor each value ofiiandjj, we can either binary search over the prefix sums or simply maintainrras we increaseiifor a fixed value ofkk. The answer is thendpn,kdpn,k. The latter method solves the problem inO(nm)O(nm)."
+}

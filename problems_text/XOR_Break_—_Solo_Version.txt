@@ -1,0 +1,5 @@
+This is the solo version of the problem. Note that the solution of this problem may or may not share ideas with the solution of the game version. You can solve and get points for both versions independently.
+You can make hacks only if both versions of the problem are solved.
+Given an integer variable x x with the initial value of n n . A single break operation consists of the following steps:
+You don't need to minimize the number of operations.
+Here ⊕ ⊕ denotes the bitwise XOR operation .

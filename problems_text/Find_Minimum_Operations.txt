@@ -1,0 +1,5 @@
+You are given two integers n n and k k .
+
+In one operation, you can subtract any power of k k from n n . Formally, in one operation, you can replace n n by ( n − k x ) ( n − k x ) for any non-negative integer x x .
+
+Find the minimum number of operations required to make n n equal to 0 0 .

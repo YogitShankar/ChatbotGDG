@@ -1,0 +1,4 @@
+Suppose you have a permutation p p of n n integers — an array where each element is an integer from 1 1 to n n , and every integer from 1 1 to n n appears exactly once.
+In one operation, you remove every element of this permutation which is less than at least one of its neighbors. For example, when you apply the operation to [ 3 , 1 , 2 , 5 , 4 ] [ 3 , 1 , 2 , 5 , 4 ] , you get [ 3 , 5 ] [ 3 , 5 ] . If you apply an operation again, you get [ 5 ] [ 5 ] .
+It's easy to see that after applying a finite number of operations, you get an array consisting of a single integer n n .
+You are given two integers n n and k k . Find a permutation of n n integers such that it becomes an array consisting of a single element n n after exactly k k operations (and not earlier).

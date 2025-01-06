@@ -1,0 +1,14 @@
+{
+    "time_limit": "4 seconds",
+    "memory_limit": "512 megabytes",
+    "tags": [
+        "data structures",
+        "dfs and similar",
+        "dsu",
+        "graphs",
+        "number theory",
+        "two pointers",
+        "*2400"
+    ],
+    "solution": null
+}

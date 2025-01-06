@@ -1,0 +1,4 @@
+There are n n monsters standing in a row. The i i -th monster has a i a i health points.
+Every second, you can choose one alive monster and launch a chain lightning at it. The lightning deals k k damage to it, and also spreads to the left (towards decreasing i i ) and to the right (towards increasing i i ) to alive monsters, dealing k k damage to each. When the lightning reaches a dead monster or the beginning/end of the row, it stops. A monster is considered alive if its health points are strictly greater than 0 0 .
+For example, consider the following scenario: there are three monsters with health equal to [ 5 , 2 , 7 ] [ 5 , 2 , 7 ] , and k = 3 k = 3 . You can kill them all in 4 4 seconds:
+For each k k from 1 1 to max ( a 1 , a 2 , … , a n ) max ( a 1 , a 2 , … , a n ) , calculate the minimum number of seconds it takes to kill all the monsters.

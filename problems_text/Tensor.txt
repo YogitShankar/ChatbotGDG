@@ -1,0 +1,8 @@
+This is an interactive problem.
+You are given an integer n n .
+The jury has hidden from you a directed graph with n n vertices (numbered from 1 1 to n n ) and some number of edges. You additionally know that:
+You want to color each vertex in either black or white such that for any two vertices i i and j j ( 1 ≤ i < j ≤ n 1 ≤ i < j ≤ n ) of the same color, vertex i i is reachable from vertex j j .
+To do that, you can ask queries of the following type:
+Find any valid vertex coloring of the hidden graph in at most 2 ⋅ n 2 ⋅ n queries. It can be proven that such a coloring always exists.
+Note that the grader is not adaptive: the graph is fixed before any queries are made.
+† † Vertex a a is reachable from vertex b b if there exists a path from vertex b b to vertex a a in the graph.

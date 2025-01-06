@@ -1,0 +1,3 @@
+This is the hard version of the problem. The difference between the two versions of this problem is the constraint on k k . You can make hacks only if all versions of the problem are solved.
+You are given an undirected tree of n n nodes. Each node v v has a value a v a v written on it. You have to answer queries related to the tree.
+You are given q q queries. In each query, you are given 5 5 integers, u 1 , v 1 , u 2 , v 2 , k u 1 , v 1 , u 2 , v 2 , k . Denote the count of nodes with value c c on path u 1 → v 1 u 1 → v 1 with x c x c , and the count of nodes with value c c on path u 2 → v 2 u 2 → v 2 with y c y c . If there are z z such values of c c such that x c ≠ y c x c ≠ y c , output any min ( z , k ) min ( z , k ) such values in any order.

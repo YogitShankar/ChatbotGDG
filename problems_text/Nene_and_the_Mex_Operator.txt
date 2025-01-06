@@ -1,0 +1,4 @@
+Nene gave you an array of integers a 1 , a 2 , … , a n a 1 , a 2 , … , a n of length n n .
+You can perform the following operation no more than 5 ⋅ 10 5 5 ⋅ 10 5 times (possibly zero):
+Here, MEX MEX of a set of integers { c 1 , c 2 , … , c k } { c 1 , c 2 , … , c k } is defined as the smallest non-negative integer m m which does not occur in the set c c .
+Your goal is to maximize the sum of the elements of the array a a . Find the maximum sum and construct a sequence of operations that achieves this sum. Note that you don't need to minimize the number of operations in this sequence, you only should use no more than 5 ⋅ 10 5 5 ⋅ 10 5 operations in your solution.

@@ -1,0 +1,9 @@
+Sheriff of Nottingham has organized a tournament in archery. It's the final round and Robin Hood is playing against Sheriff!
+
+There are n n targets in a row numbered from 1 1 to n n . When a player shoots target i i , their score increases by a i a i and the target i i is destroyed. The game consists of turns and players alternate between whose turn it is. Robin Hood always starts the game, then Sheriff and so on. The game continues until all targets are destroyed. Both players start with score 0 0 .
+
+At the end of the game, the player with most score wins and the other player loses. If both players have the same score, it's a tie and no one wins or loses. In each turn, the player can shoot any target that wasn't shot before. Both play optimally to get the most score possible.
+
+Sheriff of Nottingham has a suspicion that he might lose the game! This cannot happen, you must help Sheriff. Sheriff will pose q q queries, each specifying l l and r r . This means that the game would be played only with targets l , l + 1 , … , r l , l + 1 , … , r , as others would be removed by Sheriff before the game starts.
+
+For each query l l , r r , determine whether the Sheriff can not lose the game when only considering the targets l , l + 1 , … , r l , l + 1 , … , r .

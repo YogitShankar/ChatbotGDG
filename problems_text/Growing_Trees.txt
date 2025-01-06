@@ -1,0 +1,4 @@
+You are given an undirected connected simple graph with n n nodes and m m edges, where edge i i connects node u i u i and v i v i , with two positive parameters a i a i and b i b i attached to it. Additionally, you are also given an integer k k .
+A non-negative array x x with size m m is called a k k -spanning-tree generator if it satisfies the following:
+The cost of such array x x is defined as ∑ m i = 1 a i x 2 i + b i x i ∑ i = 1 m a i x i 2 + b i x i . Find the minimum cost of a k k -spanning-tree generator.
+† † A spanning tree of a (multi)graph is a subset of the graph's edges that form a tree connecting all vertices of the graph.

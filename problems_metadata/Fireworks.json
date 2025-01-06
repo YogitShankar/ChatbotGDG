@@ -1,0 +1,15 @@
+{
+    "time_limit": "1 second",
+    "memory_limit": "256 megabytes",
+    "tags": [
+        "math",
+        "number theory",
+        "*900"
+    ],
+    "solution": [
+        "Let's consider the moment in time T=LCM(a,b)T=LCM(a,b) (least common multiple of numbers aa and bb). It is easy to notice that since T>0T>0 and TT is divisible by both aa and bb, at this moment both camps will release a firework, each of which will disappear after m+1m+1 minutes.",
+        "Let's look at the sky at the T+mT+m-th minute. We will still see two fireworks released at the moment TT, the first camp managed to release \u230ama\u230b\u230ama\u230b fireworks, and the second, similarly, \u230amb\u230b\u230amb\u230b fireworks (this follows from the fact that TT is divisible by aa and bb). Taking into account the two fireworks released at the moment TT, we will reach the answer \u230ama\u230b+\u230amb\u230b+2\u230ama\u230b+\u230amb\u230b+2.",
+        "Why can't we achieve a greater answer? Let's consider two setups for launching fireworks independently. Without loss of generality, consider the first setup (releasing fireworks every aa minutes). Consider the moment when the fireworks from this setup are visible in the sky. Let the first firework among the visible ones disappear at the moment xx, then at the moment xx we will see no fewer fireworks, but at the moment x+1x+1\u00a0\u2014 fewer. At the moment xx, there will be fireworks in the sky, released at moments [xx, x+ax+a, \u2026\u2026, x+a\u22c5\u230ama\u230bx+a\u22c5\u230ama\u230b]. Thus, from the first setup, we can see no more than \u230ama\u230b+1\u230ama\u230b+1 fireworks simultaneously. The same formula is applicable to the second setup. We have proved that the answer does not exceed \u230ama\u230b+1+\u230amb\u230b+1=\u230ama\u230b+\u230amb\u230b+2\u230ama\u230b+1+\u230amb\u230b+1=\u230ama\u230b+\u230amb\u230b+2, so that is the answer.",
+        "Complexity: O(1)O(1)."
+    ]
+}

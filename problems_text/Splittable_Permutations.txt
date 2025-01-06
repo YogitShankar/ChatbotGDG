@@ -1,0 +1,5 @@
+Initially, we had one array, which was a permutation of size n n (an array of size n n where each integer from 1 1 to n n appears exactly once).
+We performed q q operations. During the i i -th operation, we did the following:
+For example, suppose the initial array was [ 6 , 3 , 4 , 1 , 2 , 5 ] [ 6 , 3 , 4 , 1 , 2 , 5 ] , and we performed the following operations:
+You are given two integers n n and q q , and two sequences [ l 1 , l 2 , … , l q ] [ l 1 , l 2 , … , l q ] and [ r 1 , r 2 , … , r q ] [ r 1 , r 2 , … , r q ] . A permutation of size n n is called valid if we can perform q q operations and produce the given sequences [ l 1 , l 2 , … , l q ] [ l 1 , l 2 , … , l q ] and [ r 1 , r 2 , … , r q ] [ r 1 , r 2 , … , r q ] .
+Calculate the number of valid permutations.

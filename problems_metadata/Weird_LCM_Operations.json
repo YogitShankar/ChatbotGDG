@@ -1,0 +1,21 @@
+{
+    "time_limit": "2 seconds",
+    "memory_limit": "256 megabytes",
+    "tags": [
+        "brute force",
+        "constructive algorithms",
+        "number theory",
+        "*3000"
+    ],
+    "solution": [
+        "Fact 1: If for (x,y,z)(x,y,z) their pairwise GCDs are equal to their common GCD (this means that (x,y,z)(x,y,z) = (g\u2217X,g\u2217Y,g\u2217Z)(g\u2217X,g\u2217Y,g\u2217Z) where (X,Y,Z)(X,Y,Z) are pairwise coprime), then making an operation on them (gives (g\u2217X\u2217Y,g\u2217X\u2217Z,g\u2217Y\u2217Z)(g\u2217X\u2217Y,g\u2217X\u2217Z,g\u2217Y\u2217Z)) and looking at the subsequences of size EXACTLY 2, we find all three GCD: xx, yy, zz. Let's call such tuple NICE.",
+        "Result: If we can split all values in the array into independent NICE tuples, then we can just perform an operation on each of them and the problem is solved.",
+        "Fact 2: We don't touch any value \u2264\u2264 n2n2. If there is xx \u2264\u2264 n2n2, then 2\u2217x\u2264n2\u2217x\u2264n. If we don't touch xx, then we will always have another value that is divisible by xx (it's easy to see that performing an operation on a multiple of xx leaves us with another multiple of xx), so we will always have GCD equal to xx taking a subsequence (x,x\u2217A)(x,x\u2217A).",
+        "Fact 3: A sequence of consecutive integers (x,x+1,x+2,...,x+11)(x,x+1,x+2,...,x+11) can be partitioned into 44 disjoint sets of size 33, each forming a NICE tuple, if (x+11)%4(x+11)%4 equals 22 or 11.",
+        "For (x+11)%4=2(x+11)%4=2: The sets (x,x+1,x+2)(x,x+1,x+2), (x+4,x+5,x+6)(x+4,x+5,x+6) and (x+8,x+9,x+10)(x+8,x+9,x+10) are NICE because, the first and third terms are always odd, and the second term is always even. The set (x+3,x+7,x+11)(x+3,x+7,x+11) is NICE because it has the form of 2\u2217(2\u2217n\u22121)2\u2217(2\u2217n\u22121), 2\u2217(2\u2217n)2\u2217(2\u2217n), 2\u2217(2\u2217n+1)2\u2217(2\u2217n+1), ensuring that the pairwise GCDs are equal to the common GCD.",
+        "For (x+11)%4=1(x+11)%4=1: The sets (x,x+4,x+8)(x,x+4,x+8), (x+1,x+2,x+3)(x+1,x+2,x+3), (x+5,x+6,x+7)(x+5,x+6,x+7) and (x+9,x+10,x+11)(x+9,x+10,x+11) are NICE, the same logic like (x+11)%4=2(x+11)%4=2 follows,",
+        "If n%4=3n%4=3 we can do one operation as (1,2,n)(1,2,n), and if n%4=0n%4=0 we can do one operation as (1,n\u22121,n)(1,n\u22121,n). Let's group the remaining elements into the groups of size 1212, starting from the end, and continuing until we reach the number n2n2.",
+        "Eventually, we can count that we used no more than \u230an6\u230b+5\u230an6\u230b+5 operations.",
+        "Solutions for n\u226413n\u226413 should be found manually."
+    ]
+}

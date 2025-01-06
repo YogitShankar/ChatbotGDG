@@ -1,0 +1,3 @@
+Given two arrays of distinct positive integers a a and b b of length n n , we would like to make both the arrays the same. Two arrays x x and y y of length k k are said to be the same when for all 1 ≤ i ≤ k 1 ≤ i ≤ k , x i = y i x i = y i .
+Now in one move, you can choose some index l l and r r in a a ( l ≤ r l ≤ r ) and swap a l a l and a r a r , then choose some p p and q q ( p ≤ q p ≤ q ) in b b such that r − l = q − p r − l = q − p and swap b p b p and b q b q .
+Is it possible to make both arrays the same?

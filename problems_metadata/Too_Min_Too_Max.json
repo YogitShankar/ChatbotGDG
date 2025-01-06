@@ -1,0 +1,15 @@
+{
+    "time_limit": "1 second",
+    "memory_limit": "256 megabytes",
+    "tags": [
+        "greedy",
+        "math",
+        "*800"
+    ],
+    "solution": [
+        "What will be answer if there were only 44 elements in the array?",
+        "Suppose if there were only 44 elements in the array. Let them be a\u2264b\u2264c\u2264da\u2264b\u2264c\u2264d. Then the answer will be maximum of the three cases which are listed as follows:-",
+        "so clearly 2\u2217(d+c)\u22122\u2217(a+b)2\u2217(d+c)\u22122\u2217(a+b) is the maximum.",
+        "So, to maximize this we can set dd, cc as large as possible and aa, bb as small as possible i.e. d=and=an, c=an\u22121c=an\u22121, b=a2b=a2 and a=a1a=a1 where aiai means ithith element in sorted order of given array."
+    ]
+}

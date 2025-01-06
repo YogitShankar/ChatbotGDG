@@ -1,0 +1,5 @@
+You are given an array a a of length 2 n 2 n , consisting of each integer from 1 1 to n n exactly twice .
+You are also given an integer k k ( 1 ≤ k ≤ ⌊ n 2 ⌋ 1 ≤ k ≤ ⌊ n 2 ⌋ ).
+You need to find two arrays l l and r r each of length 2 k 2 k such that:
+It can be proved that at least one pair of l l and r r always exists. If there are multiple solutions, you may output any one of them.
+† † A sequence x x is a subset of a sequence y y if x x can be obtained by deleting several (possibly none or all) elements of y y and rearranging the elements in any order. For example, [ 3 , 1 , 2 , 1 ] [ 3 , 1 , 2 , 1 ] , [ 1 , 2 , 3 ] [ 1 , 2 , 3 ] , [ 1 , 1 ] [ 1 , 1 ] and [ 3 , 2 ] [ 3 , 2 ] are subsets of [ 1 , 1 , 2 , 3 ] [ 1 , 1 , 2 , 3 ] but [ 4 ] [ 4 ] and [ 2 , 2 ] [ 2 , 2 ] are not subsets of [ 1 , 1 , 2 , 3 ] [ 1 , 1 , 2 , 3 ] .

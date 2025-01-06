@@ -1,0 +1,5 @@
+The New Year has arrived in the Master's Assistance Center, which means it's time to introduce a new feature!
+Now students are given distance learning courses, with a total of n n courses available. For the i i -th distance learning course, a student can receive a grade ranging from x i x i to y i y i .
+However, not all courses may be available to each student. Specifically, the j j -th student is only given courses with numbers from l j l j to r j r j , meaning the distance learning courses with numbers l j , l j + 1 , … , r j l j , l j + 1 , … , r j .
+The creators of the distance learning courses have decided to determine the final grade in a special way. Let the j j -th student receive grades c l j , c l j + 1 , … , c r j c l j , c l j + 1 , … , c r j for their distance learning courses. Then their final grade will be equal to c l j c l j | | c l j + 1 c l j + 1 | | … … | | c r j c r j , where | | denotes the bitwise OR operation.
+Since the chatbot for solving distance learning courses is broken, the students have asked for your help. For each of the q q students, tell them the maximum final grade they can achieve.

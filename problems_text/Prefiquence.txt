@@ -1,0 +1,3 @@
+You are given two binary strings a a and b b . A binary string is a string consisting of the characters ' 0 ' and ' 1 '.
+Your task is to determine the maximum possible number k k such that a prefix of string a a of length k k is a subsequence of string b b .
+A sequence a a is a subsequence of a sequence b b if a a can be obtained from b b by the deletion of several (possibly, zero or all) elements.

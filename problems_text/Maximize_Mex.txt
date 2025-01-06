@@ -1,0 +1,5 @@
+You are given an array a a of n n positive integers and an integer x x . You can do the following two-step operation any (possibly zero) number of times:
+
+Find the maximum value of the MEX MEX of a a if you perform the operations optimally.
+
+The MEX MEX (minimum excluded value) of an array is the smallest non-negative integer that is not in the array. For example:

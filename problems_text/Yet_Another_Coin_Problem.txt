@@ -1,0 +1,2 @@
+You have 5 5 different types of coins, each with a value equal to one of the first 5 5 triangular numbers: 1 1 , 3 3 , 6 6 , 10 10 , and 15 15 . These coin types are available in abundance. Your goal is to find the minimum number of these coins required such that their total value sums up to exactly n n .
+We can show that the answer always exists.

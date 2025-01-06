@@ -1,0 +1,4 @@
+Let's define a cyclic shift of some string s s as a transformation from s 1 s 2 … s n − 1 s n s 1 s 2 … s n − 1 s n into s n s 1 s 2 … s n − 1 s n s 1 s 2 … s n − 1 . In other words, you take one last character s n s n and place it before the first character while moving all other characters to the right.
+You are given a binary string s s (a string consisting of only 0 -s and/or 1 -s).
+In one operation, you can choose any substring s l s l + 1 … s r s l s l + 1 … s r ( 1 ≤ l < r ≤ | s | 1 ≤ l < r ≤ | s | ) and cyclically shift it. The cost of such operation is equal to r − l + 1 r − l + 1 (or the length of the chosen substring).
+You can perform the given operation any number of times. What is the minimum total cost to make s s sorted in non-descending order?

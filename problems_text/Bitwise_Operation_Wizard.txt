@@ -1,0 +1,5 @@
+This is an interactive problem.
+There is a secret sequence p 0 , p 1 , … , p n − 1 p 0 , p 1 , … , p n − 1 , which is a permutation of { 0 , 1 , … , n − 1 } { 0 , 1 , … , n − 1 } .
+You need to find any two indices i i and j j such that p i ⊕ p j p i ⊕ p j is maximized, where ⊕ ⊕ denotes the bitwise XOR operation .
+To do this, you can ask queries. Each query has the following form: you pick arbitrary indices a a , b b , c c , and d d ( 0 ≤ a , b , c , d < n 0 ≤ a , b , c , d < n ). Next, the jury calculates x = ( p a ∣ p b ) x = ( p a ∣ p b ) and y = ( p c ∣ p d ) y = ( p c ∣ p d ) , where | | denotes the bitwise OR operation . Finally, you receive the result of comparison between x x and y y . In other words, you are told if x < y x < y , x > y x > y , or x = y x = y .
+Please find any two indices i i and j j ( 0 ≤ i , j < n 0 ≤ i , j < n ) such that p i ⊕ p j p i ⊕ p j is maximum among all such pairs, using at most 3 n 3 n queries. If there are multiple pairs of indices satisfying the condition, you may output any one of them.

@@ -1,0 +1,7 @@
+Shohag has an array a a of integers. Initially a = [ 0 , 1 ] a = [ 0 , 1 ] . He can repeatedly perform the following operation any number of times:
+
+For example, if a = [ 4 , 6 , 2 , 4 ] a = [ 4 , 6 , 2 , 4 ] , then the number of inversions is k = 3 k = 3 . So Shohag can obtain the following arrays after the operation: [ 3 , 4 , 6 , 2 , 4 ] [ 3 , 4 , 6 , 2 , 4 ] , [ 4 , 3 , 6 , 2 , 4 ] [ 4 , 3 , 6 , 2 , 4 ] , [ 4 , 6 , 3 , 2 , 4 ] [ 4 , 6 , 3 , 2 , 4 ] , [ 4 , 6 , 2 , 3 , 4 ] [ 4 , 6 , 2 , 3 , 4 ] , and [ 4 , 6 , 2 , 4 , 3 ] [ 4 , 6 , 2 , 4 , 3 ] .
+
+Given an integer n n , help Shohag count, modulo 998 244 353 998 244 353 , the number of distinct arrays of length n n that can be obtained after performing the operations.
+
+∗ ∗ The number of inversions in an array a a is the number of pairs of indices ( i i , j j ) such that i < j i < j and a i > a j a i > a j .

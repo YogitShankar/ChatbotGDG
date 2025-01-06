@@ -1,0 +1,3 @@
+The two versions are different problems. You may want to read both versions. You can make hacks only if both versions are solved.
+You are given two positive integers n n , m m .
+Calculate the number of ordered pairs ( a , b ) ( a , b ) satisfying the following conditions:

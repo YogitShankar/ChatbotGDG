@@ -1,0 +1,7 @@
+You are given an array of integers a 1 , a 2 , … , a n a 1 , a 2 , … , a n of length n n and an integer k k .
+
+Two players are playing a game. The first player chooses an index 1 ≤ i ≤ n 1 ≤ i ≤ n . Then the second player chooses a different index 1 ≤ j ≤ n , i ≠ j 1 ≤ j ≤ n , i ≠ j . The first player wins if | a i − a j | | a i − a j | is not divisible by k k . Otherwise, the second player wins.
+
+We play as the first player. Determine whether it is possible to win, and if so, which index i i should be chosen.
+
+The absolute value of a number x x is denoted by | x | | x | and is equal to x x if x ≥ 0 x ≥ 0 , and − x − x otherwise.

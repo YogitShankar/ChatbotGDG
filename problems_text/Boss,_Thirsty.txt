@@ -1,0 +1,9 @@
+Pak Chanek has a friend who runs a drink stall in a canteen. His friend will sell drinks for n n days, numbered from day 1 1 to day n n . There are also m m types of drinks, numbered from 1 1 to m m .
+
+The profit gained from selling a drink on a particular day can vary. On day i i , the projected profit from selling drink of type j j is A i , j A i , j . Note that A i , j A i , j can be negative, meaning that selling the drink would actually incur a loss.
+
+Pak Chanek wants to help his friend plan the sales over the n n days. On day i i , Pak Chanek must choose to sell at least one type of drink. Furthermore, the types of drinks sold on a single day must form a subarray. In other words, in each day, Pak Chanek will select i i and j j such that 1 ≤ i ≤ j ≤ m 1 ≤ i ≤ j ≤ m . Then all types of drinks between i i and j j (inclusive) will be sold.
+
+However, to ensure that customers from the previous day keep returning, the selection of drink types sold on day i i ( i > 1 i > 1 ) must meet the following conditions:
+
+The daily profit is the sum of the profits from all drink types sold on that day. The total profit from the sales plan is the sum of the profits over n n days. What is the maximum total profit that can be achieved if Pak Chanek plans the sales optimally?

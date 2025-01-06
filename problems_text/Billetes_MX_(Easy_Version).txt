@@ -1,0 +1,9 @@
+This is the easy version of the problem. In this version, it is guaranteed that q = 0 q = 0 . You can make hacks only if both versions of the problem are solved.
+
+An integer grid A A with p p rows and q q columns is called beautiful if:
+
+There is a partially filled integer grid G G with n n rows and m m columns where only k k cells are filled. Polycarp wants to know how many ways he can assign integers to the unfilled cells so that the grid is beautiful.
+
+However, Monocarp thinks that this problem is too easy. Therefore, he will perform q q updates on the grid. In each update, he will choose an unfilled cell and assign an integer to it. Note that these updates are persistent . That is, changes made to the grid will apply when processing future updates.
+
+For each of the q + 1 q + 1 states of the grid, the initial state and after each of the q q queries, determine the number of ways Polycarp can assign integers to the unfilled cells so that the grid is beautiful. Since this number can be very large, you are only required to output their values modulo 10 9 + 7 10 9 + 7 .

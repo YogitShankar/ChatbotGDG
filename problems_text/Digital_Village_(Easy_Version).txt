@@ -1,0 +1,7 @@
+This is the easy version of the problem. In the three versions, the constraints on n n and m m are different. You can make hacks only if all the versions of the problem are solved.
+
+Pak Chanek is setting up internet connections for the village of Khuntien. The village can be represented as a connected simple graph with n n houses and m m internet cables connecting house u i u i and house v i v i , each with a latency of w i w i .
+
+There are p p houses that require internet. Pak Chanek can install servers in at most k k of the houses. The houses that need internet will then be connected to one of the servers. However, since each cable has its latency, the latency experienced by house s i s i requiring internet will be the maximum latency of the cables between that house and the server it is connected to.
+
+For each k = 1 , 2 , … , n k = 1 , 2 , … , n , help Pak Chanek determine the minimum total latency that can be achieved for all the houses requiring internet.

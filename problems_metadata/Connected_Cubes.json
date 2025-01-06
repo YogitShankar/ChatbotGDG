@@ -1,0 +1,23 @@
+{
+    "time_limit": "4 seconds",
+    "memory_limit": "256 megabytes",
+    "tags": [
+        "constructive algorithms",
+        "games",
+        "*3100"
+    ],
+    "solution": [
+        "We can show that a solution always exists. This example with n=3n=3, m=5m=5, k=4k=4 will demonstrate the construction we will use:",
+        "First, extend each of the even columns up by n+k\u22121n+k\u22121 spaces, keeping all cubes in a given vertical column the same color:",
+        "Then, for the odd columns, do something similar, except we use the bottom n\u22121n\u22121 rows to \"bend\" them around so the tops point out to the right:",
+        "After that, extend each of these new \"bent\" rows (each of which corresponds to an input cube in an odd column) to the right by kk:",
+        "Now, each initial cube in the nn by mm grid corresponds to one of these extended rows or columns, each of which is a connected group. Fill in the remaining columns between the even columns with kk rows each. The ii-th of these should be color ii.",
+        "Now do the same for the odd columns:",
+        "At this point, each cell of a given color is connected to at least one of the rows/columns we added in the last two steps. Now, we want to connect all of those by color. Start by adding these kk rows:",
+        "Followed by these k\u22121k\u22121 rows:",
+        "Once again, at this point, each cube of a given color is connected to one of the rows of that color we added in the last two steps. So the last remaining step is to connect them:",
+        "Now, all cubes of each color are connected.",
+        "This construction uses exactly (n+k)2m\u2212(k\u22121)2(m\u22121)\u2212nm(n+k)2m\u2212(k\u22121)2(m\u22121)\u2212nm additional cubes. Since n,m,k\u226450n,m,k\u226450, this is at most 379,851379,851, which fits within the bounds of the problem.",
+        "Complexity: O((n+k)2m)O((n+k)2m)"
+    ]
+}

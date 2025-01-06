@@ -1,0 +1,4 @@
+Three friends gathered to play a few games of chess together.
+In every game, two of them play against each other. The winner gets 2 2 points while the loser gets 0 0 , and in case of a draw, both players get 1 1 point each. Note that the same pair of players could have played any non-negative number of times (possibly zero). It is also possible that no games were played at all.
+You've been told that their scores after all the games were played were p 1 p 1 , p 2 p 2 and p 3 p 3 . Additionally, it is guaranteed that p 1 ≤ p 2 ≤ p 3 p 1 ≤ p 2 ≤ p 3 holds.
+Find the maximum number of draws that could have happened and print it. If there isn't any way to obtain p 1 p 1 , p 2 p 2 and p 3 p 3 as a result of a non-negative number of games between the three players, print − 1 − 1 instead.

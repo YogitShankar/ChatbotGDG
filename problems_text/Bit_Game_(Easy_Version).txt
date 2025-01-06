@@ -1,0 +1,7 @@
+This is the easy version of this problem. The only difference is that you need to output the winner of the game in this version, and the number of stones in each pile are fixed. You must solve both versions to be able to hack.
+
+Alice and Bob are playing a familiar game where they take turns removing stones from n n piles. Initially, there are x i x i stones in the i i -th pile, and it has an associated value a i a i . A player can take d d stones away from the i i -th pile if and only if both of the following conditions are met:
+
+The player who cannot make a move loses, and Alice goes first.
+
+You're given the a i a i and x i x i values for each pile, please determine who will win the game if both players play optimally.

@@ -1,0 +1,15 @@
+{
+    "time_limit": "2 seconds",
+    "memory_limit": "256 megabytes",
+    "tags": [
+        "*special problem",
+        "math",
+        "*1400"
+    ],
+    "solution": [
+        "Let's write down intervals when the clock shows time using formulas. Segments are [3k\u22c5x+2k,3k\u22c5(x+1))[3k\u22c5x+2k,3k\u22c5(x+1)) for all integer x\u22650x\u22650.",
+        "We need to find the first interval that finished later than mm. It may start either earlier or later than mm, but it must finish later than mm.",
+        "In formulas, it means that we should find the minimum xx such that m<3k\u22c5(x+1)m<3k\u22c5(x+1) or x>m3k\u22121x>m3k\u22121. It means that we should take x=floor(m3k)x=floor(m3k).",
+        "Since now we know xx, we can calculate when the xx-th interval starts: it's moment 3kx+2k3kx+2k. If 3kx+2k>m3kx+2k>m, we should wait exactly 3kx+2k\u2212m3kx+2k\u2212m seconds. If 3kx+2k\u2264m3kx+2k\u2264m, then time is showing right now, and we don't need to wait."
+    ]
+}

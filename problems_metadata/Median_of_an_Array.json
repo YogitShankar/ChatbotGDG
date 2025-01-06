@@ -1,0 +1,15 @@
+{
+    "time_limit": "1 second",
+    "memory_limit": "256 megabytes",
+    "tags": [
+        "greedy",
+        "implementation",
+        "sortings",
+        "*800"
+    ],
+    "solution": [
+        "The median is defined as the number at index \u2308n2\u2309\u2308n2\u2309 in the sorted array, so we can sort the array and work with it.",
+        "So, let's start by sorting the array and finding the median in it, namely the number a\u2308n2\u2309a\u2308n2\u2309, let it be equal to xx. In order for the median to increase, that is, to become at least x+1x+1, it is necessary that there are at least n\u2212\u2308n2\u2309+1n\u2212\u2308n2\u2309+1 numbers in the array greater than or equal to x+1x+1.",
+        "Now let's find the maximum index tt such that atat equals xx. Then we know that there are currently n\u2212tn\u2212t numbers that are greater than or equal to x+1x+1 (all such aiai that i>ti>t), which means that at least (n\u2212\u2308n2\u2309+1)\u2212(n\u2212t)=t\u2212\u2308n2\u2309+1(n\u2212\u2308n2\u2309+1)\u2212(n\u2212t)=t\u2212\u2308n2\u2309+1 operations will be required. I claim that this estimate is always achievable, it is enough to apply one operation to each index from \u2308n2\u2309\u2308n2\u2309 to tt, because all the numbers under these indices are equal to xx, so after applying the operations they will become equal to x+1x+1. And in the end, the number of numbers greater than or equal to x+1x+1 will become equal to (n\u2212t)+(t\u2212\u2308n2\u2309+1)=n\u2212\u2308n2\u2309+1(n\u2212t)+(t\u2212\u2308n2\u2309+1)=n\u2212\u2308n2\u2309+1, which is what we need."
+    ]
+}

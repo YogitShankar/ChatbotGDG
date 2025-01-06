@@ -1,0 +1,4 @@
+378QAQ has a tree with n n vertices. Initially, all vertices are white.
+There are two chess pieces called P A P A and P B P B on the tree. P A P A and P B P B are initially located on vertices a a and b b respectively. In one step, 378QAQ will do the following in order:
+Initially, the vertex a a is painted red. If a = b a = b , the vertex a a is painted blue instead. Note that both the chess pieces must be moved in each step. Two pieces can be on the same vertex at any given time.
+378QAQ wants to know the minimum number of steps to paint all vertices blue.

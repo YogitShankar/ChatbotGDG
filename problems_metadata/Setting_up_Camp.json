@@ -1,0 +1,14 @@
+{
+    "time_limit": "1 second",
+    "memory_limit": "256 megabytes",
+    "tags": [
+        "greedy",
+        "math",
+        "*800"
+    ],
+    "solution": [
+        "First, let's consider introverts. Since each of them needs exactly one tent, we simply add aa to the answer. Then let's consider extroverts. If their number is divisible by 3, we add b3b3 to the answer. Otherwise, we calculate d=3\u2212bmod3d=3\u2212bmod3, where xmodyxmody denotes the remainder from dividing xx by yy. If d>cd>c, then there is no answer, as it is not possible to accommodate the extroverts in the tents. Otherwise, we subtract dd from cc and add c3c3 to the answer.",
+        "The general formula when there is an answer: a+b+d3+\u2308c\u2212d+23\u2309a+b+d3+\u2308c\u2212d+23\u2309.",
+        "Complexity: O(1)O(1)."
+    ]
+}

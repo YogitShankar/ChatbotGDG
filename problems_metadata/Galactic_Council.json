@@ -1,0 +1,9 @@
+{
+    "time_limit": "3 seconds",
+    "memory_limit": "512 megabytes",
+    "tags": [
+        "flows",
+        "*3000"
+    ],
+    "solution": null
+}

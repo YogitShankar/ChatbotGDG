@@ -1,0 +1,9 @@
+Álvaro and José are the only candidates running for the presidency of Tepito, a rectangular grid of 2 2 rows and n n columns, where each cell represents a house. It is guaranteed that n n is a multiple of 3 3 .
+
+Under the voting system of Tepito, the grid will be split into districts, which consist of any 3 3 houses that are connected ∗ ∗ . Each house will belong to exactly one district.
+
+Each district will cast a single vote. The district will vote for Álvaro or José respectively if at least 2 2 houses in that district select them. Therefore, a total of 2 n 3 2 n 3 votes will be cast.
+
+As Álvaro is the current president, he knows exactly which candidate each house will select. If Álvaro divides the houses into districts optimally, determine the maximum number of votes he can get.
+
+∗ ∗ A set of cells is connected if there is a path between any 2 2 cells that requires moving only up, down, left and right through cells in the set.

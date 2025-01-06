@@ -1,0 +1,4 @@
+You are given two grids of numbers a a and b b , with n n rows and m m columns. All the values in the grid are 0 0 , 1 1 or 2 2 .
+You can perform the following operation on a a any number of times:
+Note that the operation only changes the values of the corners of the picked subrectangle.
+Is it possible to convert the grid a a into grid b b by applying the above operation any number of times (possibly zero)?
