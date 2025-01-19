@@ -1,0 +1,3 @@
+{
+    "solution": "1732A - BestieLet's make an important observation: gcd(n−1,n)=1 for any value of n. Moreover, choosing i=n−1 and i=n are the cheapest operations. From this we can conclude that the answer is ≤3.Let g be the gcd of all numbers in the array. Then we have the following cases: If g=1, then the operation can be omitted and the answer is 0, Otherwise, let's try the cheapest operation i=n. If gcd(g,n)=1, then the answer is 1. Otherwise, let's try the next cheapest operation, ie i=n−1. If gcd(g,n−1)=1, then the answer is 2. Otherwise, the answer is 3, since gcd(g,n−1,n)=1. "
+}

@@ -1,0 +1,9 @@
+1342B - Binary PeriodLet's see how strings with periods k=1 and k=2 look. There are two types of strings with a period equal to 1: 0000... and 1111.... And there are two types of strings with a period equal to 2: 01010... and 10101....It's easy to see if t consists only of 0's (1's) then the string itself is an answer since it has period equal to 1. Otherwise, it's also quite obvious that any string t is a subsequence of 0101...01 (1010...10) of 2|t| length. Solution (adedalic)fun main() {
+    val T = readLine()!!.toInt()
+    for (tc in 1..T) {
+        val t = readLine()!!
+
+        val s = t.toCharArray().distinct().joinToString("").repeat(t.length)
+        println(s)
+    }
+}

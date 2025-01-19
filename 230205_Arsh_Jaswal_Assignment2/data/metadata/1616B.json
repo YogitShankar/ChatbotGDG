@@ -1,0 +1,11 @@
+{
+    "title": "B. Mirror in the String",
+    "description": "You have a string s1s2…sns1s2…sn and you stand on the left of the string looking right. You want to choose an index k (1≤k≤n) and place a mirror after the k-th letter, so that what you see is s1s2…sksksk−1…s1. What is the lexicographically smallest string you can see?\nA string a is lexicographically smaller than a string b if and only if one of the following holds: \nThe first line of input contains one integer t (1≤t≤10000): the number of test cases.\nThe next t lines contain the description of the test cases, two lines per a test case.\nIn the first line you are given one integer n (1≤n≤105): the length of the string.\nThe second line contains the string s consisting of n lowercase English characters.\nIt is guaranteed that the sum of n over all test cases does not exceed 105.\nFor each test case print the lexicographically smallest string you can see.\nIn the first test case choose k=1 to obtain \"cc\".\nIn the second test case choose k=3 to obtain \"cbaabc\".\nIn the third test case choose k=1 to obtain \"aa\".\nIn the fourth test case choose k=1 to obtain \"bb\".",
+    "time limit": "time limit per test1 second",
+    "memory limit": "memory limit per test256 megabytes",
+    "tags": [
+        "greedy",
+        "strings",
+        "*1100"
+    ]
+}

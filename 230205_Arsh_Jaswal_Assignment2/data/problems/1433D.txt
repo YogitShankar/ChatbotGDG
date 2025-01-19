@@ -1,0 +1,10 @@
+There are n districts in the town, the i-th district belongs to the ai-th bandit gang. Initially, no districts are connected to each other.
+You are the mayor of the city and want to build n−1 two-way roads to connect all districts (two districts can be connected directly or through other connected districts).
+If two districts belonging to the same gang are connected directly with a road, this gang will revolt.
+You don't want this so your task is to build n−1 two-way roads in such a way that all districts are reachable from each other (possibly, using intermediate districts) and each pair of directly connected districts belong to different gangs, or determine that it is impossible to build n−1 roads to satisfy all the conditions.
+You have to answer t independent test cases.
+The first line of the input contains one integer t (1≤t≤500) — the number of test cases. Then t test cases follow.
+The first line of the test case contains one integer n (2≤n≤5000) — the number of districts. The second line of the test case contains n integers a1,a2,…,an (1≤ai≤109), where ai is the gang the i-th district belongs to.
+It is guaranteed that the sum of n does not exceed 5000 (∑n≤5000).
+For each test case, print:
+For each road i, the condition a[xi]≠a[yi] should be satisfied. Also, all districts should be reachable from each other (possibly, using intermediate districts).

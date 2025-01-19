@@ -1,0 +1,12 @@
+{
+    "title": "B. Wrath",
+    "description": "Hands that shed innocent blood!\nThere are n guilty people in a line, the i-th of them holds a claw with length Li. The bell rings and every person kills some of people in front of him. All people kill others at the same time. Namely, the i-th person kills the j-th person if and only if j < i and j ≥ i - Li.\nYou are given lengths of the claws. You need to find the total number of alive people after the bell rings.\nThe first line contains one integer n (1 ≤ n ≤ 106) — the number of guilty people.\nSecond line contains n space-separated integers L1, L2, ..., Ln (0 ≤ Li ≤ 109), where Li is the length of the i-th person's claw.\nPrint one integer — the total number of alive people after the bell rings.\nIn first sample the last person kills everyone in front of him.",
+    "time limit": "time limit per test2 seconds",
+    "memory limit": "memory limit per test256 megabytes",
+    "tags": [
+        "greedy",
+        "implementation",
+        "two pointers",
+        "*1200"
+    ]
+}

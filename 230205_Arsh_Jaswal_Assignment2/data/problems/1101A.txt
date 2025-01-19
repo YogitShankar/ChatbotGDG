@@ -1,0 +1,7 @@
+You are given q queries in the following form:
+Given three integers li, ri and di, find minimum positive integer xi such that it is divisible by di and it does not belong to the segment [li,ri].
+Can you answer all the queries?
+Recall that a number x belongs to segment [l,r] if l≤x≤r.
+The first line contains one integer q (1≤q≤500) — the number of queries.
+Then q lines follow, each containing a query given in the format li ri di (1≤li≤ri≤109, 1≤di≤109). li, ri and di are integers.
+For each query print one integer: the answer to this query.

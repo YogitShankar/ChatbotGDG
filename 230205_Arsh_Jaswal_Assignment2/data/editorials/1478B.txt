@@ -1,0 +1,30 @@
+1478B - Nezzar and Lucky NumberFor any given d, We can observe the following:   10d to 10d+9 contains d as one of its digit  Let k=10d+9 be the upper bound of such range For every number x>k, we can keep reducing x by d, x will eventually fall into the range mentioned above, which contains d as digit. Therefore, for numbers x>k, they are always achievable. For x≤k−10, as k<=109, we can run a standard knapsack dynamicprogramming solution, where dp[x] indicates if x is achievable. dp[x] is achievable, if and only if one of the following is true:   x=0  For some y<x, dp[y] is true and x−y contains d as digit Iterating for every x, all dp[x] for x<k can be computed with O(k) per state (as we only need to consider y<k.Besides dynamic programming solution, brute force solutions with enough optimization should also pass the test cases easily.Time complexity: O((10d)2) per test case. Solution#include<bits/stdc++.h>
+using namespace std;
+ 
+const int maxn=207;
+int t,d,q;
+bool dp[maxn];
+int main(){
+    ios::sync_with_stdio(false);
+    cin.tie(0), cout.tie(0);
+    cin>>t;
+    while (t--){
+        memset(dp,0,sizeof(dp));
+        dp[0]=1;
+        cin>>q>>d;
+        if (!d) d+=10;
+        int mx=d*10;
+        for (int i=0;10*i+d<=mx;++i){
+            for (int j=0;10*i+d+j<=mx;++j){
+                dp[10*i+d+j]|=dp[j];
+            }
+        }
+        while (q--){
+            int u;
+            cin>>u;
+            if (u>=mx||dp[u]) cout<<"YES\n";
+            else cout<<"NO\n";
+        }
+    }
+    return 0;
+}

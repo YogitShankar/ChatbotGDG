@@ -1,0 +1,3 @@
+{
+    "solution": "1140B - Good String TutorialTutorial is loading... Solution (Roms)#include <bits/stdc++.h>\n\nusing namespace std;\n\nint t, n;\nstring s;\n\nint main(){\n\tcin >> t;\n\tfor(int tc = 0; tc < t; ++tc){\n\t\tcin >> n >> s;\n\t\tint res = n - 1;\n\t\tfor(int i = 0; i < n; ++i)\n\t\t\tif(s[i] == '>' || s[n - 1 - i] == '<')\n\t\t\t\tres = min(res, i);\n\t\t\n\t\tcout << res << endl;\n\t}\n\n\treturn 0;\n}\n"
+}

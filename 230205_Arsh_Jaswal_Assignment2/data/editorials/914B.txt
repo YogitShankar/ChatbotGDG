@@ -1,0 +1,26 @@
+914B - Conan and Agasa play a Card GameLet A = max (a1, a2, ..., an). Observe that if A occurs an odd number of times, Conan can simply begin by removing one instance of A. If there are any cards left, they all have the same number A on them. Now each player can only remove one card in their turn, and they take turns doing so. Since there were an odd number of cards having A on them initially, this keeps continuing until finally, in one of Agasa's turns, there are no cards left. However, if A occurs an even number of times, Conan cannot choose a card having A on it because it will leave Agasa with an odd number of cards having A. This will result in both players picking cards one by one, ending with Agasa picking the last card, and thus winning. In such a case, Conan can consider picking the next distinct largest number in the array, say B. If B occurs an odd number of times, then after Conan's turn there will be an even number of cards having B and an even number of cards having A. If Agasa takes a card having A then it becomes the same as the previous case and Conan wins. Otherwise, they take turns choosing a card having B until finally, on one of Agasa's turns, there are no cards having B and Agasa is forced to pick a card having A. Now it is Conan's turn and there are an odd number of cards having A, so it is again the same as the first case and Conan wins.By a similar argument, we can show that if Conan plays optimally, he starts by picking a card having the greatest number that occurs an odd number of times. Conan loses if and only if there is no such number, i.e., Conan loses if and only if every number occurs an even number of times.Author: RohanRTiwariTester: Superty Author's code#include <bits/stdc++.h>
+using namespace std;
+using ll = long long;
+
+int cnt[100005];
+
+int main() {
+  ios::sync_with_stdio(false);
+
+  int n;
+  cin >> n;
+  while(n--) {
+    int x;
+    cin >> x;
+    cnt[x]++;
+  }
+
+  for (int i = 1; i <= 1e5; i++) {
+    if (cnt[i] % 2 == 1) {
+      cout << "Conan\n";
+      return 0;
+    }
+  }
+  cout << "Agasa\n";
+  return 0;
+} 

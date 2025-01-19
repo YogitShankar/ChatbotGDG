@@ -1,0 +1,10 @@
+{
+    "title": "D1. Oracle for f(x) = b * x mod 2",
+    "description": "Implement a quantum oracle on N qubits which implements the following function: , where  (a vector of N integers, each of which can be 0 or 1).\nFor an explanation on how this type of quantum oracles works, see Introduction to quantum oracles.\nYou have to implement an operation which takes the following inputs:\nThe operation doesn't have an output; its \"output\" is the state in which it leaves the qubits.\nYour code should have the following signature:",
+    "time limit": "time limit per test1 second",
+    "memory limit": "memory limit per test256 megabytes",
+    "tags": [
+        "*special problem",
+        "*1200"
+    ]
+}

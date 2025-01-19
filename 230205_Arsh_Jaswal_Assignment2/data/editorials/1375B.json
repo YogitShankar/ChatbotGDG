@@ -1,0 +1,3 @@
+{
+    "solution": "1375B - Таблица соседейFor every cell (i,j) let's denote by ni,j the number of neighbors it has (either zero or non-zero, it doesn't matter). Then for each cell, it must hold that ai,j≤ni,j, otherwise, no solution exists because it is impossible to decrease ai,j.Let's now suppose that ai,j≤ni,j for all cells (i,j). Then a solution always exists: We can increase each ai,j to make it equal to ni,j. This always works because every number will be non-zero, so every neighbor of every cell will be non-zero, and every cell has a value equal to its number of neighbors.Problem B author — Ari Problem C"
+}

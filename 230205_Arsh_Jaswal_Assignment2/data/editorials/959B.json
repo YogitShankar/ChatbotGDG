@@ -1,0 +1,3 @@
+{
+    "solution": "959B - Mahmoud and Ehab and the messageIt's easy to see that for every word, the minimum cost of sending it is the minimum cost of sending any word in its group. For each group, we'll maintain the minimum cost for sending a word in it (let it be costi) and for each word, we'll maintain its group (let it be groupi). For every word i in the message, we'll add costgroupi to the answer.Code link (me) : https://pastebin.com/3RFeEkgDCode link (mahmoudbadawy) : https://pastebin.com/sR5eZy7dTime complexity : O((n + m)log(n) * len).Bonus task : Try to solve the problem if the input was given as pairs of words that are synonyms (assuming synonymy is transitive). SolutionUse dsu to transform the bonus task to the original problem."
+}

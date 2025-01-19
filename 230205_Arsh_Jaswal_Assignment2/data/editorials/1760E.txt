@@ -1,0 +1,52 @@
+1760E - Binary InversionsLet's find out how to count the number of binary inversions, without flips. This is the number of 1s that appear before a 0. To do this, iterate through the array and keep a running total k of the number of 1s seen so far. When we see a 0, increase the total inversion count by k, since this 0 makes k inversions: one for each of the 1s before it.Now let's see how to maximize the inversions. Consider the flip 0→1. We claim that it is best to always flip the earliest 0 in the array. It's never optimal to flip a later 0, since we have strictly fewer 0s after it to form inversions. Similarly, we should flip the latest 1 in the array.Now recalculate the answer for these two choices for flipping, and pick the maximum. The complexity is O(n). Solution#include "bits/stdc++.h"
+using namespace std;
+ 
+using ll = long long;
+ 
+#define       forn(i,n)              for(int i=0;i<n;i++)
+#define          all(v)              v.begin(), v.end()
+#define         rall(v)              v.rbegin(),v.rend()
+ 
+#define            pb                push_back
+#define          sz(a)               (int)a.size()
+
+ll calc(vector<int>& a) {
+    ll zeroes = 0, ans = 0;
+    for(int i = sz(a) - 1; i >= 0; --i) {
+        if(a[i] == 0) ++zeroes;
+        else ans += zeroes;
+    }
+    return ans;
+}
+void solve() {
+    int n; cin >> n;
+    vector<int> a(n);
+    forn(i, n) cin >> a[i];
+    ll ans = calc(a);
+    forn(i, n) {
+        if(a[i] == 0) {
+            a[i] = 1;
+            ans = max(ans, calc(a));
+            a[i] = 0;
+            break;
+        }
+    }
+    for(int i = n - 1; i >= 0; --i) {
+        if(a[i] == 1) {
+            a[i] = 0;
+            ans = max(ans, calc(a));
+            a[i] = 1;
+            break;
+        }
+    }
+    cout << ans << "\n";
+}   
+ 
+int32_t main() {
+    ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+    int t = 1;
+    cin >> t;
+    while(t--) {
+        solve();
+    }
+}

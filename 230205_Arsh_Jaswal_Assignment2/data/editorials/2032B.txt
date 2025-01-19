@@ -1,0 +1,100 @@
+2032B - MediansFor n=1 (and k=1 as well), the obvious answer would be not partitioning anything, i.e., partition with 1 subarray being itself.For n>1, we see that k=1 and k=n cannot yield a satisfactory construction. Proof is as follows:  m=1 will yield ans=⌊n+12⌋, which will never be equal to 1 or n when n≥3.  If m>1, considering the case of k=1, we see that median(bi)=1 iff i≥2, and since the original array a is an increasingly-sorted permutation, we can conclude that median(b1)<1. This is not possible.  Similarly, k=n also doesn't work with m>1, as it'll require median(bm)>n. Apart from these cases, any other k can yield an answer with m=3  — a prefix subarray b1, a middle subarray b2 containing k (b2 will be centered at k, of course), and a suffix subarray b3. This way, the answer will be median(b2)=k.The length of b2 can be either 1 or 3, depending on the parity of k (so that b1 and b3 could have odd lengths). In detail: b2 will have length 1 (i.e., [k]) if k is an even integer, and length 3 (i.e., [k−1,k,k+1]) if k is an odd integer.Time complexity: O(1). Solution (C++)Submission link: 289291698 Plaintextnamespace solution {
+    bool hasMultipleTests = true;
+
+    int n, k;
+
+    void preprocess() {
+
+    }
+
+    void input(int testcase) {
+        cin >> n >> k;
+    }
+
+    void solve(int testcase) {
+        if (n == 1) {cout << "1\n1\n"; return;}
+
+        if (k == 1 || k == n) {cout << "-1\n"; return;}
+
+        int p2 = k - k % 2;
+        int p3 = k + 1 + k % 2;
+        cout << "3\n1 " << p2 << " " << p3 << endl;
+    }
+} Solution (Python 3)Submission link: 289291693 Plaintextclass Solution:
+    hasMultipleTests = True
+
+    n: int = None
+    k: int = None
+
+    @classmethod
+    def preprocess(cls):
+        pass
+
+    @classmethod
+    def input(cls, testcase):
+        cls.n, cls.k = map(int, input().split())
+
+    @classmethod
+    def solve(cls, testcase):
+        if cls.n == 1: return(print('1\n1'))
+
+        if cls.k in {1, cls.n}: return(print(-1))
+
+        p2, p3 = cls.k - cls.k % 2, cls.k + 1 + cls.k % 2
+        print(f'3\n1 {p2} {p3}')
+
+# end Solution Feedback Didn't attempt 
+
+    
+
+
+0
+
+
+
+ Great problem 
+
+    
+
+
+32
+
+
+
+ Nice problem 
+
+    
+
+
+132
+
+
+
+ OK problem 
+
+    
+
+
+19
+
+
+
+ Bad problem 
+
+    
+
+
+7
+
+
+
+ Terrible problem 
+
+    
+
+
+63
+
+
+
+ 

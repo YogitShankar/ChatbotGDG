@@ -1,0 +1,44 @@
+1073B - Vasya and BooksLet's maintain the pointer pos to the topmost non-deleted book and whether each book whether is removed from the stack or not. Initially, all books are in a stack, and pos is 0 (if we store the array 0-indexed). We will process the array B in the order b1,b2,…bn. If the current book bi is removed from the stack, then the answer for it is zero. Otherwise, we will increment the pointer pos until the equality apos=bi is satisfied, while marking all the intermediate books in the array u. After that, the answer for the book bi will be the number of marked books in the u array (including itself).Since the pointer pos shifts n times at total, we get a solution with an O(n) complexity. Solution (Ajosteen)#include <bits/stdc++.h>
+
+using namespace std;
+
+const int N = int(2e5) + 9;
+
+int n;
+int a[N];
+int b[N];
+bool u[N];
+
+int main() {
+//	freopen("input.txt", "r", stdin);
+	scanf("%d", &n);
+    for(int i = 0; i < n; ++i) {
+    	scanf("%d", a + i);
+    }
+    for(int i = 0; i < n; ++i){
+    	scanf("%d", b + i);
+    }
+	
+	int pos = 0;
+	for(int i = 0; i < n; ++i){
+		int x = b[i];
+		if(u[x]){
+			printf("0 ");
+			continue;
+		}
+		
+		int cnt = 0;
+		while(true){
+			++cnt;
+			u[a[pos]] = true;
+			if(a[pos] == x) break;
+			++pos;
+		} 
+		
+		++pos;
+		printf("%d ", cnt);
+	}    
+	
+	puts("");
+    return 0;
+}

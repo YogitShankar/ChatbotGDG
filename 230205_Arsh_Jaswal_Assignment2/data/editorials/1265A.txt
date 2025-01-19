@@ -1,0 +1,24 @@
+1265A - Beautiful StringIf string s initially contains 2 equal consecutive letters ("aa", "bb" or "cc") then the answer is obviously -1. Otherwise, it is always possible to replacing all characters '?' to make s beautiful. We will replacing one '?' at a time and in any order (from left to right for example). For each '?', since it is adjacent to at most 2 other characters and we have 3 options ('a', 'b' and 'c') for this '?', there always exists at least one option which differ from 2 characters that are adjacent with this '?'. Simply find one and replace '?' by it.Time comlexity: O(n) where n is length of s. Python SolutionT = int(input())
+for tc in range(T):
+    s = [c for c in input()]
+    n = len(s)
+    i = 0
+    while (i < n):
+        if (s[i] == '?'):
+            prv = 'd' if i == 0 else s[i - 1]
+            nxt = 'e' if i + 1 >= n else s[i + 1]
+            for x in ['a', 'b', 'c']:
+                if (x != prv) and (x != nxt):
+                    s[i] = x
+                    break
+        else:
+            i += 1
+           
+    ok = True 
+    for i in range(n - 1):
+        if (s[i] == s[i + 1]):
+            print("-1")
+            ok = False
+            break
+    if (ok == True):  
+        print("".join(s))Author: isaf27, prepare laoriu, I_love_Hoang_Yen 

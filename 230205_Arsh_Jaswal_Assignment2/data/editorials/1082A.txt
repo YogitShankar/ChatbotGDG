@@ -1,0 +1,41 @@
+1082A - Vasya and BookIt is easy to understand that the optimal answer is achieved in one of three cases:   Vasya is trying to visit page y without visiting pages 1 and n;  Vasya first goes to the page 1, and then to the page y;  Vasya first goes to the n page, and then to the y page. In the first case, Vasya can go directly to the y page from the x page if |x−y| is divided by d.In the second case, Vasya can get to page y through page 1, if y−1 is divided by d. The required number of actions will be equal to ⌈x−1d⌉+y−1d.Similarly, in the third case, Vasya can go to the page y through the page n if n−y is divided by d. The required number of actions will be equal to ⌈n−xd⌉+n−yd.If none of the three options described above is appropriate, then there is no answer. Solution (Ajosteen)#include <bits/stdc++.h>
+
+using namespace std;
+
+const int INF = int(2e9) + 99;
+
+int n, x, y, d;
+
+int dist(int x, int y){
+	return (abs(x - y) + (d - 1)) / d;
+}
+
+int main() {
+	
+	int t;
+	cin >> t;
+	for(int i = 0; i < t; ++i){
+    	cin >> n >> x >> y >> d;
+    	
+    	int len = abs(x - y);
+    	int res = INF;
+    	
+    	if(len % d == 0) 
+    		res = min(res, dist(x, y));
+    	
+    	len = y - 1;
+    	if(len % d == 0)
+    		res = min(res, dist(x, 1) + dist(1, y));
+    	
+    	len = n - y;
+    	if(len % d == 0)
+    		res = min(res, dist(x, n) + dist(n, y));
+    		
+    	if(res == INF)
+    		res = -1;
+    	
+    	cout << res << endl;
+	}
+	
+	return 0;
+}

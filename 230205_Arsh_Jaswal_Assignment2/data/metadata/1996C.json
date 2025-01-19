@@ -1,0 +1,13 @@
+{
+    "title": "C. Sort",
+    "description": "You are given two strings a and b of length n. Then, you are (forced against your will) to answer q queries.\nFor each query, you are given a range bounded by l and r. In one operation, you can choose an integer i (l≤i≤r) and set ai=x where x is any character you desire. Output the minimum number of operations you must perform such that sorted(a[l..r])=sorted(b[l..r]). The operations you perform on one query does not affect other queries.\nFor an arbitrary string c, sorted(c[l..r]) denotes the substring consisting of characters cl,cl+1,...,cr sorted in lexicographical order.\nThe first line contains t (1≤t≤1000) – the number of test cases.\nThe first line of each test case contains two integers n and q (1≤n,q≤2⋅105) – the length of both strings and the number of queries.\nThe following line contains a of length n. It is guaranteed a only contains lowercase latin letters.\nThe following line contains b of length n. It is guaranteed b only contains lowercase latin letters.\nThe following q lines contain two integers l and r (1≤l≤r≤n) – the range of the query.\nIt is guaranteed the sum of n and q over all test cases does not exceed 2⋅105.\nFor each query, output an integer, the minimum number of operations you need to perform in a new line.\nFor the first query, sorted(a[1..5])= abcde and sorted(b[1..5])= abcde, so no operations are necessary.\nFor the second query, you need to set a1= e. Then, sorted(a[1..4])=sorted(b[1..4])= bcde.",
+    "time limit": "time limit per test5 seconds",
+    "memory limit": "memory limit per test256 megabytes",
+    "tags": [
+        "dp",
+        "greedy",
+        "sortings",
+        "strings",
+        "*1200"
+    ]
+}

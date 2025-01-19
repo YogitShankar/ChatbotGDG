@@ -1,0 +1,11 @@
+{
+    "title": "C. Anya and 1100",
+    "description": "While rummaging through things in a distant drawer, Anya found a beautiful string s consisting only of zeros and ones.\nNow she wants to make it even more beautiful by performing q operations on it.\nEach operation is described by two integers i (1≤i≤|s|) and v (v∈{0,1}) and means that the i-th character of the string is assigned the value v (that is, the assignment si=v is performed).\nBut Anya loves the number 1100, so after each query, she asks you to tell her whether the substring \"1100\" is present in her string (i.e. there exist such 1≤i≤|s|−3 that sisi+1si+2si+3=1100).\nThe first line contains one integer t (1≤t≤104) — the number of test cases.\nThe first line of the test case contains the string s (1≤|s|≤2⋅105), consisting only of the characters \"0\" and \"1\". Here |s| denotes the length of the string s.\nThe next line contains an integer q (1≤q≤2⋅105) — the number of queries.\nThe following q lines contain two integers i (1≤i≤|s|) and v (v∈{0,1}), describing the query.\nIt is guaranteed that the sum of |s| across all test cases does not exceed 2⋅105. It is also guaranteed that the sum of q across all test cases does not exceed 2⋅105.\nFor each query, output \"YES\", if \"1100\" is present in Anya's string; otherwise, output \"NO\".\nYou can output the answer in any case (upper or lower). For example, the strings \"yEs\", \"yes\", \"Yes\", and \"YES\" will be recognized as positive responses.",
+    "time limit": "time limit per test3 seconds",
+    "memory limit": "memory limit per test256 megabytes",
+    "tags": [
+        "brute force",
+        "implementation",
+        "*1100"
+    ]
+}

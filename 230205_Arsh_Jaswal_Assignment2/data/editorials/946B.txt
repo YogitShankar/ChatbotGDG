@@ -1,0 +1,1 @@
+946B - Weird Subtraction ProcessThe answer can be calculated very easy by Euclid algorithm (which is described in the problem statement), but all subtractions will be replaced by taking by modulo. 

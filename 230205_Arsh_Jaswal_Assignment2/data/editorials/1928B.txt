@@ -1,0 +1,31 @@
+1928B - Equalize SolutionSuppose we already know the permutation that needs to be added. Let's consider the elements that will become equal after the addition. Notice that among them there cannot be equal elements, because among the numbers we are adding, there are no duplicates. Thus, only a set of numbers among which there are no equal ones, and the difference between the maximum and minimum does not exceed n−1, can become equal. It is easy to see that any set of numbers satisfying these conditions can be equalized, and any set of numbers that became equal after adding the permutation satisfies these constraints.So let's sort the array, remove the equal elements from it. After that, we can use two pointers to find the maximum length subarray where the difference between the maximum and minimum does not exceed n−1. The answer will be the length of such a subarray. The complexity of the solution is O(nlogn). Code#include <bits/stdc++.h>
+
+using namespace std;
+
+void solve() {
+    int n;
+    cin >> n;
+    vector<int> a(n);
+    for (int i = 0; i < n; i++) {
+        cin >> a[i];
+    }
+    sort(a.begin(), a.end());
+    a.resize(unique(a.begin(), a.end()) - a.begin());
+    int pnt = 0, ans = 0;
+    for (int i = 0; i < a.size(); i++) {
+        while(a[i] - a[pnt] >= n) {
+            pnt++;
+        }
+        ans = max(ans, i - pnt + 1);
+    }
+    cout << ans << endl;
+}
+
+signed main() {
+    int t = 1;
+    cin >> t;
+    for (int i = 0; i < t; ++i) {
+        solve();
+    }
+    return 0;
+}

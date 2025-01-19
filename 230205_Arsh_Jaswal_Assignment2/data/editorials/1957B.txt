@@ -1,0 +1,75 @@
+1957B - A BIT of a ConstructionThe case n=1 needs to be handled separately, as we can only output k itself.For n>1, we make the following observations. Let x be the position of the most significant bit in k, that is 2x≤k<2x+1. From this, we learn that the bitwise OR of the sequence cannot have more than x+1 set bits because that would make the sum greater than 2x+1.Now, having x+1 bits set in the bitwise OR of the sequence is only possible if k=2x+1−1 (or k=111…12). Any k less than this cannot have x+1 bits set in the bitwise OR of the sequence, as otherwise the sum would exceed k. However, we can always set x bits, as we can always have one number in the sequence as 2x−1 (which has exactly x bits set). Using these observations, we get our solution as 2x−1,k−(2x−1),0,0,0,…,0. This ensures that we have at least x bits set in the bitwise OR, and additionally also handles the case where x+1 bits can be set, while maintaining the sum. Rate this problem 
+
+
+
+303
+
+
+
+
+
+ Great Problem 
+
+
+
+251
+
+
+
+
+
+ Ok Problem 
+
+
+
+54
+
+
+
+
+
+ Bad Problem 
+
+
+
+57
+
+
+
+
+
+ Didn't solve  C++ Code#include <bits/stdc++.h>
+
+using namespace std;
+ 
+int main(){
+    int t; 
+    cin >> t;
+    while(t--) {
+        int n, k;
+        cin >> n >> k;
+        vector<int> a(n);
+        if (n == 1) {
+            a[0] = k;
+        }
+        else {
+            int msb = 0;
+            // find the msb of k
+            for (int i = 0; i < 31; i++) {
+                if (k & (1 << i)) {
+                    msb = i;
+                }
+            }
+            a[0] = (1 << msb) - 1;
+            a[1] = k - a[0];
+            for (int i = 2; i < n; i++) {
+                a[i] = 0;
+            }
+        }
+        for (int i = 0; i < n; i++) {
+            cout << a[i] << " ";
+        }
+        cout << "\n";
+    }
+    return 0;
+}

@@ -1,0 +1,93 @@
+1843D - Apple TreeLet cntv be the number of vertices from which an apple can fall if it is in the vertex v. Then the answer to the query is cntv⋅cntu.Note that the value of cntv is equal to the number of leaves in the subtree of vertex v. Then, these values can be computed using the DFS or BFS. The value cnt for a vertex will be equal to 1 if this vertex is a leaf, otherwise it will be equal to the sum of these values for all children of the vertex.Total complexity: O(n+q). Solution#include <bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+ 
+vector<vector<int>> g;
+vector<ll> cnt;
+ 
+void dfs(int v, int p) {
+    if (g[v].size() == 1 && g[v][0] == p) {
+        cnt[v] = 1;
+    } else {
+        for (auto u : g[v]) {
+            if (u != p) {
+                dfs(u, v);
+                cnt[v] += cnt[u];
+            }
+        }
+    }
+}
+ 
+void solve() {
+    int n, q;
+    cin >> n;
+ 
+    g.assign(n, vector<int>());
+    
+    for (int i = 0; i < n - 1; i++) {
+        int u, v;
+        cin >> u >> v;
+        u--; v--;
+        g[u].push_back(v);
+        g[v].push_back(u);
+    }
+ 
+    cnt.assign(n, 0);
+    dfs(0, -1);
+ 
+    cin >> q;
+    for (int i = 0; i < q; i++) {
+        int c, k;
+        cin >> c >> k;
+        c--; k--;
+ 
+        ll res = cnt[c] * cnt[k];
+        cout << res << '\n';
+    }
+}
+ 
+signed main() {
+    int tests;
+    cin >> tests;
+    while (tests--) {
+        solve();
+    }
+ 
+    return 0;
+} Rate the problem Didn't solve 
+
+    
+
+
+66
+
+
+
+ Good task 
+
+    
+
+
+410
+
+
+
+ Average task 
+
+    
+
+
+53
+
+
+
+ Bad task 
+
+    
+
+
+40
+
+
+
+ 

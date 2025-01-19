@@ -1,0 +1,3 @@
+{
+    "solution": "1073A - Diverse SubstringNotice that the string of two distinct letter is already diverse. That implies that the answer is \"NO\" if and only if all the letters in the string are the same. Otherwise you can check all pairs of adjacent letters in O(n).Overall complexity: O(n). Solution (PikMike)n = int(input())\ns = input()\nfor i in range(n - 1):\n\tif (s[i] != s[i + 1]):\n\t\tprint(\"YES\")\n\t\tprint(s[i], s[i + 1], sep=\"\")\n\t\texit(0)\nprint(\"NO\")"
+}

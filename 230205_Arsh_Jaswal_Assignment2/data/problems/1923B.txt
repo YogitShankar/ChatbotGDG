@@ -1,0 +1,10 @@
+You are playing a computer game. The current level of this game can be modeled as a straight line. Your character is in point 0 of this line. There are n monsters trying to kill your character; the i-th monster has health equal to ai and is initially in the point xi.
+Every second, the following happens:
+Can you survive and kill all n monsters without letting any of them reach your character?
+The first line of the input contains one integer t (1≤t≤3⋅104) — the number of test cases.
+Each test case consists of three lines:
+Additional constraint on the input: the sum of n over all test cases does not exceed 3⋅105.
+For each test case, print YES if you can kill all n monsters before they reach your character, or NO otherwise.
+You can output each letter of the answer in any case (upper or lower). For example, the strings yEs, yes, Yes, and YES will all be recognized as positive responses.
+In the first example, you can act as follows:
+In the second example, you can fire only 1 bullet, so you can kill only one of the two monsters during the 1-st second. Then, the remaining monster moves closer and kills your character.

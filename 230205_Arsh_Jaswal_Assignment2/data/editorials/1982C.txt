@@ -1,0 +1,78 @@
+1982C - Boring DaySolution 1:Let dp[i] — the maximum number of rounds won by Egor for the first i elements (top cards). It is possible to come up with a solution in O(n2) right now. For each state of the dynamic programming i, you can either skip the next card (not take it in any winning segment), or iterate over the length of the segment that will start with the next card. If you calculate prefix sums and compute the sum over a segment in O(1), the solution works exactly in O(n2).Let's try to optimize the transitions in such a dynamic.First, it can be noticed that all ai are positive, which means that the sum of the segment (a,b) will be less than (a,b+1). This means that the first suitable segment (with a sum ≥l) can be found using binary search or two pointers.Secondly, if the segment has a suitable sum (from l to r), it does not make sense to increase its length, as this can only worsen the answer.Thus, for each state of the dynamic programming, there are only O(1) transitions, so the entire problem can be solved in O(n) or O(nlogn).Solution 2:Let's try to solve the problem greedily. Let's look for a segment (a,b) in the prefix such that the sum of all its elements is not less than l and not greater than r, and among all such segments, we will take the segment with the minimum b. After that, we will consider that the array starts from the (b+1)-th element and continue to search for the next segment in the same way.How to find (a,b)? Let's start by finding the minimum prefix k (which is also the segment (1,k)) such that the sum of the elements in it is ≥l. If this sum is also not greater than r, then this prefix is the segment we need (a,b). Otherwise, we know that the sum of the elements in any subsegment of this prefix that does not contain the last element ak is less than l, so we can try to find a subsegment that ends at k, for this, we can iterate over the left boundary from 1 to k. At the same time, the sum of the elements in the iterated segment will decrease and it may happen again that at some point it becomes <l, in this case, we already know that we will not find the required segment with the right boundary k, so it needs to be increased (again until the sum becomes ≥l). By repeating these actions, we will either find the required segment (a,b), or the right boundary will become equal to n. The algorithm is nothing but "two pointers", we keep two boundaries l and r and move them only to the right, so in total, this all works in O(n). Solution 1 (FelixArg)#include <bits/stdc++.h>
+ 
+using namespace std;
+ 
+const int inf = 1000000007;
+ 
+void solve(){
+	int n, l, r;
+	cin >> n >> l >> r;
+	vector<int> a(n);
+	for (int i = 0; i < n; i++){
+		cin >> a[i];
+	}
+ 
+	vector<long long> pref(n + 1);
+	for (int i = 0; i < n; i++){
+		pref[i + 1] = pref[i] + a[i];
+	}
+ 
+	vector<int> dp(n + 1);
+	int s = 0;
+	int j = -1;
+	for (int i = 0; i < n; i++){
+		dp[i + 1] = max(dp[i + 1], dp[i]);
+		if (j < i){
+			j = i;
+			s = 0;
+		}
+		while(j < n && s < l){
+			s += a[j++];
+		}
+		if (s >= l && s <= r){
+			dp[j] = max(dp[j], dp[i] + 1);
+		}
+		s -= a[i];
+	}
+ 
+	cout << dp[n] << '\n';
+}
+ 
+int main()
+{
+#ifdef FELIX
+	auto _clock_start = chrono::high_resolution_clock::now();
+#endif
+	ios_base::sync_with_stdio(false);
+	cin.tie(0);
+	cout.tie(0);
+	int tests = 1;
+	cin >> tests;
+	for (int test = 0; test < tests; test++){
+		solve();
+	}
+#ifdef FELIX
+	cerr << "Executed in " << chrono::duration_cast<chrono::milliseconds>(
+		chrono::high_resolution_clock::now()
+			- _clock_start).count() << "ms." << endl;
+#endif
+	return 0;
+} Solution 2 (74TrAkToR)t = int(input())
+for T in range(t):
+	n, l, r = map(int, input().split())
+	a = [int(x) for x in input().split()]
+	ans = 0
+	cur = 0
+	L, R = 0, 0
+	while L < n:
+		while R < n and cur < l:
+			cur += a[R]
+			R += 1
+		if l <= cur and cur <= r:
+			ans += 1
+			L = R
+			cur = 0
+		else:
+			cur -= a[L]
+			L += 1
+	print(ans)

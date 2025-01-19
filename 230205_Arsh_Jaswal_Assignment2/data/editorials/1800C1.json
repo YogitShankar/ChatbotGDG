@@ -1,0 +1,3 @@
+{
+    "solution": "1800C1 - Powering the Hero (easy version)Idea: Vladosiya TutorialTutorial is loading... Solutiondef solve():\n    n = int(input())\n    s = [int(x) for x in input().split()]\n    ans = 0\n    buffs = [0] * n\n    for e in s:\n        if e > 0:\n            buffs += [e]\n            j = len(buffs) - 1\n            while buffs[j] < buffs[j - 1]:\n                buffs[j], buffs[j - 1] = buffs[j - 1], buffs[j]\n                j -= 1\n        else:\n            ans += buffs.pop()\n    print(ans)\n\n\nt = int(input())\nfor _ in range(t):\n    solve()"
+}

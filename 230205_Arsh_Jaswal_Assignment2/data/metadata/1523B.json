@@ -1,0 +1,10 @@
+{
+    "title": "B. Lord of the Values",
+    "description": "While trading on his favorite exchange trader William realized that he found a vulnerability. Using this vulnerability he could change the values of certain internal variables to his advantage. To play around he decided to change the values of all internal variables from a1,a2,…,an to −a1,−a2,…,−an. For some unknown reason, the number of service variables is always an even number.\nWilliam understands that with his every action he attracts more and more attention from the exchange's security team, so the number of his actions must not exceed 5000 and after every operation no variable can have an absolute value greater than 1018. William can perform actions of two types for two chosen variables with indices i and j, where i<j:\nEach test contains multiple test cases. The first line contains the number of test cases t (1≤t≤20). Description of the test cases follows.\nThe first line of each test case contains a single even integer n (2≤n≤103), which is the number of internal variables.\nThe second line of each test case contains n integers a1,a2,…,an (1≤ai≤109), which are initial values of internal variables.\nFor each test case print the answer in the following format:\nThe first line of output must contain the total number of actions k, which the strategy will perform. Note that you do not have to minimize k. The inequality k≤5000 must be satisfied. \nEach of the next k lines must contain actions formatted as \"type i j\", where \"type\" is equal to \"1\" if the strategy needs to perform an assignment of the first type and \"2\" if the strategy needs to perform an assignment of the second type. Note that i<j should hold.\nWe can show that an answer always exists.\nFor the first sample test case one possible sequence of operations is as follows:\nFor the second sample test case one possible sequence of operations is as follows:",
+    "time limit": "time limit per test1 second",
+    "memory limit": "memory limit per test256 megabytes",
+    "tags": [
+        "constructive algorithms",
+        "*1100"
+    ]
+}

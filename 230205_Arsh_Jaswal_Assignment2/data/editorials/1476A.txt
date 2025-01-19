@@ -1,0 +1,17 @@
+1476A - K-divisible SumLet's denote s as the sum of array a. From one side, since s should be divisible by k then we can say s=cf⋅k. From other side, since all ai are positive, then s≥n.It's quite obvious that the smaller s — the smaller maximum ai so we need to find the smallest cf that cf⋅k≥n. Then cf=⌈nk⌉=⌊n+k−1k⌋.Now we now that s=cf⋅k and we need to represent it as a1+⋯+an with maximum ai minimized. It's easy to prove by contradiction that maximum ai≥⌈sn⌉.Moreover we can always construct such array a that its sum is equal to s and the maximum element is equal to ⌈sn⌉.As a result, the answer is ⌈sn⌉=⌊cf⋅k+n−1n⌋, where cf=⌊n+k−1k⌋. Solution (adedalic)#include<bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+  int t; cin >> t;
+  while(t--) {
+    long long n, k;
+    cin >> n >> k;
+    
+    long long cf = (n + k - 1) / k;
+    k *= cf;
+    
+    cout << (k + n - 1) / n << endl;
+  }
+  return 0;
+}

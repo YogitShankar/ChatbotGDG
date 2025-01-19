@@ -1,0 +1,11 @@
+{
+    "title": "E. Building an Aquarium",
+    "description": "You love fish, that's why you have decided to build an aquarium. You have a piece of coral made of n columns, the i-th of which is ai units tall. Afterwards, you will build a tank around the coral as follows: \nThe first line contains a single integer t (1≤t≤104) — the number of test cases.\nThe first line of each test case contains two positive integers n and x (1≤n≤2⋅105; 1≤x≤109) — the number of columns of the coral and the maximum amount of water you can use.\nThe second line of each test case contains n space-separated integers ai (1≤ai≤109) — the heights of the coral.\nThe sum of n over all test cases doesn't exceed 2⋅105.\nFor each test case, output a single positive integer h (h≥1) — the maximum height the tank can have, so you need at most x units of water to fill up the tank.\nWe have a proof that under these constraints, such a value of h always exists.\nThe first test case is pictured in the statement. With h=4 we need 8 units of water, but if h is increased to 5 we need 13 units of water, which is more than x=9. So h=4 is optimal.\nIn the second test case, we can pick h=4 and add 3 units to each column, using a total of 9 units of water. It can be shown that this is optimal.\nIn the third test case, we can pick h=2 and use all of our water, so it is optimal.",
+    "time limit": "time limit per test2 seconds",
+    "memory limit": "memory limit per test256 megabytes",
+    "tags": [
+        "binary search",
+        "sortings",
+        "*1100"
+    ]
+}

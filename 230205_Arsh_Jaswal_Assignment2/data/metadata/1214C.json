@@ -1,0 +1,11 @@
+{
+    "title": "C. Bad Sequence",
+    "description": "Petya's friends made him a birthday present — a bracket sequence. Petya was quite disappointed with his gift, because he dreamed of correct bracket sequence, yet he told his friends nothing about his dreams and decided to fix present himself. \nTo make everything right, Petya is going to move at most one bracket from its original place in the sequence to any other position. Reversing the bracket (e.g. turning \"(\" into \")\" or vice versa) isn't allowed. \nWe remind that bracket sequence s is called correct if: \nFor example, \"(()())\", \"()\" are correct, while \")(\" and \"())\" are not. Help Petya to fix his birthday present and understand whether he can move one bracket so that the sequence becomes correct.\nFirst of line of input contains a single number n (1≤n≤200000) — length of the sequence which Petya received for his birthday.\nSecond line of the input contains bracket sequence of length n, containing symbols \"(\" and \")\".\nPrint \"Yes\" if Petya can make his sequence correct moving at most one bracket. Otherwise print \"No\".\nIn the first example, Petya can move first bracket to the end, thus turning the sequence into \"()\", which is correct bracket sequence.\nIn the second example, there is no way to move at most one bracket so that the sequence becomes correct.\nIn the third example, the sequence is already correct and there's no need to move brackets.",
+    "time limit": "time limit per test1 second",
+    "memory limit": "memory limit per test512 megabytes",
+    "tags": [
+        "data structures",
+        "greedy",
+        "*1200"
+    ]
+}

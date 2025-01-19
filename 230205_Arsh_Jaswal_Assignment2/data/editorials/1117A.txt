@@ -1,0 +1,23 @@
+1117A - Best Subsegment TutorialTutorial is loading... Solution (adedalic)#include<iostream>
+using namespace std;
+
+int main() {
+	int n; cin >> n;
+	int mx = -1, lenMx = 0;
+	
+	int curEl = -1, curLen = 0;
+	for(int i = 0; i < n; i++) {
+		int a; cin >> a;
+		
+		if(curEl != a)
+			curEl = a, curLen = 0;
+		curLen++;
+		
+		if(mx < curEl)
+			mx = curEl, lenMx = 0;
+		if(mx == curEl)
+			lenMx = max(lenMx, curLen);
+	}
+	cout << lenMx << endl;
+	return 0;
+}

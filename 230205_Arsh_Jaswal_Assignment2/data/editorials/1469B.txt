@@ -1,0 +1,38 @@
+1469B - Red and BlueDenote pi as the sum of first i elements of r, and qj as the sum of first j elements of b. These values can be calculated in O(n+m) with prefix sums.The first solution is to use dynamic programming. Let dpi,j be the maximum value of f(a) if we placed the first i elements of r and the first j elements of b. Transitions can be performed in O(1): we either place an element from r (then we go to dpi+1,j and update it with max(dpi,j,pi+1+qj)), or place an element from b (then we go to dpi,j+1 and update it with max(dpi,j,pi+qj+1)). The answer is stored in dpn,m, and this solution works in O(nm).The second solution: observe that the sum of several first elements of a is the sum of several first elements of r and several first elements of b. So each prefix sum of a (and the answer itself) is not greater than maxni=0pi+maxmj=0pj. It's easy to show how to obtain exactly this answer: let k be the value of i such that pi is maximized, and l be the value of j such that qj is maximized. Let's place the first k elements of r, then the first l elements of b (so the current sum is exactly maxni=0pi+maxmj=0pj), and place all of the remaining elements in any possible order. So, the answer is maxni=0pi+maxmj=0pj. This solution works in O(n+m). Solution 1 (Ne0n25)#include <bits/stdc++.h>
+
+using namespace std;
+
+void solve() {
+	int n;
+	cin >> n;
+	vector<int> r(n);
+	for (int &x : r) cin >> x;
+	int m;
+	cin >> m;
+	vector<int> b(m);
+	for (int &x : b) cin >> x;
+	partial_sum(r.begin(), r.end(), r.begin());
+	partial_sum(b.begin(), b.end(), b.begin());
+	cout << max(0, *max_element(r.begin(), r.end())) + max(0, *max_element(b.begin(), b.end())) << '\n';
+}
+
+int main() {
+	int t;
+	cin >> t;
+	while (t--) solve();
+} Solution 2 (pikmike)for _ in range(int(input())):
+	n = int(input())
+	a = [int(x) for x in input().split()]
+	m = int(input())
+	b = [int(x) for x in input().split()]
+	dp = [[-10**9 for j in range(m + 1)] for i in range(n + 1)]
+	dp[0][0] = 0
+	ans = 0
+	for i in range(n + 1):
+		for j in range(m + 1):
+			if i < n:
+				dp[i + 1][j] = max(dp[i + 1][j], dp[i][j] + a[i])
+			if j < m:
+				dp[i][j + 1] = max(dp[i][j + 1], dp[i][j] + b[j])
+			ans = max(ans, dp[i][j])
+	print(ans)

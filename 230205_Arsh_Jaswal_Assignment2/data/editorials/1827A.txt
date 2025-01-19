@@ -1,0 +1,28 @@
+1827A - Counting OrdersIdea: Mike4235  Preparation: thenymphsofdelphi Hint 1Sort the array b, and fix the values from an to a1. SolutionFirst, we can sort the array b, as it does not change the answer.Let's try to choose the values of a from an to a1. How many ways are there to choose the value of ai?The new ai must satisfies ai>bi. But some of the candidates are already chosen as aj for some j>i. However, since aj>bj≥bi, we know that there are exactly (n−i) candidates already chosen previously by all values of j>i. So, there are (number of k such that ak>bi) −(n−i) ways to choose the value of ai.We can use two pointers or binary search to efficiently find the (number of k such that ak>bi) for all i.Time complexity: O(nlogn). Implementation#include <bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+const int MOD = 1e9 + 7;
+
+struct testcase{
+    testcase(){
+        int n; cin >> n;
+        vector<int> a(n);
+        for (int i=0; i<n; i++) cin >> a[i];
+        sort(a.begin(), a.end());
+        vector<int> b(n);
+        for (int i=0; i<n; i++) cin >> b[i];
+        sort(b.begin(), b.end(), greater<>());
+        ll result = 1;
+        for (int i=0; i<n; i++){
+            int geq_count = a.size() - (upper_bound(a.begin(), a.end(), b[i]) - a.begin());
+            result = result * max(geq_count - i, 0) % MOD;
+        }
+        cout << result << "\n";
+    }
+};
+
+signed main(){
+    cin.tie(0)->sync_with_stdio(0);
+    int t; cin >> t;
+    while (t--) testcase();
+}

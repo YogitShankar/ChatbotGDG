@@ -1,0 +1,9 @@
+You have a string s consisting of digits from 0 to 9 inclusive. You can perform the following operation any (possibly zero) number of times: 
+What is the lexicographically smallest string you can get by performing these operations?
+A string a is lexicographically smaller than a string b of the same length if and only if the following holds: 
+The first line contains a single integer t (1≤t≤104) — the number of test cases. Then the test cases follow.
+Each test case consists of a single line that contains one string s (1≤|s|≤2⋅105) — the string consisting of digits. Please note that s is just a string consisting of digits, so leading zeros are allowed.
+It is guaranteed that the sum of lengths of s over all test cases does not exceed 2⋅105.
+Print a single string — the minimum string that is possible to obtain.
+In the first test case: 
+Nothing needs to be done in the second and third test cases.

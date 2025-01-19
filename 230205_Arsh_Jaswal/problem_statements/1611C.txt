@@ -1,0 +1,19 @@
+Problem Title: C. Polycarp Recovers the Permutation
+
+time limit per test2 seconds
+memory limit per test256 megabytes
+
+Polycarp wrote on a whiteboard an array pp of length nn, which is a permutation of numbers from 11 to nn. In other words, in pp each number from 11 to nn occurs exactly once.
+He also prepared a resulting array aa, which is initially empty (that is, it has a length of 00).
+After that, he did exactly nn steps. Each step looked like this:
+Note that on the last step, pp has a length of 11 and its minimum element is both leftmost and rightmost. In this case, Polycarp can choose what role the minimum element plays. In other words, this element can be added to aa both on the left and on the right (at the discretion of Polycarp).
+Let's look at an example. Let n=4n=4, p=[3,1,4,2]p=[3,1,4,2]. Initially a=[]a=[]. Then:
+Thus, a possible value of aa after nn steps could be a=[1,3,2,4]a=[1,3,2,4].
+You are given the final value of the resulting array aa. Find any possible initial value for pp that can result the given aa, or determine that there is no solution.
+The first line of the input contains an integer tt (1≤t≤1041≤t≤104) — the number of test cases in the test.
+Each test case consists of two lines. The first of them contains an integer nn (1≤n≤2⋅1051≤n≤2⋅105) — the length of the array aa. The second line contains nn integers a1,a2,…,ana1,a2,…,an (1≤ai≤n1≤ai≤n) — the elements of the array aa. All elements of the aa array are distinct numbers.
+It is guaranteed that the sum of the values nn over all test cases in the test does not exceed 2⋅1052⋅105.
+Print tt lines, each of the lines must contain the answer to the corresponding set of input data: numbers p1,p2,…,pnp1,p2,…,pn  — any of the possible initial values of the array pp, which will lead to the given array aa. All elements of pp are distinct integers from 11 to nn. Thus, if there are several solutions, print any. If there is no solution, then print -1 on the line.
+The first test case in the example is clarified in the main section of the problem statement. There may be other correct answers for this test set.
+In the second test case, n=1n=1. Thus, there is only one permutation that can be the answer: p=[1]p=[1]. Indeed, this is the answer to this test case.
+In the third test case of the example, no matter what permutation you take as pp, after applying the nn steps, the result will differ from a=[1,3,5,4,2]a=[1,3,5,4,2].

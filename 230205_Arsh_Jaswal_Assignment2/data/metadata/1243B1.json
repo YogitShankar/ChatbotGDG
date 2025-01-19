@@ -1,0 +1,10 @@
+{
+    "title": "B1. Character Swap (Easy Version)",
+    "description": "This problem is different from the hard version. In this version Ujan makes exactly one exchange. You can hack this problem only if you solve both problems.\nAfter struggling and failing many times, Ujan decided to try to clean up his house again. He decided to get his strings in order first.\nUjan has two distinct strings s and t of length n consisting of only of lowercase English characters. He wants to make them equal. Since Ujan is lazy, he will perform the following operation exactly once: he takes two positions i and j (1≤i,j≤n, the values i and j can be equal or different), and swaps the characters si and tj. Can he succeed?\nNote that he has to perform this operation exactly once. He has to perform this operation.\nThe first line contains a single integer k (1≤k≤10), the number of test cases.\nFor each of the test cases, the first line contains a single integer n (2≤n≤104), the length of the strings s and t. \nEach of the next two lines contains the strings s and t, each having length exactly n. The strings consist only of lowercase English letters. It is guaranteed that strings are different.\nFor each test case, output \"Yes\" if Ujan can make the two strings equal and \"No\" otherwise.\nYou can print each letter in any case (upper or lower).\nIn the first test case, Ujan can swap characters s1 and t4, obtaining the word \"house\".\nIn the second test case, it is not possible to make the strings equal using exactly one swap of si and tj.",
+    "time limit": "time limit per test1 second",
+    "memory limit": "memory limit per test256 megabytes",
+    "tags": [
+        "strings",
+        "*1000"
+    ]
+}

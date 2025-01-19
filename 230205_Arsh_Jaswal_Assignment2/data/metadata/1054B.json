@@ -1,0 +1,10 @@
+{
+    "title": "B. Appending Mex",
+    "description": "Initially Ildar has an empty array. He performs n steps. On each step he takes a subset of integers already added to the array and appends the mex of this subset to the array. \nThe mex of an multiset of integers is the smallest non-negative integer not presented in the multiset. For example, the mex of the multiset [0,2,3] is 1, while the mex of the multiset [1,2,1] is 0.\nMore formally, on the step m, when Ildar already has an array a1,a2,…,am−1, he chooses some subset of indices 1≤i1<i2<…<ik<m (possibly, empty), where 0≤k<m, and appends the mex(ai1,ai2,…aik) to the end of the array.\nAfter performing all the steps Ildar thinks that he might have made a mistake somewhere. He asks you to determine for a given array a1,a2,…,an the minimum step t such that he has definitely made a mistake on at least one of the steps 1,2,…,t, or determine that he could have obtained this array without mistakes.\nThe first line contains a single integer n (1≤n≤100000) — the number of steps Ildar made.\nThe second line contains n integers a1,a2,…,an (0≤ai≤109) — the array Ildar obtained.\nIf Ildar could have chosen the subsets on each step in such a way that the resulting array is a1,a2,…,an, print −1.\nOtherwise print a single integer t — the smallest index of a step such that a mistake was made on at least one step among steps 1,2,…,t.\nIn the first example it is possible that Ildar made no mistakes. Here is the process he could have followed.\nThus, he can get the array without mistakes, so the answer is −1.\nIn the second example he has definitely made a mistake on the very first step, because he could not have obtained anything different from 0.\nIn the third example he could have obtained [0,1,2] without mistakes, but 239 is definitely wrong.",
+    "time limit": "time limit per test1 second",
+    "memory limit": "memory limit per test256 megabytes",
+    "tags": [
+        "implementation",
+        "*1000"
+    ]
+}

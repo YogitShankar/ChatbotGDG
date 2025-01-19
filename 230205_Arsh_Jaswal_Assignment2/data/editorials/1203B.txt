@@ -1,0 +1,34 @@
+1203B - Equal RectanglesAfter sorting a we can observe that if the answer is "YES" then the area of each rectangle is area=a1⋅a4n. Then we just need to check for each i from 1 to n that a2i−1=a2i and a4n−2i+1=a4n−2i+2 and a2i−1⋅a4n−2i+2=area. If all conditions are satisfied for all i then the answer is "YES". Otherwise the answer is "NO". Solution#include <bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+#ifdef _DEBUG
+	freopen("input.txt", "r", stdin);
+//	freopen("output.txt", "w", stdout);
+#endif
+	
+	int q;
+	cin >> q;
+	for (int i = 0; i < q; ++i) {
+		int n;
+		cin >> n;
+		vector<int> a(4 * n);
+		for (int j = 0; j < 4 * n; ++j) {
+			cin >> a[j];
+		}
+		sort(a.begin(), a.end());
+		int area = a[0] * a.back();
+		bool ok = true;
+		for (int i = 0; i < n; ++i) {
+			int lf = i * 2, rg = 4 * n - (i * 2) - 1;
+			if (a[lf] != a[lf + 1] || a[rg] != a[rg - 1] || a[lf] * 1ll * a[rg] != area) {
+				ok = false;
+			}
+		}
+		if (ok) cout << "YES" << endl;
+		else cout << "NO" << endl;
+	}
+	
+	return 0;
+}

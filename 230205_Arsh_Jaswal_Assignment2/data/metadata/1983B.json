@@ -1,0 +1,13 @@
+{
+    "title": "B. Corner Twist",
+    "description": "You are given two grids of numbers a and b, with n rows and m columns. All the values in the grid are 0, 1 or 2.\nYou can perform the following operation on a any number of times: \nNote that the operation only changes the values of the corners of the picked subrectangle.\nIs it possible to convert the grid a into grid b by applying the above operation any number of times (possibly zero)?\nThe first line contains an integer t, the number of testcases (1≤t≤250).\nFor each testcase:\nThe first line contains two integers n and m, the number of rows and columns in the grid (2≤n,m≤500).\nEach of the next n lines contain m characters — the j-th character of the i-th line represents ai,j.\nEach of the next n lines contain m characters — the j-th character of the i-th line represents bi,j (0≤ai,j,bi,j≤2).\nIt is guaranteed that the sum of n over all test cases and the sum of m over all test cases do not exceed 500.\nFor each test case print \"YES\" (without quotes) if it is possible to convert grid a into grid b and \"NO\" (without quotes) otherwise.\nYou can output the answer in any case (upper or lower). For example, the strings \"yEs\", \"yes\", \"Yes\", and \"YES\" will be recognized as positive responses.\nIn the first testcase, grid a can be converted into b in the following manner:\n000000000⇒102000201⇒102012222⇒102102102⇒111102120⇒111111111\nHere, in each operation, the top-right and bottom-left corners highlighted by a box are incremented by 2 modulo 3, while the top-left and bottom-right corners are incremented by 1 modulo 3.\nIn the fourth testcase, it can be proven that it is not possible to convert grid a into grid b using the above-mentioned operations any number of times.",
+    "time limit": "time limit per test1 second",
+    "memory limit": "memory limit per test256 megabytes",
+    "tags": [
+        "constructive algorithms",
+        "greedy",
+        "implementation",
+        "math",
+        "*1200"
+    ]
+}

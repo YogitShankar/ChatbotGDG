@@ -1,0 +1,3 @@
+{
+    "solution": "2000C - Numeric String TemplateIdea: myav TutorialTutorial is loading... Solutiondef solve():\n    n = int(input())\n    a = list(map(int, input().split()))\n    m = int(input())\n    for _ in range(m):\n        m_1 = {}\n        m_2 = {}\n        s = input().strip()\n        if len(s) != n:\n            print(\"NO\")\n            continue\n \n        ok = True\n        for j in range(n):\n            if s[j] not in m_1 and a[j] not in m_2:\n                m_1[s[j]] = a[j]\n                m_2[a[j]] = s[j]\n            elif (s[j] in m_1 and m_1[s[j]] != a[j]) or (a[j] in m_2 and m_2[a[j]] != s[j]):\n                ok = False\n                break\n        print(\"YES\" if ok else \"NO\")\n \nt = int(input())\nfor _ in range(t):\n    solve()"
+}

@@ -1,0 +1,12 @@
+{
+    "title": "A. ConneR and the A.R.C. Markland-N",
+    "description": "A.R.C. Markland-N is a tall building with n floors numbered from 1 to n. Between each two adjacent floors in the building, there is a staircase connecting them.\nIt's lunchtime for our sensei Colin \"ConneR\" Neumann Jr, and he's planning for a location to enjoy his meal.\nConneR's office is at floor s of the building. On each floor (including floor s, of course), there is a restaurant offering meals. However, due to renovations being in progress, k of the restaurants are currently closed, and as a result, ConneR can't enjoy his lunch there.\nCooneR wants to reach a restaurant as quickly as possible to save time. What is the minimum number of staircases he needs to walk to reach a closest currently open restaurant.\nPlease answer him quickly, and you might earn his praise and even enjoy the lunch with him in the elegant Neumanns' way!\nThe first line contains one integer t (1≤t≤1000) — the number of test cases in the test. Then the descriptions of t test cases follow.\nThe first line of a test case contains three integers n, s and k (2≤n≤109, 1≤s≤n, 1≤k≤min(n−1,1000)) — respectively the number of floors of A.R.C. Markland-N, the floor where ConneR is in, and the number of closed restaurants.\nThe second line of a test case contains k distinct integers a1,a2,…,ak (1≤ai≤n) — the floor numbers of the currently closed restaurants.\nIt is guaranteed that the sum of k over all test cases does not exceed 1000.\nFor each test case print a single integer — the minimum number of staircases required for ConneR to walk from the floor s to a floor with an open restaurant.\nIn the first example test case, the nearest floor with an open restaurant would be the floor 4.\nIn the second example test case, the floor with ConneR's office still has an open restaurant, so Sensei won't have to go anywhere.\nIn the third example test case, the closest open restaurant is on the 6-th floor.",
+    "time limit": "time limit per test1 second",
+    "memory limit": "memory limit per test256 megabytes",
+    "tags": [
+        "binary search",
+        "brute force",
+        "implementation",
+        "*1100"
+    ]
+}

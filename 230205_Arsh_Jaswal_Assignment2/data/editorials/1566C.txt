@@ -1,0 +1,127 @@
+1566C - MAX-MEX Cut First solutionHint 1You can cut out the columns with both 0 and 1. Hint 2Now in each column there are only 0 or only 1. We only need to solve the problem for a string because the columns can be replaced by one digit (they consist of equal elements). Hint 3Let's be greedy, to each zero we will "join" not more than one 1. EditorialLet's solve the same problem but for a string:It's needed to cut a binary string into segments so that each its element is in exactly one segment and the sum of MEX for all segments is maximal.Initially we will say that the string is cut into segments of length 1. Then the answer is the number of zeroes in the string. After that the answer is increased every time we merge a segment of 0 with a segment of 1. Each such merge increases the answer by 1. Let's make the merges greedily, maximizing the number of merges. Let's consider the first zero. If the previous element is a 1, let's merge them and consider the next zero. Else, if the next element is a 1, let's merge them and consider the next zero. Else, the next element is a zero and we should consider it instead of the current zero the same way. By doing so we get the answer as the number of zeroes + the number of merges.Now let's solve the initial problem. We can cut out the columns that contain both 0 and 1, because their MEX is already maximized and the answer will not become worse.Now we solve the problem for all remaining bi-tables independently. Each their column consists either only of 0 or only of 1 so both rows are equal. We will solve the problem for one row of each remaining bi-table as mentioned before and then sum up the values to get the answer. Implementation (C++, shishin)#include <bits/stdc++.h>
+using namespace std;
+
+int solve(string s) {
+    int ans = count(s.begin(), s.end(), '0');
+    int n = s.size();
+    bool a = false, b = false;
+    for (int i = 0; i < n; ++i) {
+        if (s[i] == '0') a = true;
+        if (s[i] == '1') b = true;
+        if (a && b) {
+            ++ans;
+            a = b = false;
+        }
+    }
+    return ans;
+}
+
+int main() {
+    ios_base::sync_with_stdio(false);
+    cin.tie(nullptr);
+    cout.tie(nullptr);
+    int T;
+    cin >> T;
+    while (T --> 0) {
+        int n, ans = 0;
+        string a, b;
+        cin >> n >> a >> b;
+        string s = "";
+        for (int i = 0; i < n; ++i) {
+            if (a[i] != b[i]) {
+                ans += 2 + solve(s);
+                s = "";
+            } else {
+                s += a[i];
+            }
+        }
+        cout << ans + solve(s) << '\n';
+    }
+    return 0;
+} Second solution (two similar solutions)This problem could be solved in many ways using the dp. We will consider these solutions in short.Let's say that dpi — is the answer for a prefix until i. Then there are different approaches:We can calculate the dp values, iterating through all possible MEX values on the last segment. For example, if we want to make MEX equal 2 on the last segment, then we need to find the closest 0 and the closest 1 to position i. Let it be last0 and last1. Then we should recalc the dp like this dpi=max(dpi,dpj−1+2), where j=min(last0,last1), because we take the shortest segment ending in i which has both 0 and 1 and after that we add the answer for this segment and for prefix that ends in j−1. Implementation(C++, kpw29)#include <bits/stdc++.h>
+using namespace std;
+#define FOR(i, l, r) for(int i = (l); i <= (r); ++i)
+#define rep(i, l, r) for(int i = (l); i < (r); ++i)
+typedef vector<int> vi;
+
+//Did you REAALLY consider sample tests?
+void solve(int tc) {
+    string s[2];
+    int n;
+    cin >> n;
+    cin >> s[0] >> s[1];
+    vi dp(n + 1, 0);
+    vi last(2, -1);
+    
+    auto take = [&](int i, bool take0, bool take1) {
+        int MEX = 0;
+        if (take0) {
+            if (take1) MEX = 2;
+            else MEX = 1;
+        }
+        
+        int index = i;
+        if (take0) index = min(index, last[0]);
+        if (take1) index = min(index, last[1]);
+        
+        if (index != -1) return MEX + dp[index - 1];
+        return -100000;
+    };
+    
+    FOR(i, 1, n) {
+        vi val(2);
+        rep(j, 0, 2) last[s[j][i-1] - '0'] = i;
+        dp[i] = dp[i-1];
+        dp[i] = max(dp[i], take(i, 1, 0));
+        dp[i] = max(dp[i], take(i, 0, 1));
+        dp[i] = max(dp[i], take(i, 1, 1));
+    }
+    
+    cout << dp[n] << "\n";
+}
+ 
+int main() {
+    int tests;
+    cin >> tests;
+    FOR(test, 1, tests) {
+        solve(test);
+    }
+}Another possible solution with dp is based on the fact that we should not take any segments with length more than x, where x is some small number. We can just take some random big enough x and not prove anything. There exists a solution which does not consider segments with length bigger than 5. Implementation (C++, physics0523)#include<bits/stdc++.h>
+ 
+using namespace std;
+ 
+int mex(string s){
+  int fl=0;
+  for(auto &nx : s){
+    if(nx=='0'){fl|=1;}
+    else if(nx=='1'){fl|=2;}
+  }
+  if(fl==3){return 2;}
+  if(fl==1){return 1;}
+  return 0;
+}
+ 
+int main(){
+  ios::sync_with_stdio(false);
+  cin.tie(nullptr);
+  int t;
+  cin >> t;
+  while(t>0){
+    t--;
+    int n;
+    string s1,s2;
+    cin >> n >> s1 >> s2;
+    vector<int> dp(n+1,0);
+    for(int i=0;i<n;i++){
+      string s;
+      for(int j=0;j<5;j++){
+        if(i+j>=n){break;}
+        s.push_back(s1[i+j]);
+        s.push_back(s2[i+j]);
+        dp[i+j+1]=max(dp[i+j+1],dp[i]+mex(s));
+      }
+    }
+    cout << dp[n] << '\n';
+  }
+  return 0;
+} D: Seating Arrangements

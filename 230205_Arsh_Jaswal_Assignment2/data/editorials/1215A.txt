@@ -1,0 +1,38 @@
+1215A - Yellow CardsAt first, if k1>k2, then we swap k1 with k2 and a1 with a2, so the number of yellow cards required to send a player of the first team off is not greater than the same value for the second team. If all players from the first team receive k1−1 cards each and all players from the second team receive k2−1 cards each, we will minimize the number of players who left the game. Let cnt=a1⋅(k1−1)+a2⋅(k2−1). If cnt≤0, then the minimum number of players who left the game is equal to 0. In the other case, if any player receivse one more yellow card, he leaves the game. So the minimum number of players who left the game is (n−cnt).When we maximize the number of players who left the game, at first we should give cards to players in the first team, and then give cards to players in the second team. So, if n≤a1⋅k1, the answer is ⌊nk1⌋. In the other case, the answer is a1+⌊n−a1⋅k1k2⌋.  Solution (fcspartakm)#include <bits/stdc++.h>
+
+using namespace std;
+
+int a1, a2, k1, k2, n;
+
+inline void read() {
+	cin >> a1 >> a2 >> k1 >> k2 >> n;	
+}
+
+inline void solve() {
+	if (k1 > k2) {
+		swap(k1, k2);
+		swap(a1, a2);
+	}
+	int minCnt = max(0, n &mdash; a1 * (k1 &mdash; 1) &mdash; a2 * (k2 &mdash; 1));
+	int maxCnt = 0;
+	if (n <= a1 * k1) {
+		maxCnt = n / k1;
+	} else {
+		maxCnt = a1 + (n &mdash; a1 * k1) / k2;
+    }    
+    cout << minCnt << ' ' << maxCnt << endl;
+}
+
+int main () {
+#ifdef fcspartakm
+    freopen("input.txt", "r", stdin);
+    //freopen("output.txt", "w", stdout);
+#endif
+    srand(time(NULL));
+    cerr << setprecision(10) << fixed;
+    
+    read();
+    solve();
+ 
+    //cerr << "TIME: " << clock() << endl;
+}

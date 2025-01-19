@@ -1,0 +1,31 @@
+985B - Switches and LampsLet's maintain an array cnt of size m, where cnti will be equal to the number of switches that are connected to the i-th lamp. Then answer will be "YES" if and only if there exists some switch such that for each lamp i that is connected to this switch cnti > 1. Otherwise the answer will be "NO". Solution (Vovuh)#include <bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+	int n, m;
+	cin >> n >> m;
+	vector<string> s(n);
+	vector<int> cnt(m);
+	for (int i = 0; i < n; ++i) {
+		cin >> s[i];
+		for (int j = 0; j < m; ++j)
+			if (s[i][j] == '1') ++cnt[j];
+	}
+	
+	for (int i = 0; i < n; ++i) {
+		bool ok = true;
+		for (int j = 0; j < m; ++j) {
+			if (s[i][j] == '1' && cnt[j] == 1)
+				ok = false;
+		}
+		if (ok) {
+			puts("YES");
+			return 0;
+		}
+	}
+	
+	puts("NO");
+	
+	return 0;
+}

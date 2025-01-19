@@ -1,0 +1,15 @@
+Problem Title: D. Not a Cheap String
+
+time limit per test2 seconds
+memory limit per test256 megabytes
+
+Let ss be a string of lowercase Latin letters. Its price is the sum of the indices of letters (an integer between 1 and 26) that are included in it. For example, the price of the string abca is 1+2+3+1=71+2+3+1=7.
+The string ww and the integer pp are given. Remove the minimal number of letters from ww so that its price becomes less than or equal to pp and print the resulting string. Note that the resulting string may be empty. You can delete arbitrary letters, they do not have to go in a row. If the price of a given string ww is less than or equal to pp, then nothing needs to be deleted and ww must be output.
+Note that when you delete a letter from ww, the order of the remaining letters is preserved. For example, if you delete the letter e from the string test, you get tst.
+The first line of input contains an integer tt (1≤t≤1041≤t≤104) — the number of test cases in the test. The following are descriptions of tt test cases.
+Each case consists of two lines.
+The first of them is the string ww, it is non-empty and consists of lowercase Latin letters. Its length does not exceed 2⋅1052⋅105.
+The second line contains an integer pp (1≤p≤52000001≤p≤5200000).
+It is guaranteed that the sum of string lengths ww over all test cases does not exceed 2⋅1052⋅105.
+Output exactly tt rows, the ii-th of them should contain the answer to the ii-th set of input data. Print the longest string that is obtained from ww by deleting letters such that its price is less or equal to pp. If there are several answers, then output any of them.
+Note that the empty string  — is one of the possible answers. In this case, just output an empty string.

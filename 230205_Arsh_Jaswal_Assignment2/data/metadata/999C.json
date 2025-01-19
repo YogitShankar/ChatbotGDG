@@ -1,0 +1,10 @@
+{
+    "title": "C. Alphabetic Removals",
+    "description": "You are given a string s consisting of n lowercase Latin letters. Polycarp wants to remove exactly k characters (k≤n) from the string s. Polycarp uses the following algorithm k times:\nThis algorithm removes a single letter from the string. Polycarp performs this algorithm exactly k times, thus removing exactly k characters.\nHelp Polycarp find the resulting string.\nThe first line of input contains two integers n and k (1≤k≤n≤4⋅105) — the length of the string and the number of letters Polycarp will remove.\nThe second line contains the string s consisting of n lowercase Latin letters.\nPrint the string that will be obtained from s after Polycarp removes exactly k letters using the above algorithm k times.\nIf the resulting string is empty, print nothing. It is allowed to print nothing or an empty line (line break).",
+    "time limit": "time limit per test2 seconds",
+    "memory limit": "memory limit per test256 megabytes",
+    "tags": [
+        "implementation",
+        "*1200"
+    ]
+}

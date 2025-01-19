@@ -1,0 +1,1 @@
+1413B - A New TechniqueTo solve this problem it's sufficient to find the position of each row in the table. If we consider the first number of each row and find a column containing it, we will automatically obtain the position of the row. Since all numbers are distinct, the positions will be determined uniquely. Problem C of tc/C div2/A div1 (Perform Easily)

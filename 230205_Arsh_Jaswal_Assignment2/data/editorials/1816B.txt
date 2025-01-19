@@ -1,0 +1,32 @@
+1816B - Grid Reconstruction HintConsider the parity (odd/even) of i+j. What do you observe? EditorialObserve that ai,j will be added if (i+j) is even, and will be subtracted otherwise. This forms a checkered pattern.Obviously, it is optimal for all values that will be added to be strictly larger than all values that will be subtracted. Also, the difference between the value of adjacent grids should be almost equal (by some definition of almost).We construct array a as follows:  a1,1=2n−1 and a2,n=2n For 2≤i≤n and i is even, a1,i=i and a2,i−1=i−1 For 2≤i≤n and i is odd, a1,i=n+i−1 and a2,i−1=n+(i−1)−1 For example, when n=10, the output will be 19 2 12 4 14 6 16 8 18 10
+1 11 3 13 5 15 7 17 9 20 Insights on how to find the construction(This is a very informal proof. See "Proof" below for a formal proof.)First of all, due to the checkered pattern, a1,1,a2,2,a1,3,⋯,a2,n should be filled with n+1,n+2,n+3,⋯,2n, and a2,1,a1,2,a2,3,⋯,a1,n should be filled with 1,2,3,⋯,n. In particular, a1,1 and a2,n should be 2n−1 and 2n.Next, as we are trying to maximise the minimum, the difference between paths shouldn't be large (since the minimum path will be smaller if the difference is larger). Notice that a path consists of a prefix of a1 and a suffix of a2, and the difference between 2 adjacent paths is ±(a1,k−a2,k−1) (depending on the parity of k). It is optimal for the difference to be as small as possible (which is 1).Finally, it is optimal that a1,k−a2,k−1 stays constant in the whole array. If they are different, the difference between 2 paths (not adjacent) will be larger than 1, which is suboptimal. ProofConsider the cost of the top right path and bottom left path.The cost of the top right path is a1,1−a1,2+a1,3−⋯−a1,n+a2,n.The cost of the bottom right path is a1,1−a2,1+a2,2−a2,3+...+a2,n.Summing both values, we geta1,1+a2,n+((a1,1−a1,2+a1,3−a1,4+...−a1,n)+(−a2,1+a2,2−a2,3+...+a2,n))which is equal toa1,1+a2,n+((a1,1+a2,2+a1,3+a2,4+⋯+a2,n)−(a2,1+a1,2+a2,3+a1,4+⋯+a1,n))This value attains maximum when a1,1=2n, a2,n=2n−1, (a1,1+a2,2+a1,3+a2,4+⋯+a2,n)=((n+1)+(n+2)+(n+3)+⋯+2n) and (a2,1+a1,2+a2,3+a1,4+⋯+a1,n)=(1+2+3+⋯+n), which is (2n+(2n−1)+((n)((n+1)+2n)2)−((n)(1+n)2))=(n2+4n−1).Therefore, the upper bound for the maximum cost is ⌊n2+4n−12⌋=12n2+2n−1. We will now show that the construction above meets the upper bound.Let Pk be the cost of the path a1,1,a1,2,a1,3,⋯,a1,k,a2,k,a2,k+1,⋯,a2,n.Observe that Pk−Pk−1=(−1)k(a1,k−a2,k−1)=(−1)k, as the paths differ by exactly 2 grids and a1,k−a2,k−1=1 (from the above construction).Calculating P,P1=(2n−1)−2+(n+2)−4+(n+4)−⋯−(n−2)+2n=(2n−1)+(n)(n2−1)−n+2n=12n2+2n−1P2=P1+(−1)2=12n2+2nP3=P2+(−1)3=12n2+2n−1⋯Therefore, min(P)=12n2+2n−1, which achieves the upper bound. Implementation#include <bits/stdc++.h>
+using namespace std;
+int main() {
+    int t;
+    cin >> t;
+    while (t--) {
+        int n;
+        cin >> n;
+        
+        int ans[3][n + 1];
+        
+        ans[1][1] = 2 * n - 1;
+        ans[2][n] = 2 * n;
+
+        for (int i = 2; i <= n; i++) {
+            if (i % 2 == 0) {
+                ans[1][i] = i;
+                ans[2][i - 1] = i - 1;
+            } else {
+                ans[1][i] = n + (i - 1);
+                ans[2][i - 1] = n + (i - 1) - 1;
+            }
+        }
+
+        for (int i = 1; i <= 2; i++) {
+            for (int j = 1; j <= n; j++) {
+                cout << ans[i][j] << (j == n ? '\n' : ' ');
+            }
+        }
+    }
+} QuestionCan you find a construction for a n×n grid (and give a formal proof)? (We don't have a solution)

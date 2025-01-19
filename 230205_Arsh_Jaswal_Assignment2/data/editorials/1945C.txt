@@ -1,0 +1,20 @@
+1945C - Left and Right HousesAccording to the statement, to the left of the road there should be no less elements ai such that ai=0 than such that ai=1, and to the right of the road there should be no less elements ai than such that ai=1 than such that ai=0.We will consider each position of the road and check the compliance with the road design condition. To do this, we will use the prefix sum method to access the number of 1's in the suffix in O(1) (the number of such i that i>x and ai=1 for any x). We will also maintain the count of 0's among the elements to the left of the road and the optimal answer. If the road position x is suitable and it is closer to the middle than the most optimal answer found before, we will update it (and will not forget to increase the count of 0 if the next element ax+1=0).It is convenient to double the distance to the middle of the village: instead of ∣∣n2−i∣∣, consider it as 2∣∣n2−i∣∣=|n−2⋅i|. This way, we can get rid of calculations in non-integer numbers.Complexity: O(n) Solutionfor case in range(int(input())):
+    n = int(input())
+    a = input()
+    suf_cnt = [0] * (n + 1)
+    for i in range(n - 1, -1, -1):
+        suf_cnt[i] = suf_cnt[i + 1] + (a[i] == '1')
+    pref_cnt = 0
+     
+    opt_ans = -1
+    opt_dist = n * 2
+    threshold = (n + 1) // 2
+     
+    for i in range(n + 1):
+        if pref_cnt >= (i + 1) // 2 and suf_cnt[i] >= (n - i + 1) // 2 and abs(n - 2 * i) < opt_dist:
+            opt_dist = abs(n - 2 * i)
+            opt_ans = i
+        if i != n:
+            pref_cnt += (a[i] == '0')
+     
+    print(opt_ans)

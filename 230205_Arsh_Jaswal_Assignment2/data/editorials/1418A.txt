@@ -1,0 +1,3 @@
+1418A - Buying TorchesYou need s=yk+k−1 additional sticks to get k torches (yk sticks for y units of coal and also k sticks required to craft torches) and you get x−1 sticks per one trade. To buy this number of sticks, you need ⌈sx−1⌉ trades. And also, you need k additional trades to turn some sticks into coals. And the final answer is ⌈sx−1⌉+k. Solution (vovuh)for i in range(int(input())):
+    x, y, k = map(int, input().split())
+    print(((y + 1) * k - 1 + x - 2) // (x - 1) + k)

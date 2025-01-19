@@ -1,0 +1,41 @@
+1983B - Corner TwistNotice how the operations affect each row and column. The problem offers a really simple solution: the sum of each row and each column modulo 3 needs to remain constant throughout all the operations. It is easy to see that this is a necessary condition. Let's prove that this is sufficient as well.Notice that using the 2x2 versions of the operations defined in the statement, i.e., addition of 1221 or 2112 along the corners of a 2x2 square can be used to generate the same result as the operation applied on any rectangle. For instance, we can combine two 2x2 operations sideways to get a 2x3 operation:122+11+221≡120021(mod3) Let the grid a and b have n rows and m columns, you can iterate over i thorugh 1…n−1 and for i's each iteration, j through 1…m−1.   If a[i][j]+1≡b[i][j](mod3), add 1221 to the subrectange of a starting at a[i[j]. If a[i][j]+2≡b[i][j](mod3), add 2112 to the subrectange of a starting at a[i[j]. Make no changes otherwise. We see that it is always possible to make all the elements in the first n−1 rows and m−1 columns equal using this method. Note that the sum of each row and each column stays constant after each operation. If b is derived from a using these operations, then all the values for the remaining n+m−1 elements of the grid can be uniquely determined using the row and column sums and need to be equal. Hence, proving sufficiency. Implementation (C++)269329137 Implementation (Python)269329083 Feedback 
+
+
+
+278
+
+
+
+
+
+ Good problem 
+
+
+
+29
+
+
+
+
+
+ Average problem 
+
+
+
+397
+
+
+
+
+
+ Bad problem 
+
+
+
+59
+
+
+
+
+
+ Did not solve 

@@ -1,0 +1,11 @@
+{
+    "title": "A. Balanced Rating Changes",
+    "description": "Another Codeforces Round has just finished! It has gathered n participants, and according to the results, the expected rating change of participant i is ai. These rating changes are perfectly balanced — their sum is equal to 0.\nUnfortunately, due to minor technical glitches, the round is declared semi-rated. It means that all rating changes must be divided by two.\nThere are two conditions though: \nCan you help with that?\nThe first line contains a single integer n (2≤n≤13845), denoting the number of participants.\nEach of the next n lines contains a single integer ai (−336≤ai≤1164), denoting the rating change of the i-th participant.\nThe sum of all ai is equal to 0.\nOutput n integers bi, each denoting the modified rating change of the i-th participant in order of input.\nFor any i, it must be true that either bi=⌊ai2⌋ or bi=⌈ai2⌉. The sum of all bi must be equal to 0.\nIf there are multiple solutions, print any. We can show that a solution exists for any valid input.\nIn the first example, b1=5, b2=−3 and b3=−2 is another correct solution.\nIn the second example there are 6 possible solutions, one of them is shown in the example output.",
+    "time limit": "time limit per test1 second",
+    "memory limit": "memory limit per test512 megabytes",
+    "tags": [
+        "implementation",
+        "math",
+        "*1000"
+    ]
+}

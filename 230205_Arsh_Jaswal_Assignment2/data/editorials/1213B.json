@@ -1,0 +1,3 @@
+{
+    "solution": "1213B - Bad Prices TutorialTutorial is loading... Solution#include <bits/stdc++.h>\n\nusing namespace std;\n\n#define forn(i, n) for (int i = 0; i < int(n); i++)\n\nint main() {\n    int t;\n    cin >> t;\n    forn(tt, t) {\n        int n;\n        cin >> n;\n        vector<int> a(n);\n        forn(i, n)\n            cin >> a[i];\n        int ans = 0;\n        int right_min = INT_MAX;\n        for (int i = n -  1; i >= 0; i--) {\n            if (a[i] > right_min)\n                ans++;\n            right_min = min(right_min, a[i]);\n        }\n        cout << ans << endl;\n    }\n}"
+}

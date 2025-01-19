@@ -1,0 +1,12 @@
+{
+    "title": "B. GCD Length",
+    "description": "You are given three integers a, b and c.\nFind two positive integers x and y (x>0, y>0) such that: \ngcd(x,y) denotes the greatest common divisor (GCD) of integers x and y.\nOutput x and y. If there are multiple answers, output any of them.\nThe first line contains a single integer t (1≤t≤285) — the number of testcases.\nEach of the next t lines contains three integers a, b and c (1≤a,b≤9, 1≤c≤min(a,b)) — the required lengths of the numbers.\nIt can be shown that the answer exists for all testcases under the given constraints.\nAdditional constraint on the input: all testcases are different.\nFor each testcase print two positive integers — x and y (x>0, y>0) such that \nIn the example: ",
+    "time limit": "time limit per test2 seconds",
+    "memory limit": "memory limit per test256 megabytes",
+    "tags": [
+        "constructive algorithms",
+        "math",
+        "number theory",
+        "*1100"
+    ]
+}

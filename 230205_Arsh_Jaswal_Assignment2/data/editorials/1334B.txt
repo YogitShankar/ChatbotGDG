@@ -1,0 +1,15 @@
+1334B - Middle ClassIn fact, to carry out only one reform is always enough. And it's easy to prove if you make only one reform it's always optimal to take the maximum such k that the average of k maximums in the array a is at least x (i.e. sum greater or equal to kx). So the solution is next: sort array a and find the suffix with maximum length k such that the sum on the suffix is at least kx.===To prove the fact about one reform we can prove another fact: after each reform, the sum of k maximums doesn't increase for each k. We'll prove it in two steps.The first step. Let's look at some reform and form an array b from the chosen elements in a in descending order. After the reform we'll get array b′ where all b′[i]=1|b|∑|b|i=1b[i]. Let's just skip the proof and say it's obvious enough that ∑yi=1b[i]≥∑yi=1b′[i] for any y.The second step. Let fix k and divide array a on two parts: k maximums as a1 and other n−k elements as a2. And let's make the same division of a′ (the array after performing the reform) on a′1 and a′2. So, we need to prove that sum(a′1)≤sum(a1). Suppose m elements were chosen in the reform: cnt of them were in a1 and cnt′ now in a′1. If cnt≥cnt′ then we can think like maximum cnt′ elements from cnt elements in a were replaced by the average and other cnt−cnt′ were replaced by elements from a2. Since ∑cnt′i=1b[i]≥∑cnt′i=1b′[i] and any element from a1 is greater or equal to any element from a2 then we proved that sum(a′1)≤sum(a1) when cnt≥cnt′.If cnt<cnt′ then let's look at a2 and a′2. The a2 has m−cnt chosen elements and a′2 has m−cnt′, so m−cnt>m−cnt′ and we can prove that sum(a′2)≥sum(a2) practically in the same way as before. Obviously, if sum(a′)=sum(a) and sum(a′2)≥sum(a2) then sum(a′1)≤sum(a1). Q.E.D.The last step is easy, let's prove that the only reform is enough. The answer after several reforms is clearly equal to k maximums which are at least x. But it means that the sum of k maximums is at least kx, therefore the sum of k maximums in the initial array is at least kx. So we can make them all at least k by only one reform.  Solution (adedalic)fun main() {
+    val T = readLine()!!.toInt()
+    for (tc in 1..T) {
+        val (n, x) = readLine()!!.split(' ').map { it.toInt() }
+        val a = readLine()!!.split(' ').map { it.toInt() }.sortedDescending()
+
+        var cnt = 0
+        var sum = 0L
+        while (cnt < n && sum + a[cnt] >= (cnt + 1) * x.toLong()) {
+            sum += a[cnt]
+            cnt++
+        }
+        println(cnt)
+    }
+}

@@ -1,0 +1,17 @@
+Problem Title: C. Wrong Addition
+
+time limit per test1 second
+memory limit per test256 megabytes
+
+Tanya is learning how to add numbers, but so far she is not doing it correctly. She is adding two numbers aa and bb using the following algorithm:
+For example, the numbers a=17236a=17236 and b=3465b=3465 Tanya adds up as follows:
++17236034651106911+17236034651106911
+As a result, she gets 11069111106911.
+You are given two positive integers aa and ss. Find the number bb such that by adding aa and bb as described above, Tanya will get ss. Or determine that no suitable bb exists.
+The first line of input data contains an integer tt (1≤t≤1041≤t≤104) — the number of test cases.
+Each test case consists of a single line containing two positive integers aa and ss (1≤a<s≤10181≤a<s≤1018) separated by a space.
+For each test case print the answer on a separate line.
+If the solution exists, print a single positive integer bb. The answer must be written without leading zeros. If multiple answers exist, print any of them.
+If no suitable number bb exists, output -1.
+The first test case is explained in the main part of the statement.
+In the third test case, we cannot choose bb that satisfies the problem statement.

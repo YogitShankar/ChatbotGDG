@@ -1,0 +1,20 @@
+Problem Title: B. Tenzing and Books
+
+time limit per test1 second
+memory limit per test256 megabytes
+
+Tenzing received 3n3n books from his fans. The books are arranged in 33 stacks with nn books in each stack. Each book has a non-negative integer difficulty rating.
+Tenzing wants to read some (possibly zero) books. At first, his knowledge is 00.
+To read the books, Tenzing will choose a non-empty stack, read the book on the top of the stack, and then discard the book. If Tenzing's knowledge is currently uu, then his knowledge will become u|vu|v after reading a book with difficulty rating vv. Here || denotes the bitwise OR operation. Note that Tenzing can stop reading books whenever he wants.
+Tenzing's favourite number is xx. Can you help Tenzing check if it is possible for his knowledge to become xx?
+Each test contains multiple test cases. The first line of input contains a single integer tt (1≤t≤1041≤t≤104) — the number of test cases. The description of test cases follows.
+The first line of each test case contains two integers nn and xx (1≤n≤1051≤n≤105, 0≤x≤1090≤x≤109) — the number of books in each stack and Tenzing's favourite number.
+The second line of each test case contains nn integers a1,a2,…,ana1,a2,…,an (0≤ai≤1090≤ai≤109)  — the difficulty rating of the books in the first stack, from top to bottom.
+The third line of each test case contains nn integers b1,b2,…,bnb1,b2,…,bn (0≤bi≤1090≤bi≤109)  — the difficulty rating of the books in the second stack, from top to bottom.
+The fourth line of each test case contains nn integers c1,c2,…,cnc1,c2,…,cn (0≤ci≤1090≤ci≤109)  — the difficulty rating of the books in the third stack, from top to bottom.
+It is guaranteed that the sum of nn does not exceed 105105.
+For each test case, output "Yes" (without quotes) if Tenzing can make his knowledge equal to xx, and "No" (without quotes) otherwise.
+You can output the answer in any case (upper or lower). For example, the strings "yEs", "yes", "Yes", and "YES" will be recognized as positive responses.
+For the first test case, Tenzing can read the following 44 books: 
+After reading all books, Tenzing's knowledge is 77.
+For the third test case, Tenzing can read 00 books to make his final knowledge equals to 00.

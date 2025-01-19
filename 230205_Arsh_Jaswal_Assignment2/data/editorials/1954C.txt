@@ -1,0 +1,19 @@
+1954C - Long MultiplicationThere are two observations to solve the problem:   applying the operation does not change the sum of the numbers;  the smaller the difference of the numbers, the greater their product (the proof is given below). Proof: let's denote the sum of the numbers as s, the smallest number as s2−a and the largest number as s2+a. Then the product is equal to (s2−a)(s2+a)=(s2)2−a2. We can see that, the smaller a (the half of difference), the larger the product.In order to get the minimum difference, we can use the following algorithm: let i be the smallest index (the most significant digit) such that xi≠yi and set the maximum digit among xi and yi to the number x and smallest to the number y; thus x is definitely greater than y, then the less significant digits should be the maximum possible for the number y (i. e. the inequality xj≤yj must hold for all j>i). Solution (Neon)#include <bits/stdc++.h>
+ 
+using namespace std;
+ 
+int main() {
+  int t;
+  cin >> t;
+  while (t--) {
+    string x, y;
+    cin >> x >> y;
+    int n = x.size();
+    bool f = false;
+    for (int i = 0; i < n; ++i) {
+      if ((x[i] > y[i]) == f) swap(x[i], y[i]);
+      f |= (x[i] != y[i]);
+    }
+    cout << x << '\n' << y << '\n';
+  }
+}

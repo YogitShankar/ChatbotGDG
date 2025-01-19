@@ -1,0 +1,12 @@
+1914C - QuestsIdea: Roms TutorialTutorial is loading... Solution (Neon)fun main() = repeat(readLine()!!.toInt()) {
+  val (n, k) = readLine()!!.split(" ").map { it.toInt() }
+  val a = readLine()!!.split(" ").map { it.toInt() }
+  val b = readLine()!!.split(" ").map { it.toInt() }
+  var (res, sum, mx) = intArrayOf(0, 0, 0)
+  for (i in 0 until minOf(n, k)) {
+    sum += a[i]
+    mx = maxOf(mx, b[i])
+    res = maxOf(res, sum + mx * (k - i - 1))
+  }
+  println(res)
+}

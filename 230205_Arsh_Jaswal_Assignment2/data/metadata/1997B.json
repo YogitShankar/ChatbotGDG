@@ -1,0 +1,11 @@
+{
+    "title": "B. Make Three Regions",
+    "description": "There is a grid, consisting of 2 rows and n columns. Each cell of the grid is either free or blocked.\nA free cell y is reachable from a free cell x if at least one of these conditions holds: \nA connected region is a set of free cells of the grid such that all cells in it are reachable from one another, but adding any other free cell to the set violates this rule.\nFor example, consider the following layout, where white cells are free, and dark grey cells are blocked:\nThere are 3 regions in it, denoted with red, green and blue color respectively:\nThe given grid contains at most 1 connected region. Your task is to calculate the number of free cells meeting the following constraint:\nThe first line contains a single integer t (1≤t≤104) — the number of test cases.\nThe first line of each test case contains a single integer n (1≤n≤2⋅105) — the number of columns.\nThe i-th of the next two lines contains a description of the i-th row of the grid — the string si, consisting of n characters. Each character is either . (denoting a free cell) or x (denoting a blocked cell). \nAdditional constraint on the input: \nFor each test case, print a single integer — the number of cells such that the number of connected regions becomes 3 if this cell is blocked.\nIn the first test case, if the cell (1,3) is blocked, the number of connected regions becomes 3 (as shown in the picture from the statement).",
+    "time limit": "time limit per test2 seconds",
+    "memory limit": "memory limit per test256 megabytes",
+    "tags": [
+        "constructive algorithms",
+        "two pointers",
+        "*1100"
+    ]
+}

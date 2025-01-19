@@ -1,0 +1,45 @@
+1360C - Similar PairsLet e — be the number of even numbers in the array, and o — be the number of odd numbers in the array. Note that if the parities of e and of o do not equal, then the answer does not exist. Otherwise, we consider two cases:   e and o — are even numbers. Then all numbers can be combined into pairs of equal parity.  e and o — are odd numbers. Then you need to check whether there are two numbers in the array such that the modulus of their difference is 1. If there are two such numbers, then combine them into one pair. e and o will decrease by 1 and become even, then the solution exists as shown in the previous case.  Solution#include <bits/stdc++.h>
+
+using namespace std;
+using ld = long double;
+using ll = long long;
+
+void solve() {
+    int n;
+    cin >> n;
+    vector<int> v(n);
+    int a = 0, b = 0;
+    for (int &e : v) {
+        cin >> e;
+        if (e % 2 == 0) {
+            a++;
+        } else {
+            b++;
+        }
+    }
+    if (a % 2 != b % 2) {
+        cout << "NO\n";
+    } else {
+        if (a % 2 == 0) {
+            cout << "YES\n";
+        } else {
+            for (int i = 0; i < n; i++) {
+                for (int j = i + 1; j < n; j++) {
+                    if (v[i] % 2 != v[j] % 2 && abs(v[i] - v[j]) == 1) {
+                        cout << "YES\n";
+                        return;
+                    }
+                }
+            }
+            cout << "NO\n";
+        }
+    }
+}
+
+int main() {
+    int t;
+    cin >> t;
+    while (t--) {
+        solve();
+    }
+}

@@ -1,0 +1,16 @@
+There is a vending machine that sells lemonade. The machine has a total of n slots. You know that initially, the i-th slot contains ai cans of lemonade. There are also n buttons on the machine, each button corresponds to a slot, with exactly one button corresponding to each slot. Unfortunately, the labels on the buttons have worn off, so you do not know which button corresponds to which slot.
+When you press the button corresponding to the i-th slot, one of two events occurs:
+After pressing, the can drops out so quickly that it is impossible to track from which slot it fell. The contents of the slots are hidden from your view, so you cannot see how many cans are left in each slot. The only thing you know is the initial number of cans in the slots: a1,a2,…,an.
+Determine the minimum number of button presses needed to guarantee that you receive at least k cans of lemonade.
+Note that you can adapt your strategy during the button presses based on whether you received a can or not. It is guaranteed that there are at least k cans of lemonade in total in the machine. In other words, k≤a1+a2+…+an.
+Each test consists of multiple test cases. The first line contains a single integer t (1≤t≤104) — the number of test cases. The description of the test cases follows.
+The first line of each test case contains two integers n and k (1≤n≤2⋅105, 1≤k≤109) — the number of slots in the machine and the required number of cans of lemonade.
+The second line of each test case contains n integers a1,a2,…,an (1≤ai≤109) — the number of cans in the slots.
+It is guaranteed that k≤a1+a2+…+an, meaning there are at least k cans of lemonade in the machine.
+It is guaranteed that the sum of n over all test cases does not exceed 2⋅105.
+For each test case, output a single integer — the minimum number of button presses needed to guarantee that you receive at least k cans of lemonade.
+In the first test case, we can simply press the first button and receive one can of lemonade.
+In the second test case, we can press each button once and guarantee that we receive 2 cans of lemonade. Note that if we simply press one button twice, we might not be lucky, and that button could correspond to the first slot, in which case we would only receive 1 can of lemonade for two presses.
+In the third test case, one of the optimal strategies is as follows:
+Press the first button twice. After the first press, a can of lemonade will definitely drop out. Then there are two options:
+It can be shown that it is impossible to guarantee receiving 4 cans of lemonade with only 4 presses, so the answer is 5.

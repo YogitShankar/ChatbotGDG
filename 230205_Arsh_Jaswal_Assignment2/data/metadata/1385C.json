@@ -1,0 +1,10 @@
+{
+    "title": "C. Make It Good",
+    "description": "You are given an array a consisting of n integers. You have to find the length of the smallest (shortest) prefix of elements you need to erase from a to make it a good array. Recall that the prefix of the array a=[a1,a2,…,an] is a subarray consisting several first elements: the prefix of the array a of length k is the array [a1,a2,…,ak] (0≤k≤n).\nThe array b of length m is called good, if you can obtain a non-decreasing array c (c1≤c2≤⋯≤cm) from it, repeating the following operation m times (initially, c is empty):\nFor example, if we do 4 operations: take b1, then bm, then bm−1 and at last b2, then b becomes [b3,b4,…,bm−3] and c=[b1,bm,bm−1,b2].\nConsider the following example: b=[1,2,3,4,4,2,1]. This array is good because we can obtain non-decreasing array c from it by the following sequence of operations:\nNote that the array consisting of one element is good.\nPrint the length of the shortest prefix of a to delete (erase), to make a to be a good array. Note that the required length can be 0.\nYou have to answer t independent test cases.\nThe first line of the input contains one integer t (1≤t≤2⋅104) — the number of test cases. Then t test cases follow.\nThe first line of the test case contains one integer n (1≤n≤2⋅105) — the length of a. The second line of the test case contains n integers a1,a2,…,an (1≤ai≤2⋅105), where ai is the i-th element of a.\nIt is guaranteed that the sum of n does not exceed 2⋅105 (∑n≤2⋅105).\nFor each test case, print the answer: the length of the shortest prefix of elements you need to erase from a to make it a good array.\nIn the first test case of the example, the array a is already good, so we don't need to erase any prefix.\nIn the second test case of the example, the initial array a is not good. Let's erase first 4 elements of a, the result is [4,5,2]. The resulting array is good. You can prove that if you erase fewer number of first elements, the result will not be good.",
+    "time limit": "time limit per test1 second",
+    "memory limit": "memory limit per test256 megabytes",
+    "tags": [
+        "greedy",
+        "*1200"
+    ]
+}

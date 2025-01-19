@@ -1,0 +1,28 @@
+1234B1 - Social Network (easy version)The solution to this problem is just the implementation of what is written in the problem statement. Let's carry the array q which shows the current smartphone screen. When we receive the new message from the friend with ID idi, let's do the following sequence of moves:  Firstly, let's try to find him on the screen. If he is found, just do nothing and continue.  Otherwise, let's check if the current number of conversations is k. If it is so then let's remove the last conversation.  Now the number of conversations is less than k and the current friend is not shown on the screen. Let's insert him into the first position. After processing all n messages the answer is just the array q. Solution#include <bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+#ifdef _DEBUG
+	freopen("input.txt", "r", stdin);
+//	freopen("output.txt", "w", stdout);
+#endif
+	
+	int n, k;
+	cin >> n >> k;
+	vector<int> ids;
+	for (int i = 0; i < n; ++i) {
+		int id;
+		cin >> id;
+		if (find(ids.begin(), ids.end(), id) == ids.end()) {
+			if (int(ids.size()) >= k) ids.pop_back();
+			ids.insert(ids.begin(), id);
+		}
+	}
+	
+	cout << ids.size() << endl;
+	for (auto it : ids) cout << it << " ";
+	cout << endl;
+	
+	return 0;
+}

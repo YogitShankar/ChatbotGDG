@@ -1,0 +1,14 @@
+Problem Title: B. Transfusion
+
+time limit per test2 seconds
+memory limit per test256 megabytes
+
+You are given an array a of length n. In one operation, you can pick an index i from 2 to n−1 inclusive, and do one of the following actions:
+ 
+After each operation, all the values must be non-negative. Can you make all the elements equal after any number of operations?
+First line of input consists of one integer t (1≤t≤104)  — the number of test cases.
+First line of each test case consists of one integer n (3≤n≤2⋅105).
+Second line of each test case consists of n integers ai (1≤ai≤109).
+It is guaranteed that the sum of n of all test cases doesn't exceed 2⋅105.
+For each test case, print "YES" without quotation marks if it is possible to make all the elements equal after any number of operations; otherwise, print "NO" without quotation marks.
+You can print answers in any register: "yes", "YeS", "nO"  — will also be considered correct.

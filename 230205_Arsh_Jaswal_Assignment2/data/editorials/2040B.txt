@@ -1,0 +1,30 @@
+2040B]At each moment of time, the array contains a number of non-intersecting segments consisting only of ones. Using an operation of the first type can increase the number of these segments by 1. Using an operation of the second type decreases the number of these segments by x−1, where x — is the number of segments that this operation covers. Therefore, the number of operations of the second type is no more than the number of operations of the first type minus 1.The optimal strategy — is to perform one operation of the first type, and then alternate operations of the first and second types, increasing the number of ones from x to 2⋅(x+1) on each such pair of operations. There is no point in doing more operations of the first type on the prefix of operations, since we still must cover no more than two segments of ones with operations of the second type; otherwise, we will reduce the possible number of operations of the second type. Solution C++#include <bits/stdc++.h>
+ 
+using namespace std;
+ 
+int main() {
+    int tt;
+    cin >> tt;
+    while (tt--) {
+        int n;
+        cin >> n;
+        for (int ans = 1, cur = 1; ; ans++, cur = cur * 2 + 2) {
+            if (cur >= n) {
+                cout << ans << '\n';
+                break;
+            }
+        }
+    }
+    
+    return 0;
+} Solution Pythontt = int(input())
+for _ in range(tt):
+    n = int(input())
+    ans = 1
+    cur = 1
+    while True:
+        if cur >= n:
+            print(ans)
+            break
+        ans += 1
+        cur = cur * 2 + 2 NotesAt some point in the development of this problem, the following alternative statement appeared: we need to minimize the total number of operations of both types. How to solve this problem?

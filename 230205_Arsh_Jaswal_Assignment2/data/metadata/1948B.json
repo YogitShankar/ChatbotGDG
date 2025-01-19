@@ -1,0 +1,13 @@
+{
+    "title": "B. Array Fix",
+    "description": "You are given an integer array a of length n.\nYou can perform the following operation any number of times (possibly zero): take any element of the array a, which is at least 10, delete it, and instead insert the digits that element consisted of in the same position, in order they appear in that element.\nFor example:\nYour task is to determine whether it is possible to make a sorted in non-descending order using the aforementioned operation any number of times (possibly zero). In other words, you have to determine if it is possible to transform the array a in such a way that a1≤a2≤⋯≤ak, where k is the current length of the array a.\nThe first line contains a single integer t (1≤t≤103) — the number of test cases.\nEach test case consists of two lines:\nFor each test case, print YES if it is possible to make a sorted in non-decreasing order using the aforementioned operation; otherwise, print NO.\nYou can print each letter in any case. For example, yes, Yes, YeS will all be recognized as a positive answer.\nIn the first example, you can split the first element, then the array becomes [1,2,3,45,67].\nIn the second example, there is no way to get a sorted array.\nIn the third example, the array is already sorted.",
+    "time limit": "time limit per test2 seconds",
+    "memory limit": "memory limit per test256 megabytes",
+    "tags": [
+        "brute force",
+        "dp",
+        "greedy",
+        "implementation",
+        "*1100"
+    ]
+}

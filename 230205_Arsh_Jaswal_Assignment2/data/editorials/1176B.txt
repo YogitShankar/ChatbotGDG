@@ -1,0 +1,27 @@
+1176B - Merge it!Let cnti be the number of elements of a with the remainder i modulo 3. Then the initial answer can be represented as cnt0 and we have to compose numbers with remainders 1 and 2 somehow optimally. It can be shown that the best way to do it is the following: firstly, while there is at least one remainder 1 and at least one remainder 2, let's compose them into one 0. After this, at least one of the numbers cnt1,cnt2 will be zero, then we have to compose remaining numbers into numbers divisible by 3. If cnt1=0 then the maximum remaining number of elements we can obtain is ⌊cnt23⌋ (because 2+2+2=6), and in the other case (cnt2=0) the maximum number of elements is ⌊cnt13⌋ (because 1+1+1=3). Solution#include<bits/stdc++.h>
+
+using namespace std;
+
+int t, n;
+int cnt[3];
+
+int main(){
+    cin >> t;
+    for(int tc = 0; tc < t; ++tc){
+        memset(cnt, 0, sizeof cnt);
+        cin >> n;
+        for(int i = 0; i < n; ++i){
+            int x;
+            cin >> x;
+            ++cnt[x % 3];
+        }
+    	
+    	int res = cnt[0];
+        int mn = min(cnt[1], cnt[2]);
+        res += mn;
+        cnt[1] -= mn, cnt[2] -= mn;
+        res += (cnt[1] + cnt[2]) / 3;
+        cout << res << endl;
+    }
+    return 0;
+}

@@ -1,0 +1,54 @@
+1726B - Mainak and Interesting SequenceLemma: In an interesting sequence a1,a2,…,an, every element other than the largest must have even occurrences.Proof: For the sake of contradiction, assume that for some x (x>0), such than x≠maxi=1n{ai}, x appears an odd number of times. Let P(z) denote the bitwise XOR of all elements in a that are less than z. By assumption P(x)=0. Now, since x is not maximum of the sequence a, there exists y in a, such that x<y and there are no other elements t such that x<t<y (in other words, y is the immediate larger element of x in a). Again, P(y)=0 as well by assumption. However, since x appears an odd number of times, we have: 0=P(y)=P(x)⊕x=0⊕x=x, which is a contradiction as x must be positive.This gives us an O(n) solution as follows: Case - I: If n>m — It is clearly impossible to construct an interesting sequence with sum equal to m (as integers must be positive). Case - II: n is odd — Create (n−1) occurrences of 1, and a single occurrence of (m−n+1). Case - III: n is even, m is even — Create (n−2) occurrences of 1 and two occurrences of (m−n+2)/2. Case - IV: n is even, m is odd — No such interesting sequences exist.  Proof: For the sake of contradiction assume that such an interesting sequence, a, exists. Since m is odd, there must be an odd number x that occurs an odd number of times in a. Again since n is even there must be another integer y (different from x) that occurs an also odd number of times. Hence either x or y (whichever is lower) violates the lemma.  ImplementationC++#include<bits/stdc++.h>
+using namespace std;
+
+inline void test_case(){
+	
+	int N, M;
+	cin >> N >> M;
+
+	if(((N % 2 == 0) && (M % 2 == 1)) || (M < N)){ // impossible cases, M < N and (M - odd, N - even)
+		cout << "NO\n";
+	}else if((N % 2) == 1){ // (N - odd)
+		cout << "YES\n";
+		for(int i = 1; i < N; ++i){
+			cout << "1 ";
+		}
+		cout << M - N + 1 << '\n';
+	}else{ // (N - even, M - even)
+		cout << "YES\n";
+		for(int i = 2; i < N; ++i){
+			cout << "1 ";
+		}
+		cout << (M - N + 2) / 2 << ' ' << (M - N + 2) / 2 << '\n';
+	}
+
+}
+
+signed main(){
+
+	ios_base::sync_with_stdio(false);
+	cin.tie(NULL);
+	cout.tie(NULL);
+
+	int test_case_number;
+	cin>>test_case_number;
+	while(test_case_number--)
+		test_case();
+	
+	return 0;
+} Pythonimport sys
+input = sys.stdin.readline
+
+t=int(input())
+for _ in range(t):
+    n,m=map(int,input().split())
+    if n>m or (n%2==0 and m%2==1):
+        print("NO")
+    else:
+        print("YES")
+        ans=[]
+        if n%2==1:
+            ans.extend([1]*(n-1)+[m-n+1])
+        else:
+            ans.extend([1]*(n-2)+[(m-n+2)//2]*2)
+        print(*ans,sep=' ') 

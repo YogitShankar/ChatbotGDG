@@ -1,0 +1,15 @@
+1674D - A-B-C SortLet's look at elements an and an−1. After the first step, they will always move to positions b1 and bn (it's up to you to choose: an→b1 and an−1→bn or vice versa) because all remaining ai for i<n−1 will be placed between an and an−1.After the second step, elements b1 and bn will always be placed at positions cn−1 and cn (it's also up to you to decide the exact order) because it's easy to see that you first take all bi for 1<i<n and only after that — b1 and bn.In other words, elements an−1 and an are moved to positions cn−1 and cn. We can analogically prove that each pair (an−2i−1,an−2i) is moved to a pair of positions (cn−2i−1,cn−2i): you first take all elements aj for j>n−2i and place them at positions [b1,…,bi] and [bn−i+1,…,bn]; then you move an−2i and an−2i−1; finally you move all remaining elements from a between bi+1 and bn−i. Step 2 just does everything in "reverse" order to step 1.It means that array c is basically array a, but you can swap elements in pairs (an−2i−1,an−2i) for i≥0. And to make a (c) sorted, we can try to sort each pair and check — is it enough to sort the whole array or not. Solution (adedalic)fun main() {
+    repeat(readLine()!!.toInt()) {
+        val n = readLine()!!.toInt()
+        val a = readLine()!!.split(' ').map { it.toInt() }.toIntArray()
+        for (i in (n % 2) until n step 2) {
+            if (a[i] > a[i + 1])
+                a[i] = a[i + 1].also { a[i + 1] = a[i] }
+        }
+        var sorted = true
+        for (i in a.indices)
+            if (i > 0 && a[i - 1] > a[i])
+                sorted = false
+        println(if(sorted) "YES" else "NO")
+    }
+}

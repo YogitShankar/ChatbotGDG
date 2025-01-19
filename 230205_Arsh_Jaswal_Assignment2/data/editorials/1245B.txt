@@ -1,0 +1,86 @@
+1245B - Restricted RPSLet A, B, C be the number of rocks, papers, and scissors in Bob's sequence, respectively. It is easy to see that Alice can win at most w:=min(A,b)+min(B,c)+min(C,a) hands.So if 2w<n, Alice can't win.Otherwise, Alice can always win. One way to construct a winning sequence of hands for Alice is as follows:   Create a sequence of length n.   For Bob's first min(A,b) rock hands, put a paper hand in the corresponding position in our sequence.   For Bob's first min(B,c) paper hands, put a scissors hand in the corresponding position in our sequence.   For Bob's first min(C,a) scissors hands, put a rock hand in the corresponding position in our sequence.   Just fill in the other elements of the sequence by the remaining hands that Alice has. By construction, Alice uses exactly a rock hands, b paper hands, and c scissors hands. Also, Alice beats Bob exactly w times. Since 2w≥n, Alice wins. Solution#include <vector>
+#include <string>
+#include <iostream>
+#include <cstdio>
+#include <algorithm>
+#include <stack>
+#include <queue>
+#include <deque>
+#include <set>
+#include <map>
+using namespace std;
+
+int main()
+{
+    ios_base::sync_with_stdio(0);
+    cin.tie(0);
+    
+    int q;
+    for (cin >> q; q--;)
+    {
+        int n;
+        cin >> n;
+        int a, b, c;
+        cin >> a >> b >> c;
+        string s;
+        cin >> s;
+        
+        vector<int> count(26);
+        for (char x : s)
+        	count[x - 'A']++;
+        
+        int wins = min(a, count['S' - 'A']) + min(b, count['R' - 'A']) + min(c, count['P' - 'A']);
+        
+        if (2 * wins < n)
+        {
+        	cout << "NO" << '\n';continue;
+        }
+        
+        cout << "YES" << '\n';
+        string t;
+        for (int i = 0; i != n; ++i)
+        {
+        	if (s[i] == 'S' && a)
+        	{
+        		t += 'R';
+        		a--;
+        	}
+        	else if (s[i] == 'R' && b)
+        	{
+        		t += 'P';
+        		b--;
+        	}
+        	else if (s[i] == 'P' && c)
+        	{
+        		t += 'S';
+        		c--;
+        	}
+        	else
+        		t += '_';
+        }
+        for (int i = 0; i != n; ++i)
+        {
+        	if (t[i] != '_')
+        		continue;
+        	
+        	if (a)
+        	{
+        		t[i] = 'R';
+        		a--;
+        	}
+        	else if (b)
+        	{
+        		t[i] = 'P';
+        		b--;
+        	}
+        	else
+        	{
+        		t[i] = 'S';
+        		c--;
+        	}
+        }
+        cout << t << '\n';
+    }
+    
+    return 0;
+}

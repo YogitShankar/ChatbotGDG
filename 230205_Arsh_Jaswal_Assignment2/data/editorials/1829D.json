@@ -1,0 +1,3 @@
+{
+    "solution": "1829D - Gold RushIdea: flamestorm TutorialTutorial is loading... Solution#include <bits/stdc++.h>\n\nusing namespace std;\n\nbool ok(int n, int m) {\n\tif (n == m) {return true;}\n\telse if (n % 3 != 0) {return false;}\n\telse {return (ok(n / 3, m) || ok(2 * n / 3, m));}\n}\n\nvoid solve() {\n\tint n, m;\n\tcin >> n >> m;\n\tcout << (ok(n, m) ? \"YES\" : \"NO\") << '\\n';\n}\n\nint main() {\n\tios::sync_with_stdio(false);\n\tcin.tie(nullptr);\n\tint tt; cin >> tt; for (int i = 1; i <= tt; i++) {solve();}\n\t// solve();\n}"
+}

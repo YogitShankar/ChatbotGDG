@@ -1,0 +1,24 @@
+2000D - Right Left WrongNote that since all characters of the selected segment of the string s are erased after applying the operation, the segments we choose cannot overlap. However, they can be nested if we first choose an inner segment and then an outer one.Since all numbers in the array are positive, it is always beneficial to take the largest possible segment in the answer, that is, from the first 'L' to the last 'R'. By choosing this segment, we can only select segments within it. We will continue to choose such segments within the last selected one as long as possible. To quickly find the sums of the segments, we will calculate the prefix sums of the array a. Solutiondef solve():
+    n = int(input())
+    a = [0]
+    for x in input().split():
+        x = int(x)
+        a.append(a[-1] + x)
+    s = input()
+    ans = 0
+    l = 0
+    r = n - 1
+    while r > l:
+        while l < n and s[l] == 'R':
+            l += 1
+        while r >= 0 and s[r] == 'L':
+            r -= 1
+        if l < r:
+            ans += a[r + 1] - a[l]
+            l += 1
+            r -= 1
+    print(ans)
+ 
+t = int(input())
+for _ in range(t):
+    solve()

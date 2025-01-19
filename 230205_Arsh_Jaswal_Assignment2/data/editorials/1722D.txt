@@ -1,0 +1,38 @@
+1722D - РядFor each person, let's calculate how much the value will change if they turn around. For example, in the line LRRLL, if the i-th person turns around, then the value of the line will change by +4, −2, 0, −2, −4, respectively. (For instance, if the second person turns around, they see 3 people before and 1 person after, so the value of the line changes by −2 if they turn around.)Now note that if a person turns around, it doesn't affect anyone else's value. So the solution is a greedy one: let's sort the array of values in increasing order. Afterwards, we should go from the left to the right, and see if the value will increase if this person turns around; if it does, we should add it to the current total and continue.The time complexity of this solution is O(nlogn) per testcase. Solution#include <bits/stdc++.h>
+
+using namespace std;
+
+const int MAX = 200007;
+const int MOD = 1000000007;
+
+void solve() {
+	int n;
+	cin >> n;
+	string s;
+	cin >> s;
+	long long tot = 0;
+	vector<long long> v;
+	for (int i = 0; i < n; i++) {
+		if (s[i] == 'L') {
+			v.push_back((n - 1 - i) - i);
+			tot += i;
+		}
+		else {
+			v.push_back(i - (n - 1 - i));
+			tot += n - 1 - i;
+		}
+	}
+	sort(v.begin(), v.end(), greater<int>());
+	for (int i = 0; i < n; i++) {
+		if (v[i] > 0) {tot += v[i];}
+		cout << tot << ' ';
+	}
+	cout << '\n';
+}
+
+int main() {
+	ios::sync_with_stdio(false);
+	cin.tie(nullptr);
+	int tt; cin >> tt; for (int i = 1; i <= tt; i++) {solve();}
+	// solve();
+}

@@ -1,0 +1,15 @@
+Problem Title: B. Collatz Conjecture
+
+time limit per test1 second
+memory limit per test256 megabytes
+
+Recently, the first-year student Maxim learned about the Collatz conjecture, but he didn't pay much attention during the lecture, so he believes that the following process is mentioned in the conjecture:
+There is a variable x and a constant y. The following operation is performed k times: 
+For example, if the number x=16, y=3, and k=2, then after one operation x becomes 17, and after another operation x becomes 2, because after adding one, x=18 is divisible by 3 twice.
+Given the initial values of x, y, and k, Maxim wants to know what is the final value of x.
+Each test consists of multiple test cases. The first line contains an integer t (1≤t≤104) — the number of test cases. Then follows the description of the test cases.
+The only line of each test case contains three integers x, y, and k (1≤x,k≤109, 2≤y≤109) — the initial variable, constant and the number of operations.
+For each test case, output a single integer — the number obtained after applying k operations.
+In the first test case, there is only one operation applied to x=1, resulting in x becoming 2.
+In the second test case, for x=2, within one operation, one is added to x and it's divided by y=3, resulting in x becoming 1.
+In the third test case, x changes as follows:

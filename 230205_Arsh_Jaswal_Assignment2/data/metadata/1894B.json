@@ -1,0 +1,10 @@
+{
+    "title": "B. Two Out of Three",
+    "description": "You are given an array a1,a2,…,an. You need to find an array b1,b2,…,bn consisting of numbers 1, 2, 3 such that exactly two out of the following three conditions are satisfied:\nIf such an array does not exist, you should report it.\nEach test contains multiple test cases. The first line contains a single integer t (1≤t≤500) — the number of test cases. Each test case is described as follows.\nThe first line of each test case contains an integer n (1≤n≤100) — the length of the array a.\nThe second line of each test case contains n integers a1,a2,…,an (1≤ai≤100) — the elements of the array a.\nFor each test case, print -1 if there is no solution. Otherwise, print b1,b2,…,bn — an array consisting of numbers 1, 2, 3 that satisfies exactly two out of three conditions. If there are multiple possible answers, you can print any of them.\nIn the first test case, b=[1,2,3,1,1,1] satisfies condition 1 because for i=4, j=2: ai=aj, bi=1, and bj=2. It also satisfies condition 2 because for i=6, j=3: ai=aj, bi=1, and bj=3. However, it does not satisfy condition 3. In total, exactly two out of three conditions are satisfied.",
+    "time limit": "time limit per test3 seconds",
+    "memory limit": "memory limit per test512 megabytes",
+    "tags": [
+        "constructive algorithms",
+        "*1000"
+    ]
+}

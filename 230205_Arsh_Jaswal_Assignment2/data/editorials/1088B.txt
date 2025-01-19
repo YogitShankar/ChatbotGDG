@@ -1,0 +1,1 @@
+1088B - Ehab and subtractionLet s be the set of numbers in input (sorted and distinct). In the ith step, si is subtracted from all bigger or equal elements, and all smaller elements are 0. Thus, the answer in the ith step is si - si - 1 (s0 = 0).Code link: https://pastebin.com/bpz1YxBeTime complexity: O(nlog(n)).

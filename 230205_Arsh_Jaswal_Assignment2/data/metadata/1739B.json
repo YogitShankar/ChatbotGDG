@@ -1,0 +1,12 @@
+{
+    "title": "B. Array Recovery",
+    "description": "For an array of non-negative integers a of size n, we construct another array d as follows: d1=a1, di=|ai−ai−1| for 2≤i≤n.\nYour task is to restore the array a from a given array d, or to report that there are multiple possible arrays. \nThe first line contains a single integer t (1≤t≤100) — the number of test cases.\nThe first line of each test case contains one integer n (1≤n≤100) — the size of the arrays a and d.\nThe second line contains n integers d1,d2,…,dn (0≤di≤100) — the elements of the array d.\nIt can be shown that there always exists at least one suitable array a under these constraints.\nFor each test case, print the elements of the array a, if there is only one possible array a. Otherwise, print −1.\nIn the second example, there are two suitable arrays: [2,8,5] and [2,8,11].",
+    "time limit": "time limit per test2 seconds",
+    "memory limit": "memory limit per test256 megabytes",
+    "tags": [
+        "constructive algorithms",
+        "greedy",
+        "math",
+        "*1100"
+    ]
+}

@@ -1,0 +1,1 @@
+2005B2 - The Strict Teacher (Hard Version) Hint 1We need the nearest teacher on the left side and right side, and then B1 solution works.  Hint 2To find the nearest teachers, you can either use binary search or use lower_bound stl function.My submission — 281146462 Video Editorial

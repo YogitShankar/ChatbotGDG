@@ -1,0 +1,28 @@
+1469A - Regular Bracket SequenceIdea: BledDest TutorialTutorial is loading... Solution 1 (BledDest)t = int(input())
+for i in range(t):
+    s = input()
+    if len(s) % 2 == 0 and s[0] != ')' and s[-1] != '(':
+        print('YES')
+    else:
+        print('NO') Solution 2 (BledDest)t = int(input())
+for i in range(t):
+    s = input()
+    n = len(s)
+    a = [s[i] for i in range(n)]
+    cnt = n // 2 - 1
+    for j in range(n):
+        if a[j] == '?':
+            if cnt > 0:
+                cnt -= 1
+                a[j] = '('
+            else:
+                a[j] = ')'
+    bal = 0
+    minbal = 0
+    for j in range(n):
+        if a[j] == '(':
+            bal += 1
+        else:
+            bal -= 1
+        minbal = min(bal, minbal)
+    print('YES' if bal == 0 and minbal >= 0 else 'NO') 

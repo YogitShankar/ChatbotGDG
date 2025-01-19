@@ -1,0 +1,156 @@
+1536B - Prinzessin der VerurteilungIdea: MagentaCobraPreparation: MagentaCobraVideo editorial Hint 1Pigeonhole principle Hint 2What is the longest the answer can be? SolutionLet’s brute force check all substrings of length <= 3 and print the lexicographically smallest one that doesn’t appear as a substring in the input. We can guarantee that we will come across the answer due to the pigeonhole principle. There are at most n+n−1+n−2=3n−3 possible substrings of length 3 or shorter in the input. There exist 26+262+263=18278 total substrings of length 3 or shorter. It is impossible for the input to contain all 18278 substrings, as 3n−3<18278 for n≤1000.Final runtime looks something like O(18278n) or O(n) depending on how you implement substring checking. Implementation in Java by hu_tao//stan hu tao
+//come to K-expo!!!
+//watch me get carried in nct ridin
+import static java.lang.Math.max;
+import static java.lang.Math.min;
+import static java.lang.Math.abs;
+import static java.lang.System.out;
+import java.util.*;
+import java.io.*;
+import java.math.*;
+
+public class FischlPog
+{
+    public static void main(String hi[]) throws Exception
+    {
+        ArrayList<String> ls = new ArrayList<String>();
+        for(int a=0; a < 26; a++)
+            ls.add(get(a)+"");
+        for(int a=0; a < 26; a++)
+            for(int b=0; b < 26; b++)
+                ls.add(get(a)+""+get(b));
+        for(int a=0; a < 26; a++)
+            for(int b=0; b < 26; b++)
+                for(int c=0; c < 26; c++)
+                    ls.add(get(a)+""+get(b)+""+get(c));
+        Collections.sort(ls, (x,y) -> {
+            int len1 = x.length();
+            int len2 = y.length();
+            if(len1 != len2)
+                return len1-len2;
+            return x.compareTo(y);
+        });
+        //assume multitests exist
+        BufferedReader infile = new BufferedReader(new InputStreamReader(System.in));
+        StringTokenizer st = new StringTokenizer(infile.readLine());
+        int T = Integer.parseInt(st.nextToken());
+        StringBuilder sb = new StringBuilder();
+        while(T-->0)
+        {
+            int N = Integer.parseInt(infile.readLine());
+            String input = infile.readLine();
+            HashSet<String> substrings = new HashSet<String>();
+            for(int len=1; len <= 3; len++)
+                for(int i=0; i < N-len+1; i++)
+                    substrings.add(input.substring(i, i+len));
+            for(int i=0; i < ls.size(); i++)
+                if(!substrings.contains(ls.get(i)))
+                {
+                    sb.append(ls.get(i)+"\n");
+                    break;
+                }
+        }
+        System.out.print(sb);
+    }
+    public static char get(int a)
+    {
+        return (char)(a+'a');
+    }
+} Implementation in Kotlin by Tlatoanifun main() {
+    repeat(readLine()!!.toInt()) {
+        val n = readLine()!!.toInt()
+        val s = readLine()!!
+        for (length in 1..n) {
+            var mex = ""
+            var answer: String? = null
+            fun recur() {
+                if (mex.length == length) {
+                    if (mex !in s) {
+                        answer = mex
+                    }
+                } else {
+                    for (chara in 'a'..'z') {
+                        mex += chara
+                        recur()
+                        if (answer != null) {
+                            return
+                        }
+                        mex = mex.substring(0 until mex.lastIndex)
+                    }
+                }
+            }
+            recur()
+            if (answer != null) {
+                println(answer)
+                break
+            }
+        }
+    }
+} Implementation in C++ by 1-gon#include <bits/stdc++.h>
+ 
+#define ll long long
+#define sz(x) ((int) (x).size())
+#define all(x) (x).begin(), (x).end()
+#define fi first
+#define se second
+#define vi vector<int>
+#define pii pair<int, int>
+#define rep(i, a, b) for(int i = (a); i < (b); i++)
+using namespace std;
+template<typename T>
+using minpq = priority_queue<T, vector<T>, greater<T>>;
+ 
+void solve() {
+    int n;
+    string s;
+    cin >> n >> s;
+    set<string> se;
+    rep(i, 0, n) {
+        string ss;
+        for(int k = 0; k < 5 && i + k < n; k++) {
+            ss.push_back(s[i + k]);
+            se.insert(ss);
+        }
+    }
+    rep(len, 1, 6) {
+        string t(len, 'a');
+        while(true) {
+            if(se.count(t) == 0) {
+                cout << t << '\n';
+                return;
+            }
+            int idx = len - 1;
+            while(idx >= 0 && t[idx] == 'z') {
+                t[idx] = 'a';
+                idx--;
+            }
+            if(idx < 0) break;
+            t[idx]++;
+        }
+    }
+}
+
+int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(0);
+    int te;
+    cin >> te;
+    while(te--) solve();
+} Implementation in Haskell by Tlatoaniimport Data.List (intercalate, tails, isPrefixOf, head)
+import Control.Monad (replicateM)
+import Data.Maybe (fromJust, listToMaybe, catMaybes)
+
+main = do t <- read <$> getLine
+          replicateM t solve
+
+solve = do getLine
+           s <- getLine
+           putStrLn (leastNonSubstring s)
+
+leastNonSubstring s = head $ catMaybes [leastOfLength l | l <- [1..]]
+  where leastOfLength l = helper "" l
+        helper prefix 0 | isSubstring prefix s = Nothing
+                        | otherwise            = Just prefix
+        helper prefix l = listToMaybe $ catMaybes [helper (prefix ++ [letter]) (l - 1) | letter <- ['a'..'z']]
+
+isSubstring s t = any id (map (isPrefixOf s) (tails t)) 

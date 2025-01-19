@@ -1,0 +1,83 @@
+1894B - Two Out of ThreeBy symmetry, it doesn't matter which two conditions are satisfied. Let's assume it's the conditions (1,2) and (1,3). Then the elements with bi=2 and the elements with bi=3 should not intersect. Therefore, it is sufficient to assign bi=2 and bi=3 to only one element that is common with the elements of the form bi=1 in order to satisfy the conditions (1,2) and (1,3). And these elements must be distinct in order to not satisfy the condition (2,3). Thus, we obtain the necessary condition for the existence of an answer: the array must have at least two elements that occur more than once. It is easy to see that this condition is also sufficient by constructing an example: let x,y be two numbers that occur more than once in the array. Then we can assign ai=x→bi=2 to one of the occurrences, ai=y→bi=3 to one of the occurrence, and assign bi=1 to all other numbers, and this will be a suitable answer. Solution231849397 #include <bits/stdc++.h>
+ 
+using namespace std;
+const int N = 100;
+ 
+void solve() {
+  int n;
+  cin >> n;
+  vector<int> a(n);
+  for (int i = 0; i < n; i++) {
+    cin >> a[i];
+  }
+  vector<int> b(n, 1);
+  vector<vector<int>> inds(N + 1);
+  for (int i = 0; i < n; i++) {
+    inds[a[i]].push_back(i);
+  }
+  int k = 2;
+  for (int x = 1; x <= N; x++) {
+    if ((int) inds[x].size() >= 2) {
+      b[inds[x][0]] = k;
+      k++;
+      if (k > 3) {
+        break;
+      }
+    }
+  }
+  if (k <= 3) {
+    cout << "-1\n";
+  } else {
+    for (int i = 0; i < n; i++) {
+      cout << b[i] << ' ';
+    }
+    cout << '\n';
+  }
+}
+ 
+signed main() {
+  ios::sync_with_stdio(false);
+  cin.tie(nullptr);
+  cout.tie(nullptr);
+  int t;
+  cin >> t;
+  while (t--) {
+    solve();
+  }
+} Rate the problem Didnt solve 
+
+    
+
+
+63
+
+
+
+ Good problem 
+
+    
+
+
+352
+
+
+
+ Average problem 
+
+    
+
+
+141
+
+
+
+ Bad problem 
+
+    
+
+
+117
+
+
+
+ 

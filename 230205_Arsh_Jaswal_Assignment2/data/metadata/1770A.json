@@ -1,0 +1,11 @@
+{
+    "title": "A. Koxia and Whiteboards",
+    "description": "Kiyora has n whiteboards numbered from 1 to n. Initially, the i-th whiteboard has the integer ai written on it.\nKoxia performs m operations. The j-th operation is to choose one of the whiteboards and change the integer written on it to bj.\nFind the maximum possible sum of integers written on the whiteboards after performing all m operations.\nEach test consists of multiple test cases. The first line contains a single integer t (1≤t≤1000) — the number of test cases. The description of test cases follows.\nThe first line of each test case contains two integers n and m (1≤n,m≤100).\nThe second line of each test case contains n integers a1,a2,…,an (1≤ai≤109).\nThe third line of each test case contains m integers b1,b2,…,bm (1≤bi≤109).\nFor each test case, output a single integer — the maximum possible sum of integers written on whiteboards after performing all m operations.\nIn the first test case, Koxia can perform the operations as follows:\nAfter performing all operations, the numbers on the three whiteboards are 4, 5 and 3 respectively, and their sum is 12. It can be proven that this is the maximum possible sum achievable.\nIn the second test case, Koxia can perform the operations as follows:\nThe sum is 4+5=9. It can be proven that this is the maximum possible sum achievable.",
+    "time limit": "time limit per test1 second",
+    "memory limit": "memory limit per test256 megabytes",
+    "tags": [
+        "brute force",
+        "greedy",
+        "*1000"
+    ]
+}

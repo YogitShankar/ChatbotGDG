@@ -1,0 +1,58 @@
+1369B - AccurateLeeCompleteProof :Realize that the answer is always non-descending, and we can't perform any operations on non-descending strings.First we know that we can't perform any operations on non-descending strings, so the answer to a non-descending string is itself. From now we consider our string s to not to be non-descending. (i.e. there exist index i such that 1≤i≤n−1 and si>si+1)Also realize that the remaining string wont be empty, so "0" is the cleanest possible answer, but we can't reach it probable.Now realize that leading zeroes and trailing ones can't be present in any operation. So they have to be in the answer, erase them from s, and add them to the answer for the modified s. From now we know that the string s has no leading zeroes and/or trailing ones, and is not non-descending, so it starts with 1 and ends with 0. (why?)With some small paperwork, we will realize that the answer to a string that starts with 1 and ends with 0 is a single 0(proof is bellow). So if the string s is non-descending and it has x leading zeroes and y trailing ones(x and y can be equal to zero), then the answer is 00…0x011…1y (its x+1 zeroes and y ones in order)TheSmallPaperwork:We will randomly perform operations until we can't do any more or the string's length is equal to 2, but we wont erase the first 1 and the last 0, we want to prove that the remaining string's length is exactly 2 after the process ends, proof by contradiction :So it's length is at least 3, so we have at least two 1 or at least two 0. If we had two or more 0 then the string [s1s2…sn−1] will not be non-descending(so we can perform more operations as we proved in STAR, but the process have ended, contradiction!) and if we had two or more 1 then the string [s2s3…sn] will not be non-descending. So the length of the remaining string is exactly 2, and we haven't erased first '1' and last '0', so the string is equal to "10", now erase '1' to get the cleanest string.Sorry if the proof seems too long and hard, i wanted to explain it accurately. ^-^ Python solutiont = int(input())
+for testcase in range(t):
+    n = int(input())
+    s = input()
+    lef, rig, sw = 1, 1, 0
+    for i in range(n-1):
+        if(s[i] > s[i+1]):
+            sw = 1
+            break
+    if(sw == 0):
+        print(s)
+        continue
+    for i in range(n):
+        if (s[i] == '1'):
+            lef = i
+            break
+    for i in range(n-1, 0, -1):
+        if (s[i] == '0'):
+            rig = i
+            break
+    st = s[:lef] + '0' + s[rig+1:]
+    print(st)
+ C++ solution#include <iostream>
+#include <string>
+ 
+using namespace std;
+ 
+int main(){
+    
+    int t;
+    cin >> t;
+    while(t--){
+        int n;
+        cin >> n;
+        string s;
+        cin >> s;
+        int sw = 1;
+        for(int i = 1; i < s.size(); i++){
+            if(s[i] < s[i-1])sw = 0;
+        }
+        if(sw){
+            cout << s << '\n';
+            continue;
+        }
+        string ans;
+        for(int i = 0; i < s.size(); i++){
+            if(s[i] == '1')break;
+            ans.push_back('0');
+        }
+        ans.push_back('0');
+        for(int i = s.size()-1; i >= 0; i--){
+            if(s[i] == '0')break;
+            ans.push_back('1');
+        }
+        cout << ans << '\n';
+    }
+}
+C. RationalLee :Invented by DeadlyCritic and adedalic. Brief SolutionBriefSolution :Give greatest elements to friends with wi=1. For the rest sort the elements in non-descending order of ai and sort the friends in non-ascending order of wi then give first w1−1 elements to friend 1, next w2−1 elements to friend 2 and so on, also give k−i+1-th greatest element to friend i (1≤i≤k). Complete Proof

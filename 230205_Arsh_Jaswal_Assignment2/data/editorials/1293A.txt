@@ -1,0 +1,71 @@
+1293A - КоннеР и A.R.C. Markland-NAuthor: xuanquang1999Development: xuanquang1999, AkiLotusEditorialist: xuanquang1999, AkiLotus  TutorialTutorial is loading... Solution (Akikaze, C++)Submission link: 69149995 Source code in plain text#pragma GCC optimize("Ofast")
+ 
+#include <bits/stdc++.h>
+using namespace std;
+ 
+#define endl '\n'
+ 
+int n, s, k;
+vector<int> a;
+ 
+void Input() {
+	cin >> n >> s >> k; a.clear(); a.resize(k);
+	for (auto &z: a) cin >> z;
+}
+ 
+void Solve() {
+	for (int i=0; i<=k; i++) {
+		if (s-i >= 1 && find(a.begin(), a.end(), s-i) == a.end()) {cout << i << endl; return;}
+		if (s+i <= n && find(a.begin(), a.end(), s+i) == a.end()) {cout << i << endl; return;}
+	}
+	assert(false); // if reached this line, the solution failed to find a free floor
+}
+ 
+int main(int argc, char* argv[]) {
+	ios_base::sync_with_stdio(0); cin.tie(NULL);
+	int T; cin >> T; while (T--) {Input(); Solve();} return 0;
+} Solution (Akikaze, Java 8)Submission link: 69150848 Source code in plain textimport java.io.*;
+import java.util.*;
+
+public class Akisolution {
+	public static Scanner sc = new Scanner(System.in);
+	public static PrintWriter out = new PrintWriter(System.out, true);
+	public static int n, s, k;
+	public static int[] a;
+
+	public static boolean exist(int[] arr, int x) {
+		for (int i=0; i<arr.length; i++) {
+			if (arr[i] == x) return true;
+		}
+		return false;
+	}
+
+	public static void Input() {
+		n = sc.nextInt(); s = sc.nextInt(); k = sc.nextInt();
+		a = new int[k];
+		for (int i=0; i<k; i++) a[i] = sc.nextInt();
+	}
+
+	public static void Solve() {
+		for (int i=0; i<=k; i++) {
+			if (s-i >= 1 && !exist(a, s-i)) {out.println(i); return;}
+			if (s+i <= n && !exist(a, s+i)) {out.println(i); return;}
+		}
+		assert false; // if reached this line, the solution failed to find a free floor
+	}
+
+	public static void main(String[] args) {
+		int t = sc.nextInt();
+		while (t-- > 0) {Input(); Solve();}
+	}
+} Solution (Akikaze, Python 3)Submission link: 69150816 Source code in plain textT = int(input())
+for test_no in range(T):
+	n, s, k = map(int, input().split())
+	a = list(map(int, input().split()))
+
+	for i in range(0, k+1):
+		if s-i >= 1 and not s-i in a: 
+			print(i); break
+		if s+i <= n and not s+i in a:
+			print(i); break
+	else: assert(False) # if reached this line, the solution failed to find a free floor

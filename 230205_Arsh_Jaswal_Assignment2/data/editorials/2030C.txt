@@ -1,0 +1,24 @@
+2030C - ИСТИННАЯ битваProblem Credits: Proof_by_QED  Analysis: Proof_by_QED Solution Let's understand what Alice wants to do. She wants to separate a statement that evaluates to true between two or's. This guarantees her victory since or is evaluated after all and's.First, if the first or last boolean is true, then Alice instantly wins by placing or between the first and second, or second to last and last booleans.Otherwise, if there are two true's consecutively, Alice can also win. Alice may place or before the first of the two on her first move. If Bob does not put his operator between the two true's, then Alice will put an or between the two true's on her next move and win. Otherwise, Bob does place his operator between the two true's. However, no matter what Bob placed, the two true's will always evaluate to true, so on her second move Alice can just place an or on the other side of the two true's to win.We claim these are the only two cases where Alice wins. This is because otherwise, there does not contain two true's consecutively. Now, whenever Alice places an or adjacent to a true, Bob will respond by placing and after the true, which will invalidate this clause to be false. Code (C++)#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    int t;
+    cin >> t;
+    while(t--) {
+        int n;
+        cin >> n;
+        string s;
+        cin >> s;
+        vector<int> v(n);
+        for(int i = 0; i < n; i++) {
+            if(s[i]=='1') v[i]=1;
+        }
+        bool win = false;
+        if(v[0]||v[n-1]) win=true;
+        for(int i = 1; i < n; i++) {
+            if(v[i]&&v[i-1]) win=true;
+        }
+        if(win) cout << "YES" << endl;
+        else cout << "NO" << endl;
+    }
+}

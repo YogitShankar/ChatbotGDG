@@ -1,0 +1,30 @@
+1108B - Divisors of Two IntegersLet's take a look on the maximum element of the given array. Suddenly, this number is x (or y, the order doesn't matter). Okay, what would we do if we know x and merged list of divisors of x and y? Let's remove all divisors of x and see what we got. The maximum element in the remaining array is y. So, the problem is solved. Solution#include <bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+#ifdef _DEBUG
+	freopen("input.txt", "r", stdin);
+//	freopen("output.txt", "w", stdout);
+#endif
+	
+	int n;
+	cin >> n;
+	multiset<int> a;
+	for (int i = 0; i < n; ++i) {
+		int x;
+		cin >> x;
+		a.insert(x);
+	}
+	
+	int x = *prev(a.end());
+	for (int i = 1; i <= x; ++i) {
+		if (x % i == 0) {
+			a.erase(a.find(i));
+		}
+	}
+	
+	cout << x << " " << *prev(a.end()) << endl;
+	
+	return 0;
+}

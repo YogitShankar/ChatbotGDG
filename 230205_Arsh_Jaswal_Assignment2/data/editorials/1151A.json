@@ -1,0 +1,3 @@
+{
+    "solution": "1151A - Maxim and BiologyCheck every substring of string s of length 4 and find the minimum number of operations to transform it into \"ACTG\" and update the answer.Complexity is O(n). "
+}

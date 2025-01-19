@@ -1,0 +1,3 @@
+{
+    "solution": "1051B - Relatively Prime PairsNumbers with the difference of 1 are always relatively prime. That's the only thing I should mention for this editorial.Overall complexity: O(r−l). Solution (PikMike)#include <bits/stdc++.h>\n\nusing namespace std;\n\n#define forn(i, n) for(int i = 0; i < int(n); i++) \n\nint main() {\n\tlong long l, r;\n\tscanf(\"%lld%lld\", &l, &r);\n\tputs(\"YES\");\n\tforn(i, (r - l) / 2 + 1)\n\t\tprintf(\"%lld %lld\\n\", l + i * 2, l + i * 2 + 1);\n}\n"
+}

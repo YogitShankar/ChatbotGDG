@@ -1,0 +1,34 @@
+1185C1 - Экзамен в БерГУ (упрощённая версия)First of all we should precalculate sum si of all students' durations for each student. For i-th student si=si−1+ti.Then for each student we can sort all durations ti of passing exam of students, who are before the current student. So, let's walk by these durations from larger to smaller and calculate prefix sum of them Di. We will iterate them until total duration is enough for the current student to pass the exam too, i.e. until si+ti−Di≤M. For i-th student the answer is number of iterated durations.Sorting works in O(nlogn), walking by array works in O(n). Total complexity for all students is O(n2logn).Authors: MikeMirzayanov, cannor147 and geranazavr555 Authors' solution#include <bits/stdc++.h>
+
+using namespace std;
+
+const int T = 100;
+
+int main() {
+	int n, m;
+	cin >> n >> m;
+	
+	int sum = 0;
+	vector<int> t(n), count(T + 1, 0);
+	for (int i = 0; i < n; i++) {
+		cin >> t[i];
+	}
+	
+	for (int i = 0; i < n; i++) {
+		int d = sum + t[i] - m, k = 0;
+		if (d > 0) {
+		    for (int j = T; j > 0; j--) {
+				int x = j * count[j];
+				if (d <= x) {
+					k += (d + j - 1) / j;
+					break;
+				}
+				k += count[j];
+				d -= x;
+			}
+		}
+		sum += t[i];
+		count[t[i]]++;
+		cout << k << " ";
+	}
+} 

@@ -1,0 +1,24 @@
+1059A - CashierThere are only n+1 possible segments of time when Vasya can take breaks: between the consecutive clients, before the first client, and after the last client. If the length of the i-th such segment is s, Vasya may take at most ⌊sa⌋ breaks, so we just sum those values over the n+1 possible segments. Time complexity is O(n). Code#include <bits/stdc++.h>
+
+using namespace std;
+
+const int maxn = 1e5 + 5;
+
+int n, L, a;
+int t[maxn], l[maxn];
+
+int main(){
+	scanf("%d%d%d", &n, &L, &a);
+	for(int i = 0; i < n; i++){
+		scanf("%d%d", &t[i], &l[i]);
+	}
+	int start = 0;
+	int ans = 0;
+	for(int i = 0; i < n; i++){
+		ans += (t[i] - start)/a;
+		start = t[i] + l[i];
+	}
+	ans += (L - start)/a;
+	printf("%d", ans);
+	return 0;
+}

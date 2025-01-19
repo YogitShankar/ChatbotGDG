@@ -1,0 +1,24 @@
+1353C - Board MovesIt is intuitive (and provable) that the best strategy is to move each figure to the center cell (n+12,n+12). Now, with some paperwork or easy observations, we can notice that we have exactly 8 cells with the shortest distance 1, 16 cells with the shortest distance 2, 24 cells with the shortest distance 3 and so on. So we have 8i cells with the shortest distance i. So the answer is 1⋅8+2⋅16+3⋅24+⋯+(n−12)2⋅8. It can be rewritten as 8(1+4+9+⋯+(n−12)2) so we can just calculate the sum of squares of all integers from 1 to n−12 using loop (or formula n(n+1)(2n+1)6) and multiply the answer by 8.Time complexity: O(n) or O(1). Solution#include <bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+#ifdef _DEBUG
+	freopen("input.txt", "r", stdin);
+//	freopen("output.txt", "w", stdout);
+#endif
+	
+	int t;
+	cin >> t;
+	while (t--) {
+		int n;
+		cin >> n;
+		long long ans = 0;
+		for (int i = 1; i <= n / 2; ++i) {
+			ans += i * 1ll * i;
+		}
+		cout << ans * 8 << endl;
+	}
+	
+	return 0;
+}

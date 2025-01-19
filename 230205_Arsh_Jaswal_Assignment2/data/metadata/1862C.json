@@ -1,0 +1,13 @@
+{
+    "title": "C. Flower City Fence",
+    "description": "Anya lives in the Flower City. By order of the city mayor, she has to build a fence for herself.\nThe fence consists of n planks, each with a height of ai meters. According to the order, the heights of the planks must not increase. In other words, it is true that ai≥aj for all i<j.\nAnya became curious whether her fence is symmetrical with respect to the diagonal. In other words, will she get the same fence if she lays all the planks horizontally in the same order.\nFor example, for n=5, a=[5,4,3,2,1], the fence is symmetrical. Because if all the planks are laid horizontally, the fence will be [5,4,3,2,1], as shown in the diagram.\n On the left is the fence [5,4,3,2,1], on the right is the same fence laid horizontally \nBut for n=3, a=[4,2,1], the fence is not symmetrical. Because if all the planks are laid horizontally, the fence will be [3,2,1,1], as shown in the diagram.\n On the left is the fence [4,2,1], on the right is the same fence laid horizontally \nHelp Anya and determine whether her fence is symmetrical.\nThe first line of the input contains an integer t (1≤t≤104) — the number of test cases. \nThe description of the test cases follows.\nThe first line of a test case contains a single integer n (1≤n≤2⋅105) — the length of the fence.\nThe second line of a test case contains n integers a1≥a2≥a3≥⋯≥an (1≤ai≤109) — the heights of the planks.\nThe sum of the values of n for all test cases does not exceed 2⋅105.\nFor each test case, output \"YES\" if the fence is symmetrical, otherwise output \"NO\".\nYou can output each letter in any case (lowercase or uppercase). For example, the strings \"yEs\", \"yes\", \"Yes\" and \"YES\" will be accepted as a positive answer.\nIn the first and second test cases of the example, the fence is symmetrical.\nIn the third test case of the example, the fence is not symmetrical. If the planks are laid horizontally, the fence will be [3,2,1,1].\nIn the fourth test case of the example, the fence is not symmetrical. If the planks are laid horizontally, the fence will be [1,1].\nIn the fifth and sixth test cases of the example, the fence is symmetrical.\nIn the seventh test case of the example, the fence is not symmetrical. If the planks are laid horizontally, the fence will be [2,1,1,1,1,1].",
+    "time limit": "time limit per test2 seconds",
+    "memory limit": "memory limit per test256 megabytes",
+    "tags": [
+        "binary search",
+        "data structures",
+        "implementation",
+        "sortings",
+        "*1100"
+    ]
+}

@@ -1,0 +1,3 @@
+{
+    "solution": "1245A - Good ol' Numbers Coloring TutorialTutorial is loading... Solution#include <bits/stdc++.h>\nusing namespace std;\n\nint gcd(int a, int b)\n{\n    while (b)\n    {\n        a %= b;\n        swap(a, b);\n    }\n    \n    return a;\n}\n\nint main()\n{\n    int t;\n    for (cin >> t; t--;)\n    \n    {\n        int a, b;\n        cin >> a >> b;\n        \n        if (gcd(a, b) == 1)\n            cout << \"Finite\" << '\\n';\n        else\n            cout << \"Infinite\" << '\\n';\n    }\n    \n    return 0;\n}"
+}

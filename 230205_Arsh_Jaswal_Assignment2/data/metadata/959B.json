@@ -1,0 +1,12 @@
+{
+    "title": "B. Mahmoud and Ehab and the message",
+    "description": "Mahmoud wants to send a message to his friend Ehab. Their language consists of n words numbered from 1 to n. Some words have the same meaning so there are k groups of words such that all the words in some group have the same meaning.\nMahmoud knows that the i-th word can be sent with cost ai. For each word in his message, Mahmoud can either replace it with another word of the same meaning or leave it as it is. Can you help Mahmoud determine the minimum cost of sending the message?\nThe cost of sending the message is the sum of the costs of sending every word in it.\nThe first line of input contains integers n, k and m (1 ≤ k ≤ n ≤ 105, 1 ≤ m ≤ 105) — the number of words in their language, the number of groups of words, and the number of words in Mahmoud's message respectively.\nThe second line contains n strings consisting of lowercase English letters of length not exceeding 20 which represent the words. It's guaranteed that the words are distinct.\nThe third line contains n integers a1, a2, ..., an (1 ≤ ai ≤ 109) where ai is the cost of sending the i-th word.\nThe next k lines describe the groups of words of same meaning. The next k lines each start with an integer x (1 ≤ x ≤ n) which means that there are x words in this group, followed by x integers which represent the indices of words in this group. It's guaranteed that each word appears in exactly one group.\nThe next line contains m space-separated words which represent Mahmoud's message. Each of these words appears in the list of language's words.\nThe only line should contain the minimum cost to send the message after replacing some words (maybe none) with some words of the same meaning.\nIn the first sample, Mahmoud should replace the word \"second\" with the word \"loser\" because it has less cost so the cost will be 100+1+5+1=107.\nIn the second sample, Mahmoud shouldn't do any replacement so the cost will be 100+1+5+10=116.",
+    "time limit": "time limit per test2 seconds",
+    "memory limit": "memory limit per test256 megabytes",
+    "tags": [
+        "dsu",
+        "greedy",
+        "implementation",
+        "*1200"
+    ]
+}

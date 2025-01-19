@@ -1,0 +1,1 @@
+939B - Hamster FarmThe easies way to solve this problem is to find the minimum number of hamsters that can be left on the farm. If Dima byes boxes of the i-th type, there are  hamsters left on the farm. So we should find such a type x, that the value  is minimum among all x; The number of boxes to buy is then equal to .Problem author: KAP, preparation: KAP. 

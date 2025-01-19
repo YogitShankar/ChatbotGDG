@@ -1,0 +1,25 @@
+1000A - Codehorses T-shirtsAt first, let's remove all coinciding entries of both lists. The most convinient way is to use map/hashmap but it's not the only option. Now divide entries into categories by their length. You can notice that it takes exactly one second to remove an entry in each category (to make it equal to an entry of the opposing list). Thus the answer is n−(number of coinciding entries).Overall complexity: O(nlogn) or O(n). Solution#include <bits/stdc++.h>
+
+#define forn(i, n) for (int i = 0; i < int(n); i++)
+
+using namespace std;
+
+
+int main() {
+	int n;
+	cin >> n;
+	
+	vector<string> a(n), b(n);
+	forn(i, n) cin >> a[i];
+	forn(i, n) cin >> b[i];
+	
+	map<string, int> cnta, cntb;
+	forn(i, n) ++cnta[a[i]];
+	forn(i, n) ++cntb[b[i]];
+	
+	int ans = n;
+	for (auto it : cnta) ans -= min(it.second, cntb[it.first]);
+	
+	cout << ans << endl;
+	return 0;
+}

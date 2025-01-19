@@ -1,0 +1,21 @@
+Problem Title: D. Three Activities
+
+time limit per test2 seconds
+memory limit per test256 megabytes
+
+Winter holidays are coming up. They are going to last for n days.
+During the holidays, Monocarp wants to try all of these activities exactly once with his friends: 
+Monocarp knows that, on the i-th day, exactly ai friends will join him for skiing, bi friends will join him for a movie and ci friends will join him for board games.
+Monocarp also knows that he can't try more than one activity in a single day.
+Thus, he asks you to help him choose three distinct days x,y,z in such a way that the total number of friends to join him for the activities (ax+by+cz) is maximized.
+The first line contains a single integer t (1≤t≤104) — the number of testcases.
+The first line of each testcase contains a single integer n (3≤n≤105) — the duration of the winter holidays in days.
+The second line contains n integers a1,a2,…,an (1≤ai≤108) — the number of friends that will join Monocarp for skiing on the i-th day.
+The third line contains n integers b1,b2,…,bn (1≤bi≤108) — the number of friends that will join Monocarp for a movie on the i-th day.
+The fourth line contains n integers c1,c2,…,cn (1≤ci≤108) — the number of friends that will join Monocarp for board games on the i-th day.
+The sum of n over all testcases doesn't exceed 105.
+For each testcase, print a single integer — the maximum total number of friends that can join Monocarp for the activities on three distinct days.
+In the first testcase, Monocarp can choose day 2 for skiing, day 1 for a movie and day 3 for board games. This way, a2=10 friends will join him for skiing, b1=10 friends will join him for a movie and c3=10 friends will join him for board games. The total number of friends is 30.
+In the second testcase, Monocarp can choose day 1 for skiing, day 4 for a movie and day 2 for board games. 30+20+25=75 friends in total. Note that Monocarp can't choose day 1 for all activities, because he can't try more than one activity in a single day.
+In the third testcase, Monocarp can choose day 2 for skiing, day 3 for a movie and day 7 for board games. 19+19+17=55 friends in total.
+In the fourth testcase, Monocarp can choose day 1 for skiing, day 4 for a movie and day 9 for board games. 17+19+20=56 friends in total.

@@ -1,0 +1,9 @@
+Problem Title: B. Unnatural Conditions
+
+time limit per test1 second
+memory limit per test256 megabytes
+
+Let s(x) be sum of digits in decimal representation of positive integer x. Given two integers n and m, find some positive integers a and b such that 
+The only line of input contain two integers n and m (1≤n,m≤1129).
+Print two lines, one for decimal representation of a and one for decimal representation of b. Both numbers must not contain leading zeros and must have length no more than 2230.
+In the first sample, we have n=6 and m=5. One valid solution is a=6, b=7. Indeed, we have s(a)=6≥n and s(b)=7≥n, and also s(a+b)=s(13)=4≤m.

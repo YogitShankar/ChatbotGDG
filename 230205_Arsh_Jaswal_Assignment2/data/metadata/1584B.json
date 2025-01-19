@@ -1,0 +1,11 @@
+{
+    "title": "B. Coloring Rectangles",
+    "description": "David was given a red checkered rectangle of size n×m. But he doesn't like it. So David cuts the original or any other rectangle piece obtained during the cutting into two new pieces along the grid lines. He can do this operation as many times as he wants.\nAs a result, he will get a set of rectangles. Rectangles 1×1 are forbidden.\nDavid also knows how to paint the cells blue. He wants each rectangle from the resulting set of pieces to be colored such that any pair of adjacent cells by side (from the same piece) have different colors.\nWhat is the minimum number of cells David will have to paint?\nThe first line contains a single integer t (1≤t≤103) — the number of test cases. The next lines contain descriptions of test cases.\nThe only line of each test case contains two integers n, m (1≤n,m≤3⋅104, n⋅m≥2).\nFor each test case print a single integer — the minimum number of cells David will have to paint blue.\nThe following pictures show how the initial rectangle can be split and cells colored blue.\nIn the first test case:\nIn the second test case:\nIn the third test case:\nIn the fourth test case:",
+    "time limit": "time limit per test1 second",
+    "memory limit": "memory limit per test256 megabytes",
+    "tags": [
+        "greedy",
+        "math",
+        "*1000"
+    ]
+}

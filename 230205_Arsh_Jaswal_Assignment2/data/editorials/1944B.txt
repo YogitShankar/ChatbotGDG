@@ -1,0 +1,54 @@
+1944B - Equal XORIdea : satyam343Preparation : satyam343Editorial : Dominater069 Hint 1Group numbers according to how many times they occur in a[1...n]. Hint 2The group of numbers having 0 occurrences in a[1...n] is of the same size as the group of numbers having 2 occurences in a[1...n]. Hint 3Try to use the 0 and 2 occurrence numbers first, and then if we still need more, we can use the 1 occurence numbers. Remember that we have to form sequences of size 2⋅k which is even. SolutionWe can append any 2 occurrence numbers to our sequence l and any 0 occurrence numbers to our sequence r without any issue because the xor value will cancel out. We do this while our sequence sizes are less than 2⋅k. At the end of this process, l and r will have the same size due to Hint 2.Now, we use as many 1 occurrence numbers appending to both l and r as needed. Since we append to both sequences, the xor value of the 2 sequences will be the same.If we had to solve for odd sequence sizes, we could take a 1 occurrence number at the very start to make it even, and then run the same process, but if there are no 1 occurrence numbers at all, we fail with this method. Code#include <bits/stdc++.h>
+using namespace std;
+
+int main(){
+    int t; cin >> t;
+    while (t--){
+        int n, k; 
+        cin >> n >> k; 
+        k = 2 * k;
+        
+        vector <int> a(2 * n), occ(n + 1, 0);
+        
+        for (auto &x : a) cin >> x;
+        for (int i = 0; i < n; i++) occ[a[i]]++;
+        
+        vector <int> g0, g1, g2;
+        for (int i = 1; i <= n; i++){
+            if (occ[i] == 0) g0.push_back(i);
+            else if (occ[i] == 1) g1.push_back(i);
+            else g2.push_back(i);
+        }
+        
+        int v = 0;
+        for (auto x : g2){
+            if (v < k){
+                v += 2;
+                cout << x << " " << x << " ";
+            }
+        }
+        for (auto x : g1){
+            if (v < k){
+                v++;
+                cout << x << " ";
+            }
+        }
+        cout << "\n";
+        
+        v = 0;
+        for (auto x : g0){
+            if (v < k){
+                v += 2;
+                cout << x << " " << x << " ";
+            }
+        }
+        for (auto x : g1){
+            if (v < k){
+                v++;
+                cout << x << " ";
+            }
+        }
+        cout << "\n";
+    }
+    return 0;
+}

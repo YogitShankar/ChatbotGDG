@@ -1,0 +1,11 @@
+{
+    "title": "A. Diverse Permutation",
+    "description": "Permutation p is an ordered set of integers p1,   p2,   ...,   pn, consisting of n distinct positive integers not larger than n. We'll denote as n the length of permutation p1,   p2,   ...,   pn.\nYour task is to find such permutation p of length n, that the group of numbers |p1 - p2|, |p2 - p3|, ..., |pn - 1 - pn| has exactly k distinct elements.\nThe single line of the input contains two space-separated positive integers n, k (1 ≤ k < n ≤ 105).\nPrint n integers forming the permutation. If there are multiple answers, print any of them.\nBy |x| we denote the absolute value of number x. ",
+    "time limit": "",
+    "memory limit": "",
+    "tags": [
+        "constructive algorithms",
+        "greedy",
+        "*1200"
+    ]
+}

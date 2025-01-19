@@ -1,0 +1,46 @@
+1362B - Johnny and His HobbiesConsider i-th least significant bit (0 indexed). If it is set in k, but not in s, it will be set in k⊕s. Hence k⊕s≥2i.Consider such minimal positive integer m, that 2m>s holds for all s∈S. k cannot have the i-th bit set for any i≥m. From this follows that k<2m. So there are only 2m feasible choices of k. We can verify if a number satisfies the condition from the statement in O(n) operations. This gives us a solution with complexity O(n⋅2m). Note that in all tests m is at most 10.There is also another solution possible. It uses the observation that if k satisfies the required conditions, then for every s∈S there exists such t∈S (t≠s) , that t⊕s=k. This gives us n−1 feasible choices of k and thus the complexity of this solution is O(n2). Solution//O(n * maxA) solution
+
+#include <bits/stdc++.h>
+
+using namespace std;
+
+const int N = 1025;
+
+int n;
+int in[N];
+bool is[N];
+
+bool check(int k){
+	for(int i = 1; i <= n; ++i)
+		if(!is[in[i] ^ k])
+			return false;
+	return true;
+}
+
+void solve(){
+	for(int i = 0; i < N; ++i)
+		is[i] = false;
+	
+	scanf("%d", &n);
+	for(int i = 1; i <= n; ++i){
+		scanf("%d", &in[i]);
+		is[in[i]] = true;
+	}
+	
+	for(int k = 1; k < 1024; ++k)
+		if(check(k)){
+			printf("%d\n", k);
+			return;
+		}
+	
+	puts("-1");
+}
+
+int main(){
+	int cases;
+	scanf("%d", &cases);
+	
+	while(cases--)
+		solve();
+	return 0;
+}

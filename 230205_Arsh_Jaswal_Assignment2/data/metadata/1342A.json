@@ -1,0 +1,11 @@
+{
+    "title": "A. Road To Zero",
+    "description": "You are given two integers x and y. You can perform two types of operations: \n \nYour goal is to make both given integers equal zero simultaneously, i.e. x=y=0. There are no other requirements. In particular, it is possible to move from x=1, y=0 to x=y=0.\nCalculate the minimum amount of dollars you have to spend on it.\nThe first line contains one integer t (1≤t≤100) — the number of testcases.\nThe first line of each test case contains two integers x and y (0≤x,y≤109).\nThe second line of each test case contains two integers a and b (1≤a,b≤109).\nFor each test case print one integer — the minimum amount of dollars you have to spend.\nIn the first test case you can perform the following sequence of operations: first, second, first. This way you spend 391+555+391=1337 dollars.\nIn the second test case both integers are equal to zero initially, so you dont' have to spend money.",
+    "time limit": "time limit per test1 second",
+    "memory limit": "memory limit per test256 megabytes",
+    "tags": [
+        "greedy",
+        "math",
+        "*1000"
+    ]
+}

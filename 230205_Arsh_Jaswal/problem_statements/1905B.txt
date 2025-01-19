@@ -1,0 +1,16 @@
+Problem Title: B. Begginer's Zelda
+
+time limit per test1 second
+memory limit per test256 megabytes
+
+You are given a tree††. In one zelda-operation you can do follows:
+Determine the minimum number of zelda-operations required for the tree to have only one vertex.
+††A tree is a connected acyclic undirected graph.
+Each test consists of multiple test cases. The first line contains a single integer tt (1≤t≤1041≤t≤104) — the number of test cases. The description of the test cases follows.
+The first line of each test case contains a single integer nn (2≤n≤1052≤n≤105) — the number of vertices.
+ii-th of the next n−1n−1 lines contains two integers uiui and vivi (1≤ui,vi≤n,ui≠vi1≤ui,vi≤n,ui≠vi) — the numbers of vertices connected by the ii-th edge.
+It is guaranteed that the given edges form a tree.
+It is guaranteed that the sum of nn over all test cases does not exceed 105105.
+For each test case, output a single integer — the minimum number of zelda-operations required for the tree to have only one vertex.
+In the first test case, it's enough to perform one zelda-operation for vertices 22 and 44.
+In the second test case, we can perform the following zelda-operations:

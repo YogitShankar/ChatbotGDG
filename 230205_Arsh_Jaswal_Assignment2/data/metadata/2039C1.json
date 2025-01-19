@@ -1,0 +1,13 @@
+{
+    "title": "C1. Shohag Loves XOR (Easy Version)",
+    "description": "This is the easy version of the problem. The differences between the two versions are highlighted in bold. You can only make hacks if both versions of the problem are solved.\nShohag has two integers x and m. Help him count the number of integers 1≤y≤m such that x≠y and x⊕y is a divisor∗ of either x, y, or both. Here ⊕ is the bitwise XOR operator.\n∗The number b is a divisor of the number a if there exists an integer c such that a=b⋅c.\nThe first line contains a single integer t (1≤t≤104) — the number of test cases.\nThe first and only line of each test case contains two space-separated integers x and m (1≤x≤106, 1≤m≤1018).\nIt is guaranteed that the sum of x over all test cases does not exceed 107.\nFor each test case, print a single integer — the number of suitable y.\nIn the first test case, for x=6, there are 3 valid values for y among the integers from 1 to m=9, and they are 4, 5, and 7.\nIn the second test case, for x=5, there are 2 valid values for y among the integers from 1 to m=7, and they are 4 and 6.",
+    "time limit": "time limit per test2 seconds",
+    "memory limit": "memory limit per test256 megabytes",
+    "tags": [
+        "bitmasks",
+        "brute force",
+        "math",
+        "number theory",
+        "*1200"
+    ]
+}

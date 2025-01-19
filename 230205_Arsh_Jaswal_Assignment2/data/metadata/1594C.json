@@ -1,0 +1,13 @@
+{
+    "title": "C. Make Them Equal",
+    "description": "Theofanis has a string s1s2…sn and a character c. He wants to make all characters of the string equal to c using the minimum number of operations.\nIn one operation he can choose a number x (1≤x≤n) and for every position i, where i is not divisible by x, replace si with c. \nFind the minimum number of operations required to make all the characters equal to c and the x-s that he should use in his operations.\nThe first line contains a single integer t (1≤t≤104) — the number of test cases.\nThe first line of each test case contains the integer n (3≤n≤3⋅105) and a lowercase Latin letter c — the length of the string s and the character the resulting string should consist of.\nThe second line of each test case contains a string s of lowercase Latin letters — the initial string.\nIt is guaranteed that the sum of n over all test cases does not exceed 3⋅105.\nFor each test case, firstly print one integer m — the minimum number of operations required to make all the characters equal to c.\nNext, print m integers x1,x2,…,xm (1≤xj≤n) — the x-s that should be used in the order they are given.\nIt can be proved that under given constraints, an answer always exists. If there are multiple answers, print any.\nLet's describe what happens in the third test case: ",
+    "time limit": "time limit per test2 seconds",
+    "memory limit": "memory limit per test256 megabytes",
+    "tags": [
+        "brute force",
+        "greedy",
+        "math",
+        "strings",
+        "*1200"
+    ]
+}

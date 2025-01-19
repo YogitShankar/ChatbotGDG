@@ -1,0 +1,27 @@
+1207B - Square FillingIt is quite obvious that we can't choose any submatrix that contains at least one zero in A. The contrary is also true — if a submatrix of A consists of only ones, then there's no reason not to choose it (suppose there is an answer that does not choose it — then choosing this submatrix won't affect it).So we may perform an operation on every submatrix of B such that the corresponding submatrix in A is filled with 1's, and check if our answer is correct. Solution (BledDest)n, m = map(int, input().split())
+a = [[] for i in range(n)]
+for i in range(n):
+    a[i] = list(map(int, input().split()))
+
+ans = []
+for i in range(n - 1):
+    for j in range(m - 1):
+        if(a[i][j] * a[i][j + 1] * a[i + 1][j] * a[i + 1][j + 1] > 0):
+            a[i][j] = 2
+            a[i + 1][j] = 2
+            a[i][j + 1] = 2
+            a[i + 1][j + 1] = 2
+            ans.append([i, j])
+
+cnt1 = 0
+for i in range(n):
+    for j in range(m):
+        if(a[i][j] == 1):
+            cnt1 += 1
+
+if(cnt1 != 0):
+    print(-1)
+else:
+    print(len(ans))
+    for x in ans:
+        print(x[0] + 1, x[1] + 1)

@@ -1,0 +1,43 @@
+990B - Micro-WorldIt can be proved that the optimal answer equals to a number of bacteria which can't be eaten by any other bacteria. So for each bacteria i you need to check existence of any bacteria j satisfying condition ai<aj≤ai+K.There plenty of ways to check this condition. One of them is to sort array a and for each i find minimal aj>ai with upper_bound or with two-pointers technique. Or you can use the fact that ai≤106 and build solution around it.Result complexity is O(nlogn). Solution (adedalic)#include<bits/stdc++.h>
+
+using namespace std;
+
+const int N = 200 * 1000 + 555;
+int n, k, a[N];
+
+inline bool read() {
+	if(!(cin >> n >> k))
+		return false;
+	for(int i = 0; i < n; i++)
+		assert(scanf("%d", &a[i]) == 1);
+	return true;
+}
+
+inline void solve() {
+	sort(a, a + n);
+	a[n++] = int(2e9);
+	
+	int ans = 0, u = 0;
+	for(int i = 0; i < n - 1; i++) {
+		while(u < n && a[i] == a[u])
+			u++;
+		if(a[u] - a[i] > k)
+			ans++;
+	}
+	cout << ans << endl;
+}
+
+int main() {
+#ifdef _DEBUG
+	freopen("input.txt", "r", stdin);
+	int tt = clock();
+#endif
+
+	if(read()) {
+		solve();
+#ifdef _DEBUG
+		cerr << "TIME = " << clock() - tt << endl;
+#endif
+	}
+	return 0;
+}

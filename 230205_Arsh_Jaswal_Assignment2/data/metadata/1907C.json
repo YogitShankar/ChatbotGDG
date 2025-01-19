@@ -1,0 +1,13 @@
+{
+    "title": "C. Removal of Unattractive Pairs",
+    "description": "Vlad found a string ss consisting of nn lowercase Latin letters, and he wants to make it as short as possible.\nTo do this, he can remove any pair of adjacent characters from ss any number of times, provided they are different. For example, if ss=racoon, then by removing one pair of characters he can obtain the strings coon, roon, raon, and raco, but he cannot obtain racn (because the removed letters were the same) or rcon (because the removed letters were not adjacent).\nWhat is the minimum length Vlad can achieve by applying any number of deletions?\nThe first line of the input contains a single integer tt (1≤t≤1041≤t≤104) — the number of test cases. Descriptions of the test cases follow.\nThe first line of each test case contains a single integer nn (1≤n≤2⋅1051≤n≤2⋅105) — the length of the string ss.\nThe second line of each test case contains the string ss consisting of nn lowercase Latin letters.\nIt is guaranteed that the sum of nn over all test cases does not exceed 2⋅1052⋅105.\nFor each test case, output a single number—the minimum length of the string ss, after removing pairs of adjacent characters with different values.\nIn the first test case of the example, you need to act as follows: \"aabc\" →→ \"ac\" →→ \"\". Note that with a different order of deletions, the string will not become empty.",
+    "time limit": "time limit per test1 second",
+    "memory limit": "memory limit per test256 megabytes",
+    "tags": [
+        "constructive algorithms",
+        "greedy",
+        "math",
+        "strings",
+        "*1200"
+    ]
+}

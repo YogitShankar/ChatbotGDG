@@ -1,0 +1,61 @@
+1605B - Reverse SortAny binary string s can be sorted in at most 1 operation!Let the number of 0s in s be cnt0 and the number of 1s in s be cnt1.The first cnt0 positions of the final sorted string will be 0 and the remaining cnt1 positions will be 1 (since it is sorted in non-decreasing order).Key observation: For every 1 that is in the first cnt0 positions of s, there is a 0 that is in the last cnt1 positions of s (Why?).If the string is not already sorted, in one operation pick the subsequence consisting of all 1s among the first cnt0 positions of s as well as all 0s among the last cnt1 positions of s. It can be shown that this will correctly sort the string since the number of such 0s and 1s are equal.Time complexity: O(n)  Solution [c++] (JeevanJyot)#include <bits/stdc++.h>
+using namespace std;
+ 
+int32_t main()
+{
+    ios_base::sync_with_stdio(0); 
+    cin.tie(0); cout.tie(0);
+    int T; cin >> T;
+    while(T--)
+    {
+        int n; cin >> n;
+        string s; cin >> s;
+        if(is_sorted(s.begin(), s.end()))
+        {
+            cout << 0 << "\n";
+            continue;
+        }
+        
+        string t = s;
+        sort(t.begin(), t.end());
+        cout << 1 << "\n";
+        vector<int> ans;
+        for(int i = 0; i < n; i++)
+        {
+            if(s[i] != t[i])
+                ans.push_back(i+1);
+        }
+        cout << ans.size() << " ";
+        for(int i = 0; i < ans.size(); i++)
+            cout << ans[i] << " \n"[i+1 == ans.size()];
+    }        
+    return 0;
+} Solution [Kotlin] (ExplodingFreeze)fun main(args: Array<String>) {
+    repeat(readLine()!!.toInt()) {
+        val n = readLine()!!.toInt()
+        val s = readLine()!!
+        if("10" in s) {
+            println(1);
+            val res = s.toCharArray().sorted().withIndex().filter { it.value != s[it.index] }.map { it.index + 1 }
+            println("$$${res.size} $$${res.joinToString(" ")}");
+        } else {
+            println(0);
+        }
+        
+    }
+} Solution [Python] (AshishGup)q = int(input())
+for tc in range(q):
+    n = int(input())
+    s = input()
+    t = ''.join(sorted(s))
+    ans = []
+    for i in range(len(s)):
+        if s[i] != t[i]: 
+            ans.append(i)
+    val = 1 if len(ans) > 0 else 0
+    print(val)
+    if val > 0:
+        print(len(ans), end = " ")
+    for elem in range(len(ans)):
+        print(ans[elem] + 1, end = " ")
+    print()

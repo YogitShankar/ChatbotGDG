@@ -1,0 +1,29 @@
+1102C - Doors Breaking and RepairingLet's consider two cases:If x>y then the answer is n because we can make opposite moves to the Slavik's moves and it always will reduce durability of some door (so at some point we will reach the state when all doors will have durability 0).Otherwise x≤y and we have to realize the optimal strategy for us. If we have some door with durability z≤x then let's break it immediately (why shouldn't we do this?). If we don't do it then Slavik will repair this door during his move. So what Slavik will do now? He will repair some door. Which door he has to repair? Of course the one with durability z≤x because otherwise we will break it during our next move. So we can realize that doors with durability z>x are not interesting for us because Slavik will make opposite moves to our moves. And what is the answer if the number of doors with durability z≤x equals to cnt? It is ⌈cnt2⌉. Solution#include <bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+#ifdef _DEBUG
+	freopen("input.txt", "r", stdin);
+//	freopen("output.txt", "w", stdout);
+#endif
+	
+	int n, x, y;
+	cin >> n >> x >> y;
+	int cnt = 0;
+	for (int i = 0; i < n; ++i) {
+		int cur;
+		cin >> cur;
+		if (cur <= x) {
+			++cnt;
+		}
+	}
+	
+	if (x > y) {
+		cout << n << endl;
+	} else {
+		cout << (cnt + 1) / 2 << endl;
+	}
+	
+	return 0;
+}

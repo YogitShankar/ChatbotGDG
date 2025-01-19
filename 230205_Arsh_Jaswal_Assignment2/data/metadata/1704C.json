@@ -1,0 +1,12 @@
+{
+    "title": "C. Virus",
+    "description": "There are n houses numbered from 1 to n on a circle. For each 1≤i≤n−1, house i and house i+1 are neighbours; additionally, house n and house 1 are also neighbours.\nInitially, m of these n houses are infected by a deadly virus. Each morning, Cirno can choose a house which is uninfected and protect the house from being infected permanently.\nEvery day, the following things happen in order:\nCirno wants to stop the virus from spreading. Find the minimum number of houses that will be infected in the end, if she optimally choose the houses to protect.\nNote that every day Cirno always chooses a house to protect before the virus spreads. Also, a protected house will not be infected forever.\nThe input consists of multiple test cases. The first line contains a single integer t (1≤t≤104) — the number of test cases. Description of test cases follows.\nThe first line of each test case consists of two positive integers n,m (5≤n≤109, 1≤m≤min(n,105)) — the number of houses on the circle, and the number of houses that are initially infected. \nThe second line of each test case consists of m distinct positive integers a1,a2,⋯,am (1≤ai≤n) — the indices of the houses infected initially.\nIt is guaranteed that the sum of m over all test cases does not exceed 105.\nFor each test case, output an integer on a separate line, which is the minimum number of infected houses in the end.\nIn the first test case:\nAt the start of the first day, house 3, 6, 8 are infected. Choose house 2 to protect.\nAt the start of the second day, house 3, 4, 5, 6, 7, 8, 9 are infected. Choose house 10 to protect.\nAt the start of the third day, no more houses are infected.\nIn the second test case:\nAt the start of the first day, house 2, 5 are infected. Choose house 1 to protect.\nAt the start of the second day, house 2, 3, 4, 5, 6 are infected. No more available houses can be protected.",
+    "time limit": "time limit per test1 second",
+    "memory limit": "memory limit per test256 megabytes",
+    "tags": [
+        "greedy",
+        "implementation",
+        "sortings",
+        "*1200"
+    ]
+}

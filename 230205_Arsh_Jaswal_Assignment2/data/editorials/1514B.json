@@ -1,0 +1,3 @@
+{
+    "solution": "1514B - AND 0, Sum BigLet's start with an array where every single bit in every single element is 1. It clearly doesn't have bitwise-and equal to 0, so for each bit, we need to turn it off (make it 0) in at least one of the elements. However, we can't turn it off in more than one element, since the sum would then decrease for no reason. So for every bit, we should choose exactly one element and turn it off there. Since there are k bits and n elements, the answer is just nk.Code link: https://pastebin.com/0D8yL5WW"
+}

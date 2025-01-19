@@ -1,0 +1,46 @@
+1437B - Reverse Binary StringsWe need to make our string alternating, i. e. si≠si+1. When we reverse substring sl…sr, we change no more than two pairs sl−1,sl and sr,sr+1. Moreover, one pair should be a consecutive pair 00 and other — 11. So, we can find lower bound to our answer as maximum between number of pairs of 00 and number of pairs of 11. And we can always reach this lower bound, by pairing 00 with 11 or with left/right border of s. Another way to count the answer is next: suppose we want to make string 0101..., then let's transform s to 1 + s + 0. For example, if s= 0110, we will get 101100. We claim that after this transformation, we will have equal number of 00 and 11, so the answer is the number of consecutive pairs of the same character divided by two. The answer is the minimum between answers for 1 + s + 0 and 0 + s + 1. Solution (adedalic)#include<bits/stdc++.h>
+
+using namespace std;
+
+#define fore(i, l, r) for(int i = int(l); i < int(r); i++)
+#define sz(a) int((a).size())
+
+const int INF = int(1e9);
+
+int n;
+string s;
+
+inline bool read() {
+	if(!(cin >> n >> s))
+		return false;
+	return true;
+}
+
+int cntSame(const string &s) {
+	int ans = 0;
+	fore (i, 1, sz(s))
+		ans += (s[i - 1] == s[i]);
+	assert(ans % 2 == 0);
+	return ans / 2;
+}
+
+inline void solve() {
+	int ans = INF;
+	fore (k, 0, 2) {
+		ans = min(ans, cntSame(string(1, '0' + k) + s + string(1, '1' - k)));
+	}
+	cout << ans << endl;
+}
+
+int main() {
+	ios_base::sync_with_stdio(false);
+	cin.tie(0), cout.tie(0);
+	cout << fixed << setprecision(15);
+	
+	int tc; cin >> tc;
+	while(tc--) {
+		assert(read());
+		solve();
+	}
+	return 0;
+}

@@ -1,0 +1,21 @@
+1765M - Minimum LCMSuppose a≤b. Let's show that if bmoda≠0, the answer is suboptimal. If bmoda=0, then LCM(a,b)=b, so the answer is less than n. But if bmoda≠0, then LCM(a,b) is at least 2b, and b is at least n2, so in this case, the answer is at least n.Okay, now we know that in the optimal answer, bmoda=0. This also means that nmoda=0, since n=a+b. So we need to search for a only among the divisors of n, and it is possible to iterate through all of them in O(n0.5). Solution (Neon)#include <bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+  int t;
+  cin >> t;
+  while (t--) {
+    int n;
+    cin >> n;
+    int a = 1;
+    for (int g = 2; g * g <= n; ++g) {
+      if (n % g == 0) {
+        a = n / g;
+        break;
+      }
+    }
+    cout << a << ' ' << n - a << '\n';
+  }
+}
+ 

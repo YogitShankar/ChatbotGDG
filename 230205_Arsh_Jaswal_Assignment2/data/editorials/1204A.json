@@ -1,0 +1,3 @@
+{
+    "solution": "1204A - BowWow and the TimetableBasically, the problem asks you to count ⌈log4s⌉, which is equal to ⌈log2slog24⌉=⌈log2s2⌉. If we denote l as a length of the input number, then ⌈log2s⌉ is either equal to l−1 if s is the power of two (it can be checked by checking that there is not more than one 1 in the input string), or to l−1 otherwise, so the answer to the problem is either ⌈l−12⌉ or ⌈l2⌉. Also for s=0 the answer is 0. "
+}

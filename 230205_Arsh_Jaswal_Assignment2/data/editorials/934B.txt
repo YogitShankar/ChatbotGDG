@@ -1,0 +1,25 @@
+934B - A Prosperous LotWhat's the maximum number of loops in an integer no greater than 1018? Since 8 is the only digit with two loops, we tend to use as many eights as possible. It can be seen that the answer is 36, achieved by 888 888 888 888 888 888. Thus if k > 36, the answer does not exist under the constraints.There are tons of approaches to the following part. Share yours in the comments!The author considers 8 and 9 as lucky numbers and uses only 8 and 9 to construct a valid answer. In particular, the output consists of  eight(s) and  nine(s).Bonus. Solve the problem with the shortest code! The tester's Python solution is 51 bytes including a line break, can you beat them? ;) Solution (Tommyr7)#include <bits/stdc++.h>
+using namespace std;
+int n,k;
+int main()
+{
+	scanf("%d",&k);
+	if (k>36) printf("%d\n",-1);
+	else
+	{
+		while (k>0)
+		{
+			if (k>=2)
+			{
+				printf("%d",8);
+				k-=2;
+			} else
+			{
+				printf("%d",9);
+				k-=1;
+			}
+		}
+		printf("\n");
+	}
+	return 0;
+}

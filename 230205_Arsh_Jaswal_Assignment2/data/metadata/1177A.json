@@ -1,0 +1,10 @@
+{
+    "title": "A. Digits Sequence (Easy Edition)",
+    "description": "Let's write all the positive integer numbers one after another from 1 without any delimiters (i.e. as a single string). It will be the infinite sequence starting with 123456789101112131415161718192021222324252627282930313233343536...\nYour task is to print the k-th digit of this sequence.\nThe first and only line contains integer k (1≤k≤10000) — the position to process (1-based index).\nPrint the k-th digit of the resulting infinite sequence.",
+    "time limit": "time limit per test1 second",
+    "memory limit": "memory limit per test256 megabytes",
+    "tags": [
+        "implementation",
+        "*1000"
+    ]
+}

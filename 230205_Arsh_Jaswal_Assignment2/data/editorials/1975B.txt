@@ -1,0 +1,37 @@
+1975B - 378QAQ and Mocha's ArrayIdea: Bazoka13 Solution: Bazoka13 Prepared by: Bazoka13 Hint 1How to solve the problem if we only need to find a number i(1≤i≤n) such that ak is divisible by ai for all k(1≤k≤n)? Hint 2We only need to check whether all elements are divisible by the minimum element of the array. SolutionRead the hints.Suppose the minimum element of a is x. Then we iterate over a, if an element is not divisible by x, then we add it to b (b is initially empty).If b is still empty after iterating a, the answer is yes. If b isn't empty, we check whether all elements of b are divisible by the minimum element of b. If so, the answer is yes. Otherwise, the answer is no. Code#include<bits/stdc++.h>
+using namespace std;
+#define ll long long
+const int N = 1e5+10;
+int a[N];
+int main(){
+    int t;
+    cin>>t;
+    while(t--){
+        int n;
+        cin>>n;
+        int fl=0;
+        for(int i=1;i<=n;i++){
+            cin>>a[i];
+            if(a[i]==1)fl=1;
+        }
+        if(fl)cout<<"Yes\n";
+        else{
+            sort(a+1,a+1+n);
+            vector<int> b;
+            for(int i=2;i<=n;i++){
+                if(a[i]%a[1])b.push_back(a[i]);
+            }
+            sort(b.begin(),b.end());
+            n = b.size();
+            for(int j=1;j<n;j++){
+                if(b[j]%b[0]){
+                    fl=1;
+                    break;
+                }
+            }
+            if(!fl)cout<<"Yes\n";
+            else cout<<"No\n";
+        }
+
+    }
+}

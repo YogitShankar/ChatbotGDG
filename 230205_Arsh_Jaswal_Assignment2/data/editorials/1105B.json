@@ -1,0 +1,3 @@
+{
+    "solution": "1105B - Zuhair and StringsSince all the substrings of length k must be of the same latter, we can iterate over all letters from 'a' to 'z' and for each letter count the number of disjoint substrings of length k and take the maximum one. "
+}

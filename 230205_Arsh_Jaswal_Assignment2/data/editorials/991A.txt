@@ -1,0 +1,17 @@
+991A - If at first you don't succeed... EditorialThere are 4 groups of students — those who visited only the first restaurant, who visited only the second, who visited both places and who stayed at home. One of the easiest ways to detect all the incorrect situations is to calculate number of students in each group. For the first group it is A - C, for the second: B - C, for the third: C and for the fourth: N - A - B + C. Now we must just to check that there are non-negative numbers in the first three groups and the positive number for the last group. If such conditions are met the answer is the number of students in the fourth group. 	int n1 = a - c;
+	int n2 = b - c;
+	int n3 = c;
+	int n4 = n - n1 - n2 - n3;
+
+	if (n1 >= 0 && n2 >= 0 && n3 >= 0 && n4 > 0)
+		cout << n4;
+	else
+		cout << -1;In general you are recommended to view inclusion–exclusion principle.Moreover the limitations allow to go over all possible numbers of students for each group (except for the third) in O(N3) and to check whether such numbers produce a correct solution. If no correct numbers found, just print  - 1: 	int n3 = c;
+	for (int n1 = 0; n1 <= n; n1++)
+		for (int n2 = 0; n2 <= n; n2++)
+			for (int n4 = 1; n4 <= n; n4++)
+				if (n1 + n3 == a && n2 + n3 == b && n1 + n2 + n3 + n4 == n) {
+					cout << n4;
+					return 0;
+				}
+	cout << -1;Solution1Solution2

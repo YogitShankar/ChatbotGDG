@@ -1,0 +1,11 @@
+{
+    "title": "B. Difference of GCDs",
+    "description": "You are given three integers n, l, and r. You need to construct an array a1,a2,…,an (l≤ai≤r) such that gcd(i,ai) are all distinct or report there's no solution.\nHere gcd(x,y) denotes the greatest common divisor (GCD) of integers x and y.\nThe input consists of multiple test cases. The first line contains a single integer t (1≤t≤104) — the number of test cases. The description of the test cases follows.\nThe first line contains three integers n, l, r (1≤n≤105, 1≤l≤r≤109).\nIt is guaranteed that the sum of n over all test cases does not exceed 105.\nFor each test case, if there is no solution, print \"NO\" (without quotes). You can print letters in any case (upper or lower).\nOtherwise, print \"YES\" (without quotes). In the next line, print n integers a1,a2,…,an — the array you construct.\nIf there are multiple solutions, you may output any.\nIn the first test case, gcd(1,a1),gcd(2,a2),…,gcd(5,a5) are equal to 1, 2, 3, 4, 5, respectively.",
+    "time limit": "time limit per test1 second",
+    "memory limit": "memory limit per test256 megabytes",
+    "tags": [
+        "constructive algorithms",
+        "math",
+        "*1100"
+    ]
+}

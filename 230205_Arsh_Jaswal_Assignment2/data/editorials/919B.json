@@ -1,0 +1,3 @@
+{
+    "solution": "919B - Perfect NumberLet's use brute force the find the answer.You may find the answer is not too large (i.e. not bigger than 2⋅107), then you can find it in the given time limit.You can check every possible answer from 1 (or from 19), until we find the k-th perfect integer.That's all what we need to do. :PTime complexity: O(answer). :PBonus1: Could you please come up with a faster brute force algorithm which doesn't need to check too many possible answers?Bonus2: Can you solve the problem with a bigger k (i.e. k≤1018 or even bigger)? Code (C++ version)Code (Python version) "
+}

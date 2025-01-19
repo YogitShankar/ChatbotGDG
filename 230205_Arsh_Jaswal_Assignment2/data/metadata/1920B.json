@@ -1,0 +1,13 @@
+{
+    "title": "B. Summation Game",
+    "description": "Alice and Bob are playing a game. They have an array a1,a2,…,an. The game consists of two steps:\nAlice wants to maximize the sum of elements of the array while Bob wants to minimize it. Find the sum of elements of the array after the game if both players play optimally.\nEach test consists of multiple test cases. The first line contains a single integer t (1≤t≤104) — the number of test cases. The description of the test cases follows.\nThe first line of each test case contains three integers n, k, and x (1≤n≤2⋅105, 1≤x,k≤n) — the number of elements in the array, the limit on the number of elements of the array that Alice can remove, and the limit on the number of elements of the array that Bob can multiply −1 to.\nThe second line of each test case contains n integers a1,a2,…,an (1≤ai≤1000) — the elements of the array.\nIt is guaranteed that the sum of n over all test cases does not exceed 2⋅105. \nFor each test case, output a single integer — the sum of elements of the array after the game if both players play optimally.\nIn the first test case, it is optimal for Alice to remove the only element of the array. Then, the sum of elements of the array is 0 after the game is over.\nIn the second test case, it is optimal for Alice to not remove any elements. Bob will then multiply 4 by −1. So the final sum of elements of the array is 3+1+2−4=2.\nIn the fifth test case, it is optimal for Alice to remove 9,9. Bob will then multiply 5,5,3 by −1. So the final sum of elements of the array is −5−5−3+3+3+2=−5.",
+    "time limit": "time limit per test1 second",
+    "memory limit": "memory limit per test256 megabytes",
+    "tags": [
+        "games",
+        "greedy",
+        "math",
+        "sortings",
+        "*1100"
+    ]
+}

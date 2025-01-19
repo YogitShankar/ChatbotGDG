@@ -1,0 +1,11 @@
+{
+    "title": "C. Contrast Value",
+    "description": "For an array of integers [a1,a2,…,an], let's call the value |a1−a2|+|a2−a3|+⋯+|an−1−an| the contrast of the array. Note that the contrast of an array of size 1 is equal to 0.\nYou are given an array of integers a. Your task is to build an array of b in such a way that all the following conditions are met:\nWhat is the minimum possible size of the array b?\nThe first line contains a single integer t (1≤t≤104) — the number of test cases.\nThe first line of each test case contains a single integer n (1≤n≤3⋅105) — the size of the array a.\nThe second line contains n integers a1,a2,⋅,an (0≤ai≤109) — elements of the array itself.\nThe sum of n over all test cases doesn't exceed 3⋅105.\nFor each test case, print a single integer — the minimum possible size of the array b.",
+    "time limit": "time limit per test2 seconds",
+    "memory limit": "memory limit per test256 megabytes",
+    "tags": [
+        "greedy",
+        "implementation",
+        "*1200"
+    ]
+}

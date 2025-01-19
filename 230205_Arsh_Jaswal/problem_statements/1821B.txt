@@ -1,0 +1,12 @@
+Problem Title: B. Sort the Subarray
+
+time limit per test2 seconds
+memory limit per test512 megabytes
+
+Monocarp had an array aa consisting of nn integers. He has decided to choose two integers ll and rr such that 1≤l≤r≤n1≤l≤r≤n, and then sort the subarray a[l..r]a[l..r] (the subarray a[l..r]a[l..r] is the part of the array aa containing the elements al,al+1,al+2,…,ar−1,aral,al+1,al+2,…,ar−1,ar) in non-descending order. After sorting the subarray, Monocarp has obtained a new array, which we denote as a′a′.
+For example, if a=[6,7,3,4,4,6,5]a=[6,7,3,4,4,6,5], and Monocarp has chosen l=2,r=5l=2,r=5, then a′=[6,3,4,4,7,6,5]a′=[6,3,4,4,7,6,5].
+You are given the arrays aa and a′a′. Find the integers ll and rr that Monocarp could have chosen. If there are multiple pairs of values (l,r)(l,r), find the one which corresponds to the longest subarray.
+The first line contains one integer tt (1≤t≤1041≤t≤104) — the number of test cases.
+Each test case consists of three lines:
+Additional constraints on the input:
+For each test case, print two integers — the values of ll and rr (1≤l≤r≤n1≤l≤r≤n). If there are multiple answers, print the values that correspond to the longest subarray. If there are still multiple answers, print any of them.

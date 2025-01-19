@@ -1,0 +1,3 @@
+{
+    "solution": "1243B1 - Character Swap (Easy Version)First, suppose that we make the strings equal by picking some i, j. Then for all p≠i,j, we must have sp=tp, since these letters don't change.Suppose that i=j. Since the strings are distinct, we then must have si≠ti. But then the strings are not equal also after the swap; hence, we always need to pick distinct i and j.Now, if i≠j and the strings are equal after the swap, we must have that si=sj, ti=tj and si,sj≠ti,tj. Therefore, the solution is as follows: if the number of positions where s and t differ is not equal to 2, the answer is \"No\". Otherwise we find the two positions i, j, where s and t differ, and check that the above conditions hold. Then the answer is \"Yes\". Complexity of the solution: O(n). "
+}

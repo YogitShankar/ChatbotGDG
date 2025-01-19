@@ -1,0 +1,39 @@
+1618C - Paint the ArrayWhat does it mean that no pair of adjacent elements should have the same color? It means that either all elements on odd positions are blue and all elements on even positions are red, or vice versa. So, we need to check these two cases.Let's try to solve a case when we have to find a number d such that a1,a3,… are divisible by d, and a2,a4,… are not. What does it mean that d divides all of the numbers a1,a3,…? It means that d divides the gcd(a1,a3,…), where gcd represents the greatest common divisor. Let's calculate this gcd using Euclidean algorithm or some built-in functions in O(n+logA).Okay, now we need to check all divisors of the gcd(a1,a3,…) and find if any of them does not divide a2,a4,…. So, we have to factorize gcd and generate all of its divisors... or do we? In fact, if gcd(a1,a3,…) divides any of the numbers a2,a4,…, then every divisor of gcd also divides that number. So, the only two numbers we have to check as canditates for the answer are gcd(a1,a3,…) and gcd(a2,a4,…). Solution (BledDest)#include <bits/stdc++.h>     
+
+using namespace std;
+
+void solve()
+{
+    int n;
+    cin >> n;
+    vector<long long> a(n);
+    for(int i = 0; i < n; i++)
+    {
+        cin >> a[i];
+    }
+    vector<long long> g(a.begin(), a.begin() + 2);
+    for(int i = 0; i < n; i++)
+    {
+        g[i % 2] = __gcd(g[i % 2], a[i]);
+    }  
+    vector<bool> good(2, true);
+    for(int i = 0; i < n; i++)
+    {
+        good[i % 2] = good[i % 2] && (a[i] % g[(i % 2) ^ 1] > 0);
+    }   
+    long long ans = 0;
+    for(int i = 0; i < 2; i++)
+        if(good[i])
+            ans = max(ans, g[i ^ 1]);
+    cout << ans << endl;
+}
+
+int main()
+{
+    int t;
+    cin >> t;
+    for(int i = 0; i < t; i++)
+    {
+        solve();
+    }
+}

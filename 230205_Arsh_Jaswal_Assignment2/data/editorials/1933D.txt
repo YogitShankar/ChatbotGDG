@@ -1,0 +1,25 @@
+1933D - Turtle Tenacity: Continual ModsSort the array in non-decreasing order. Now, assume a1≤a2≤…≤an.If a1≠a2, the minimum is unique. Therefore, place a1 at the front, and the result after all modulo operations is just a1>0. Hence the answer is yes for this case.If a1=a2 and there exists some element ax such that ax≢0(moda1), then a possible solution is rearranging the array to [ax,a1,a2,…,ax−1,ax+1,…,an]. Since axmoda1<a1, axmoda1 is the minimum among the other elements and the result after all modulo operations equals axmoda1>0. Hence the answer is yes for this case.Otherwise (if all elements are multiples of the minimum) the answer is no, because any element modulo the minimum equals 0, and at least one of the minimums must not be the first element. So after passing through two minimums we are guaranteed to get a 0. Solution#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    int t;
+    cin >> t;
+    while(t--) {
+        int n;
+        cin >> n;
+        int a[n];
+        for(int i=0; i<n; i++) cin >> a[i];
+        sort(a, a + n);
+        if(a[0] != a[1]) {
+            cout << "YES\n";
+        }
+        else {
+            bool PASS = 0;
+            for(int i=1; i<n; i++) {
+                if(a[i] % a[0] != 0) PASS = 1;
+            }
+            if(PASS) cout << "YES\n";
+            else cout << "NO\n";
+        }
+    }
+}

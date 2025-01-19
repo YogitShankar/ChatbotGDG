@@ -1,0 +1,10 @@
+1913B - Swap and DeleteLet's count the number of 0-s and 1-s in s as cnt0 and cnt1 correspondingly. Since t consists of characters from s then t will contain no more than cnt0 zeros and cnt1 ones.Let's build t greedily, since we always compare t with prefix of s. Suppose the length of t is at least one, it means that t1 must be different from s1, so if s1 = 0 we must set t1 = 1. So let's check that we have at least one 1 (or cnt1>0), take 1 and place it at t1. Case s1 = 1 is the same.After placing t1 we can analogically try to place t2 and so on until we run out of necessary digits or build the whole string of length |s|.We've built the longest possible string t in O(|s|) time, so the answer is |s|−|t|. Solution (adedalic)for _ in range(int(input())):
+    s = input()
+    cnt = [0, 0]
+    for i in range(len(s)):
+        cnt[int(s[i])] += 1
+    for i in range(len(s) + 1):
+        if (i == len(s) or cnt[1 - int(s[i])] == 0):
+            print(len(s) - i)
+            break
+        cnt[1 - int(s[i])] -= 1

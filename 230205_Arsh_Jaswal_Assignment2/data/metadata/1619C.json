@@ -1,0 +1,10 @@
+{
+    "title": "C. Wrong Addition",
+    "description": "Tanya is learning how to add numbers, but so far she is not doing it correctly. She is adding two numbers a and b using the following algorithm:\nFor example, the numbers a=17236 and b=3465 Tanya adds up as follows:\n+17236034651106911\nAs a result, she gets 1106911.\nYou are given two positive integers a and s. Find the number b such that by adding a and b as described above, Tanya will get s. Or determine that no suitable b exists.\nThe first line of input data contains an integer t (1≤t≤104) — the number of test cases.\nEach test case consists of a single line containing two positive integers a and s (1≤a<s≤1018) separated by a space.\nFor each test case print the answer on a separate line.\nIf the solution exists, print a single positive integer b. The answer must be written without leading zeros. If multiple answers exist, print any of them.\nIf no suitable number b exists, output -1.\nThe first test case is explained in the main part of the statement.\nIn the third test case, we cannot choose b that satisfies the problem statement.",
+    "time limit": "time limit per test1 second",
+    "memory limit": "memory limit per test256 megabytes",
+    "tags": [
+        "implementation",
+        "*1200"
+    ]
+}

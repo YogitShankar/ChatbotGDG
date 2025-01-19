@@ -1,0 +1,14 @@
+1998B - Minimize Equal Sum SubarraysProblem Credits: satyam343  Analysis: cry Solution We can always construct a solution such that the number of pairs (i,j) is 1 where the only pair is (1,n). There exists several constructions, such as rotating p once or increment all pi (and pi=n turns into pi=1).Consider the former construction, where q=[p2,p3,...,pn,p1]. For an arbitrarily interval [i,j], p[i..j] and q[i..j] will have exactly 1 element that's different, disregarding ordering. Since we have a permutation and all elements are distinct, the sum in the range will never be the same. The only exception is the entire array, of course. Code (C++)#include <bits/stdc++.h>
+using namespace std;
+
+int main(){
+	int t; cin >> t;
+	while(t--){
+		int n; cin >> n;
+		vector<int> p(n);
+		for(int& i: p) cin >> i;
+		rotate(p.begin(), p.begin() + 1, p.end());
+		for(int i: p) cout << i << " ";
+		cout << "\n";
+	}
+}

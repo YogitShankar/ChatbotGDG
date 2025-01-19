@@ -1,0 +1,19 @@
+Problem Title: B. Maximum Rounding
+
+time limit per test2 seconds
+memory limit per test256 megabytes
+
+Given a natural number xx. You can perform the following operation: 
+Note that the positions are numbered from right to left, starting from zero. If the number has kk digits, it is considered that the digit at the kk-th position is equal to 00.
+The rounding is done as follows: 
+ 
+ 
+Your task is to make xx as large as possible, if you can perform the operation as many times as you want.
+For example, if xx is equal to 34513451, then if you choose consecutively: 
+The first line contains a single integer tt (1≤t≤1041≤t≤104) — the number of test cases.
+Each test case consists of positive integer xx with a length of up to 2⋅1052⋅105. It is guaranteed that there are no leading zeros in the integer.
+It is guaranteed that the sum of the lengths of all integers xx over all test cases does not exceed 2⋅1052⋅105.
+For each set of input data, output the maximum possible value of xx after the operations. The number should not have leading zeros in its representation.
+In the first sample, it is better not to perform any operations.
+In the second sample, you can perform one operation and obtain 1010.
+In the third sample, you can choose k=1k=1 or k=2k=2. In both cases the answer will be 100100.

@@ -1,0 +1,13 @@
+1907C - Removal of Unattractive PairsConsider a finite string; obviously, all characters in it are the same, as otherwise, we could remove some pair of characters.If some character occurs in the string more than ⌊n2⌋ times, then the final string will always consist only of it, because with one deletion we can only get rid of one occurrence. To minimize the number of these characters, we need to remove one occurrence each time. We can always do this until the string is left with only such a character.Otherwise, we can remove all possible pairs regardless of the order of deletions. Solutionorda = ord('a')
+
+def solve():
+    n = int(input())
+    cnt = [0] * 26
+    for c in input():
+        cnt[ord(c) - orda] += 1
+    mx = max(cnt)
+    print(max(n % 2, 2 * mx - n))
+
+
+for _ in range(int(input())):
+    solve()

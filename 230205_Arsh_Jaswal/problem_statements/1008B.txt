@@ -1,0 +1,13 @@
+Problem Title: B. Turn the Rectangles
+
+time limit per test2 seconds
+memory limit per test256 megabytes
+
+There are nn rectangles in a row. You can either turn each rectangle by 9090 degrees or leave it as it is. If you turn a rectangle, its width will be height, and its height will be width. Notice that you can turn any number of rectangles, you also can turn all or none of them. You can not change the order of the rectangles.
+Find out if there is a way to make the rectangles go in order of non-ascending height. In other words, after all the turns, a height of every rectangle has to be not greater than the height of the previous rectangle (if it is such). 
+The first line contains a single integer nn (1≤n≤1051≤n≤105) — the number of rectangles.
+Each of the next nn lines contains two integers wiwi and hihi (1≤wi,hi≤1091≤wi,hi≤109) — the width and the height of the ii-th rectangle.
+Print "YES" (without quotes) if there is a way to make the rectangles go in order of non-ascending height, otherwise print "NO".
+You can print each letter in any case (upper or lower).
+In the first test, you can rotate the second and the third rectangles so that the heights will be [4, 4, 3].
+In the second test, there is no way the second rectangle will be not higher than the first one.

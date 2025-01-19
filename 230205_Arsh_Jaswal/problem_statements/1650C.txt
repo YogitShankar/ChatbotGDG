@@ -1,0 +1,18 @@
+Problem Title: C. Weight of the System of Nested Segments
+
+time limit per test2 seconds
+memory limit per test256 megabytes
+
+On the number line there are mm points, ii-th of which has integer coordinate xixi and integer weight wiwi. The coordinates of all points are different, and the points are numbered from 11 to mm.
+A sequence of nn segments [l1,r1],[l2,r2],…,[ln,rn][l1,r1],[l2,r2],…,[ln,rn] is called system of nested segments if for each pair i,ji,j (1≤i<j≤n1≤i<j≤n) the condition li<lj<rj<rili<lj<rj<ri is satisfied. In other words, the second segment is strictly inside the first one, the third segment is strictly inside the second one, and so on.
+For a given number nn, find a system of nested segments such that:
+For example, let m=8m=8. The given points are marked in the picture, their weights are marked in red, their coordinates are marked in blue. Make a system of three nested segments:
+The first line of input data contains an integer tt (1≤t≤1041≤t≤104) —the number of input test cases.
+An empty line is written before each test case.
+The first line of each test case contains two positive integers nn (1≤n≤1051≤n≤105) and mm (2⋅n≤m≤2⋅1052⋅n≤m≤2⋅105). 
+The next mm lines contain pairs of integers xixi (−109≤xi≤109−109≤xi≤109) and wiwi (−104≤wi≤104−104≤wi≤104) — coordinate and weight of point number ii (1≤i≤m1≤i≤m) respectively. All xixi are different.
+It is guaranteed that the sum of mm values over all test cases does not exceed 2⋅1052⋅105.
+For each test case, output n+1n+1 lines: in the first of them, output the weight of the composed system, and in the next nn lines output exactly two numbers  — the indices of the points which are the endpoints of the ii-th segment (1≤i≤n1≤i≤n). The order in which you output the endpoints of a segment is not important — you can output the index of the left endpoint first and then the number of the right endpoint, or the other way around.
+If there are several ways to make a system of nested segments with minimal weight, output any of them.
+The first test case coincides with the example from the condition. It can be shown that the weight of the composed system is minimal.
+The second test case has only 66 points, so you need to use each of them to compose 33 segments.

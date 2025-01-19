@@ -1,0 +1,11 @@
+{
+    "title": "B. Weird Subtraction Process",
+    "description": "You have two variables a and b. Consider the following sequence of actions performed with these variables:\nInitially the values of a and b are positive integers, and so the process will be finite.\nYou have to determine the values of a and b after the process ends.\nThe only line of the input contains two integers n and m (1 ≤ n, m ≤ 1018). n is the initial value of variable a, and m is the initial value of variable b.\nPrint two integers — the values of a and b after the end of the process.\nExplanations to the samples:",
+    "time limit": "time limit per test1 second",
+    "memory limit": "memory limit per test256 megabytes",
+    "tags": [
+        "math",
+        "number theory",
+        "*1100"
+    ]
+}

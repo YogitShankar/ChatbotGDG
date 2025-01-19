@@ -1,0 +1,13 @@
+{
+    "title": "D. Very Different Array",
+    "description": "Petya has an array ai of n integers. His brother Vasya became envious and decided to make his own array of n integers.\nTo do this, he found m integers bi (m≥n), and now he wants to choose some n integers of them and arrange them in a certain order to obtain an array ci of length n.\nTo avoid being similar to his brother, Vasya wants to make his array as different as possible from Petya's array. Specifically, he wants the total difference D=∑ni=1|ai−ci| to be as large as possible.\nHelp Vasya find the maximum difference D he can obtain.\nEach test consists of multiple test cases. The first line contains a single integer t (1≤t≤100) — the number of test cases. This is followed by a description of the test cases.\nThe first line of each test case contains two integers n and m (1≤n≤m≤2⋅105).\nThe second line of each test case contains n integers ai (1≤ai≤109). The third line of each test case contains m integers bi (1≤bi≤109).\nIt is guaranteed that in a test, the sum of m over all test cases does not exceed 2⋅105.\nFor each test case, output a single integer — the maximum total difference D that can be obtained.\nIn the first example, Vasya can, for example, create the array (1,5,7,2). Then the total difference will be D=|6−1|+|1−5|+|2−7|+|4−2|=5+4+5+2=16.\nIn the second example, all the integers available to Vasya are equal to 1, so he can only create the array (1,1,1), for which the difference D=0.\nIn the third example, Vasya can, for example, create the array (5,4,3,2,1). Then the total difference will be D=|1−5|+|2−4|+|3−3|+|4−2|+|5−1|=4+2+0+2+4=12.",
+    "time limit": "time limit per test2 seconds",
+    "memory limit": "memory limit per test256 megabytes",
+    "tags": [
+        "data structures",
+        "greedy",
+        "sortings",
+        "two pointers",
+        "*1100"
+    ]
+}

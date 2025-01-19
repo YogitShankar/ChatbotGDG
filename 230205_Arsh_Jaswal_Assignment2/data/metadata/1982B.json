@@ -1,0 +1,13 @@
+{
+    "title": "B. Collatz Conjecture",
+    "description": "Recently, the first-year student Maxim learned about the Collatz conjecture, but he didn't pay much attention during the lecture, so he believes that the following process is mentioned in the conjecture:\nThere is a variable x and a constant y. The following operation is performed k times: \nFor example, if the number x=16, y=3, and k=2, then after one operation x becomes 17, and after another operation x becomes 2, because after adding one, x=18 is divisible by 3 twice.\nGiven the initial values of x, y, and k, Maxim wants to know what is the final value of x.\nEach test consists of multiple test cases. The first line contains an integer t (1≤t≤104) — the number of test cases. Then follows the description of the test cases.\nThe only line of each test case contains three integers x, y, and k (1≤x,k≤109, 2≤y≤109) — the initial variable, constant and the number of operations.\nFor each test case, output a single integer — the number obtained after applying k operations.\nIn the first test case, there is only one operation applied to x=1, resulting in x becoming 2.\nIn the second test case, for x=2, within one operation, one is added to x and it's divided by y=3, resulting in x becoming 1.\nIn the third test case, x changes as follows:",
+    "time limit": "time limit per test1 second",
+    "memory limit": "memory limit per test256 megabytes",
+    "tags": [
+        "brute force",
+        "implementation",
+        "math",
+        "number theory",
+        "*1200"
+    ]
+}

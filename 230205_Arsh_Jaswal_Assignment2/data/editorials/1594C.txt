@@ -1,0 +1,56 @@
+1594C - Make Them EqualIf the whole string is equal to c then you don't need to make any operations.In order to find if it is possible with exactly 1 operation, we can pass through every x and count all the letters c that are divisible by x. This takes O(|s|log|s|) time complexity.If for some x all its multiples are c then the answer is 1 operation with that x.If all the above conditions don't hold you can always make 2 operations and make all the elements equal.One possible way is with x=|s| and x=|s|−1.After the first operation only the last element of s is not c thus if we use x=|s|−1 since gcd(|s|,|s|−1)=1 then |s| is not divisible by |s|−1 and it will become equal to c.Time complexity: O(|s|log|s|) per test case. Code (C++)#include <bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+const ll INF = 1e9+7;
+const ll MOD = 998244353;
+typedef pair<ll,ll> ii;
+#define iii pair<ll,ii>
+#define f(i,a,b) for(int i = a;i < b;i++)
+#define pb push_back
+#define vll vector<ll>
+#define F first
+#define S second
+#define all(x) (x).begin(), (x).end()
+int main(void){
+    ios_base::sync_with_stdio(0);
+    cin.tie(0);
+    int t;
+    cin>>t;
+    while(t--){
+        ll n;
+        cin>>n;
+        char c;
+        cin>>c;
+        string s;
+        cin>>s;
+        vector<int>ans;
+        bool ok = true;
+        for(auto x:s){
+            if(x != c){
+                ok = false;
+            }
+        }
+        if(!ok){
+            f(i,1,n+1){
+                ok = true;
+                f(j,i,n+1){
+                    ok &= (s[j-1] == c);
+                    j += i-1;
+                }
+                if(ok){
+                    ans.pb(i);
+                    break;
+                }
+            }
+            if(!ok){
+                ans.pb(n);
+                ans.pb(n-1);
+            }
+        }
+        cout<<ans.size()<<"\n";
+        for(auto x:ans){
+            cout<<x<<" ";
+        }
+        cout<<"\n";
+    }
+}

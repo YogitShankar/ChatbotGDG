@@ -1,0 +1,24 @@
+1473B - String LCMWe should notice that if some string x is a multiple of string y, then |x| is a multiple of |y|. This fact leads us to the conclusion that |LCM(s,t)| should be a common multiple of |s| and |t|. Since we want to minimize the length of the string LCM(s,t), then its length is LCM(|s|,|t|).So we have to check that LCM(|s|,|t|)|s| copies of the string s equal to LCM(|s|,|t|)|t| copies of the string t. If such strings are equal, print them, otherwise, there is no solution. Solution (Neon)#include <bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+  auto mul = [](string s, int k) -> string {
+    string res = "";
+    while (k--) res += s;
+    return res;
+  };
+  
+  int tc;
+  cin >> tc;
+  while (tc--) {
+    string s, t;
+    cin >> s >> t;
+    int n = s.length(), m = t.length();
+    int g = __gcd(n, m);
+    if (mul(s, m / g) == mul(t, n / g))
+      cout << mul(s, m / g) << endl;
+    else
+      cout << "-1" << endl;
+  }
+}

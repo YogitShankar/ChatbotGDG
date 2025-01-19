@@ -1,0 +1,31 @@
+1656B - Subtract OperationNote that, after deleting element $$$a_j$$$, all numbers in the set are of the form $$$a_i - a_j$$$, since the previous substractions are cancelled. Therefore, the final element will be the difference between the last element and the previous element which was erased. So we just need to check if $$$k$$$ is the difference of two elements in the set, which can be done by sorting and using the double pointer technique in $$$O(n \log n)$$$ time. Code#include<iostream>
+#include<vector>
+#include<algorithm>
+using namespace std;
+ 
+int main() {
+    int t;
+    cin >> t;
+    while(t--) {
+        int n, a;
+    	cin >> n >> a;
+    	vector<int> v(n);
+    	for(int& x : v) cin >> x;
+    	bool ans = false;
+    	if(n == 1) ans = (v[0] == a);
+    	else {
+    		sort(v.begin(), v.end());
+    		int i = 0;
+    		int j = 1;
+    		while(j < n and i < n) {
+    			if(v[i] + abs(a) == v[j]) {
+    				ans = true;
+    				break;
+    			}
+    			else if(v[i] + abs(a) < v[j]) ++i;
+    			else ++j;
+    		}
+    	}
+    	cout << (ans? "YES" : "NO") << '\n';   
+    }
+}

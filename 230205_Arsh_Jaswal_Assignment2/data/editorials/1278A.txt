@@ -1,0 +1,97 @@
+1278A - Shuffle HashingThe general idea of the solution is to check that string h contains some substring which is a permutation of p. The constraints were so low you could do it with any algorithm, even O(n3logn) per test case could pass.The most straightforward way was to iterate over the substring of h, sort it and check if it's equal to p sorted. That's O(n3logn).Next you could notice than only substrings of length |p| matter and shave another n off the complexity to get O(n2logn).After that you might remember that the size of the alphabet is pretty low. And one string is a permutation of another one if the amounts of letters 'a', letters 'b' and so on in them are equal. So you can precalculate array cntp, where cntp[i] is equal to the amount of the i-th letter of the alphabet in p. Calculating this array for O(n) substrings will be O(n) each, so that makes it O(n2).Then notice how easy it is to recalculate the letter counts going from some substring [i;i+|p|−1] to [i+1;i+|p|]. Just subtract 1 from the amount of the i-th letter and add 1 to the amount of the (i+|p|)-th letter. Comparing two array every time will still lead to O(n⋅|AL|), though.The final optimization is to maintain the boolean array eq such that eqi means that cntp[i] is equal to the current value of cnt of the substring. You are updating just two values of cnt on each step, thus only two values of eq might change. You want all the |AL| values to be true, so keep the number of values true in that array and say "YES" if that number is equal to |AL|. That finally makes the solution O(n) per test case. Solution 1 (pikmike)#include <bits/stdc++.h>
+
+#define forn(i, n) for (int i = 0; i < int(n); i++)
+
+using namespace std;
+
+string p, h;
+
+bool read(){
+	if (!(cin >> p >> h))
+		return false;
+	return true;
+}
+
+void solve(){
+	int n = h.size();
+	vector<int> cntp(26);
+	forn(i, p.size())
+		++cntp[p[i] - 'a'];
+	forn(i, n){
+		vector<int> cnth(26);
+		for (int j = i; j < n; ++j){
+			++cnth[h[j] - 'a'];
+			if (cntp == cnth){
+				puts("YES");
+				return;
+			}
+		}
+	}
+	puts("NO");
+}
+
+int main() {
+	int tc;
+	scanf("%d", &tc);
+	forn(_, tc){
+		read();
+		solve();
+	}
+	return 0;
+} Solution 2 (pikmike)#include <bits/stdc++.h>
+
+#define forn(i, n) for (int i = 0; i < int(n); i++)
+
+using namespace std;
+
+const int AL = 26;
+string p, h;
+
+bool read(){
+	if (!(cin >> p >> h))
+		return false;
+	return true;
+}
+
+void solve(){
+	vector<int> cntp(AL), cnt(AL);
+	vector<bool> eq(AL);
+	int sum = 0;
+	
+	auto chg = [&cntp, &cnt, &eq, &sum](int c, int val){
+		sum -= eq[c];
+		cnt[c] += val;
+		eq[c] = (cntp[c] == cnt[c]);
+		sum += eq[c];
+	};
+	
+	forn(i, p.size())
+		++cntp[p[i] - 'a'];
+	forn(i, AL){
+		eq[i] = (cnt[i] == cntp[i]);
+		sum += eq[i];
+	}
+	
+	int m = p.size();
+	int n = h.size();
+	forn(i, n){
+		chg(h[i] - 'a', 1);
+		if (i >= m) chg(h[i - m] - 'a', -1);
+		if (sum == AL){
+			puts("YES");
+			return;
+		}
+	}
+	
+	puts("NO");
+}
+
+int main() {
+	int tc;
+	scanf("%d", &tc);
+	forn(_, tc){
+		read();
+		solve();
+	}
+	return 0;
+}

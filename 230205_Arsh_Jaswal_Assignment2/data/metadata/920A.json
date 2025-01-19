@@ -1,0 +1,10 @@
+{
+    "title": "A. Water The Garden",
+    "description": "It is winter now, and Max decided it's about time he watered the garden.\nThe garden can be represented as n consecutive garden beds, numbered from 1 to n. k beds contain water taps (i-th tap is located in the bed xi), which, if turned on, start delivering water to neighbouring beds. If the tap on the bed xi is turned on, then after one second has passed, the bed xi will be watered; after two seconds have passed, the beds from the segment [xi - 1, xi + 1] will be watered (if they exist); after j seconds have passed (j is an integer number), the beds from the segment [xi - (j - 1), xi + (j - 1)] will be watered (if they exist). Nothing changes during the seconds, so, for example, we can't say that the segment [xi - 2.5, xi + 2.5] will be watered after 2.5 seconds have passed; only the segment [xi - 2, xi + 2] will be watered at that moment.\nMax wants to turn on all the water taps at the same moment, and now he wonders, what is the minimum number of seconds that have to pass after he turns on some taps until the whole garden is watered. Help him to find the answer!\nThe first line contains one integer t — the number of test cases to solve (1 ≤ t ≤ 200).\nThen t test cases follow. The first line of each test case contains two integers n and k (1 ≤ n ≤ 200, 1 ≤ k ≤ n) — the number of garden beds and water taps, respectively.\nNext line contains k integers xi (1 ≤ xi ≤ n) — the location of i-th water tap. It is guaranteed that for each  condition xi - 1 < xi holds.\nIt is guaranteed that the sum of n over all test cases doesn't exceed 200.\nNote that in hacks you have to set t = 1.\nFor each test case print one integer — the minimum number of seconds that have to pass after Max turns on some of the water taps, until the whole garden is watered.\nThe first example consists of 3 tests:",
+    "time limit": "time limit per test1 second",
+    "memory limit": "memory limit per test256 megabytes",
+    "tags": [
+        "implementation",
+        "*1000"
+    ]
+}

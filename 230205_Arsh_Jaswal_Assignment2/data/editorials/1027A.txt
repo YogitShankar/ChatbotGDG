@@ -1,0 +1,27 @@
+1027A - Palindromic TwistIf some string can't be transformed to palindrom then it has some pair of positions (i,n−i+1) with different letters on them (as no such pair affects any other pair). Thus you need to check each pair for i from 1 to n2 and verify that the distance between the corresponding letters is either 0 or 2.Overall complexity: O(T⋅n). Solution (PikMike)#include <bits/stdc++.h>
+
+#define forn(i, n) for (int i = 0; i < int(n); i++)
+
+using namespace std;
+
+
+int main() {
+    int T;
+    cin >> T;
+    
+    int n;
+    string s;
+    forn(_, T){
+        cin >> n >> s;
+        bool ok = true;
+        forn(i, n){
+            int k = abs(s[i] - s[n - i - 1]);
+            if (k > 2 || k % 2 == 1){
+                ok = false;
+                break;
+            }
+        }
+        cout << (ok ? "YES" : "NO") << endl;
+    }
+    return 0;
+}

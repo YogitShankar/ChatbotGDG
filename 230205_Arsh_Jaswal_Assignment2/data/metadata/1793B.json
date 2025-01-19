@@ -1,0 +1,11 @@
+{
+    "title": "B. Fedya and Array",
+    "description": "For his birthday recently Fedya was given an array a of n integers arranged in a circle, For each pair of neighboring numbers (a1 and a2, a2 and a3, …, an−1 and an, an and a1) the absolute difference between them is equal to 1.\nLet's call a local maximum an element, which is greater than both of its neighboring elements. Also call a local minimum an element, which is less than both of its neighboring elements. Note, that elements a1 and an are neighboring elements.\nUnfortunately, Fedya lost an array, but he remembered in it the sum of local maximums x and the sum of local minimums y.\nGiven x and y, help Fedya find any matching array of minimum length.\nEach test contains multiple test cases. The first line contains the number of test cases t (1≤t≤1000). Description of the test cases follows.\nEach line of each test case contain two integers x and y (−109≤y<x≤109) — the sum of local maximums and the sum of local minimums, respectively.\nFor each test case, in the first line print one integer n — the minimum length of matching arrays.\nIn the second line print n integers a1,a2,…,an (−109⩽ai⩽109) — the array elements such that the the absolute difference between each pair of neighboring is equal to 1.\nIf there are multiple solutions, print any of them.\nIt is guaranteed that the sum of n over all test cases does not exceed 2⋅105.\nIn the first test case, the local maximums are the numbers at 3,7 and 10 positions, and the local minimums are the numbers at 1,6 and 8 positions. x=a3+a7+a10=2+0+1=3, y=a1+a6+a8=0+(−1)+(−1)=−2.\nIn the second test case, the local maximums are the numbers at 2 and 10 positions, and the local minimums are the numbers at 1 and 3 positions. x=a2+a10=−1+5=4, y=a1+a3=−2+(−2)=−4.\nIn the third test case, the local maximums are the numbers at 1 and 5 positions, and the local minimums are the numbers at 3 and 6 positions.",
+    "time limit": "time limit per test1 second",
+    "memory limit": "memory limit per test256 megabytes",
+    "tags": [
+        "constructive algorithms",
+        "math",
+        "*1100"
+    ]
+}

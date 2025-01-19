@@ -1,0 +1,33 @@
+1704C - VirusFirst, considering it is easier to calculate the number of houses which are not infected, so we focus on it firstly.Conspicuously, if between ai and ai+1 there are x houses (Array a has been sorted.), and the infection will last y days, there will remain x−2×y houses on the end. Simultaneously, every day we can protect at least one house permanently, which indicates that for every distance between ai and ai+1, if x−2×y>0, we have an opportunity to get one house protected. Moreover, the longer uninfected segments have priorities, because we can set two houses to stop the spread of inflection and the loss per day will be prevented. By contrast, for shorter segments, when all the houses in this segment are infected, then there won't be any loss afterwards. In other words, the loss of longer segments will last for longer time if we do not take actions in time. As a result, if we operate the longer segments as early as possible, we can protect more houses. In conclusion, our final strategy can be decribed as following: Sort the uninfected segments of houses according to their length, then the longer the segment is, the earlier we will deal with the houses lying on the side of the segment.  solution#include<bits/stdc++.h>
+using namespace std;
+const int N = 500005, inf = 2147483647, M = 1004535809;
+int n, m, a[N], T, k;
+struct str {
+	int x, y;
+}t[N];
+int main() {
+	scanf("%d", &T);
+	while (T--) {
+		k = 0;
+		scanf("%d %d", &n, &m);
+		for (int i = 1; i <= m; ++i)
+			scanf("%d", &a[i]);
+		sort(a + 1, a + 1 + m);
+		for (int i = 2; i <= m; ++i)
+			t[++k] = { a[i] - a[i - 1] - 1,2 };
+		int num_tmp = a[1] + n - a[m] - 1;
+		if (num_tmp > 0) {
+			t[++k] = { num_tmp, 2 };
+		}
+		sort(t + 1, t + 1 + k, [](str a, str b) {return a.x > b.x; });
+		long long ans = 0, cnt = 0;
+		for (int i = 1; i <= k; ++i) {
+		    if (t[i].x - cnt * 2 > 0) {
+		      int num_tmp = max(1ll, t[i].x - cnt * 2 - 1);
+			  ans += num_tmp;
+		    }
+		    cnt += 2;
+		}
+		printf("%lld\n", n - ans);
+	}
+} 

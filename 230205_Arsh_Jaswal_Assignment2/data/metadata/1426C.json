@@ -1,0 +1,12 @@
+{
+    "title": "C. Increase and Copy",
+    "description": "Initially, you have the array a consisting of one element 1 (a=[1]).\nIn one move, you can do one of the following things:\nFor example, consider the sequence of five moves:\nYour task is to find the minimum number of moves required to obtain the array with the sum at least n.\nYou have to answer t independent test cases.\nThe first line of the input contains one integer t (1≤t≤1000) — the number of test cases. Then t test cases follow.\nThe only line of the test case contains one integer n (1≤n≤109) — the lower bound on the sum of the array.\nFor each test case, print the answer: the minimum number of moves required to obtain the array with the sum at least n.",
+    "time limit": "time limit per test1 second",
+    "memory limit": "memory limit per test256 megabytes",
+    "tags": [
+        "binary search",
+        "constructive algorithms",
+        "math",
+        "*1100"
+    ]
+}

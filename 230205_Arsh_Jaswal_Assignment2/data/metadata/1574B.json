@@ -1,0 +1,12 @@
+{
+    "title": "B. Combinatorics Homework",
+    "description": "You are given four integer values a, b, c and m.\nCheck if there exists a string that contains: \nThe first line contains a single integer t (1≤t≤104) — the number of testcases.\nEach of the next t lines contains the description of the testcase — four integers a, b, c and m (1≤a,b,c≤108; 0≤m≤108).\nFor each testcase print \"YES\" if there exists a string that satisfies all the requirements. Print \"NO\" if there are no such strings.\nYou may print every letter in any case you want (so, for example, the strings yEs, yes, Yes and YES will all be recognized as positive answer).\nIn the first testcase strings \"ABCAB\" or \"BCABA\" satisfy the requirements. There exist other possible strings.\nIn the second testcase there's no way to put adjacent equal letters if there's no letter that appears at least twice.\nIn the third testcase string \"CABBCC\" satisfies the requirements. There exist other possible strings.",
+    "time limit": "time limit per test2 seconds",
+    "memory limit": "memory limit per test256 megabytes",
+    "tags": [
+        "combinatorics",
+        "greedy",
+        "math",
+        "*1100"
+    ]
+}

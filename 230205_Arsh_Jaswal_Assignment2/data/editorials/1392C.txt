@@ -1,0 +1,65 @@
+1392C - Omkar and WaterslideCall the initial array a. We claim that the answer is ∑max(ai−ai+1,0) over the entire array of supports (call this value ans). Now let's show why.First, notice that in a nondecreasing array, ans=0. So, the problem is now to apply operations to the array such that ans=0.Now, let's see how applying one operation affects ans. Perform an operation on an arbitrary nondecreasing subarray that begins at index i and ends at index j. Note that the differences of elements within the subarray stay the same, so the only two pairs of elements which affect the sum are ai−1,ai and aj,aj+1.Let's initially look at the pair ai−1,ai. If ai−1≤ai (or if i=1), applying an operation would not change ans. But, if ai−1/gtai, applying an operation would decrease ans by 1.Now let's look at the pair aj,aj+1. If aj≤aj+1 (or if j=n), applying an operation would not change ans. But, if aj>aj+1, applying an operation would increase ans by 1.We have now shown that we can decrease ans by at most 1 with each operation, showing that it is impossible to make his supports able to hold the waterslide in fewer than ∑max(ai−ai+1,0) over the initial array. Now, let's construct a solution that applies exactly ∑max(ai−ai+1,0) operations to make the array valid.Consider applying operations to each suffix of length j until the suffix of length j+1 is nondecreasing. Since operations are applied iff an−j+1<an−j, and each operation decreases an−j+1<an−j by 1, the total number of operations would just be the sum of max(0,an−j−an−j+1), which is equal to ∑max(ai−ai+1,0) over the entire array. Solution (Kotlin) by Tlatoaniimport kotlin.math.max
+
+fun main() {
+    for (c in 1..readLine()!!.toInt()) {
+        val n = readLine()!!.toInt()
+        val hs = readLine()!!.split(" ").map { it.toLong() }
+        var answer = 0L
+        for (j in 1 until n) {
+            answer += max(0L, hs[j - 1] - hs[j])
+        }
+        println(answer)
+    }
+} Solution (Java) by qlf9import java.util.*;
+import java.io.*;
+
+public class OmkarAndWaterslide {
+    public static void main(String[] args) throws IOException{
+        BufferedReader f = new BufferedReader(new InputStreamReader(System.in));
+        PrintWriter out = new PrintWriter(new OutputStreamWriter(System.out));
+        int t = Integer.parseInt(f.readLine());
+        while(t-->0){
+            int n = Integer.parseInt(f.readLine());
+            long[] arr = new long[n];
+            StringTokenizer st = new StringTokenizer(f.readLine());
+            for(int i = 0; i < n; i++){
+                arr[i] = Integer.parseInt(st.nextToken());
+            }
+            long ans = 0;
+            for(int i = 0; i < n-1; i++){
+                ans+=Math.max(0, arr[i]-arr[i+1]);
+            }
+            out.println(ans);
+        }
+        out.close();
+    }
+} Solution (C++) by tfg#include <iostream>
+#include <vector>
+#include <chrono>
+#include <random>
+#include <cassert>
+
+std::mt19937 rng((int) std::chrono::steady_clock::now().time_since_epoch().count());
+
+int main() {
+	std::ios_base::sync_with_stdio(false); std::cin.tie(NULL);
+	int t;
+	std::cin >> t;
+	while(t--) {
+		int n;
+		std::cin >> n;
+		long long last = 0;
+		long long ans = 0;
+		while(n--) {
+			long long x;
+			std::cin >> x;
+			x += ans;
+			if(x >= last) {
+				last = x;
+			} else {
+				ans += last &mdash; x;
+			}
+		}
+		std::cout << ans << '\n';
+	}
+}Idea: qlf9Preparation: qlf9 

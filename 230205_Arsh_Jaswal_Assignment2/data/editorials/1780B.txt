@@ -1,0 +1,34 @@
+1780B - GCD PartitionIdea: RedMachine-74  Preparation: qualdoom  Editorialist: qualdoom TutorialLet's note that it doesn't make sense for us to divide into more than k=2 subsegments. Let's prove it.Let us somehow split the array a into m>2 subsegments : b1,b2,…,bm. Note that gcd(b1,b2,…,bm)≤gcd(b1+b2,b3,…,bm), since if b1 and b2 were multiples of gcd(b1,b2,…,bm), so b1+b2 is also a multiple of gcd(b1,b2,…,bm). This means that we can use b1+b2 instead of b1 and b2, and the answer will not worsen, thus it is always beneficial to use no more than k=2 subsegments.How to find the answer? Let s be the sum of the array a. Let's say prefi=∑ij=1aj, then the answer is max1≤i<n(gcd(prefi,s−prefi). Implementation (Python)from math import gcd
+t = int(input())
+for test in range(t):
+    n = int(input())
+    a = list(map(int, input().split()))
+    s = 0
+    for i in range(n):
+        s += a[i]
+    ans = 0
+    pref = 0
+    for i in range(n - 1):
+        pref += a[i]
+        ans = max(ans, gcd(pref, s - pref))
+    print(ans) Implementation (С++)#include <bits/stdc++.h>
+using namespace std;
+int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(0), cout.tie(0);
+    int T = 1;
+    cin >> T;
+    while (T--) {
+        int n;
+        cin >> n;
+        vector<int> a(n);
+        for (int i = 0; i < n; i++) cin >> a[i];
+        long long s = accumulate(a.begin(), a.end(), 0ll), cur = 0;
+        long long ans = 1;
+        for (int i = 0; i < n - 1; i++) {
+            cur += a[i], s -= a[i];
+            ans = max(ans, __gcd(s, cur));
+        }
+        cout << ans << "\n";
+    }
+}

@@ -1,0 +1,24 @@
+1604B - XOR Specia-LIS-tWhat happens if we split the sequence into subarrays of length 1?. Yes, if n is even, the bitwise XOR will be 0 as there will be an even number of 1s.If n is odd we can't do the same. But what if there is an index i such that ai≥ai+1?What if we use these two indices as a single subarray as it has LIS of length 1 and take other indices as single subarrays? Yeah, again, there will be an even number of 1s which will yield a bitwise XOR of 0. What we are left with are strictly increasing sequences of odd lengths. Notice that any subarray of length l has LIS of length l here. So we need to find a sequence b1,b2,…,bk such that b1+b2+…+bk=n and b1⊕b2⊕…⊕bk=0 where n is odd. Is it possible to find such a sequence? Pause and think.Hint: think about the last bit of each bi. If XOR is 0, then there will be an even number of bis such that its last bit is 1. But then the sum will be even. But here the sum n is odd, which produces a contradiction.So in the last case, it is not possible to find such a split. Code#include<bits/stdc++.h>
+using namespace std;
+ 
+int main() {
+  ios_base::sync_with_stdio(0);
+  cin.tie(0);
+  int t; cin >> t;
+  while (t--) {
+    int n; cin >> n;
+    vector<int> a(n + 1);
+    bool inc = true;
+    for (int i = 1; i <= n; i++) {
+      cin >> a[i];
+      inc &= a[i] > a[i - 1];
+    }
+    if (n % 2 == 0 or !inc) {
+      cout << "YES\n";
+    }
+    else {
+      cout << "NO\n";
+    }
+  }
+  return 0;
+} 

@@ -1,0 +1,27 @@
+1914D - Three ActivitiesThe main idea of the problem is that almost always you can take the maximum in each array. And when you can't, you don't need to look at a lot of smaller numbers. In particular, it is enough to consider the three largest numbers from each array.Let's show the correctness of this for the first array. There always exists an optimal answer in which one of the three largest numbers is taken from array a. Let's fix some taken elements in arrays b and c. Then at least one of the three positions of the largest elements in a is different from both fixed position.The argument is generalized to all three arrays similarly.Thus, the solution looks as follows. Find the positions of the three maximums in each array and iterate over the answer in 33. Finding three maximums can be done using sorting or in one linear time pass over the array. Solution (awoo)for _ in range(int(input())):
+	n = int(input())
+	a = list(map(int, input().split()))
+	b = list(map(int, input().split()))
+	c = list(map(int, input().split()))
+	
+	def get_best3(a):
+		mx1, mx2, mx3 = -1, -1, -1
+		for i in range(len(a)):
+			if mx1 == -1 or a[i] > a[mx1]:
+				mx3 = mx2
+				mx2 = mx1
+				mx1 = i
+			elif mx2 == -1 or a[i] > a[mx2]:
+				mx3 = mx2
+				mx2 = i
+			elif mx3 == -1 or a[i] > a[mx3]:
+				mx3 = i
+		return (mx1, mx2, mx3)
+	
+	ans = 0
+	for x in get_best3(a):
+		for y in get_best3(b):
+			for z in get_best3(c):
+				if x != y and x != z and y != z:
+					ans = max(ans, a[x] + b[y] + c[z])
+	print(ans)

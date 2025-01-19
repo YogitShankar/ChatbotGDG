@@ -1,0 +1,12 @@
+{
+    "title": "B. Card Deck",
+    "description": "You have a deck of n cards, and you'd like to reorder it to a new one.\nEach card has a value between 1 and n equal to pi. All pi are pairwise distinct. Cards in a deck are numbered from bottom to top, i. e. p1 stands for the bottom card, pn is the top card. \nIn each step you pick some integer k>0, take the top k cards from the original deck and place them, in the order they are now, on top of the new deck. You perform this operation until the original deck is empty. (Refer to the notes section for the better understanding.)\nLet's define an order of a deck as n∑i=1nn−i⋅pi.\nGiven the original deck, output the deck with maximum possible order you can make using the operation above.\nThe first line contains a single integer t (1≤t≤1000) — the number of test cases.\nThe first line of each test case contains the single integer n (1≤n≤105) — the size of deck you have.\nThe second line contains n integers p1,p2,…,pn (1≤pi≤n; pi≠pj if i≠j) — values of card in the deck from bottom to top.\nIt's guaranteed that the sum of n over all test cases doesn't exceed 105.\nFor each test case print the deck with maximum possible order. Print values of cards in the deck from bottom to top.\nIf there are multiple answers, print any of them.\nIn the first test case, one of the optimal strategies is the next one: \nIn the second test case, one of the optimal strategies is: \nIn the third test case, one of the optimal strategies is: ",
+    "time limit": "time limit per test1 second",
+    "memory limit": "memory limit per test512 megabytes",
+    "tags": [
+        "data structures",
+        "greedy",
+        "math",
+        "*1100"
+    ]
+}

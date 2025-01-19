@@ -1,0 +1,3 @@
+{
+    "solution": "1613B - Absent RemainderIdea: BledDest TutorialTutorial is loading... Solution (Neon)#include <bits/stdc++.h>\n\nusing namespace std;\n\nint main() {\n  int t;\n  cin >> t;\n  while (t--) {\n    int n;\n    cin >> n;\n    vector<int> a(n);\n    for (int &x : a) cin >> x;\n    int mn = *min_element(a.begin(), a.end());\n    for (int i = 0, k = 0; k < n / 2; ++i) if (a[i] != mn) {\n      cout << a[i] << ' ' << mn << '\\n';\n      k += 1;\n    }\n  }\n}"
+}

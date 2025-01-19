@@ -1,0 +1,12 @@
+Fedya is playing a new game called "The Legend of Link", in which one of the character's abilities is to combine two materials into one weapon. Each material has its own strength, which can be represented by a positive integer x. The strength of the resulting weapon is determined as the sum of the absolute differences of the digits in the decimal representation of the integers at each position.
+Formally, let the first material have strength X=¯x1x2…xn, and the second material have strength Y=¯y1y2…yn. Then the strength of the weapon is calculated as |x1−y1|+|x2−y2|+…+|xn−yn|. If the integers have different lengths, then the shorter integer is padded with leading zeros.
+Fedya has an unlimited supply of materials with all possible strengths from L to R, inclusive. Help him find the maximum possible strength of the weapon he can obtain.
+An integer C=¯c1c2…ck is defined as an integer obtained by sequentially writing the digits c1,c2,…,ck from left to right, i.e. 10k−1⋅c1+10k−2⋅c2+…+ck.
+Each test contains multiple test cases. The first line contains the number of test cases t (1≤t≤500). The description of the test cases follows.
+The first line of each test case contains two integers L and R (1≤L≤R<10100) — the decimal representation of the integers representing the minimum and maximum strength of the materials that Fedya has. It is guaranteed that the integers L and R do not contain leading zeros.
+Note that the input data may not fit into standard 32-bit or 64-bit integer data types.
+For each test case print one integer — the maximum possible strength of the weapon that Fedya can obtain from the given materials.
+In the first test case, the weapon made from materials with strengths 53 and 57 will have the maximum possible strength: |5−5|+|3−7|=4.
+In the second test case, the maximum strength is achieved with materials with strengths 190 and 209: |1−2|+|9−0|+|0−9|=19.
+In the fourth test case, there is only one valid strength, so the answer is 0.
+In the sixth test case, the maximum strength is achieved with materials with strengths 1909 and 90: |1−0|+|9−0|+|0−9|+|9−0|=28. Note that the shorter integer was padded with leading zeros.

@@ -1,0 +1,62 @@
+1670B - Dorms WarLet's consider the non-special characters as '0' and special characters as '1' since they are indistinguishable. So now the problem is that we have a binary string, where each '1' character removes the character before it each time the program is run.The trivial case is when there is only one '1' character, the answer then is just the number of '0' characters before it.But what if there is more than one '1' character? lets take for example when there are two '1' characters as follows: 00000010001→000001001→0000101→00011→001→01→1The observation here is that when the first '1' character from the right reached the second '1', it acts as if it just replaced its place, so we can say that each '1' character replaces another '1' as soon as it reaches it.So we can partition the binary string into small partitions where each partition contains only one '1' character that is the rightmost character in the partition.For example, the string 00010000001011 can be partitioned into: (0001),(0000001),(01),(1)We first calculate the amount of time each partition requires to remove all the '0' characters before it, which is basically the number of '0' characters before it. Each partition except for the first partition requires one more second to replace the '1' character in the previous partition.So the answer is the maximum time required among all the partitions. Solutionimport java.io.*;
+import java.util.StringTokenizer;
+ 
+public class B{
+ 
+ 
+    public static void main(String[] args) throws IOException {
+        Scanner sc = new Scanner(System.in);
+        PrintWriter pw = new PrintWriter(System.out);
+        int tests = sc.nextInt();
+        for (int test = 0; test < tests; test++) {
+            int n = sc.nextInt();
+            char[] arr = sc.next().toCharArray();
+            int k = sc.nextInt();
+            boolean[] special = new boolean[26];
+            for (int i = 0; i < k; i++)
+                special[sc.next().charAt(0) - 'a'] = true;
+            int idx = -1;
+            for (int i = 0; i < n; i++)
+                if (special[arr[i] - 'a'])
+                    idx = i;
+            int max=0;
+            for(int i=idx-1;i>=0;i--){
+                int j=i;
+                while (j>0&&!special[arr[j]-'a'])
+                    j--;
+                max=Math.max(max,i+1-j);
+                i=j;
+            }
+            pw.println(max);
+        }
+        pw.flush();
+    }
+ 
+ 
+    public static class Scanner {
+        StringTokenizer st;
+        BufferedReader br;
+ 
+        public Scanner(InputStream s) {
+            br = new BufferedReader(new InputStreamReader(s));
+        }
+ 
+        public Scanner(String s) throws FileNotFoundException {
+            br = new BufferedReader(new InputStreamReader(new FileInputStream(s)));
+        }
+ 
+        public String next() throws IOException {
+            while (st == null || !st.hasMoreTokens())
+                st = new StringTokenizer(br.readLine());
+            return st.nextToken();
+        }
+ 
+        public int nextInt() throws IOException {
+            return Integer.parseInt(next());
+        }
+ 
+        public long nextLong() throws IOException {
+            return Long.parseLong(next());
+        }
+    }
+}

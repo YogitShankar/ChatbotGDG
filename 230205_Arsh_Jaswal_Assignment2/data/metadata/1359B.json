@@ -1,0 +1,14 @@
+{
+    "title": "B. New Theatre Square",
+    "description": "You might have remembered Theatre square from the problem 1A. Now it's finally getting repaved.\nThe square still has a rectangular shape of n×m meters. However, the picture is about to get more complicated now. Let ai,j be the j-th square in the i-th row of the pavement.\nYou are given the picture of the squares:\nThe black squares are paved already. You have to pave the white squares. There are two options for pavement tiles:\nYou should cover all the white squares, no two tiles should overlap and no black squares should be covered by tiles.\nWhat is the smallest total price of the tiles needed to cover all the white squares?\nThe first line contains a single integer t (1≤t≤500) — the number of testcases. Then the description of t testcases follow.\nThe first line of each testcase contains four integers n, m, x and y (1≤n≤100; 1≤m≤1000; 1≤x,y≤1000) — the size of the Theatre square, the price of the 1×1 tile and the price of the 1×2 tile.\nEach of the next n lines contains m characters. The j-th character in the i-th line is ai,j. If ai,j= \"*\", then the j-th square in the i-th row should be black, and if ai,j= \".\", then the j-th square in the i-th row should be white.\nIt's guaranteed that the sum of n×m over all testcases doesn't exceed 105.\nFor each testcase print a single integer — the smallest total price of the tiles needed to cover all the white squares in burles.\nIn the first testcase you are required to use a single 1×1 tile, even though 1×2 tile is cheaper. So the total price is 10 burles.\nIn the second testcase you can either use two 1×1 tiles and spend 20 burles or use a single 1×2 tile and spend 1 burle. The second option is cheaper, thus the answer is 1.\nThe third testcase shows that you can't rotate 1×2 tiles. You still have to use two 1×1 tiles for the total price of 20.\nIn the fourth testcase the cheapest way is to use 1×1 tiles everywhere. The total cost is 6⋅3=18.",
+    "time limit": "time limit per test2 seconds",
+    "memory limit": "memory limit per test256 megabytes",
+    "tags": [
+        "brute force",
+        "dp",
+        "greedy",
+        "implementation",
+        "two pointers",
+        "*1000"
+    ]
+}

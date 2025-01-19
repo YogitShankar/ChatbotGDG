@@ -1,0 +1,21 @@
+1681C - Double SortImagine that all elements of a are distinct. This way, sorting a in increasing order will fix the order of b.If b turns out sorted in a non-decreasing order, then the answer exists. Otherwise, it doesn't. To obtain the sequence of swaps, you can sort a with any comparison-based sorting algorithm you want: even bubble sort will not exceed the allowed number of swaps.What changes if a has repeated elements? Distinct elements are still ordered among themselves, but now there are also blocks of equal elements. For each block, look into the corresponding values in b. Obviously, these have to be sorted in a non-decreasing order. Rearrange them as they should be.In fact, this is exactly the same as sorting the sequence of pairs (ai,bi) with a default comparator — first by ai, then by bi.Since we fixed the wanted order, we can proceed with the same steps we made in a distinct case.Overall complexity: O(nlogn) or O(n2) per testcase. Solution (awoo)for _ in range(int(input())):
+	n = int(input())
+	a = list(map(int, input().split()))
+	b = list(map(int, input().split()))
+	tmp = [i for i in range(n)]
+	tmp.sort(key=lambda i: [a[i], b[i]])
+	for i in range(n - 1):
+		if a[tmp[i]] > a[tmp[i + 1]] or b[tmp[i]] > b[tmp[i + 1]]:
+			print("-1")
+			break
+	else:
+		ans = []
+		for i in range(n - 1):
+			for j in range(n - 1):
+				if a[j] > a[j + 1] or b[j] > b[j + 1]:
+					a[j], a[j + 1] = a[j + 1], a[j]
+					b[j], b[j + 1] = b[j + 1], b[j]
+					ans.append([j + 1, j + 2])
+		print(len(ans))
+		for it in ans:
+			print(*it)

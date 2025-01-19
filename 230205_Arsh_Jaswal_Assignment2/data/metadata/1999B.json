@@ -1,0 +1,12 @@
+{
+    "title": "B. Card Game",
+    "description": "Suneet and Slavic play a card game. The rules of the game are as follows:\nSince Suneet and Slavic aren't best friends, you need to calculate the number of ways the game could happen that Suneet would end up as the winner.\nFor a better understanding, please check the notes section.\nThe first line contains an integer t (1≤t≤104) — the number of test cases.\nThe first and only line of each test case contains 4 integers a1, a2, b1, b2 (1≤a1,a2,b1,b2≤10) where a1 and a2 represent the cards Suneet has, and b1 and b2 represent the cards Slavic has, respectively.\nFor each test case, output a single integer — the number of games Suneet would win considering all possible games.\nConsider the first test case when Slavic starts with the cards that have the values 2 and 6, and Suneet starts with cards that have the values 3 and 8. The game could happen in 4 different ways:\n \n \n ",
+    "time limit": "time limit per test2 seconds",
+    "memory limit": "memory limit per test256 megabytes",
+    "tags": [
+        "brute force",
+        "constructive algorithms",
+        "implementation",
+        "*1000"
+    ]
+}

@@ -1,0 +1,11 @@
+{
+    "title": "A. Integer Points",
+    "description": "DLS and JLS are bored with a Math lesson. In order to entertain themselves, DLS took a sheet of paper and drew n distinct lines, given by equations y=x+pi for some distinct p1,p2,…,pn.\nThen JLS drew on the same paper sheet m distinct lines given by equations y=−x+qi for some distinct q1,q2,…,qm.\nDLS and JLS are interested in counting how many line pairs have integer intersection points, i.e. points with both coordinates that are integers. Unfortunately, the lesson will end up soon, so DLS and JLS are asking for your help.\nThe first line contains one integer t (1≤t≤1000), the number of test cases in the input. Then follow the test case descriptions.\nThe first line of a test case contains an integer n (1≤n≤105), the number of lines drawn by DLS.\nThe second line of a test case contains n distinct integers pi (0≤pi≤109) describing the lines drawn by DLS. The integer pi describes a line given by the equation y=x+pi.\nThe third line of a test case contains an integer m (1≤m≤105), the number of lines drawn by JLS.\nThe fourth line of a test case contains m distinct integers qi (0≤qi≤109) describing the lines drawn by JLS. The integer qi describes a line given by the equation y=−x+qi.\nThe sum of the values of n over all test cases in the input does not exceed 105. Similarly, the sum of the values of m over all test cases in the input does not exceed 105.\nIn hacks it is allowed to use only one test case in the input, so t=1 should be satisfied.\nFor each test case in the input print a single integer — the number of line pairs with integer intersection points. \nThe picture shows the lines from the first test case of the example. Black circles denote intersection points with integer coordinates.",
+    "time limit": "time limit per test2 seconds",
+    "memory limit": "memory limit per test512 megabytes",
+    "tags": [
+        "geometry",
+        "math",
+        "*1000"
+    ]
+}

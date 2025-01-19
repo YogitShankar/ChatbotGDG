@@ -1,0 +1,48 @@
+1650C - Weight of the System of Nested SegmentsWe create a structure that stores for each point its coordinate, weight, and index in the input data. Sort the points array by increasing weight. The sum of weights of the first 2⋅n points will be minimal, so we use them to construct a system of n nested segments. We save the weights of the first 2⋅n points in the variable sum and remove the remaining m−2⋅n points from the array. Now sort the points in ascending order of coordinates and form a system of nested segments such that the endpoints of ith segment are points[i] and points[2⋅n−i+1] for (1≤i≤2⋅n). Thus, the endpoints of the first segment are points[1] and points[2⋅n], the endpoints of the nth segment are points[n] and points[n+1].For each test case we first output sum, then — n pairs of numbers i, j (1≤i,j≤m) — the indices under which the endpoints of the current segment were written in the input data. Solution#include<bits/stdc++.h>
+using namespace std;
+using ll = long long;
+
+#define forn(i, n) for (int i = 0; i < int(n); i++)
+
+struct point{
+    int weight, position, id;
+};
+
+void solve(){
+    int n, m;
+    cin >> n >> m;
+    vector<point>points(m);
+
+    forn(i, m) {
+        cin >>  points[i].position >> points[i].weight;
+        points[i].id = i + 1;
+    }
+
+    sort(points.begin(), points.end(), [] (point a, point b){
+        return a.weight < b.weight;
+    });
+
+    int sum = 0;
+    forn(i, m){
+        if(i < 2 * n) sum += points[i].weight;
+        else points.pop_back();
+    }
+
+    sort(points.begin(), points.end(), [] (point a, point b){
+        return a.position < b.position;
+    });
+
+    cout << sum << endl;
+    forn(i, n){
+        cout << points[i].id << ' ' << points[2 * n - i - 1].id << endl;
+    }
+}
+
+int main() {
+    int t;
+    cin >> t;
+    while(t--){
+        solve();
+    }
+    return 0;
+}

@@ -1,0 +1,11 @@
+Problem Title: B. Roadside Trees (Simplified Edition)
+
+no time limit found
+no memory limit found
+
+Squirrel Liss loves nuts. There are n trees (numbered 1 to n from west to east) along a street and there is a delicious nut on the top of each tree. The height of the tree i is hi. Liss wants to eat all nuts.
+Now Liss is on the root of the tree with the number 1. In one second Liss can perform one of the following actions:
+Compute the minimal time (in seconds) required to eat all nuts.
+The first line contains an integer n (1  ≤  n ≤ 105) — the number of trees.
+Next n lines contains the height of trees: i-th line contains an integer hi (1 ≤ hi ≤ 104) — the height of the tree with the number i.
+Print a single integer — the minimal time required to eat all nuts in seconds.

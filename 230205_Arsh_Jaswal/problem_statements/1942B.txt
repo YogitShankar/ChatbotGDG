@@ -1,0 +1,18 @@
+Problem Title: B. Bessie and MEX
+
+time limit per test1.5 seconds
+memory limit per test256 megabytes
+
+Farmer John has a permutation p1,p2,…,pn, where every integer from 0 to n−1 occurs exactly once. He gives Bessie an array a of length n and challenges her to construct p based on a. 
+The array a is constructed so that ai = MEX(p1,p2,…,pi)−pi, where the MEX of an array is the minimum non-negative integer that does not appear in that array. For example, MEX(1,2,3)=0 and MEX(3,1,0)=2.
+Help Bessie construct any valid permutation p that satisfies a. The input is given in such a way that at least one valid p exists. If there are multiple possible p, it is enough to print one of them.
+The first line contains t (1≤t≤104) — the number of test cases.
+The first line of each test case contains an integer n (1≤n≤2⋅105) — the lengths of p and a.
+The second line of each test case contains n integers a1,a2,…,an (−n≤ai≤n) — the elements of array a.
+It is guaranteed that there is at least one valid p for the given data.
+It is guaranteed that the sum of n over all test cases does not exceed 2⋅105.
+For each test case, output n integers on a new line, the elements of p.
+If there are multiple solutions, print any of them.
+In the first case, p=[0,1,4,2,3] is one possible output.
+a will then be calculated as a1=MEX(0)−0=1, a2=MEX(0,1)−1=1, a3=MEX(0,1,4)−4=−2, a4=MEX(0,1,4,2)−2=1, a5=MEX(0,1,4,2,3)−3=2.
+So, as required, a will be [1,1,−2,1,2].

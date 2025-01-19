@@ -1,0 +1,1 @@
+1139B - ChocolatesIt is optimal to proceed greedily from the back of the array. If we have taken x candies of the i+1 type, then we can only take min(x−1,Ai) candies for type i. If this value is less than zero, we take 0 from here.Overall Complexity: O(n)Author: AshishgupC++ Code: 51651887Java Code: 51651375 

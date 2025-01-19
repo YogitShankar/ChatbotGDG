@@ -1,0 +1,12 @@
+{
+    "title": "B. Binomial Coefficients, Kind Of",
+    "description": "Recently, akshiM met a task that needed binomial coefficients to solve. He wrote a code he usually does that looked like this:\nUnfortunately, he made an error, since the right formula is the following:\nBut his team member keblidA is interested in values that were produced using the wrong formula. Please help him to calculate these coefficients for t various pairs (ni,ki). Note that they should be calculated according to the first (wrong) formula.\nSince values C[ni][ki] may be too large, print them modulo 109+7.\nThe first line contains a single integer t (1≤t≤105) — the number of pairs. Next, t pairs are written in two lines.\nThe second line contains t integers n1,n2,…,nt (2≤ni≤105).\nThe third line contains t integers k1,k2,…,kt (1≤ki<ni).\nPrint t integers C[ni][ki] modulo 109+7.",
+    "time limit": "time limit per test2 seconds",
+    "memory limit": "memory limit per test512 megabytes",
+    "tags": [
+        "combinatorics",
+        "dp",
+        "math",
+        "*1100"
+    ]
+}

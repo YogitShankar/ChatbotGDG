@@ -1,0 +1,17 @@
+Problem Title: C. Save the Magazines
+
+time limit per test2 seconds
+memory limit per test256 megabytes
+
+Monocarp has been collecting rare magazines for quite a while, and now he has decided to sell them. He distributed the magazines between nn boxes, arranged in a row. The ii-th box contains aiai magazines. Some of the boxes are covered with lids, others are not. 
+Suddenly it started to rain, and now Monocarp has to save as many magazines from the rain as possible. To do this, he can move the lids between boxes as follows: if the ii-th box was covered with a lid initially, he can either move the lid from the ii-th box to the box (i−1)(i−1) (if it exists), or keep the lid on the ii-th box. You may assume that Monocarp can move the lids instantly at the same moment, and no lid can be moved more than once. If a box will be covered with a lid after Monocarp moves the lids, the magazines in it will be safe from the rain; otherwise they will soak.
+You have to calculate the maximum number of magazines Monocarp can save from the rain.
+The first line contains a single integer tt (1≤t≤1041≤t≤104) — the number of the testcases.
+The first line of each testcase contains a single integer nn (1≤n≤2⋅1051≤n≤2⋅105) — the number of boxes.
+The second line contains a string of nn characters 0 and/or 1. If the ii-th character is 1, the ii-th box is initially covered with a lid. If the ii-th character is 0, the ii-th box is initially not covered.
+The third line contains a sequence of integers a1,a2,…,ana1,a2,…,an (1≤ai≤1041≤ai≤104), where aiai is the number of magazines in the ii-th box.
+The sum of nn over all testcases doesn't exceed 2⋅1052⋅105.
+For each testcase, print one integer — the maximum number of magazines Monocarp can save from the rain.
+In the first testcase of the example, Monocarp can move the lid from the second box to the first box, so the boxes 11, 33 and 44 are covered, and 10+8+9=2710+8+9=27 magazines are saved.
+In the second testcase, Monocarp can move the lid from the second box to the first box, then from the third box to the second box, then from the fifth box to the fourth box, and then from the sixth box to the fifth box. The boxes 11, 22, 44 and 55 will be covered, so 20+10+30+20=8020+10+30+20=80 magazines can be saved.
+There are no lids in the third testcase, so it's impossible to save even a single magazine.

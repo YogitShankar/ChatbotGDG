@@ -1,0 +1,27 @@
+1656C - Make Equal With ModNote that, if 1 is not present in the array, we can always make all elements equal to 0 by repeatedly applying the operation with x=max(ai) until all elements become 0, as this operation will set the elements equal to the maximum to 0, while maintaining the others intact. So the answer is YES.If 1 is present and there are no two consecutive numbers in the array, we can similarly apply repeatedly the operation with x=max(ai)−1 until all elements become 1, as this operation will set the elements equal to the maximum to 1, while maintaining the others intact. So the answer is again YES.If 1 is present in the array, and there are two consecutive numbers m,m+1 in the array, the answer is NO. Note that if we have a 0 and a 1 in the array, we won't be able to make them equal after any number of operations, and so we cannot have any operation with an x that divides one of the ai's. The rest of operations will cause that m,m+1 remain consecutive (and thus different), meaning that it is impossible to make all the array equal. Code#include<bits/stdc++.h>
+ 
+using namespace std;
+ 
+typedef vector<int> vi;
+ 
+ 
+int main() {
+	int t;
+	cin >> t;
+	while(t--) {
+		int n;
+		cin >> n;
+		vi a(n);
+		for(int i=0; i < n; ++i) cin >> a[i];
+		sort(a.begin(), a.end());
+		bool one = false;
+		bool consec = false;
+		for(int i=0; i < n; ++i) {
+			if(a[i] == 1) one = true;
+			if(i < n-1 && a[i]+1 == a[i+1]) consec = true;
+		}
+ 
+		cout << ((one && consec) ? "NO" : "YES") << endl;
+	}
+ 
+}

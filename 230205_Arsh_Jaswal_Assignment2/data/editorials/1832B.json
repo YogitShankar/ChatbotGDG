@@ -1,0 +1,3 @@
+{
+    "solution": "1832B - Maximum SumIdea: BledDest TutorialTutorial is loading... Solution (awoo)for _ in range(int(input())):\n\tn, k = map(int, input().split())\n\ta = sorted(list(map(int, input().split())))\n\tans = 0\n\tpr = [0] * (n + 1)\n\tfor i in range(n):\n\t\tpr[i + 1] = pr[i] + a[i]\n\tfor i in range(k + 1):\n\t\tans = max(ans, pr[n - (k - i)] - pr[2 * i])\n\tprint(ans)"
+}

@@ -1,0 +1,3 @@
+{
+    "solution": "1038B - Non-Coprime PartitionThere are many ways to solve this question. The easiest way perhaps was to note that the sum of first n numbers is given by n∗(n+1)2, and one of n2 or n+12 has to be an integer, suppose k. Then we can partition the numbers into two sets, one containing k and the other containing the remaining integers, both of which will have k as a common factor. Special Case: There is no answer for n≤2Overall Complexity: O(n)Author's Code: 42591830 "
+}

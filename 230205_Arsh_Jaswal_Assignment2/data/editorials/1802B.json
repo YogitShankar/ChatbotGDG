@@ -1,0 +1,3 @@
+{
+    "solution": "1802B - Settlement of Guinea PigsIdea and preparation: Aleks5d SolutionTodo Code#include<bits/stdc++.h>\n\nusing namespace std;\n\nvoid solve() {\n    int n;\n    cin >> n;\n    int known = 0, unknown = 0;\n    int need = 0;\n    for (int i = 0; i < n; ++i) {\n        int x;\n        cin >> x;\n        if (x == 1) ++unknown;\n        else {\n            known += unknown;\n            unknown = 0;\n        }\n        need = max(need, unknown + (known ? known / 2 + 1 : 0));\n    }\n    cout << need << endl;\n}\n\nsigned main() {\n    int t = 1;\n    cin >> t;\n    for (int i = 0; i < t; ++i) {\n        solve();\n    }\n    return 0;\n}"
+}

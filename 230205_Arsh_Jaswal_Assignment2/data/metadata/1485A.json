@@ -1,0 +1,13 @@
+{
+    "title": "A. Add and Divide",
+    "description": "You have two positive integers a and b.\nYou can perform two kinds of operations:\nFind the minimum number of operations required to make a=0.\nThe first line contains a single integer t (1≤t≤100) — the number of test cases.\nThe only line of the description of each test case contains two integers a, b (1≤a,b≤109).\nFor each test case, print a single integer: the minimum number of operations required to make a=0.\nIn the first test case, one of the optimal solutions is:",
+    "time limit": "time limit per test1 second",
+    "memory limit": "memory limit per test256 megabytes",
+    "tags": [
+        "brute force",
+        "greedy",
+        "math",
+        "number theory",
+        "*1000"
+    ]
+}

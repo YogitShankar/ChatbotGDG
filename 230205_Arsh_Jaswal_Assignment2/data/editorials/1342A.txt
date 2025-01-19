@@ -1,0 +1,7 @@
+1342A - Road To ZeroLet's presume that $$$x \ge y$$$. Then there are two cases in the problem:   If $$$a + a \le b$$$ then we have to $$$x + y$$$ times perform the first operation. So the answer is $$$(x + y) \cdot a$$$;  If $$$a + a > b$$$ then we have to $$$y$$$ times perform the second operation and pass the remaining distance by performing the first operation. So the answer is $$$y \cdot b + (x - y) \cdot a$$$.  Solution (Roms)for _ in range(int(input())):
+    x, y = map(int, input().split())
+    a, b = map(int, input().split())
+    b = min(b, a + a)
+    if x < y:
+        x, y= y, x
+    print(y * b + (x - y) * a)

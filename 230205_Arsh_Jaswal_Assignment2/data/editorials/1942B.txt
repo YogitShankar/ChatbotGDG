@@ -1,0 +1,34 @@
+1942B - Bessie and MEXProblem Credits: buffering Analysis: bufferingSolution 1 Hint 1We will construct the solution forward. Hint 2Separate the ai's given into negative and positive cases. What does this tell us about the MEX? SolutionWe can find p1,p2,...,pn in order, looking at positive and negative cases. Note that ai≠0 because pi would equal MEX(p1…pi), which can never happen.  If ai>0, then MEX(p1,p2,...pi) must increase from MEX(p1,p2,...pi−1), so we know pi must equal MEX(p1,p2,...pi−1). Otherwise, the MEX stays the same, so pi is just simply MEX(p1,p2,...pi−1) — ai. Thus, we can just maintain the MEX and find each pi as we go forward. Here's more justification about specific differences leading to specific MEX changesThere are only 2 things the MEX can do: increase or stay the same (it can never decrease since larger prefixes contain smaller ones).  In the case of a positive difference, consider what would happen if the MEX stayed the same. Since the difference is positive, the MEX would have to be greater than the current value, which is impossible because that value had to appear earlier on in the prefix. Since the MEX is calculated on a permutation that can’t happen. So the MEX has to increase.   In the case of a negative value, the MEX has to be less than the current value. But if it increased that means the current value changed its the MEX, meaning its the MEX is now at least (current value + 1) and it is actually greater. So it has to stay the same. Note that this is also a way to show p is always unique. Code (C++)#include <bits/stdc++.h>
+using namespace std;
+
+void solve(){
+	int n; cin >> n;
+	vector<int> a(n);
+	for(int& i: a) cin >> i;
+	vector<int> p(n), has(n + 1);
+	int mex = 0;
+	for(int i = 0; i < n; i++){
+		if(a[i] >= 0){
+			p[i] = mex;
+		}
+		else{
+			p[i] = mex - a[i];
+		}
+		has[p[i]] = true;
+		while(has[mex]) mex++;
+	}
+	for(int i: p) cout << i << " ";
+	cout << "\n";
+}
+
+int main(){
+	cin.tie(0) -> sync_with_stdio(0);
+	int T = 1;
+	cin >> T;
+	while(T--) solve();
+}
+
+/*   /\_/\
+*   (= ._.)
+*   / >  \>
+*/Solution 2 Hint 1We will construct the solution backwards. Hint 2The MEX is determined at the last index, since all of 0,1…n−1 appear in p. SolutionRead the hints.Since we know the MEX of the last position is n, then n−pn=an. From this equation, we can find that pn=n−an. Now, because we know pn, we can determine the MEX of the first n−1 numbers. Like how we found pn, we can do a similar process for finding pn−1. Doing this for i=n,n−1…1 will get us a valid answer p.Note that this is also a way to show p is always unique.

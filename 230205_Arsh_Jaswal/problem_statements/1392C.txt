@@ -1,0 +1,24 @@
+Problem Title: C. Omkar and Waterslide
+
+time limit per test2 seconds
+memory limit per test256 megabytes
+
+Omkar is building a waterslide in his water park, and he needs your help to ensure that he does it as efficiently as possible.
+Omkar currently has nn supports arranged in a line, the ii-th of which has height aiai. Omkar wants to build his waterslide from the right to the left, so his supports must be nondecreasing in height in order to support the waterslide. In 11 operation, Omkar can do the following: take any contiguous subsegment of supports which is nondecreasing by heights and add 11 to each of their heights. 
+Help Omkar find the minimum number of operations he needs to perform to make his supports able to support his waterslide!
+An array bb is a subsegment of an array cc if bb can be obtained from cc by deletion of several (possibly zero or all) elements from the beginning and several (possibly zero or all) elements from the end.
+An array b1,b2,…,bnb1,b2,…,bn is called nondecreasing if bi≤bi+1bi≤bi+1 for every ii from 11 to n−1n−1.
+Each test contains multiple test cases. The first line contains the number of test cases tt (1≤t≤1001≤t≤100). Description of the test cases follows.
+The first line of each test case contains an integer nn (1≤n≤2⋅1051≤n≤2⋅105) — the number of supports Omkar has.
+The second line of each test case contains nn integers a1,a2,...,ana1,a2,...,an (0≤ai≤109)(0≤ai≤109) — the heights of the supports.
+It is guaranteed that the sum of nn over all test cases does not exceed 2⋅1052⋅105.
+For each test case, output a single integer — the minimum number of operations Omkar needs to perform to make his supports able to support his waterslide.
+The subarray with which Omkar performs the operation is bolded.
+In the first test case:
+First operation:
+[5,3,2,5]→[5,3,3,5][5,3,2,5]→[5,3,3,5]
+Second operation:
+[5,3,3,5]→[5,4,4,5][5,3,3,5]→[5,4,4,5]
+Third operation:
+[5,4,4,5]→[5,5,5,5][5,4,4,5]→[5,5,5,5]
+In the third test case, the array is already nondecreasing, so Omkar does 00 operations.

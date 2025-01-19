@@ -1,0 +1,15 @@
+Problem Title: C. Increasing Matrix
+
+time limit per test2 seconds
+memory limit per test256 megabytes
+
+In this problem, a n×mn×m rectangular matrix aa is called increasing if, for each row of ii, when go from left to right, the values strictly increase (that is, ai,1<ai,2<⋯<ai,mai,1<ai,2<⋯<ai,m) and for each column jj, when go from top to bottom, the values strictly increase (that is, a1,j<a2,j<⋯<an,ja1,j<a2,j<⋯<an,j).
+In a given matrix of non-negative integers, it is necessary to replace each value of 00 with some positive integer so that the resulting matrix is increasing and the sum of its elements is maximum, or find that it is impossible.
+It is guaranteed that in a given value matrix all values of 00 are contained only in internal cells (that is, not in the first or last row and not in the first or last column).
+The first line contains integers nn and mm (3≤n,m≤5003≤n,m≤500) — the number of rows and columns in the given matrix aa.
+The following lines contain mm each of non-negative integers — the values in the corresponding row of the given matrix: ai,1,ai,2,…,ai,mai,1,ai,2,…,ai,m (0≤ai,j≤80000≤ai,j≤8000).
+It is guaranteed that for all ai,j=0ai,j=0, 1<i<n1<i<n and 1<j<m1<j<m are true.
+If it is possible to replace all zeros with positive numbers so that the matrix is increasing, print the maximum possible sum of matrix elements. Otherwise, print -1.
+In the first example, the resulting matrix is as follows: 
+In the second example, the value 33 must be put in the middle cell.
+In the third example, the desired resultant matrix does not exist.

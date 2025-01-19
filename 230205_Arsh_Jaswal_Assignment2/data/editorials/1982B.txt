@@ -1,0 +1,42 @@
+1982B - Collatz ConjectureLet's write down what happens in the problem and try to speed it up. The first observation: we will perform operations until $$$x \neq 1$$$, after which the answer can be found using the formula $$$ans = 1 + k\,\%\,(y - 1)$$$. Indeed, after $$$x$$$ becomes equal to $$$1$$$, if we continue applying operations to it, it will change as follows:$$$$$$ 1 \to 2 \to ... \to (y - 1) \to 1 \to 2 \to ... \to (y - 1) \to 1 \to ... $$$$$$The second optimization is to group the operations that only add one, so instead of $$$1$$$ we will add the next value to $$$x$$$ in one action $$$min(k, \lceil \frac{x}{y} \rceil \cdot y - x)$$$. After this (if we added at least $$$1$$$), we should try to divide the number by $$$y$$$ (if it is divisible).If we use these two optimizations, our solution will work in $$$O(\log x)$$$ for one set of input data, since in one action $$$x$$$ decreases to $$$\lceil \frac{x + 1}{y} \rceil$$$, and therefore $$$x$$$ becomes $$$1$$$ in no more than $$$O(\log x)$$$ actions. Solution (FelixArg)#include <bits/stdc++.h>
+ 
+using namespace std;
+ 
+void solve(){
+	long long x, y, k;
+	cin >> x >> y >> k;
+	while (k > 0 && x != 1) {
+		long long ost = (x / y + 1) * y - x;
+                ost = max(1ll, ost);
+                ost = min(ost, k);
+                x += ost;
+		while (x % y == 0) {
+			x /= y;
+		}
+		k -= ost;
+	}
+	cout << x + k % (y - 1) << '\n';
+}
+ 
+int main()
+{
+#ifdef FELIX
+	auto _clock_start = chrono::high_resolution_clock::now();
+#endif
+	ios_base::sync_with_stdio(false);
+	cin.tie(0);
+	cout.tie(0);
+ 
+	int tests = 1;
+	cin >> tests;
+	for (int test = 0; test < tests; test++){
+		solve();
+	}
+ 
+#ifdef FELIX
+	cerr << "Executed in " << chrono::duration_cast<chrono::milliseconds>(
+		chrono::high_resolution_clock::now()
+			- _clock_start).count() << "ms." << endl;
+#endif
+	return 0;
+}

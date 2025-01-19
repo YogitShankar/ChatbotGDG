@@ -1,0 +1,11 @@
+{
+    "title": "B. Jumps",
+    "description": "You are standing on the OX-axis at point 0 and you want to move to an integer point x>0.\nYou can make several jumps. Suppose you're currently at point y (y may be negative) and jump for the k-th time. You can: \nWhat is the minimum number of jumps you need to reach the point x?\nThe first line contains a single integer t (1≤t≤1000) — the number of test cases.\nThe first and only line of each test case contains the single integer x (1≤x≤106) — the destination point.\nFor each test case, print the single integer — the minimum number of jumps to reach x. It can be proved that we can reach any integer point x.\nIn the first test case x=1, so you need only one jump: the 1-st jump from 0 to 0+1=1.\nIn the second test case x=2. You need at least three jumps: \nTwo jumps are not enough because these are the only possible variants: \nIn the third test case, you need two jumps: the 1-st one as +1 and the 2-nd one as +2, so 0+1+2=3.\nIn the fourth test case, you need three jumps: the 1-st one as −1, the 2-nd one as +2 and the 3-rd one as +3, so 0−1+2+3=4.",
+    "time limit": "time limit per test1 second",
+    "memory limit": "memory limit per test256 megabytes",
+    "tags": [
+        "constructive algorithms",
+        "math",
+        "*1200"
+    ]
+}

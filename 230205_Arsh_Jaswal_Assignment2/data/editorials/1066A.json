@@ -1,0 +1,3 @@
+{
+    "solution": "1066A - Vova and TrainWhat is the number of lanterns Vova will see from 1 to L? This number is ⌊Lv⌋. Now we have to subtract the number of lanters in range [l;r] from this number. This number equals to ⌊rv⌋−⌊l−1v⌋. So the answer is ⌊Lv⌋ - ⌊rv⌋ + ⌊l−1v⌋. Solution#include <bits/stdc++.h>\n\nusing namespace std;\n\nint main() {\n#ifdef _DEBUG\n\tfreopen(\"input.txt\", \"r\", stdin);\n//\tfreopen(\"output.txt\", \"w\", stdout);\n#endif\n\t\n\tint t;\n\tcin >> t;\n\t\n\tfor (int i = 0; i < t; ++i) {\t\n\t\tint L, v, l, r;\n\t\tcin >> L >> v >> l >> r;\n\t\tcout << L / v - r / v + (l - 1) / v << endl;\n\t}\n\t\n\treturn 0;\n}"
+}

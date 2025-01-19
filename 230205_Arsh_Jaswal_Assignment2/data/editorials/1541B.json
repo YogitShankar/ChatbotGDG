@@ -1,0 +1,3 @@
+{
+    "solution": "1541B - Pleasant PairsLoop over all values of ai and aj. Because i+j≤2⋅n, we only care about pairs (ai,aj) if ai⋅aj≤2⋅n. The number of such pairs is O(nlogn), so you can brute force all pairs.The reason the total number of pairs is O(nlogn) is because if the first element of the pair is x, there are only 2⋅nx possible values of y. 2⋅n1+2⋅n2+2⋅n3+…2⋅nn=2⋅n(11+12+13…1n)=O(nlogn) by the harmonic series. Thus the solution runs in O(nlogn) time total."
+}

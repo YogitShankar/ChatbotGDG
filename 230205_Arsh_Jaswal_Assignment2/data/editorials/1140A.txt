@@ -1,0 +1,39 @@
+1140A - Detective Book TutorialTutorial is loading... Solution (adedalic)#include<bits/stdc++.h>
+using namespace std;
+
+int n;
+vector<int> a;
+
+inline bool read() {
+	if(!(cin >> n))
+		return false;
+	a.resize(n);
+	for(int i = 0; i < n; i++) {
+		cin >> a[i];
+		a[i]--;
+	}
+	return true;
+}
+
+inline void solve() {
+	int cnt = 0, pos = 0;
+	while(pos < n) {
+		cnt++;
+		int mx = pos;
+		while(pos < n && pos <= mx) {
+			mx = max(mx, a[pos]);
+			pos++;
+		}
+	}
+	cout << cnt << endl;
+}
+
+int main() {
+#ifdef _DEBUG
+	freopen("input.txt", "r", stdin);
+#endif	
+	if(read()) {
+		solve();
+	}
+	return 0;
+}

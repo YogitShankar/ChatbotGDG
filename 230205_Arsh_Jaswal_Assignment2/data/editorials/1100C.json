@@ -1,0 +1,3 @@
+{
+    "solution": "1100C - NN and the Optical IllusionConsider three circles — inner and two outer. Since all the circles are tangent, the sides of the triangle constructed on the centers of the circles pass through the tangency points of the circles. Denote by α the angle in an equilateral n -gon. Then α=π(n−2)n. On the other hand, Rr+R=cos( alpha2). It can be noted that Rr+R=R+r−rr+R=1−rr+R, i.e. the function increases with R. On this basis, a binary search can be used to find the answer, or explicitly derive the formula R=rcos(α2)1−cos(α2)The complexity is O(1) or O(logC). "
+}

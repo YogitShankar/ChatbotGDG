@@ -1,0 +1,3 @@
+{
+    "solution": "1028B - Unnatural ConditionsFirst note, that if some output is correct for test with n=1129 and m=1, then it's correct for any valid test. After noticing this, we don't need to read input and output one answer for any test. One of many possible answers isa=99..9900..001 (200 nines, 199 zeroes, 1 one) b=99..99 (200 nines) a+b=10400s(a)=1801,s(b)=1800,s(a+b)=1Problem author: VadymKaProblem developers: riadwaw, malcolm, Kostroma, Errichto Code  int len = 400;\n  cout << string(len, '5') << \"\\n\";\n  cout << (string(len - 1, '4') + '5') << \"\\n\"; "
+}

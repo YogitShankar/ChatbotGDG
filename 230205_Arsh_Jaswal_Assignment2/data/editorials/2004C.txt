@@ -1,0 +1,21 @@
+2004C - Splitting ItemsLet's sort the array in descending order and consider the first two moves of the game.Since Alice goes first, she takes the maximum element in the array (a1). Then, during his turn, Bob takes the second-largest element (a2) to minimize the score difference.Bob can increase his element in advance; however, he cannot make it larger than a1 (since Alice always takes the maximum element in the array). This means that Bob needs to increase his element to min(a1,a2+k). Then the game moves to a similar situation, but without the first two elements and with an updated value of k.Thus, to solve the problem, we can sort the array and then iterate through it while maintaining several values. If the current index is odd (corresponding to Alice's turn), increase the answer by ai. If the current index is even (corresponding to Bob's turn), increase the current value of ai by min(k,ai−1−ai), decrease k by that same value, and also subtract the new value of ai from the answer. Solution (adedalic)fun main() {
+    repeat(readln().toInt()) {
+        val (n, k) = readln().split(" ").map { it.toInt() }
+        val a = readln().split(" ").map { it.toInt() }.sortedDescending().toIntArray()
+
+        var score = 0L
+        var rem = k
+        for (i in a.indices) {
+            if (i % 2 == 0) {
+                score += a[i]
+            }
+            else {
+                val needed = minOf(rem, a[i - 1] - a[i])
+                a[i] += needed
+                rem -= needed
+                score -= a[i]
+            }
+        }
+        println(score)
+    }
+}

@@ -1,0 +1,1 @@
+886B - Vlad and CafesThere are two steps to solve this problem:1. Put in array last the last time when Petya visited each cafe.2. Now you need to find the position of minimum in this array and print it. 

@@ -1,0 +1,33 @@
+1922B - Forming TrianglesAt first, let's figure out which sticks can be used to make a triangle. Let's denote the length of the longest stick as 2s0, the shortest stick as 2s2 and the middle stick as 2s1 (in other words, s is an array of length 3, consisting of three sticks for a triangle, sorted in non-ascending order). Important fact: s0==s1. It's true because if s0>s1, then 2s0≥2s1+2s2 and the triangle is degenerate. At the same time, the value of the s2 can be any integer from 0 to s0.So all we have to do is calculate the number of triples of sticks such that there are two or three maximums in the triple. Let's create an array cnt, where cnti is the number of sticks of length 2i, and the array sumCnt, where sumCnti is the number of sticks no longer than 2i. Now let's iterate over the length of the longest stick in the triangle (denote it as m). Then there are two cases:   All three sticks in a triangle are equal. Then the number of such triangles can be computed with a binomial coefficient: cntm∗(cntm−1)∗(cntm−2)6;  Only two sticks are equal (and have the same length). Then the number of such triangles is cntm∗(cntm−1)2⋅sumCntm−1.  Solution (Roms)#include <bits/stdc++.h>
+ 
+using namespace std;
+ 
+int t;
+ 
+int main() {
+    cin >> t;
+    for (int tc = 0; tc < t; ++tc) {
+        int n;
+        cin >> n;
+        map<int, int> numOfLens;
+        for (int i = 0; i < n; ++i){
+            int x;
+            cin >> x;
+            ++numOfLens[x];
+        }
+        
+        long long res = 0;
+        int sum = 0;
+        for (auto it : numOfLens) {
+            long long cnt = it.second;
+            if(cnt >= 3)
+                res += cnt * (cnt - 1) * (cnt - 2) / 6;
+            if(cnt >= 2)
+                res += cnt * (cnt - 1) / 2 * sum;
+            sum += cnt;
+        }
+        
+        cout << res << endl;
+    }
+    return 0;
+}

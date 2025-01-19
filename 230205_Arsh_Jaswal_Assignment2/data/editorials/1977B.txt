@@ -1,0 +1,76 @@
+1977B - Binary Colouring TutorialWe will iterate over the prefix of i bits and construct a correct answer for the number formed by the prefix bits of the number x. We are interested in considering only the one bits, as they are the only ones that affect the value of the number x.If we have already placed a one at position i in the answer, we need to somehow add 2i to the number. To do this, we simply zero out the i-th bit in the answer and set it at i+1 — this will add 2⋅2i=2i+1.Now, the i-th position in the answer holds 0.Let's consider what we placed at position i−1 in the answer. If it's 0, then everything is fine; we just place 1 at position i. If it's 1, we have a situation of [1 1], which we correct by making it [-1 0 1] — placing −1 at i−1, leaving 0 at i, and placing 1 at i+1. This will add 2i to the sum because 2i+2i−1=2i+1−2i−1. The remaining case is when i−1 holds −1, but this is impossible because our forward operations only place ones, and −1 is placed behind.The final time complexity is O(log(x)) per test case. Author's code#include "bits/stdc++.h"
+
+#define all(a) a.begin(), a.end()
+#define pb push_back
+typedef long long ll;
+using namespace std;
+mt19937 rnd(std::chrono::high_resolution_clock::now().time_since_epoch().count());
+ 
+/// Actual code starts here
+const int N = 100005;
+ 
+void solve() {
+    ll x;
+    cin >> x;
+    vector<int> res(31, 0);
+    for (int i = 0; i < 30; i++) {
+        if (1ll & (x >> i)) {
+            if (res[i]) {
+                res[i + 1] = 1;
+                res[i] = 0;
+            } else if (i > 0) {
+                if (res[i - 1] == 1) {
+                    res[i + 1] = 1;
+                    res[i - 1] = -1;
+                } else {
+                    res[i] = 1;
+                }
+            } else if (i == 0) {
+                res[i] = 1;
+            }
+        }
+    }
+    cout << 31 << '\n';
+    for (int i = 0; i <= 30; i++) {
+        cout << res[i] << ' ';
+    }
+    cout << '\n';
+}
+ 
+signed main() {
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+    cout.tie(nullptr);
+    int tt = 1;
+    cin >> tt;
+    while (tt--)
+        solve();
+}
+ Feedback Good problem 
+
+    
+
+
+344
+
+
+
+ Average problem 
+
+    
+
+
+25
+
+
+
+ Bad problem 
+
+    
+
+
+209
+
+
+
+ 

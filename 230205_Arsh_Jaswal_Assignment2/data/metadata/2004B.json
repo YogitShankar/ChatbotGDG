@@ -1,0 +1,11 @@
+{
+    "title": "B. Game with Doors",
+    "description": "There are 100 rooms arranged in a row and 99 doors between them; the i-th door connects rooms i and i+1. Each door can be either locked or unlocked. Initially, all doors are unlocked.\nWe say that room x is reachable from room y if all doors between them are unlocked.\nYou know that: \nHowever, you don't know the exact rooms they are in.\nYou don't want Alice and Bob to be able to reach each other, so you are going to lock some doors to prevent that. What's the smallest number of doors you have to lock so that Alice and Bob cannot meet, regardless of their starting positions inside the given segments?\nThe first line contains a single integer t (1≤t≤104) — the number of test cases.\nThe first line of each test case contains two integers l and r (1≤l<r≤100) — the bounds of the segment of rooms where Alice is located.\nThe second line of each test case contains two integers L and R (1≤L<R≤100) — the bounds of the segment of rooms where Bob is located.\nFor each test case, print a single integer — the smallest number of doors you have to lock so that Alice and Bob cannot meet, regardless of their starting positions inside the given segments.\nIn the first test case, it is sufficient to lock the door between rooms 2 and 3.\nIn the second test case, the following doors have to be locked: (2,3), (3,4), (4,5).\nIn the third test case, the following doors have to be locked: (5,6) and (6,7).",
+    "time limit": "time limit per test2 seconds",
+    "memory limit": "memory limit per test256 megabytes",
+    "tags": [
+        "brute force",
+        "greedy",
+        "*1000"
+    ]
+}

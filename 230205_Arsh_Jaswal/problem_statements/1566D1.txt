@@ -1,0 +1,19 @@
+Problem Title: D1. Seating Arrangements (easy version)
+
+time limit per test1 second
+memory limit per test256 megabytes
+
+It is the easy version of the problem. The only difference is that in this version n=1n=1.
+In the cinema seats can be represented as the table with nn rows and mm columns. The rows are numbered with integers from 11 to nn. The seats in each row are numbered with consecutive integers from left to right: in the kk-th row from m(k−1)+1m(k−1)+1 to mkmk for all rows 1≤k≤n1≤k≤n.
+There are nmnm people who want to go to the cinema to watch a new film. They are numbered with integers from 11 to nmnm. You should give exactly one seat to each person.
+It is known, that in this cinema as lower seat index you have as better you can see everything happening on the screen. ii-th person has the level of sight aiai. Let's define sisi as the seat index, that will be given to ii-th person. You want to give better places for people with lower sight levels, so for any two people ii, jj such that ai<ajai<aj it should be satisfied that si<sjsi<sj.
+After you will give seats to all people they will start coming to their seats. In the order from 11 to nmnm, each person will enter the hall and sit in their seat. To get to their place, the person will go to their seat's row and start moving from the first seat in this row to theirs from left to right. While moving some places will be free, some will be occupied with people already seated. The inconvenience of the person is equal to the number of occupied seats he or she will go through.
+Let's consider an example: m=5m=5, the person has the seat 44 in the first row, the seats 11, 33, 55 in the first row are already occupied, the seats 22 and 44 are free. The inconvenience of this person will be 22, because he will go through occupied seats 11 and 33.
+Find the minimal total inconvenience (the sum of inconveniences of all people), that is possible to have by giving places for all people (all conditions should be satisfied).
+The input consists of multiple test cases. The first line contains a single integer tt (1≤t≤1001≤t≤100) — the number of test cases. Description of the test cases follows.
+The first line of each test case contains two integers nn and mm (n=1n=1, 1≤m≤3001≤m≤300) — the number of rows and places in each row respectively.
+The second line of each test case contains n⋅mn⋅m integers a1,a2,…,an⋅ma1,a2,…,an⋅m (1≤ai≤1091≤ai≤109), where aiai is the sight level of ii-th person.
+It's guaranteed that the sum of n⋅mn⋅m over all test cases does not exceed 105105.
+For each test case print a single integer — the minimal total inconvenience that can be achieved.
+In the first test case, there is a single way to arrange people, because all sight levels are distinct. The first person will sit on the first seat, the second person will sit on the second place, the third person will sit on the third place. So inconvenience of the first person will be 00, inconvenience of the second person will be 11 and inconvenience of the third person will be 22. The total inconvenience is 0+1+2=30+1+2=3.
+In the second test case, people should sit as follows: s1=2s1=2, s2=1s2=1, s3=5s3=5, s4=4s4=4, s5=3s5=3. The total inconvenience will be 66.

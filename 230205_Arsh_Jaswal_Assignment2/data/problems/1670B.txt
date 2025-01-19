@@ -1,0 +1,16 @@
+Hosssam decided to sneak into Hemose's room while he is sleeping and change his laptop's password. He already knows the password, which is a string s of length n. He also knows that there are k special letters of the alphabet: c1,c2,…,ck.
+Hosssam made a program that can do the following.
+For example, suppose the string s is "abcdef" and the special characters are 'b' and 'd'. If he runs the program once, the positions 1 and 3 will be deleted as they come before special characters, so the password becomes "bdef". If he runs the program again, it deletes position 1, and the password becomes "def". If he is wise, he won't run it a third time.
+Hosssam wants to know how many times he can run the program on Hemose's laptop without waking him up from the sound of the error message. Can you help him?
+The first line contains a single integer t (1≤t≤105) — the number of test cases. Then t test cases follow.
+The first line of each test case contains a single integer n (2≤n≤105) — the initial length of the password.
+The next line contains a string s consisting of n lowercase English letters — the initial password.
+The next line contains an integer k (1≤k≤26), followed by k distinct lowercase letters c1,c2,…,ck — the special letters.
+It is guaranteed that the sum of n over all test cases does not exceed 2⋅105.
+For each test case, print the maximum number of times Hosssam can run the program without displaying the error message, on a new line.
+In the first test case, the program can run 5 times as follows: iloveslim→ilovslim→iloslim→ilslim→islim→slim
+In the second test case, the program can run 2 times as follows: joobeel→oel→el
+In the third test case, the program can run 3 times as follows: basiozi→bioi→ii→i.
+In the fourth test case, the program can run 5 times as follows: khater→khatr→khar→khr→kr→r
+In the fifth test case, the program can run only once as follows: abobeih→h
+In the sixth test case, the program cannot run as none of the characters in the password is a special character.

@@ -1,0 +1,35 @@
+1791G1 - Teleporters (Easy Version)It's easy to see that it's optimal to only move right or to use a portal once we are at it. We can notice that when we teleport back, the problem is independent of the previous choices. We still are at point 0 and have some portals left. Thus, we can just find out the individual cost of each portal, sort portals by individual costs, and take them from smallest to largest by cost as long as we can. The cost of portal i is i+ai (since we pay ai to use it and need i moves to get to it). Solution#include "bits/stdc++.h"
+using namespace std;
+ 
+#define ll long long
+
+#define          all(v)              v.begin(), v.end()
+#define         rall(v)              v.rbegin(),v.rend()
+ 
+#define            pb                push_back
+#define          sz(a)               (int)a.size()
+
+void solve() {
+    int n, c, ans = 0; cin >> n >> c;
+    priority_queue<int> q;
+    for(int i = 1, x; i <= n; ++i) {
+        cin >> x;
+        q.push(-x - i);
+    }
+    while(!q.empty()) {
+        int x = -q.top(); q.pop();
+        if(x > c) break;
+        ++ans;
+        c -= x;
+    }
+    cout << ans << "\n";
+}   
+ 
+int32_t main() {
+    ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+    int t = 1;
+    cin >> t;
+    while(t--) {
+        solve();
+    }
+}

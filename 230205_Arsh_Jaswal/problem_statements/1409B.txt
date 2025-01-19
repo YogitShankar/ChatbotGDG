@@ -1,0 +1,15 @@
+Problem Title: B. Minimum Product
+
+time limit per test1 second
+memory limit per test256 megabytes
+
+You are given four integers a, b, x and y. Initially, a≥x and b≥y. You can do the following operation no more than n times:
+Your task is to find the minimum possible product of a and b (a⋅b) you can achieve by applying the given operation no more than n times.
+You have to answer t independent test cases.
+The first line of the input contains one integer t (1≤t≤2⋅104) — the number of test cases. Then t test cases follow.
+The only line of the test case contains five integers a, b, x, y and n (1≤a,b,x,y,n≤109). Additional constraint on the input: a≥x and b≥y always holds.
+For each test case, print one integer: the minimum possible product of a and b (a⋅b) you can achieve by applying the given operation no more than n times.
+In the first test case of the example, you need to decrease b three times and obtain 10⋅7=70.
+In the second test case of the example, you need to decrease a one time, b one time and obtain 11⋅7=77.
+In the sixth test case of the example, you need to decrease a five times and obtain 5⋅11=55.
+In the seventh test case of the example, you need to decrease b ten times and obtain 10⋅1=10.

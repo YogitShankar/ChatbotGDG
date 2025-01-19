@@ -1,0 +1,3 @@
+{
+    "solution": "895A - Pizza SeparationWe can notice that if one of the sectors is continuous then all the remaining pieces also form a continuous sector.If angle of the first sector is equal to x then difference between angles of first and second sectors is |x - (360 - x)| = |2 * x - 360| = 2 * |x - 180|. So for each possible continuous sector we can count it's angle and update answer.Time complexity O(n2) or O(n).Solution"
+}

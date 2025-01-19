@@ -1,0 +1,3 @@
+{
+    "solution": "1064B - Уравнения математической магииRewriting equation we have a⊕x=a−x.If you look in the xor definition, it is easy to see, that a⊕x≥a−x, no matter a and x (just look at the each bit of the a⊕x).And the equality handles only if bits of x form a subset of bits of a.So the answer is 2t, where t is the number of bits in a (also known as popcount). "
+}

@@ -1,0 +1,12 @@
+{
+    "title": "B. Restricted RPS",
+    "description": "Let n be a positive integer. Let a,b,c be nonnegative integers such that a+b+c=n.\nAlice and Bob are gonna play rock-paper-scissors n times. Alice knows the sequences of hands that Bob will play. However, Alice has to play rock a times, paper b times, and scissors c times.\nAlice wins if she beats Bob in at least ⌈n2⌉ (n2 rounded up to the nearest integer) hands, otherwise Alice loses.\nNote that in rock-paper-scissors:\nThe task is, given the sequence of hands that Bob will play, and the numbers a,b,c, determine whether or not Alice can win. And if so, find any possible sequence of hands that Alice can use to win.\nIf there are multiple answers, print any of them.\nThe first line contains a single integer t (1≤t≤100) — the number of test cases.\nThen, t testcases follow, each consisting of three lines: \nFor each testcase: \nThe \"YES\" / \"NO\" part of the output is case-insensitive (i.e. \"yEs\", \"no\" or \"YEs\" are all valid answers). Note that 'R', 'P' and 'S' are case-sensitive.\nIn the first testcase, in the first hand, Alice plays paper and Bob plays rock, so Alice beats Bob. In the second hand, Alice plays scissors and Bob plays paper, so Alice beats Bob. In the third hand, Alice plays rock and Bob plays scissors, so Alice beats Bob. Alice beat Bob 3 times, and 3≥⌈32⌉=2, so Alice wins.\nIn the second testcase, the only sequence of hands that Alice can play is \"RRR\". Alice beats Bob only in the last hand, so Alice can't win. 1<⌈32⌉=2.",
+    "time limit": "time limit per test1 second",
+    "memory limit": "memory limit per test256 megabytes",
+    "tags": [
+        "constructive algorithms",
+        "dp",
+        "greedy",
+        "*1200"
+    ]
+}

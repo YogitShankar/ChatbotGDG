@@ -1,0 +1,10 @@
+{
+    "title": "B. Box",
+    "description": "Permutation p is a sequence of integers p=[p1,p2,…,pn], consisting of n distinct (unique) positive integers between 1 and n, inclusive. For example, the following sequences are permutations: [3,4,1,2], [1], [1,2]. The following sequences are not permutations: [0], [1,2,1], [2,3], [0,1,2].\nThe important key is in the locked box that you need to open. To open the box you need to enter secret code. Secret code is a permutation p of length n. \nYou don't know this permutation, you only know the array q of prefix maximums of this permutation. Formally:\nYou want to construct any possible suitable permutation (i.e. any such permutation, that calculated q for this permutation is equal to the given array).\nThe first line contains integer number t (1≤t≤104) — the number of test cases in the input. Then t test cases follow.\nThe first line of a test case contains one integer n (1≤n≤105) — the number of elements in the secret code permutation p.\nThe second line of a test case contains n integers q1,q2,…,qn (1≤qi≤n) — elements of the array q for secret permutation. It is guaranteed that qi≤qi+1 for all i (1≤i<n).\nThe sum of all values n over all the test cases in the input doesn't exceed 105.\nFor each test case, print:\nIn the first test case of the example answer [1,3,4,5,2] is the only possible answer:\nIt can be proved that there are no answers for the second test case of the example.",
+    "time limit": "time limit per test1 second",
+    "memory limit": "memory limit per test256 megabytes",
+    "tags": [
+        "constructive algorithms",
+        "*1200"
+    ]
+}

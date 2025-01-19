@@ -1,0 +1,28 @@
+1695B - Circle GameNote that since all piles are initially nonempty, the game will not end for the first n turns, because on each of those turns, a player will be removing from a nonempty pile. If n is odd, Mike can remove all of the stones from the first pile. Then, on the n+1th turn (the first turn where the game can end), Joe will be forced to remove from the first pile, which is empty. So Mike can always win if n is odd.If n is even, then Mike will only ever remove from the odd piles, and Joe will only ever remove from the even piles. So each player has n/2 piles, and neither can remove from the other's piles. Therefore, it is optimal for each player to remove the minimal possible number of stones at each step, so that they stay in the game for as long as possible.So on each turn, a player removes exactly one stone, and the first pile to become empty will be the pile with the minimal number of stones. If there are multiple minimal piles, it will be the leftmost such pile. So if this pile is on an odd position, Mike will lose (and therefore Joe will win), and otherwise Joe will lose (and Mike will win).Complexity: O(n) Solution#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    int num_tests;
+    cin >> num_tests;
+
+    for (int test = 0; test < num_tests; ++test) {
+
+        int n; cin >> n;
+        vector<int> a(n);
+        for (int i = 0; i < n; ++i)
+            cin >> a[i];
+
+        if (n % 2 == 1) {
+            cout << "Mike\n";
+            continue;
+        }
+
+        int smallest = 0;
+        for (int i = 0; i < n; ++i)
+            if (a[i] < a[smallest])
+                smallest = i;
+
+        if (smallest % 2 == 0) cout << "Joe\n";
+        else cout << "Mike\n";
+    }
+} 

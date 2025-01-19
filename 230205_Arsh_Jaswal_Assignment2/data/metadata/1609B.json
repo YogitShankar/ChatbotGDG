@@ -1,0 +1,11 @@
+{
+    "title": "B. William the Vigilant",
+    "description": "Before becoming a successful trader William got a university degree. During his education an interesting situation happened, after which William started to listen to homework assignments much more attentively. What follows is the correct formal description of the homework assignment:\nYou are given a string s of length n only consisting of characters \"a\", \"b\" and \"c\". There are q queries of format (pos,c), meaning replacing the element of string s at position pos with character c. After each query you must output the minimal number of characters in the string, which have to be replaced, so that the string doesn't contain string \"abc\" as a substring. A valid replacement of a character is replacing it with \"a\", \"b\" or \"c\".\nA string x is a substring of a string y if x can be obtained from y by deletion of several (possibly, zero or all) characters from the beginning and several (possibly, zero or all) characters from the end.\nThe first line contains two integers n and q (1≤n,q≤105), the length of the string and the number of queries, respectively.\nThe second line contains the string s, consisting of characters \"a\", \"b\" and \"c\".\nEach of the next q lines contains an integer i and character c (1≤i≤n), index and the value of the new item in the string, respectively. It is guaranteed that character's c value is \"a\", \"b\" or \"c\".\nFor each query output the minimal number of characters that would have to be replaced so that the string doesn't contain \"abc\" as a substring.\nLet's consider the state of the string after each query: ",
+    "time limit": "time limit per test2 seconds",
+    "memory limit": "memory limit per test256 megabytes",
+    "tags": [
+        "implementation",
+        "strings",
+        "*1100"
+    ]
+}

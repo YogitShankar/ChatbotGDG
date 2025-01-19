@@ -1,0 +1,5 @@
+You have a given integer n. Find the number of ways to fill all 3×n tiles with the shape described in the picture below. Upon filling, no empty spaces are allowed. Shapes cannot overlap.
+The only line contains one integer n (1≤n≤60) — the length.
+Print the number of ways to fill.
+In the first example, there are 4 possible cases of filling.
+In the second example, you cannot fill the shapes in 3×1 tiles.

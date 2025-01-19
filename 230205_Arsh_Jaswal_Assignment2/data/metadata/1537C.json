@@ -1,0 +1,13 @@
+{
+    "title": "C. Challenging Cliffs",
+    "description": "You are a game designer and want to make an obstacle course. The player will walk from left to right. You have n heights of mountains already selected and want to arrange them so that the absolute difference of the heights of the first and last mountains is as small as possible. \nIn addition, you want to make the game difficult, and since walking uphill or flat is harder than walking downhill, the difficulty of the level will be the number of mountains i (1≤i<n) such that hi≤hi+1 where hi is the height of the i-th mountain. You don't want to waste any of the mountains you modelled, so you have to use all of them. \nFrom all the arrangements that minimize |h1−hn|, find one that is the most difficult. If there are multiple orders that satisfy these requirements, you may find any.\nThe first line will contain a single integer t (1≤t≤100) — the number of test cases. Then t test cases follow.\nThe first line of each test case contains a single integer n (2≤n≤2⋅105) — the number of mountains.\nThe second line of each test case contains n integers h1,…,hn (1≤hi≤109), where hi is the height of the i-th mountain.\nIt is guaranteed that the sum of n over all test cases does not exceed 2⋅105.\nFor each test case, output n integers — the given heights in an order that maximizes the difficulty score among all orders that minimize |h1−hn|.\nIf there are multiple orders that satisfy these requirements, you may output any.\nIn the first test case:\nThe player begins at height 2, next going up to height 4 increasing the difficulty by 1. After that he will go down to height 1 and the difficulty doesn't change because he is going downhill. Finally the player will go up to height 2 and the difficulty will increase by 1. The absolute difference between the starting height and the end height is equal to 0 and it's minimal. The difficulty is maximal.\nIn the second test case:\nThe player begins at height 1, next going up to height 3 increasing the difficulty by 1. The absolute difference between the starting height and the end height is equal to 2 and it's minimal as they are the only heights. The difficulty is maximal.",
+    "time limit": "time limit per test2 seconds",
+    "memory limit": "memory limit per test256 megabytes",
+    "tags": [
+        "constructive algorithms",
+        "greedy",
+        "implementation",
+        "math",
+        "*1200"
+    ]
+}

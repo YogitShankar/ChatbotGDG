@@ -1,0 +1,11 @@
+{
+    "title": "C. Corners",
+    "description": "You are given a matrix consisting of n rows and m columns. Each cell of this matrix contains 0 or 1.\nLet's call a square of size 2×2 without one corner cell an L-shape figure. In one operation you can take one L-shape figure, with at least one cell containing 1 and replace all numbers in it with zeroes.\nFind the maximum number of operations that you can do with the given matrix.\nThe first line contains one integer t (1≤t≤500) — the number of test cases. Then follow the descriptions of each test case.\nThe first line of each test case contains two integers n and m (2≤n,m≤500) — the size of the matrix.\nEach of the following n lines contains a binary string of length m — the description of the matrix.\nIt is guaranteed that the sum of n and the sum of m over all test cases does not exceed 1000.\nFor each test case output the maximum number of operations you can do with the given matrix.\nIn the first testcase one of the optimal sequences of operations is the following (bold font shows l-shape figure on which operation was performed): \nIn the third testcase from the sample we can not perform any operation because the matrix doesn't contain any ones.\nIn the fourth testcase it does not matter which L-shape figure we pick in our first operation. We will always be left with single one. So we will perform 2 operations.",
+    "time limit": "time limit per test1 second",
+    "memory limit": "memory limit per test256 megabytes",
+    "tags": [
+        "greedy",
+        "implementation",
+        "*1200"
+    ]
+}

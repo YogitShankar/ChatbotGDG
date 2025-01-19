@@ -1,0 +1,1 @@
+898B - Proper NutritionTo solve this problem we need to brute how many bottles of Ber-Cola Vasya will buy. Let this number equals to x. Then, if n - a·x is non-negative and divided by b we found the answer — Vasya should by x bottles of Ber-Cola and (n - a·x) / b Bars bars.In case that (n - a·x) became negative there is no answer and we should print "NO". 

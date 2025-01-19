@@ -1,0 +1,35 @@
+1553C - PenaltyAfter you have fixed the values of ? you can easily find the number of kicks needed to decide the winners in constant time. If you iterate over all possible values of ? you can get solution which works in O(210⋅check) for one testcase, which is enough to pass.The other possible solution is to notice that it's optimal to change ? of one team to 1 and to 0 for other. So you only have two candidates to check. Solution (BledDest)#include <bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+	int t;
+	cin >> t;
+	while (t--) {
+		string s;
+		cin >> s;
+		int ans = 9;
+		
+		{
+			int cnt0 = 0, cnt1 = 0;
+			for (int i = 0; i < 10; ++i) {
+				if (i % 2 == 0) cnt0 += s[i] != '0';
+				else cnt1 += s[i] == '1'; 
+				if (cnt0 > cnt1 + (10 - i) / 2) ans = min(ans, i);
+				if (cnt1 > cnt0 + (9 - i) / 2) ans = min(ans, i);
+			}
+		}
+		
+		{
+			int cnt0 = 0, cnt1 = 0;
+			for (int i = 0; i < 10; ++i) {
+				if (i % 2 == 0) cnt0 += s[i] == '1';
+				else cnt1 += s[i] != '0'; 
+				if (cnt0 > cnt1 + (10 - i) / 2) ans = min(ans, i);
+				if (cnt1 > cnt0 + (9 - i) / 2) ans = min(ans, i);
+			}
+		}
+		
+		cout << ans + 1 << '\n';
+	}
+}

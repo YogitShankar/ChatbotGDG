@@ -1,0 +1,28 @@
+1820B - JoJo's Incredible AdventuresFirst of all, consider the cases if the given string consists only of ones and only of zeros. It's easy to see that answers for these cases are n2 and 0.In all other cases let's split all strings into segments that consist only of ones. Also if the first and the last characters of the string equals to "1", these two characters will be in one segment. In other words, the pair of ones will lay inside one group if there exists some cyclic shift that these two ones are consecutive. Let the maximum length of such segment be equal to k. Then it can be shown that the answer equals to ⌊k+12⌋⋅⌈k+12⌉.We will proof this fact in such way. If there exists some rectangle of size a×b. Considering its first row, we can see that it has a+b−1 consecutive ones. But it means that a+b≤k+1. Without loss of generality, if a≤b, we can do the following replacements: a=⌊k+12⌋−λ, b=⌈k+12⌉+λ. It means that ab=⌈k+12⌉⋅⌊k+12⌋−λ2≤⌈k+12⌉⋅⌊k+12⌋.Time complexity: O(n). Solution#include <bits/stdc++.h>
+
+using namespace std;
+using ll = long long;
+
+int main() {
+    ios::sync_with_stdio(0); cin.tie(0);
+
+    int t = 1;
+    cin >> t;
+    while (t--) {
+        string s; cin >> s; s += s;
+        int k = 0, z = 0;
+        for (char c : s) {
+            z = c == '1' ? z+1 : 0;
+            k = max(k, z);
+        }
+        const int n = s.size() / 2;
+
+        if (k > n) {
+            cout << (ll)n*n << '\n';
+        } else {
+            const ll side_a = (k+1)/2;
+            const ll side_b = (k+2)/2;
+            cout << side_a * side_b << '\n';
+        }
+    }
+}

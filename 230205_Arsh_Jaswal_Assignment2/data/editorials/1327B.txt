@@ -1,0 +1,20 @@
+1327B - Princesses and PrincesSimulate the process without adding the new entry. For this you can just maintain an array taken, i-th value of which is true if the i-th prince is married and false otherwise.Now observe that there are two possible outcomes:   Every daughter is married — the answer is optimal.  There is a daughter who isn't married. That means that there is a free prince as well. Marry them to each other because doing that won't affect any other marriages and add a new one to the answer. Overall complexity: O(n+m). Solution (pikmike)from sys import stdin, stdout
+
+t = int(stdin.readline())
+for _ in range(t):
+    n = int(stdin.readline())
+    used = [False for i in range(n)]
+    v = -1
+    for i in range(n):
+        l = [int(x) - 1 for x in stdin.readline().split()][1:]
+        for j in l:
+            if not used[j]:
+                used[j] = True
+                break
+        else:
+            v = i
+    if v == -1:
+        stdout.write("OPTIMAL\n")
+    else:
+        u = used.index(False)
+        stdout.write("IMPROVE\n" + str(v + 1) + " " + str(u + 1) + "\n")

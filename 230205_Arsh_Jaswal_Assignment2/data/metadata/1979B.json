@@ -1,0 +1,11 @@
+{
+    "title": "B. XOR Sequences",
+    "description": "You are given two distinct non-negative integers x and y. Consider two infinite sequences a1,a2,a3,… and b1,b2,b3,…, where\nHere, x⊕y denotes the bitwise XOR operation of integers x and y.\nFor example, with x=6, the first 8 elements of sequence a will look as follows: [7,4,5,2,3,0,1,14,…]. Note that the indices of elements start with 1.\nYour task is to find the length of the longest common subsegment† of sequences a and b. In other words, find the maximum integer m such that ai=bj,ai+1=bj+1,…,ai+m−1=bj+m−1 for some i,j≥1.\n†A subsegment of sequence p is a sequence pl,pl+1,…,pr, where 1≤l≤r.\nEach test consists of multiple test cases. The first line contains a single integer t (1≤t≤104) — the number of test cases. The description of the test cases follows.\nThe only line of each test case contains two integers x and y (0≤x,y≤109,x≠y) — the parameters of the sequences.\nFor each test case, output a single integer — the length of the longest common subsegment.\nIn the first test case, the first 7 elements of sequences a and b are as follows:\na=[1,2,3,4,5,6,7,…]\nb=[0,3,2,5,4,7,6,…]\nIt can be shown that there isn't a positive integer k such that the sequence [k,k+1] occurs in b as a subsegment. So the answer is 1.\nIn the third test case, the first 20 elements of sequences a and b are as follows:\na=[56,59,58,61,60,63,62,49,48,51,50,53,52,55,54,41, 40, 43, 42,45,…]\nb=[36,39,38,33,32,35,34,45,44,47,46,41, 40, 43, 42,53,52,55,54,49,…]\nIt can be shown that one of the longest common subsegments is the subsegment [41,40,43,42] with a length of 4.",
+    "time limit": "time limit per test1 second",
+    "memory limit": "memory limit per test256 megabytes",
+    "tags": [
+        "bitmasks",
+        "greedy",
+        "*1000"
+    ]
+}

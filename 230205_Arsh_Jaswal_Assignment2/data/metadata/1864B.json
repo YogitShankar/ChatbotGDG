@@ -1,0 +1,13 @@
+{
+    "title": "B. Swap and Reverse",
+    "description": "You are given a string s of length n consisting of lowercase English letters, and an integer k. In one step you can perform any one of the two operations below:\nYou can make as many steps as you want (possibly, zero). Your task is to find the lexicographically smallest string you can obtain after some number of steps. \nA string a is lexicographically smaller than a string b of the same length if and only if the following holds: \nEach test contains multiple test cases. The first line contains the number of test cases t (1≤t≤104). The description of the test cases follows.\nThe first line of each test case contains two integers n and k (1≤k<n≤105).\nThe second line of each test case contains the string s of length n consisting of lowercase English letters.\nIt is guaranteed that the sum of n over all test cases does not exceed 105.\nFor each test case, print the lexicographically smallest string after doing some (possibly, zero) steps.\nIn the first test case, we can obtain the string \"aimn\" using the following operations:\nIt can be proven that we cannot obtain any string lexicographically smaller than \"aimn\". Therefore, \"aimn\" is the answer.\nIn the second test case, we can obtain the string \"aandp\" using the following operations:\nIt can be proven that we cannot obtain any string lexicographically smaller than \"aandp\". Therefore, \"aandp\" is the answer.",
+    "time limit": "time limit per test1 second",
+    "memory limit": "memory limit per test256 megabytes",
+    "tags": [
+        "constructive algorithms",
+        "greedy",
+        "sortings",
+        "strings",
+        "*1100"
+    ]
+}

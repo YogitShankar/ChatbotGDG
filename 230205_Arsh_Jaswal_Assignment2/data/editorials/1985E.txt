@@ -1,0 +1,21 @@
+1985E - Secret BoxProblem Credits: cry  Analysis: cry SolutionSince the side lengths of S has to multiply to k, all three side lengths of S has to be divisors of k. Let's denote the side lengths of S along the x, y, and z axes as a, b, and c respectively. For S to fit in B , a≤x, b≤y, and c≤z must hold. Because of the low constraints, we can afford to loop through all possible values of a and b, and deduce that c=ka⋅b (make sure c≤z and c is an integer). To get the amount of ways we can place S, we can just multiply the amount of shifting space along each axes, and that just comes down to (x−a+1)⋅(y−b+1)⋅(z−c+1). The answer is the maximum among all possible values of a, b, and c . The time complexity is O(n2) where n is at most 2000. Code (C++)#include <iostream>
+using namespace std;
+using ll = long long;
+
+int main(){
+	int t; cin >> t;
+	while(t--){
+		ll x, y, z, k; cin >> x >> y >> z >> k;
+		ll ans = 0;
+		for(int a = 1; a <= x; a++){
+			for(int b = 1; b <= y; b++){
+				if(k % (a * b)) continue;
+				ll c = k / (a * b);
+				if(c > z) continue;
+				ll ways = (ll)(x - a + 1) * (y - b + 1) * (z - c + 1);
+				ans = max(ans, ways);
+			}
+		}
+		cout << ans << "\n";
+	}
+}

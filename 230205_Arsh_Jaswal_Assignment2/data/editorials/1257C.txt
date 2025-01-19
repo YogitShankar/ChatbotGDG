@@ -1,0 +1,45 @@
+1257C - Dominated SubarrayAt first, let's prove that the shortest dominated subarray has pattern like v,c1,c2,…,ck,v with k≥0 and dominated by value v. Otherwise, we can decrease its length by erasing an element from one of its ends which isn't equal to v and it'd still be dominated.Now we should go over all pairs of the same numbers and check its subarrays... Or not? Let's look closely at the pattern: if v and all ci are pairwise distinct then the pattern is dominated subarray itself. Otherwise, we can find in our pattern other shorter pattern and either the found pattern is dominated or it has the pattern inside it and so on.What does it mean? It means that the answer is just the shortest pattern we can find. And all we need to find is the shortest subarray with the same first and last elements or just distance between two consecutive occurrences of each number. We can do it by iterating over current position i and keeping track of the last occurrence of each number in some array lst[v]. Then the current distance is i−lst[a[i]]+1.The total complexity is O(n). Solution (adedalic)#include<bits/stdc++.h>
+using namespace std;
+
+#define sz(a) int((a).size())
+
+int n;
+vector<int> a;
+
+inline bool read() {
+	if(!(cin >> n))
+		return false;
+	a.resize(n);
+	for(int i = 0; i < n; i++)
+		cin >> a[i];
+	return true;
+}
+
+inline void solve() {
+	int ans = n + 5;
+	vector<int> lst(n + 1, -1);
+	for(int i = 0; i < n; i++) {
+		if(lst[a[i]] != -1)
+			ans = min(ans, i - lst[a[i]] + 1);
+		lst[a[i]] = i;
+	}
+	if(ans > n)
+		ans = -1;
+	cout << ans << endl;
+}
+
+int main() {
+#ifdef _DEBUG
+	freopen("input.txt", "r", stdin);
+#endif
+	ios_base::sync_with_stdio(false);
+	cin.tie(0), cout.tie(0);
+	cout << fixed << setprecision(15);
+	
+	int tc; cin >> tc;
+	while(tc--) {
+		assert(read());
+		solve();
+	}
+	return 0;
+}

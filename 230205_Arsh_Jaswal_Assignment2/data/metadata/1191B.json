@@ -1,0 +1,11 @@
+{
+    "title": "B. Tokitsukaze and Mahjong",
+    "description": "Tokitsukaze is playing a game derivated from Japanese mahjong. In this game, she has three tiles in her hand. Each tile she owns is a suited tile, which means it has a suit (manzu, pinzu or souzu) and a number (a digit ranged from 1 to 9). In this problem, we use one digit and one lowercase letter, which is the first character of the suit, to represent a suited tile. All possible suited tiles are represented as 1m, 2m, …, 9m, 1p, 2p, …, 9p, 1s, 2s, …, 9s.\nIn order to win the game, she must have at least one mentsu (described below) in her hand, so sometimes she should draw extra suited tiles. After drawing a tile, the number of her tiles increases by one. She can draw any tiles she wants, including those already in her hand.\nDo you know the minimum number of extra suited tiles she needs to draw so that she can win?\nHere are some useful definitions in this game:\nSome examples: \nNote that the order of tiles is unnecessary and you can assume the number of each type of suited tiles she can draw is infinite.\nThe only line contains three strings — the tiles in Tokitsukaze's hand. For each string, the first character is a digit ranged from 1 to 9 and the second character is m, p or s.\nPrint a single integer — the minimum number of extra suited tiles she needs to draw.\nIn the first example, Tokitsukaze already has a shuntsu.\nIn the second example, Tokitsukaze already has a koutsu.\nIn the third example, Tokitsukaze can get a shuntsu by drawing one suited tile — 1p or 4p. The resulting tiles will be [3p, 9m, 2p, 1p] or [3p, 9m, 2p, 4p].",
+    "time limit": "time limit per test1 second",
+    "memory limit": "memory limit per test256 megabytes",
+    "tags": [
+        "brute force",
+        "implementation",
+        "*1200"
+    ]
+}

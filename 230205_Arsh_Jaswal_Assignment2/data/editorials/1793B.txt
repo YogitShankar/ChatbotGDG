@@ -1,0 +1,32 @@
+1793B - Fedya and ArrayNote that the local minimums and maximums will alternate, and there will be the same number of them kk. Let's call the ii-th local maximum by aiai, the ii-th local minimum by bibi. Without loss of generality, consider that aiai goes before bibi. To get bibi from aiai we need to write out ai−biai−bi numbers, to get a(i+1)modka(i+1)modk from bibi we need to write out a(i+1)modk−bia(i+1)modk−bi numbers. Thus, (a1−b1)+(a2−b1)+(a2−b2)+…+(ak−bk)+(a1−bk)=(a1−b1)+(a2−b1)+(a2−b2)+…+(ak−bk)+(a1−bk)= =2⋅(a1+a2+…+ak)−2⋅(b1+b2+…+bk)=2⋅(A−B)=n=2⋅(a1+a2+…+ak)−2⋅(b1+b2+…+bk)=2⋅(A−B)=nThe array [y,y+1,y+2,…,x−1,x,x−1,x−2,…,y+1][y,y+1,y+2,…,x−1,x,x−1,x−2,…,y+1] will satisfy the condition. Code#include <bits/stdc++.h>
+
+using namespace std;
+
+typedef long long ll;
+
+void solve() {
+    ll a, b;
+    cin >> a >> b;
+    ll n = 2 * (a - b);
+    cout << n << '\n';
+    vector<ll> arr(n);
+    int ptr = 0;
+    for (ll c = b; c <= a; ++c) {
+        arr[ptr++] = c;
+    }
+    for (ll c = a - 1; c > b; --c) {
+        arr[ptr++] = c;
+    }
+    for (int i = 0; i < n; ++i) {
+        cout << arr[i] << " \n"[i == n - 1];
+    }
+}
+
+int main() {
+    int t;
+    cin >> t;
+    while (t--) {
+        solve();
+    }
+    return 0;
+}

@@ -1,0 +1,12 @@
+{
+    "title": "D. Rudolph and Christmas Tree",
+    "description": "Rudolph drew a beautiful Christmas tree and decided to print the picture. However, the ink in the cartridge often runs out at the most inconvenient moment. Therefore, Rudolph wants to calculate in advance how much green ink he will need.\nThe tree is a vertical trunk with identical triangular branches at different heights. The thickness of the trunk is negligible.\nEach branch is an isosceles triangle with base d and height h, whose base is perpendicular to the trunk. The triangles are arranged upward at an angle, and the trunk passes exactly in the middle. The base of the i-th triangle is located at a height of yi.\nThe figure below shows an example of a tree with d=4,h=2 and three branches with bases at heights [1,4,5].\nHelp Rudolph calculate the total area of the tree branches.\nThe first line contains a single integer t (1≤t≤104) — the number of test cases.\nThen follow the descriptions of the test cases.\nThe first line of each test case contains three integers n,d,h (1≤n,d,h≤2⋅105) — the number of branches, the length of the base, and the height of the branches, respectively.\nThe second line of each test case contains n integers yi (1≤yi≤109,y1<y2<...<yn) — the heights of the bases of the branches.\nThe sum of n over all test cases does not exceed 2⋅105.\nFor each test case, output a single real number on a separate line — the total area of the tree branches. The answer will be considered correct if its absolute or relative error does not exceed 10−6.",
+    "time limit": "time limit per test2 seconds",
+    "memory limit": "memory limit per test256 megabytes",
+    "tags": [
+        "constructive algorithms",
+        "geometry",
+        "math",
+        "*1200"
+    ]
+}

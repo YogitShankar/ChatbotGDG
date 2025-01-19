@@ -1,0 +1,20 @@
+1256A - Payment Without ChangeFirstly, we obviously need to take at least S%n coins of value 1. If we cannot do it, the answer it NO. Otherwise we always can obtain the required sum S if a⋅n+b≥S. Solution#include <iostream>
+
+using namespace std;
+
+int main() {
+	int q;
+	cin >> q;
+
+	for (int qr = 0; qr < q; ++qr) {
+		int a, b, n, s;
+		cin >> a >> b >> n >> s;
+
+		if (s % n <= b && 1ll * a * n + b >= s) {
+			cout << "YES\n";
+		}
+		else {
+			cout << "NO\n";
+		}
+	}
+}

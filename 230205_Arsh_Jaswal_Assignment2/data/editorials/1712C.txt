@@ -1,0 +1,57 @@
+1712C - Sort ZeroAn array is sorted in non-decreasing order if and only if there is no index i such that ai>ai+1. This leads to a strategy: while there is at least one such index i, apply one operation with x=ai.Why is this optimal? Since our operation can only decrease values, and we must decrease ai so that ai>ai+1 is no longer true, this leaves us no choice but to use the operation with x=ai.You can simulate this strategy by maintaining a set of bad indices, since if an index i becomes bad, after you apply an operation with x=ai, it can never become bad again. So in total, there are at most 2⋅(n−1) operations with the set.Complexity: O(nlogn) or O(n), depending on which set you use.Note: you can solve the problem in O(n) by noticing that if an index i is bad, we need to apply the operation for all unique non-zero values in {a1…ai}. This is also quite a bit shorter to code. Solution#include <bits/stdc++.h>
+ 
+#define all(x) (x).begin(), (x).end()
+#define allr(x) (x).rbegin(), (x).rend()
+#define gsize(x) (int)((x).size())
+ 
+const char nl = '\n';
+typedef long long ll;
+typedef long double ld;
+ 
+using namespace std;
+ 
+int main() {
+	ios::sync_with_stdio(0); cin.tie(0);
+	
+	int T;
+	cin >> T;
+	while (T--) {
+		int n;
+		cin >> n;
+		
+		vector<int> a(n);
+		map<int, vector<int>> p;
+		for (int i = 0; i < n; i++) {
+			cin >> a[i];
+			p[a[i]].push_back(i);
+		}
+		
+		int ans = 0;
+		set<int> ts;
+		for (int i = 0; i < n - 1; i++) {
+			if (a[i] > a[i + 1]) ts.insert(i);
+		}
+		
+		while (!ts.empty()) {
+			int i = *ts.begin();
+			int x;
+			if (a[i] > 0) {
+				x = a[i];
+			} else {
+				x = a[i + 1];
+			}
+			
+			for (int j: p[x]) {
+				a[j] = 0;
+				ts.erase(j - 1);
+				ts.erase(j);
+				if (j > 0 && a[j - 1] > a[j]) ts.insert(j - 1);
+				if (j + 1 < n && a[j] > a[j + 1]) ts.insert(j);
+			}
+			ans++;
+		}
+		
+		cout << ans << nl;
+	}
+}
+Bonus: solve for when ai can also be negative.

@@ -1,0 +1,12 @@
+{
+    "title": "B. Zuhair and Strings",
+    "description": "Given a string s of length n and integer k (1≤k≤n). The string s has a level x, if x is largest non-negative integer, such that it's possible to find in s:\nA substring is a sequence of consecutive (adjacent) characters, it is defined by two integers i and j (1≤i≤j≤n), denoted as s[i…j] = \"sisi+1…sj\".\nFor example, if k=2, then:\nZuhair gave you the integer k and the string s of length n. You need to find x, the level of the string s.\nThe first line contains two integers n and k (1≤k≤n≤2⋅105) — the length of the string and the value of k.\nThe second line contains the string s of length n consisting only of lowercase Latin letters.\nPrint a single integer x — the level of the string.\nIn the first example, we can select 2 non-intersecting substrings consisting of letter 'a': \"(aa)ac(aa)bb\", so the level is 2.\nIn the second example, we can select either substring \"a\" or \"b\" to get the answer 1.",
+    "time limit": "time limit per test1 second",
+    "memory limit": "memory limit per test256 megabytes",
+    "tags": [
+        "brute force",
+        "implementation",
+        "strings",
+        "*1100"
+    ]
+}

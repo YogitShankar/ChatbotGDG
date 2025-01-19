@@ -1,0 +1,1 @@
+1008B - Turn the RectanglesYou need to iterate over the rectangles from left to right and turn each rectangle in such a way that its height is as big as possible but not greater than the height of the previous rectangle (if it's not the first one). If on some iteration there is no such way to place the rectangle, the answer is "NO". 

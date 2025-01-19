@@ -1,0 +1,36 @@
+1729D - Friends and the RestaurantFirst, we sort the friends in descending order of yi−xi. Now for each friend we know the amount of money he lacks, or vice versa, which he has in excess.In order to maximize the number of days, it is most advantageous for friends to break into pairs. It is the number of groups that matters, not the number of people in the group, so adding a third person to the pair won't improve the answer in any way.Let's solve the problem using two pointers: for the richest friend, find the first friend from the end such that the sum of their values y exceeds the sum of their values x. Then repeat this for all subsequent friends until the pointers meet.If no pair could be formed, or none of the friends has a value x greater than y, then the answer is -1.Otherwise, print the number of pairs formed. Solution#include <bits/stdc++.h>
+using namespace std;
+using ll = long long;
+
+void solve(){
+    int n;
+    cin >> n;
+    vector<ll>x(n), y(n);
+    vector<pair<ll, int>>dif(n);
+
+    for(auto &i : x) cin >> i;
+    for(auto &i: y) cin >> i;
+    for(int i = 0; i < n; i++){
+        dif[i].first = y[i] - x[i];
+        dif[i].second = i;
+    }
+    sort(dif.begin(), dif.end());
+    reverse(dif.begin(), dif.end());
+
+    int j = n - 1, cnt = 0;
+
+    for(int i = 0; i < n; i++){
+        while(j > i && dif[i].first + dif[j].first < 0) j--;
+        if(j <= i) break;
+        cnt++; j--;
+    }
+    cout << cnt << endl;
+}
+
+int main() {
+    int t;
+    cin >> t;
+    while(t--){
+        solve();
+    }
+}

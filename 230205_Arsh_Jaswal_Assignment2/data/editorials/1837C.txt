@@ -1,0 +1,19 @@
+1837C - Best Binary StringFirst of all, let's try solving an easier problem — suppose we have a binary string, how many operations of the form "reverse a substring" do we have to perform so that it is sorted? To solve this problem, we need to consider substrings of the form 10 in the string (i. e. situations when a zero immediately follows a one). Sorted binary strings should not contain any such substrings, so our goal is to reduce the number of such strings to zero.Let's try to analyze how can we reduce the number of substrings equal to 10 by reversing a substring. Suppose that we want to "remove" a particular substring 10 from the string without causing any new ones to appear. We can reverse the substring that consists of the block of ones and the block of zeroes adjacent to each other; that way, after reversing the substring, these two blocks will be swapped; the block of zeroes will either merge with the block of zeroes to the left, or move to the beginning of the string; the block of ones will either merge with the block of ones to the right, or move to the end of the string. For example, if, in the string 0011101, you reverse the substring from the 3-rd to the 6-th position, you get 0001111, and you reduce the number of substrings 10 by one.What if we want to reduce this number by more than one in just one operation? Unfortunately, this is impossible. Suppose we want to affect two substrings 10 with one reverse operation. There will be a substring 01 between them, so, after reversing, it will turn into 10, and we'll reduce the number of substrings 10 only by one. The same when we try to affect three, four or more substrings 10. So, we can reduce the number of substrings 10 only by one in one operation. So, the answer to the problem "count the number of operations required to sort the binary string" is just the number of substrings 10.Okay, back to the original problem. Now we want to replace every question mark so that the resulting string contains as few substrings 10 as possible. You can use dynamic programming of the form dpi,j — the minimum number of substrings if we considered i first characters of the string and the last of them was j. Or you can try the following greedy instead: go through the string from left to right, and whenever you encounter a question mark, replace it with the same character as the previous character in the string (if the string begins with a question mark, it should be replaced with 0). That way, you will create as few "blocks" of characters as possible, so the number of times when a block of 1's changes into a block of 0's will be as small as possible. Solution (Neon)#include <bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+  ios::sync_with_stdio(false); cin.tie(0);
+  int t;
+  cin >> t;
+  while (t--) {
+    string s;
+    cin >> s;
+    char x = '0';
+    for (auto& c : s) {
+      if (c == '?') c = x;
+      x = c;
+    }
+    cout << s << '\n';
+  }
+}

@@ -1,0 +1,33 @@
+1354B - Ternary StringThere are multiple solutions involving advanced methods such as binary search or two pointers, but I'll try to describe a simpler one.The main idea of my solution is that the answer should look like abb...bbbbbc: one character of type a, a block of characters of type b, and one character of type c. If we find all blocks of consecutive equal characters in our string, each candidate for the answer can be obtained by expanding a block to the left and to the right by exactly one character. So the total length of all candidates is O(n), and we can check them all.Why does the answer look like abb...bbbbbc? If the first character of the substring appears somewhere else in it, it can be deleted. The same applies for the last character. So, the first and the last characters should be different, and should not appear anywhere else within the string. Since there are only three types of characters, the answer always looks like abb...bbbbbc. Solution (BledDest)#include<bits/stdc++.h>
+
+using namespace std;
+
+char buf[200043];
+
+int main()
+{
+	int t;
+	scanf("%d", &t);
+	for(int i = 0; i < t; i++)
+	{
+		scanf("%s", buf);
+		string s = buf;
+		int ans = int(1e9);
+		int n = s.size();
+		vector<pair<char, int> > c;
+		for(auto x : s)
+		{
+			if(c.empty() || c.back().first != x)
+				c.push_back(make_pair(x, 1));
+			else
+				c.back().second++;
+		}
+		int m = c.size();
+		for(int i = 1; i < m - 1; i++)
+			if(c[i - 1].first != c[i + 1].first)
+				ans = min(ans, c[i].second + 2);
+		if(ans > n)
+			ans = 0;
+		printf("%d\n", ans);
+	}
+}

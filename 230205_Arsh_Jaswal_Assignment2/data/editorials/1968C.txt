@@ -1,0 +1,55 @@
+1968C - Assembly via RemaindersNotice that ((a+b)moda)=b for 0≤b<a. So we may try to generate a sequence with b=xi.Let us take a1=1000, because 1000 is larger than any of xi. Then, we can take ai as ai−1+xi, since ((ai−1+xi)modai−1)=xi will be hold.The maximal value of a will be at most 1000+500n what is smaller than 109. Implementation#include<iostream>
+using namespace std;
+int main(){
+	int t;
+	cin>>t;
+	while(t--){
+		int n;
+		cin>>n;
+		int S=1000;
+		cout<<S<<" ";
+		for(int i=2;i<=n;i++){
+			int x;
+			cin>>x;
+			S+=x;
+			cout<<S<<" ";
+		}
+		cout<<"\n";
+	}
+} Rate the problem Didn't solve 
+
+    
+
+
+55
+
+
+
+ Good task 
+
+    
+
+
+334
+
+
+
+ Average task 
+
+    
+
+
+53
+
+
+
+ Bad task 
+
+    
+
+
+32
+
+
+
+ 

@@ -1,0 +1,9 @@
+For an array b of size m, we define:
+You are given three integers n, x, and y (x>y). Construct an array a of size n satisfying:
+If there are multiple arrays that meet the conditions, print any. It can be proven that such an array always exists under the given conditions.
+The first line contains an integer t (1≤t≤104) — the number of test cases.
+For each test case: 
+It is guaranteed that the sum of n over all test cases will not exceed 105.
+For each test case, output n space-separated integers a1,a2,…,an in a new line.
+In the second test case, 
+Thus, the array a=[1,−1,1,1] is considered correct.

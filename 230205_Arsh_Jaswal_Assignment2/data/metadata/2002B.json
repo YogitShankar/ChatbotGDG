@@ -1,0 +1,11 @@
+{
+    "title": "B. Removals Game",
+    "description": "Alice got a permutation a1,a2,…,an of [1,2,…,n], and Bob got another permutation b1,b2,…,bn of [1,2,…,n]. They are going to play a game with these arrays.\nIn each turn, the following events happen in order:\nThe game continues for n−1 turns, after which both arrays will have exactly one remaining element: x in the array a and y in the array b.\nIf x=y, Bob wins; otherwise, Alice wins. Find which player will win if both players play optimally.\nEach test contains multiple test cases. The first line contains the number of test cases t (1≤t≤104). The description of the test cases follows. \nThe first line of each test case contains a single integer n (1≤n≤3⋅105).\nThe next line contains n integers a1,a2,…,an (1≤ai≤n, all ai are distinct) — the permutation of Alice.\nThe next line contains n integers b1,b2,…,bn (1≤bi≤n, all bi are distinct) — the permutation of Bob.\nIt is guaranteed that the sum of all n does not exceed 3⋅105.\nFor each test case, print a single line with the name of the winner, assuming both players play optimally. If Alice wins, print Alice; otherwise, print Bob.\nIn the first test case, Bob can win the game by deleting the same element as Alice did.\nIn the second test case, Alice can delete 3 in the first turn, and then in the second turn, delete the element that is different from the one Bob deleted in the first turn to win the game.",
+    "time limit": "time limit per test1 second",
+    "memory limit": "memory limit per test256 megabytes",
+    "tags": [
+        "constructive algorithms",
+        "games",
+        "*1000"
+    ]
+}

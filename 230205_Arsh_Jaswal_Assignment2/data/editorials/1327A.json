@@ -1,0 +1,3 @@
+{
+    "solution": "1327A - Sum of Odd IntegersIdea: vovuh TutorialTutorial is loading... Solution (vovuh)for i in range(int(input())):\n    n, k = map(int, input().split())\n    print('YES' if k * k <= n and n % 2 == k % 2 else 'NO')"
+}

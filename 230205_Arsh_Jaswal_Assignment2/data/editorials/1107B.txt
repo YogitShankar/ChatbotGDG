@@ -1,0 +1,1 @@
+1107B - Digital rootThe key observation is that the digital root of an integer k is the single-digit number 1 ≤ d ≤ 9 such that . You can prove this by noticing that  for all p. Once we observe this, finding the k-th number is very simple; see the code: 48993705

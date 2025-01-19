@@ -1,0 +1,22 @@
+1213C - Book ReadingLet k=⌊nm⌋ be the number of integers from 1 to n divisible by m. We can notice that because we write down only the last digit of each number divisible by m then the length of the "cycle" of digits does not exceed 10. In fact, we can always suppose that it is 10 because i⋅m%10=(10+i)⋅m%10 for all i from 0 to 9. So let cyclei=m∗(i+1)%10 for all i from 0 to 9. Then the answer is ⌊k10⌋⋅∑i=09cyclei+∑i=0k%10cyclei. Solution#include <bits/stdc++.h>
+
+using namespace std;
+
+#define forn(i, n) for (int i = 0; i < int(n); i++)
+
+int main() {
+    int q;
+    cin >> q;
+    forn(i, q) {
+        long long n, m;
+        cin >> n >> m;
+        n = n / m;
+        vector<int> digits(10);
+        forn(i, 10)
+            digits[i] = ((i + 1) * m) % 10;
+        long long sum = 0;
+        forn(i, n % 10)
+            sum += digits[i];
+        cout << sum + n / 10 * accumulate(digits.begin(), digits.end(), 0LL) << endl;
+    }
+}

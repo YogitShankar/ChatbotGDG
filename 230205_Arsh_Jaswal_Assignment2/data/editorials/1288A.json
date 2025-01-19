@@ -1,0 +1,3 @@
+{
+    "solution": "1288A - DeadlineIdea: adedalic TutorialTutorial is loading... Solution (adedalic)#include<bits/stdc++.h>\n\nusing namespace std;\n\nint main() {\n#ifdef _DEBUG\n\tfreopen(\"input.txt\", \"r\", stdin);\n//\tint tt = clock();\n#endif\n\t\n\tint T; cin >> T;\n\twhile(T--) {\n\t\tint n, d;\n\t\tcin >> n >> d;\n\t\t\n\t\tint x, MAG = (int)sqrt(d) + 10;\n\t\tfor(x = 0; x < MAG; x++) {\n\t\t\tif(x + (d + x) / (x + 1) <= n)\n\t\t\t\tbreak;\n\t\t}\n\t\tcout << (x < MAG ? \"YES\" : \"NO\") << endl;\n\t}\n\n\treturn 0;\n}"
+}

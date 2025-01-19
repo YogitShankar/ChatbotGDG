@@ -1,0 +1,18 @@
+Problem Title: C. Ski Resort
+
+time limit per test1 second
+memory limit per test256 megabytes
+
+Dima Vatrushin is a math teacher at school. He was sent on vacation for nn days for his good work. Dima has long dreamed of going to a ski resort, so he wants to allocate several consecutive days and go skiing. Since the vacation requires careful preparation, he will only go for at least kk days.
+You are given an array aa containing the weather forecast at the resort. That is, on the ii-th day, the temperature will be aiai degrees.
+Dima was born in Siberia, so he can go on vacation only if the temperature does not rise above qq degrees throughout the vacation.
+Unfortunately, Dima was so absorbed in abstract algebra that he forgot how to count. He asks you to help him and count the number of ways to choose vacation dates at the resort.
+The first line of the input contains an integer tt (1≤t≤1041≤t≤104) — the number of test cases.
+Then follow the descriptions of the test cases.
+The first line of each test case contains three integers nn, kk, qq (1≤n≤2⋅1051≤n≤2⋅105, 1≤k≤n1≤k≤n, −109≤q≤109−109≤q≤109) — the length of the array aa, the minimum number of days at the resort, and the maximum comfortable temperature for Dima.
+The second line of each test case contains nn integers a1,a2,a3,…,ana1,a2,a3,…,an (−109≤ai≤109−109≤ai≤109) — the temperature at the ski resort.
+The sum of all nn values over all test cases does not exceed 2⋅1052⋅105.
+Output tt integers, each of which is the answer to the corresponding test case — the number of ways for Dima to choose vacation dates at the resort.
+In the first test case of the example, Dima can go on any day, so the suitable dates for him are [1], [2], [3], [1, 2], [2, 3], [1, 2, 3].
+In the second and fourth test cases of the example, Dima cannot go on any day due to the high temperature, so there are no suitable dates.
+In the third test case of the example, Dima can only go on the dates [1, 2, 3].

@@ -1,0 +1,3 @@
+{
+    "solution": "1916B - Two DivisorsFirst case: $$$b \\mod a = 0$$$.In this case, $$$b = a \\cdot p$$$, where $$$p$$$ is the smallest prime factor of $$$x$$$. Then $$$x = b \\cdot p = b \\cdot \\frac{b}{a}$$$.Second case: $$$b \\mod a \\neq 0$$$.In this case, $$$b = \\frac{x}{p}, a = \\frac{x}{q}$$$, where $$$p, q$$$ are the two smallest prime factors of $$$x$$$. Then $$$\\gcd(a, b) = \\frac{x}{p \\cdot q}, x = b \\cdot p = b \\cdot \\frac{a}{\\gcd(a, b)}$$$.author: sadness, developer: marzipan "
+}

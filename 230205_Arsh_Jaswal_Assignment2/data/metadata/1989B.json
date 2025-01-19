@@ -1,0 +1,12 @@
+{
+    "title": "B. Substring and Subsequence",
+    "description": "You are given two strings a and b, both consisting of lowercase Latin letters. \nA subsequence of a string is a string which can be obtained by removing several (possibly zero) characters from the original string. A substring of a string is a contiguous subsequence of that string.\nFor example, consider the string abac:\nYour task is to calculate the minimum possible length of the string that contains a as a substring and b as a subsequence.\nThe first line contains a single integer t (1≤t≤103) — the number of test cases.\nThe first line of each test case contains a string a (1≤|a|≤100), consisting of lowercase Latin letters.\nThe second line of each test case contains a string b (1≤|b|≤100), consisting of lowercase Latin letters.\nFor each test case, print a single integer — the minimum possible length of the string that contains a as a substring and b as a subsequence.\nIn the examples below, the characters that correspond to the subsequence equal to b are bolded.\nIn the first example, one of the possible answers is caba.\nIn the second example, one of the possible answers is ercf.\nIn the third example, one of the possible answers is mmm.\nIn the fourth example, one of the possible answers is contest.\nIn the fifth example, one of the possible answers is abcdefg.",
+    "time limit": "time limit per test2 seconds",
+    "memory limit": "memory limit per test256 megabytes",
+    "tags": [
+        "brute force",
+        "greedy",
+        "strings",
+        "*1200"
+    ]
+}

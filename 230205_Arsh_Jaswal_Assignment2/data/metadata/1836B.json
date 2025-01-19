@@ -1,0 +1,11 @@
+{
+    "title": "B. Astrophysicists",
+    "description": "In many, many years, far, far away, there will be a launch of the first flight to Mars. To celebrate the success, n astrophysicists working on the project will be given bonuses of a total value of k gold coins.\nYou have to distribute the money among the astrophysicists, and to make it easier, you have to assign bonuses in silver coins. Each gold coin is worth g silver coins, so you have to distribute all k⋅g silver coins among n people.\nUnfortunately, the company has some financial troubles right now. Therefore, instead of paying the number of silver coins written on the bonus, they decided to round this amount to the nearest integer number of gold coins.\nThe rounding procedure is as follows. If an astrophysicist has bonus equal to x silver coins, and we denote r=xmodg, then: \nYou aim to distribute the bonuses so that the company saves as many silver coins due to rounding as possible. Please note that there is always a distribution in which the company spends no more than k⋅g silver coins.\nIn the first line of input, there is one integer t (1≤t≤104) denoting the number of test cases.\nEach of the following t lines describes one test case and contains three integers n, k, g (1≤n≤109, 0≤k≤109, 2≤g≤109) — respectively the number of astrophysicists in the company, total number of gold coins to assign and the number of silver coins that one gold coin corresponds to.\nIn a separate line for each test case, output a single integer — the maximum number of silver coins that could be saved due to rounding.\nIn the first test case, one of the optimal assignments could be the following:\nIn the second test case, we could have the following assignment: \nIf the bonuses are assigned to 7 silver coins for both astrophysicists, then the company would have to pay an additional gold coin to cover the bonuses.",
+    "time limit": "time limit per test1 second",
+    "memory limit": "memory limit per test256 megabytes",
+    "tags": [
+        "greedy",
+        "math",
+        "*1100"
+    ]
+}

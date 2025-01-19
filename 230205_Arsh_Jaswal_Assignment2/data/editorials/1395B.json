@@ -1,0 +1,3 @@
+{
+    "solution": "1395B - Boboniu Plays ChessThere are many solutions and I will describe one of them.Let say f(i,j)=((i+Sx−2)modn+1,(j+Sy−2)modm+1).Iterate i from 1 to n:  if i is odd, print f(i,1),f(i,2),…,f(i,m).  Else print f(i,m),f(i,m−1),…,f(i,1).  Solution#include<bits/stdc++.h>\nusing namespace std;\n#define FOR(i,a,b) for(int i=(a);i<=(b);++i)\n#define ROF(i,a,b) for(int i=(a);i>=(b);--i)\n\nint n,m,sx,sy;\n\nvoid f(int i,int j){\n    printf(\"%d %d\\n\",(i+sx-2)%n+1,(j+sy-2)%m+1);\n}\nint main(){\n    scanf(\"%d%d%d%d\",&n,&m,&sx,&sy);\n    FOR(i,1,n){\n        if(i&1)FOR(j,1,m)f(i,j);\n        else ROF(j,m,1)f(i,j);\n    }\n    return 0;\n}\t"
+}

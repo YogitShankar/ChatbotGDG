@@ -1,0 +1,11 @@
+{
+    "title": "B. Array Craft",
+    "description": "For an array b of size m, we define:\nYou are given three integers n, x, and y (x>y). Construct an array a of size n satisfying:\nIf there are multiple arrays that meet the conditions, print any. It can be proven that such an array always exists under the given conditions.\nThe first line contains an integer t (1≤t≤104) — the number of test cases.\nFor each test case: \nIt is guaranteed that the sum of n over all test cases will not exceed 105.\nFor each test case, output n space-separated integers a1,a2,…,an in a new line.\nIn the second test case, \nThus, the array a=[1,−1,1,1] is considered correct.",
+    "time limit": "time limit per test1 second",
+    "memory limit": "memory limit per test256 megabytes",
+    "tags": [
+        "constructive algorithms",
+        "greedy",
+        "*1200"
+    ]
+}

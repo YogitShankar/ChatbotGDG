@@ -1,0 +1,3 @@
+{
+    "solution": "1800C2 - Powering the Hero (hard version)Idea: Vladosiya TutorialTutorial is loading... Solutionfrom queue import PriorityQueue\n\n\ndef solve():\n    n = int(input())\n    s = [int(x) for x in input().split()]\n    ans = 0\n    buffs = PriorityQueue()\n    for e in s:\n        if e > 0:\n            buffs.put(-e)\n        elif not buffs.empty():\n            ans -= buffs.get()\n    print(ans)\n\n\nt = int(input())\nfor _ in range(t):\n    solve()"
+}

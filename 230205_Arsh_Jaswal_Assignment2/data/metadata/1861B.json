@@ -1,0 +1,12 @@
+{
+    "title": "B. Two Binary Strings",
+    "description": "You are given two strings a and b of equal length, consisting of only characters 0 and/or 1; both strings start with character 0 and end with character 1. \nYou can perform the following operation any number of times (possibly zero): \nFormally, you choose one of these two strings (let the chosen string be s), then pick two integers l and r such that 1≤l<r≤|s| and sl=sr, then replace every character si such that l<i<r with sl.\nFor example, if the chosen string is 010101, you can transform it into one of the following strings by applying one operation:\nYou have to determine if it's possible to make the given strings equal by applying this operation any number of times.\nThe first line contains a single integer t (1≤t≤2000)  — the number of test cases.\nEach test case consists of two lines: \nAdditional constraints on the input: \nFor each test case, print YES if it is possible to make the strings equal. Otherwise, print NO. You can print each letter in any register.\nIn the first test case, we can perform the following operations: \nIn the second test case, the strings are already equal.\nIn the third test case, we can perform the following operations: \nIn the fourth and fifth test cases, it's impossible to make the given strings equal.",
+    "time limit": "time limit per test2 seconds",
+    "memory limit": "memory limit per test256 megabytes",
+    "tags": [
+        "constructive algorithms",
+        "dp",
+        "greedy",
+        "*1000"
+    ]
+}

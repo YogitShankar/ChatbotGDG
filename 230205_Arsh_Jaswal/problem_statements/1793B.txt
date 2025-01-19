@@ -1,0 +1,18 @@
+Problem Title: B. Fedya and Array
+
+time limit per test1 second
+memory limit per test256 megabytes
+
+For his birthday recently Fedya was given an array aa of nn integers arranged in a circle, For each pair of neighboring numbers (a1a1 and a2a2, a2a2 and a3a3, ……, an−1an−1 and anan, anan and a1a1) the absolute difference between them is equal to 11.
+Let's call a local maximum an element, which is greater than both of its neighboring elements. Also call a local minimum an element, which is less than both of its neighboring elements. Note, that elements a1a1 and anan are neighboring elements.
+Unfortunately, Fedya lost an array, but he remembered in it the sum of local maximums xx and the sum of local minimums yy.
+Given xx and yy, help Fedya find any matching array of minimum length.
+Each test contains multiple test cases. The first line contains the number of test cases tt (1≤t≤10001≤t≤1000). Description of the test cases follows.
+Each line of each test case contain two integers xx and yy (−109≤y<x≤109−109≤y<x≤109) — the sum of local maximums and the sum of local minimums, respectively.
+For each test case, in the first line print one integer nn — the minimum length of matching arrays.
+In the second line print nn integers a1,a2,…,ana1,a2,…,an (−109⩽ai⩽109−109⩽ai⩽109) — the array elements such that the the absolute difference between each pair of neighboring is equal to 11.
+If there are multiple solutions, print any of them.
+It is guaranteed that the sum of nn over all test cases does not exceed 2⋅1052⋅105.
+In the first test case, the local maximums are the numbers at 3,73,7 and 1010 positions, and the local minimums are the numbers at 1,61,6 and 88 positions. x=a3+a7+a10=2+0+1=3x=a3+a7+a10=2+0+1=3, y=a1+a6+a8=0+(−1)+(−1)=−2y=a1+a6+a8=0+(−1)+(−1)=−2.
+In the second test case, the local maximums are the numbers at 22 and 1010 positions, and the local minimums are the numbers at 11 and 33 positions. x=a2+a10=−1+5=4x=a2+a10=−1+5=4, y=a1+a3=−2+(−2)=−4y=a1+a3=−2+(−2)=−4.
+In the third test case, the local maximums are the numbers at 11 and 55 positions, and the local minimums are the numbers at 33 and 66 positions.

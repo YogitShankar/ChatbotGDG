@@ -1,0 +1,12 @@
+{
+    "title": "B. M-arrays",
+    "description": "You are given an array a1,a2,…,an consisting of n positive integers and a positive integer m.\nYou should divide elements of this array into some arrays. You can order the elements in the new arrays as you want.\nLet's call an array m-divisible if for each two adjacent numbers in the array (two numbers on the positions i and i+1 are called adjacent for each i) their sum is divisible by m. An array of one element is m-divisible.\nFind the smallest number of m-divisible arrays that a1,a2,…,an is possible to divide into.\nThe first line contains a single integer t (1≤t≤1000)  — the number of test cases.\nThe first line of each test case contains two integers n, m (1≤n≤105,1≤m≤105).\nThe second line of each test case contains n integers a1,a2,…,an (1≤ai≤109).\nIt is guaranteed that the sum of n and the sum of m over all test cases do not exceed 105.\nFor each test case print the answer to the problem.\nIn the first test case we can divide the elements as follows:",
+    "time limit": "time limit per test1 second",
+    "memory limit": "memory limit per test256 megabytes",
+    "tags": [
+        "constructive algorithms",
+        "greedy",
+        "math",
+        "*1200"
+    ]
+}

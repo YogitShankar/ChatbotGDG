@@ -1,0 +1,68 @@
+1846D - Rudolph and Christmas TreeLet's consider the triangles in ascending order of yi. Let the current triangle have index i. There are two cases:  The triangle does not intersect with the (i+1)-th triangle (yi+1−yi≥h). In this case, we simply add the area of the triangle to the answer. The area will be d⋅h2. The triangle intersects with the (i+1)-th triangle (yi+1−yi<h). We can add to the answer the area of the figure that does not belong to the intersection and move on to the next triangle. Note that this figure is a trapezoid with a lower base d and height h′=yi+1−yi. The upper base can be found based on the similarity of triangles. The heights of the triangles are in the ratio k=h−h′h. Then the upper base dtop=d⋅k. The area of the trapezoid is h′⋅d+dtop2. Time complexity is O(n). Solution#include <bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+    cout.tie(nullptr);
+    cout.precision(10); cout.setf(ios::fixed);
+    int ttt;
+    cin >> ttt;
+    while (ttt--) {
+        int n, d, h;
+        cin >> n >> d >> h;
+        vector<int> y(n);
+        for(int i = 0; i < n; i++){
+            cin >> y[i];
+        }
+        long double ans = (long double)d * h / 2.0;
+        for (int i = 0; i + 1 < n; ++i) {
+            if (y[i + 1] >= y[i] + h) ans += (long double)d * h / 2.0;
+            else{
+                long double d2 = (long double)d * (y[i] + h - y[i + 1]) / h;
+                long double nh = y[i + 1] - y[i];
+                ans += (d + d2) / 2.0 * nh;
+            }
+        }
+        cout << ans << '\n';
+    }
+    return 0;
+}
+ Rate the problem Didn't solve 
+
+    
+
+
+17
+
+
+
+ Good task 
+
+    
+
+
+324
+
+
+
+ Average task 
+
+    
+
+
+48
+
+
+
+ Bad task 
+
+    
+
+
+94
+
+
+
+ 

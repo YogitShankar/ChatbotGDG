@@ -1,0 +1,12 @@
+{
+    "title": "D. A-B-C Sort",
+    "description": "You are given three arrays a, b and c. Initially, array a consists of n elements, arrays b and c are empty.\nYou are performing the following algorithm that consists of two steps: \nCan you make array c sorted in non-decreasing order?\nThe first line contains a single integer t (1≤t≤2⋅104) — the number of test cases. Next t cases follow.\nThe first line of each test case contains the single integer n (1≤n≤2⋅105) — the length of array a.\nThe second line of each test case contains n integers a1,a2,…,an (1≤ai≤106) — the array a itself.\nIt's guaranteed that the sum of n doesn't exceed 2⋅105.\nFor each test, print YES (case-insensitive), if you can make array c sorted in non-decreasing order. Otherwise, print NO (case-insensitive).\nIn the first test case, we can do the following for a=[3,1,5,3]:\nStep 1: \n\nStep 2: \n",
+    "time limit": "time limit per test2 seconds",
+    "memory limit": "memory limit per test256 megabytes",
+    "tags": [
+        "constructive algorithms",
+        "implementation",
+        "sortings",
+        "*1200"
+    ]
+}

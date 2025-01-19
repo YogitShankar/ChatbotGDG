@@ -1,0 +1,1 @@
+893B - Beautiful DivisorsLet's notice that there are only 8 beautiful numbers less than 105. Generate them all and select the greatest one which is also divisor of n.Overall complexity: O(1). 

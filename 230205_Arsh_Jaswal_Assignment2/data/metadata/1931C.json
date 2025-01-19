@@ -1,0 +1,12 @@
+{
+    "title": "C. Make Equal Again",
+    "description": "You have an array a of n integers. \nYou can no more than once apply the following operation: select three integers i, j, x (1≤i≤j≤n) and assign all elements of the array with indexes from i to j the value x. The price of this operation depends on the selected indices and is equal to (j−i+1) burles. \nFor example, the array is equal to [1,2,3,4,5,1]. If we choose i=2,j=4,x=8, then after applying this operation, the array will be equal to [1,8,8,8,5,1].\nWhat is the least amount of burles you need to spend to make all the elements of the array equal?\nThe first line contains a single integer t (1≤t≤104) — the number of input test cases. The descriptions of the test cases follow.\nThe first line of the description of each test case contains a single integer n (1≤n≤2⋅105) — the size of the array.\nThe second line of the description of each test case contains n integers a1,a2,…,an (1≤ai≤n) — array elements.\nIt is guaranteed that the sum of n for all test cases does not exceed 2⋅105.\nFor each test case, output one integer — the minimum number of burles that will have to be spent to make all the elements of the array equal. It can be shown that this can always be done.",
+    "time limit": "time limit per test2 seconds",
+    "memory limit": "memory limit per test256 megabytes",
+    "tags": [
+        "brute force",
+        "greedy",
+        "math",
+        "*1000"
+    ]
+}

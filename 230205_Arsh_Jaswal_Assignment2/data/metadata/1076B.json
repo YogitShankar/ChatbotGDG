@@ -1,0 +1,12 @@
+{
+    "title": "B. Divisor Subtraction",
+    "description": "You are given an integer number n. The following algorithm is applied to it:\nDetermine the number of subtrations the algorithm will make.\nThe only line contains a single integer n (2≤n≤1010).\nPrint a single integer — the number of subtractions the algorithm will make.\nIn the first example 5 is the smallest prime divisor, thus it gets subtracted right away to make a 0.\nIn the second example 2 is the smallest prime divisor at both steps.",
+    "time limit": "time limit per test2 seconds",
+    "memory limit": "memory limit per test256 megabytes",
+    "tags": [
+        "implementation",
+        "math",
+        "number theory",
+        "*1200"
+    ]
+}

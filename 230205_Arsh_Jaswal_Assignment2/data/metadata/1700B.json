@@ -1,0 +1,12 @@
+{
+    "title": "B. Palindromic Numbers",
+    "description": "During a daily walk Alina noticed a long number written on the ground. Now Alina wants to find some positive number of same length without leading zeroes, such that the sum of these two numbers is a palindrome. \nRecall that a number is called a palindrome, if it reads the same right to left and left to right. For example, numbers 121,66,98989 are palindromes, and 103,239,1241 are not palindromes.\nAlina understands that a valid number always exist. Help her find one!\nThe first line of input data contains an integer t (1≤t≤100) — the number of test cases. Next, descriptions of t test cases follow.\nThe first line of each test case contains a single integer n (2≤n≤100000) — the length of the number that is written on the ground.\nThe second line of contains the positive n-digit integer without leading zeroes — the number itself.\nIt is guaranteed that the sum of the values n over all test cases does not exceed 100000.\nFor each of t test cases print an answer — a positive n-digit integer without leading zeros, such that the sum of the input integer and this number is a palindrome.\nWe can show that at least one number satisfying the constraints exists. If there are multiple solutions, you can output any of them.\nIn the first test case 99+32=131 is a palindrome. Note that another answer is 12, because 99+12=111 is also a palindrome.\nIn the second test case 1023+8646=9669.\nIn the third test case 385+604=989.",
+    "time limit": "time limit per test2 seconds",
+    "memory limit": "memory limit per test256 megabytes",
+    "tags": [
+        "constructive algorithms",
+        "implementation",
+        "math",
+        "*1100"
+    ]
+}

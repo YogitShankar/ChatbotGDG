@@ -1,0 +1,7 @@
+Monocarp had an array a consisting of n integers. He has decided to choose two integers l and r such that 1≤l≤r≤n, and then sort the subarray a[l..r] (the subarray a[l..r] is the part of the array a containing the elements al,al+1,al+2,…,ar−1,ar) in non-descending order. After sorting the subarray, Monocarp has obtained a new array, which we denote as a′.
+For example, if a=[6,7,3,4,4,6,5], and Monocarp has chosen l=2,r=5, then a′=[6,3,4,4,7,6,5].
+You are given the arrays a and a′. Find the integers l and r that Monocarp could have chosen. If there are multiple pairs of values (l,r), find the one which corresponds to the longest subarray.
+The first line contains one integer t (1≤t≤104) — the number of test cases.
+Each test case consists of three lines:
+Additional constraints on the input:
+For each test case, print two integers — the values of l and r (1≤l≤r≤n). If there are multiple answers, print the values that correspond to the longest subarray. If there are still multiple answers, print any of them.
