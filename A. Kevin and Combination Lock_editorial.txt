@@ -1,0 +1,4 @@
+Hint 1 
+ How much does the number decrease when we remove two consecutive 3 s? 
+Tutorial 
+ 2048A - Kevin and Combination LockWhen we transform ¯x33y into ¯xy (where x and y are decimal numbers), the actual value changes from 10p+2⋅x+33⋅10p+y to 10p⋅x+y. The decrease is 99⋅10p⋅x+33⋅10p. It is easy to see that 33∣(99⋅10p⋅x+33⋅10p). Therefore, we can replace the operation of removing two consecutive 3 s with a series of −33 operations.Hence, we only need to determine whether x can be reduced to 0 using a series of −33 operations, which is equivalent to checking whether xmod33 equals zero. 
