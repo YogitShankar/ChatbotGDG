@@ -36,6 +36,9 @@ This project provides a unique and efficient approach to solving common challeng
 6. **Maintains Chat History**:
    - Able to maintain and recall previous chat history.
 
+---
+## Screenshot
+![image alt](https://github.com/arshcwb/ChatbotGDG/blob/21b924b4d7b698e2f07d61dc3c8216c68bc1cdea/230205_Arsh_Jaswal_Assignment2/model.png)
 
 ---
 
