@@ -1,0 +1,64 @@
+[
+    {
+        "title": "B. Outstanding Impressionist",
+        "statement": "Even after copying the paintings from famous artists for ten years, unfortunately, Eric is still unable to become a skillful impressionist painter. He wants to forget something, but the white bear phenomenon just keeps hanging over him.\nEric still remembers\nn\npieces of impressions in the form of an integer array. He records them as\nw\n1\n,\nw\n2\n,…,\nw\nn\n. However, he has a poor memory of the impressions. For each\n1≤i≤n\n, he can only remember that\nl\ni\n≤\nw\ni\n≤\nr\ni\n.\nEric believes that impression\ni\nis unique if and only if there exists a possible array\nw\n1\n,\nw\n2\n,…,\nw\nn\nsuch that\nw\ni\n≠\nw\nj\nholds for all\n1≤j≤n\nwith\nj≠i\n.\nPlease help Eric determine whether impression\ni\nis unique for every\n1≤i≤n\n, independently for each\ni\n. Perhaps your judgment can help rewrite the final story.\nEach test contains multiple test cases. The first line of the input contains a single integer\nt\n(\n1≤t≤\n10\n4\n) — the number of test cases. The description of test cases follows.\nThe first line of each test case contains a single integer\nn\n(\n1≤n≤2⋅\n10\n5\n) — the number of impressions.\nThen\nn\nlines follow, the\ni\n-th containing two integers\nl\ni\nand\nr\ni\n(\n1≤\nl\ni\n≤\nr\ni\n≤2⋅n\n) — the minimum possible value and the maximum possible value of\nw\ni\n.\nIt is guaranteed that the sum of\nn\nover all test cases does not exceed\n2⋅\n10\n5\n.\nFor each test case, output a binary string\ns\nof length\nn\n: for each\n1≤i≤n\n, if impression\ni\nis unique,\ns\ni\n=1\n; otherwise,\ns\ni\n=0\n. Do not output spaces.\nIn the first test case, the only possible array\nw\nis\n[1,1]\n, making neither impression\n1\nnor\n2\nunique (since\nw\n1\n=\nw\n2\n).\nIn the second test case, all impressions can be made unique:\nIn the third test case, for\ni=4\n, we can set\nw\nto\n[3,2,2,1,3,2]\n. Thus, impression\n4\nis unique.",
+        "constraints": {
+            "time": "time limit per test1 second",
+            "memory": "memory limit per test256 megabytes"
+        },
+        "tags": [
+            "binary search",
+            "brute force",
+            "data structures",
+            "greedy",
+            "*1200"
+        ],
+        "editorial": ""
+    },
+    {
+        "title": "D. Counting Pairs",
+        "statement": "You are given a sequence\na\n, consisting of\nn\nintegers, where the\ni\n-th element of the sequence is equal to\na\ni\n. You are also given two integers\nx\nand\ny\n(\nx≤y\n).\nA pair of integers\n(i,j)\nis considered interesting if the following conditions are met:\nYour task is to determine the number of interesting pairs of integers for the given sequence\na\n.\nThe first line contains one integer\nt\n(\n1≤t≤\n10\n4\n) — the number of test cases.\nEach test case consists of two lines:\nAdditional constraint on the input: the sum of\nn\nacross all test cases does not exceed\n2⋅\n10\n5\n.\nFor each test case, output one integer — the number of interesting pairs of integers for the given sequence\na\n.\nIn the first example, there are\n4\ninteresting pairs of integers:",
+        "constraints": {
+            "time": "time limit per test2 seconds",
+            "memory": "memory limit per test256 megabytes"
+        },
+        "tags": [
+            "binary search",
+            "sortings",
+            "two pointers",
+            "*1200"
+        ],
+        "editorial": ""
+    },
+    {
+        "title": "D. Digital string maximization",
+        "statement": "You are given a string\ns\n, consisting of digits from\n0\nto\n9\n. In one operation, you can pick any digit in this string, except for\n0\nor the leftmost digit, decrease it by\n1\n, and then swap it with the digit left to the picked.\nFor example, in one operation from the string\n1023\n, you can get\n1103\nor\n1022\n.\nFind the lexicographically maximum string you can obtain after any number of operations.\nThe first line of the input consists of an integer\nt\n(\n1≤t≤\n10\n4\n)  — the number of test cases.\nEach test case consists of a single line consisting of a digital string\ns\n(\n1≤|s|≤2⋅\n10\n5\n), where\n|s|\ndenotes the length of\ns\n. The string does not contain leading zeroes.\nIt is guaranteed that the sum of\n|s|\nof all test cases doesn't exceed\n2⋅\n10\n5\n.\nFor each test case, print the answer on a separate line.\nIn the first example, the following sequence of operations is suitable:\n19→81\n.\nIn the second example, the following sequence of operations is suitable:\n1709→1780→6180→6710\n.\nIn the fourth example, the following sequence of operations is suitable:\n51476→53176→53616→53651→55351→55431\n.",
+        "constraints": {
+            "time": "time limit per test2 seconds",
+            "memory": "memory limit per test256 megabytes"
+        },
+        "tags": [
+            "brute force",
+            "greedy",
+            "math",
+            "strings",
+            "*1300"
+        ],
+        "editorial": ""
+    },
+    {
+        "title": "C. Uninteresting Number",
+        "statement": "You are given a number\nn\nwith a length of no more than\n10\n5\n.\nYou can perform the following operation any number of times: choose one of its digits, square it, and replace the original digit with the result. The result must be a digit (that is, if you choose the digit\nx\n, then the value of\nx\n2\nmust be less than\n10\n).\nIs it possible to obtain a number that is divisible by\n9\nthrough these operations?\nThe first line contains an integer\nt\n(\n1≤t≤\n10\n4\n) — the number of test cases.\nThe only line of each test case contains the number\nn\n, without leading zeros. The length of the number does not exceed\n10\n5\n.\nIt is guaranteed that the sum of the lengths of the numbers across all test cases does not exceed\n10\n5\n.\nFor each test case, output \"YES\" if it is possible to obtain a number divisible by\n9\nusing the described operations, and \"NO\" otherwise.\nYou can output each letter in any case (lowercase or uppercase). For example, the strings \"yEs\", \"yes\", \"Yes\", and \"YES\" will be accepted as a positive answer.\nIn the first example, from the integer\n123\n, it is possible to obtain only\n123\n,\n143\n,\n129\n, and\n149\n, none of which are divisible by\n9\n.\nIn the second example, you need to replace the second digit with its square; then\nn\nwill equal\n342=38⋅9\n.\nIn the third example, the integer is already divisible by\n9\n.",
+        "constraints": {
+            "time": "time limit per test2 seconds",
+            "memory": "memory limit per test256 megabytes"
+        },
+        "tags": [
+            "brute force",
+            "dp",
+            "math",
+            "*1200"
+        ],
+        "editorial": ""
+    }
+]
