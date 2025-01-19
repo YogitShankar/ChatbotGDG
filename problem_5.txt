@@ -1,0 +1,240 @@
+Title: E1. Another Exercise on Graphs (Easy Version)
+Statement:
+This is the easy version of the problem. The difference between the versions is that in this version, there is an additional constraint on
+m
+. You can hack only if you solved all versions of this problem.
+Recently, the instructors of "T-generation" needed to create a training contest. They were missing one problem, and there was not a single problem on graphs in the contest, so they came up with the following problem.
+You are given a connected weighted undirected graph with
+n
+vertices and
+m
+edges, which does not contain self-loops or multiple edges.
+There are
+q
+queries of the form
+(a,b,k)
+: among all paths from vertex
+a
+to vertex
+b
+, find the smallest
+k
+-th maximum weight of edges on the path
+†
+.
+The instructors thought that the problem sounded very interesting, but there is one catch. They do not know how to solve it. Help them and solve the problem, as there are only a few hours left until the contest starts.
+†
+Let
+w1≥w2≥…≥wh
+be the weights of all edges in a path, in non-increasing order. The
+k
+-th maximum weight of the edges on this path is
+wk
+.
+Each test contains multiple test cases. The first line contains a single integer
+t
+(
+1≤t≤100
+) — the number of test cases. The description of the test cases follows.
+The first line of each set of test case contains three integers
+n,m
+and
+q
+(
+2≤n≤400
+,
+n−1≤m≤min(400,
+n⋅(n−1)
+2
+)
+,
+1≤q≤3⋅105
+) — the number of vertices, the number of edges, and the number of questions, respectively.
+Each of the following
+m
+lines of each set of test case contains three integers
+v,u
+and
+w
+(
+1≤v,u≤n
+,
+1≤w≤109
+) — the ends of the next edge of the graph and its weight, respectively. It is guaranteed that the graph does not contain self-loops and multiple edges.
+Each of the following
+q
+lines of each set of test case contains three integers
+a,b
+and
+k
+(
+1≤a,b≤n
+,
+k≥1
+) — the next question. It is guaranteed that any path from vertex
+a
+to vertex
+b
+contains at least
+k
+edges.
+It is guaranteed that the sum of the values of
+n
+across all sets of test cases does not exceed
+400
+.
+It is guaranteed that the sum of the values of
+m
+across all sets of test cases does not exceed
+400
+.
+It is guaranteed that the sum of the values of
+q
+across all sets of test cases does not exceed
+3⋅105
+.
+For each test case, output the answers to all questions.
+In the first set of test cases, one of the optimal paths in the first query is the path
+1→3→4
+; the
+2
+-nd maximum weight of the edges on this path is
+1
+. In the second query, one of the optimal paths is
+2→4→3
+;
+1
+-st maximum weight of the edges is
+2
+.
+In the second set of input data, one of the optimal paths in the first query is the path
+1→2→4→5→6
+; the
+3
+-rd maximum weight of the edges on this path is
+2
+.
+Input Specification:
+Input
+Each test contains multiple test cases. The first line contains a single integer
+t
+(
+1≤t≤100
+) — the number of test cases. The description of the test cases follows.
+The first line of each set of test case contains three integers
+n,m
+and
+q
+(
+2≤n≤400
+,
+n−1≤m≤min(400,
+n⋅(n−1)
+2
+)
+,
+1≤q≤3⋅105
+) — the number of vertices, the number of edges, and the number of questions, respectively.
+Each of the following
+m
+lines of each set of test case contains three integers
+v,u
+and
+w
+(
+1≤v,u≤n
+,
+1≤w≤109
+) — the ends of the next edge of the graph and its weight, respectively. It is guaranteed that the graph does not contain self-loops and multiple edges.
+Each of the following
+q
+lines of each set of test case contains three integers
+a,b
+and
+k
+(
+1≤a,b≤n
+,
+k≥1
+) — the next question. It is guaranteed that any path from vertex
+a
+to vertex
+b
+contains at least
+k
+edges.
+It is guaranteed that the sum of the values of
+n
+across all sets of test cases does not exceed
+400
+.
+It is guaranteed that the sum of the values of
+m
+across all sets of test cases does not exceed
+400
+.
+It is guaranteed that the sum of the values of
+q
+across all sets of test cases does not exceed
+3⋅105
+.
+Output Specification:
+Output
+For each test case, output the answers to all questions.
+Sample Tests:
+Example
+input
+Copy
+3
+4 4 2
+1 2 2
+2 4 2
+1 3 4
+3 4 1
+1 4 2
+2 3 1
+6 7 3
+1 2 10
+2 3 3
+3 4 9
+4 5 2
+5 6 1
+2 4 10
+4 6 10
+1 6 3
+1 6 2
+2 4 1
+11 17 10
+1 4 5
+1 3 19
+1 2 10
+3 2 13
+4 5 1
+4 6 11
+3 5 9
+3 6 18
+2 7 17
+5 8 15
+5 10 8
+6 9 4
+7 10 20
+7 8 16
+8 11 3
+9 11 6
+10 11 14
+3 11 1
+3 11 3
+1 11 1
+1 11 4
+1 11 3
+8 2 2
+10 4 1
+3 9 2
+3 9 1
+6 7 3
+output
+Copy
+1 2
+2 9 9
+11 3 11 1 3 10 8 4 11 4
+Constraints: time limit per test3 seconds memory limit per test1024 megabytes

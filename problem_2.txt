@@ -1,0 +1,163 @@
+Title: G. Secret Message
+Statement:
+Every Saturday, Alexander B., a teacher of parallel X, writes a secret message to Alexander G., a teacher of parallel B, in the evening. Since Alexander G. is giving a lecture at that time and the message is very important, Alexander B. has to write this message on an interactive online board.
+The interactive online board is a grid consisting of
+n
+rows and
+m
+columns, where each cell is
+1×1
+in size. Some cells of this board are already filled in, and it is impossible to write a message in them; such cells are marked with the symbol ".", while the remaining cells are called free and are marked with the symbol "#".
+Let us introduce two characteristics of the online board:
+Let
+A
+be the set of free cells. Your goal is to find a set of cells
+S⊆A
+that satisfies the following properties:
+We can show that at least one set
+S
+satisfying these properties exists; you are required to find any suitable one.
+The first line contains the number
+t
+(
+1≤t≤80000
+) — the number of test cases.
+In the first line of each test case, the numbers
+n
+and
+m
+(
+1≤n,m≤2⋅106
+) — the dimensions of the grid are given.
+The following
+n
+lines contain the description of the grid.
+It is guaranteed that the sum of
+n⋅m
+across all test cases does not exceed
+2⋅106
+.
+For each test case, output
+n
+lines consisting of
+m
+symbols, where each symbol encodes the state of the cell:
+In the first example,
+s=5
+and
+p=12
+, thus the number of cells in
+S
+must not exceed
+1
+5
+⋅(5+12)=3.4
+, meaning
+|S|≤3
+. Note that the presented set
+S
+consists of
+1
+cell and clearly satisfies all the constraints.
+In the second example,
+s=12
+and
+p=16
+, thus the number of cells in
+S
+must not exceed
+1
+5
+⋅(12+16)=5.6
+, meaning
+|S|≤5
+. Note that the presented set
+S
+consists of
+4
+cells and clearly satisfies all the constraints.
+In the third example, we will explain what perimeter is, as it may not be obvious. Any grid figure has a boundary, which can be represented as a union of segments that do not intersect at interior points. Thus, in the picture below, the thick black line denotes the boundary of the figure formed by the union of free cells. The total length of these segments is
+p=24
+.
+At the same time, the value
+s=11
+and the upper limit is
+|S|≤7
+, the presented set has a size of
+6
+and clearly satisfies all the constraints.
+Input Specification:
+Input
+The first line contains the number
+t
+(
+1≤t≤80000
+) — the number of test cases.
+In the first line of each test case, the numbers
+n
+and
+m
+(
+1≤n,m≤2⋅
+10
+6
+) — the dimensions of the grid are given.
+The following
+n
+lines contain the description of the grid.
+It is guaranteed that the sum of
+n⋅m
+across all test cases does not exceed
+2⋅
+10
+6
+.
+Output Specification:
+Output
+For each test case, output
+n
+lines consisting of
+m
+symbols, where each symbol encodes the state of the cell:
+"#" — the cell is in
+A
+but not in
+S
+;
+"S" — the cell is in both
+A
+and
+S
+;
+"." — the cell is neither in
+A
+nor in
+S
+.
+Sample Tests:
+Example
+input
+Copy
+3
+3 3
+.#.
+###
+.#.
+2 6
+######
+######
+3 7
+###....
+#.#.###
+###....
+output
+Copy
+.#.
+#S#
+.#.
+#S##S#
+#S##S#
+S#S....
+#.#.S#S
+S#S....
+Constraints: time limit per test2 seconds memory limit per test256 megabytes

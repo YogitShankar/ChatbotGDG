@@ -1,0 +1,578 @@
+[
+    {
+        "title": "H. Coffee Break",
+        "constraints": {
+            "time": "time limit per test2 seconds",
+            "memory": "memory limit per test256 megabytes"
+        },
+        "tags": [
+            "data structures",
+            "greedy",
+            "math",
+            "*3500"
+        ]
+    },
+    {
+        "title": "G. Secret Message",
+        "constraints": {
+            "time": "time limit per test2 seconds",
+            "memory": "memory limit per test256 megabytes"
+        },
+        "tags": [
+            "constructive algorithms",
+            "dfs and similar",
+            "math",
+            "*3000"
+        ]
+    },
+    {
+        "title": "F. Formation",
+        "constraints": {
+            "time": "time limit per test3 seconds",
+            "memory": "memory limit per test512 megabytes"
+        },
+        "tags": [
+            "binary search",
+            "data structures",
+            "dp",
+            "sortings",
+            "two pointers",
+            "*3300"
+        ]
+    },
+    {
+        "title": "E2. Another Exercise on Graphs (hard version)",
+        "constraints": {
+            "time": "time limit per test3 seconds",
+            "memory": "memory limit per test1024 megabytes"
+        },
+        "tags": [
+            "binary search",
+            "dfs and similar",
+            "dp",
+            "dsu",
+            "graphs",
+            "shortest paths",
+            "sortings",
+            "*2500"
+        ]
+    },
+    {
+        "title": "E1. Another Exercise on Graphs (Easy Version)",
+        "constraints": {
+            "time": "time limit per test3 seconds",
+            "memory": "memory limit per test1024 megabytes"
+        },
+        "tags": [
+            "binary search",
+            "brute force",
+            "dp",
+            "dsu",
+            "graphs",
+            "shortest paths",
+            "sortings",
+            "*2300"
+        ]
+    },
+    {
+        "title": "D. Gifts Order",
+        "constraints": {
+            "time": "time limit per test2 seconds",
+            "memory": "memory limit per test512 megabytes"
+        },
+        "tags": [
+            "data structures",
+            "greedy",
+            "implementation",
+            "math",
+            "matrices",
+            "*2000"
+        ]
+    },
+    {
+        "title": "C. Trip to the Olympiad",
+        "constraints": {
+            "time": "time limit per test2 seconds",
+            "memory": "memory limit per test256 megabytes"
+        },
+        "tags": [
+            "bitmasks",
+            "constructive algorithms",
+            "greedy",
+            "math",
+            "*1500"
+        ]
+    },
+    {
+        "title": "B. Gorilla and the Exam",
+        "constraints": {
+            "time": "time limit per test1 second",
+            "memory": "memory limit per test256 megabytes"
+        },
+        "tags": [
+            "greedy",
+            "sortings",
+            "*1000"
+        ]
+    },
+    {
+        "title": "A. MEX Table",
+        "constraints": {
+            "time": "time limit per test1 second",
+            "memory": "memory limit per test256 megabytes"
+        },
+        "tags": [
+            "constructive algorithms",
+            "math",
+            "*800"
+        ]
+    },
+    {
+        "title": "F2. Xor of Median (Hard Version)",
+        "constraints": {
+            "time": "time limit per test3 seconds",
+            "memory": "memory limit per test256 megabytes"
+        },
+        "tags": [
+            "bitmasks",
+            "combinatorics",
+            "dp",
+            "math"
+        ]
+    },
+    {
+        "title": "F1. Xor of Median (Easy Version)",
+        "constraints": {
+            "time": "time limit per test3 seconds",
+            "memory": "memory limit per test256 megabytes"
+        },
+        "tags": [
+            "bitmasks",
+            "combinatorics",
+            "dp",
+            "math"
+        ]
+    },
+    {
+        "title": "E. Nested Segments",
+        "constraints": {
+            "time": "time limit per test2 seconds",
+            "memory": "memory limit per test256 megabytes"
+        },
+        "tags": [
+            "combinatorics",
+            "dfs and similar",
+            "dp",
+            "math"
+        ]
+    },
+    {
+        "title": "D. Unique Median",
+        "constraints": {
+            "time": "time limit per test2 seconds",
+            "memory": "memory limit per test512 megabytes"
+        },
+        "tags": [
+            "binary search",
+            "brute force",
+            "combinatorics",
+            "data structures",
+            "dp"
+        ]
+    },
+    {
+        "title": "C. Palindromic Subsequences",
+        "constraints": {
+            "time": "time limit per test2 seconds",
+            "memory": "memory limit per test512 megabytes"
+        },
+        "tags": [
+            "brute force",
+            "constructive algorithms",
+            "math"
+        ]
+    },
+    {
+        "title": "B. Find the Permutation",
+        "constraints": {
+            "time": "time limit per test1.5 seconds",
+            "memory": "memory limit per test256 megabytes"
+        },
+        "tags": [
+            "brute force",
+            "dfs and similar",
+            "graphs",
+            "implementation",
+            "sortings"
+        ]
+    },
+    {
+        "title": "A. Shape Perimeter",
+        "constraints": {
+            "time": "time limit per test1 second",
+            "memory": "memory limit per test256 megabytes"
+        },
+        "tags": [
+            "constructive algorithms",
+            "math"
+        ]
+    },
+    {
+        "title": "F. Cosmic Divide",
+        "constraints": {
+            "time": "time limit per test4 seconds",
+            "memory": "memory limit per test256 megabytes"
+        },
+        "tags": [
+            "brute force",
+            "geometry",
+            "hashing",
+            "math",
+            "strings"
+        ]
+    },
+    {
+        "title": "E. Haystacks",
+        "constraints": {
+            "time": "time limit per test2 seconds",
+            "memory": "memory limit per test256 megabytes"
+        },
+        "tags": [
+            "brute force",
+            "constructive algorithms",
+            "data structures",
+            "greedy",
+            "sortings"
+        ]
+    },
+    {
+        "title": "D. Scarecrow",
+        "constraints": {
+            "time": "time limit per test2 seconds",
+            "memory": "memory limit per test256 megabytes"
+        },
+        "tags": [
+            "greedy",
+            "implementation",
+            "math"
+        ]
+    },
+    {
+        "title": "C. The Trail",
+        "constraints": {
+            "time": "time limit per test2 seconds",
+            "memory": "memory limit per test256 megabytes"
+        },
+        "tags": [
+            "brute force",
+            "constructive algorithms",
+            "greedy",
+            "math"
+        ]
+    },
+    {
+        "title": "B. Crafting",
+        "constraints": {
+            "time": "time limit per test1 second",
+            "memory": "memory limit per test256 megabytes"
+        },
+        "tags": [
+            "constructive algorithms",
+            "greedy",
+            "sortings"
+        ]
+    },
+    {
+        "title": "A. Two Frogs",
+        "constraints": {
+            "time": "time limit per test1 second",
+            "memory": "memory limit per test256 megabytes"
+        },
+        "tags": [
+            "constructive algorithms",
+            "games",
+            "greedy",
+            "math"
+        ]
+    },
+    {
+        "title": "I2. Affectionate Arrays (Hard Version)",
+        "constraints": {
+            "time": "time limit per test3 seconds",
+            "memory": "memory limit per test512 megabytes"
+        },
+        "tags": [
+            "data structures",
+            "dp",
+            "graphs",
+            "greedy",
+            "math",
+            "shortest paths",
+            "two pointers",
+            "*3500"
+        ]
+    },
+    {
+        "title": "I1. Affectionate Arrays (Easy Version)",
+        "constraints": {
+            "time": "time limit per test3 seconds",
+            "memory": "memory limit per test512 megabytes"
+        },
+        "tags": [
+            "data structures",
+            "dp",
+            "greedy",
+            "*2800"
+        ]
+    },
+    {
+        "title": "H. Delicate Anti-monotonous Operations",
+        "constraints": {
+            "time": "time limit per test2 seconds",
+            "memory": "memory limit per test512 megabytes"
+        },
+        "tags": [
+            "constructive algorithms",
+            "implementation",
+            "*3500"
+        ]
+    },
+    {
+        "title": "G. Naive String Splits",
+        "constraints": {
+            "time": "time limit per test10 seconds",
+            "memory": "memory limit per test1024 megabytes"
+        },
+        "tags": [
+            "binary search",
+            "brute force",
+            "greedy",
+            "hashing",
+            "math",
+            "number theory",
+            "strings",
+            "*3400"
+        ]
+    },
+    {
+        "title": "F. Earnest Matrix Complement",
+        "constraints": {
+            "time": "time limit per test5 seconds",
+            "memory": "memory limit per test512 megabytes"
+        },
+        "tags": [
+            "brute force",
+            "data structures",
+            "dp",
+            "greedy",
+            "implementation",
+            "math",
+            "*2600"
+        ]
+    },
+    {
+        "title": "E. Resourceful Caterpillar Sequence",
+        "constraints": {
+            "time": "time limit per test2 seconds",
+            "memory": "memory limit per test512 megabytes"
+        },
+        "tags": [
+            "dfs and similar",
+            "dp",
+            "games",
+            "graphs",
+            "greedy",
+            "trees",
+            "*1900"
+        ]
+    },
+    {
+        "title": "D. Refined Product Optimality",
+        "constraints": {
+            "time": "time limit per test3 seconds",
+            "memory": "memory limit per test512 megabytes"
+        },
+        "tags": [
+            "binary search",
+            "data structures",
+            "greedy",
+            "math",
+            "schedules",
+            "sortings",
+            "*1700"
+        ]
+    },
+    {
+        "title": "C. Bewitching Stargazer",
+        "constraints": {
+            "time": "time limit per test2 seconds",
+            "memory": "memory limit per test256 megabytes"
+        },
+        "tags": [
+            "bitmasks",
+            "divide and conquer",
+            "dp",
+            "math",
+            "*1500"
+        ]
+    },
+    {
+        "title": "B. Outstanding Impressionist",
+        "constraints": {
+            "time": "time limit per test1 second",
+            "memory": "memory limit per test256 megabytes"
+        },
+        "tags": [
+            "binary search",
+            "brute force",
+            "data structures",
+            "greedy",
+            "*1200"
+        ]
+    },
+    {
+        "title": "A. Tender Carpenter",
+        "constraints": {
+            "time": "time limit per test1 second",
+            "memory": "memory limit per test256 megabytes"
+        },
+        "tags": [
+            "dp",
+            "geometry",
+            "greedy",
+            "math",
+            "*800"
+        ]
+    },
+    {
+        "title": "J. Judicious Watching",
+        "constraints": {
+            "time": "time limit per test3 seconds",
+            "memory": "memory limit per test1024 megabytes"
+        },
+        "tags": [
+            "binary search",
+            "greedy",
+            "sortings",
+            "*2000"
+        ]
+    },
+    {
+        "title": "G. Geometric Balance",
+        "constraints": {
+            "time": "time limit per test3 seconds",
+            "memory": "memory limit per test1024 megabytes"
+        },
+        "tags": [
+            "data structures",
+            "geometry",
+            "implementation",
+            "*2800"
+        ]
+    },
+    {
+        "title": "F. Fix Flooded Floor",
+        "constraints": {
+            "time": "time limit per test3 seconds",
+            "memory": "memory limit per test1024 megabytes"
+        },
+        "tags": [
+            "constructive algorithms",
+            "dp",
+            "graphs",
+            "*1700"
+        ]
+    },
+    {
+        "title": "E. Expression Correction",
+        "constraints": {
+            "time": "time limit per test3 seconds",
+            "memory": "memory limit per test1024 megabytes"
+        },
+        "tags": [
+            "brute force",
+            "expression parsing",
+            "strings",
+            "*1900"
+        ]
+    },
+    {
+        "title": "D. DAG Serialization",
+        "constraints": {
+            "time": "time limit per test3 seconds",
+            "memory": "memory limit per test1024 megabytes"
+        },
+        "tags": [
+            "brute force",
+            "graphs",
+            "*2100"
+        ]
+    },
+    {
+        "title": "A. Adrenaline Rush",
+        "constraints": {
+            "time": "time limit per test3 seconds",
+            "memory": "memory limit per test1024 megabytes"
+        },
+        "tags": [
+            "constructive algorithms",
+            "*1600"
+        ]
+    },
+    {
+        "title": "G. Snakes",
+        "constraints": {
+            "time": "time limit per test3 seconds",
+            "memory": "memory limit per test512 megabytes"
+        },
+        "tags": [
+            "bitmasks",
+            "dp",
+            "dsu",
+            "graphs",
+            "*2100"
+        ]
+    },
+    {
+        "title": "F. Joker",
+        "constraints": {
+            "time": "time limit per test2 seconds",
+            "memory": "memory limit per test256 megabytes"
+        },
+        "tags": [
+            "brute force",
+            "greedy",
+            "implementation",
+            "math",
+            "*2000"
+        ]
+    },
+    {
+        "title": "E. Best Price",
+        "constraints": {
+            "time": "time limit per test2 seconds",
+            "memory": "memory limit per test256 megabytes"
+        },
+        "tags": [
+            "binary search",
+            "brute force",
+            "data structures",
+            "greedy",
+            "sortings",
+            "*1600"
+        ]
+    },
+    {
+        "title": "D. Counting Pairs",
+        "constraints": {
+            "time": "time limit per test2 seconds",
+            "memory": "memory limit per test256 megabytes"
+        },
+        "tags": [
+            "binary search",
+            "sortings",
+            "two pointers",
+            "*1200"
+        ]
+    }
+]

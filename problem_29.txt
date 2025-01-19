@@ -1,0 +1,168 @@
+Title: D. Refined Product Optimality
+Statement:
+Although Iris occasionally sets a problem where the solution is possibly wrong, she still insists on creating problems with her imagination; after all, everyone has always been on the road with their stubbornness... And like ever before, Iris has set a problem to which she gave a wrong solution, but Chris is always supposed to save it! You are going to play the role of Chris now:
+Chris soon worked out this problem, but he was so tired that he fell asleep. Besides saying thanks to Chris, now it is your turn to write a program to calculate the answers for given input data.
+Note: since the input and output are large, you may need to optimize them for this problem.
+For example, in C++, it is enough to use the following lines at the start of the main() function:
+Each test contains multiple test cases. The first line of input contains a single integer
+t
+(
+1≤t≤104
+) — the number of test cases. The description of test cases follows.
+The first line of each test case contains two integers
+n
+and
+q
+(
+1≤n≤2⋅105
+,
+1≤q≤2⋅105
+) — the length of the array and the number of operations.
+The second line of each test case contains
+n
+integers
+a1,a2,…,an
+(
+1≤ai≤5⋅108
+) — the array
+a
+.
+The third line of each test case contains
+n
+integers
+b1,b2,…,bn
+(
+1≤bi≤5⋅108
+) — the array
+b
+.
+Then
+q
+lines follow, each line contains two integers
+o
+and
+x
+(
+o∈{1,2}
+,
+1≤x≤n
+), representing an operation.
+It's guaranteed that the sum of
+n
+and the sum of
+q
+over all test cases does not exceed
+4⋅105
+, respectively.
+For each test case, output
+q+1
+integers in a line, representing the answers that Chris will calculate, modulo
+998244353
+.
+In the first test case:
+Input Specification:
+Input
+Each test contains multiple test cases. The first line of input contains a single integer
+t
+(
+1≤t≤104
+) — the number of test cases. The description of test cases follows.
+The first line of each test case contains two integers
+n
+and
+q
+(
+1≤n≤2⋅105
+,
+1≤q≤2⋅105
+) — the length of the array and the number of operations.
+The second line of each test case contains
+n
+integers
+a1,a2,…,an
+(
+1≤ai≤5⋅108
+) — the array
+a
+.
+The third line of each test case contains
+n
+integers
+b1,b2,…,bn
+(
+1≤bi≤5⋅108
+) — the array
+b
+.
+Then
+q
+lines follow, each line contains two integers
+o
+and
+x
+(
+o∈{1,2}
+,
+1≤x≤n
+), representing an operation.
+It's guaranteed that the sum of
+n
+and the sum of
+q
+over all test cases does not exceed
+4⋅105
+, respectively.
+Output Specification:
+Output
+For each test case, output
+q+1
+integers in a line, representing the answers that Chris will calculate, modulo
+998244353
+.
+Sample Tests:
+Example
+input
+Copy
+4
+3 4
+1 1 2
+3 2 1
+1 3
+2 3
+1 1
+2 1
+6 8
+1 4 2 7 3 5
+7 6 5 6 3 3
+2 5
+1 6
+1 5
+1 5
+1 5
+2 3
+2 3
+1 6
+13 8
+7 7 6 6 5 5 5 2 2 3 4 5 1
+1 4 1 9 6 6 9 1 5 1 3 8 4
+2 2
+2 11
+2 4
+2 4
+1 7
+1 1
+2 12
+1 5
+5 3
+10000000 20000000 30000000 40000000 50000000
+10000000 20000000 30000000 40000000 50000000
+1 1
+2 2
+2 1
+output
+Copy
+2 3 3 6 6
+840 840 1008 1344 1680 2016 2016 2016 2352
+2116800 2646000 3528000 3528000 3528000 4233600 4838400 4838400 4838400
+205272023 205272023 205272023 264129429
+Constraints: time limit per test3 seconds memory limit per test512 megabytes

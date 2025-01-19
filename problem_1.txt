@@ -1,0 +1,151 @@
+Title: H. Coffee Break
+Statement:
+There are very long classes in the T-Generation. In one day, you need to have time to analyze the training and thematic contests, give a lecture with new material, and, if possible, also hold a mini-seminar. Therefore, there is a break where students can go to drink coffee and chat with each other.
+There are a total of
+n+2
+coffee machines located in sequentially arranged rooms along a long corridor. The coffee machines are numbered from
+0
+to
+n+1
+, and immediately after the break starts, there are
+a
+i
+students gathered around the
+i
+-th coffee machine.
+The students are talking too loudly among themselves, and the teachers need to make a very important announcement. Therefore, they want to gather the maximum number of students around some single coffee machine. The teachers are too lazy to run around the corridors and gather the students, so they came up with a more sophisticated way to manipulate them:
+The teachers have not yet decided where they will gather the students, so for each
+i
+from
+1
+to
+n
+, you should determine what is the maximum number of students that can be gathered around the
+i
+-th coffee machine.
+The teachers can turn off the lights in any rooms at their discretion, in any order, possibly turning off the lights in the same room multiple times.
+Note that the values of
+a
+0
+and
+a
+n+1
+do not affect the answer to the problem, so their values will not be given to you.
+The first line contains a single integer
+t
+(
+1≤t≤10000
+) — the number of test cases.
+In the first line of each test case, there is an integer
+n
+(
+1≤n≤
+10
+6
+).
+In the second line of each test case, there are integers
+a
+1
+,…,
+a
+n
+(
+0≤
+a
+i
+≤
+10
+9
+) — the number of students around coffee machines numbered
+1,2,…,n
+.
+It is guaranteed that the sum of
+n
+across all test cases does not exceed
+10
+6
+.
+For each test case, output
+n
+integers
+b
+1
+,…,
+b
+n
+, where
+b
+i
+is the maximum number of students that can be around coffee machines number
+i
+.
+Let's analyze the first test case:
+Input Specification:
+Input
+The first line contains a single integer
+t
+(
+1≤t≤10000
+) — the number of test cases.
+In the first line of each test case, there is an integer
+n
+(
+1≤n≤
+10
+6
+).
+In the second line of each test case, there are integers
+a
+1
+,…,
+a
+n
+(
+0≤
+a
+i
+≤
+10
+9
+) — the number of students around coffee machines numbered
+1,2,…,n
+.
+It is guaranteed that the sum of
+n
+across all test cases does not exceed
+10
+6
+.
+Output Specification:
+Output
+For each test case, output
+n
+integers
+b
+1
+,…,
+b
+n
+, where
+b
+i
+is the maximum number of students that can be around coffee machines number
+i
+.
+Sample Tests:
+Example
+input
+Copy
+3
+2
+8 0
+5
+2 2 2 2 2
+5
+0 0 9 0 0
+output
+Copy
+8 4 
+4 5 4 5 4 
+4 6 9 6 4 
+Constraints: time limit per test2 seconds memory limit per test256 megabytes
