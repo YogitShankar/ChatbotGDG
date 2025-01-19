@@ -1,0 +1,150 @@
+Title: B. Crafting
+Statement:
+
+There are
+n
+different types of magical materials, numbered from
+1
+to
+n
+. Initially, you have
+ai
+units of material
+i
+for each
+i
+from
+1
+to
+n
+. You are allowed to perform the following operation:
+You are trying to craft an artifact using these materials. To successfully craft the artifact, you must have at least
+bi
+units of material
+i
+for each
+i
+from
+1
+to
+n
+. Determine if it is possible to craft the artifact by performing the operation any number of times (including zero).
+Each test contains multiple test cases. The first line contains the number of test cases
+t
+(
+1≤t≤104
+). The description of the test cases follows.
+The first line of each test case contains a single integer
+n
+(
+2≤n≤2⋅105
+) — the number of types of materials.
+The second line of each test case contains
+n
+integers
+a1,a2,…,an
+(
+0≤ai≤109
+) — the amount of each material
+i
+that you currently hold.
+The third line of each test case contains
+n
+integers
+b1,b2,…,bn
+(
+0≤bi≤109
+) — the amount of each material
+i
+needed to produce the artifact.
+It is guaranteed that the sum of
+n
+over all test cases does not exceed
+2⋅105
+.
+For each test case, print a single line containing either "YES" or "NO", representing whether or not the artifact can be crafted.
+You can output the answer in any case (upper or lower). For example, the strings "yEs", "yes", "Yes", and "YES" will be recognized as positive responses.
+In the first test case, perform an operation on material
+1
+. After doing so, we will have exactly the required resources:
+1
+unit of material
+1
+, and
+4
+units each of materials
+2
+and
+3
+.
+In the second test case, it can be shown that no matter how the operations are performed, it is impossible to craft the artifact.
+In the third test case, we can perform the operation on material
+1
+twice. After these operations, we will have
+3
+units of material
+1
+and
+8
+units of material
+2
+, which is more than enough to craft the artifact.
+Input Specification:
+Input
+Each test contains multiple test cases. The first line contains the number of test cases
+t
+(
+1≤t≤104
+). The description of the test cases follows.
+The first line of each test case contains a single integer
+n
+(
+2≤n≤2⋅105
+) — the number of types of materials.
+The second line of each test case contains
+n
+integers
+a1,a2,…,an
+(
+0≤ai≤109
+) — the amount of each material
+i
+that you currently hold.
+The third line of each test case contains
+n
+integers
+b1,b2,…,bn
+(
+0≤bi≤109
+) — the amount of each material
+i
+needed to produce the artifact.
+It is guaranteed that the sum of
+n
+over all test cases does not exceed
+2⋅105
+.
+Output Specification:
+Output
+For each test case, print a single line containing either "YES" or "NO", representing whether or not the artifact can be crafted.
+You can output the answer in any case (upper or lower). For example, the strings "yEs", "yes", "Yes", and "YES" will be recognized as positive responses.
+Sample Tests:
+Example
+input
+Copy
+3
+4
+0 5 5 1
+1 4 4 0
+3
+1 1 3
+2 2 1
+2
+1 10
+3 3
+output
+Copy
+YES
+NO
+YES
+Constraints: time limit per test1 second memory limit per test256 megabytes

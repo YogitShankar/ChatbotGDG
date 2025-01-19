@@ -1,0 +1,199 @@
+Title: A. Tender Carpenter
+Statement:
+In his dream, Cocoly would go on a long holiday with no worries around him. So he would try out for many new things, such as... being a carpenter. To learn it well, Cocoly decides to become an apprentice of Master, but in front of him lies a hard task waiting for him to solve.
+Cocoly is given an array
+a1,a2,…,an
+. Master calls a set of integers
+S
+stable if and only if, for any possible
+u
+,
+v
+, and
+w
+from the set
+S
+(note that
+u
+,
+v
+, and
+w
+do not necessarily have to be pairwise distinct), sticks of length
+u
+,
+v
+, and
+w
+can form a non-degenerate triangle
+∗
+.
+Cocoly is asked to partition the array
+a
+into several (possibly,
+1
+or
+n
+) non-empty continuous subsegments
+†
+, such that: for each of the subsegments, the set containing all the elements in it is stable.
+Master wants Cocoly to partition
+a
+in at least two different
+‡
+ways. You have to help him determine whether it is possible.
+∗
+A triangle with side lengths
+x
+,
+y
+, and
+z
+is called non-degenerate if and only if:
+†
+A sequence
+b
+is a subsegment of a sequence
+c
+if
+b
+can be obtained from
+c
+by the deletion of several (possibly, zero or all) elements from the beginning and several (possibly, zero or all) elements from the end.
+‡
+Two partitions are considered different if and only if at least one of the following holds:
+Each test contains multiple test cases. The first line of the input contains a single integer
+t
+(
+1≤t≤200
+) — the number of test cases. The description of test cases follows.
+The first line of each test case contains a single integer
+n
+(
+2≤n≤200
+) — the length of the array
+a
+.
+The second line contains
+n
+integers
+a1,a2,…,an
+(
+1≤ai≤105
+) — the elements in the array
+a
+.
+For each test case, print
+YES
+if there are at least two ways to partition
+a
+, and
+NO
+otherwise.
+You can output the answer in any case (upper or lower). For example, the strings
+yEs
+,
+yes
+,
+Yes
+, and
+YES
+will be recognized as positive responses.
+In the first test case, here are two possible partitions:
+Note that some other partitions also satisfy the constraints, such as
+[2],[3],[5],[7]
+and
+[2],[3],[5,7]
+.
+In the second test case, Cocoly can only partition each element as a single subsegment, resulting in
+[115],[9],[2],[28]
+. Since we only have one possible partition, the answer is
+NO
+.
+In the third test case, please note that the partition
+[8,4],[1],[6],[2]
+does not satisfy the constraints, because
+{8,4}
+is not a stable set: sticks of lengths
+4
+,
+4
+, and
+8
+cannot form a non-degenerate triangle.
+Input Specification:
+Input
+Each test contains multiple test cases. The first line of the input contains a single integer
+t
+(
+1≤t≤200
+) — the number of test cases. The description of test cases follows.
+The first line of each test case contains a single integer
+n
+(
+2≤n≤200
+) — the length of the array
+a
+.
+The second line contains
+n
+integers
+a
+1
+,
+a
+2
+,…,
+a
+n
+(
+1≤
+a
+i
+≤
+10
+5
+) — the elements in the array
+a
+.
+Output Specification:
+Output
+For each test case, print
+YES
+if there are at least two ways to partition
+a
+, and
+NO
+otherwise.
+You can output the answer in any case (upper or lower). For example, the strings
+yEs
+,
+yes
+,
+Yes
+, and
+YES
+will be recognized as positive responses.
+Sample Tests:
+Example
+input
+Copy
+5
+4
+2 3 5 7
+4
+115 9 2 28
+5
+8 4 1 6 2
+6
+1 5 4 1 4 7
+2
+100000 100000
+output
+Copy
+YES
+NO
+NO
+YES
+YES
+Constraints: time limit per test1 second memory limit per test256 megabytes
