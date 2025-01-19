@@ -5,11 +5,6 @@
 This project demonstrates a Retrieval-Augmented Generation (RAG) system designed to assist with competitive programming. It integrates various tools and models to retrieve and analyze programming problems and generate helpful solutions or context-aware responses using scraped data from [CodeForces](https://codeforces.com).
 
 ---
-## Virtual Enviornment
-
-The project mentioned is made over venv (Python virtual environment), therefore most of the requirements and dependencies are already downloaded inside the folder.
-
----
 ## Features
 
 1. **Text Generation**: Utilizes [Ollama's Llama 3.2](https://ollama.com/) for text generation.
