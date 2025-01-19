@@ -11,6 +11,9 @@ This project demonstrates a Retrieval-Augmented Generation (RAG) system designed
 2. **Embedding Generation**: Employs CodeBERT to generate embeddings for problem statements, inputs, outputs, and notes.
 3. **Vector Search**: Implements FAISS for efficient similarity search and retrieval of related problems.
 4. **Dynamic Chatbot**: A chatbot template is provided that leverages LangChain for conversational interactions, allowing context-aware and memory-retentive discussions.
+---
+## Screenshot
+![image alt](https://github.com/arshcwb/ChatbotGDG/blob/21b924b4d7b698e2f07d61dc3c8216c68bc1cdea/230205_Arsh_Jaswal_Assignment2/model.png)
 
 ---
 
@@ -36,9 +39,6 @@ This project provides a unique and efficient approach to solving common challeng
 6. **Maintains Chat History**:
    - Able to maintain and recall previous chat history.
 
----
-## Screenshot
-![image alt](https://github.com/arshcwb/ChatbotGDG/blob/21b924b4d7b698e2f07d61dc3c8216c68bc1cdea/230205_Arsh_Jaswal_Assignment2/model.png)
 
 ---
 
