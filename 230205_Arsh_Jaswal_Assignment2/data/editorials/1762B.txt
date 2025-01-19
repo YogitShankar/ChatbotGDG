@@ -1,0 +1,27 @@
+1762B - Make Array GoodIdea:satyam343 Hint 1Suppose we have a prime number p. Suppose there are two perfect powers of p — l and r. Now it is easy to see max(l,r) is divisible by min(l,r). Hint 2So now we need to choose some prime number p. Let us start with the smallest prime number p=2. Hint 3Here is one interesting fact. There always exists a power of 2 in the range [x,2x] for any positive integer x. SolutionSuppose f(x) gives the smallest power of 2 which is greater than x.Iterate from i=1 to n and change ai to f(ai) by adding f(ai)−ai to i-th element. Time complexity is O(n⋅log(Amax)). Code#include <bits/stdc++.h>     
+using namespace std;
+#define ll long long
+ll f(ll x){
+    ll cur=1;
+    while(cur<=x){
+        cur*=2;
+    }
+    return cur;
+}
+void solve(){
+    ll n; cin>>n;
+    cout<<n<<"\n";
+    for(ll i=1;i<=n;i++){
+        ll x; cin>>x;
+        cout<<i<<" "<<f(x)-x<<"\n";
+    }
+}
+int main()                                                                                
+{  
+    ios_base::sync_with_stdio(false);                         
+    cin.tie(NULL);  
+    ll t; cin>>t;
+    while(t--){
+        solve();
+    }
+} 

@@ -1,0 +1,50 @@
+1547C - Pair ProgrammingThe solution is that if we can do something, let's do it. It doesn't make sense not to act, because neither adding a new row nor modifying an existing one can prevent the existing row from being changed in the future. Therefore, we will iterate over the actions and eagerly act Monocarp or Polycarp.Let's create two pointers i and j in arrays a and b — index of possible action of Monocarp and Polycarp and c — the current length of the file.Suppose that ai=0 or bj=0 on current iteration. Then we take the appropriate zero element and increase c by one. We can do that because appending a new line cannot make a new answer prefix incorrect if the previous prefix was correct.Suppose that ai≠0 and bj≠0. If ai>c and bj>c then there is no answer because we can potentially do only two actions and both make the answer incorrect. If one number is greater than c and the other is less than or equals then we take the one that less than or equals c.If one of the sequences a or b ends then only one potential action needs to be checked at each iteration. Solution#include <iostream>
+#include <vector>
+
+typedef std::vector<int> vi;
+
+int main() {
+    int t;
+    std::cin >> t;
+    while (t--) {
+        int k, n, m;
+        std::cin >> k >> n >> m;
+
+        vi a(n), b(m);
+        for (int i = 0; i < n; i++)
+            std::cin >> a[i];
+        for (int i = 0; i < m; i++)
+            std::cin >> b[i];
+
+        int pos1 = 0, pos2 = 0;
+        vi res;
+        bool ok = true;
+        while (pos1 != n || pos2 != m) {
+            if (pos1 != n && a[pos1] == 0) {
+                res.push_back(0);
+                k++;
+                pos1++;
+            } else if (pos2 != m && b[pos2] == 0) {
+                res.push_back(0);
+                k++;
+                pos2++;
+            } else if (pos1 != n && a[pos1] <= k) {
+                res.push_back(a[pos1++]);
+            } else if (pos2 != m && b[pos2] <= k) {
+                res.push_back(b[pos2++]);
+            } else {
+                std::cout << -1 << '\n';
+                ok = false;
+                break;
+            }
+        }
+
+        if (ok) {
+            for (int cur : res)
+                std::cout << cur << ' ';
+            std::cout << std::endl;
+        }
+    }
+
+    return 0;
+}

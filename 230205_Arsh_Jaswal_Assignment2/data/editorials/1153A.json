@@ -1,0 +1,3 @@
+{
+    "solution": "1153A - Serval and BusAuthor: Serval, preparation: bzh EditorialFind the first bus Serval can see in each route and find the earliest one. For each route, finding the first bus Serval sees can work in O(1).Or mark all the time no more than max(si,t+max(di)) which bus would come or there will be no bus, then search the nearest one."
+}

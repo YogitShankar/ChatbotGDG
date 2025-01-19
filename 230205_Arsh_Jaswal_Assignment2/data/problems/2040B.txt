@@ -1,0 +1,10 @@
+You have an array of zeros a1,a2,…,an of length n.
+You can perform two types of operations on it: 
+What is the minimum number of operations of the first type needed to make all elements of the array equal to one?
+Each test contains multiple test cases. The first line contains the number of test cases t (1≤t≤104). The description of the test cases follows.
+The only line of each test case contains one integer n (1≤n≤105) — the length of the array.
+Note that there is no limit on the sum of n over all test cases.
+For each test case, print one integer — the minimum number of needed operations of first type.
+In the first test case, you can perform an operation of the 1st type with i=1.
+In the second test case, you can perform the following sequence of operations:
+In the third test case, you can perform the following sequence of operations:

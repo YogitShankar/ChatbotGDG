@@ -1,0 +1,11 @@
+{
+    "title": "A. Visiting a Friend",
+    "description": "Pig is visiting a friend.\nPig's house is located at point 0, and his friend's house is located at point m on an axis.\nPig can use teleports to move along the axis.\nTo use a teleport, Pig should come to a certain point (where the teleport is located) and choose where to move: for each teleport there is the rightmost point it can move Pig to, this point is known as the limit of the teleport.\nFormally, a teleport located at point x with limit y can move Pig from point x to any point within the segment [x; y], including the bounds.\nDetermine if Pig can visit the friend using teleports only, or he should use his car.\nThe first line contains two integers n and m (1 ≤ n ≤ 100, 1 ≤ m ≤ 100) — the number of teleports and the location of the friend's house.\nThe next n lines contain information about teleports.\nThe i-th of these lines contains two integers ai and bi (0 ≤ ai ≤ bi ≤ m), where ai is the location of the i-th teleport, and bi is its limit.\nIt is guaranteed that ai ≥ ai - 1 for every i (2 ≤ i ≤ n).\nPrint \"YES\" if there is a path from Pig's house to his friend's house that uses only teleports, and \"NO\" otherwise.\nYou can print each letter in arbitrary case (upper or lower).\nThe first example is shown on the picture below:\nPig can use the first teleport from his house (point 0) to reach point 2, then using the second teleport go from point 2 to point 3, then using the third teleport go from point 3 to point 5, where his friend lives.\nThe second example is shown on the picture below:\nYou can see that there is no path from Pig's house to his friend's house that uses only teleports.",
+    "time limit": "time limit per test1 second",
+    "memory limit": "memory limit per test256 megabytes",
+    "tags": [
+        "greedy",
+        "implementation",
+        "*1100"
+    ]
+}

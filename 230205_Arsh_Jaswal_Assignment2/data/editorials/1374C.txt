@@ -1,0 +1,33 @@
+1374C - Move BracketsLet's go from left to right over characters of s maintaining the current bracket balance (for the position i the balance is the number of opening brackets on the prefix till the i-th character minus the number of closing brackets on the same prefix).If the current balance becomes less than zero, then let's just take some opening bracket after the current position (it obviously exists because the number of opening equals the number of closing brackets) and move it to the beginning (so the negative balance becomes zero again and the answer increases by one). Or we can move the current closing bracket to the end of the string because it leads to the same result.Time complexity: O(n). Solution#include <bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+#ifdef _DEBUG
+	freopen("input.txt", "r", stdin);
+//	freopen("output.txt", "w", stdout);
+#endif
+	
+	int t;
+	cin >> t;
+	while (t--) {
+		int n;
+		string s;
+		cin >> n >> s;
+		int ans = 0;
+		int bal = 0;
+		for (int i = 0; i < n; ++i) {
+			if (s[i] == '(') ++bal;
+			else {
+				--bal;
+				if (bal < 0) {
+					bal = 0;
+					++ans;
+				}
+			}
+		}
+		cout << ans << endl;
+	}
+	
+	return 0;
+}

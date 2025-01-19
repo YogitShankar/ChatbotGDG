@@ -1,0 +1,1 @@
+981B - Businessmen ProblemsWith map data structure for each chemical element that presents in input find maximal cost that you can get, and then just sum up these costs 

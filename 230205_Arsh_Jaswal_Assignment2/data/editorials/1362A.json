@@ -1,0 +1,3 @@
+{
+    "solution": "1362A - Johnny and Ancient ComputerAuthor: Anadi TutorialTutorial is loading... Solution#include <bits/stdc++.h>\n\nusing namespace std;\n\ntypedef long long LL;\n\nLL getR(LL a){\n\twhile(a % 2 == 0)\n\t\ta /= 2;\n\treturn a;\n}\n\nvoid solve(){\n\tLL a, b;\n\tscanf(\"%lld %lld\", &a, &b);\n\tif(a > b)\tswap(a, b);\n\t\n\tLL r = getR(a);\n\tif(getR(b) != r){\n\t\tputs(\"-1\");\n\t\treturn;\n\t}\n\t\n\tint ans = 0;\n\tb /= a;\n\t\n\twhile(b >= 8)\n\t\tb /= 8, ++ans;\n\tif(b > 1)\t++ans;\n\tprintf(\"%d\\n\", ans);\n}\n\nint main(){\n\tint quest;\n\tscanf(\"%d\", &quest);\n\t\n\twhile(quest--)\n\t\tsolve();\n\treturn 0;\n}\n"
+}

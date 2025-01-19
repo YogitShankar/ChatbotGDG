@@ -1,0 +1,27 @@
+1155B - Game with Telephone NumbersLet's understand how players should act. Vasya needs to delete the first digit that is not equal to 8, because the first digit of telephone number should be 8, and the first digit not equal to 8 is preventing it.Petya needs to delete the first digit equal to 8, for the same reasons.So, all that we need to do is delete first n−112 digits not equal to 8 (if they exist), and first n−112 digits equal to 8 (again if they exist). It's enough to stop when there is either no 8's left or no non-8's because the latter moves won't change the result of the game anyway. Finally, if first digit of resulting string is 8, then Vasya wins, otherwise Petya.Overall complexity: O(n). Solution (Roms)#include<bits/stdc++.h>
+
+using namespace std;
+
+int n;
+string s;
+
+int main(){
+    cin >> n >> s;
+    int cnt1 = (n - 11) / 2;
+    int cnt2 = cnt1;
+    string res = "";
+    for(int i = 0; i < n; ++i){
+        if(s[i] == '8'){
+            if(cnt1 > 0) --cnt1;
+            else res += s[i];
+        }
+        else{
+            if(cnt2 > 0) --cnt2;
+            else res += s[i];
+        }
+    }
+    
+    if(res[0] == '8') cout << "YES\n";
+    else cout << "NO\n";
+	return 0;
+}

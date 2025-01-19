@@ -1,0 +1,3 @@
+{
+    "solution": "1534B - Уродливость гистограммыIt's only optimal to decrease a column i if ai>ai+1 and ai>ai−1, as that would reduce the vertical length of the outline by 2 while only costing 1 operation. Additionally, observe that decreasing a column will never affect whether it is optimal to decrease any other column, so we can treat the operations as independent.Thus, our algorithm is as follows: while it is optimal to decrease a column, do it. Once this is no longer the case, calculate the final value of the histogram. This can be sped up to O(n) with some arithmetic and the observation above. Solution119400874"
+}

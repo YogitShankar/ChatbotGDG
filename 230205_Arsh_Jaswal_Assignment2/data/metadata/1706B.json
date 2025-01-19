@@ -1,0 +1,12 @@
+{
+    "title": "B. Making Towers",
+    "description": "You have a sequence of n colored blocks. The color of the i-th block is ci, an integer between 1 and n.\nYou will place the blocks down in sequence on an infinite coordinate grid in the following way. \nA tower is formed by s blocks such that they are placed at positions (x,y),(x,y+1),…,(x,y+s−1) for some position (x,y) and integer s. The size of the tower is s, the number of blocks in it. A tower of color r is a tower such that all blocks in it have the color r.\nFor each color r from 1 to n, solve the following problem independently: \nThe first line contains a single integer t (1≤t≤104) — the number of test cases. \nThe first line of each test case contains a single integer n (1≤n≤105).\nThe second line of each test case contains n integers c1,c2,…,cn (1≤ci≤n).\nIt is guaranteed that the sum of n over all test cases does not exceed 2⋅105.\nFor each test case, output n integers. The r-th of them should be the maximum size of an tower of color r you can form by following the given rules. If you cannot form any tower of color r, the r-th integer should be 0.\nIn the first test case, one of the possible ways to form a tower of color 1 and size 3 is: \nThe blocks at positions (0,0), (0,1), and (0,2) all have color 1, forming an tower of size 3.\nIn the second test case, note that the following placement is not valid, since you are not allowed to place block 6 under block 5:\nIt can be shown that it is impossible to form a tower of color 4 and size 3.",
+    "time limit": "time limit per test1 second",
+    "memory limit": "memory limit per test256 megabytes",
+    "tags": [
+        "dp",
+        "greedy",
+        "math",
+        "*1100"
+    ]
+}

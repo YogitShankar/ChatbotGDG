@@ -1,0 +1,3 @@
+{
+    "solution": "1032B - Personalized CupLet's iterate over all possible pairs (a,b) with 1≤a≤5 and 1≤b≤20 to find the optimal one satisfying the inequality a⋅b≥|s|. So now we need to place the characters of s in the same relative order through the table. Possibly, several cells will remain unused, but we will distribute them over the table and place at most one asterisk in every row.One can show that we will have at most one asterisk in each row, because otherwise we would have been able to reduce the value of b. Problem C of elimination/div2"
+}

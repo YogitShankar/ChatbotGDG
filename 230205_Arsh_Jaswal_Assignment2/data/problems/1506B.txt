@@ -1,0 +1,9 @@
+You are given a number k and a string s of length n, consisting of the characters '.' and '*'. You want to replace some of the '*' characters with 'x' characters so that the following conditions are met: 
+For example, if n=7, s=.**.*** and k=3, then the following strings will satisfy the conditions above: 
+Given n, k, and s, find the minimum number of '*' characters that must be replaced with 'x' in order to meet the above conditions.
+The first line contains one integer t (1≤t≤500). Then t test cases follow.
+The first line of each test case contains two integers n and k (1≤k≤n≤50).
+The second line of each test case contains a string s of length n, consisting of the characters '.' and '*'.
+It is guaranteed that there is at least one '*' in the string s.
+It is guaranteed that the distance between any two neighboring '*' characters does not exceed k.
+For each test case output the minimum number of '*' characters that must be replaced with 'x' characters in order to satisfy the conditions above.

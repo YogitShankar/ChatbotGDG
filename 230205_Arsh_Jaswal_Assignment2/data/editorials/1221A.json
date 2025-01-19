@@ -1,0 +1,3 @@
+{
+    "solution": "1221A - 2048 GameIdea: Roms TutorialTutorial is loading... Solution (Roms)for t in range(int(input())):\n\tn = input()\n\tl = filter(lambda x : x <= 2048,  map(int, input().split()) )\n\tprint('YES' if sum(l) >= 2048 else 'NO')"
+}

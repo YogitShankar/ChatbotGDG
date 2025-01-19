@@ -1,0 +1,13 @@
+{
+    "title": "B. Rudolf and 121",
+    "description": "Rudolf has an array a of n integers, the elements are numbered from 1 to n.\nIn one operation, he can choose an index i (2≤i≤n−1) and assign:\nRudolf can apply this operation any number of times. Any index i can be used zero or more times.\nCan he make all the elements of the array equal to zero using this operation?\nThe first line of the input contains a single integer t (1≤t≤104) — the number of test cases in the test.\nThe first line of each case contains a single integer n (3≤n≤2⋅105) — the number of elements in the array.\nThe second line of each case contains n integers a1,a2,…,an (0≤aj≤109) — the elements of the array.\nIt is guaranteed that the sum of the values of n over all test cases does not exceed 2⋅105.\nFor each test case, output \"YES\" if it is possible to make all the elements of the array zero using the described operations. Otherwise, output \"NO\".\nYou can output each letter in any case (lowercase or uppercase). For example, the strings \"yEs\", \"yes\", \"Yes\", and \"YES\" will be accepted as a positive answer.\nIn the first example, the original array is [1,3,5,5,2], to make all its elements zero, Rudolf can act as follows:",
+    "time limit": "time limit per test2 seconds",
+    "memory limit": "memory limit per test256 megabytes",
+    "tags": [
+        "brute force",
+        "dp",
+        "greedy",
+        "math",
+        "*1000"
+    ]
+}

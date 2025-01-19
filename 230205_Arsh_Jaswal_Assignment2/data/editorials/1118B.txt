@@ -1,0 +1,37 @@
+1118B - Tanya and CandiesLet's maintain four variables oddPref, evenPref, oddSuf and evenSuf, which will mean the sum of ai with odd i on prefix, even i on prefix, odd i on suffix and even i on suffix. Initially, oddPref and evenPref are 0, oddSuf equals to the sum of ai with odd i in a whole array and evenSuf equals to the sum of ai with even i in a whole array.Let's iterate from left to right over all elements of the array. Let's consider the current element ai. If i is even, then set evenSuf:=evenSuf−ai, otherwise let's set oddSuf:=oddSuf−ai. Then let's consider we give the current candy to dad. Then we have to increase the answer if oddPref=evenSuf and evenPref=oddSuf. Then if i is even then let's set evenPref:=evenPref+ai, otherwise let's set oddPref:=oddPref+ai. Solution#include <bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+#ifdef _DEBUG
+	freopen("input.txt", "r", stdin);
+//	freopen("output.txt", "w", stdout);
+#endif
+
+	int n;
+	cin >> n;
+	
+	vector<int> a(n);
+	
+	int ePref = 0, oPref = 0, eSuf = 0, oSuf = 0;
+	for (int i = 0; i < n; ++i) {
+		cin >> a[i];
+		if (i & 1) eSuf += a[i];
+		else oSuf += a[i];
+	}
+	
+	int ans = 0;
+	for (int i = 0; i < n; ++i) {
+		if (i & 1) eSuf -= a[i];
+		else oSuf -= a[i];
+		if (ePref + oSuf == oPref + eSuf) {
+			++ans;
+		}
+		if (i & 1) ePref += a[i];
+		else oPref += a[i];
+	}
+	
+	cout << ans << endl;
+	
+	return 0;
+}

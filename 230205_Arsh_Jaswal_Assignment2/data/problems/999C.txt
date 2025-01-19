@@ -1,0 +1,7 @@
+You are given a string s consisting of n lowercase Latin letters. Polycarp wants to remove exactly k characters (k≤n) from the string s. Polycarp uses the following algorithm k times:
+This algorithm removes a single letter from the string. Polycarp performs this algorithm exactly k times, thus removing exactly k characters.
+Help Polycarp find the resulting string.
+The first line of input contains two integers n and k (1≤k≤n≤4⋅105) — the length of the string and the number of letters Polycarp will remove.
+The second line contains the string s consisting of n lowercase Latin letters.
+Print the string that will be obtained from s after Polycarp removes exactly k letters using the above algorithm k times.
+If the resulting string is empty, print nothing. It is allowed to print nothing or an empty line (line break).

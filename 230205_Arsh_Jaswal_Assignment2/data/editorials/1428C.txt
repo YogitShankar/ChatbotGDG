@@ -1,0 +1,57 @@
+1428C - ABBBSetter: errorgorn and shenxy13Prepared by: errorgorn and oolimry Hint 1AB and BB means that ?B can be removed. Hint 2The final string is BAAA... or AAA.... SolutionThis game is equivalent to processing left to right and maintaining a stack. If the current processed character is A, we add it to the stack, if the current processed character is B, we can either add it to the stack or pop the top of the stack.In the optimal solution, we will always pop from the stack whenever possible. To prove this, we will use the stay ahead argument. Firstly, we notice that the contents of the stack do not actually matter. We actually only need to maintain the length of this stack. Decrementing the size of the stack whenever possible is optimal as it is the best we can do. And in the case where we must push `B' to the stack, this is optimal as the parity of the length of the stack must be the same as the parity of the processed string, so obtaining a stack of length 0 is impossble.Bonus: what is the length of the longest string that Zookeeper can make such that there are no moves left? Other commentsWe're also sorry for the weak pretests in this problem. About 1 hour before the contest, we found out that c++ O(N2) solution using find and erase would pass. Then we added testcases to kill the c++ solutions, but we didn't test the O(N2) solution for python using replace. Code (C++)//雪花飄飄北風嘯嘯
+//天地一片蒼茫
+
+#include <bits/stdc++.h>
+#include <ext/pb_ds/assoc_container.hpp>
+#include <ext/pb_ds/tree_policy.hpp>
+#include <ext/rope>
+using namespace std;
+using namespace __gnu_pbds;
+using namespace __gnu_cxx;
+#define ll long long
+#define ii pair<ll,ll>
+#define iii pair<ii,ll>
+#define fi first
+#define se second
+#define endl '\n'
+#define debug(x) cout << #x << " is " << x << endl
+
+#define rep(x,start,end) for(auto x=(start)-((start)>(end));x!=(end)-((start)>(end));((start)<(end)?x++:x--))
+#define all(x) (x).begin(),(x).end()
+#define sz(x) (int)(x).size()
+
+#define indexed_set tree<ll,null_type,less<ll>,rb_tree_tag,tree_order_statistics_node_update>
+//change less to less_equal for non distinct pbds, but erase will bug
+
+mt19937 rng(chrono::system_clock::now().time_since_epoch().count());
+
+int main(){
+	ios::sync_with_stdio(0);
+	cin.tie(0);
+	cout.tie(0);
+	cin.exceptions(ios::badbit | ios::failbit);
+	
+	int TC;
+	cin>>TC;
+	
+	while (TC--){
+		string s;
+		cin>>s;
+		
+		int stk=0;
+		
+		rep(x,0,sz(s)){
+			if (stk && s[x]=='B') stk--;
+			else stk++;
+		}
+		
+		cout<<stk<<endl;
+	}
+} Code (Python)TC = int(input())
+for tc in range(TC):
+	s = input()
+	ans=0
+	for i in s:
+		if (i=='B' and ans!=0): ans-=1
+		else: ans+=1
+	print(ans)

@@ -1,0 +1,10 @@
+{
+    "title": "B. Minesweeper",
+    "description": "One day Alex decided to remember childhood when computers were not too powerful and lots of people played only default games. Alex enjoyed playing Minesweeper that time. He imagined that he saved world from bombs planted by terrorists, but he rarely won.\nAlex has grown up since then, so he easily wins the most difficult levels. This quickly bored him, and he thought: what if the computer gave him invalid fields in the childhood and Alex could not win because of it?\nHe needs your help to check it.\nA Minesweeper field is a rectangle n×m, where each cell is either empty, or contains a digit from 1 to 8, or a bomb. The field is valid if for each cell: \nTwo cells are neighbors if they have a common side or a corner (i. e. a cell has at most 8 neighboring cells).\nThe first line contains two integers n and m (1≤n,m≤100) — the sizes of the field.\nThe next n lines contain the description of the field. Each line contains m characters, each of them is \".\" (if this cell is empty), \"*\" (if there is bomb in this cell), or a digit from 1 to 8, inclusive.\nPrint \"YES\", if the field is valid and \"NO\" otherwise.\nYou can choose the case (lower or upper) for each letter arbitrarily.\nIn the second example the answer is \"NO\" because, if the positions of the bombs are preserved, the first line of the field should be *2*1.\nYou can read more about Minesweeper in Wikipedia's article.",
+    "time limit": "time limit per test1 second",
+    "memory limit": "memory limit per test256 megabytes",
+    "tags": [
+        "implementation",
+        "*1100"
+    ]
+}

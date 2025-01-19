@@ -1,0 +1,28 @@
+1335C - Two Teams ComposingLet the number of students with the skill i is cnti and the number of different skills is diff. Then the size of the first team can not exceed diff and the size of the second team can not exceed maxcnt=max(cnt1,cnt2,…,cntn). So the answer is not greater than the minimum of these two values. Moreover, let's take a look at the skill with a maximum value of cnt. Then there are two cases: all students with this skill go to the second team then the sizes of teams are at most diff−1 and maxcnt correspondingly. Otherwise, at least one student with this skill goes to the first team and the sizes are at most diff and maxcnt−1 correspondingly. So the answer is max(min(diff−1,maxcnt),min(diff,maxcnt−1)).Time complexity: O(n). Solution#include <bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+#ifdef _DEBUG
+	freopen("input.txt", "r", stdin);
+//	freopen("output.txt", "w", stdout);
+#endif
+	
+	int t;
+	cin >> t;
+	while (t--) {
+		int n;
+		cin >> n;
+		vector<int> cnt(n + 1);
+		for (int i = 0; i < n; ++i) {
+			int x;
+			cin >> x;
+			++cnt[x];
+		}
+		int mx = *max_element(cnt.begin(), cnt.end());
+		int diff = n + 1 - count(cnt.begin(), cnt.end(), 0);
+		cout << max(min(mx - 1, diff), min(mx, diff - 1)) << endl;
+	}
+	
+	return 0;
+}

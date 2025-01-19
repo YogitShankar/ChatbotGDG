@@ -1,0 +1,61 @@
+1934B — Yet Another Coin Problem Solution 1HintAt max how many 1, 3, 6, 10 are required? SolutionFact: You will never need more than 2 ones, 1 threes, 4 sixes and 2 tens.Reason: For 1: Suppose if you used k > 2 ones, then you could have used one 3 and k — 3 ones. For 3: Suppose if you used k > 1 threes, then you could have used one 6 and k — 2 threes.For 6: Suppose if you used k > 4 sixes, then you could have used two 15's and k — 5 sixes.For 10: Suppose if you used k > 2 tens, then you could have used two 15's and k — 3 tens.now since bound on their count is less, we can bruteforce on these count. Code (C++)#include <bits/stdc++.h>
+
+using namespace std;
+
+int main()
+{
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+    int testcases;
+    cin >> testcases;
+    for (int t = 1; t <= testcases; t++)
+    {
+        int n;
+        cin >> n;
+        int ans = 1e9;
+        for(int ones = 0; ones <= 2; ones++){
+            for(int threes = 0; threes <= 1; threes++){
+                for(int sixes = 0; sixes <= 4; sixes++){
+                    for(int tens = 0; tens <= 2; tens++){
+                        int brute_sum = 1*ones + 3*threes + 6*sixes + 10*tens;
+                        if(brute_sum <= n && (n-brute_sum)%15 == 0){
+                            ans = min(ans, ones + threes + sixes + tens + (n-brute_sum)/15);
+                        }
+                    }
+                }
+            }
+        }
+        cout << ans << endl;
+    }
+} Solution 2HintWhen will the greedy logic of choosing the higher-valued coin first work?  SolutionFact 1: If coins of value 1, 3, 6 and 15 were only present the greedy logic of selecting the higher valued first would work.Reason: We use coins of value one at most 2 times, coins of value three at most 1 time, coins of value six at most 2 times (if it was used 3 times, it would be better to use two coins 15+3) But we can't use the coin of value 3 and both coins of value 6 simultaneously, because we would prefer just using 15.It means that these coins may sum up to 1+1+3+6=11 or 1+1+6+6=14 at max. So, we may use the value 15 greedily, because the remaining part is less than 15. When we are left with only the values 1, 3, and 6, greedily solving is obviously correct, because each coin is a divisor of the next coin. Fact 2: We don't need more than 2 ten coins.Reason: Better to use 2 fifteen coins instead of 3 ten coins.Using the above two facts it can be shown that the answer will have k<3 ten coin, therefore, answer = min(answer(n−10∗k)+k assuming 1, 3, 6 and 15 coins are only present).  Code (C++)#include<bits/stdc++.h>
+ 
+using namespace std;
+ 
+int getAns(int n){
+    int ans=0;
+    ans+=n/15;
+    n%=15;
+    ans+=n/6;
+    n%=6;
+    ans+=n/3;
+    n%=3;
+    ans+=n;
+    return ans;
+}
+ 
+int main(){
+    ios::sync_with_stdio(false), cin.tie(nullptr);
+ 
+    int testcases;
+    cin>>testcases;
+    for(int i=1;i<=testcases;i++){
+        int n;cin>>n;
+        if(n<10){
+            cout<<getAns(n)<<endl;
+        }else if(n<20){
+            cout<<min(getAns(n),getAns(n-10)+1)<<endl;
+        }else{
+            cout<<min({getAns(n),getAns(n-10)+1,getAns(n-20)+2})<<endl;
+        }
+    }
+}

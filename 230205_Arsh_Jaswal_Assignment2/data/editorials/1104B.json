@@ -1,0 +1,3 @@
+{
+    "solution": "1104B - Game with stringIt can be shown that the answer does not depend on the order of deletions. Let's remove letters from left to right, storing a stack of letters, remaining in the left. When we process a letter, it will be deleted together with the last letter in the stack if they are equal or will be pushed to the stack. Let's calculate parity of the number of deletions during this process and determine the answer.Author: 300iqStatements and editorial: scanhex "
+}

@@ -1,0 +1,12 @@
+{
+    "title": "B. Ternary Sequence",
+    "description": "You are given two sequences a1,a2,…,an and b1,b2,…,bn. Each element of both sequences is either 0, 1 or 2. The number of elements 0, 1, 2 in the sequence a is x1, y1, z1 respectively, and the number of elements 0, 1, 2 in the sequence b is x2, y2, z2 respectively.\nYou can rearrange the elements in both sequences a and b however you like. After that, let's define a sequence c as follows:\nci={aibiif ai>bi0if ai=bi−aibiif ai<bi\nYou'd like to make ∑ni=1ci (the sum of all elements of the sequence c) as large as possible. What is the maximum possible sum?\nThe first line contains one integer t (1≤t≤104) — the number of test cases.\nEach test case consists of two lines. The first line of each test case contains three integers x1, y1, z1 (0≤x1,y1,z1≤108) — the number of 0-s, 1-s and 2-s in the sequence a.\nThe second line of each test case also contains three integers x2, y2, z2 (0≤x2,y2,z2≤108; x1+y1+z1=x2+y2+z2>0) — the number of 0-s, 1-s and 2-s in the sequence b.\nFor each test case, print the maximum possible sum of the sequence c.\nIn the first sample, one of the optimal solutions is:\na={2,0,1,1,0,2,1}\nb={1,0,1,0,2,1,0}\nc={2,0,0,0,0,2,0}\nIn the second sample, one of the optimal solutions is:\na={0,2,0,0,0}\nb={1,1,0,1,0}\nc={0,2,0,0,0}\nIn the third sample, the only possible solution is:\na={2}\nb={2}\nc={0}",
+    "time limit": "time limit per test2 seconds",
+    "memory limit": "memory limit per test256 megabytes",
+    "tags": [
+        "constructive algorithms",
+        "greedy",
+        "math",
+        "*1100"
+    ]
+}

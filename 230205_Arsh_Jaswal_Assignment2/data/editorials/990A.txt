@@ -1,0 +1,14 @@
+990A - Commentary BoxesNotice that you need to check just two numbers: the closest one less or equal to n and the closest one greater than n. Distances to them are (nmodm) and (m−(nmodm)) respectively. Now you should multiply the first result by b, the second result by a and compare the products.Overall complexity: O(1). Solution (PikMike)#include <bits/stdc++.h>
+
+#define forn(i, n) for(int i = 0; i < int(n); i++)
+ 
+using namespace std;
+
+int main() {
+	long long n, m;
+	int a, b;
+	
+	cin >> n >> m >> a >> b;
+	cout << min(n % m * b, (m - n % m) * a) << endl;
+	return 0;
+}

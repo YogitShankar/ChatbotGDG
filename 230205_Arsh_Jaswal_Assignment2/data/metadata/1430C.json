@@ -1,0 +1,14 @@
+{
+    "title": "C. Numbers on Whiteboard",
+    "description": "Numbers 1,2,3,…n (each integer from 1 to n once) are written on a board. In one operation you can erase any two numbers a and b from the board and write one integer a+b2 rounded up instead.\nYou should perform the given operation n−1 times and make the resulting number that will be left on the board as small as possible. \nFor example, if n=4, the following course of action is optimal:\nIt's easy to see that after n−1 operations, there will be left only one number. Your goal is to minimize it.\nThe first line contains one integer t (1≤t≤1000) — the number of test cases.\nThe only line of each test case contains one integer n (2≤n≤2⋅105) — the number of integers written on the board initially.\nIt's guaranteed that the total sum of n over test cases doesn't exceed 2⋅105.\nFor each test case, in the first line, print the minimum possible number left on the board after n−1 operations. Each of the next n−1 lines should contain two integers — numbers a and b chosen and erased in each operation.",
+    "time limit": "time limit per test2 seconds",
+    "memory limit": "memory limit per test256 megabytes",
+    "tags": [
+        "constructive algorithms",
+        "data structures",
+        "greedy",
+        "implementation",
+        "math",
+        "*1000"
+    ]
+}

@@ -1,0 +1,30 @@
+1546B - AquaMoon and Stolen StringWe can find that for each letter of the answer must appear an odd number of times in its column(Since for other strings, they appear twice in total. The operation does not change the number of the occurrence of some certain letter in one column).So we can consider each position individually. There is always exactly one letter that occurs an odd number of times. So just take them out and they are the letters of the stolen string. solution#include <cstdio>
+const int Maxn=1000000;
+char s[Maxn+5];
+char ans[Maxn+5];
+int n,m;
+void solve(){
+    scanf("%d%d",&n,&m);
+    n=(n<<1)-1;
+    for(int i=1;i<=m;i++){
+        ans[i]=0;
+    }
+    for(int i=1;i<=n;i++){
+        scanf("%s",s+1);
+        for(int j=1;j<=m;j++){
+            ans[j]^=s[j];
+        }
+    }
+    for(int i=1;i<=m;i++){
+        putchar(ans[i]);
+    }
+    putchar('\n');
+}
+int main(){
+    int T;
+    scanf("%d",&T);
+    while(T--){
+        solve();
+    }
+	return 0;
+}Idea: AquaMoon 

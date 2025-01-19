@@ -1,0 +1,13 @@
+{
+    "title": "B. A BIT of a Construction",
+    "description": "Given integers n and k, construct a sequence of n non-negative (i.e. ≥0) integers a1,a2,…,an such that \nThe first line contains a single integer t (1≤t≤104) — the number of test cases.\nThe only line of each test case contains two integers n and k (1≤n≤2⋅105, 1≤k≤109) — the number of non-negative integers to be printed and the sum respectively.\nIt is guaranteed that the sum of n over all test cases does not exceed 2⋅105.\nFor each test case, output a sequence a1,a2,…,an on a new line that satisfies the conditions given above.\nIf there are multiple solutions, print any of them.\nIn the first test case, we have to print exactly one integer, hence we can only output 5 as the answer.\nIn the second test case, we output 1,2 which sum up to 3, and 1|2=(11)2 has two 1s in its binary representation, which is the maximum we can achieve in these constraints.\nIn the fourth test case, we output 3,1,1,32,2,12 which sum up to 51, and 3|1|1|32|2|12=(101111)2 has five 1s in its binary representation, which is the maximum we can achieve in these constraints.",
+    "time limit": "time limit per test2 seconds",
+    "memory limit": "memory limit per test256 megabytes",
+    "tags": [
+        "bitmasks",
+        "constructive algorithms",
+        "greedy",
+        "implementation",
+        "*1100"
+    ]
+}

@@ -1,0 +1,34 @@
+1249B1 - Books Exchange (easy version)In this problem you just need to implement what is written in the problem statement. For the kid i the following pseudocode will calculate the answer (indices of the array p and its values are 0-indexed):pos = p[i]ans = 1while pos != i:    ans += 1    pos = p[pos] Solution#include <bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+#ifdef _DEBUG
+	freopen("input.txt", "r", stdin);
+//	freopen("output.txt", "w", stdout);
+#endif
+	
+	int q;
+	cin >> q;
+	for (int i = 0; i < q; ++i) {
+		int n;
+		cin >> n;
+		vector<int> p(n);
+		for (int j = 0; j < n; ++j) {
+			cin >> p[j];
+			--p[j];
+		}
+		for (int j = 0; j < n; ++j) {
+			int cnt = 0;
+			int k = j;
+			do {
+				++cnt;
+				k = p[k];
+			} while (k != j);
+			cout << cnt << " ";
+		}
+		cout << endl;
+	}
+	
+	return 0;
+}

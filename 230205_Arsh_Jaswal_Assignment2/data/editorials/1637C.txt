@@ -1,0 +1,29 @@
+1637C - Andrew and StonesConsider 2 cases when the answer is −1 for sure:   For all 1<i<n: ai=1. In this case, it's not possible to make any operation and not all stones are in piles 1 or n.  n=3 and a2 is odd. Then after any operation this number will remain odd, so it can never become equal to 0. Later it will become clear why these are the only cases where the answer is −1. To show it consider the following algorithm:   If all stones are in piles 1 and n then the algorithm is done.  If there is at least one non-zero even element (piles 1 and n don't count), then subtract 2 from it, add 1 to the odd number to the left or to the pile 1 if there's no such number. Similarly add 1 to the odd number to the right or to the pile n if there's no such number. Then continue the algorithm. Note that the number of odd elements after it (piles 1 and n don't count) decreases at least by 1 (if there was any odd number). Also either a new even number has appeared, or the algorithm will be done.  If all remaining non-zero numbers are odd, then there is at least one odd number greater than 1. So let's subtract 2 from this element and add ones similar to the 2-nd case. In this case the number of odd elements decreases at least by 1. From the notes written in the second and third cases, it follows that the algorithm always puts all stones to the piles 1 and n. Also note that if in the initial array the element in position i (1<i<n) was even, then the algorithm did not add any 1 to it, so the number of operations with the center in i equals to ai2. And if ai was odd, the algorithm will add 1 to this element exactly once, so the number of operations with the center in i equals to ai+12.This algorithm is optimal because for each odd number it's necessary to add at least 1 to it and the algorithm adds exactly 1. And from even elements the algorithm can only subtract. It means that the answer to the problem equals to ∑n−1i=2⌈ai2⌉. Time complexity is O(n). Solution#include <bits/stdc++.h>
+using namespace std;
+ 
+void solve() {
+    int n;
+    cin >> n;
+    vector<int> a(n);
+    for (auto &x : a)
+        cin >> x;
+ 
+    if (*max_element(a.begin() + 1, a.end() - 1) == 1 || (n == 3 && a[1] % 2 == 1)) {
+        cout << "-1\n";
+        return;
+    }
+ 
+    long long answer = 0;
+    for (int i = 1; i < n - 1; i++)
+        answer += (a[i] + 1) / 2;
+ 
+    cout << answer << '\n';
+}
+ 
+int main() {
+    ios::sync_with_stdio(false), cin.tie(nullptr);
+    int tests;
+    cin >> tests;
+    while (tests--)
+        solve();
+}

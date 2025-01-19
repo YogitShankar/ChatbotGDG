@@ -1,0 +1,31 @@
+1506C - Double-ended StringsRegarding to the small constraints, in this problem you could iterate over how many characters were removed by each type of operation. If l characters at the beginning and x characters at the end are removed from the string s, then the substring s[l+1,n−x] remains, where n — is the length of the string s.There is also a fast solution to this problem using dynamic programming. Solution#include <bits/stdc++.h>
+
+using namespace std;
+using ll = long long;
+
+void solve() {
+    string a, b;
+    cin >> a >> b;
+    int n = a.size(), m = b.size();
+    int ans = 0;
+    for (int len = 1; len <= min(n, m); len++) {
+        for (int i = 0; i + len <= n; i++) {
+            for (int j = 0; j + len <= m; j++) {
+                if (a.substr(i, len) == b.substr(j, len)) {
+                    ans = max(ans, len);
+                }
+            }
+        }
+    }
+    cout << a.size() + b.size() - 2 * ans << "\n";
+}
+
+int main() {
+    ios_base::sync_with_stdio(false);
+    cin.tie(nullptr); cout.tie(nullptr);
+    int n;
+    cin >> n;
+    while (n--) {
+        solve();
+    }
+}

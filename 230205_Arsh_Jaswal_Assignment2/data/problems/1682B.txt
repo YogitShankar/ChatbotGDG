@@ -1,0 +1,13 @@
+You are given a permutation p of integers from 0 to n−1 (each of them occurs exactly once). Initially, the permutation is not sorted (that is, pi>pi+1 for at least one 1≤i≤n−1). 
+The permutation is called X-sortable for some non-negative integer X if it is possible to sort the permutation by performing the operation below some finite number of times: 
+Here & denotes the bitwise AND operation.
+Find the maximum value of X such that p is X-sortable. It can be shown that there always exists some value of X such that p is X-sortable.
+The input consists of multiple test cases. The first line contains a single integer t (1≤t≤104)  — the number of test cases. Description of test cases follows.
+The first line of each test case contains a single integer n (2≤n≤2⋅105)  — the length of the permutation.
+The second line of each test case contains n integers p1,p2,...,pn (0≤pi≤n−1, all pi are distinct)  — the elements of p. It is guaranteed that p is not sorted.
+It is guaranteed that the sum of n over all cases does not exceed 2⋅105.
+For each test case output a single integer — the maximum value of X such that p is X-sortable.
+In the first test case, the only X for which the permutation is X-sortable are X=0 and X=2, maximum of which is 2.
+Sorting using X=0: 
+Sorting using X=2: 
+In the second test case, we must swap p1 and p2 which is possible only with X=0.

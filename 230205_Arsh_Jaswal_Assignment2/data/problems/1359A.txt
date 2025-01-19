@@ -1,0 +1,8 @@
+The game of Berland poker is played with a deck of n cards, m of which are jokers. k players play this game (n is divisible by k).
+At the beginning of the game, each player takes nk cards from the deck (so each card is taken by exactly one player). The player who has the maximum number of jokers is the winner, and he gets the number of points equal to x−y, where x is the number of jokers in the winner's hand, and y is the maximum number of jokers among all other players. If there are two or more players with maximum number of jokers, all of them are winners and they get 0 points.
+Here are some examples:
+Given n, m and k, calculate the maximum number of points a player can get for winning the game.
+The first line of the input contains one integer t (1≤t≤500) — the number of test cases.
+Then the test cases follow. Each test case contains three integers n, m and k (2≤n≤50, 0≤m≤n, 2≤k≤n, k is a divisors of n).
+For each test case, print one integer — the maximum number of points a player can get for winning the game.
+Test cases of the example are described in the statement.

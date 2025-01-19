@@ -1,0 +1,1 @@
+2014C - Robin Hood in Town Hint 1Answer is impossible if n less than 3. Hint 2Lets first find minimum no of people that should be unhappy (say K). Hint 3Lets sort A, now average should be more than 2*Ak Hint 4Lets say pot has X gold.Let S be the total gold. 2∗Ak<(S+X)/N2∗N∗Ak<S+X2∗N∗Ak−S<X2∗N∗Ak−S+1≤X So X should be max(0,2*N*ak-S+1) My submission — 282243282 Video Editorial

@@ -1,0 +1,11 @@
+{
+    "title": "A. Filling Shapes",
+    "description": "You have a given integer n. Find the number of ways to fill all 3×n tiles with the shape described in the picture below. Upon filling, no empty spaces are allowed. Shapes cannot overlap.\nThe only line contains one integer n (1≤n≤60) — the length.\nPrint the number of ways to fill.\nIn the first example, there are 4 possible cases of filling.\nIn the second example, you cannot fill the shapes in 3×1 tiles.",
+    "time limit": "time limit per test1 second",
+    "memory limit": "memory limit per test256 megabytes",
+    "tags": [
+        "dp",
+        "math",
+        "*1000"
+    ]
+}

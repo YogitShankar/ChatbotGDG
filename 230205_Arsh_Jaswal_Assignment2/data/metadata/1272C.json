@@ -1,0 +1,12 @@
+{
+    "title": "C. Yet Another Broken Keyboard",
+    "description": "Recently, Norge found a string s=s1s2…sn consisting of n lowercase Latin letters. As an exercise to improve his typing speed, he decided to type all substrings of the string s. Yes, all n(n+1)2 of them!\nA substring of s is a non-empty string x=s[a…b]=sasa+1…sb (1≤a≤b≤n). For example, \"auto\" and \"ton\" are substrings of \"automaton\".\nShortly after the start of the exercise, Norge realized that his keyboard was broken, namely, he could use only k Latin letters c1,c2,…,ck out of 26.\nAfter that, Norge became interested in how many substrings of the string s he could still type using his broken keyboard. Help him to find this number.\nThe first line contains two space-separated integers n and k (1≤n≤2⋅105, 1≤k≤26) — the length of the string s and the number of Latin letters still available on the keyboard.\nThe second line contains the string s consisting of exactly n lowercase Latin letters.\nThe third line contains k space-separated distinct lowercase Latin letters c1,c2,…,ck — the letters still available on the keyboard.\nPrint a single number — the number of substrings of s that can be typed using only available letters c1,c2,…,ck.\nIn the first example Norge can print substrings s[1…2], s[2…3], s[1…3], s[1…1], s[2…2], s[3…3], s[5…6], s[6…7], s[5…7], s[5…5], s[6…6], s[7…7].",
+    "time limit": "time limit per test2 seconds",
+    "memory limit": "memory limit per test256 megabytes",
+    "tags": [
+        "combinatorics",
+        "dp",
+        "implementation",
+        "*1200"
+    ]
+}

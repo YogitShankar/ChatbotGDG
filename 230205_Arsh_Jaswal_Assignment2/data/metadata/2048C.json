@@ -1,0 +1,14 @@
+{
+    "title": "C. Kevin and Binary Strings",
+    "description": "Kevin discovered a binary string s that starts with 1 in the river at Moonlit River Park and handed it over to you. Your task is to select two non-empty substrings∗ of s (which can be overlapped) to maximize the XOR value of these two substrings.\nThe XOR of two binary strings a and b is defined as the result of the ⊕ operation applied to the two numbers obtained by interpreting a and b as binary numbers, with the leftmost bit representing the highest value. Here, ⊕ denotes the bitwise XOR operation.\nThe strings you choose may have leading zeros.\n∗A string a is a substring of a string b if a can be obtained from b by the deletion of several (possibly, zero or all) characters from the beginning and several (possibly, zero or all) characters from the end. \nEach test contains multiple test cases. The first line contains the number of test cases t (1≤t≤103).\nThe only line of each test case contains a binary string s that starts with 1 (1≤|s|≤5000).\nIt is guaranteed that the sum of |s| over all test cases doesn't exceed 5000.\nFor each test case, output four integers l1,r1,l2,r2 (1≤l1≤r1≤|s|, 1≤l2≤r2≤|s|) — in the case the two substrings you selected are sl1sl1+1…sr1 and sl2sl2+1…sr2.\nIf there are multiple solutions, print any of them.\nIn the first test case, we can choose s2=1 and s1s2s3=111, and 1⊕111=110. It can be proven that it is impossible to obtain a larger result. Additionally, l1=3, r1=3, l2=1, r2=3 is also a valid solution.\nIn the second test case, s1s2s3=100, s1s2s3s4=1000, the result is 100⊕1000=1100, which is the maximum.",
+    "time limit": "time limit per test2 seconds",
+    "memory limit": "memory limit per test256 megabytes",
+    "tags": [
+        "bitmasks",
+        "brute force",
+        "greedy",
+        "implementation",
+        "strings",
+        "*1200"
+    ]
+}

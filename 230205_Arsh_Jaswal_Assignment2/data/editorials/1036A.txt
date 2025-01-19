@@ -1,0 +1,2 @@
+1036A - Function HeightIt is easy to see that the area of the plot is the sum of areas of all triangles in this plot. Each move increases area by one. We cannot obtain the answer less than ⌈kn⌉ but we always can obtain such an answer. Solution (Vovuh)n, k = map(int, input().split())
+print((k + n - 1) // n)

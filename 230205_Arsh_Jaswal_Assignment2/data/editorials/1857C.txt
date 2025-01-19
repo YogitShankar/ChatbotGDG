@@ -1,0 +1,58 @@
+1857C - Assembly via MinimumsSuppose we have an array a that we want to construct, with elements a1,a2,…,an. To simplify the process, let's assume that the elements of a are sorted in non-decreasing order, meaning a1≤a2≤⋯≤an.Let's start with a1. Since the elements of a are sorted, the pairs (a1,a2),(a1,a3),…,(a1,an) will have a1 as the smallest element in each pair. Therefore, the number of occurrences of a1 in array b will be n−1.Moving on to a2, we already know that a1 appears n−1 times in b. Since the elements of a are sorted, all pairs involving a2 will have a2 as the second smallest element. This means a2 will appear n−2 times in array b.We continue this process for each element ai in a. The number of occurrences of ai in array b will be n−i.We can't determine the exact value of an , because it won't be written to array b. Therefore, for an we can choose any number in the range [an−1;109]. In case there are multiple elements bi in array b that satisfy the condition for a particular ai, we choose the smallest bi. This greedy approach works, because we are constructing a in non-decreasing order.The complexity is O(n2logn). Code C++#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int t;cin>>t;
+    while(t--)
+    {
+        int n;cin>>n;
+        int m=n*(n-1)/2,b[m];
+        for(int i=0;i<m;i++)cin>>b[i];
+        sort(b,b+m);
+        for(int i=0;i<m;i+=--n)cout<<b[i]<<' ';
+        cout<<"1000000000\n";
+    }
+} Code Pythonfor _ in range(int(input())):
+    n=int(input())
+    l=sorted(map(int,input().split()))
+    j=0
+    for i in range(n-1,0,-1):
+        print(l[j],end=' ')
+        j+=i
+    print(l[-1]) Rate the problem Good task 
+
+    
+
+
+572
+
+
+
+ Average task 
+
+    
+
+
+67
+
+
+
+ Bad task 
+
+    
+
+
+42
+
+
+
+ Didn't solve 
+
+    
+
+
+67
+
+
+
+ 

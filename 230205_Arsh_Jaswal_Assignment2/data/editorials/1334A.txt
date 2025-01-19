@@ -1,0 +1,26 @@
+1334A - Level StatisticsLet's use the fact that initially the level has $$$0$$$ plays and $$$0$$$ clears. Call the differences before the previous stats and the current ones $$$\Delta p$$$ and $$$\Delta c$$$.The stats are given in chronological order, so neither the number of plays, nor the number of clears should decrease (i.e. $$$\Delta p \ge 0$$$ and $$$\Delta c \ge 0$$$).Finally, $$$\Delta p$$$ should be greater or equal to $$$\Delta c$$$. It's easy to show that if $$$\Delta c$$$ players pass the level successfully and $$$\Delta p - \Delta c$$$ players just try the level then such deltas are achieved.So in implementation it's enough to check these three conditions between the consecutive pieces of data (including the initial ($$$0, 0$$$)).Overall complexity: $$$O(n)$$$. Solution (pikmike)#include <bits/stdc++.h>
+
+#define forn(i, n) for (int i = 0; i < int(n); i++)
+
+using namespace std;
+
+
+int main() {
+	int tc;
+	scanf("%d", &tc);
+	while (tc--){
+		int n;
+		scanf("%d", &n);
+		int p = 0, c = 0;
+		bool fl = true;
+		forn(i, n){
+			int x, y;
+			scanf("%d%d", &x, &y);
+			if (x < p || y < c || y - c > x - p)
+				fl = false;
+			p = x, c = y;
+		}
+		puts(fl ? "YES" : "NO");
+	}
+	return 0;
+}

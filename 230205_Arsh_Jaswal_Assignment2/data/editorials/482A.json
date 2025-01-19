@@ -1,0 +1,3 @@
+{
+    "solution": "482A - Diverse PermutationProblem author gridnevvvitLet's see, what's the solution for some k = n - 1:1 10 2 9 3 8 4 7 5 6At the odd indexes we placed increasing sequence 1, 2, 3 .., at the even — decreasing sequence n, n - 1, n - 2, ... First, we must get the permutation the way described above, then get first k numbers from it, and then we should make all other distances be equal to 1.This solution works with O(n).Jury's solution: 8394876483D - Interesting Array / "
+}

@@ -1,0 +1,14 @@
+1352C - K-th Not Divisible by nSuppose the answer is just k-th positive integer which we should "shift right" by some number. Each multiplier of n shifts our answer by 1. The number of such multipliers is need=⌊k−1n−1⌋, where ⌊xy⌋ is x divided by y rounded down. So the final answer is k+need (k-th positive integer with the required number of skipped integers multipliers of n).You can also use a binary search to solve this problem :) Solution#include <bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+	int t;
+	cin >> t;
+	while (t--) {
+		int n, k;
+		cin >> n >> k;
+		int need = (k - 1) / (n - 1);
+		cout << k + need << endl;
+	}
+}

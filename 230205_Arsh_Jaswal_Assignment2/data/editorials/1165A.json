@@ -1,0 +1,3 @@
+{
+    "solution": "1165A - RemainderIdea: vovuh TutorialTutorial is loading... Solution#include <bits/stdc++.h>\n\nusing namespace std;\n\nint main() {\n#ifdef _DEBUG\n\tfreopen(\"input.txt\", \"r\", stdin);\n//\tfreopen(\"output.txt\", \"w\", stdout);\n#endif\n\t\n\tint n, x, y;\n\tstring s;\n\tcin >> n >> x >> y >> s;\n\t\n\tint ans = 0;\n\tfor (int i = n - x; i < n; ++i) {\n\t\tif (i == n - y - 1) ans += s[i] != '1';\n\t\telse ans += s[i] != '0';\n\t}\n\t\n\tcout << ans << endl;\n\t\n\treturn 0;\n}"
+}
