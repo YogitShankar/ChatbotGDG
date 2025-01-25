@@ -5,7 +5,9 @@ Project Submission repository
 How to give query?
 
 query = "Can you tell me about Catch the coin problem?"
+
 response = chatbot.chat(query)
+
 print(response)
 
 This will give you the required response...
