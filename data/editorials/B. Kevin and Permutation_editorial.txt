@@ -1,0 +1,4 @@
+Hint 1 
+ If the permutation is sufficiently long, what is the maximum number of length k subintervals where the minimum value is 1? 
+Tutorial 
+ 2048B - Kevin and PermutationIn the entire permutation, at most k subintervals can contain 1. Similarly, at most k subintervals can contain 2,3,…. To maximize the number of subintervals where the minimum value is as small as possible, we use the following construction: pk=1,p2k=2,…,p⌊nk⌋⋅k=⌊nk⌋For the remaining positions, we can fill them arbitrarily with all values from ⌊nk⌋+1 to n. It is easy to prove that this construction minimizes the answer. 
