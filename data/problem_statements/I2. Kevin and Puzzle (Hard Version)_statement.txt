@@ -1,0 +1,6 @@
+This is the hard version of the problem. The difference between the versions is that in this version, you need to count the number of good arrays. You can hack only if you solved all versions of this problem. 
+Kevin is visiting the Red Church, and he found a puzzle on the wall.
+For an array a, let c(l,r) indicate how many distinct numbers are among al,al+1,…,ar. In particular, if l>r, define c(l,r)=0.
+You are given a string s of length n consisting of letters L and R only. Let a non-negative array a be called good, if the following conditions hold for 1≤i≤n: 
+  if si=L, then c(1,i−1)=ai;  if si=R, then c(i+1,n)=ai. 
+You need to count the number of good arrays a. Since the answer may be large, you only need to output the answer modulo 998244353.

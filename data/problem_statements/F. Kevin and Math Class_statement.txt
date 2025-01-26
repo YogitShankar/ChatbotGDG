@@ -1,0 +1,5 @@
+Kevin is a student from Eversleeping Town, currently attending a math class where the teacher is giving him division exercises.
+On the board, there are two rows of positive integers written, each containing n numbers. The first row is a1,a2,…,an, and the second row is b1,b2,…,bn. 
+For each division exercise, Kevin can choose any segment [l,r] and find the smallest value x among bl,bl+1,…,br. He will then modify each ai for l≤i≤r to be the ceiling of ai divided by x.
+Formally, he selects two integers 1≤l≤r≤n, sets x=minl≤i≤rbi, and changes all ai for l≤i≤r to ⌈aix⌉.
+Kevin can leave class and go home when all ai become 1. He is eager to leave and wants to know the minimum number of division exercises required to achieve this.

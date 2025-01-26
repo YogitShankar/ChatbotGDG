@@ -1,0 +1,5 @@
+The Arms Factory needs a poster design pattern and finds Kevin for help.
+A poster design pattern is a bipartite graph with 2n vertices in the left part and m vertices in the right part, where there is an edge between each vertex in the left part and each vertex in the right part, resulting in a total of 2nm edges.
+Kevin must color each edge with a positive integer in the range [1,n]. A poster design pattern is good if there are no monochromatic cycles∗ in the bipartite graph.
+Kevin needs your assistance in constructing a good bipartite graph or informing him if it is impossible.
+∗A monochromatic cycle refers to a simple cycle in which all the edges are colored with the same color.

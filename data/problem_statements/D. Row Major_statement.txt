@@ -1,0 +1,6 @@
+The row-major order of an r×c grid of characters A is the string obtained by concatenating all the rows, i.e. A11A12…A1cA21A22…A2c…Ar1Ar2…Arc.
+
+ A_{11}A_{12} \dots A_{1c}A_{21}A_{22} \dots A_{2c} \dots A_{r1}A_{r2} \dots A_{rc}. 
+A grid of characters A is bad if there are some two adjacent cells (cells sharing an edge) with the same character.
+You are given a positive integer n. Consider all strings s consisting of only lowercase Latin letters such that they are not the row-major order of any bad grid. Find any string with the minimum number of distinct characters among all such strings of length n.
+It can be proven that at least one such string exists under the constraints of the problem.

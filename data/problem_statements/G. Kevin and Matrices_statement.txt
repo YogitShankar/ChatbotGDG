@@ -1,0 +1,7 @@
+Kevin has been transported to Sacred Heart Hospital, which contains all the n×m matrices with integer values in the range [1,v].
+Now, Kevin wants to befriend some matrices, but he is willing to befriend a matrix a if and only if the following condition is satisfied:
+min1≤i≤n(max1≤j≤mai,j)≤max1≤j≤m(min1≤i≤nai,j).
+
+ \min_{1\le i\le n}\left(\max_{1\le j\le m}a_{i,j}\right)\le\max_{1\le j\le m}\left(\min_{1\le i\le n}a_{i,j}\right). 
+Please count how many matrices in Sacred Heart Hospital can be friends with Kevin.
+Since Kevin is very friendly, there could be many matrices that meet this condition. Therefore, you only need to output the result modulo 998244353.
