@@ -1,0 +1,19 @@
+{
+    "problem_id": "D",
+    "contest_id": "1844",
+    "name": "D. Row Major",
+    "url": "https://codeforces.com/contest/1844/problem/D",
+    "difficulty": "*1400",
+    "tags": [
+        "constructivealgorithms",
+        "greedy",
+        "math",
+        "numbertheory",
+        "strings"
+    ],
+    "time_limit": "2 seconds",
+    "memory_limit": "256 megabytes",
+    "input_specification": "Input\nEach test contains multiple test cases. The first line contains the number of test cases  (). The description of the test cases follows.\nThe only line of each test case contains a single integer  ().\nIt is guaranteed that the sum of  over all test cases does not exceed .",
+    "output_specification": "Output\nFor each test case, output a string with the minimum number of distinct characters among all suitable strings of length .\nIf there are multiple solutions, print any of them.",
+    "sample_tests": "Input\nCopy\n4\n4\n2\n1\n6\nOutput\nCopy\nthat\nis\na\ntomato"
+}

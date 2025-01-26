@@ -1,0 +1,16 @@
+{
+  "title": "B. Before an Exam",
+  "time_limit": "time limit per test0.5 second",
+  "memory_limit": "memory limit per test64 megabytes",
+  "tags": [
+    "constructive algorithms",
+    "greedy",
+    "*1200"
+  ],
+  "samples": [
+    {
+      "input": "1 485 7",
+      "output": "NO"
+    }
+  ]
+}

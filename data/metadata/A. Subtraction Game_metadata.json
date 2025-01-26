@@ -1,0 +1,16 @@
+{
+    "problem_id": "A",
+    "contest_id": "1844",
+    "name": "A. Subtraction Game",
+    "url": "https://codeforces.com/contest/1844/problem/A",
+    "difficulty": "*800",
+    "tags": [
+        "constructivealgorithms",
+        "games"
+    ],
+    "time_limit": "1 second",
+    "memory_limit": "256 megabytes",
+    "input_specification": "Input\nEach test contains multiple test cases. The first line contains the number of test cases  (). The description of the test cases follows.\nThe only line of each test case contains two integers,  and  ().",
+    "output_specification": "Output\nFor each test case, output any positive integer  () such that the second player to move wins.\nIt can be proven that such an  always exists under the constraints of the problem.",
+    "sample_tests": "Input\nCopy\n3\n1 4\n1 5\n9 26\nOutput\nCopy\n2\n6\n3"
+}

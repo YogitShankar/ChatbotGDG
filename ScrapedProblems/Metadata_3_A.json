@@ -1,0 +1,16 @@
+{
+  "title": "A. Shortest path of the king",
+  "time_limit": "time limit per test1 second",
+  "memory_limit": "memory limit per test64 megabytes",
+  "tags": [
+    "greedy",
+    "shortest paths",
+    "*1000"
+  ],
+  "samples": [
+    {
+      "input": "a8h1",
+      "output": "7RDRDRDRDRDRDRD"
+    }
+  ]
+}

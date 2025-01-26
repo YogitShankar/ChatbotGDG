@@ -1,0 +1,16 @@
+{
+    "problem_id": "B",
+    "contest_id": "1844",
+    "name": "B. Permutations & Primes",
+    "url": "https://codeforces.com/contest/1844/problem/B",
+    "difficulty": "*1000",
+    "tags": [
+        "constructivealgorithms",
+        "math"
+    ],
+    "time_limit": "1 second",
+    "memory_limit": "256 megabytes",
+    "input_specification": "Input\nEach test contains multiple test cases. The first line contains the number of test cases t (1\u2264t\u2264104). The description of the test cases follows.\nThe only line of each test case contains a single integer n (1\u2264n\u22642\u22c5105).\nIt is guaranteed that the sum of n over all test cases does not exceed 2\u22c5105.",
+    "output_specification": "Output\nFor each test case, output n integers: a permutation of 1,2,\u2026,n that achieves the maximum possible primality.\nIf there are multiple solutions, print any of them.",
+    "sample_tests": "Input\nCopy\n3\n2\n1\n5\nOutput\nCopy\n2 1\n1\n5 2 1 4 3"
+}

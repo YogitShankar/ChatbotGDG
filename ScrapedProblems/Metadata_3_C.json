@@ -1,0 +1,17 @@
+{
+  "title": "C. Tic-tac-toe",
+  "time_limit": "time limit per test1 second",
+  "memory_limit": "memory limit per test64 megabytes",
+  "tags": [
+    "brute force",
+    "games",
+    "implementation",
+    "*1800"
+  ],
+  "samples": [
+    {
+      "input": "X0X.0..X.",
+      "output": "second"
+    }
+  ]
+}

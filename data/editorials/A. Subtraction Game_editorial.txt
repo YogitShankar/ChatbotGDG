@@ -1,0 +1,19 @@
+Problem Solution 1844A 
+Hint 1 
+ There exists a small n where the second player can win. 
+Hint 2 
+ If a≥2, then n=1 works. 
+Subtraction GameWe present two approaches.Approach 1If a≥2, then n=1 works.Else if a=1 and b≥3, n=2 works.Otherwise, a=1 and b=2, so n=3 works.Approach 2Printing a+b works because no matter what move the first player makes, the second player can respond with the opposite move.The time complexity is O(1) per test case. 
+Implementation 
+ #include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    int t,a,b;
+    scanf("%d",&t);
+    while (t--) {
+        scanf("%d %d",&a,&b);
+        printf("%d\n",a+b);
+    }
+    return 0;
+} 

@@ -1,0 +1,18 @@
+{
+    "problem_id": "C",
+    "contest_id": "1844",
+    "name": "C. Particles",
+    "url": "https://codeforces.com/contest/1844/problem/C",
+    "difficulty": "*1300",
+    "tags": [
+        "dp",
+        "greedy",
+        "implementation",
+        "math"
+    ],
+    "time_limit": "1 second",
+    "memory_limit": "256 megabytes",
+    "input_specification": "Input\nEach test contains multiple test cases. The first line contains the number of test cases  (). The description of the test cases follows.\nThe first line of each test case contains a single integer  ().\nThe second line of each test case contains  integers  ().\nIt is guaranteed that the sum of  over all test cases does not exceed .",
+    "output_specification": "Output\nFor each test case, output one integer, the maximum charge of the remaining particle.",
+    "sample_tests": "Input\nCopy\n3\n6\n-3 1 4 -1 5 -9\n5\n998244353 998244353 998244353 998244353 998244353\n1\n-2718\nOutput\nCopy\n9\n2994733059\n-2718"
+}

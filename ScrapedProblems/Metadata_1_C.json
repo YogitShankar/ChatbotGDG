@@ -1,0 +1,16 @@
+{
+  "title": "C. Ancient Berland Circus",
+  "time_limit": "time limit per test2 seconds",
+  "memory_limit": "memory limit per test64 megabytes",
+  "tags": [
+    "geometry",
+    "math",
+    "*2100"
+  ],
+  "samples": [
+    {
+      "input": "0.000000 0.0000001.000000 1.0000000.000000 1.000000",
+      "output": "1.00000000"
+    }
+  ]
+}
