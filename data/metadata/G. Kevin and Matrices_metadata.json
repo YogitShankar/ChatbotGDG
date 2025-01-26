@@ -1,0 +1,18 @@
+{
+    "problem_id": "G",
+    "contest_id": "2048",
+    "name": "G. Kevin and Matrices",
+    "url": "https://codeforces.com/contest/2048/problem/G",
+    "difficulty": "*2800",
+    "tags": [
+        "bruteforce",
+        "combinatorics",
+        "dp",
+        "math"
+    ],
+    "time_limit": "6 seconds",
+    "memory_limit": "256 megabytes",
+    "input_specification": "Input\nEach test contains multiple test cases. The first line contains the number of test cases t (1\u2264t\u22648\u22c5103).\nThe only line of each test case contains three integers n, m, v (1\u2264n,v,n\u22c5v\u2264106, 1\u2264m\u2264109).\nIt is guaranteed that the sum of n\u22c5v over all test cases doesn't exceed 106.",
+    "output_specification": "Output\nFor each test case, output one integer\u00a0\u2014 the number of matrices that can be friends with Kevin modulo 998244353.",
+    "sample_tests": "Input\nCopy\n3\n2 2 2\n2 3 4\n11 45 14\nOutput\nCopy\n14\n2824\n883799966"
+}

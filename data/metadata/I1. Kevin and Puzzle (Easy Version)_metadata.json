@@ -1,0 +1,15 @@
+{
+    "problem_id": "I1",
+    "contest_id": "2048",
+    "name": "I1. Kevin and Puzzle (Easy Version)",
+    "url": "https://codeforces.com/contest/2048/problem/I1",
+    "difficulty": "*3500",
+    "tags": [
+        "constructivealgorithms"
+    ],
+    "time_limit": "2 seconds",
+    "memory_limit": "512 megabytes",
+    "input_specification": "Input\nEach test contains multiple test cases. The first line contains a single integer t (1\u2264t\u2264104)\u00a0\u2014 the number of test cases. The description of the test cases follows.\nThe first line of each test case contains a single integer n (2\u2264n\u22642\u22c5105)\u00a0\u2014 the length of string s.\nThe second line of each test case contains a string s with a length n, containing only English uppercase letters L and R.\nIt is guaranteed that the sum of n over all test cases does not exceed 2\u22c5105.",
+    "output_specification": "Output\nFor each test case, if a good array exists, print n non-negative integers: a good array a. Otherwise, print a single integer \u22121. \nIf there are multiple arrays a satisfying the conditions, you can output any of them.",
+    "sample_tests": "Input\nCopy\n4\n3\nLLR\n3\nRRL\n4\nRRLR\n5\nLLRLR\nOutput\nCopy\n0 1 0\n2 1 2\n-1\n0 1 2 3 0"
+}

@@ -1,0 +1,16 @@
+{
+    "problem_id": "H",
+    "contest_id": "2048",
+    "name": "H. Kevin and Strange Operation",
+    "url": "https://codeforces.com/contest/2048/problem/H",
+    "difficulty": "*3100",
+    "tags": [
+        "datastructures",
+        "dp"
+    ],
+    "time_limit": "2 seconds",
+    "memory_limit": "256 megabytes",
+    "input_specification": "Input\nEach test contains multiple test cases. The first line contains a single integer t (1\u2264t\u2264104)\u00a0\u2014 the number of test cases.\nFor each test case, the only line contains a binary string s (1\u2264|s|\u2264106).\nIt is guaranteed that the sum of |s| over all test cases does not exceed 106.",
+    "output_specification": "Output\nFor each test case, print a single integer in the only line of the output\u00a0\u2014 the number of distinct non-empty binary strings you can obtain, modulo 998244353.",
+    "sample_tests": "Input\nCopy\n2\n11001\n000110111001100\nOutput\nCopy\n9\n73"
+}

@@ -1,0 +1,16 @@
+{
+    "problem_id": "B",
+    "contest_id": "1844",
+    "name": "B. Permutations & Primes",
+    "url": "https://codeforces.com/contest/1844/problem/B",
+    "difficulty": "*1000",
+    "tags": [
+        "constructivealgorithms",
+        "math"
+    ],
+    "time_limit": "1 second",
+    "memory_limit": "256 megabytes",
+    "input_specification": "Input\nEach test contains multiple test cases. The first line contains the number of test cases $$$t$$$ ($$$1 \\le t \\le 10^4$$$). The description of the test cases follows.\nThe only line of each test case contains a single integer $$$n$$$ ($$$1 \\le n \\le 2 \\cdot 10^5$$$).\nIt is guaranteed that the sum of $$$n$$$ over all test cases does not exceed $$$2 \\cdot 10^5$$$.",
+    "output_specification": "Output\nFor each test case, output $$$n$$$ integers: a permutation of $$$1,2,\\dots,n$$$ that achieves the maximum possible primality.\nIf there are multiple solutions, print any of them.",
+    "sample_tests": "Input\nCopy\n3\n2\n1\n5\nOutput\nCopy\n2 1\n1\n5 2 1 4 3"
+}
