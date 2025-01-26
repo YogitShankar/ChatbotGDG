@@ -1,0 +1,13 @@
+Problem ID: 2053G
+Title: G. Naive String Splits
+Time Limit: 10 seconds
+Memory Limit: 1024 megabytes
+
+Problem Statement:
+Cocoly has a string t of length m, consisting of lowercase English letters, and he would like to split it into parts. He calls a pair of strings (x,y) beautiful if and only if there exists a sequence of strings a1,a2,…,ak, such that: Cocoly has another string s of length n, consisting of lowercase English letters. Now, for each 1≤i<n, Cocoly wants you to determine whether the pair of strings (s1s2…si,si+1si+2…sn) is beautiful. Note: since the input and output are large, you may need to optimize them for this problem. For example, in C++, it is enough to use the following lines at the start of the main() function:
+
+Input Specifications:
+Each test contains multiple test cases. The first line contains an integer T (1≤T≤105) — the number of test cases. The description of the test cases follows. The first line of each test case contains two integers n and m (2≤n≤m≤5⋅106) — the lengths of s and the length of t. The second line of each test case contains a single string s of length n, consisting only of lowercase English letters. The third line of each test case contains a single string t of length m, consisting only of lowercase English letters. It is guaranteed that the sum of m over all test cases does not exceed 107.
+
+Output Specifications:
+For each test case, output a single binary string r of length n−1: for each 1≤i<n, if the i-th pair is beautiful, ri=1; otherwise, ri=0. Do not output spaces.
