@@ -1,0 +1,73 @@
+Section 1:
+Hints
+Hint 1
+Solve the problem when $$$a_i \le 2$$$.
+Hint 2
+Assign $$$b_i = 1$$$ if $$$a_i = 2$$$ and $$$b_i = -1$$$ if $$$a_i = 1$$$ and calculate the number of bad subarrays.
+Hint 3
+Extend this solution for $$$a_i \le 10$$$, however, you need to take overcounting into account.
+
+Section 2:
+Solution
+When is a subarray $$$a[l, r]$$$ not good?
+If $$$r - l + 1$$$ is odd, $$$a[l, r]$$$ can't be bad. Otherwise, suppose the median of $$$a[l, r]$$$ is $$$x$$$. Then there need to be exactly $$$\frac{r - l + 1}{2}$$$ elements in $$$a[l, r]$$$ that are $$$\le x$$$ and exactly $$$\frac{r - l + 1}{2}$$$ that are $$$> x$$$.
+This gives us an idea to calculate the number of bad subarrays with a median of $$$x$$$.
+Create another array $$$b$$$ of size $$$n$$$, where $$$b_i = -1$$$ if $$$a_i \le x$$$ and $$$b_i = 1$$$ otherwise.
+$$$a[l, r]$$$, which has a median of $$$x$$$, is bad if and only if $$$\sum\limits_{i = l}^r b_i = 0$$$ and $$$r - l + 1$$$ is even.
+Notice that the second condition is not needed, as the sum of an odd length subarray of $$$b$$$ is always odd, so it can't be zero.
+Therefore, $$$a[l, r]$$$ with a median of $$$x$$$ is bad iff $$$\sum\limits_{i = l}^r b_i = 0$$$.
+If there is no $$$x$$$ in $$$[l, r]$$$, then the median of $$$a[l, r]$$$ trivially can't be equal to $$$x$$$.
+If there is an occurrence of $$$x$$$ in $$$a[l, r]$$$ and $$$\sum\limits_{i = l}^r b_i = 0$$$, notice that the median of $$$a[l, r]$$$ will always be exactly $$$x$$$. This is true because $$$\frac{r - l + 1}{2}$$$ smallest elements of $$$a[l, r]$$$ are all $$$\le x$$$, and there is an occurrence of $$$x$$$, so $$$\frac{r - l + 1}{2}$$$-th smallest element must be $$$x$$$.
+This allows us to simply count the number of subarrays of $$$b$$$ with a sum of $$$0$$$ and with an occurrence of $$$x$$$ to count the number of bad subarrays with median $$$x$$$.
+We can subtract that value from $$$\frac{n(n + 1)}{2}$$$ for all $$$x$$$ between $$$1$$$ and $$$A = 10$$$ to solve the problem in $$$O(nA)$$$.
+
+Section 3:
+Code
+#include <bits/stdc++.h>
+
+using namespace std;
+
+const int MAX = 11;
+
+int main() {
+    int tests;
+    cin >> tests;
+    for(int test = 0; test < tests; test++) {
+        int n;
+        cin >> n;
+        vector<int> a(n);
+        for(auto &i : a) {
+            cin >> i;
+        }
+        long long ans = 0;
+        for(int x = 1; x < MAX; x++) {
+            vector<int> b(n);
+            for(int i = 0; i < n; i++) {
+                b[i] = (a[i] > x? 1 : -1);
+            }
+            int sum = n;
+            vector<int> pref(n);
+            for(int i = 0; i < n; i++) {
+                pref[i] = sum;
+                sum += b[i];
+            }
+            vector<int> cnt(2 * n + 1);
+            sum = n;
+            int j = 0;
+            for(int i = 0; i < n; i++) {
+                if(a[i] == x) {
+                    while(j <= i) {
+                        cnt[pref[j]]++;
+                        j++;
+                    }
+                }
+                sum += b[i];
+                ans += cnt[sum];
+            }
+        }
+        ans = 1ll * n * (n + 1) / 2 - ans;
+        cout << ans << '\n';
+    }
+    return 0;
+}
+
