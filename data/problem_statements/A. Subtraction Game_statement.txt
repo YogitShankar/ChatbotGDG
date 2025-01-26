@@ -1,0 +1,3 @@
+You are given two positive integers,  and  ().
+For some positive integer , two players will play a game starting with a pile of  stones. They take turns removing exactly  or exactly  stones from the pile. The player who is unable to make a move loses.
+Find a positive integer  such that the second player to move in this game has a winning strategy. This means that no matter what moves the first player makes, the second player can carefully choose their moves (possibly depending on the first player's moves) to ensure they win.

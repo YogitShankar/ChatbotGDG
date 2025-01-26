@@ -1,0 +1,6 @@
+You have discovered  mysterious particles on a line with integer charges of . You have a device that allows you to perform the following operation: 
+  Choose a particle and remove it from the line. The remaining particles will shift to fill in the gap that is created. If there were particles with charges  and  directly to the left and right of the removed particle, they combine into a single particle of charge . 
+For example, if the line of particles had charges of , performing the operation on the th particle will transform the line into .
+  
+If we then use the device on the st particle in this new line, the line will turn into . 
+You will perform operations until there is only one particle left. What is the maximum charge of this remaining particle that you can obtain?
