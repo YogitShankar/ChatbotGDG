@@ -1,0 +1,46 @@
+Section 1:
+Hints
+Hint 1
+"It can be proven that permutation $$$p$$$ can be uniquely determined"
+Hint 2
+This means that there is an order of elements. How to determine whether $$$x$$$ should be earlier in that order than $$$y$$$?
+
+Section 2:
+Solution
+Consider two elements $$$x < y$$$. Suppose their positions in $$$p$$$ are $$$i$$$ and $$$j$$$ correspondigly.
+How can we determine if $$$i < j$$$? If $$$i < j$$$ and $$$x < y$$$, we will have $$$g_{x, y} = g_{y, x} = 1$$$. Otherwise, $$$i > j$$$ and $$$x < y$$$, so $$$g_{x, y} = g_{y, x} = 0$$$.
+So if $$$g_{x, y} = 1$$$, we know that $$$i < j$$$, otherwise $$$i > j$$$.
+That way we can determine for each pair of elements which one of them should appear earlier in the permutation. Notice that this is just a definition of a comparator, which proves that the permutation is indeed unique. We can find it by sorting $$$p = [1, 2, \ldots, n]$$$ with that comparator.
+
+Section 3:
+Code
+#include <bits/stdc++.h>
+ 
+using namespace std;
+ 
+void solve() {
+    int n;
+    cin >> n;
+    vector<string> g(n);
+    for(auto &i : g) {
+        cin >> i;
+    }
+    vector<int> p(n);
+    iota(p.begin(), p.end(), 0);
+    sort(p.begin(), p.end(),
+    [&](int x, int y) {
+        if(g[x][y] == '1') return x < y;
+        else return x > y;
+    });
+    for(auto i : p) cout << i + 1 << " "; cout << '\n';
+}
+ 
+signed main() {
+    ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);
+    int ttt = 1;
+    cin >> ttt;
+    while(ttt--) {
+        solve();
+    }
+}
+

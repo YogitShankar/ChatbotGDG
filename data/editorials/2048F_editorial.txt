@@ -1,0 +1,25 @@
+Section 1:
+Hint 1
+Can you find a strategy such that only $$$n$$$ intervals might be operated on?
+
+Section 2:
+Hint 2
+By operating on the entire sequence in each step, the answer can be made $$$\leq 63$$$.
+
+Section 3:
+Tutorial
+2048F - Kevin and Math Class
+Construct a
+min Cartesian tree
+for the sequence $$$b$$$. It is easy to observe that we will only operate on the intervals defined by this Cartesian tree.
+Proof:
+For any $$$b_x$$$, find the last $$$b_p \leq b_x$$$ on its left and the first $$$b_q < b_x$$$ on its right. If we want to divide the interval by $$$b_x$$$, the operation interval cannot include both $$$p$$$ and $$$q$$$. At the same time, choosing the largest possible interval is always optimal. Hence, the operation interval must be $$$[p+1, q-1]$$$. All such intervals are exactly the intervals corresponding to the Cartesian tree.
+To solve the problem, we can use DP on the Cartesian tree. Let $$$f_{u,i}$$$ represent the minimum possible maximum value of $$$a_x$$$ within the subtree rooted at $$$u$$$ after performing $$$i$$$ operations on all positions within that subtree.
+When merging, suppose the two child subtrees of $$$u$$$ are $$$ls$$$ and $$$rs$$$. The transition can be written as:
+$$$ f_{u,k}=\min_{i+j=k}\left(\max(f_{ls,i},f_{rs,j},a_u)\right) $$$
+Then consider division at the position corresponding to $$$b_u$$$, which updates the DP state:
+$$$ f_{u,k+1}\leftarrow\left\lceil\frac{f_{u,k}}{b_u}\right\rceil $$$
+Since operating on the entire sequence repeatedly can ensure that $$$\log_2(\max(a_i)) \leq 63$$$ operations suffice, the second dimension of the DP state only needs to be defined for $$$0 \sim 63$$$. Thus, the time complexity for this approach is $$$O(n \log^2 a)$$$.
+The bottleneck of this approach lies in merging the DP states of the two subtrees. Observing that $$$f_{u,i}$$$ is monotonically non-increasing, the $$$\min-\max$$$ convolution for $$$f_{ls,i}$$$ and $$$f_{rs,i}$$$ is equivalent to merging two sequences using a merge sort-like approach. This reduces the merging complexity to $$$O(\log a)$$$.
+Consequently, the overall complexity becomes $$$O(n \log a)$$$, which is an optimal solution.
+

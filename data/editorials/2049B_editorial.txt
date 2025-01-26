@@ -1,0 +1,72 @@
+Section 1:
+Tutorial
+2049B - pspspsps
+Since the entire $$$p$$$ must be a permutation, if $$$s_1 =$$$
+s
+, we can set $$$s_1 = $$$
+.
+, and if $$$s_n =$$$
+p
+, we can set $$$s_n =$$$
+.
+.
+After that, the answer is
+YES
+if and only if all non-dot characters in $$$s$$$ are all
+p
+or
+s
+.
+If all non-dot characters are
+p
+, we can choose the permutation $$$p = [1, 2, \ldots, n]$$$. If all non-dot characters are
+s
+, we can choose $$$p = [n, n - 1, \ldots, 1]$$$.
+Otherwise, there exists both a
+p
+and a
+s
+. Suppose for contradiction that there is a solution. Let $$$a$$$ and $$$b$$$ represent the subarrays represented by the
+p
+and
+s
+respectively. Without loss of generality, suppose $$$a$$$ is the shorter subarray.
+Since $$$b$$$ is also a permutation, the elements of $$$a$$$ must be in $$$b$$$. Since $$$p$$$ is a permutation, $$$a$$$ must be a subarray of $$$b$$$.
+However, $$$b$$$ cannot contain $$$a$$$: since $$$b$$$ is not the entire $$$p$$$, $$$b$$$ does not contain $$$p_1$$$. However, $$$a$$$ contains $$$p_1$$$. Contradiction.
+
+Section 2:
+Solution
+#include <bits/stdc++.h>
+using namespace std;
+
+void solve()
+{
+    int n; cin >> n;
+    string s; cin >> s;
+    if (s[0] == 's') s[0] = '.';
+    if (s.back() == 'p') s.back() = '.';
+    bool found_p = false;
+    bool found_s = false;
+    for (const auto c : s)
+    {
+        switch (c)
+        {
+        case 'p':
+            found_p = true;
+            break;
+        case 's':
+            found_s = true;
+            break;
+        }
+    }
+    cout << (found_p && found_s ? "NO" : "YES") << '\n';
+}
+
+int main()
+{
+    int t; cin >> t;
+    for (int i = 0; i < t; i++) solve();
+
+    return 0;
+}
+

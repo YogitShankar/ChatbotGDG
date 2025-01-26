@@ -1,0 +1,30 @@
+Section 1:
+Hint 1
+Can the left-hand side be less than the right-hand side?
+
+Section 2:
+Hint 2
+Consider the positions where the extremes are reached in the expression. What properties do they have?
+
+Section 3:
+Hint 3
+Use the principle of inclusion-exclusion.
+
+Section 4:
+Hint 4
+Apply the Binomial Theorem.
+
+Section 5:
+Tutorial
+2048G - Kevin and Matrices
+Let us assume the left-hand side attains its maximum at position $$$L$$$, and the right-hand side attains its maximum at position $$$R$$$.
+For any $$$L, R$$$, let $$$P$$$ be the position in the same row as $$$L$$$ and the same column as $$$R$$$. Then we have $$$a_L \geq a_P \geq a_R$$$, which implies $$$a_L \geq a_R$$$. Hence, we only need to consider cases where $$$a_L = a_R$$$.
+Now, consider positions where both sides attain their maximum value, denoted as $$$S$$$. Positions in $$$S$$$ are the maximum in their respective column and the minimum in their respective row. For any two positions $$$P, Q$$$ in $$$S$$$ that are not in the same row or column, we can observe that the positions in the same row as $$$P$$$ and the same column as $$$Q$$$, and vice versa, can also attain the maximum value. By induction, we can conclude that $$$S$$$ forms a subrectangle.
+Next, enumerate the maximum value $$$k$$$ and the size of $$$S$$$, denoted by $$$i \times j$$$. The constraints are as follows: all remaining elements in the rows of $$$S$$$ must be $$$\leq k$$$, and all remaining elements in the columns of $$$S$$$ must be $$$\geq k$$$. Using the principle of inclusion-exclusion, we derive:
+$$$ ans=\sum_{k=1}^v\sum_{i=1}^n\sum_{j=1}^m(-1)^{i+j}\binom ni\binom mjk^{i(m-j)}(v-k+1)^{(n-i)j}v^{(n-i)(m-j)} $$$
+The naive approach is $$$O(nmv)$$$, which is computationally expensive. Let us simplify:
+$$$ =\sum_{k=1}^v\sum_{i=1}^n(-1)^i\binom ni\sum_{j=1}^m(-1)^{j}\binom mj\left(k^i\right)^{m-j}\left((v-k+1)^{n-i}\right)^j\left(v^{n-i}\right)^{m-j}\\ =\sum_{k=1}^v\sum_{i=1}^n(-1)^i\binom ni\sum_{j=1}^m\binom mj\left(-(v-k+1)^{n-i}\right)^j\left(k^iv^{n-i}\right)^{m-j} $$$
+This resembles the Binomial Theorem. To simplify further, add and subtract the term for $$$j=0$$$:
+$$$ =\sum_{k=1}^v\sum_{i=1}^n(-1)^i\binom ni\left(\sum_{j=0}^m\binom mj\left(-(v-k+1)^{n-i}\right)^j\left(k^iv^{n-i}\right)^{m-j}-\left(k^iv^{n-i}\right)^m\right)\\ =\sum_{k=1}^v\sum_{i=1}^n(-1)^i\binom ni\left(\left(-(v-k+1)^{n-i}+k^iv^{n-i}\right)^m-\left(k^iv^{n-i}\right)^m\right) $$$
+Thus, the problem can be solved in $$$O(nv\log m)$$$ time.
+

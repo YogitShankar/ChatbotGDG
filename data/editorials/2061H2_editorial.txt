@@ -1,0 +1,22 @@
+Section 1:
+Hint 1
+Think about the necessary conditions.
+
+Section 2:
+Hint 2
+Simplify the graph while keeping the conditions.
+
+Section 3:
+Hint 3
+Try to move the stones one bye one.
+
+Section 4:
+Solution
+Thanks to
+o
+rzdevinwang
+and
+JohnVictor
+for their discussions. A large part of the following approach comes from discussion with them.
+Tutorial is loading...
+

@@ -1,0 +1,20 @@
+Section 1:
+Hint 1
+Can you compute $$$dp(r, *)$$$ from $$$dp(l, *)$$$ efficiently?
+
+Section 2:
+Hint 2
+If the difference between the number of victories is large, he will either always win or always lose for type 2 matches.
+
+Section 3:
+Hint 3
+We can speed up this part to $$$O(n \log n)$$$.
+
+Section 4:
+Hint 4
+For the part that the difference between the number of victories is not large, solve it recursively.
+
+Section 5:
+Solution
+Tutorial is loading...
+

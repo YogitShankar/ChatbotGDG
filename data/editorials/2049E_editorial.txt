@@ -1,0 +1,55 @@
+Section 1:
+Tutorial
+2049E - Broken Queries
+Make 2 queries $$$[1, n/4]$$$ and $$$[n/4+1, n/2]$$$. This tells us which half the 1 is in: it is in $$$[1, n / 2]$$$ if the query results are different and $$$[n / 2 + 1, n]$$$ otherwise.
+Make 1 query: query $$$[1, n/2]$$$ if the 1 is in it or $$$[n/2+1, n]$$$ otherwise. This tells us that $$$k < n / 2$$$ if the result is $$$1$$$ and $$$k \ge n / 2$$$ otherwise.
+Without loss of generality, assume that the 1 is in $$$[1, n / 2]$$$. Now we can binary search for $$$k$$$ in $$$[1, n / 2]$$$ or $$$[n / 2 + 1, n]$$$. Let $$$k'$$$ be our guess.
+If $$$k < n / 2$$$, query $$$[n / 2 + 1, n / 2 + k']$$$. The result is $$$1$$$ if $$$k' \ge k$$$ and $$$0$$$ otherwise.
+If $$$k \ge n / 2$$$, query $$$[1, k']$$$. The result is $$$0$$$ if $$$k' \ge k$$$ and $$$1$$$ otherwise.
+In both cases, the binary search takes $$$\log n - 1 \le 29$$$ queries. Overall, this takes at most $$$2 + 1 + 29 = 32$$$ queries.
+The limit of $$$33$$$ queries (instead of $$$32$$$) is to allow less optimized solutions and other solutions. For example, one can instead do 3 queries in the beginning $$$[1, n / 4]$$$, $$$[n / 4 + 1, n / 2]$$$, $$$[n / 2 + 1, 3n / 4]$$$ to determine which quarter the 1 is in.
+
+Section 2:
+Solution
+#include <bits/stdc++.h>
+using namespace std;
+
+int qry(int l, int r, bool rev = 0, int n = 0) {
+    if (rev) {
+        int t = n - l;
+        l = n - r;
+        r = t;
+    }
+    cout << "? " << l + 1 << ' ' << r << endl;
+    cin >> r;
+    return r;
+}
+
+void solve() {
+    int n;
+    cin >> n;
+    int a = qry(0, n / 4);
+    int b = qry(n / 4, n / 2);
+    bool kSmall = 1;
+    bool firstHalf = 1;
+    if (a == b) firstHalf = 0;
+    int bs = 0;
+    if (qry(0, n / 2, firstHalf, n) == 0) kSmall = 0;
+    if (kSmall) {
+        for (int k = n / 4; k; k /= 2)
+            if (qry(0, bs + k, firstHalf, n) == 0) bs += k;
+    } else {
+        bs = n / 2 - 1;
+        for (int k = n / 4; k; k /= 2)
+            if (qry(0, bs + k, 1-firstHalf, n) == 1) bs += k;
+    }
+    cout << "! " << bs + 1 << endl;
+}
+
+int main() {
+    int T = 1;
+    cin >> T;
+    while (T--) solve();
+    return 0;
+}
+

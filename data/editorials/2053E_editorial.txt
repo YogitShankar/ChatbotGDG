@@ -1,0 +1,69 @@
+Section 1:
+Hint 1
+Suppose somebody wins. In which round does he or she win?
+
+Section 2:
+Hint 2
+A player can always undo what his opponent did in the previous turn.
+
+Section 3:
+Hint 3
+Can you find the necessary and sufficient condition for $$$(p, q)$$$ to be a caterpillar that makes Aron win?
+
+Section 4:
+Solution
+Denote Nora's first move as round $$$1$$$, Aron's first move as round $$$2$$$, and so on. Suppose a player does not have a winning strategy in the $$$k$$$-th round, but he or she has a winning strategy in the $$$(k + 2)$$$-th round — it can be shown impossible because the other player can always withdraw the last move of another player so that the status is the same as it was before the $$$k$$$-th round.
+Therefore: if a player wins in the $$$k$$$-th round, we claim that $$$k \leq 2$$$.
+Given $$$p, q$$$, let's determine who will eventually win the game.
+If both $$$p$$$ and $$$q$$$ are leaves, the result is a tie.
+If $$$p$$$ is a leaf while $$$q$$$ is not, Nora wins.
+If $$$q$$$ is a leaf while $$$p$$$ is not, Aron wins.
+If neither $$$p$$$ nor $$$q$$$ is a leaf:
+Can $$$k = 1$$$? Nora wins if and only if $$$p$$$ is adjacent to a leaf.
+Can $$$k = 2$$$? Aron wins if and only if $$$p$$$ is not adjacent to a leaf, and $$$f(p, q)$$$ is adjacent to a leaf.
+Otherwise, the result is a tie.
+The counting part can also be solved easily in $$$\mathcal O(n)$$$. Denote $$$c$$$ as the number of leaves. The initial answer would be $$$c \cdot (n - c)$$$, considering the third case. For the fourth case, we can enumerate $$$m = f(p, q)$$$, which is adjacent to at least one leaf. Given $$$m$$$, $$$q$$$ must be a non-leaf neighbor of $$$m$$$, and let the number of different $$$q$$$ be $$$k$$$. For each of the potential $$$p$$$, which is a non-leaf node whose neighbors are all non-leaf nodes too, it is computed exactly $$$k - 1$$$ times for all the $$$k$$$ candidates of $$$q$$$ (since $$$m$$$ must be on the simple path from $$$p$$$ to $$$q$$$), so the extra contributions are easy to calculate. (If you do not think that much, you can use some simple DP, which I will not elaborate here.)
+
+Section 5:
+Code (C++)
+#include <bits/stdc++.h>
+
+#define MAXN 200001
+std::vector<int> g[MAXN];
+inline int deg(int u) { return g[u].size(); }
+
+int d[MAXN];
+void solve() {
+	int n; std::cin >> n; long long ans = 0;
+	for (int i = 1, u, v; i < n; ++i) {
+		std::cin >> u >> v;
+		g[u].push_back(v), g[v].push_back(u);
+	}
+	int c1 = 0, c2 = 0;
+	for (int i = 1; i <= n; ++i) c1 += (deg(i) == 1);
+	ans += 1ll * c1 * (n - c1);
+	for (int i = 1; i <= n; ++i) if (deg(i) > 1) {
+		for (int v : g[i]) d[i] += (deg(v) > 1);
+		c2 += (d[i] == deg(i));
+	}
+	for (int m = 1; m <= n; ++m) if (deg(m) > 1 && d[m] != deg(m)) 
+		ans += 1ll * c2 * (d[m] - 1);
+	std::cout << ans << '\n';
+	for (int i = 1; i <= n; ++i) 
+		(std::vector<int>()).swap(g[i]), d[i] = 0;
+}
+
+int main() {
+	std::ios::sync_with_stdio(false);
+	std::cin.tie(nullptr), std::cout.tie(nullptr);
+	int t; std::cin >> t; while (t--) solve(); return 0;
+}
+
+Section 6:
+Rate the Problem
+Amazing problem:
+Good problem:
+Average problem:
+Bad problem:
+Didn't solve:
+

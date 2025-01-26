@@ -1,0 +1,21 @@
+Section 1:
+Hint 1
+You can ignore all contestants with a rating lower than yours; this does not affect the answer.
+
+Section 2:
+Hint 2
+You are the contestant with the lowest rating, so any problem you can solve can also be solved by everyone else. Thus, your ranking in a competition only depends on the easiest problem you cannot solve.
+
+Section 3:
+Hint 3
+Use greedy algorithm.
+
+Section 4:
+Tutorial
+2048D - Kevin and Competition Memories
+Read all the hints.
+First, remove all contestants with a rating lower than yours, making you the contestant with the lowest rating. Since any problem you can solve can also be solved by everyone else, this does not affect your ranking. These problems can effectively be treated as having infinite difficulty.
+At this point, you cannot solve any problem, so your ranking in a competition is given by $$$(1 + $$$ the number of contestants who solve at least one problem in that competition $$$)$$$. Therefore, we only need to focus on the easiest problem in each competition.
+Precompute, for each problem, the number of contestants who can solve it, denoted as $$$c_i$$$. This can be done by sorting the contestants by rating and the problems by difficulty, then using a two-pointer or binary search approach to compute $$$c_i$$$.
+The remaining task is: given $$$c_i$$$, divide all $$$c_i$$$ into $$$\lfloor \frac{n}{k} \rfloor$$$ groups, each containing $$$k$$$ elements, and minimize the sum of the maximum values in each group. This can be solved using a greedy algorithm: sort $$$c_i$$$ in ascending order, and for a given $$$k$$$, the answer is $$$(c_k+1) + (c_{2k}+1) + \dots$$$. The brute force calculation is bounded by the harmonic series, and combined with sorting, the time complexity is $$$O(n \log n + m \log m)$$$.
+

@@ -1,0 +1,66 @@
+Section 1:
+Hint 1
+What if $$$q = 0$$$?
+
+Section 2:
+Hint 2
+How do you keep the array sorted?
+
+Section 3:
+Solution
+The problem makes no difference when both $$$a$$$ and $$$b$$$ can be rearranged. Let the rearranged arrays of $$$a$$$ and $$$b$$$ be $$$c$$$ and $$$d$$$ respectively.
+If $$$q = 0$$$, we can write $$$c$$$ as $$$\operatorname{SORTED}(a_1, a_2 \ldots, a_n)$$$ and $$$d$$$ as $$$\operatorname{SORTED}(b_1, b_2 \ldots, b_n)$$$. It can be proved that this reaches the maximum value: if not so, then
+There must be some pair $$$(i, j)$$$ such that $$$c_i < c_j, d_i > d_j$$$.
+Since $$$\min(c_i, d_i) \cdot \min(c_j, d_j) = c_i \cdot \min(c_j, d_j) \leq c_i \cdot \min(c_j, d_i) = \min(c_i, d_j) \cdot \min(c_j, d_i)$$$, we can swap $$$d_i$$$ and $$$d_j$$$, and the product does not decrease.
+Consider the modification, which is a single element increment by $$$1$$$. Without loss of generality, let $$$c_x$$$ be increased by $$$1$$$ (and the processing method for $$$d$$$ is the same). If $$$c_x < c_{x+1}$$$, then after the modification $$$c_x \leq c_{x+1}$$$, which would be fine. Otherwise, we can modify the array $$$c$$$ in the form of a single round of "Insertion Sort": We continuously swap $$$c_x$$$ and $$$c_{x+1}$$$, $$$x \gets x + 1$$$, until $$$c_x < c_{x+1}$$$ (or $$$x = n$$$), and thus the array remains sorted after the increment.
+In fact, the swap operation does nothing in the above process: in these cases, $$$c_x = c_{x+1}$$$ holds! So we can just set $$$x'$$$ as the maximum $$$k$$$ such that $$$c_k = c_x$$$, and then increase $$$c_{x'}$$$ by $$$1$$$, after which $$$c$$$ is still sorted. The $$$k$$$ can be found with a naive binary search, so the problem is solved in $$$\mathcal O(n\log n + q(\log p + \log n))$$$ per test case.
+
+Section 4:
+Code (C++)
+#include <bits/stdc++.h>
+ 
+constexpr int MOD = 998244353;
+int qpow(int a, int x = MOD - 2) {
+	int res = 1;
+	for (; x; x >>= 1, a = 1ll * a * a % MOD) if (x & 1) res = 1ll * res * a % MOD;
+	return res;
+}
+ 
+#define MAXN 200001
+int a[MAXN], b[MAXN], c[MAXN], d[MAXN];
+void solve() {
+	int n, q, res = 1; std::cin >> n >> q;
+	for (int i = 1; i <= n; ++i) std::cin >> a[i], c[i] = a[i];
+	for (int i = 1; i <= n; ++i) std::cin >> b[i], d[i] = b[i];
+	std::sort(c + 1, c + n + 1), std::sort(d + 1, d + n + 1);
+	for (int i = 1; i <= n; ++i) res = 1ll * res * std::min(c[i], d[i]) % MOD;
+	std::cout << res << " \n"[q == 0];
+	for (int i = 1, op, x; i <= q; ++i) {
+		std::cin >> op >> x;
+		if (op == 1) {
+			int p = std::upper_bound(c + 1, c + n + 1, a[x]) - c - 1;
+			if (c[p] < d[p]) res = 1ll * res * qpow(c[p]) % MOD * (c[p] + 1) % MOD;
+			++a[x], ++c[p];
+		} else {
+			int p = std::upper_bound(d + 1, d + n + 1, b[x]) - d - 1;
+			if (d[p] < c[p]) res = 1ll * res * qpow(d[p]) % MOD * (d[p] + 1) % MOD;
+			++b[x], ++d[p];
+		}
+		std::cout << res << " \n"[i == q];
+	}
+}
+ 
+int main() {
+	std::ios::sync_with_stdio(false);
+	std::cin.tie(nullptr), std::cout.tie(nullptr);
+	int t; std::cin >> t; while (t--) solve(); return 0;
+}
+
+Section 5:
+Rate the Problem
+Amazing problem:
+Good problem:
+Average problem:
+Bad problem:
+Didn't solve:
+

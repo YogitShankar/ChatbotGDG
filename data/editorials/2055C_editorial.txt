@@ -1,0 +1,95 @@
+Section 1:
+Hint 1
+Pick $$$x$$$, and find the sum of the whole grid. What does this tell you?
+
+Section 2:
+Hint 2
+Once you know $$$x$$$, the top left cell is fixed.
+
+Section 3:
+Hint 3
+What about the next cell on the trail?
+
+Section 4:
+Solution
+The naive solution of writing out a linear system and solving them will take $$$O((n + m)^3)$$$ time, which is too slow, so we will need a faster algorithm.
+We begin by selecting a target sum $$$S$$$ for each row and column. If we calculate the sum of all numbers in the completed grid, summing over rows gives a total of $$$S \cdot n$$$ while summing over columns gives a total of $$$S \cdot m$$$. Therefore, in order for our choice of $$$S$$$ to be possible, we require $$$S \cdot n = S \cdot m$$$, and since it is possible for $$$n \neq m$$$, we will pick $$$S = 0$$$ for our choice to be possible in all cases of $$$n, m$$$.
+Notice that all choices $$$S \neq 0$$$ will fail on $$$n \neq m$$$, as the condition $$$S \cdot n = S \cdot m$$$ no longer holds. As such, $$$S = 0$$$ is the only one that will work in all cases.
+Now, we aim to make each row and column sum to $$$S$$$. The crux of the problem is the following observation:
+Denote $$$x_1, x_2, \dots, x_{n+m-1}$$$ to be the variables along the path. Let's say variables $$$x_1, \dots, x_{i-1}$$$ have their values set for some $$$1 \leq i < n+m-1$$$. Then, either the row or column corresponding to variable $$$x_i$$$ has all of its values set besides $$$x_i$$$, and therefore we may determine exactly one possible value of $$$x_i$$$ to make its row or column sum to $$$0$$$.
+The proof of this claim is simple. At variable $$$x_i$$$, we look at the corresponding path move $$$s_i$$$. If $$$s_i = \tt{R}$$$, then the path will never revisit the column of variable $$$x_i$$$, and its column will have no remaining unset variables since $$$x_1, \dots, x_{i-1}$$$ are already set. Likewise, if $$$s_i = \tt{D}$$$, then the path will never revisit the row of variable $$$x_i$$$, which can then be used to determine the value of $$$x_i$$$.
+Repeating this process will cause every row and column except for row $$$n$$$ and column $$$m$$$ to have a sum of zero, with $$$x_{n+m-1}$$$ being the final variable. However, we will show that we can use either the row or column to determine it, and it will give a sum of zero for both row $$$n$$$ and column $$$m$$$. WLOG we use row $$$n$$$. Indeed, if the sum of all rows and columns except for column $$$m$$$ are zero, we know that the sum of all entries of the grid is zero by summing over rows. However, we may then subtract all columns except column $$$m$$$ from this total to arrive at the conclusion that column $$$m$$$ also has zero sum. Therefore, we may determine the value of $$$x_{n+m-1}$$$ using either its row or column to finish our construction, giving a solution in $$$O(n \cdot m)$$$.
+
+Section 5:
+Implementation
+#include <bits/stdc++.h>
+
+#define f first
+#define s second
+#define pb push_back
+
+typedef long long int ll;
+typedef unsigned long long int ull;
+using namespace std;
+typedef pair<int,int> pii;
+typedef pair<ll,ll> pll;
+
+template<typename T> int die(T x) { cout << x << endl; return 0; }
+
+#define mod 1000000007
+#define INF 1000000000
+#define LNF 1e15
+#define LOL 12345678912345719ll
+
+using namespace std;
+
+int main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(0);
+
+    int T; cin >> T;
+    while (T--) {
+        int N, M; cin >> N >> M;
+        string S; cin >> S;
+        vector<vector<ll>> A;
+        for (int i = 0; i < N; i++) {
+            A.push_back(vector<ll>(M));
+            for (int j = 0; j < M; j++) {
+                cin >> A[i][j];
+            }
+        }
+        int x = 0, y = 0;
+        for (char c : S) {
+            if (c == 'D') {
+                long long su = 0;
+                for (int i = 0; i < M; i++) {
+                    su += A[x][i];
+                }
+                A[x][y] = -su;
+                ++x;
+            } else {
+                long long su = 0;
+                for (int i = 0; i < N; i++) {
+                    su += A[i][y];
+                }
+                A[x][y] = -su;
+                ++y;
+            }
+        }
+        long long su = 0;
+        for (int i = 0; i < M; i++) {
+            su += A[N-1][i];
+        }
+        A[N-1][M-1] = -su;
+        for (int i = 0; i < N; i++) {
+            for (int j = 0; j < M; j++) {
+                cout << A[i][j] << " ";
+            }
+            cout << endl;
+        }
+
+    }
+    return 0;
+}
+

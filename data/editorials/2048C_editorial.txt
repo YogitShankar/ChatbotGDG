@@ -1,0 +1,22 @@
+Section 1:
+Hint 1
+Is there a substring that must always be selected for all strings?
+
+Section 2:
+Hint 2
+The substring $$$[1,n]$$$ must be selected. Can we determine the length of the other substring?
+
+Section 3:
+Hint 3
+Pay special attention to the case where the entire string consists of only $$$1$$$ s.
+
+Section 4:
+Tutorial
+2048C - Kevin and Binary Strings
+To maximize the XOR sum of the two substrings, we aim to maximize the number of binary digits in the XOR result. To achieve this, the substring $$$[1,n]$$$ must always be selected. Suppose the first character of the other substring is $$$1$$$. If it is not $$$1$$$, we can remove all leading zeros.
+Next, find the position of the first $$$0$$$ in the string from left to right. We want this position to be flipped to $$$1$$$, while ensuring that the $$$1$$$s earlier in the string are not changed to $$$0$$$s. Therefore, let the position of the first $$$0$$$ be $$$p$$$. The length of the other substring must be $$$n-p+1$$$. By enumerating the starting position of the other substring and calculating the XOR sum of the two substrings linearly, we can take the maximum value. The time complexity of this approach is $$$O(n^2)$$$.
+If the entire string consists only of $$$1$$$s, selecting $$$[1,n]$$$ and $$$[1,1]$$$ can be proven to yield the maximum XOR sum among all possible choices.
+Interesting fact
+: This problem can actually be solved in $$$O(n)$$$ time complexity. Specifically, observe that the other substring needs to satisfy the following conditions: its length is $$$n-p+1$$$, and its first character is $$$1$$$. Thus, its starting position must be less than $$$p$$$. This implies that the length of the prefix of $$$1$$$s in the other substring can be chosen from the range $$$[1, p-1]$$$. We aim to flip the first segment of $$$0$$$ s in the original string to $$$1$$$ s, while ensuring that the $$$1$$$ immediately after this segment of $$$0$$$ s remains unchanged. Let the length of the first segment of $$$0$$$ s be $$$q$$$. Then, the length of the prefix of $$$1$$$ s in the other substring must be $$$\min(p-1, q)$$$, and the starting position can be determined efficiently.
+When preparing the contest and selecting problems, we determined that the $$$O(n)$$$ solution would be too difficult for a Problem C. Therefore, the problem was designed with an $$$O(n^2)$$$ data range to make it more accessible.
+

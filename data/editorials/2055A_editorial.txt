@@ -1,0 +1,32 @@
+Section 1:
+Hint 1
+Look at the distance between the frogs.
+
+Section 2:
+Solution
+Notice that regardless of how the players move, the difference between the numbers of the lilypads the two players are standing on always alternates even and odd, depending on the starting configuration. Then, the key observation is that exactly one player has the following winning strategy:
+Walk towards the other player, and do not stop until they are forced onto lilypad $$$1$$$ or $$$n$$$.
+For instance, if Alice and Bob start on lilypads with the same parity, Bob cannot stop Alice from advancing towards him. This is because at the start of Alice's turn, she will always be able to move towards Bob due to their distance being even and therefore at least $$$2$$$, implying that there is a free lilypad for her to jump to. This eventually forces Bob into one of the lilypads $$$1, n$$$, causing him to lose.
+In the case that they start on lilypads with different parity, analogous logic shows that Bob wins. Therefore, for each case, we only need to check the parity of the lilypads for a constant time solution.
+
+Section 3:
+Implementation
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(0);
+
+    int T; cin >> T;
+    while (T--) {
+        int N, A, B; cin >> N >> A >> B;
+        if ((A ^ B) & 1) cout << "NO\n";
+        else cout << "YES\n";
+    }
+    cout.flush();
+    return 0;
+}
+

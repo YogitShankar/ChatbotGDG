@@ -1,0 +1,16 @@
+Section 1:
+Hint 1
+What is the size of the maximum possible matching? What can be the "most dense" graph with maximum matching $$$k$$$?
+
+Section 2:
+Hint 2
+Mixed-color triplet($$$u, v$$$ with edge $$$0$$$ and $$$v, w$$$ with edge $$$1$$$) is a flexible structure to find a matching for both types.
+
+Section 3:
+Hint 3
+Add vertices one by one. Try to get a "mixed-color triple" or a larger set of the same color.
+
+Section 4:
+Solution
+Tutorial is loading...
+

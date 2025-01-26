@@ -1,0 +1,10 @@
+Section 1:
+Hint 1
+How much does the number decrease when we remove two consecutive $$$3$$$ s?
+
+Section 2:
+Tutorial
+2048A - Kevin and Combination Lock
+When we transform $$$\overline{x33y}$$$ into $$$\overline{xy}$$$ (where $$$x$$$ and $$$y$$$ are decimal numbers), the actual value changes from $$$10^{p+2} \cdot x + 33 \cdot 10^p + y$$$ to $$$10^p \cdot x + y$$$. The decrease is $$$99 \cdot 10^p \cdot x + 33 \cdot 10^p$$$. It is easy to see that $$$33 \mid (99 \cdot 10^p \cdot x + 33 \cdot 10^p)$$$. Therefore, we can replace the operation of removing two consecutive $$$3$$$ s with a series of $$$-33$$$ operations.
+Hence, we only need to determine whether $$$x$$$ can be reduced to $$$0$$$ using a series of $$$-33$$$ operations, which is equivalent to checking whether $$$x \bmod 33$$$ equals zero.
+
