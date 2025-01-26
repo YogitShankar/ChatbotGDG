@@ -1,0 +1,8 @@
+{
+  "name": "G. Geometric Balance",
+  "time_limit": "time limit per test3 seconds",
+  "memory_limit": "memory limit per test1024 megabytes",
+  "input": "InputThe first line of the input contains a single integer $$$n\\;(1 \\le n \\le 50000)$$$ — the number of commands Ivan has given.The next $$$n$$$ lines contain commands. Each command is one of:  \"rotate $$$a$$$\" ($$$45 \\le a \\le 360$$$) where $$$a$$$ is divisible by $$$45$$$;  \"draw $$$d$$$\" ($$$1 \\le d \\le 10^9$$$);  \"move $$$d$$$\" ($$$1 \\le d \\le 10^9$$$). At least one and at most 2000 of the commands are draw. It is guaranteed that no segment of the plane will be covered by ink more than once.",
+  "output": "OutputOutput a single number, the answer to the question. The answer always exists.",
+  "tags": []
+}

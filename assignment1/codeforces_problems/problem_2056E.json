@@ -1,0 +1,8 @@
+{
+  "name": "E. Nested Segments",
+  "time_limit": "time limit per test2 seconds",
+  "memory_limit": "memory limit per test256 megabytes",
+  "input": "InputEach test contains multiple test cases. The first line contains the number of test cases $$$t$$$ ($$$1 \\le t \\le 10^4$$$). The description of the test cases follows. The first line of each test case contains two integers $$$n$$$ and $$$m$$$ ($$$1 \\le n \\le 2 \\cdot 10^5$$$, $$$0 \\le m \\le 2 \\cdot 10^5$$$) — the maximum right endpoint of the segments, and the size of $$$S$$$.The $$$i$$$-th of the next $$$m$$$ lines contains two integers $$$l_i$$$ and $$$r_i$$$ ($$$1 \\le l_i \\le r_i \\le n$$$) — the boundaries of the segments in set $$$S$$$.It is guaranteed that the given set $$$S$$$ is good, and the segments in set $$$S$$$ are pairwise distinct.It is guaranteed that both the sum of $$$n$$$ and the sum of $$$m$$$ over all test cases do not exceed $$$2 \\cdot 10^5$$$.",
+  "output": "OutputFor each test case, output a single integer representing the number of different ways, modulo $$$998\\,244\\,353$$$, that you can add the maximum number of additional segments to set $$$S$$$ while ensuring that set $$$S$$$ remains good.",
+  "tags": []
+}

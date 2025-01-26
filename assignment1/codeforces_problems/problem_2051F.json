@@ -1,0 +1,8 @@
+{
+  "name": "F. Joker",
+  "time_limit": "time limit per test2 seconds",
+  "memory_limit": "memory limit per test256 megabytes",
+  "input": "InputThe first line contains a single integer $$$t$$$ ($$$1 \\le t \\le 10^4$$$) — the number of test cases.The first line of each test case contains three integers $$$n$$$, $$$m$$$, and $$$q$$$ ($$$2 \\le n \\le 10^9$$$; $$$1 \\le m \\le n$$$; $$$1 \\le q \\le 2 \\cdot 10^5$$$).The second line contains $$$q$$$ integers $$$a_1, a_2, \\dots, a_q$$$ ($$$1 \\le a_i \\le n$$$).Additional constraint on the input: the sum of $$$q$$$ over all test cases does not exceed $$$2 \\cdot 10^5$$$.",
+  "output": "OutputFor each test case, print $$$q$$$ integers — the number of distinct positions where the joker can be after each operation.",
+  "tags": []
+}

@@ -1,0 +1,8 @@
+{
+  "name": "E. Expression Correction",
+  "time_limit": "time limit per test3 seconds",
+  "memory_limit": "memory limit per test1024 megabytes",
+  "input": "InputThe input file consists of a single line — an equality as defined in the problem statement. The total length of the input string does not exceed 100 characters.",
+  "output": "OutputWrite a single line to the output. If the input contains a correct equality, output a single word \"Correct\". Otherwise, if the input equality can be turned into a correct one by moving one digit, output the resulting correct equality. If there are multiple possible correct equalities after moving one digit, you may output any one of them. Otherwise, output a single word \"Impossible\".",
+  "tags": []
+}

@@ -1,0 +1,8 @@
+{
+  "name": "E. Kevin and Bipartite Graph",
+  "time_limit": "time limit per test2 seconds",
+  "memory_limit": "memory limit per test256 megabytes",
+  "input": "InputEach test contains multiple test cases. The first line contains the number of test cases $$$ t $$$ ($$$ 1 \\le t \\le 100 $$$).The only line of each test case contains two integers $$$ n $$$ and $$$ m $$$ ($$$ 1 \\le n, m \\leq 10^3 $$$) — the bipartite graph has $$$ 2n $$$ vertices in the left part and $$$ m $$$ vertices in the right part.It is guaranteed that both the sum of $$$ n $$$ and the sum of $$$ m $$$ over all test cases do not exceed $$$ 10^3 $$$.",
+  "output": "OutputFor each test case, if there is no solution, then output No.Otherwise, output Yes, and then output $$$ 2n $$$ lines, with each line containing $$$ m $$$ positive integers. The $$$ i $$$-th line's $$$ j $$$-th integer represents the color of the edge between the $$$ i $$$-th vertex in the left part and the $$$ j $$$-th vertex in the right part.If there are multiple answers, you can print any of them.You can output each letter in any case (for example, the strings yEs, yes, Yes, and YES will be recognized as a positive answer).",
+  "tags": []
+}

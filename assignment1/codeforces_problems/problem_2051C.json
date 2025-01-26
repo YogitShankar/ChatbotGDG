@@ -1,0 +1,8 @@
+{
+  "name": "C. Preparing for the Exam",
+  "time_limit": "time limit per test1.5 seconds",
+  "memory_limit": "memory limit per test256 megabytes",
+  "input": "InputThe first line contains one integer $$$t$$$ ($$$1 \\le t \\le 10^4$$$) — the number of test cases.Each test case consists of three lines:  the first line contains three integers $$$n$$$, $$$m$$$ and $$$k$$$ ($$$2 \\le n \\le 3 \\cdot 10^5$$$; $$$1 \\le m, k \\le n$$$);  the second line contains $$$m$$$ distinct integers $$$a_1, a_2, \\dots, a_m$$$ ($$$1 \\le a_i \\le n$$$; $$$a_i < a_{i+1}$$$);  the third line contains $$$k$$$ distinct integers $$$q_1, q_2, \\dots, q_k$$$ ($$$1 \\le q_i \\le n$$$; $$$q_i < q_{i+1}$$$). Additional constraints on the input:  the sum of $$$n$$$ over all test cases does not exceed $$$3 \\cdot 10^5$$$.",
+  "output": "OutputFor each test case, print a string of $$$m$$$ characters. The $$$i$$$-th character should be 1 if Monocarp passes the exam if he receives the $$$i$$$-th question list, 0 if Monocarp won't pass.",
+  "tags": []
+}

@@ -1,0 +1,8 @@
+{
+  "name": "D. Gifts Order",
+  "time_limit": "time limit per test2 seconds",
+  "memory_limit": "memory limit per test512 megabytes",
+  "input": "InputEach test consists of several test cases. The first line contains a single integer $$$t$$$ ($$$1 \\le t \\le 10^4$$$) — the number of test cases. The description of the test cases follows.The first line of each test case contains two integers $$$n$$$ and $$$q$$$ ($$$1 \\le n, q \\le 2 \\cdot 10^5$$$) — the number of sweaters and the number of size changes.The second line of each test case contains $$$n$$$ integers $$$a_1, a_2, \\ldots, a_n$$$ ($$$1 \\le a_i \\le 10^9$$$) — the sizes of the sweaters.Each of the following $$$q$$$ lines of each test case contains two integers $$$p$$$ and $$$x$$$ ($$$1 \\le p \\le n$$$, $$$1 \\le x \\le 10^9$$$) — the next size change.It is guaranteed that the sum of the values of $$$n$$$ and the sum of the values of $$$q$$$ across all test cases do not exceed $$$2 \\cdot 10^5$$$.",
+  "output": "OutputFor each test case, output the maximum value of convenience among all possible pairs $$$(l, r)$$$ before any actions, as well as after each size change.",
+  "description": "D. Gifts Ordertime limit per test2 secondsmemory limit per test512 megabytesinputstandard inputoutputstandard output"
+}

@@ -1,0 +1,8 @@
+{
+  "name": "G. Naive String Splits",
+  "time_limit": "time limit per test10 seconds",
+  "memory_limit": "memory limit per test1024 megabytes",
+  "input": "InputEach test contains multiple test cases. The first line contains an integer $$$T$$$ ($$$1 \\leq T \\leq 10^5$$$) — the number of test cases. The description of the test cases follows.The first line of each test case contains two integers $$$n$$$ and $$$m$$$ ($$$2 \\leq n \\leq m \\leq 5 \\cdot 10^6$$$) — the lengths of $$$s$$$ and the length of $$$t$$$.The second line of each test case contains a single string $$$s$$$ of length $$$n$$$, consisting only of lowercase English letters.The third line of each test case contains a single string $$$t$$$ of length $$$m$$$, consisting only of lowercase English letters.It is guaranteed that the sum of $$$m$$$ over all test cases does not exceed $$$10^7$$$.",
+  "output": "OutputFor each test case, output a single binary string $$$r$$$ of length $$$n - 1$$$: for each $$$1 \\leq i < n$$$, if the $$$i$$$-th pair is beautiful, $$$r_i=\\texttt{1}$$$; otherwise, $$$r_i=\\texttt{0}$$$. Do not output spaces.",
+  "description": "G. Naive String Splitstime limit per test10 secondsmemory limit per test1024 megabytesinputstandard inputoutputstandard output"
+}

@@ -1,0 +1,8 @@
+{
+  "name": "D. Game With Triangles",
+  "time_limit": "time limit per test2 seconds",
+  "memory_limit": "memory limit per test256 megabytes",
+  "input": "InputEach test contains multiple test cases. The first line contains the number of test cases $$$t$$$ ($$$1 \\le t \\le {3 \\cdot 10^4}$$$). The description of the test cases follows. The first line of each test case contains two integers $$$n$$$ and $$$m$$$ ($$$1 \\le n,m \\le 2 \\cdot 10^5$$$).The second line of each test case contains $$$n$$$ pairwise distinct integers $$$a_1,a_2,\\ldots,a_{n}$$$ — the points on $$$y=0$$$ ($$$-10^9 \\le a_i \\le 10^9$$$).The third line of each test case contains $$$m$$$ pairwise distinct integers $$$b_1,b_2,\\ldots,b_{m}$$$ — the points on $$$y=2$$$ ($$$-10^9 \\le b_i \\le 10^9$$$).It is guaranteed that both the sum of $$$n$$$ and the sum of $$$m$$$ over all test cases do not exceed $$$2 \\cdot 10^5$$$.",
+  "output": "OutputFor each test case, given that the maximum number of operations is $$$k_{\\max}$$$, you must output at most two lines:  The first line contains the value of $$$k_{\\max}$$$;  The second line contains $$$k_{\\max}$$$ integers denoting $$$f(1),f(2),\\ldots,f(k_{\\max})$$$. You are allowed to omit this line if $$$k_{\\max}$$$ is $$$0$$$. Note that under the constraints of this problem, it can be shown that all values of $$$f(x)$$$ are integers no greater than $$$10^{16}$$$.",
+  "tags": []
+}

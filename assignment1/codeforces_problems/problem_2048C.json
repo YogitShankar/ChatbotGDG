@@ -1,0 +1,8 @@
+{
+  "name": "C. Kevin and Binary Strings",
+  "time_limit": "time limit per test2 seconds",
+  "memory_limit": "memory limit per test256 megabytes",
+  "input": "InputEach test contains multiple test cases. The first line contains the number of test cases $$$t$$$ ($$$1 \\le t \\le 10^3$$$).The only line of each test case contains a binary string $$$s$$$ that starts with 1 ($$$1\\le\\lvert s\\rvert\\le 5000$$$).It is guaranteed that the sum of $$$\\lvert s\\rvert$$$ over all test cases doesn't exceed $$$5000$$$.",
+  "output": "OutputFor each test case, output four integers $$$l_1, r_1, l_2, r_2$$$ ($$$1 \\le l_1 \\le r_1 \\le |s|$$$, $$$1 \\le l_2 \\le r_2 \\le |s|$$$) — in the case the two substrings you selected are $$$s_{l_1} s_{l_1 + 1} \\ldots s_{r_1}$$$ and $$$s_{l_2} s_{l_2 + 1} \\ldots s_{r_2}$$$.If there are multiple solutions, print any of them.",
+  "tags": []
+}

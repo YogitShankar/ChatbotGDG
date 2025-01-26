@@ -1,0 +1,8 @@
+{
+  "name": "F. MEX OR Mania",
+  "time_limit": "time limit per test4 seconds",
+  "memory_limit": "memory limit per test1024 megabytes",
+  "input": "InputEach test contains multiple test cases. The first line contains the number of test cases $$$t$$$ ($$$1 \\le t \\le 10^4$$$). The description of the test cases follows. The first line of each test case contains two space-separated integers $$$n$$$ and $$$q$$$ ($$$1 \\le n, q \\le 10^5$$$).The second line of each test case contains $$$n$$$ integers $$$a_1, a_2, \\ldots, a_n$$$ ($$$0 \\le a_i \\le n$$$).The next $$$q$$$ lines of each test case are of the following form:  $$$i$$$ $$$x$$$ ($$$1 \\le i, x \\le n$$$) — it means you should increase $$$a_i$$$ by $$$x$$$. It is guaranteed that the sum of $$$n$$$ over all test cases doesn't exceed $$$10^5$$$ and the sum of $$$q$$$ doesn't exceed $$$10^5$$$.",
+  "output": "OutputFor each test case, output $$$q$$$ lines — on the $$$i$$$-th line output the length of the longest good subarray of $$$a$$$ after the $$$i$$$-th update.",
+  "tags": []
+}

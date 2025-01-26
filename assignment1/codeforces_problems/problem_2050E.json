@@ -1,0 +1,8 @@
+{
+  "name": "E. Three Strings",
+  "time_limit": "time limit per test2.5 seconds",
+  "memory_limit": "memory limit per test256 megabytes",
+  "input": "InputThe first line of the input contains a single integer $$$t$$$ ($$$1 \\le t \\le 10^3$$$) — the number of test cases.The first line of each test case contains one string of lowercase Latin letters $$$a$$$ ($$$1 \\leq |a| \\leq 10^3$$$) — the first string, where $$$|a|$$$ denotes the length of string $$$a$$$.The second line of each test case contains one string of lowercase Latin letters $$$b$$$ ($$$1 \\leq |b| \\leq 10^3$$$) — the second string, where $$$|b|$$$ denotes the length of string $$$b$$$.The third line of each test case contains one string of lowercase Latin letters $$$c$$$ ($$$|c| = |a| + |b|$$$) — the third string.It is guaranteed that the sum of $$$|a|$$$ across all test cases does not exceed $$$2 \\cdot 10^3$$$. Also, the sum of $$$|b|$$$ across all test cases does not exceed $$$2 \\cdot 10^3$$$.",
+  "output": "OutputFor each test case, output a single integer — the minimum number of characters that could have been changed in string $$$c$$$.",
+  "tags": []
+}

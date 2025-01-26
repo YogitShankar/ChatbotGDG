@@ -1,0 +1,8 @@
+{
+  "name": "E. Kevin and And",
+  "time_limit": "time limit per test2 seconds",
+  "memory_limit": "memory limit per test512 megabytes",
+  "input": "InputEach test contains multiple test cases. The first line contains the number of test cases $$$t$$$ ($$$1 \\le t \\le 10^4$$$). The description of the test cases follows. The first line of each test case contains three integers $$$n, m, k$$$ ($$$1\\leq n \\leq 10^5$$$, $$$1\\leq m \\leq 10$$$, $$$0\\leq k\\leq nm$$$) — the length of $$$a$$$, the number of types of magic, and the maximum number of operations.The second line contains $$$n$$$ integers $$$a_1, a_2, \\ldots, a_n$$$ ($$$0\\leq a_i < 2^{30}$$$).The third line contains $$$m$$$ integers $$$b_1, b_2, \\ldots, b_m$$$ ($$$0\\leq b_i < 2^{30}$$$).It is guaranteed that the sum of $$$n$$$ over all test cases does not exceed $$$10^5$$$.",
+  "output": "OutputFor each test case, output one integer — the minimum possible sum of all numbers in the sequence $$$a$$$ after performing at most $$$k$$$ operations.",
+  "tags": []
+}

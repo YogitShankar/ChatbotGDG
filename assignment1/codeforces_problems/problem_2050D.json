@@ -1,0 +1,8 @@
+{
+  "name": "D. Digital string maximization",
+  "time_limit": "time limit per test2 seconds",
+  "memory_limit": "memory limit per test256 megabytes",
+  "input": "InputThe first line of the input consists of an integer $$$t$$$ ($$$1 \\le t \\le 10^4$$$)  — the number of test cases.Each test case consists of a single line consisting of a digital string $$$s$$$ ($$$1 \\le |s| \\le 2\\cdot 10^5$$$), where $$$|s|$$$ denotes the length of $$$s$$$. The string does not contain leading zeroes.It is guaranteed that the sum of $$$|s|$$$ of all test cases doesn't exceed $$$2\\cdot 10^5$$$.",
+  "output": "OutputFor each test case, print the answer on a separate line.",
+  "tags": []
+}

@@ -1,0 +1,8 @@
+{
+  "name": "G. Bugged Sort",
+  "time_limit": "time limit per test4 seconds",
+  "memory_limit": "memory limit per test1024 megabytes",
+  "input": "InputEach test contains multiple test cases. The first line contains the number of test cases $$$t$$$ ($$$1 \\le t \\le 10^4$$$). The description of the test cases follows.The first line of each test case contains a single integer $$$n$$$ ($$$3 \\le n \\le 2 \\cdot 10^5$$$).The second line of each test case contains $$$a_1,a_2,\\ldots,a_n$$$ ($$$1 \\le a_i \\le 2n$$$).The third line of each test case contains $$$b_1,b_2,\\ldots,b_n$$$ ($$$1 \\le b_i \\le 2n$$$).It is guaranteed that all integers in the range $$$[1,2n]$$$ appear exactly once in either $$$a$$$ or $$$b$$$.It is guaranteed that the sum of $$$n$$$ over all test cases does not exceed $$$2 \\cdot 10^5$$$.",
+  "output": "OutputIf it is possible to sort both sequences simultaneously, print \"YES\" on a new line. Otherwise, print \"NO\" on a new line.You can output the answer in any case. For example, the strings \"yEs\", \"yes\", and \"Yes\" will also be recognized as positive responses.",
+  "tags": []
+}

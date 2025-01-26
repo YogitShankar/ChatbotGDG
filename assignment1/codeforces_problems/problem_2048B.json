@@ -1,0 +1,8 @@
+{
+  "name": "B. Kevin and Permutation",
+  "time_limit": "time limit per test1 second",
+  "memory_limit": "memory limit per test256 megabytes",
+  "input": "InputEach test consists of multiple test cases. The first line contains the number of test cases $$$t$$$ ($$$1 \\le t \\le 10^3$$$).The only line of each test case contains two integers $$$ n $$$ and $$$ k $$$ ($$$ 1\\le k\\le n\\le 10^5 $$$).It is guaranteed that the sum of $$$ n $$$ over all test cases doesn't exceed $$$ 10^5 $$$.",
+  "output": "OutputFor each test case, output $$$ n $$$ integers on a single line — the permutation $$$ p $$$ you constructed.If there are multiple answers, you can print any of them.",
+  "tags": []
+}

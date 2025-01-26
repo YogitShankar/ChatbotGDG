@@ -1,0 +1,8 @@
+{
+  "name": "G. Snakes",
+  "time_limit": "time limit per test3 seconds",
+  "memory_limit": "memory limit per test512 megabytes",
+  "input": "InputThe first line contains two integers $$$n$$$ and $$$q$$$ ($$$1 \\le n \\le 20$$$; $$$1 \\le q \\le 2 \\cdot 10^5$$$) — the number of snakes and the number of events. Next $$$q$$$ lines contain the description of events — one per line.The $$$i$$$-th line contains   either \"$$$s_i$$$ +\" ($$$1 \\le s_i \\le n$$$) meaning that the $$$s_i$$$-th snake enlarges  or \"$$$s_i$$$ -\" ($$$1 \\le s_i \\le n$$$) meaning that the $$$s_i$$$-th snake shrinks. Additional constraint on the input: the given sequence of events is valid, i. e. a snake of length $$$1$$$ never shrinks.",
+  "output": "OutputPrint one integer — the minimum possible score.",
+  "tags": []
+}

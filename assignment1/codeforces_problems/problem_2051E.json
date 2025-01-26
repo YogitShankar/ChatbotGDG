@@ -1,0 +1,8 @@
+{
+  "name": "E. Best Price",
+  "time_limit": "time limit per test2 seconds",
+  "memory_limit": "memory limit per test256 megabytes",
+  "input": "InputThe first line contains a single integer $$$t$$$ ($$$1 \\le t \\le 10^4$$$) — the number of test cases.The first line of each test case contains two integers $$$n$$$ and $$$k$$$ ($$$1 \\le n \\le 2 \\cdot 10^5$$$; $$$0 \\le k \\le n$$$).The second line contains $$$n$$$ integers $$$a_1, a_2, \\dots, a_n$$$ ($$$1 \\le a_i \\le 2 \\cdot 10^9$$$).The third line contains $$$n$$$ integers $$$b_1, b_2, \\dots, b_n$$$ ($$$1 \\le b_i \\le 2 \\cdot 10^9$$$; $$$a_i < b_i$$$).Additional constraint on the input: the sum of $$$n$$$ over all test cases does not exceed $$$2 \\cdot 10^5$$$.",
+  "output": "OutputFor each test case, print a single integer — the maximum possible earnings for the store, given that it can receive no more than $$$k$$$ negative reviews.",
+  "tags": []
+}

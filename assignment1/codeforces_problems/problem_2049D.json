@@ -1,0 +1,8 @@
+{
+  "name": "D. Shift + Esc",
+  "time_limit": "time limit per test2.5 seconds",
+  "memory_limit": "memory limit per test512 megabytes",
+  "input": "InputEach test contains multiple test cases. The first line contains the number of test cases $$$t$$$ ($$$1 \\le t \\le 10^4$$$). The description of the test cases follows. The first line contains three space-separated integers $$$n$$$, $$$m$$$, and $$$k$$$ ($$$1 \\leq n, m \\leq 200$$$, $$$0 \\leq k \\leq 10^9$$$).Then, $$$n$$$ lines follow. The $$$i$$$-th line contains $$$m$$$ space-separated integers, $$$a_{i,1},\\,a_{i,2},\\,\\ldots,\\,a_{i,m}$$$ ($$$0 \\leq a_{i,j} \\leq 10^9$$$).It is guaranteed that the sum of $$$n \\cdot m$$$ over all test cases does not exceed $$$5 \\cdot 10^4$$$.",
+  "output": "OutputFor each test case, output a single integer, the minimum cost to move from $$$(1, 1)$$$ to $$$(n, m)$$$.",
+  "tags": []
+}

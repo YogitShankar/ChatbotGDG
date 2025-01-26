@@ -1,0 +1,8 @@
+{
+  "name": "B. Find the Permutation",
+  "time_limit": "time limit per test1.5 seconds",
+  "memory_limit": "memory limit per test256 megabytes",
+  "input": "InputEach test contains multiple test cases. The first line contains the number of test cases $$$t$$$ ($$$1 \\le t \\le 500$$$). The description of the test cases follows. The first line of each test case contains a single integer $$$n$$$ ($$$1 \\le n \\le 1000$$$).The $$$i$$$-th of the next $$$n$$$ lines contains a string of $$$n$$$ characters $$$g_{i, 1}g_{i, 2}\\ldots g_{i, n}$$$ ($$$g_{i, j} = \\mathtt{0}$$$ or $$$g_{i, j} = \\mathtt{1}$$$) — the adjacency matrix. $$$g_{i, j} = \\mathtt{1}$$$ if and only if there is an edge between vertex $$$i$$$ and vertex $$$j$$$.It is guaranteed that there exists a permutation $$$p$$$ which generates the given graph. It is also guaranteed that the graph is undirected and has no self-loops, meaning $$$g_{i, j} = g_{j, i}$$$ and $$$g_{i, i} = \\mathtt{0}$$$.It is guaranteed that the sum of $$$n$$$ over all test cases does not exceed $$$1000$$$.",
+  "output": "OutputFor each test case, output $$$n$$$ integers $$$p_1, p_2, \\ldots, p_n$$$ representing the reconstructed permutation.",
+  "tags": []
+}

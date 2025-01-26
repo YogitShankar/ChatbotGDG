@@ -1,0 +1,8 @@
+{
+  "name": "D. Scarecrow",
+  "time_limit": "time limit per test2 seconds",
+  "memory_limit": "memory limit per test256 megabytes",
+  "input": "InputEach test contains multiple test cases. The first line contains the number of test cases $$$t$$$ ($$$1 \\le t \\le 10^4$$$). The description of the test cases follows. The first line of each test case contains three integers $$$n, k, \\ell$$$ ($$$1 \\leq n \\leq 2 \\cdot 10^5$$$, $$$1 \\leq k \\leq \\ell \\leq 10^8$$$) — the number of scarecrows, the teleportation distance, and the target position of the crow, respectively.The second line of each test case contains $$$n$$$ integers $$$a_1, a_2, \\ldots, a_n$$$ ($$$0 \\leq a_1 \\leq a_2 \\leq \\ldots \\leq a_n \\leq \\ell$$$) — the initial positions of the $$$n$$$ scarecrows.It is guaranteed that the sum of $$$n$$$ over all test cases does not exceed $$$2 \\cdot 10^5$$$.",
+  "output": "OutputFor each test case, output a single integer representing the twice the minimum time required for the crow to teleport to a position greater than or equal to $$$\\ell$$$.",
+  "tags": []
+}

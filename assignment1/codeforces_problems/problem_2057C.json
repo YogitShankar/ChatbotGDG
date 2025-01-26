@@ -1,0 +1,8 @@
+{
+  "name": "C. Trip to the Olympiad",
+  "time_limit": "time limit per test2 seconds",
+  "memory_limit": "memory limit per test256 megabytes",
+  "input": "InputEach test contains multiple test cases. The first line contains a single integer $$$t$$$ ($$$1 \\le t \\le 10^4$$$) — the number of test cases. The description of the test cases follows.The first line of each test case set contains two integers $$$l$$$ and $$$r$$$ ($$$0 \\le l, r < 2^{30}$$$, $$$r - l > 1$$$) — the minimum and maximum independence levels of the students.",
+  "output": "OutputFor each test case set, output three pairwise distinct integers $$$a, b$$$, and $$$c$$$, such that $$$l \\le a, b, c \\le r$$$ and the value of the expression $$$(a \\oplus b) + (b \\oplus c) + (a \\oplus c)$$$ is maximized. If there are multiple triples with the maximum value, any of them can be output.",
+  "tags": []
+}
