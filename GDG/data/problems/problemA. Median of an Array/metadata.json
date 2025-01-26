@@ -1,0 +1,8 @@
+{
+"name": "A. Median of an Array",
+"time limit": "1 second",
+"memory": "256 megabytes",
+"input": "Each test consists of multiple test cases. The first line contains a single integer t (1 ≤ t ≤ 10^4) — the number of test cases. Then follows the description of the test cases.",
+"output": "For each test case, output a single integer — the minimum number of operations required to increase the median of the array.",
+"tags": ["greedy", "implementation", "sortings", "*800"]
+ }
