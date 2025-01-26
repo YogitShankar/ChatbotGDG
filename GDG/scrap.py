@@ -5,6 +5,8 @@ import sys
 import os
 from config import BASE_DIR
 import re 
+from config import PROBLEMS_DIR
+from config import METADATA_DIR
 
 
 sys.stdout.reconfigure(encoding='utf-8')
@@ -27,7 +29,7 @@ def scrap_ps(url):
    output=soup.find("div",class_="output-specification").p.text
    problem_number=url.split("/")[-2]
    dir_name=f"{problem_number}{name}"
-   dir=os.path.join(BASE_DIR,"data",dir_name)
+   dir=os.path.join(PROBLEMS_DIR,dir_name)
    os.makedirs(dir,exist_ok=True)
    problem_dir=os.path.join(dir,"problems.txt")
    with open(problem_dir,'w',encoding="utf-8") as f:
@@ -40,6 +42,8 @@ def scrap_ps(url):
          text = re.sub(r'&gt;', '>', text) 
          text = re.sub(r"\\[a-zA-Z]+", "", text)  
          f.write(text)
+   dir1=os.path.join(METADATA_DIR,dir_name)
+   os.makedirs(dir,exist_ok=True)
    metadata_dir=os.path.join(dir,"metadata.json")
    time_limit=time_limit.replace("time limit per test",'')
    memory_limit=memory_limit.replace("memory limit per test",'')
