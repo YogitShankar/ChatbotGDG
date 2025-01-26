@@ -1,0 +1,5 @@
+Kevin is exploring problems related to binary strings in Chinatown. When he was at a loss, a stranger approached him and introduced a peculiar operation:
+  Suppose the current binary string is t, with a length of |t|. Choose an integer 1≤p≤|t|. For all 1≤i<p, simultaneously perform the operation ti=max(ti,ti+1), and then delete tp. 
+For example, suppose the current binary string is 01001, and you choose p=4. Perform ti=max(ti,ti+1) for t1, t2, and t3, transforming the string into 11001, then delete t4, resulting in 1101.
+Kevin finds this strange operation quite interesting. Thus, he wants to ask you: Given a binary string s, how many distinct non-empty binary strings can you obtain through any number of operations (possibly zero)?
+Since the answer may be very large, you only need to output the result modulo 998244353.

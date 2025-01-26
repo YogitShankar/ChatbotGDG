@@ -1,0 +1,4 @@
+Kevin discovered a binary string s that starts with 1 in the river at Moonlit River Park and handed it over to you. Your task is to select two non-empty substrings∗ of s (which can be overlapped) to maximize the XOR value of these two substrings.
+The XOR of two binary strings a and b is defined as the result of the ⊕ operation applied to the two numbers obtained by interpreting a and b as binary numbers, with the leftmost bit representing the highest value. Here, ⊕ denotes the bitwise XOR operation.
+The strings you choose may have leading zeros.
+∗A string a is a substring of a string b if a can be obtained from b by the deletion of several (possibly, zero or all) characters from the beginning and several (possibly, zero or all) characters from the end. 

@@ -1,0 +1,7 @@
+ 
+Kevin is a master of permutation-related problems. You are taking a walk with Kevin in Darkwoods, and during your leisure time, he wants to ask you the following question.
+Given two positive integers n and k, construct a permutation∗ p of length n to minimize the sum of the minimum values of all subarrays† of length k. Formally, you need to minimize
+n−k+1∑i=1(i+k−1minj=ipj).
+
+ \sum_{i=1}^{n-k+1}\left( \min_{j=i}^{i+k-1} p_j\right). 
+∗A permutation of length n is an array consisting of n distinct integers from 1 to n in arbitrary order. For example, [2,3,1,5,4] is a permutation, but [1,2,2] is not a permutation (2 appears twice in the array), and [1,3,4] is also not a permutation (n=3 but there is 4 in the array). †An array a is a subarray of an array b if a can be obtained from b by the deletion of several (possibly, zero or all) elements from the beginning and several (possibly, zero or all) elements from the end. Two subarrays are considered different if the sets of positions of the deleted elements are different. 

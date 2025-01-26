@@ -1,0 +1,10 @@
+Hint 1 
+ Can the left-hand side be less than the right-hand side? 
+Hint 2 
+ Consider the positions where the extremes are reached in the expression. What properties do they have? 
+Hint 3 
+ Use the principle of inclusion-exclusion. 
+Hint 4 
+ Apply the Binomial Theorem. 
+Tutorial 
+ 2048G - Kevin and MatricesLet us assume the left-hand side attains its maximum at position L, and the right-hand side attains its maximum at position R.For any L,R, let P be the position in the same row as L and the same column as R. Then we have aL≥aP≥aR, which implies aL≥aR. Hence, we only need to consider cases where aL=aR.Now, consider positions where both sides attain their maximum value, denoted as S. Positions in S are the maximum in their respective column and the minimum in their respective row. For any two positions P,Q in S that are not in the same row or column, we can observe that the positions in the same row as P and the same column as Q, and vice versa, can also attain the maximum value. By induction, we can conclude that S forms a subrectangle.Next, enumerate the maximum value k and the size of S, denoted by i×j. The constraints are as follows: all remaining elements in the rows of S must be ≤k, and all remaining elements in the columns of S must be ≥k. Using the principle of inclusion-exclusion, we derive: ans=∑vk=1∑ni=1∑mj=1(−1)i+j(ni)(mj)ki(m−j)(v−k+1)(n−i)jv(n−i)(m−j)The naive approach is O(nmv), which is computationally expensive. Let us simplify: =∑vk=1∑ni=1(−1)i(ni)∑mj=1(−1)j(mj)(ki)m−j((v−k+1)n−i)j(vn−i)m−j=∑vk=1∑ni=1(−1)i(ni)∑mj=1(mj)(−(v−k+1)n−i)j(kivn−i)m−jThis resembles the Binomial Theorem. To simplify further, add and subtract the term for j=0: =∑vk=1∑ni=1(−1)i(ni)(∑mj=0(mj)(−(v−k+1)n−i)j(kivn−i)m−j−(kivn−i)m)=∑vk=1∑ni=1(−1)i(ni)((−(v−k+1)n−i+kivn−i)m−(kivn−i)m)Thus, the problem can be solved in O(nvlogm) time. 

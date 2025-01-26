@@ -1,0 +1,20 @@
+{
+    "problem_id": "D",
+    "contest_id": "2048",
+    "name": "D. Kevin and Competition Memories",
+    "url": "https://codeforces.com/contest/2048/problem/D",
+    "difficulty": "*1600",
+    "tags": [
+        "binarysearch",
+        "bruteforce",
+        "datastructures",
+        "greedy",
+        "sortings",
+        "twopointers"
+    ],
+    "time_limit": "2 seconds",
+    "memory_limit": "256 megabytes",
+    "input_specification": "Input\nEach test contains multiple test cases. The first line contains the number of test cases t (1\u2264t\u22645\u22c5104).\nThe first line of each test case contains two integers n and m (1\u2264n,m\u22643\u22c5105)\u00a0\u2014 the number of participants and the number of problems.\nThe second line of each test case contains n integers a1,a2,\u2026,an (0\u2264ai\u2264109)\u00a0\u2014 the rating of each participant.\nThe third line of each test case contains m integers b1,b2,\u2026,bm (0\u2264bi\u2264109)\u00a0\u2014 the difficulty of each problem.\nIt is guaranteed that both the sum of n and the sum of m over all test cases do not exceed 3\u22c5105.",
+    "output_specification": "Output\nFor each test case, output m integers\u00a0\u2014 the minimum sum of Kevin's ranks for each k=1,2,\u2026,m.",
+    "sample_tests": "Input\nCopy\n4\n4 4\n4 3 7 5\n2 5 4 6\n5 5\n5 0 4 8 6\n1 3 9 2 7\n6 7\n1 1 4 5 1 4\n1 9 1 9 8 1 0\n7 6\n1 9 1 9 8 1 0\n1 1 4 5 1 4\nOutput\nCopy\n7 4 2 3\n6 2 1 1 2\n7 3 2 1 1 1 1\n15 9 5 4 4 4"
+}

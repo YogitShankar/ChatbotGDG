@@ -1,0 +1,16 @@
+{
+    "problem_id": "B",
+    "contest_id": "2048",
+    "name": "B. Kevin and Permutation",
+    "url": "https://codeforces.com/contest/2048/problem/B",
+    "difficulty": "*900",
+    "tags": [
+        "constructivealgorithms",
+        "greedy"
+    ],
+    "time_limit": "1 second",
+    "memory_limit": "256 megabytes",
+    "input_specification": "Input\nEach test consists of multiple test cases. The first line contains the number of test cases t (1\u2264t\u2264103).\nThe only line of each test case contains two integers n and k (1\u2264k\u2264n\u2264105).\nIt is guaranteed that the sum of n over all test cases doesn't exceed 105.",
+    "output_specification": "Output\nFor each test case, output n integers on a single line\u00a0\u2014 the permutation p you constructed.\nIf there are multiple answers, you can print any of them.",
+    "sample_tests": "Input\nCopy\n3\n4 2\n6 1\n8 3\nOutput\nCopy\n3 1 2 4\n5 2 1 6 4 3\n4 6 2 8 3 1 5 7"
+}

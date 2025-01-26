@@ -1,0 +1,3 @@
+An array a1,…,an of length n is initially all blank. There are n updates where one entry of a is updated to some number, such that a becomes a permutation of 1,2,…,n after all the updates.
+After each update, find the number of ways (modulo 998244353) to fill in the remaining blank entries of a so that a becomes a permutation of 1,2,…,n and all cycle lengths in a are multiples of 3.
+A permutation of 1,2,…,n is an array of length n consisting of n distinct integers from 1 to n in arbitrary order. A cycle in a permutation a is a sequence of pairwise distinct integers (i1,…,ik) such that i2=ai1,i3=ai2,…,ik=aik−1,i1=aik. The length of this cycle is the number k, which is a multiple of 3 if and only if k≡0(mod3).

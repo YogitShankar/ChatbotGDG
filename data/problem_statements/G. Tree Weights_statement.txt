@@ -1,0 +1,2 @@
+You are given a tree with n nodes labelled 1,2,…,n. The i-th edge connects nodes ui and vi and has an unknown positive integer weight wi. To help you figure out these weights, you are also given the distance di between the nodes i and i+1 for all 1≤i≤n−1 (the sum of the weights of the edges on the simple path between the nodes i and i+1 in the tree).
+Find the weight of each edge. If there are multiple solutions, print any of them. If there are no weights wi consistent with the information, print a single integer −1.

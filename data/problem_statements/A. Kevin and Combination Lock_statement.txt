@@ -1,0 +1,4 @@
+Kevin is trapped in Lakeside Village by Grace. At the exit of the village, there is a combination lock that can only be unlocked if Kevin solves it.
+The combination lock starts with an integer . Kevin can perform one of the following two operations zero or more times: 
+  If , he can select two consecutive digits  from  and remove them simultaneously. For example, if , he can remove the second and third , changing  to .  If , he can change  to . For example, if , he can choose this operation to change  to . 
+When the value of  on the combination lock becomes , Kevin can unlock the lock and escape from Lakeside Village. Please determine whether it is possible for Kevin to unlock the combination lock and escape.

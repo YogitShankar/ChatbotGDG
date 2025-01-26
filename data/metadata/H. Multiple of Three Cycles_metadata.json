@@ -1,0 +1,19 @@
+{
+    "problem_id": "H",
+    "contest_id": "1844",
+    "name": "H. Multiple of Three Cycles",
+    "url": "https://codeforces.com/contest/1844/problem/H",
+    "difficulty": "*3400",
+    "tags": [
+        "combinatorics",
+        "datastructures",
+        "dp",
+        "dsu",
+        "math"
+    ],
+    "time_limit": "3 seconds",
+    "memory_limit": "256 megabytes",
+    "input_specification": "Input\nThe first line contains a single integer n (3\u2264n\u22643\u22c5105, n\u22610(mod3)).\nThe i-th of the next n lines contains two integers xi and yi, representing that the i-th update changes axi to yi.\nIt is guaranteed that x1,\u2026,xn and y1,\u2026,yn are permutations of 1,2,\u2026,n, i.e. a becomes a permutation of 1,2,\u2026,n after all the updates.",
+    "output_specification": "Output\nOutput n lines: the number of ways (modulo 998244353) after the first 1,2,\u2026,n updates.",
+    "sample_tests": "Input\nCopy\n6\n3 2\n1 4\n4 5\n2 6\n5 1\n6 3\nOutput\nCopy\n32\n8\n3\n2\n1\n1\nInput\nCopy\n3\n1 1\n2 3\n3 2\nOutput\nCopy\n0\n0\n0\nInput\nCopy\n18\n1 2\n2 3\n3 4\n4 5\n5 6\n6 7\n7 8\n8 9\n9 10\n10 11\n11 12\n12 13\n13 14\n14 15\n15 16\n16 17\n17 18\n18 1\nOutput\nCopy\n671571067\n353924552\n521242461\n678960117\n896896000\n68992000\n6272000\n627200\n62720\n7840\n1120\n160\n32\n8\n2\n1\n1\n1"
+}

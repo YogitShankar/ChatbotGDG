@@ -1,0 +1,17 @@
+{
+    "problem_id": "E",
+    "contest_id": "2048",
+    "name": "E. Kevin and Bipartite Graph",
+    "url": "https://codeforces.com/contest/2048/problem/E",
+    "difficulty": "*2000",
+    "tags": [
+        "constructivealgorithms",
+        "graphs",
+        "greedy"
+    ],
+    "time_limit": "2 seconds",
+    "memory_limit": "256 megabytes",
+    "input_specification": "Input\nEach test contains multiple test cases. The first line contains the number of test cases t (1\u2264t\u2264100).\nThe only line of each test case contains two integers n and m (1\u2264n,m\u2264103)\u00a0\u2014 the bipartite graph has 2n vertices in the left part and m vertices in the right part.\nIt is guaranteed that both the sum of n and the sum of m over all test cases do not exceed 103.",
+    "output_specification": "Output\nFor each test case, if there is no solution, then output No.\nOtherwise, output Yes, and then output 2n lines, with each line containing m positive integers. The i-th line's j-th integer represents the color of the edge between the i-th vertex in the left part and the j-th vertex in the right part.\nIf there are multiple answers, you can print any of them.\nYou can output each letter in any case (for example, the strings yEs, yes, Yes, and YES will be recognized as a positive answer).",
+    "sample_tests": "Input\nCopy\n3\n2 2\n3 7\n5 4\nOutput\nCopy\nYES\n1 2\n2 1\n2 2\n2 1\nNO\nYES\n1 1 1 1\n1 2 2 2\n1 2 3 3\n1 2 3 4\n1 2 3 4\n1 2 3 4\n1 2 3 4\n1 2 3 4\n1 2 3 4\n1 2 3 4"
+}

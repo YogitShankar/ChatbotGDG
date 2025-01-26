@@ -1,0 +1,33 @@
+Hint 1 
+ In order for (l,r) to contribute to the primality, we must have MEX⁡(al,…,ar)≥2, so there is some value 1 between indices l and r. 
+Hint 2 
+ To maximize the number of pairs (l,r) that contain the value 1, we should put 1 near the middle of the array. 
+Hint 3 
+ To minimize the number of pairs (l,r) where MEX⁡(al,…,ar)≥2 but is not prime, we should put 2 and 3 at the ends of the array. 
+Solution 
+ 1844B - Permutations & PrimesThe cases n≤2 can be handled separately. For n≥3, any construction with a1=2,a⌊(n+1)/2⌋=1,an=3 is optimal. We can prove this as follows: Note that since 2 and 3 are both prime, any (l,r) with l≤⌊n+12⌋≤r has a prime MEX⁡(al,…,ar) except for possibly (l,r)=(1,n), where MEX⁡(a1,…,an)=n+1. Therefore the primality of this array is ⌊n+12⌋⋅⌈n+12⌉−[n+1 is not prime], where [P]=1 if proposition P is true and 0 if P is false. On the other hand, for any permutation of 1,…,n, let k be the index with ak=1. The primality of this array cannot exceed k(n+1−k)−[n+1 is not prime], since any pair (l,r) with prime MEX⁡(al,…,ar)≥2 must satisfy l≤k≤r, and additionally MEX⁡(a1,…,an)=n+1 no matter what the permutation is. The function f(k)=k(n+1−k) is a quadratic which is maximized at k=⌊n+12⌋, so k(n+1−k)−[n+1 is not prime]≤⌊n+12⌋⋅⌈n+12⌉−[n+1 is not prime] as required.The time complexity is O(n) (note that we don't even need to sieve for primes!). 
+Implementation 
+ #include <bits/stdc++.h>
+using namespace std;
+
+int a[200000];
+int main() {
+    int i;
+    int t,n;
+    scanf("%d",&t);
+    while (t--) {
+        scanf("%d",&n);
+        if (n == 1) printf("1\n");
+        else if (n == 2) printf("1 2\n");
+        else {
+            int c = 4;
+            fill(a,a+n,0);
+            a[0] = 2,a[n/2] = 1,a[n-1] = 3;
+            for (i = 0; i < n; i++) {
+                if (a[i] == 0) a[i] = c++;
+            }
+            for (i = 0; i < n; i++) printf("%d%c",a[i],(i == n-1) ? '\n':' ');
+        }
+    }
+    return 0;
+} 

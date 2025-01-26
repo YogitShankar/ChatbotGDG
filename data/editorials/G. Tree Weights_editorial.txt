@@ -1,0 +1,91 @@
+Hint 1 
+ Model the problem as a system of linear equations. 
+Hint 2 
+ Let xu be the sum of the weights of the edges on the path from node 1 to node u. The equations are of the form xi+xi+1−2xlca(i,i+1)=di. 
+Hint 3 
+ The intended solution does not do anything like attempt to maintain paths/virtual trees of known weight. One easily overlooked detail that is essential to the solution is that xi are integers. 
+Hint 4 
+ Solve the equations modulo 2 first, so that the 2xlca(i,i+1) term disappears. 
+Hint 5 
+ After solving the equations modulo 2, we can similarly solve modulo 4, 8, etc. 
+Solution 
+ 1844G - Tree WeightsLet xu be the sum of the weights of the edges on the path from node 1 to node u. We know that x1=0 and xi+xi+1−2xlca(i,i+1)=di for all 1≤i≤n−1. This is a system of n linear equations in n variables.As xu should be integers, let's first solve this system modulo 2. The 2xlca(i,i+1) term disappears, so we just have xi+1≡di−xi(mod2). Starting from x1≡0(mod2), this uniquely determines x2(mod2), then x3(mod2), and so on.Now that we know x1,…,xn(mod2), write xu=2xu′+bu where bu is the first bit of xu. We can rewrite our system of equations as(2xi′+bi)+(2xi+1′+bi+1)−2(2xlca(i,i+1)′+blca(i,i+1))=di ⟺xi′+xi+1′−2xlca(i,i+1)′=12(di−bi−bi+1+2blca(i,i+1))which has the same form as the original system. Thus we can repeat this process to find xu′(mod2) (giving xu(mod4)), then xu(mod8), and so on. Note that each bit of xu is uniquely determined.If a solution exists, it satisfies 0≤xu≤n⋅maxdi≤1017 for all u, so it suffices to repeat this process until we have found the first 57 bits of xu. Finally, we check that these 57 bits correspond to a valid solution where all the original weights are positive.The time complexity is O(n(log⁡n+log⁡maxdi)), if the lca(i,i+1) are precomputed.Remark: This idea is related to the method of Hensel Lifting. 
+Implementation 
+ #include <bits/stdc++.h>
+using namespace std;
+typedef long long int LLI;
+typedef vector<pair<int,int> > vpii;
+#define mp make_pair
+#define pb push_back
+
+vpii adjList[100000];
+LLI d[100000];
+int parent[100000][17],parenti[100000],depth[100000];
+int doDFS(int u,int p,int d) {
+    parent[u][0] = p,depth[u] = d;
+    for (auto [v,i]: adjList[u]) {
+        if (v != p) parenti[v] = i,doDFS(v,u,d+1);
+    }
+    return 0;
+}
+int logn;
+int lca(int u,int v) {
+    int i;
+    if (depth[u] < depth[v]) swap(u,v);
+    for (i = logn-1; i >= 0; i--) {
+        if ((parent[u][i] != -1) && (depth[parent[u][i]] >= depth[v])) u = parent[u][i];
+    }
+    if (u == v) return u;
+    for (i = logn-1; i >= 0; i--) {
+        if (parent[u][i] != parent[v][i]) u = parent[u][i],v = parent[v][i];
+    }
+    return parent[u][0];
+}
+int lcas[100000],bit[100000];
+LLI ans[100000],w[100000];
+int main() {
+    int i;
+    int n,u,v;
+    scanf("%d",&n);
+    for (i = 0; i < n-1; i++) {
+        scanf("%d %d",&u,&v);
+        u--,v--;
+        adjList[u].pb(mp(v,i));
+        adjList[v].pb(mp(u,i));
+    }
+    for (i = 0; i < n-1; i++) scanf("%lld",&d[i]);
+
+    int j;
+    doDFS(0,-1,0);
+    for (i = 1; (1 << i) < n; i++) {
+        for (j = 0; j < n; j++) {
+            if (parent[j][i-1] != -1) parent[j][i] = parent[parent[j][i-1]][i-1];
+            else parent[j][i] = -1;
+        }
+    }
+    logn = i;
+    for (i = 0; i < n-1; i++) lcas[i] = lca(i,i+1);
+
+    for (i = 0; i < 57; i++) {
+        bit[0] = 0;
+        for (j = 0; j < n-1; j++) bit[j+1] = bit[j]^(d[j] & 1);
+        for (j = 0; j < n-1; j++) d[j] = (d[j]-bit[j]-bit[j+1]+2*bit[lcas[j]])/2;
+        for (j = 0; j < n; j++) ans[j] |= ((LLI) bit[j] << i);
+    }
+    for (i = 0; i < n-1; i++) {
+        if (d[i] != 0) {
+            printf("-1\n");
+            return 0;
+        }
+    }
+    for (i = 1; i < n; i++) {
+        w[parenti[i]] = ans[i]-ans[parent[i][0]];
+        if (w[parenti[i]] <= 0) {
+            printf("-1\n");
+            return 0;
+        }
+    }
+    for (i = 0; i < n-1; i++) printf("%lld\n",w[i]);
+
+    return 0;
+} 
