@@ -1,0 +1,6 @@
+problem statement-1844E:
+An n×m grid of characters is called great if it satisfies these three conditions: 
+  Each character is either 'A', 'B', or 'C'.  Every 2×2 contiguous subgrid contains all three different letters.  Any two cells that share a common edge contain different letters. 
+Let (x,y) denote the cell in the x-th row from the top and y-th column from the left.
+You want to construct a great grid that satisfies k constraints. Each constraint consists of two cells, (xi,1,yi,1) and (xi,2,yi,2), that share exactly one corner. You want your great grid to have the same letter in cells (xi,1,yi,1) and (xi,2,yi,2).
+Determine whether there exists a great grid satisfying all the constraints. 
