@@ -1,0 +1,16 @@
+Section 1:
+Hint 1
+What is the condition for four edges to form an isosceles trapezoid?
+
+Section 2:
+Hint 2
+How do you find two bases after fixing the length of the legs?
+
+Section 3:
+Hint 3
+How do you choose two legs?
+
+Section 4:
+Solution
+Tutorial is loading...
+

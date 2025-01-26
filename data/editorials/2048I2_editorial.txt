@@ -1,0 +1,115 @@
+Section 1:
+Hint 1
+Only the case where the characters on both sides are
+RL
+in the simple version needs to be counted. In fact, the numbers at these two positions,
+RL
+, must be the same.
+
+Section 2:
+Hint 2
+Let the number at the
+RL
+positions be $$$m$$$, and enumerate the rightmost
+R
+position $$$x$$$ that is filled with $$$m$$$, and the leftmost
+L
+position $$$y$$$ that is filled with $$$m$$$.
+
+Section 3:
+Hint 3
+The case where $$$x > y$$$ is easy to resolve. For the case where $$$x < y$$$, analyze the necessary and sufficient conditions for it to hold.
+
+Section 4:
+Hint 4
+For the final transformed condition, use bitset or convolution to complete the counting.
+
+Section 5:
+Tutorial
+2048I2 - Kevin and Puzzle (Hard Version)
+According to the easy version, we can see that most cases have very few solutions because for
+LR
+,
+LL
+, and
+RR
+, after filling in the inner part, the outer layer only has one unique way to fill. Therefore, if there is no
+RL
+layer, the answer must be $$$1$$$.
+Next, consider the case where
+RL
+is present. Let’s assume that
+RL
+is the outermost pair of characters.
+It can be proved that the numbers at the
+R
+and
+L
+positions in this
+RL
+must be the same. The specific proof is omitted here, but readers can prove this for themselves easily.
+Let this common value be $$$m$$$. Then, enumerate the rightmost
+R
+position $$$x$$$ filled with $$$m$$$ and the leftmost
+L
+position $$$y$$$ filled with $$$m$$$. Now, let’s discuss the relationship between $$$x$$$ and $$$y$$$:
+If $$$x > y$$$, it can be observed that all
+L
+s to the right of $$$x$$$ must be filled with $$$m$$$, and all
+R
+s to the right of $$$x$$$ have only one way to be filled. The same applies for $$$y$$$. For this case, we can directly enumerate $$$m$$$, then determine the unique positions for $$$x$$$ and $$$y$$$, and check if $$$x > y$$$.
+If $$$x < y$$$, at this point, all
+R
+s to the left of $$$x$$$ must be filled with $$$m$$$, and the
+L
+s to the left of $$$x$$$ have only one way to be filled. Similarly for the right side of $$$y$$$. Now, consider the section between $$$(x, y)$$$. Clearly, $$$m$$$ must not appear in the middle, so we can delete $$$x$$$ and all
+R
+s to its left, as well as $$$y$$$ and all
+L
+s to its right (i.e., remove all positions where the value is $$$m$$$). The resulting sequence is called the remaining sequence. After removing these characters, we solve for the remaining sequence, then add $$$1$$$ to all the numbers obtained, and finally, add all positions filled with $$$m$$$.
+Below is an example of an initial sequence, where the red characters are $$$x$$$ and $$$y$$$, and the omitted part is the section between $$$(x, y)$$$.
+Below is the corresponding remaining sequence, with $$$*$$$ representing the original sequence positions of $$$x$$$ and $$$y$$$.
+After filling the remaining sequence, we need to analyze the conditions for adding all positions filled with $$$m$$$: we divide the remaining sequence into three parts: "left", "middle", and "right", with the positions of $$$x$$$ and $$$y$$$ as boundaries, where the left part contains only
+L
+s, and the right part contains only
+R
+s. The condition to be satisfied is that let the total number of colors in the "left-middle" part be $$$c_1$$$, and the total number of colors in the "middle-right" part be $$$c_2$$$, then we need $$$m = c_1 + 1 = c_2 + 1$$$. Additionally, $$$m$$$ must not appear in the remaining sequence. This restriction is equivalent to requiring both the "left-middle" and "middle-right" parts to satisfy $$$d = 1$$$. It can be concluded that the remaining sequence satisfies $$$d = 1$$$. For the condition $$$c_1 = c_2$$$, it is easy to see that it is equivalent to: let $$$z$$$ be the larger of the counts of the left and right parts, then the first $$$z$$$ characters of the remaining sequence must all be
+L
+, and the last $$$z$$$ characters must all be
+R
+.
+The final necessary and sufficient condition is: let $$$x$$$ have $$$a$$$
+L
+s to the left, and $$$y$$$ have $$$b$$$
+R
+s to the right. Without loss of generality, assume $$$a \ge b$$$. Remove the substring between $$$(x, y)$$$ (not including $$$x$$$ and $$$y$$$). This remaining substring needs to satisfy that the last $$$a-b$$$ characters are
+R
+s, and after removing these $$$a-b$$$
+R
+s, the resulting string must satisfy $$$d = 1$$$, meaning there is no
+RL
+situation when taking the first and last characters. Since $$$d = 1$$$, if the remaining sequence satisfies this condition, there will be exactly one way to fill it.
+Finally, we only need to count the cases separately. The case where $$$x > y$$$ can be counted in $$$O(n)$$$, for the case where $$$x < y$$$, without loss of generality, assume $$$a \ge b$$$, we can enumerate $$$y$$$, calculate the length of the longest consecutive
+R
+s before $$$y$$$, denoted as $$$cnt$$$, so the restriction on $$$a$$$ becomes $$$b \le a \le b + cnt$$$.
+When $$$cnt = 0$$$, the value of $$$a$$$ is fixed, but the corresponding $$$x$$$ can be chosen from any position in a consecutive block of
+R
+s. We find that because $$$cnt = 0$$$, i.e., the position before $$$y$$$ is filled with
+L
+, then the position after $$$x$$$ cannot be filled with
+R
+, so $$$x$$$ can only be chosen as the last
+R
+in the consecutive
+R
+block.
+When $$$cnt > 0$$$, we only need to enumerate the values of $$$x$$$. It is easy to see that each $$$x$$$ will be counted at most $$$2$$$ times.
+Through the above observations, we only need to enumerate $$$O(n)$$$ pairs of $$$x$$$ and $$$y$$$ and check whether they increase the answer by $$$1$$$. That is, the answer is at the $$$O(n)$$$ level.
+The last problem is: for each given interval $$$[l, r]$$$, we need to check if there is any
+RL
+situation when taking the first and last characters of this string.
+A simple solution is to use a bitset to maintain, for example, by scanning $$$r$$$ from small to large, and maintaining the existence of
+RL
+for each $$$l + r$$$. The time complexity of this approach is $$$O(\frac{n^2}{\omega})$$$, which can be handled by this problem.
+If using block convolution, a more optimal complexity can be achieved. In fact, if further exploring the properties, the time complexity can be reduced to $$$O(n \log^2 n)$$$ (requiring convolution), which you can explore on your own if you are interested.
+

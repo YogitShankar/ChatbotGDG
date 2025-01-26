@@ -1,0 +1,21 @@
+Section 1:
+Hint 1
+It can be observed that the larger $$$m$$$ is, the harder it is to satisfy the conditions. Try to find an upper bound for $$$m$$$.
+
+Section 2:
+Tutorial
+2048E - Kevin and Bipartite Graph
+The graph has a total of $$$2nm$$$ edges, and each color forms a forest. Therefore, for any given color, there are at most $$$2n + m - 1$$$ edges. Thus, the total number of edges cannot exceed $$$(2n + m - 1)n$$$. This gives the condition: $$$(2n+m-1)n\ge 2nm$$$. Simplifying, we find $$$m \leq 2n - 1$$$.
+Next, we only need to construct a valid case for $$$m = 2n - 1$$$ to solve the problem.
+In fact, this is easy to construct. Since each right-side vertex has a degree of $$$2n$$$, and there are $$$n$$$ total colors, let each color have exactly $$$2$$$ edges. For any given color, this is equivalent to choosing two left-side vertices to connect (ignoring the existence of the right-side vertices). After $$$2n - 1$$$ connections, the left-side vertices need to form a tree. It turns out that connecting the left-side vertices into a chain suffices. During construction, we can cycle the colors of the first right-side vertex. For example, for $$$n = 4$$$ and $$$m = 7$$$, the result looks like this:
+1 4 4 3 3 2 2
+1 1 4 4 3 3 2
+2 1 1 4 4 3 3
+2 2 1 1 4 4 3
+3 2 2 1 1 4 4
+3 3 2 2 1 1 4
+4 3 3 2 2 1 1
+4 4 3 3 2 2 1
+Thus, a simple construction method is as follows: for left-side vertex $$$i$$$ and right-side vertex $$$j$$$, the color of the edge connecting them is given by:
+$$$ \left\lfloor\dfrac{(i+j)\bmod 2n}2\right\rfloor+1 $$$
+

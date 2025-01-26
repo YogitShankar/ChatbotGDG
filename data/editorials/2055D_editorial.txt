@@ -1,0 +1,93 @@
+Section 1:
+Hint 1
+Should you ever change the order of scarecrows?
+
+Section 2:
+Hint 2
+What's the first thing that the leftmost scarecrow should do?
+
+Section 3:
+Hint 3
+What's the only way to save time? Think in terms of distances and not times.
+
+Section 4:
+Hint 4
+Look at the points where the crow "switches over" between scarecrows.
+
+Section 5:
+Hint 5
+Greedy.
+
+Section 6:
+Solution
+We make a few preliminary observations:
+(1) The order of scarecrows should never change, i.e no two scarecrows should cross each other while moving along the interval.
+(2) Scarecrow $$$1$$$ should spend the first $$$a_1$$$ seconds moving to position zero, as this move is required for the crow to make any progress and there is no point in delaying it.
+(3) Let's say that a scarecrow at position $$$p$$$ `has' the crow if the crow is at position $$$p + k$$$, and there are no other scarecrows in the interval $$$[p, p+k]$$$. A scarecrow that has the crow should always move to the right; in other words, all scarecrows that find themselves located to the left of the crow should spend all their remaining time moving to the right, as it is the only way they will be useful.
+(4) Let there be a scenario where at time $$$T$$$, scarecrow $$$i$$$ has the crow and is at position $$$x$$$, and another scenario at time $$$T$$$ where scarecrow $$$i$$$ also has the crow, but is at position $$$y \geq x$$$. Then, the latter scenario is at least as good as the former scenario, assuming scarecrows numbered higher than $$$i$$$ are not fixed.
+(5) The only way to save time is to maximize the distance $$$d$$$ teleported by the crow.
+The second and fifth observations imply that the time spent to move the crow across the interval is $$$a_1 + \ell - d$$$.
+Now, for each scarecrow $$$i$$$, define $$$b_i$$$ to be the position along the interval at which it begins to have the crow, i.e. the crow is transferred from scarecrow $$$i-1$$$ to $$$i$$$. For instance, in the second sample case the values of $$$b_i$$$ are
+$$$(b_1, b_2, b_3) = (0, 2.5, 4.5)$$$
+The second observation above implies that $$$b_1 = 0$$$, and the first observation implies that $$$b_1 \leq \dots \leq b_n$$$. Notice that we may express the distance teleported as
+$$$d = \sum_{i=1}^{n} \min(k, b_{i+1} - b_i)$$$
+with the extra definition that $$$b_{n+1} = \ell$$$. For instance, in the second sample case the distance teleported is
+$$$d = \min(k, b_2 - b_1) + \min(k, b_3 - b_2) + \min(k, \ell - b_3) = 2 + 2 + 0.5 = 4.5$$$
+and the total time is $$$a_1 + \ell - d = 2 + 5 - 4.5 = 2.5$$$.
+Now, suppose that $$$b_1, \dots, b_{i-1}$$$ have been selected for some $$$2 \leq i \leq n$$$, and that time $$$T$$$ has elapsed upon scarecrow $$$i-1$$$ receiving the crow. We will argue the optimal choice of $$$b_i$$$.
+At time $$$T$$$ when scarecrow $$$i-1$$$ first receives the crow, scarecrow $$$i$$$ may be at any position in the interval $$$[a_i - T, \min(a_i + T, \ell)]$$$. Now, we have three cases.
+Case 1. $$$b_{i-1} + k \leq a_i - T.$$$
+In this case, scarecrow $$$i$$$ will need to move some nonnegative amount to the left in order to meet with scarecrow $$$i-1$$$. They will meet at the midpoint of the crow position $$$b_{i-1} + k$$$ and the leftmost possible position $$$a_i - T$$$ of scarecrow $$$i$$$ at time $$$T$$$. This gives
+$$$b_i := \frac{a_i - T + b_{i-1} + k}{2}.$$$
+Case 2. $$$a_i - T \leq b_{i-1} + k \leq a_i + T.$$$
+Notice that if our choice of $$$b_i$$$ has $$$b_i < b_{i-1} + k$$$, it benefits us to increase our choice of $$$b_i$$$ (if possible) as a consequence of our fourth observation, since all such $$$b_i$$$ will cause an immediate transfer of the crow to scarecrow $$$i$$$ at time $$$T$$$. However, if we choose $$$b_i > b_{i-1} + k$$$, lowering our choice of $$$b_i$$$ is now better as it loses less potential teleported distance $$$\min(k, b_i - b_{i-1})$$$, while leaving more space for teleported distance after position $$$b_i$$$. Therefore, we will choose $$$b_i := b_{i-1} + k$$$ in this case.
+Case 3. $$$a_i + T \leq b_{i-1} + k.$$$
+In this case, regardless of how we choose $$$b_i$$$, the crow will immediately transfer to scarecrow $$$i$$$ from scarecrow $$$i-1$$$ at time $$$T$$$. We might as well pick $$$b_i := a_i + T$$$.
+Therefore, the optimal selection of $$$b_i$$$ may be calculated iteratively as
+$$$b_i := \min\left(\ell, \overbrace{a_i + T}^{\text{case 3}}, \max\left(\overbrace{b_{i-1} + k}^{\text{case 2}}, \overbrace{\frac{a_i - T + b_{i-1} + k}{2}}^{\text{case 1}}\right)\right).$$$
+It is now easy to implement the above approach to yield an $$$O(n)$$$ solution. Note that the constraints for $$$k, \ell$$$ were deliberately set to $$$10^8$$$ instead of $$$10^9$$$ to make two times the maximum answer $$$4 \cdot \ell$$$ fit within $$$32$$$-bit integer types. It is not difficult to show that the values of $$$b_i$$$ as well as the answer are always integers or half-integers.
+
+Section 7:
+Implementation
+#include <bits/stdc++.h>
+
+#define f first
+#define s second
+#define pb push_back
+
+typedef long long int ll;
+typedef unsigned long long int ull;
+using namespace std;
+typedef pair<int,int> pii;
+typedef pair<ll,ll> pll;
+
+int main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(0);
+
+    int T; cin >> T;
+    while (T--) {
+        int N, k, l;
+        cin >> N >> k >> l;
+        double K = k;
+        double L = l;
+        vector<int> A(N);
+        for (int i = 0; i < N; i++) cin >> A[i];
+        double T = A[0];
+        double last_pt = 0;
+        double S = 0;
+        for (int i = 1; i < N; i++) {
+            double this_pt = min(L, min(A[i] + T,
+                                max(last_pt + K,
+                                    (A[i] - T + last_pt + K)/2.0)));
+            T += max(0.0, this_pt - last_pt - K);
+            S += min(K, this_pt - last_pt);
+            last_pt = this_pt;
+        }
+        S += min(K, L - last_pt);
+        cout << (int)round(2*(L - S + A[0])) << endl;
+    }
+    return 0;
+}
+

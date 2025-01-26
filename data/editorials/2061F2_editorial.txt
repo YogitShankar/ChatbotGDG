@@ -1,0 +1,24 @@
+Section 1:
+Hint 1
+What is the property for the final string?
+
+Section 2:
+Hint 2
+Consider the immovable blocks.
+
+Section 3:
+Hint 3
+For the easy version, fix the immovable blocks greedily.
+
+Section 4:
+Hint 4
+For the hard version, use dynamic programming to determine the immovable blocks.
+
+Section 5:
+Hint 5
+Use a data structure to speed up dynamic programming.
+
+Section 6:
+Solution
+Tutorial is loading...
+

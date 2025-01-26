@@ -1,0 +1,53 @@
+Section 1:
+Tutorial
+2049D - Shift + Esc
+Let $$$f(i,j)$$$ be the minimum cost to move to cell $$$(i,j)$$$ after shifting and $$$g(i,j,x)$$$ be the minimum cost to move to $$$(i,j)$$$ assuming row $$$i$$$ is shifted to the left by $$$x$$$.
+For simplicity sake, we will add a row with all zeros above the first row. Also note that the operations with states denoting columns are all under modulo $$$m$$$, I am omitting the notation to avoid clutter.
+The transitions are as follows:
+Base cases:
+$$$\begin{align} f(0,j) &= 0 \quad (0 \leq j < m) \\ g(0,j,x) &= kx \quad (0 \leq j,x < m) \end{align}$$$
+From row $$$i$$$ to row $$$i+1$$$:
+$$$\begin{align} g(i,j,x) &= \min(f(i-1,j)+kx,g(i,j-1,x)) + a(i,j+x) \quad (*)\\ f(i,j) &= \displaystyle\min_{x}g(i,j,x) \end{align}$$$
+In $$$(*)$$$, the $$$f(i-1,j)$$$ term is from the case where you move from $$$(i-1,j)$$$ to $$$(i,j)$$$. Similarly the $$$g(i,j-1,x)$$$ term is from the case where you move from $$$(i,j-1)$$$ to $$$(i,j)$$$.
+The final answer is $$$f(n,m-1)$$$. The overall complexity is $$$O(nm^2)$$$.
+
+Section 2:
+Solution
+#include<bits/stdc++.h>
+using namespace std;
+typedef long long int ll;
+ll dp[511][511],a[511][511];
+
+void solve()
+{
+    int n,m,k;
+    cin>>n>>m>>k;
+    for(int i=1;i<=n;i++){
+        for(int j=0;j<m;j++)cin>>a[i][j];
+    }
+    for(int i=0;i<=n;i++){
+        for(int j=0;j<m;j++)dp[i][j] = 1e18;
+    }
+
+    dp[0][0] = 0;
+    for(int i=1;i<=n;i++){
+        for(int shift = 0;shift<m;shift++){
+            vector<ll>tmp(m,1e18);
+            for(int j=0;j<m;j++)tmp[j] = dp[i-1][j] + a[i][(j+shift)%m] + k*1LL*shift;
+
+            for(int j=0;j<m;j++)tmp[j] = min(tmp[j],tmp[(j+m-1)%m] + a[i][(j+shift)%m]);
+            for(int j=0;j<m;j++)tmp[j] = min(tmp[j],tmp[(j+m-1)%m] + a[i][(j+shift)%m]);
+            for(int j=0;j<m;j++)dp[i][j] = min(dp[i][j],tmp[j]);
+        }
+        //for(int j=0;j<m;j++)cout<<dp[i][j]<<" ";
+       // cout<<'\n';
+    }
+    cout<<dp[n][m-1]<<endl;
+}
+
+int main()
+{
+    int t; cin>>t;
+    for (int i = 0; i < t; i++) solve();
+}
+

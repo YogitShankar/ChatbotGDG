@@ -1,0 +1,529 @@
+Section 1:
+Hint 1
+(If we do not have to be deterministic) We do not need any hard string algorithm.
+
+Section 2:
+Hint 2
+In what cases won't greed work? Why?
+
+Section 3:
+Hint 3
+Is your brute forces actually faster (maybe you can explain it by harmonic series)?
+
+Section 4:
+Solution
+Let's call the prefix $$$s_1$$$ the short string and the suffix $$$s_2$$$ the long string. If $$$\lvert s_1\rvert\gt \lvert s_2\rvert$$$, swapping the order doesn't affect the answer.
+Consider a greedy approach. We first match a few short strings until we can't match anymore. If we can't match, we try discarding a few short strings and placing one long string. We enumerate how many short strings to discard.
+Find the first position where we can place a long string.
+We call this placing once a "matching process." The starting position of each "matching process" is the next position after the previous "matching process."
+However, this approach has a flaw. Below, I will explain the situation where this flaw occurs.
+Why it has a flaw
+It's not difficult to view the long string as several short strings concatenated with a "tail" at the end.
+Why only find the first position? Why wouldn't it be better to backtrack and discard a few more $$$s_1$$$'s before placing the long string?
+The diagram above is an example. The red line indicates the cutoff position for matching $$$s_1$$$. The three orange boxes represent the possible choices for attempting to match the long string.
+The last one is invalid, so skip it. Replace it with the "The first valid position to place the long string." box. This box is correct.
+The difference between choosing the second box and the first box is that when we end the matching and proceed to the next round, the content we need to match is that a suffix of $$$s_1$$$ has been moved to the beginning of $s_1$。
+As shown in the diagram.
+The alignment results in the following diagram.
+In the diagram, the case where $$$\lvert pre\rvert \gt \lvert suf\rvert$$$ is shown. The other case follows similarly.
+$$$pre+suf=suf+pre$$$, and as can be seen from the diagram, here $$$pre+suf$$$ needs to be "misaligned but equal." This means that $$$s_1$$$ must have a periodic cycle, and the "tail" must also be able to be formed through this cycle. Additionally, the $$$\lvert s_1 \rvert$$$ characters at the beginning of $$$s_2$$$ must still be able to be formed by the periodic cycle.
+In summary, it is equivalent to $$$s_1$$$ and $$$s_2$$$ having a
+common periodic cycle
+.
+In other words,
+backtracking twice can lead to a solution, but backtracking once may not always work
+. It is necessary for $$$s_1$$$ and $$$s_2$$$ to have a common periodic cycle.
+Having a common periodic cycle is too specific. First, the common periodic cycle of these two strings must indeed be the periodic cycle of string $$$s$$$. By finding this cycle in advance, it essentially becomes a problem of solving an equation. Let $$$a=\lvert s_1\rvert $$$ and $$$b=\lvert s_2\rvert$$$, and we need to check whether there are non-negative integer solutions $$$x$$$ and $$$y$$$ that satisfy the equation $$$xa+yb=\lvert s \rvert$$$.
+This equation-solving part is just for show. We enumerate $$$y$$$, and for each value of $$$y$$$, we compute the enumeration $$$\mathcal O\left(\frac{m}{n}\right)$$$ times. At most, we do this $$$n$$$ times, so the overall complexity is $$$\mathcal O(m)$$$.
+If we directly implement this, the worst-case complexity is related to the harmonic series. Consider a case like $$$s_1 = \texttt{a}, s_2 = \texttt{aaaaaaaab}$$$, and $$$t = \texttt{aaaaaaaaaaaaaaaaaaaaaaaaab}$$$. In this case, we would need to attempt $$$\mathcal O\left(\frac{m}{\lvert s_1\rvert }\right)$$$ steps to finish matching the short string. Each time we backtrack, it requires at most $$$\mathcal O\left(\frac{m}{\lvert s_2\rvert }\right)$$$ steps, and each of those takes $$$\mathcal O\left(\frac{\lvert s_2\rvert }{\lvert s_1\rvert }\right)$$$.
+
+Section 5:
+Optimization to Linear
+Thanks to
+o
+rzdevinwang
+and
+crazy_sea
+for pointing out it!
+Yes, this problem can indeed be solved in linear time.
+First, let the prefix of the long string contain $$$c$$$ short strings. Then, the first "valid position to place the long string" we backtrack to can only be obtained by either backtracking $$$c$$$ short strings or $$$c+1$$$ short strings.
+This is easy to understand. Backtracking $$$c$$$ short strings means considering the prefix of the long string, then adding the "tail" of the long string. Backtracking $$$c + 1$$$ short strings only happens when the "tail" part of the long string is a prefix of the short string. For example, the hack in the CF comment section:
+https://codeforces.com/blog/entry/136455?#comment-1234262
+1
+8 8
+abaabaab
+abaababa
+The correct output should be:
+0010000
+When $$$k = 3$$$, $$$s_1 = \texttt{aba}$$$, $$$s_2 = \texttt{abaab}$$$, we first filled in 2 short strings, but if we backtrack $$$c = 1$$$ short string, it will be judged as unsolvable. This is how the error in std occurs. This situation only arises when the "tail" part of $$$s_2$$$ is a prefix of $$$s_1$$$.
+So, each time we calculate, we first use binary search to find this $$$c$$$, and the complexity is $$$\mathcal O\left(\sum\limits_{i=1}^n\log(\frac n i)\right)=\mathcal O(n)$$$. After that, backtracking only requires two checks. The backtracking process becomes linear.
+Next, let's accelerate the process of filling in short strings. The hack for brute-force filling has already been given above. If we directly use the method that everyone initially thought was correct, which is the "binary search for the number of short string occurrences" method, Then it can be accelerated by this set of hacks to achieve a $$$\log$$$ complexity.
+1
+2 5000000
+ab
+abababab....abababab
+crazy_sea
+points out an alternative solution.
+Similar to block division, let $$$B = \frac{n}{\lvert s_1\rvert}$$$. We first try to match $$$B$$$ occurrences of $$$s_1$$$, meaning that each match can move forward by $$$n$$$ positions. After that, the remaining part will not exceed $$$B$$$ occurrences, and we binary search to find how many are left. For the part where we moved forward by $$$B$$$ occurrences, we can backtrack at most once, and then the binary search will take $$$\mathcal O(\log B)$$$. Each time, we can at least fill in $$$\lvert s_2\rvert $$$ occurrences. The time complexity for calculating the answer becomes $$$\mathcal O\left(\frac{m}{\lvert s_2\rvert }\log B\right)$$$, and the total complexity, due to $$$\mathcal O\left(\sum\limits_{i=1}^n \log(\frac{n}{i})\right) = \mathcal O(n)$$$, is $$$\mathcal O(m)$$$.
+Thus, the problem is solved in linear time.
+
+Section 6:
+...wtf?
+During testing, we found that
+j
+qdai0815
+'s solution is actually more violent than we thought (We have also received something similar in contest).
+He specially handled the case in which $$$X$$$ and $$$T$$$ share a common shortest period, and for the rest $$$i$$$, he just used two queues to optimize the BFS progress (actually changing it to
+std::priority_queue<int>
+or similar also works), and it passed just seeming to have a larger constant time complexity.
+I'm curious if anybody can (hack it or) prove that it is correct. Thanks in advance!
+
+Section 7:
+Code (log, C++)
+This is written by
+Caylex
+.
+#include <bits/stdc++.h>
+using namespace std;
+template <int P>
+class mod_int
+{
+    using Z = mod_int;
+
+private:
+    static int mo(int x) { return x < 0 ? x + P : x; }
+
+public:
+    int x;
+    int val() const { return x; }
+    mod_int() : x(0) {}
+    template <class T>
+    mod_int(const T &x_) : x(x_ >= 0 && x_ < P ? static_cast<int>(x_) : mo(static_cast<int>(x_ % P))) {}
+    bool operator==(const Z &rhs) const { return x == rhs.x; }
+    bool operator!=(const Z &rhs) const { return x != rhs.x; }
+    Z operator-() const { return Z(x ? P - x : 0); }
+    Z pow(long long k) const
+    {
+        Z res = 1, t = *this;
+        while (k)
+        {
+            if (k & 1)
+                res *= t;
+            if (k >>= 1)
+                t *= t;
+        }
+        return res;
+    }
+    Z &operator++()
+    {
+        x < P - 1 ? ++x : x = 0;
+        return *this;
+    }
+    Z &operator--()
+    {
+        x ? --x : x = P - 1;
+        return *this;
+    }
+    Z operator++(int)
+    {
+        Z ret = x;
+        x < P - 1 ? ++x : x = 0;
+        return ret;
+    }
+    Z operator--(int)
+    {
+        Z ret = x;
+        x ? --x : x = P - 1;
+        return ret;
+    }
+    Z inv() const { return pow(P - 2); }
+    Z &operator+=(const Z &rhs)
+    {
+        (x += rhs.x) >= P && (x -= P);
+        return *this;
+    }
+    Z &operator-=(const Z &rhs)
+    {
+        (x -= rhs.x) < 0 && (x += P);
+        return *this;
+    }
+    Z operator-() { return -x; }
+    Z &operator*=(const Z &rhs)
+    {
+        x = 1ULL * x * rhs.x % P;
+        return *this;
+    }
+    Z &operator/=(const Z &rhs) { return *this *= rhs.inv(); }
+#define setO(T, o)                                  \
+    friend T operator o(const Z &lhs, const Z &rhs) \
+    {                                               \
+        Z res = lhs;                                \
+        return res o## = rhs;                       \
+    }
+    setO(Z, +) setO(Z, -) setO(Z, *) setO(Z, /)
+#undef setO
+        friend istream &
+        operator>>(istream &is, mod_int &x)
+    {
+        long long tmp;
+        is >> tmp;
+        x = tmp;
+        return is;
+    }
+    friend ostream &operator<<(ostream &os, const mod_int &x)
+    {
+        os << x.val();
+        return os;
+    }
+};
+typedef long long ll;
+typedef unsigned long long ull;
+mt19937 rnd(chrono::system_clock::now().time_since_epoch().count());
+constexpr int p = 993244853;
+using Hash = mod_int<p>;
+// using Hash = ull;
+const Hash base = rnd() % 20091119 + 30;
+string s, t;
+Hash st;
+int mnlen;
+Hash S[5000020];
+Hash T[5000020];
+Hash pw[5000020];
+inline Hash SUM(const int l, const int r, const Hash *s) { return s[r] - s[l - 1] * pw[r - l + 1]; }
+int n, m;
+inline bool check(const int l, const int r, const Hash x, const int len, const Hash *S) { return r - l + 1 >= len && SUM(l, l + len - 1, S) == x && SUM(l, r - len, S) == SUM(l + len, r, S); }
+inline bool calc(const int L1, const int R1, const int L2, const int R2, const int l1, const int l2)
+{
+    if (mnlen && check(L1, R1, st, mnlen, S) && check(L2, R2, st, mnlen, S))
+    {
+        if (check(1, m, st, mnlen, T))
+        {
+            for (int i = 0; i <= m; i += l2)
+            {
+                if (!((m - i) % l1))
+                    return 1;
+            }
+            return 0;
+        }
+    }
+    const Hash s1 = SUM(L1, R1, S);
+    const Hash s2 = SUM(L2, R2, S);
+    // int l = 1, r = l2 / l1, okcnt = 0;
+    // while (l <= r)
+    // {
+    //     int mid = l + r >> 1;
+    //     if (check(L2, L2 + mid * l1 - 1, s1, l1, S))
+    //         l = (okcnt = mid) + 1;
+    //     else
+    //         r = mid - 1;
+    // }
+    int ed = 0;
+    while (ed <= m)
+    {
+        int L = 1, R = (m - ed) / l1, cnt = 0;
+        while (L <= R)
+        {
+            int mid = L + R >> 1;
+            if (check(ed + 1, ed + mid * l1, s1, l1, T))
+                L = (cnt = mid) + 1;
+            else
+                R = mid - 1;
+        }
+        if (ed + cnt * l1 + 1 > m)
+            return 1;
+        // bool found = 0;
+        // int st = ed + (cnt - okcnt) * l1 + 1;
+        // if (st > ed && st + l2 - 1 <= m && SUM(st, st + l2 - 1, T) == s2)
+        // {
+        //     ed = st + l2 - 1;
+        //     found = 1;
+        // }
+        // if (!found)
+        //     return 0;
+        bool found = 0;
+        for (int st = ed + cnt * l1 + 1; st > ed; st -= l1)
+        {
+            if (st + l2 - 1 <= m && SUM(st, st + l2 - 1, T) == s2)
+            {
+                ed = st + l2 - 1;
+                found = 1;
+                break;
+            }
+        }
+        if (!found)
+            return 0;
+    }
+    return 1;
+}
+void solve()
+{
+    // build();
+    mnlen = 0;
+    cin >> n >> m >> s >> t;
+    s = ' ' + s;
+    t = ' ' + t;
+    for (int i = 1; i <= n; i++)
+        S[i] = S[i - 1] * base + Hash(s[i] - 'a' + 1);
+    for (int i = 1; i <= m; i++)
+        T[i] = T[i - 1] * base + Hash(t[i] - 'a' + 1);
+    for (int i = 1; i <= n; i++)
+    {
+        if (n % i == 0 && check(1, n, S[i], i, S))
+        {
+            st = S[i];
+            mnlen = i;
+            break;
+        }
+    }
+    for (int i = 1; i < n; i++)
+        putchar('0' ^ (i <= n - i ? calc(1, i, i + 1, n, i, n - i) : calc(i + 1, n, 1, i, n - i, i)));
+    putchar('\n');
+}
+int main()
+{
+    pw[0] = Hash(1);
+    for (int i = 1; i <= 5'000'000; i++)
+        pw[i] = pw[i - 1] * base;
+    ios::sync_with_stdio(0), cin.tie(0), cout.tie(0);
+    int t;
+    cin >> t;
+    while (t--)
+        solve();
+    return 0;
+}
+
+Section 8:
+Code (linear, C++)
+This is written by
+Caylex
+.
+#include <bits/stdc++.h>
+using namespace std;
+template <int P>
+class mod_int
+{
+    using Z = mod_int;
+
+private:
+    static int mo(int x) { return x < 0 ? x + P : x; }
+
+public:
+    int x;
+    int val() const { return x; }
+    mod_int() : x(0) {}
+    template <class T>
+    mod_int(const T &x_) : x(x_ >= 0 && x_ < P ? static_cast<int>(x_) : mo(static_cast<int>(x_ % P))) {}
+    bool operator==(const Z &rhs) const { return x == rhs.x; }
+    bool operator!=(const Z &rhs) const { return x != rhs.x; }
+    Z operator-() const { return Z(x ? P - x : 0); }
+    Z pow(long long k) const
+    {
+        Z res = 1, t = *this;
+        while (k)
+        {
+            if (k & 1)
+                res *= t;
+            if (k >>= 1)
+                t *= t;
+        }
+        return res;
+    }
+    Z &operator++()
+    {
+        x < P - 1 ? ++x : x = 0;
+        return *this;
+    }
+    Z &operator--()
+    {
+        x ? --x : x = P - 1;
+        return *this;
+    }
+    Z operator++(int)
+    {
+        Z ret = x;
+        x < P - 1 ? ++x : x = 0;
+        return ret;
+    }
+    Z operator--(int)
+    {
+        Z ret = x;
+        x ? --x : x = P - 1;
+        return ret;
+    }
+    Z inv() const { return pow(P - 2); }
+    Z &operator+=(const Z &rhs)
+    {
+        (x += rhs.x) >= P && (x -= P);
+        return *this;
+    }
+    Z &operator-=(const Z &rhs)
+    {
+        (x -= rhs.x) < 0 && (x += P);
+        return *this;
+    }
+    Z operator-() { return -x; }
+    Z &operator*=(const Z &rhs)
+    {
+        x = 1ULL * x * rhs.x % P;
+        return *this;
+    }
+    Z &operator/=(const Z &rhs) { return *this *= rhs.inv(); }
+#define setO(T, o)                                  \
+    friend T operator o(const Z &lhs, const Z &rhs) \
+    {                                               \
+        Z res = lhs;                                \
+        return res o## = rhs;                       \
+    }
+    setO(Z, +) setO(Z, -) setO(Z, *) setO(Z, /)
+#undef setO
+        friend istream &
+        operator>>(istream &is, mod_int &x)
+    {
+        long long tmp;
+        is >> tmp;
+        x = tmp;
+        return is;
+    }
+    friend ostream &operator<<(ostream &os, const mod_int &x)
+    {
+        os << x.val();
+        return os;
+    }
+};
+typedef long long ll;
+typedef unsigned long long ull;
+mt19937 rnd(chrono::system_clock::now().time_since_epoch().count());
+constexpr int p = 993244853;
+using Hash = mod_int<p>;
+// using Hash = ull;
+const Hash base = rnd() % 20091119 + 30;
+string s, t;
+Hash st;
+int mnlen;
+Hash S[5000020];
+Hash T[5000020];
+Hash pw[5000020];
+// int doit;
+inline Hash SUM(const int l, const int r, const Hash *s) { return s[r] - s[l - 1] * pw[r - l + 1]; }
+int n, m;
+inline bool check(const int l, const int r, const Hash x, const int len, const Hash *S)
+{
+    // doit++;
+    return r - l + 1 >= len && SUM(l, l + len - 1, S) == x && SUM(l, r - len, S) == SUM(l + len, r, S);
+}
+inline bool calc(const int L1, const int R1, const int L2, const int R2, const int l1, const int l2)
+{
+    if (mnlen && check(L1, R1, st, mnlen, S) && check(L2, R2, st, mnlen, S))
+    {
+        if (check(1, m, st, mnlen, T))
+        {
+            for (int i = 0; i <= m; i += l2)
+            {
+                if (!((m - i) % l1))
+                    return 1;
+            }
+            return 0;
+        }
+    }
+    const Hash s1 = SUM(L1, R1, S);
+    const Hash s2 = SUM(L2, R2, S);
+    int l = 1, r = l2 / l1, okcnt = 0;
+    while (l <= r)
+    {
+        int mid = l + r >> 1;
+        if (check(L2, L2 + mid * l1 - 1, s1, l1, S))
+            l = (okcnt = mid) + 1;
+        else
+            r = mid - 1;
+    }
+    const int tt = (n / l1);
+    int ed = 0;
+    while (ed <= m)
+    {
+        int L = 1, R = (m - ed) / l1, cnt = 0;
+        int tcnt = 0;
+        while (tcnt + tt <= R && check(ed + 1, ed + (tcnt + tt) * l1, s1, l1, T))
+            tcnt += tt;
+        L = max(L, tcnt);
+        R = min(R, tcnt + tt - 1);
+        // cerr << ed << ' ' << L << ' ' << R << '\n';
+        while (L <= R)
+        {
+            int mid = L + R >> 1;
+            if (check(ed + 1, ed + mid * l1, s1, l1, T))
+                L = (cnt = mid) + 1;
+            else
+                R = mid - 1;
+        }
+        if (ed + cnt * l1 + 1 > m)
+            return 1;
+        // int st = ed + (cnt - okcnt) * l1 + 1;
+        // if (st > ed && st + l2 - 1 <= m && SUM(st, st + l2 - 1, T) == s2)
+        // {
+        //     ed = st + l2 - 1;
+        //     continue;
+        // }
+        // return 0;
+        bool found = 0;
+        for (int st = ed + (cnt - okcnt) * l1 + 1, cnt = 1; cnt <= 2 && st > ed; st -= l1, cnt++)
+        {
+            if (st + l2 - 1 <= m && SUM(st, st + l2 - 1, T) == s2)
+            {
+                ed = st + l2 - 1;
+                found = 1;
+                break;
+            }
+        }
+        if (!found)
+            return 0;
+    }
+    return 1;
+}
+void solve()
+{
+    // build();
+    mnlen = 0;
+    cin >> n >> m >> s >> t;
+    s = ' ' + s;
+    t = ' ' + t;
+    for (int i = 1; i <= n; i++)
+        S[i] = S[i - 1] * base + Hash(s[i] - 'a' + 1);
+    for (int i = 1; i <= m; i++)
+        T[i] = T[i - 1] * base + Hash(t[i] - 'a' + 1);
+    for (int i = 1; i <= n; i++)
+    {
+        if (n % i == 0 && check(1, n, S[i], i, S))
+        {
+            st = S[i];
+            mnlen = i;
+            break;
+        }
+    }
+    for (int i = 1; i < n; i++)
+        putchar('0' ^ (i <= n - i ? calc(1, i, i + 1, n, i, n - i) : calc(i + 1, n, 1, i, n - i, i)));
+    putchar('\n');
+    // cerr << doit << '\n';
+}
+int main()
+{
+    // freopen("out.txt", "r", stdin);
+    pw[0] = Hash(1);
+    for (int i = 1; i <= 5'000'000; i++)
+        pw[i] = pw[i - 1] * base;
+    ios::sync_with_stdio(0), cin.tie(0), cout.tie(0);
+    int t;
+    cin >> t;
+    while (t--)
+        solve();
+    // cerr << fixed << setprecision(10) << 1.0 * clock() / CLOCKS_PER_SEC << '\n';
+    return 0;
+}
+
+Section 9:
+Rate the Problem
+Amazing problem:
+Good problem:
+Average problem:
+Bad problem:
+Didn't solve:
+

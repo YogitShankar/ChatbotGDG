@@ -1,0 +1,125 @@
+Section 1:
+Hints
+Hint 1
+Forget about counting. What is the maximum size of $$$T$$$ if $$$m = 0$$$?
+Hint 2
+It is $$$2n - 1$$$. What if $$$m$$$ isn't $$$0$$$?
+Hint 3
+It is still $$$2n - 1$$$. To prove this represent a
+good
+set as a forest.
+Hint 4
+We can always add $$$[1, n]$$$ and $$$[i, i]$$$ for all $$$1 \le i \le n$$$ to $$$S$$$. Now the tree of $$$S$$$ has exactly $$$n$$$ leaves. What if a vertex has more than $$$2$$$ children?
+Hint 5
+What is the number of solutions when $$$m = 0$$$?
+Hint 6
+It is the number of full binary trees with $$$n$$$ leaves, which is $$$C_{n - 1}$$$, where $$$C$$$ denotes the Catalan's sequence. Extend this idea to count the number of solutions for a general tree of $$$S$$$.
+
+Section 2:
+Solution
+Any
+good
+set has a tree-like structure.
+Specifically, represent $$$S$$$ as a forest the following way: segment $$$[l, r]$$$ has a parent $$$[L, R]$$$ iff $$$[l, r] \in [L, R]$$$ and $$$R - L + 1$$$ is minimized (its parent is the shortest interval in which it lies). This segment is unique (or does not exist), because there can't be two segments with minimum length that cover $$$[l, r]$$$, as they would partially intersect otherwise.
+Notice that we can always add $$$[1, n]$$$ and $$$[i, i]$$$ for all $$$1 \le i \le n$$$ if they aren't in $$$S$$$ yet. Now the forest of $$$S$$$ is a tree with exactly $$$n$$$ leaves.
+Suppose $$$[L, R]$$$ has $$$k$$$ children $$$[l_1, r_1], [l_2, r_2], \ldots, [l_k, r_k]$$$. If $$$k > 2$$$, we can always add $$$[l_1, r_2]$$$ to $$$S$$$, which decreases the number of children of $$$[L, R]$$$ by $$$1$$$ and increases the size of $$$S$$$ by $$$1$$$.
+Therefore, in the optimal solution each segment has at most $$$2$$$ children. Having exactly one child is impossible, as we have added all $$$[i, i]$$$, so every index of $$$[L, R]$$$ is covered by its children.
+This means that we have a tree where each vertex has either $$$0$$$ or $$$2$$$ children, which is a full binary tree.
+We have $$$n$$$ leaves, and every full binary tree with $$$n$$$ leaves has exactly $$$2n - 1$$$ vertices, so this is always the optimal size of $$$T$$$ regardless of $$$S$$$.
+To count the number of $$$T$$$, notice that when $$$m = 0$$$ the answer is the number of full binary trees with $$$n$$$ leaves, which is $$$C_{n - 1}$$$, where $$$C$$$ denotes the Catalan's sequence.
+To extend this to a general tree, we can add $$$[1, n]$$$ and $$$[i, i]$$$ for all $$$1 \le i \le n$$$ to $$$S$$$.
+Now suppose $$$[L, R]$$$ has $$$k \ge 2$$$ children $$$[l_1, r_1], [l_2, r_2], \ldots, [l_k, r_k]$$$. We need to merge some children. We can treat $$$[l_1, r_1]$$$ as $$$[1, 1]$$$, $$$[l_2, r_2]$$$ as $$$[2, 2]$$$, etc. This is now the same case as $$$m = 0$$$, so there are $$$C_{k - 1}$$$ ways to merge children of $$$[L, R]$$$.
+Each vertex is independent of each other, so the answer is $$$\prod C_{c_v - 1}$$$ over all non-leaves $$$v$$$, where $$$c_v$$$ is the number of children of $$$v$$$.
+We can construct the tree in $$$O(n \log n)$$$ by definition or in $$$O(n)$$$ using a stack.
+
+Section 3:
+Code
+#include <bits/stdc++.h>
+
+using namespace std;
+
+const int mod = 998244353;
+const int MAX = 4e5 + 42;
+
+int fact[MAX], inv[MAX], inv_fact[MAX];
+
+int C(int n, int k) {
+    if(n < k || k < 0) return 0;
+    return (long long) fact[n] * inv_fact[k] % mod * inv_fact[n - k] % mod;
+}
+
+int Cat(int n) {
+    return (long long) C(2 * n, n) * inv[n + 1] % mod;
+}
+
+int binpow(int x, int n) {
+    int ans = 1;
+    while(n) {
+        if(n & 1) ans = (long long) ans * x % mod;
+        n >>= 1;
+        x = (long long) x * x % mod;
+    }
+    return ans;
+}
+
+void solve() {
+    int n, m;
+    cin >> n >> m;
+    int initial_m = m;
+    vector<pair<int, int>> a(m);
+    for(auto &[l, r] : a) {
+        cin >> l >> r;
+    }
+    bool was_full = 0;
+    vector<int> was_single(n + 1);
+    for(auto [l, r] : a) was_full |= (r - l + 1 == n);
+    for(auto [l, r] : a) {
+        if(l == r) was_single[l] = 1;
+    }
+    if(!was_full) {
+        a.push_back({1, n});
+        m++;
+    }
+    for(int i = 1; i <= n; i++) {
+        if(!was_single[i] && n != 1) {
+            a.push_back({i, i});
+            m++;
+        }
+    }
+    for(auto &[l, r] : a) r = -r;
+    sort(a.begin(), a.end());
+    vector<int> deg(m);
+    for(int i = 0; i < m; i++) {
+        int j = i + 1;
+        while(j < m) {
+            if(-a[i].second < a[j].first) break;
+            deg[i]++;
+            j = upper_bound(a.begin(), a.end(), make_pair(-a[j].second, 1)) - a.begin();
+        }
+    }
+    for(auto &[l, r] : a) r = -r;
+    int ans = 1;
+    for(int i = 0; i < m; i++) {
+        if(deg[i] > 0) {
+            assert(deg[i] >= 2);
+            ans = (long long) ans * Cat(deg[i] - 1) % mod;
+        }
+    }
+    cout << ans << '\n';
+}
+
+signed main() {
+    fact[0] = 1;
+    for(int i = 1; i < MAX; i++) fact[i] = (long long) fact[i - 1] * i % mod;
+    inv_fact[MAX - 1] = binpow(fact[MAX - 1], mod - 2);
+    for(int i = MAX - 1; i; i--) inv_fact[i - 1] = (long long) inv_fact[i] * i % mod;
+    assert(inv_fact[0] == 1);
+    for(int i = 1; i < MAX; i++) inv[i] = (long long) inv_fact[i] * fact[i - 1] % mod;
+    ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);
+    int ttt = 1;
+    cin >> ttt;
+    while(ttt--) {
+        solve();
+    }
+}
+

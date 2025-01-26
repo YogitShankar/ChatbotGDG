@@ -1,0 +1,68 @@
+Section 1:
+Hint 1
+What is the minimized LIS?
+
+Section 2:
+Hint 2
+How do you prove that it is an achievable lower bound?
+
+Section 3:
+Hint 3
+Go for a brute DP first.
+
+Section 4:
+Solution
+We claim that the minimized LIS is $$$\sum a_i$$$. Let $$$p$$$ be $$$\sum a_i$$$.
+Since it is required that $$$\operatorname{LIS}(b) = p$$$ while $$$\sum b_i = p$$$, we point out that it is equivalent to
+each of the prefix sums of the sequence being between $$$[0, p]$$$
+.
+Sufficiency
+: $$$\forall X \in [0, p], Y \in [0, p]$$$, $$$X - Y \leq p$$$. Also, we can pick $$$X = p, Y = 0$$$, so it can only be $$$= p$$$.
+Necessity
+: disproof. If a prefix sum is $$$< 0$$$, then choose the whole array except for this prefix; if a prefix sum is $$$> p$$$, then choose this prefix. Both derive a contradiction of the LIS being greater than $$$p$$$.
+Consider dp. Let $$$f_{i,j}$$$ denote, after considering the first $$$i$$$ numbers, the minimum
+extra
+sequence length (i.e. the actual length minus $$$i$$$), when the current prefix sum is $$$j$$$. The initial states are $$$f_{0,j} = [j \neq 0]$$$. The transfer is simple too:
+$$$f_{i,j} = \min\limits_{0 \leq k + a_i \leq p} (f_{i-1,k} + [k + a_i \neq j])$$$
+It is possible to optimize the transfer to $$$\mathcal O(np)$$$, since for each $$$j$$$, the contribution from at most one $$$k$$$ is special ($$$+0$$$). We can calculate the prefix and suffix $$$\min$$$ for $$$f_{i-1}$$$ and it will be fast to get the dp array in the new row. Then, let's focus on optimizing it to $$$\mathcal O(n)$$$.
+We call the set of $$$0 \leq k \leq p$$$ satisfying $$$0 \leq k + a_i \leq p$$$ as the legal interval of $$$i$$$ (denoted as $$$L_i$$$).
+It is concluded that the range of $$$f_{i, 0\dots p}$$$ is at most $$$1$$$, and this can be proven by considering the transfer to each of the $$$j$$$ with the $$$k \in L_i$$$ which has the least $$$f_{i-1, k}$$$. Let $$$v_i = \min_{0 \leq j \leq p}(f_{i, j})$$$. We also have: for those $$$j$$$ with $$$f_{i,j} = v_i$$$, they form a consecutive segment in the integer field. Let the segment be covering $$$[l_i, r_i]$$$.
+Inductive proof. The essence of the transfer is that it shifts all the DP values $$$= v_{i-1}$$$ by $$$a_i$$$ unit length, and all the other numbers will be updated to $$$v_{i-1} + 1$$$. Then truncates the $$$j \in ((-\inf, 0) \cup (p, +\inf))$$$ part. The consecutive segment remains consecutive. Specially, if $$$[l_{i-1}, r_{i-1}] \cap L_i = \varnothing$$$, then $$$\min_{k \in L_i}(f_{i-1, k}) = v_{i-1} + 1$$$, hence we need to set $$$v_i = v_{i-1} + 1$$$, and $$$l_i, r_i$$$ as the range of $$$j = k + a_i$$$ in which $$$k \in L_i$$$. Otherwise, $$$v_i = v_{i-1}$$$, and $$$l_i, r_i$$$ can be calculated by shifting $$$l_{i-1}, r_{i-1}$$$ by $$$a_i$$$ unit length.
+In fact, we only need to maintain three variables $$$l, r, v$$$ to represent the current consecutive segment and the current value field. Therefore, this problem can be easily solved in $$$\mathcal O(n)$$$.
+
+Section 5:
+Code (C++)
+#include <bits/stdc++.h>
+ 
+namespace FastIO {
+	template <typename T> inline T read() { T x = 0, w = 0; char ch = getchar(); while (ch < '0' || ch > '9') w |= (ch == '-'), ch = getchar(); while ('0' <= ch && ch <= '9') x = x * 10 + (ch ^ '0'), ch = getchar(); return w ? -x : x; }
+	template <typename T> inline void write(T x) { if (!x) return; write<T>(x / 10), putchar((x % 10) ^ '0'); }
+	template <typename T> inline void print(T x) { if (x > 0) write<T>(x); else if (x < 0) putchar('-'), write<T>(-x); else putchar('0'); }
+	template <typename T> inline void print(T x, char en) { print<T>(x), putchar(en); }
+}; using namespace FastIO;
+ 
+#define MAXN 3000001
+int a[MAXN];
+void solve() {
+	int N = read<int>(); long long p = 0, l = 0, r = 0, v = 0;
+	for (int i = 1; i <= N; ++i) p += (a[i] = read<int>());
+	for (int i = 1; i <= N; ++i) if (a[i] >= 0) {
+		l += a[i], r = std::min(r + a[i], p);
+		if (l > r) ++v, l = a[i], r = p;
+	} else {
+		a[i] = -a[i];
+		r -= a[i], l = std::max(l - a[i], 0ll);
+		if (l > r) ++v, l = 0, r = p - a[i];
+	}
+	print<int>(v + N + (int)(r != p), '\n');
+}
+int main() { int T = read<int>(); while (T--) solve(); return 0; }
+
+Section 6:
+Rate the Problem
+Amazing problem:
+Good problem:
+Average problem:
+Bad problem:
+Didn't solve:
+
