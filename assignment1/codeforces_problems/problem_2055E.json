@@ -1,0 +1,8 @@
+{
+  "name": "E. Haystacks",
+  "time_limit": "time limit per test2 seconds",
+  "memory_limit": "memory limit per test256 megabytes",
+  "input": "InputEach test contains multiple test cases. The first line contains the number of test cases $$$t$$$ ($$$1 \\le t \\le 10^4$$$). The description of the test cases follows. The first line of each test case contains a single integer $$$n$$$ ($$$2\\le n\\le 5\\cdot 10^5$$$) — the number of haystacks.The $$$i$$$-th of the next $$$n$$$ lines contains two integers $$$a_i$$$ and $$$b_i$$$ ($$$1\\le a_i, b_i\\le 10^9$$$) — the initial number of haybales in the $$$i$$$-th haystack, and the height limit that it is assigned after it is emptied for the first time.It is guaranteed that the sum of $$$n$$$ over all test cases does not exceed $$$5 \\cdot 10^5$$$.",
+  "output": "OutputFor each test case, print a single integer — the minimum number of moves required to ensure that each haystack is emptied at least once. If it is not possible to empty each haystack at least once, output -1.",
+  "tags": []
+}

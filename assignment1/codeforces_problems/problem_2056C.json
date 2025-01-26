@@ -1,0 +1,8 @@
+{
+  "name": "C. Palindromic Subsequences",
+  "time_limit": "time limit per test2 seconds",
+  "memory_limit": "memory limit per test512 megabytes",
+  "input": "InputEach test contains multiple test cases. The first line contains the number of test cases $$$t$$$ ($$$1 \\le t \\le 100$$$). The description of the test cases follows. The first line of each test case contains a single integer $$$n$$$ ($$$\\color{red}{6} \\le n \\le 100$$$) — the length of the sequence.Note that there are no constraints on the sum of $$$n$$$ over all test cases.",
+  "output": "OutputFor each test case, output $$$n$$$ integers $$$a_1, a_2, \\ldots, a_n$$$, representing an array that satisfies the conditions.If there are multiple solutions, you may output any of them.",
+  "tags": []
+}

@@ -1,0 +1,8 @@
+{
+  "name": "F. Fix Flooded Floor",
+  "time_limit": "time limit per test3 seconds",
+  "memory_limit": "memory limit per test1024 megabytes",
+  "input": "InputThe first line contains a single integer $$$T$$$ ($$$1 \\le T \\le 10^4$$$) — the number of test cases to solve.Then the description of test cases follows.The first line of each test case contains a single integer $$$n$$$ ($$$1 \\le n \\le 2\\cdot 10^5$$$) — the length of the parquet floor.The following two lines contain exactly $$$n$$$ characters each and describe the parquet, where '.' denotes a damaged cell and '#' denotes an undamaged cell.The total sum of $$$n$$$ in all $$$T$$$ test cases doesn't exceed $$$2\\cdot 10^5$$$.",
+  "output": "OutputFor each test case, print \"Unique\" if there is exactly one way to restore the parquet, \"Multiple\" if there are multiple ways to do so, or \"None\" if it is impossible to restore the parquet.",
+  "tags": []
+}

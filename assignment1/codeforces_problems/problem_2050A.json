@@ -1,0 +1,8 @@
+{
+  "name": "A. Line Breaks",
+  "time_limit": "time limit per test1 second",
+  "memory_limit": "memory limit per test256 megabytes",
+  "input": "InputThe first line contains an integer $$$t$$$ ($$$1 \\le t \\le 1000$$$) — the number of test cases.The first line of each test case contains two integers $$$n$$$ and $$$m$$$ ($$$1 \\le n \\le 50$$$; $$$1 \\le m \\le 500$$$) — the number of words in the list and the maximum number of characters that can be on the first strip.The next $$$n$$$ lines contain one word $$$s_i$$$ of lowercase Latin letters, where the length of $$$s_i$$$ does not exceed $$$10$$$.",
+  "output": "OutputFor each test case, output the maximum number of words $$$x$$$ such that the first $$$x$$$ words have a total length of no more than $$$m$$$.",
+  "tags": []
+}

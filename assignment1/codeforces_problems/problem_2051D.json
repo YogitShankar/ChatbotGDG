@@ -1,0 +1,8 @@
+{
+  "name": "D. Counting Pairs",
+  "time_limit": "time limit per test2 seconds",
+  "memory_limit": "memory limit per test256 megabytes",
+  "input": "InputThe first line contains one integer $$$t$$$ ($$$1 \\le t \\le 10^4$$$) — the number of test cases.Each test case consists of two lines:  The first line contains three integers $$$n, x, y$$$ ($$$3 \\le n \\le 2 \\cdot 10^5$$$, $$$1 \\le x \\le y \\le 2 \\cdot 10^{14}$$$);  The second line contains $$$n$$$ integers $$$a_1, a_2, \\dots, a_n$$$ ($$$1 \\le a_i \\le 10^{9}$$$). Additional constraint on the input: the sum of $$$n$$$ across all test cases does not exceed $$$2 \\cdot 10^5$$$.",
+  "output": "OutputFor each test case, output one integer — the number of interesting pairs of integers for the given sequence $$$a$$$.",
+  "tags": []
+}

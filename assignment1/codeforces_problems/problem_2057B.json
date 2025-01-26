@@ -1,0 +1,8 @@
+{
+  "name": "B. Gorilla and the Exam",
+  "time_limit": "time limit per test1 second",
+  "memory_limit": "memory limit per test256 megabytes",
+  "input": "InputEach test contains multiple test cases. The first line contains a single integer $$$t$$$ ($$$1 \\le t \\le 10^4$$$) — the number of test cases. The description of the test cases follows.The first line of each set of input data contains two integers $$$n$$$ and $$$k$$$ ($$$1 \\le n \\le 10^5$$$, $$$0 \\le k \\le n$$$) — the length of the array $$$a$$$ and the maximum number of changes, respectively.The second line of each set of input data contains $$$n$$$ integers $$$a_1, a_2, \\ldots, a_n$$$ ($$$1 \\le a_i \\le 10^9$$$) — the array $$$a$$$ itself.It is guaranteed that the sum of the values of $$$n$$$ across all sets of input data does not exceed $$$10^5$$$.",
+  "output": "OutputFor each set of input data, output a single integer on a separate line — the smallest possible value of $$$f(a)$$$.",
+  "tags": []
+}
