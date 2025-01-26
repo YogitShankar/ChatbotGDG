@@ -1,31 +1,105 @@
-<<<<<<< HEAD
-The file aims to scrape problem details, including the problem statement and editorial content, 
-from Codeforces problem pages or contests. It saves the extracted data into text and JSON files for later use.
 
-First we create all the required directories where we are going to store problem statements,editorial,metadata then when contest link is provided 
-we will first extract links to all the problems in the context and then extract individual details of each problem in the next step
-when problem link is provided The function find_question_details is called and we extract info starting from
-title of the question in the link then the problem statement and Also storing all other data like time,memory limits,problem id like 'A' or 'B' ..etc also contest id
-input and output specifications and testcases , problem tags ,difficulty.When doing this some content got repeated(
-because it was present twice in the html once as math then other inside some elements like 'div' )
-which i overcame by using code -for span in soup.find_all("span", {"class": "math"}): span.decompose() which removed the terms which
-caused the duplication.
+# Competitive Programming Chatbot with Retrieval-Augmented Generation (RAG)
 
-Then coming to the editorial content , to navigate to the editorial page we should first find the link to editorial
-in the page then we open it.But on the contest page or the problem there may be many links to tutorials,editorial,video tutorials etc
-depending on the contest and each may be in a different language so first after finding all those ,I iterated
-to find the editorial I need from all of them, which is English and provided it is not a video tutorial , also sometimes it is just mentioned as
-tutorial on some pages so in above case if I don't get any result then I will use this one.
+This repository implements a Competitive Programming (CP) Chatbot that leverages a Retrieval-Augmented Generation (RAG) approach to provide accurate and contextually relevant answers to queries related to competitive programming problems and editorials.
 
-Now we are on editorial page which contains solutions to all the problems of the contest here I want the 
-editorial of problems, which I know as previously we processed all details of the problem so We know
-the title of the problem I stored them all in a list(giving it as an argument to the function). so First we again locate the place where the title of the current element matches
-with our current problem's name(starting from first one in the list of problems) then we extract all the hints ,solution,codes or implementations provided below it till
-we encounter the next problem or reach the end of the editorial then we write this editorial content into a file because we found the next 
-problem and the present problem's editorial is done and even here we will use for span in soup.find_all("span", {"class": "math"}): span.decompose() 
-so that there is no duplication in terms . Sometimes there were names of authors and 
-solution writer's mentioned in either a 'p' or 'h' but definitely not a 'div' so I skipped all those after I
-found the problem name.
-=======
-# chatbot_gdg
->>>>>>> b023213ae47d42ab47fbfdca84cf3c7ff663d908
+## Overview
+
+The system consists of several components:
+
+1. **VectorStore**: Responsible for creating, saving, and loading the vector store (FAISS) that holds indexed documents for fast retrieval.
+2. **CPChatbot**: A chatbot that uses a language model (CodeBERT) and the vector store to answer user queries by retrieving relevant documents and generating responses based on that context.
+3. **CodeBERTEmbedder**: A custom embedding model that uses CodeBERT to generate embeddings for code-related texts and queries.
+4. **RAGRetriever**: Responsible for retrieving relevant documents using the vector store and the embedder.
+
+## Components
+
+### 1. **VectorStore**
+
+The `VectorStore` class is used to create a FAISS-based vector store that holds the indexed documents. It reads documents from multiple directories containing problem statements, editorials, and metadata, and then splits them into smaller chunks before embedding them using a specified embedder.
+
+**Methods**:
+- `create_store(embedder)`: Creates and returns a FAISS index from the documents.
+- `save_store(path)`: Saves the FAISS index to a specified path.
+- `load_store(path, embedder)`: Loads an existing FAISS index from a specified path.
+
+### 2. **CPChatbot**
+
+The `CPChatbot` class is the core of the chatbot. It combines the retrieval of relevant documents with a language model to answer user queries. It uses the `RAGRetriever` to fetch relevant documents and the `LLMChain` from Langchain to generate responses.
+
+**Methods**:
+- `chat(query)`: Takes a query from the user, retrieves relevant documents, and generates a response using the LLM model.
+
+### 3. **CodeBERTEmbedder**
+
+The `CodeBERTEmbedder` class uses the CodeBERT model to embed code-related texts and queries into fixed-size vectors. The embedder supports both document and query embedding.
+
+**Methods**:
+- `embed_documents(texts)`: Embeds a list of documents.
+- `embed_query(text)`: Embeds a single query.
+
+### 4. **RAGRetriever**
+
+The `RAGRetriever` class uses the vector store to retrieve documents relevant to the user's query. It interacts with the FAISS index and returns the most similar documents based on the input query.
+
+**Methods**:
+- `retrieve(query)`: Retrieves the relevant documents based on the input query.
+
+## Requirements
+
+- `torch`
+- `transformers`
+- `langchain_core`
+- `langchain_community`
+- `faiss-cpu` or `faiss-gpu` (depending on your system)
+- `json`
+
+You can install the required dependencies by running:
+
+```bash
+pip install -r requirements.txt
+```
+
+## Usage
+
+1. **Initialize Vector Store**: Create a vector store and index your documents.
+
+```python
+from vector_store import VectorStore
+from code_bert_embedder import CodeBERTEmbedder
+
+embedder = CodeBERTEmbedder()
+vector_store = VectorStore()
+faiss_index = vector_store.create_store(embedder)
+vector_store.save_store("path_to_save_faiss_index")
+```
+
+2. **Initialize Chatbot**: Initialize the `CPChatbot` with the retriever and a system message.
+
+```python
+from cp_chatbot import CPChatbot
+from rag_retriever import RAGRetriever
+
+retriever = RAGRetriever(embedder, vector_store)
+chatbot = CPChatbot(retriever, system_message="You are a competitive programming assistant.")
+```
+
+3. **Chat with the Bot**: Use the `chat` method to interact with the chatbot.
+
+```python
+response = chatbot.chat("How do I solve the knapsack problem?")
+print(response)
+```
+
+## File Structure
+In folder data we have the scraped data from the codeforces contests
+and in folder src we have the file for the chatbot
+```
+.
+├── vector_store.py      # Contains VectorStore class for managing FAISS index
+├── cp_chatbot.py        # Contains CPChatbot class for chatbot functionality
+├── code_bert_embedder.py# Contains CodeBERTEmbedder class for embedding documents and queries
+├── rag_retriever.py     # Contains RAGRetriever class for document retrieval
+├── requirements.txt     # List of dependencies
+└── README.md            # This file
+```
