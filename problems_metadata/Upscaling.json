@@ -1,0 +1,13 @@
+{
+    "time_limit": "1 second",
+    "memory_limit": "256 megabytes",
+    "tags": [
+        "implementation",
+        "*800"
+    ],
+    "solution": [
+        "You just need to implement what is written. One way is to go cell-by-cell in a regular n\u00d7nn\u00d7n checkerboard, and construct the larger one one cell at a time by copying cell (i,j)(i,j) into cells (2i,2j)(2i,2j), (2i+1,2j)(2i+1,2j), (2i,2j+1)(2i,2j+1), (2i+1,2j+1)(2i+1,2j+1).",
+        "A faster solution is to notice that if we round down coordinates (x,y)(x,y) in the enlarged checkerboard to (\u230ax2\u230b,\u230ay2\u230b)(\u230ax2\u230b,\u230ay2\u230b), we get the corresponding cell in the original checkerboard. And to output a regular checkerboard, we output ## if the sum of coordinates is even, and .. if it is odd.",
+        "So the faster implementation is: iterate over all cells (x,y)(x,y) in the 2n\u00d72n2n\u00d72n checkerboard. If \u230ax2\u230b+\u230ay2\u230b\u230ax2\u230b+\u230ay2\u230b is even output ##, else output ..."
+    ]
+}

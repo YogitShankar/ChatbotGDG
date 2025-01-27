@@ -1,0 +1,12 @@
+{
+    "time_limit": "12 seconds",
+    "memory_limit": "1024 megabytes",
+    "tags": [
+        "bitmasks",
+        "brute force",
+        "combinatorics",
+        "dp",
+        "*3500"
+    ],
+    "solution": null
+}

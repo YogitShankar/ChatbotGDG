@@ -1,0 +1,11 @@
+{
+    "time_limit": "3 seconds",
+    "memory_limit": "512 megabytes",
+    "tags": [
+        "combinatorics",
+        "dp",
+        "math",
+        "*3500"
+    ],
+    "solution": null
+}

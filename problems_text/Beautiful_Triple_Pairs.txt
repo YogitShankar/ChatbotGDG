@@ -1,0 +1,3 @@
+Polycarp was given an array a a of n n integers. He really likes triples of numbers, so for each j j ( 1 ≤ j ≤ n − 2 1 ≤ j ≤ n − 2 ) he wrote down a triple of elements [ a j , a j + 1 , a j + 2 ] [ a j , a j + 1 , a j + 2 ] .
+Polycarp considers a pair of triples b b and c c beautiful if they differ in exactly one position, that is, one of the following conditions is satisfied:
+Find the number of beautiful pairs of triples among the written triples [ a j , a j + 1 , a j + 2 ] [ a j , a j + 1 , a j + 2 ] .

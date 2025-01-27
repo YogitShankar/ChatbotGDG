@@ -1,0 +1,5 @@
+Given is an undirected graph with n n vertices and m m edges. Each edge connects two vertices ( u , v ) ( u , v ) and has a probability of p q p q of appearing each day.
+
+Initially, vertex 1 1 has a message. At the end of the day, a vertex has a message if and only if itself or at least one of the vertices adjacent to it had the message the day before. Note that each day, each edge chooses its appearance independently.
+
+Calculate the expected number of days before all the vertices have the message, modulo 998 244 353 998 244 353 .

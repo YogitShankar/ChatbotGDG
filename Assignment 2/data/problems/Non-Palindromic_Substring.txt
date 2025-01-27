@@ -1,0 +1,4 @@
+A string t t is said to be k k -good if there exists at least one substring † † of length k k which is not a palindrome ‡ ‡ . Let f ( t ) f ( t ) denote the sum of all values of k k such that the string t t is k k -good.
+You are given a string s s of length n n . You will have to answer q q of the following queries:
+† † A substring of a string z z is a contiguous segment of characters from z z . For example, " d e f o r d e f o r ", " c o d e c o d e " and " o o " are all substrings of " c o d e f o r c e s c o d e f o r c e s " while " c o d e s c o d e s " and " a a a a a a " are not.
+‡ ‡ A palindrome is a string that reads the same backwards as forwards. For example, the strings " z z ", " aa aa " and " tacocat tacocat " are palindromes while " codeforces codeforces " and " ab ab " are not.

@@ -1,0 +1,5 @@
+You are swimming in the pool, and you need to control the time of swimming.
+The pool has a clock that cycles between three different modes: showing water temperature, showing air temperature, and showing time. At the start of the 0 0 -th second it starts showing water temperature, at the start of the k k -th second it switches to air temperature. At the start of the 2 k 2 k -th second, it switches to showing time.
+At the start of the 3 k 3 k -th second the clock starts showing water temperature again, at the start of the 4 k 4 k -th second — air temperature, and so on.
+You looked at the clock during the m m -th second to check the time, but it may be that the clock is not showing time right now. How much time do you have to wait to see the time on the clock?
+Answer t t independent test cases.

@@ -1,0 +1,5 @@
+Alice and Bob are playing a game. There are n n balls, out of which k k are special. Each ball has a value associated with it.
+The players play turn by turn. In each turn, the player randomly picks a ball and adds the value of the ball to their score, which is 0 0 at the beginning of the game. The selected ball is removed from the game. If the ball was special, the same player takes the next turn if at least one ball is remaining. If the ball picked was not special, the next player plays their turn.
+They play this game until no balls are remaining in the game. Alice plays first.
+Find the expected score that both the players have at the end of the game modulo 10 9 + 7 10 9 + 7 .
+Formally, let M = 10 9 + 7 M = 10 9 + 7 . It can be shown that the answer can be expressed as an irreducible fraction p q p q , where p p and q q are integers and q ≢ 0 ( mod M ) q ≢ 0 ( mod M ) . Output the integer equal to p ⋅ q − 1 mod M p ⋅ q − 1 mod M . In other words, output such an integer x x that 0 ≤ x < M 0 ≤ x < M and x ⋅ q ≡ p ( mod M ) x ⋅ q ≡ p ( mod M ) .

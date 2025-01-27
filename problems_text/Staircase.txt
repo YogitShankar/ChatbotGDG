@@ -1,0 +1,3 @@
+There is a staircase consisting of n n steps. Each step is either intact, or broken. For each broken step, an integer a i a i is given denoting the difficulty of repairing it.
+Every day, you can either:
+You want to repair all broken steps of the staircase, and you want to do it in the minimum possible number of days. What is the minimum total effort it will take to repair all broken steps in the minimum number of days?

@@ -1,0 +1,4 @@
+There are m m baskets placed along a circle, numbered from 1 1 to m m in clockwise order (basket m m is next to basket 1 1 ). Furthermore, there are n n balls, where ball i i is initially placed in basket a i a i , and no basket contains more than one ball.
+Alice is allowed to perform the following operation, which always takes exactly one second whether you move/throw a ball or not:
+She repeats this operation until there is exactly one ball left. Calculate the expected time needed (in seconds) for Alice to end the process.
+It can be proven that the answer can be represented as a rational number p q p q with coprime p p and q q . You need to output p ⋅ q − 1 mod 10 9 + 7 p ⋅ q − 1 mod 10 9 + 7 . It can be proven that 10 9 + 7 ∤ q 10 9 + 7 ∤ q .

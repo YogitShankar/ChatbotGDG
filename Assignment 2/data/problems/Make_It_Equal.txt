@@ -1,0 +1,7 @@
+You are given an integer array a a of size n n . The elements of the array are numbered from 1 1 to n n .
+
+You can perform the following operation any number of times (possibly, zero): choose an index i i from 1 1 to n n ; decrease a i a i by 2 2 and increase a ( i mod n ) + 1 a ( i mod n ) + 1 by 1 1 .
+
+After you perform the operations, all elements of the array should be non-negative equal integers .
+
+Your task is to calculate the minimum number of operations you have to perform.

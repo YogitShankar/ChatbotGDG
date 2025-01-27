@@ -1,0 +1,5 @@
+GCD (Greatest Common Divisor) of two integers x x and y y is the maximum integer z z by which both x x and y y are divisible. For example, G C D ( 36 , 48 ) = 12 G C D ( 36 , 48 ) = 12 , G C D ( 5 , 10 ) = 5 G C D ( 5 , 10 ) = 5 , and G C D ( 7 , 11 ) = 1 G C D ( 7 , 11 ) = 1 .
+Kristina has an array a a consisting of exactly n n positive integers. She wants to count the GCD of each neighbouring pair of numbers to get a new array b b , called GCD-sequence .
+So, the elements of the GCD-sequence b b will be calculated using the formula b i = G C D ( a i , a i + 1 ) b i = G C D ( a i , a i + 1 ) for 1 ≤ i ≤ n − 1 1 ≤ i ≤ n − 1 .
+Determine whether it is possible to remove exactly one number from the array a a so that the GCD sequence b b is non-decreasing (i.e., b i ≤ b i + 1 b i ≤ b i + 1 is always true).
+For example, let Khristina had an array a a = [ 20 , 6 , 12 , 3 , 48 , 36 20 , 6 , 12 , 3 , 48 , 36 ]. If she removes a 4 = 3 a 4 = 3 from it and counts the GCD-sequence of b b , she gets:

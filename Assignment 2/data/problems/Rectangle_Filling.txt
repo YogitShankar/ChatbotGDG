@@ -1,0 +1,4 @@
+There is an n × m n × m grid of white and black squares. In one operation, you can select any two squares of the same color, and color all squares in the subrectangle between them that color.
+Formally, if you select positions ( x 1 , y 1 ) ( x 1 , y 1 ) and ( x 2 , y 2 ) ( x 2 , y 2 ) , both of which are currently the same color c c , set the color of all ( x , y ) ( x , y ) where min ( x 1 , x 2 ) ≤ x ≤ max ( x 1 , x 2 ) min ( x 1 , x 2 ) ≤ x ≤ max ( x 1 , x 2 ) and min ( y 1 , y 2 ) ≤ y ≤ max ( y 1 , y 2 ) min ( y 1 , y 2 ) ≤ y ≤ max ( y 1 , y 2 ) to c c .
+This diagram shows a sequence of two possible operations on a grid:
+Is it possible for all squares in the grid to be the same color, after performing any number of operations (possibly zero)?

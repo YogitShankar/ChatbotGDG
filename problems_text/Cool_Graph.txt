@@ -1,0 +1,9 @@
+You are given an undirected graph with n n vertices and m m edges.
+
+You can perform the following operation at most 2 ⋅ max ( n , m ) 2 ⋅ max ( n , m ) times:
+
+A graph is called cool if and only if one of the following holds:
+
+You have to make the graph cool by performing the above operations. Note that you can use at most 2 ⋅ max ( n , m ) 2 ⋅ max ( n , m ) operations.
+
+It can be shown that there always exists at least one solution.

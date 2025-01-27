@@ -1,0 +1,4 @@
+Let us call an array x 1 , … , x m x 1 , … , x m interesting if it is possible to divide the array into k > 1 k > 1 parts so that bitwise XOR of values from each part are equal.
+More formally, you must split array x x into k k consecutive segments, each element of x x must belong to exactly 1 1 segment. Let y 1 , … , y k y 1 , … , y k be the XOR of elements from each part respectively. Then y 1 = y 2 = ⋯ = y k y 1 = y 2 = ⋯ = y k must be fulfilled.
+For example, if x = [ 1 , 1 , 2 , 3 , 0 ] x = [ 1 , 1 , 2 , 3 , 0 ] , you can split it as follows: [ 1 ] , [ 1 ] , [ 2 , 3 , 0 ] [ 1 ] , [ 1 ] , [ 2 , 3 , 0 ] . Indeed 1 = 1 = 2 ⊕ 3 ⊕ 0 1 = 1 = 2 ⊕ 3 ⊕ 0 .
+You are given an array a 1 , … , a n a 1 , … , a n . Your task is to answer q q queries:

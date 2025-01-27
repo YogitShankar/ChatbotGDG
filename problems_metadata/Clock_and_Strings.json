@@ -1,0 +1,13 @@
+{
+    "time_limit": "1 second",
+    "memory_limit": "256 megabytes",
+    "tags": [
+        "implementation",
+        "*900"
+    ],
+    "solution": [
+        "There are many ways to implement the solution, but many involve a lot of casework. Below is the shortest solution we know of.",
+        "Walk around the clock in the order 11, 22, \u2026\u2026, 1212. If we pass by two red strings or two blue strings in a row, the strings don't intersect; otherwise, they do.",
+        "This is because if we don't have two red or blue in a row, then the red and blue strings alternate, so there must be an intersection."
+    ]
+}

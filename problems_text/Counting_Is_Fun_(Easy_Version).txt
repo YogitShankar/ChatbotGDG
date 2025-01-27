@@ -1,0 +1,5 @@
+This is the easy version of the problem. The only difference between the two versions is the constraint on n n . You can make hacks only if both versions of the problem are solved.
+An array b b of m m non-negative integers is said to be good if all the elements of b b can be made equal to 0 0 using the following operation some (possibly, zero) times:
+You are given two positive integers n n , k k and a prime number p p .
+Over all ( k + 1 ) n ( k + 1 ) n arrays of length n n such that 0 ≤ a i ≤ k 0 ≤ a i ≤ k for all 1 ≤ i ≤ n 1 ≤ i ≤ n , count the number of good arrays.
+Since the number might be too large, you are only required to find it modulo p p .

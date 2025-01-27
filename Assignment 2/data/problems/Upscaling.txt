@@ -1,0 +1,2 @@
+You are given an integer n n . Output a 2 n × 2 n 2 n × 2 n checkerboard made of 2 × 2 2 × 2 squares alternating ' # # ' and ' . . ', with the top-left cell being ' # # '.
+The picture above shows the answers for n = 1 , 2 , 3 , 4 n = 1 , 2 , 3 , 4 .

@@ -1,0 +1,18 @@
+{
+    "time_limit": "2 seconds",
+    "memory_limit": "256 megabytes",
+    "tags": [
+        "binary search",
+        "constructive algorithms",
+        "data structures",
+        "implementation",
+        "*2500"
+    ],
+    "solution": [
+        "Let's divide the queue into two parts: the original queue Q1Q1 and the returning people queue Q2Q2. Q1Q1 will simply be an array with a pointer PP to the current person at the front. And Q2Q2 will be a priority queue. Now the problem can be formulated as follows: find out how much time it will take for PP to become equal to n+1n+1.",
+        "Let's iterate through the time. At each moment, the cook serves porridge to either a person from Q1Q1 or from Q2Q2. How do we know which one? Let's calculate sufMaxsufMax\u00a0\u2014 an array of suffix maximums for kk. Now it's clear that if sufMaxP\u2264k(Q2front)sufMaxP\u2264k(Q2front) (here k(x)k(x) is the priority of student xx), then there is still someone in Q1Q1 with a higher kk than the one who wants to return, so at the next moment the cook will serve porridge to a person from Q1Q1. Otherwise, the person with the maximum appetite from Q2Q2 can bypass everyone from Q1Q1 and get the porridge.",
+        "To form Q2Q2, we will store an array of arrays eateat, where eatieati is the list of people who will return to the queue at the end of the ii-th minute.",
+        "Then we simply need to simulate this process. The answer will be the moment when PP becomes equal to n+1n+1.",
+        "Complexity: O(dlogn)O(dlog\u2061n)"
+    ]
+}

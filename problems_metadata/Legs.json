@@ -1,0 +1,13 @@
+{
+    "time_limit": "2 seconds",
+    "memory_limit": "256 megabytes",
+    "tags": [
+        "binary search",
+        "math",
+        "ternary search",
+        "*800"
+    ],
+    "solution": [
+        "If nn is a multiple of 44, then you can have n4n4 cows. Otherwise, you must have at least one chicken, so you can have n\u221224n\u221224 cows and 11 chicken."
+    ]
+}

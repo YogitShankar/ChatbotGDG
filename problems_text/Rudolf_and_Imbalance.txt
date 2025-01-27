@@ -1,0 +1,4 @@
+Rudolf has prepared a set of n n problems with complexities a 1 < a 2 < a 3 < ⋯ < a n a 1 < a 2 < a 3 < ⋯ < a n . He is not entirely satisfied with the balance, so he wants to add at most one problem to fix it.
+For this, Rudolf came up with m m models of problems and k k functions. The complexity of the i i -th model is d i d i , and the complexity of the j j -th function is f j f j . To create a problem, he selects values i i and j j ( 1 ≤ i ≤ m 1 ≤ i ≤ m , 1 ≤ j ≤ k 1 ≤ j ≤ k ) and by combining the i i -th model with the j j -th function, he obtains a new problem with complexity d i + f j d i + f j (a new element is inserted into the array a a ).
+To determine the imbalance of the set, Rudolf sorts the complexities of the problems in ascending order and finds the largest value of a i − a i − 1 a i − a i − 1 ( i > 1 i > 1 ).
+What is the minimum value of imbalance that Rudolf can achieve by adding at most one problem, created according to the described rules?

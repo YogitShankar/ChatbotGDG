@@ -1,0 +1,2 @@
+You are given a string s s consisting of lowercase English letters.
+Rearrange the characters of s s to form a new string r r that is not equal to s s , or report that it's impossible.

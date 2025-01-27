@@ -1,0 +1,15 @@
+{
+    "time_limit": "2 seconds",
+    "memory_limit": "256 megabytes",
+    "tags": [
+        "combinatorics",
+        "dfs and similar",
+        "dp",
+        "graphs",
+        "greedy",
+        "math",
+        "probabilities",
+        "trees",
+        "*2100"
+    ]
+}

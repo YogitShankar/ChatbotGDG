@@ -1,0 +1,6 @@
+You have a strip of paper with a binary string s s of length n n . You can fold the paper in between any pair of adjacent digits.
+A set of folds is considered valid if after the folds, all characters that are on top of or below each other match. Note that all folds are made at the same time, so the characters don't have to match in between folds.
+For example, these are valid foldings of s = 110110110011 s = 110110110011 and s = 01110 s = 01110 :
+The length of the folded strip is the length seen from above after all folds are made. So for the two above examples, after the folds shown above, the lengths would be 7 7 and 3 3 , respectively.
+Notice that for the above folding of s = 01110 s = 01110 , if we made either of the two folds on their own, that would not be a valid folding. However, because we don't check for validity until all folds are made, this folding is valid.
+After performing a set of valid folds, what is the minimum length strip you can form?

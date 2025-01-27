@@ -1,0 +1,2 @@
+You are given an array a 1 , a 2 , … , a n a 1 , a 2 , … , a n . Find the number of tuples ( x , y , z x , y , z ) such that:
+We define f ( l , r ) = a l ⊕ a l + 1 ⊕ … ⊕ a r f ( l , r ) = a l ⊕ a l + 1 ⊕ … ⊕ a r , where ⊕ ⊕ denotes the bitwise XOR operation .

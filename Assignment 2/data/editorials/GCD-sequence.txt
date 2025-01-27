@@ -1,0 +1,1 @@
+Let's loop through the initial array aa, counting the GCD of neighbouring elements. If at some point, the GCD of the previous pair becomes greater than the GCD of the next pair, we remember the index ii of the first element of the pair that gave the greater GCD and stop the loop.Then consider the following cases:

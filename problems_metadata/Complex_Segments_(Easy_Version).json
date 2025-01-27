@@ -1,0 +1,15 @@
+{
+    "time_limit": "6 seconds",
+    "memory_limit": "256 megabytes",
+    "tags": [
+        "binary search",
+        "data structures",
+        "divide and conquer",
+        "dsu",
+        "greedy",
+        "math",
+        "sortings",
+        "*3300"
+    ],
+    "solution": "Let's write a functionmax_k(m), which returns the maximumkksuch that there exists a partition ofkkvalid sets containingmmintervals each.max_kworks inO(nlogn)O(nlog\u2061n)in the following way (using a lazy segment tree):(wlog)ri\u2264ri+1ri\u2264ri+1;for eachiinot intersecting the previous subset, add11on the interval[l[i],r[i]][l[i],r[i]];as soon as a point belongs tommintervals, they become a subset;return the number of subsets.For a givenkk, you can binary search the maximummmsuch thatmax_k(m)\u2265k\u2265kinO(nlog2n)O(nlog2\u2061n).The problem asks for the maximummkmk. Sincemk\u2264nmk\u2264n, for any constantCCeitherm\u2264Cm\u2264Cork\u2264n/Ck\u2264n/C. ForC=(nlogn)1/2C=(nlog\u2061n)1/2, the total complexity becomesO((nlogn)3/2)O((nlog\u2061n)3/2), which is enough to solve2018E1 - Complex Segments (Easy Version). You can also findmax_k(m)for allmmwith a divide and conquer approach, and the complexity becomesO(nn\u2212\u2212\u221alogn)O(nnlog\u2061n)(seehere).Now let's go back tomax_k(m). It turns out you can implement it inO(n\u03b1(n))O(n\u03b1(n)).First of all, let's make all the endpoints distinct, in such a way that two intervals intersect if and only if they were intersecting before.Let's maintain a binary string of sizenn, initially containing only ones, that can support the following queries:set bit in positionppto0;find the nearest1to the left of positionpp.This can be maintained with DSU, where the components are the maximal intervals containing100...00.Now let's reuse the previous solution (sweepingrrfrom left to right), but instead of a segment tree we will maintain a binary string with the following information:the positions>r>rstore1;the positions\u2264r\u2264rstore1if and only if the value in that position (in the previous solution) is a suffix max.So the queries become:add11to[l,r][l,r]:rrchanges, so you have to set elements in[r\u2032+1,r\u22121][r\u2032+1,r\u22121]to00;the only other element that changes is the nearest1to the left of positionll, which does not represent a suffix max anymore.find the maximum: it's equal to the number of suffix maximums, which depends onrrand on the number of components.This solution allows us to replace aO(logn)O(log\u2061n)factor with aO(\u03b1(n))O(\u03b1(n))factor.Complexity:O(nn\u2212\u2212\u221a\u03b1(n))O(nn\u03b1(n))[Bonus: there exists a data structure faster than DSU to solve the subproblem above, so you can solve the problem inO(nn\u2212\u2212\u221a)O(nn). Seehere.]"
+}

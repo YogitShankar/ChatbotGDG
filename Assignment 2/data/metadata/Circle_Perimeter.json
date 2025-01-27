@@ -1,0 +1,13 @@
+{
+    "time_limit": "1 second",
+    "memory_limit": "256 megabytes",
+    "tags": [
+        "binary search",
+        "brute force",
+        "dfs and similar",
+        "geometry",
+        "implementation",
+        "math",
+        "*1600"
+    ]
+}

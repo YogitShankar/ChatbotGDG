@@ -1,0 +1,4 @@
+The Czech cuisine features n n appetizers and n n main dishes. The i i -th appetizer has spiciness a i a i , and the i i -th main dish has spiciness b i b i .
+A typical Czech meal consists of exactly one appetizer and one main dish. You want to pair up the n n appetizers and n n main dishes into n n meals with each appetizer and each main dish being included in exactly one meal.
+Your meals shall surprise the diners, so you want the spiciness levels of the two parts of the same meal to be as different as possible. The charm of a meal is the difference (in absolute value) between the spiciness of the appetizer and the spiciness of the main dish. So, a meal consisting of an appetizer with spiciness x x and a main dish with spiciness y y has charm equal to | x − y | | x − y | .
+You want to maximize the minimum charm of the resulting n n meals. What is the largest possible value of the minimum charm that you can achieve?

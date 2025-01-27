@@ -1,0 +1,13 @@
+{
+    "time_limit": "5 seconds",
+    "memory_limit": "1024 megabytes",
+    "tags": [
+        "data structures",
+        "divide and conquer",
+        "dp",
+        "dsu",
+        "greedy",
+        "*2700"
+    ],
+    "solution": null
+}

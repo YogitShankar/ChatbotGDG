@@ -1,0 +1,4 @@
+You are given an integer n n . You choose n n cells ( x 1 , y 1 ) , ( x 2 , y 2 ) , … , ( x n , y n ) ( x 1 , y 1 ) , ( x 2 , y 2 ) , … , ( x n , y n ) in the grid n × n n × n where 1 ≤ x i ≤ n 1 ≤ x i ≤ n and 1 ≤ y i ≤ n 1 ≤ y i ≤ n .
+Let H H be the set of distinct Manhattan distances between any pair of cells. Your task is to maximize the size of H H . Examples of sets and their construction are given in the notes.
+If there exists more than one solution, you are allowed to output any.
+Manhattan distance between cells ( x 1 , y 1 ) ( x 1 , y 1 ) and ( x 2 , y 2 ) ( x 2 , y 2 ) equals | x 1 − x 2 | + | y 1 − y 2 | | x 1 − x 2 | + | y 1 − y 2 | .

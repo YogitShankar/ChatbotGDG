@@ -1,0 +1,5 @@
+Given an array a a of length n n . Let's construct a square matrix b b of size n × n n × n , in which the i i -th row contains the array a a cyclically shifted to the right by ( i − 1 ) ( i − 1 ) . For example, for the array a = [ 3 , 4 , 5 ] a = [ 3 , 4 , 5 ] , the obtained matrix is
+
+Let's construct the following graph:
+Your task is to calculate the number of connected components † † in the obtained graph.
+† † A connected component of a graph is a set of vertices in which any vertex is reachable from any other via edges, and adding any other vertex to the set violates this rule.

@@ -1,0 +1,14 @@
+{
+    "time_limit": "2 seconds",
+    "memory_limit": "256 megabytes",
+    "tags": [
+        "data structures",
+        "greedy",
+        "sortings",
+        "*2000"
+    ],
+    "solution": [
+        "Let us consider the smallest element cmcm (and the rightmost if equal). Suppose we do not take it. Now, we emulate the decisions from the first month up to month mm. Note that if we chose some element on the left of mm we could have chosen the smallest one cmcm instead. Thus, we can go greedy: go over the costs in the sorted order and check whether we can take it. To check whether there are enough pounds from the previous months we can use the segment tree. When we take the happiness during month mm we need to reduce the amount of pounds on the left by cmcm.",
+        "This greedy approach can be implemented simpler. We just need to go over the costs from the first month and maintain the heap (or set/priority queue) of chosen costs. When we go over a new cost we check whether we can pay for it and, if positive, we add it to our answer. Otherwise, we remove the largest chosen cost from the heap, compare it with the current cost, and put back the smaller one."
+    ]
+}

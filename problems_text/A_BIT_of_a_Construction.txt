@@ -1,0 +1,1 @@
+Given integers n n and k k , construct a sequence of n n non-negative (i.e. ≥ 0 ≥ 0 ) integers a 1 , a 2 , … , a n a 1 , a 2 , … , a n such that

@@ -1,0 +1,5 @@
+For a string p p , let f ( p ) f ( p ) be the number of distinct non-empty substrings ∗ ∗ of p p .
+
+Shohag has a string s s . Help him find a non-empty string p p such that p p is a substring of s s and f ( p ) f ( p ) is even or state that no such string exists.
+
+∗ ∗ A string a a is a substring of a string b b if a a can be obtained from b b by deletion of several (possibly, zero or all) characters from the beginning and several (possibly, zero or all) characters from the end.

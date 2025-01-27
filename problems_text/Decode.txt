@@ -1,0 +1,3 @@
+In a desperate attempt to obtain your waifu favorite character, you have hacked into the source code of the game. After days of struggling, you finally find the binary string that encodes the gacha system of the game. In order to decode it, you must first solve the following problem.
+You are given a binary string s s of length n n . For each pair of integers ( l , r ) ( l , r ) ( 1 ≤ l ≤ r ≤ n ) ( 1 ≤ l ≤ r ≤ n ) , count the number of pairs ( x , y ) ( x , y ) ( l ≤ x ≤ y ≤ r ) ( l ≤ x ≤ y ≤ r ) such that the amount of 0 0 equals the amount of 1 1 in the substring s x s x + 1 . . . s y s x s x + 1 . . . s y .
+Output the sum of counts over all possible ( l , r ) ( l , r ) modulo 10 9 + 7 10 9 + 7 .

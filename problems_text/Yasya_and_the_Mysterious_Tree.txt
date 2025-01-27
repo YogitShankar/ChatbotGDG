@@ -1,0 +1,7 @@
+Yasya was walking in the forest and accidentally found a tree with n n vertices. A tree is a connected undirected graph with no cycles.
+Next to the tree, the girl found an ancient manuscript with m m queries written on it. The queries can be of two types.
+The first type of query is described by the integer y y . The weight of each edge in the tree is replaced by the bitwise exclusive OR of the weight of that edge and the integer y y .
+The second type is described by the vertex v v and the integer x x . Yasya chooses a vertex u u ( 1 ≤ u ≤ n 1 ≤ u ≤ n , u ≠ v u ≠ v ) and mentally draws a bidirectional edge of weight x x from v v to u u in the tree.
+Then Yasya finds a simple cycle in the resulting graph and calculates the bitwise exclusive OR of all the edges in it. She wants to choose a vertex u u such that the calculated value is maximum . This calculated value will be the answer to the query. It can be shown that such a cycle exists and is unique under the given constraints (independent of the choice of u u ). If an edge between v v and u u already existed, a simple cycle is the path v → u → v v → u → v .
+Note that the second type of query is performed mentally , meaning the tree does not change in any way after it.
+Help Yasya answer all the queries.

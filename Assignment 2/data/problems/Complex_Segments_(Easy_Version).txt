@@ -1,0 +1,5 @@
+This is the easy version of the problem. In this version, the constraints on n n and the time limit are lower. You can make hacks only if both versions of the problem are solved.
+
+A set of (closed) segments is complex if it can be partitioned into some subsets such that
+
+You are given n n segments [ l 1 , r 1 ] , [ l 2 , r 2 ] , … , [ l n , r n ] [ l 1 , r 1 ] , [ l 2 , r 2 ] , … , [ l n , r n ] . Find the maximum size of a complex subset of these segments.

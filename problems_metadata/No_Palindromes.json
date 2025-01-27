@@ -1,0 +1,16 @@
+{
+    "time_limit": "2 seconds",
+    "memory_limit": "256 megabytes",
+    "tags": [
+        "brute force",
+        "constructive algorithms",
+        "divide and conquer",
+        "greedy",
+        "hashing",
+        "implementation",
+        "math",
+        "strings",
+        "*2000"
+    ],
+    "solution": null
+}

@@ -1,0 +1,11 @@
+{
+    "time_limit": "1 second",
+    "memory_limit": "256 megabytes",
+    "tags": [
+        "geometry",
+        "implementation",
+        "math",
+        "*800"
+    ],
+    "solution": "2027A - Rectangle ArrangementWe must minimize the perimeter, and an obvious way to attempt this is to maximize the overlap. To achieve this, we can place each stamp such that the lower left corner of each stamp is at the same position, like shown in the sample explanation.Now, we can observe that the perimeter of this shape is determined solely by the maximum height and width of any stamp, and these values cannot be reduced further. Therefore, the answer is2\u22c5(max(ai)+max(bi))2\u22c5(max(ai)+max(bi)).Furthermore, it's true that any arrangement of stamps which are fully enclosed in an outer rectangular area ofmax(ai)max(ai)bymax(bi)max(bi)will yield the same perimeter."
+}

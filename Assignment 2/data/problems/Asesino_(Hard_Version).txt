@@ -1,0 +1,17 @@
+This is the hard version of the problem. In this version, you must use the minimum number of queries possible. You can make hacks only if both versions of the problem are solved.
+
+This is an interactive problem .
+
+It is a tradition in Mexico's national IOI trainings to play the game " Asesino ", which is similar to " Among Us " or " Mafia ".
+
+Today, n n players, numbered from 1 1 to n n , will play " Asesino " with the following three roles:
+
+Each player will be assigned a role in the game. There will be exactly one Impostor but there can be any (possible zero) number of Knights and Knaves.
+
+As the game moderator, you have accidentally forgotten the roles of everyone, but you need to determine the player who is the Impostor.
+
+To determine the Impostor, you will ask some questions. In each question, you will pick two players i i and j j ( 1 ≤ i , j ≤ n 1 ≤ i , j ≤ n ; i ≠ j i ≠ j ) and ask if player i i thinks that player j j is a Knight. The results of the question is shown in the table below.
+
+Find the Impostor in the minimum number of queries possible. That is, let f ( n ) f ( n ) be the minimum integer such that for n n players, there exists a strategy that can determine the Impostor using at most f ( n ) f ( n ) questions. Then, you should use at most f ( n ) f ( n ) questions to determine the Impostor.
+
+Note: the grader is adaptive: the roles of the players are not fixed in the beginning and may change depending on your questions. However, it is guaranteed that there exists an assignment of roles that is consistent with all previously asked questions under the constraints of this problem.

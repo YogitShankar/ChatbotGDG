@@ -1,0 +1,12 @@
+{
+    "time_limit": "1 second",
+    "memory_limit": "256 megabytes",
+    "tags": [
+        "data structures",
+        "greedy",
+        "math",
+        "sortings",
+        "*800"
+    ],
+    "solution": "2021A - Meaning MeanFor now, let's ignore the floor operation, so an operation is merging two elementsaiaiandajajinto one elementai+aj2ai+aj2.Consider the end result. Each initial element inaamust contribute a fractional coefficient to the final result. It turns out that the sum of the coefficients is fixed (it must be11). That means we can greedily give the biggest values inaathe biggest coefficients.One way to do this is by sortingaain ascending order. We mergea1a1anda2a2, then merge that result witha3a3, then merge that result witha4a4, and so on untilanan. If we do this,anancontributes1212times,an\u22121an\u22121contributes1414times,an\u22122an\u22122contributes1818times, and so on. This is the optimal way to get the maximum final result.It turns out that the strategy above is also the optimal strategy for the original version of the problem. So we can simulate that process to get the answer.Time complexity for each test case:O(nlogn)O(nlog\u2061n)"
+}

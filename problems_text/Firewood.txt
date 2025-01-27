@@ -1,0 +1,4 @@
+It's pretty cold in Berland (yes, even in May). So Monocarp has to light his fireplace.
+Monocarp has a big log of wood, which weighs 2 n 2 n grams. Monocarp has watched the weather forecast and decided that he has to burn k k grams of wood in the fireplace today, and the remaining 2 n − k 2 n − k grams of wood will be used tomorrow.
+In one minute, Monocarp can use his saw to split one of his logs in half. Initially he has only one log, but of course, after splitting a log, he gets two new logs. If the weight of the log is x x , then each of the resulting logs has weight equal to x 2 x 2 . Monocarp can't split logs of weight 1 1 gram.
+Monocarp has to cut his log in such a way that some of the resulting logs weigh exactly k k grams in total (and since the total weight of wood doesn't change, the remaining logs will have a total weight equal to exactly 2 n − k 2 n − k ). Help him to calculate the minimum number of minutes he has to spend cutting the logs.

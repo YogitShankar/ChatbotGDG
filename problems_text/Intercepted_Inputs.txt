@@ -1,0 +1,5 @@
+To help you prepare for your upcoming Codeforces contest, Citlali set a grid problem and is trying to give you a n n by m m grid through your input stream. Specifically, your input stream should contain the following:
+
+However, someone has intercepted your input stream, shuffled all given integers, and put them all on one line! Now, there are k k integers all on one line, and you don't know where each integer originally belongs. Instead of asking Citlali to resend the input, you decide to determine the values of n n and m m yourself.
+
+Output any possible value of n n and m m that Citlali could have provided.

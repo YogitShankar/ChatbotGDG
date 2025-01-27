@@ -1,0 +1,4 @@
+Polycarp has a string s s , which consists of lowercase Latin letters. He encodes this string using the following algorithm:
+For example, encoding the string s s =" codeforces " happens as follows:
+Thus, the result of encoding the string s s =" codeforces " is the string " serofedsoc ".
+Write a program that performs decoding — that is, restores the original string s s from the encoding result.

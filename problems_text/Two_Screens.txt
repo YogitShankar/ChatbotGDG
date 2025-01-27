@@ -1,0 +1,5 @@
+There are two screens which can display sequences of uppercase Latin letters. Initially, both screens display nothing.
+
+In one second, you can do one of the following two actions:
+
+You have to calculate the minimum number of seconds you have to spend so that the first screen displays the sequence s s , and the second screen displays the sequence t t .

@@ -1,0 +1,12 @@
+{
+    "time_limit": "3 seconds",
+    "memory_limit": "128 megabytes",
+    "tags": [
+        "binary search",
+        "brute force",
+        "dfs and similar",
+        "graphs",
+        "*3100"
+    ],
+    "solution": null
+}

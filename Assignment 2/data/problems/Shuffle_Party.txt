@@ -1,0 +1,4 @@
+You are given an array a 1 , a 2 , … , a n a 1 , a 2 , … , a n . Initially, a i = i a i = i for each 1 ≤ i ≤ n 1 ≤ i ≤ n .
+The operation swap ( k ) swap ( k ) for an integer k ≥ 2 k ≥ 2 is defined as follows:
+Suppose you perform swap ( i ) swap ( i ) for each i = 2 , 3 , … , n i = 2 , 3 , … , n in this exact order. Find the position of 1 1 in the resulting array. In other words, find such j j that a j = 1 a j = 1 after performing these operations.
+† † An integer x x is a divisor of y y if there exists an integer z z such that y = x ⋅ z y = x ⋅ z .

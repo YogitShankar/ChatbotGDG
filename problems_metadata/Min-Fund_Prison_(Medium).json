@@ -1,0 +1,13 @@
+{
+    "time_limit": "1.5 seconds",
+    "memory_limit": "256 megabytes",
+    "tags": [
+        "brute force",
+        "dfs and similar",
+        "dp",
+        "graphs",
+        "trees",
+        "*2200"
+    ],
+    "solution": null
+}

@@ -1,0 +1,5 @@
+You have an array a a of n n integers.
+You perform exactly k k operations on it. In one operation, you select any contiguous subarray of the array a a (possibly empty) and insert the sum of this subarray anywhere in the array.
+Your task is to find the maximum possible sum of the array after k k such operations.
+As this number can be very large, output the answer modulo 10 9 + 7 10 9 + 7 .
+Reminder: the remainder of a number x x modulo p p is the smallest non-negative y y such that there exists an integer q q and x = p ⋅ q + y x = p ⋅ q + y .

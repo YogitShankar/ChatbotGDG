@@ -1,0 +1,15 @@
+{
+    "time_limit": "2 seconds",
+    "memory_limit": "256 megabytes",
+    "tags": [
+        "constructive algorithms",
+        "data structures",
+        "implementation",
+        "sortings",
+        "*1000"
+    ],
+    "solution": [
+        "Since c>0c>0 and d>0d>0, the elements of the square increase starting from the top left corner. Thus, a1,1a1,1 is the minimum element in the square, and consequently in the found elements.",
+        "Given nn, cc, dd, and the found a1,1a1,1, we will reconstruct the square. It remains to check that the given numbers in the input form the same square. The easiest way is to sort both arrays of numbers and check for equality. The complexity of the solution is O(n2\u22c5logn)O(n2\u22c5log\u2061n)."
+    ]
+}

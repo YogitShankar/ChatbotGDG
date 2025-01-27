@@ -1,0 +1,1 @@
+A palindrome is a string that reads the same in both directions, for example z , uwu , or moom .

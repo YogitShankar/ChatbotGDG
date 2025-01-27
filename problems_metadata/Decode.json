@@ -1,0 +1,15 @@
+{
+    "time_limit": "2 seconds",
+    "memory_limit": "256 megabytes",
+    "tags": [
+        "combinatorics",
+        "data structures",
+        "implementation",
+        "math",
+        "*1600"
+    ],
+    "solution": [
+        "How can we efficiently check if a range contains the same amount of zeroes and ones? Let's create an array aa where ai=\u22121ai=\u22121 if si=0si=0 and ai=1ai=1 if si=1si=1. Let's denote pp as the prefix sum array of aa. We want the contribution of \u22121\u22121 by the zeroes to cancel out with the ones, so if pr\u2212pl\u22121=0pr\u2212pl\u22121=0, then the range [l,r][l,r] contain equal amounts of zeroes and ones. We can rephrase the problem as the following: for each subrange [l,r][l,r], count the number of pairs (x,y)(x,y) such that px\u22121=pypx\u22121=py.",
+        "Let's fix px\u22121px\u22121 and keep track of all potential yy such that y>xy>x and px\u22121=pypx\u22121=py. How many subarrays will cover [x,y][x,y]? Well, we have x+1x+1 options as ll and n\u2212y+1n\u2212y+1 options as rr, so the range [x,y][x,y] contributes to (x+1)\u22c5(n\u2212y+1)(x+1)\u22c5(n\u2212y+1) subarrays. We just need to calculate this expression for all potential yy now. Let's denote the all possible yy as y1,y2,...yky1,y2,...yk. We are asked to find the sum of (x+1)\u22c5(n\u2212y1+1)+(x+1)\u22c5(n\u2212y2+1)+\u22ef+(x+1)\u22c5(n\u2212yk+1)(x+1)\u22c5(n\u2212y1+1)+(x+1)\u22c5(n\u2212y2+1)+\u22ef+(x+1)\u22c5(n\u2212yk+1). Let's factor (x+1)(x+1) out, and we have (x+1)\u22c5((n\u2212y1+1)+(n\u2212y2+1)+\u22ef+(n\u2212yk+1))(x+1)\u22c5((n\u2212y1+1)+(n\u2212y2+1)+\u22ef+(n\u2212yk+1)). Since, the second part of the expression is just the sum of all (n\u2212yi+1)(n\u2212yi+1), we can first precalculate that sum and since y>xy>x, subtract as we sweep from left to right."
+    ]
+}

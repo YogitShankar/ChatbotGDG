@@ -1,0 +1,1 @@
+Note that on one screen we can put no more than two 2×22×2 icons. Thus, we need at least Z=⌈y/2⌉Z=⌈y/2⌉ screens. Then, we check how many 1×11×1 icons we can put on these screens: 15⋅Z−4⋅y15⋅Z−4⋅y. The 1×11×1 icons left we need to put on additional screens.

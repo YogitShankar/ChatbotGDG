@@ -1,0 +1,7 @@
+A progressive square of size n n is an n × n n × n matrix. Maxim chooses three integers a 1 , 1 a 1 , 1 , c c , and d d and constructs a progressive square according to the following rules:
+
+
+For example, if n = 3 n = 3 , a 1 , 1 = 1 a 1 , 1 = 1 , c = 2 c = 2 , and d = 3 d = 3 , then the progressive square looks as follows:
+
+Last month Maxim constructed a progressive square and remembered the values of n n , c c , and d d . Recently, he found an array b b of n 2 n 2 integers in random order and wants to make sure that these elements are the elements of that specific square.
+It can be shown that for any values of n n , a 1 , 1 a 1 , 1 , c c , and d d , there exists exactly one progressive square that satisfies all the rules.
