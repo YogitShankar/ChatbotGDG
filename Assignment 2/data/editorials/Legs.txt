@@ -1,0 +1,1 @@
+If nn is a multiple of 44, then you can have n4n4 cows. Otherwise, you must have at least one chicken, so you can have n−24n−24 cows and 11 chicken.

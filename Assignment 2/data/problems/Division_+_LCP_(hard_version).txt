@@ -1,0 +1,5 @@
+This is the hard version of the problem. In this version l ≤ r l ≤ r .
+You are given a string s s . For a fixed k k , consider a division of s s into exactly k k continuous substrings w 1 , … , w k w 1 , … , w k . Let f k f k be the maximal possible L C P ( w 1 , … , w k ) L C P ( w 1 , … , w k ) among all divisions.
+L C P ( w 1 , … , w m ) L C P ( w 1 , … , w m ) is the length of the Longest Common Prefix of the strings w 1 , … , w m w 1 , … , w m .
+For example, if s = a b a b a b c a b s = a b a b a b c a b and k = 4 k = 4 , a possible division is a b a b a b c a b a b a b a b c a b . The L C P ( a b , a b , a b c , a b ) L C P ( a b , a b , a b c , a b ) is 2 2 , since a b a b is the Longest Common Prefix of those four strings. Note that each substring consists of a continuous segment of characters and each character belongs to exactly one substring.
+Your task is to find f l , f l + 1 , … , f r f l , f l + 1 , … , f r .

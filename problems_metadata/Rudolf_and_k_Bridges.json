@@ -1,0 +1,16 @@
+{
+    "time_limit": "2 seconds",
+    "memory_limit": "256 megabytes",
+    "tags": [
+        "binary search",
+        "data structures",
+        "dp",
+        "two pointers",
+        "*1600"
+    ],
+    "solution": [
+        "First, for each string separately, we will calculate the minimum total cost of supports and write it to an array. This can be done, for example, using dynamic programming as follows. We will go through the string and maintain the last d+1d+1 minimum total costs in a multiset. Then the answer for the current position will be the sum of the cost of the support at this position and the minimum element from the multiset. When moving to the next element of the string, it is important to remember to update the multiset.",
+        "After that, from the array of minimum total costs, we choose a segment of length kk with the minimum sum, which will be the answer.",
+        "The algorithm's asymptotic complexity is of the order O(n\u22c5m\u22c5logd)O(n\u22c5m\u22c5log\u2061d)."
+    ]
+}

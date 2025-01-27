@@ -1,0 +1,5 @@
+Jellyfish is playing a one-player card game called "Slay the Spire". There are n n cards in total numbered from 1 1 to n n . The i i -th card has power c i c i .
+There is a binary string s s of length n n . If s i = 0 s i = 0 , the i i -th card is initially in the draw pile. If s i = 1 s i = 1 , the i i -th card is initially in Jellyfish's hand.
+Jellyfish will repeat the following process until either her hand or the draw pile is empty.
+At the end of this process, find the probability that Jellyfish can empty the draw pile, modulo 1 000 000 007 1 000 000 007 .
+Formally, let M = 1 000 000 007 M = 1 000 000 007 . It can be shown that the answer can be expressed as an irreducible fraction p q p q , where p p and q q are integers and q ≢ 0 ( mod M ) q ≢ 0 ( mod M ) . Output the integer equal to p ⋅ q − 1 mod M p ⋅ q − 1 mod M . In other words, output such an integer x x that 0 ≤ x < M 0 ≤ x < M and x ⋅ q ≡ p ( mod M ) x ⋅ q ≡ p ( mod M ) .

@@ -1,0 +1,6 @@
+In the Master's Assistance Center, Nyam-Nyam was given a homework assignment in informatics.
+There is an array a a of length n n , and you want to divide it into k > 1 k > 1 subsegments † † in such a way that the MEX ‡ MEX ‡ on each subsegment is equal to the same integer.
+Help Nyam-Nyam find any suitable division, or determine that it does not exist.
+† † A division of an array into k k subsegments is defined as k k pairs of integers ( l 1 , r 1 ) , ( l 2 , r 2 ) , … , ( l k , r k ) ( l 1 , r 1 ) , ( l 2 , r 2 ) , … , ( l k , r k ) such that l i ≤ r i l i ≤ r i and for each 1 ≤ j ≤ k − 1 1 ≤ j ≤ k − 1 , l j + 1 = r j + 1 l j + 1 = r j + 1 , and also l 1 = 1 l 1 = 1 and r k = n r k = n . These pairs represent the subsegments themselves.
+‡ MEX ‡ MEX of an array is the smallest non-negative integer that does not belong to the array.
+For example:

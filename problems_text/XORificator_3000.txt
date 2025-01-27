@@ -1,0 +1,3 @@
+Alice has been giving gifts to Bob for many years, and she knows that what he enjoys the most is performing bitwise XOR of interesting integers. Bob considers a positive integer x x to be interesting if it satisfies x ≢ k ( mod 2 i ) x ≢ k ( mod 2 i ) . Therefore, this year for his birthday, she gifted him a super-powerful "XORificator 3000", the latest model.
+
+Bob was very pleased with the gift, as it allowed him to instantly compute the XOR of all interesting integers in any range from l l to r r , inclusive. After all, what else does a person need for happiness? Unfortunately, the device was so powerful that at one point it performed XOR with itself and disappeared. Bob was very upset, and to cheer him up, Alice asked you to write your version of the "XORificator".

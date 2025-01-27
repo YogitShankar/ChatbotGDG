@@ -1,0 +1,17 @@
+A conspiracy of ancient sages, who decided to redirect rivers for their own convenience, has put the world on the brink. But before implementing their grand plan, they decided to carefully think through their strategy — that's what sages do.
+
+There are n n countries, each with exactly k k regions. For the j j -th region of the i i -th country, they calculated the value a i , j a i , j , which reflects the amount of water in it.
+
+The sages intend to create channels between the j j -th region of the i i -th country and the j j -th region of the ( i + 1 ) ( i + 1 ) -th country for all 1 ≤ i ≤ ( n − 1 ) 1 ≤ i ≤ ( n − 1 ) and for all 1 ≤ j ≤ k 1 ≤ j ≤ k .
+
+Since all n n countries are on a large slope, water flows towards the country with the highest number. According to the sages' predictions, after the channel system is created, the new value of the j j -th region of the i i -th country will be b i , j = a 1 , j | a 2 , j | . . . | a i , j b i , j = a 1 , j | a 2 , j | . . . | a i , j , where | | denotes the bitwise "OR" operation.
+
+After the redistribution of water, the sages aim to choose the most suitable country for living, so they will send you q q queries for consideration.
+
+Each query will contain m m requirements.
+
+Each requirement contains three parameters: the region number r r , the sign o o (either " < < " or " > > "), and the value c c . If o o = " < < ", then in the r r -th region of the country you choose, the new value must be strictly less than the limit c c , and if o o = " > > ", it must be strictly greater.
+
+In other words, the chosen country i i must satisfy all m m requirements. If in the current requirement o o = " < < ", then it must hold that b i , r < c b i , r < c , and if o o = " > > ", then b i , r > c b i , r > c .
+
+In response to each query, you should output a single integer — the number of the suitable country. If there are multiple such countries, output the smallest one. If no such country exists, output − 1 − 1 .

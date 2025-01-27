@@ -1,0 +1,7 @@
+While exploring the jungle, you have bumped into a rare orangutan with a bow tie! You shake hands with the orangutan and offer him some food and water. In return...
+
+The orangutan has gifted you an array a a of length n n . Using a a , you will construct two arrays b b and c c , both containing n n elements, in the following manner:
+
+Define the score of a a as ∑ n i = 1 c i − b i ∑ i = 1 n c i − b i (i.e. the sum of c i − b i c i − b i over all 1 ≤ i ≤ n 1 ≤ i ≤ n ). Before you calculate the score , you can shuffle the elements of a a however you want.
+
+Find the maximum score that you can get if you shuffle the elements of a a optimally.

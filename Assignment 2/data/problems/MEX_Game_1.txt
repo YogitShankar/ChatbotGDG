@@ -1,0 +1,5 @@
+Alice and Bob play yet another game on an array a a of size n n . Alice starts with an empty array c c . Both players take turns playing, with Alice starting first.
+On Alice's turn, she picks one element from a a , appends that element to c c , and then deletes it from a a .
+On Bob's turn, he picks one element from a a , and then deletes it from a a .
+The game ends when the array a a is empty. Game's score is defined to be the MEX † † of c c . Alice wants to maximize the score while Bob wants to minimize it. Find game's final score if both players play optimally.
+† † The MEX MEX (minimum excludant) of an array of integers is defined as the smallest non-negative integer which does not occur in the array. For example:

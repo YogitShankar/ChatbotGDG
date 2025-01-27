@@ -1,0 +1,7 @@
+Note the unusual definition of MEX MEX in this problem.
+Piggy gave Turtle a binary tree † † with n n vertices and a sequence a 1 , a 2 , … , a n a 1 , a 2 , … , a n on his birthday. The binary tree is rooted at vertex 1 1 .
+If a set of paths P = { ( x i , y i ) } P = { ( x i , y i ) } in the tree covers each edge exactly once , then Turtle will think that the set of paths is good . Note that a good set of paths can cover a vertex twice or more.
+Turtle defines the value of a set of paths as ∑ ( x , y ) ∈ P f ( x , y ) ∑ ( x , y ) ∈ P f ( x , y ) , where f ( x , y ) f ( x , y ) denotes the MEX ‡ MEX ‡ of all a u a u such that vertex u u is on the simple path from x x to y y in the tree (including the starting vertex x x and the ending vertex y y ).
+Turtle wonders the minimum value over all good sets of paths. Please help him calculate the answer!
+† † A binary tree is a tree where every non-leaf vertex has at most 2 2 sons.
+‡ MEX ‡ MEX of a collection of integers c 1 , c 2 , … , c k c 1 , c 2 , … , c k is defined as the smallest positive integer x x which does not occur in the collection c c . For example, MEX MEX of [ 3 , 3 , 1 , 4 ] [ 3 , 3 , 1 , 4 ] is 2 2 , MEX MEX of [ 2 , 3 ] [ 2 , 3 ] is 1 1 .

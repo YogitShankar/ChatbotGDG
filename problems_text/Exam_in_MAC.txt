@@ -1,0 +1,3 @@
+The Master's Assistance Center has announced an entrance exam, which consists of the following.
+The candidate is given a set s s of size n n and some strange integer c c . For this set, it is needed to calculate the number of pairs of integers ( x , y ) ( x , y ) such that 0 ≤ x ≤ y ≤ c 0 ≤ x ≤ y ≤ c , x + y x + y is not contained in the set s s , and also y − x y − x is not contained in the set s s .
+Your friend wants to enter the Center. Help him pass the exam!

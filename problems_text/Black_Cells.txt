@@ -1,0 +1,5 @@
+You are given a strip divided into cells, numbered from left to right from 0 0 to 10 18 10 18 . Initially, all cells are white.
+
+You can perform the following operation: choose two white cells i i and j j , such that i ≠ j i ≠ j and | i − j | ≤ k | i − j | ≤ k , and paint them black.
+
+A list a a is given. All cells from this list must be painted black. Additionally, at most one cell that is not in this list can also be painted black. Your task is to determine the minimum value of k k for which this is possible.

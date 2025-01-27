@@ -1,0 +1,4 @@
+Dmitry has n n cubes, numbered from left to right from 1 1 to n n . The cube with index f f is his favorite.
+Dmitry threw all the cubes on the table, and the i i -th cube showed the value a i a i ( 1 ≤ a i ≤ 100 1 ≤ a i ≤ 100 ). After that, he arranged the cubes in non-increasing order of their values, from largest to smallest. If two cubes show the same value, they can go in any order.
+After sorting, Dmitry removed the first k k cubes. Then he became interested in whether he removed his favorite cube (note that its position could have changed after sorting).
+For example, if n = 5 n = 5 , f = 2 f = 2 , a = [ 4 , 3 , 3 , 2 , 3 ] a = [ 4 , 3 , 3 , 2 , 3 ] (the favorite cube is highlighted in green), and k = 2 k = 2 , the following could have happened:

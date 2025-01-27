@@ -1,0 +1,1 @@
+Given the time in 24-hour format, output the equivalent time in 12-hour format.

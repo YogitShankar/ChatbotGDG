@@ -1,0 +1,4 @@
+You have an array a a of n n elements. There are also q q modifications of the array. Before the first modification and after each modification, you would like to know the following:
+What is the minimum length subarray that needs to be sorted in non-decreasing order in order for the array a a to be completely sorted in non-decreasing order?
+More formally, you want to select a subarray of the array ( l , r ) ( l , r ) with the minimum value of r − l + 1 r − l + 1 . After that, you will sort the elements a l , a l + 1 , … , a r a l , a l + 1 , … , a r and want the condition a i ≤ a i + 1 a i ≤ a i + 1 to hold for all 1 ≤ i < n 1 ≤ i < n . If the array is already sorted in non-decreasing order, then l l and r r should be considered as equal to − 1 − 1 .
+Note that finding such ( l , r ) ( l , r ) does not change the array in any way. The modifications themselves take the form: assign a p o s = x a p o s = x for given p o s p o s and x x .

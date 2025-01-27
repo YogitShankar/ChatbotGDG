@@ -1,0 +1,5 @@
+Maxim has an array a a of n n integers and an array b b of m m integers ( m ≤ n m ≤ n ).
+Maxim considers an array c c of length m m to be good if the elements of array c c can be rearranged in such a way that at least k k of them match the elements of array b b .
+For example, if b = [ 1 , 2 , 3 , 4 ] b = [ 1 , 2 , 3 , 4 ] and k = 3 k = 3 , then the arrays [ 4 , 1 , 2 , 3 ] [ 4 , 1 , 2 , 3 ] and [ 2 , 3 , 4 , 5 ] [ 2 , 3 , 4 , 5 ] are good (they can be reordered as follows: [ 1 , 2 , 3 , 4 ] [ 1 , 2 , 3 , 4 ] and [ 5 , 2 , 3 , 4 ] [ 5 , 2 , 3 , 4 ] ), while the arrays [ 3 , 4 , 5 , 6 ] [ 3 , 4 , 5 , 6 ] and [ 3 , 4 , 3 , 4 ] [ 3 , 4 , 3 , 4 ] are not good.
+Maxim wants to choose every subsegment of array a a of length m m as the elements of array c c . Help Maxim count how many selected arrays will be good.
+In other words, find the number of positions 1 ≤ l ≤ n − m + 1 1 ≤ l ≤ n − m + 1 such that the elements a l , a l + 1 , … , a l + m − 1 a l , a l + 1 , … , a l + m − 1 form a good array.

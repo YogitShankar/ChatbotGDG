@@ -1,0 +1,3 @@
+You are given a string s s consisting of lowercase Latin characters. You need to partition † † this string into some substrings, such that each substring is not a palindrome ‡ ‡ .
+† † A partition of a string s s is an ordered sequence of some k k strings t 1 , t 2 , … , t k t 1 , t 2 , … , t k , such that t 1 + t 2 + … + t k = s t 1 + t 2 + … + t k = s , where + + here represents the concatenation operation.
+‡ ‡ A string s s is considered a palindrome if it reads the same backwards as forwards. For example, r a c e c a r r a c e c a r , a b c c b a a b c c b a , and a a are palindromes, but a b a b , d o k i b i r d d o k i b i r d , and k u r o s a n j i k u r o s a n j i are not.

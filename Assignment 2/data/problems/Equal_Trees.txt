@@ -1,0 +1,4 @@
+You are given two rooted trees, consisting of n n vertices each. The vertices in the trees are numbered from 1 1 to n n , and the root is the vertex 1 1 .
+You can perform the following operation: choose the tree and the vertex v v (except the root of the tree) in it; connect the child nodes of v v to the parent of v v and remove v v from the tree.
+Let's say that two trees are equal if both of the following conditions hold:
+Your task is to calculate the minimum number of aforementioned operation in order to make the trees equal.

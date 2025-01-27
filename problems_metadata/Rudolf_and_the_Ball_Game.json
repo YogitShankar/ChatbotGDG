@@ -1,0 +1,15 @@
+{
+    "time_limit": "2 seconds",
+    "memory_limit": "256 megabytes",
+    "tags": [
+        "dfs and similar",
+        "dp",
+        "implementation",
+        "*1200"
+    ],
+    "solution": [
+        "Let's introduce a set of unique elements qq, initially containing a single element xx \u2014 the index of the first player who started the game. For each ii from 11 to mm, we will update qq in such a way as to maintain the set of players who could have the ball after the ii-th throw. For each element qjqj of the set qq, we will remove qjqj from qq, and also:",
+        "After the mm-th iteration of the described cyclic process, the set qq will contain the desired indices of all players who could have the ball at the end of the game.",
+        "At each iteration of the loop, the power of qq does not exceed nn, and a total of exactly mm iterations will be performed. Thus, the asymptotic complexity of the algorithm is of the order O(n\u2217m)O(n\u2217m)."
+    ]
+}

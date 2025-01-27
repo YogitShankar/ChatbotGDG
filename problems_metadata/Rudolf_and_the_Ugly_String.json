@@ -1,0 +1,13 @@
+{
+    "time_limit": "2 seconds",
+    "memory_limit": "256 megabytes",
+    "tags": [
+        "dp",
+        "greedy",
+        "strings",
+        "*900"
+    ],
+    "solution": [
+        "To solve this problem, you need to find all occurrences of the substrings \"pie\", \"map\", \"mapie\" in the string ss and remove the middle character in each of them. This way, you will remove the minimum number of characters to ensure that the string does not contain the substrings \"pie\" and \"map\"."
+    ]
+}

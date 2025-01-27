@@ -1,0 +1,6 @@
+Turtle was playing with a sequence a 1 , a 2 , … , a n a 1 , a 2 , … , a n consisting of positive integers. Unfortunately, some of the integers went missing while playing.
+Now the sequence becomes incomplete. There may exist an arbitrary number of indices i i such that a i a i becomes − 1 − 1 . Let the new sequence be a ′ a ′ .
+Turtle is sad. But Turtle remembers that for every integer i i from 1 1 to n − 1 n − 1 , either a i = ⌊ a i + 1 2 ⌋ a i = ⌊ a i + 1 2 ⌋ or a i + 1 = ⌊ a i 2 ⌋ a i + 1 = ⌊ a i 2 ⌋ holds for the original sequence a a .
+Turtle wants you to help him complete the sequence. But sometimes Turtle makes mistakes, so you need to tell him if you can't complete the sequence.
+Formally, you need to find another sequence b 1 , b 2 , … , b n b 1 , b 2 , … , b n consisting of positive integers such that:
+If there is no sequence b 1 , b 2 , … , b n b 1 , b 2 , … , b n that satisfies all of the conditions above, you need to report − 1 − 1 .

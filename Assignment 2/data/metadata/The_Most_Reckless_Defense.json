@@ -1,0 +1,14 @@
+{
+    "time_limit": "3 seconds",
+    "memory_limit": "256 megabytes",
+    "tags": [
+        "bitmasks",
+        "brute force",
+        "constructive algorithms",
+        "dp",
+        "flows",
+        "graph matchings",
+        "shortest paths",
+        "*2300"
+    ]
+}

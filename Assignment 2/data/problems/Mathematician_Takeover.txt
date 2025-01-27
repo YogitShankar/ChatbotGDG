@@ -1,0 +1,2 @@
+A mathematician grabbed my computer as I was preparing this problem, deleted the statement, and changed the samples to fit his liking. The model solution and input/output format are still correct, but the samples are wrong.
+I've partially fixed the problem so that when you submit, it will be tested against the correct version of the problem. However, I can't fix the samples below. As a computer scientist, can you solve the correct problem?

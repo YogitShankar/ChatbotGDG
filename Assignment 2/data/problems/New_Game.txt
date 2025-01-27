@@ -1,0 +1,13 @@
+There's a new game Monocarp wants to play. The game uses a deck of n n cards, where the i i -th card has exactly one integer a i a i written on it.
+
+At the beginning of the game, on the first turn, Monocarp can take any card from the deck. During each subsequent turn, Monocarp can take exactly one card that has either the same number as on the card taken on the previous turn or a number that is one greater than the number on the card taken on the previous turn.
+
+In other words, if on the previous turn Monocarp took a card with the number x x , then on the current turn he can take either a card with the number x x or a card with the number x + 1 x + 1 . Monocarp can take any card which meets that condition, regardless of its position in the deck.
+
+After Monocarp takes a card on the current turn, it is removed from the deck.
+
+According to the rules of the game, the number of distinct numbers written on the cards that Monocarp has taken must not exceed k k .
+
+If, after a turn, Monocarp cannot take a card without violating the described rules, the game ends.
+
+Your task is to determine the maximum number of cards that Monocarp can take from the deck during the game, given that on the first turn he can take any card from the deck.

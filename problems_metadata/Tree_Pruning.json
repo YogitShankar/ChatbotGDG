@@ -1,0 +1,13 @@
+{
+    "time_limit": "3 seconds",
+    "memory_limit": "256 megabytes",
+    "tags": [
+        "brute force",
+        "dfs and similar",
+        "greedy",
+        "sortings",
+        "trees",
+        "*1700"
+    ],
+    "solution": null
+}

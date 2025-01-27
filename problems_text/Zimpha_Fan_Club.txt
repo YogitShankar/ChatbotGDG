@@ -1,0 +1,5 @@
+One day, Zimpha casually came up with a problem. As a member of "Zimpha fan club", you decided to solve that problem.
+You are given two strings s s and t t of length n n and m m , respectively. Both strings only consist of lowercase English letters, - and * .
+You need to replace all occurrences of * and - , observing the following rules:
+Note that you can replace two different instances of - with different characters. You can also replace each two different instances of * with different strings.
+Suppose s s and t t have been transformed into s ′ s ′ and t ′ t ′ . Now you're wondering if there's a replacement that makes s ′ = t ′ s ′ = t ′ .

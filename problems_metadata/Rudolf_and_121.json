@@ -1,0 +1,14 @@
+{
+    "time_limit": "2 seconds",
+    "memory_limit": "256 megabytes",
+    "tags": [
+        "brute force",
+        "dp",
+        "greedy",
+        "math",
+        "*1000"
+    ],
+    "solution": [
+        "Let's consider the minimum ii such that ai>0ai>0. Making this element zero is only possible by choosing the (i+1)(i+1)-th element for the operation (applying the operation to a more leftward element is either impossible or will make some elements less than zero). We will apply operations in this way until we reach the end of the array. If there are non-zero elements left after applying the operations, the answer is \"NO\"."
+    ]
+}

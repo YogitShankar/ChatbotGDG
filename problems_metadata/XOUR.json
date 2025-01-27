@@ -1,0 +1,15 @@
+{
+    "time_limit": "2 seconds",
+    "memory_limit": "256 megabytes",
+    "tags": [
+        "data structures",
+        "dsu",
+        "sortings",
+        "*1700"
+    ],
+    "solution": [
+        "Note that if ai\u00a0XOR\u00a0aj<4ai\u00a0XOR\u00a0aj<4, then aiai and ajaj must share all bits in their binary representation, except for the last 22 bits. This is because if they have a mismatch in any greater bit, their XORXOR will include this bit, making its value \u226522=4\u226522=4.",
+        "This means that we can group the numbers by removing the last two bits and putting equal numbers into the same group. In each group, we can order the numbers freely (since we can swap any two of them), so it's optimal to sort the numbers in each group.",
+        "Thus we can just divide the numbers into groups and sort each, solving the problem in O(nlogn)O(nlog\u2061n). There are several ways to implement this: for instead, you can use a map storing all the groups, and then sort the values in each group. The implementation we used maps each integer to a priority queue, which automatically will sort the numbers in each group."
+    ]
+}

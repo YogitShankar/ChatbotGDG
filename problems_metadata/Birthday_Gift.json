@@ -1,0 +1,18 @@
+{
+    "time_limit": "2 seconds",
+    "memory_limit": "256 megabytes",
+    "tags": [
+        "bitmasks",
+        "brute force",
+        "constructive algorithms",
+        "greedy",
+        "implementation",
+        "*1900"
+    ],
+    "solution": [
+        "For convenience, let's increase xx by 11, and then iterate through the bit in which the final number is less than xx. We will iterate from the most significant bit to the least significant bit, denoting it as ii. The initial bit will be 3030. Let's look at all the numbers aa in which this bit is 11.",
+        "If there is an odd number of such numbers, then the \u2295\u2295 of some subsegment will be odd, and therefore the final || will also be odd. If at the same time the bit ii in xx is 00, then the process needs to be terminated, because in all the other bits it will no longer be possible to decrease the final number. If, however, in xx this bit is also 11, then we need to move on to the less significant bits, since in both numbers this bit will always be 11.",
+        "If the number of numbers with 11 in bit ii is even, then in order to make this bit 00 in the final number, each segment must contain an even number of such numbers, and since we want to maximize the number of segments, each segment must contain exactly 22 such numbers. For this, for every two indices ll and rr, such that alal and arar in bit ii contain 11, and all numbers from al+1al+1 to ar\u22121ar\u22121 contain 00, replace the subsegment [l,r][l,r] with al\u2295al+1\u2295\u2026\u2295aral\u2295al+1\u2295\u2026\u2295ar. After this, if there is a 11 in xx in this bit, update the answer and return the array to its original state. Then move on to the less significant bits.",
+        "There is also an alternative solution that also iterates through the bits from the most significant to the least significant, but instead of compressing subsegments into one number, it uses a greedy algorithm."
+    ]
+}

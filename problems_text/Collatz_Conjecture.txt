@@ -1,0 +1,4 @@
+Recently, the first-year student Maxim learned about the Collatz conjecture, but he didn't pay much attention during the lecture, so he believes that the following process is mentioned in the conjecture:
+There is a variable x x and a constant y y . The following operation is performed k k times:
+For example, if the number x = 16 x = 16 , y = 3 y = 3 , and k = 2 k = 2 , then after one operation x x becomes 17 17 , and after another operation x x becomes 2 2 , because after adding one, x = 18 x = 18 is divisible by 3 3 twice.
+Given the initial values of x x , y y , and k k , Maxim wants to know what is the final value of x x .

@@ -1,0 +1,12 @@
+{
+    "time_limit": "12 seconds",
+    "memory_limit": "512 megabytes",
+    "tags": [
+        "fft",
+        "greedy",
+        "math",
+        "strings",
+        "*3000"
+    ],
+    "solution": null
+}

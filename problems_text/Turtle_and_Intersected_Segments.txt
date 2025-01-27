@@ -1,0 +1,4 @@
+Turtle just received n n segments and a sequence a 1 , a 2 , … , a n a 1 , a 2 , … , a n . The i i -th segment is [ l i , r i ] [ l i , r i ] .
+Turtle will create an undirected graph G G . If segment i i and segment j j intersect, then Turtle will add an undirected edge between i i and j j with a weight of | a i − a j | | a i − a j | , for every i ≠ j i ≠ j .
+Turtle wants you to calculate the sum of the weights of the edges of the minimum spanning tree of the graph G G , or report that the graph G G has no spanning tree.
+We say two segments [ l 1 , r 1 ] [ l 1 , r 1 ] and [ l 2 , r 2 ] [ l 2 , r 2 ] intersect if and only if max ( l 1 , l 2 ) ≤ min ( r 1 , r 2 ) max ( l 1 , l 2 ) ≤ min ( r 1 , r 2 ) .

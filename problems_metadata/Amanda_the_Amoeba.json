@@ -1,0 +1,12 @@
+{
+    "time_limit": "2 seconds",
+    "memory_limit": "256 megabytes",
+    "tags": [
+        "graphs",
+        "implementation",
+        "trees",
+        "two pointers",
+        "*2600"
+    ],
+    "solution": null
+}

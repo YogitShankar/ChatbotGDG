@@ -1,0 +1,5 @@
+Alice has a a coins. She can open a bank deposit called "Profitable", but the minimum amount required to open this deposit is b b coins.
+
+There is also a deposit called "Unprofitable", which can be opened with any amount of coins. Alice noticed that if she opens the "Unprofitable" deposit with x x coins, the minimum amount required to open the "Profitable" deposit decreases by 2 x 2 x coins. However, these coins cannot later be deposited into the "Profitable" deposit.
+
+Help Alice determine the maximum number of coins she can deposit into the "Profitable" deposit if she first deposits some amount of coins (possibly 0 0 ) into the "Unprofitable" deposit. If Alice can never open the "Profitable" deposit, output 0 0 .

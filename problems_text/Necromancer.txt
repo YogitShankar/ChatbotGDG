@@ -1,0 +1,5 @@
+Monocarp is playing a computer game. In this game, his character is a necromancer. He is fighting n n monsters numbered from 1 1 to n n . Each monster has two parameters: health and strength.
+Monocarp considers q q scenarios of the battle. In each scenario, he chooses some segment [ l , r ] [ l , r ] of monsters and calculates the number of moves it takes to defeat all these monsters.
+Each scenario proceeds as follows. First, Monocarp kills monster l l and revives it as a zombie (this does not count as a move). Then each move the following happens: let i i be the index of the first monster in the segment [ l , r ] [ l , r ] that is still alive. All zombies attack monster i i , reducing its health by their total strength. After that, if monster i i has 0 0 or less health, it dies and Monocarp revives it as a zombie.
+When the monster is revived, the zombie's strength is equal to the monster's strength.
+Help Monocarp for each scenario to calculate how many moves it will take to kill all the monsters in the segment.

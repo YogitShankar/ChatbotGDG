@@ -1,0 +1,5 @@
+In the new messenger for the students of the Master's Assistance Center, Keftemerum, an update is planned, in which developers want to optimize the set of messages shown to the user. There are a total of n n messages. Each message is characterized by two integers a i a i and b i b i . The time spent reading the set of messages with numbers p 1 , p 2 , … , p k p 1 , p 2 , … , p k ( 1 ≤ p i ≤ n 1 ≤ p i ≤ n , all p i p i are distinct ) is calculated by the formula:
+
+Note that the time to read a set of messages consisting of one message with number p 1 p 1 is equal to a p 1 a p 1 . Also, the time to read an empty set of messages is considered to be 0 0 .
+The user can determine the time l l that he is willing to spend in the messenger. The messenger must inform the user of the maximum possible size of the set of messages, the reading time of which does not exceed l l . Note that the maximum size of the set of messages can be equal to 0 0 .
+The developers of the popular messenger failed to implement this function, so they asked you to solve this problem.

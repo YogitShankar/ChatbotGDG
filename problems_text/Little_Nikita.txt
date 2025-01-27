@@ -1,0 +1,2 @@
+The little boy Nikita was given some cubes as a present. He decided to build a tower out of them.
+Initially, the tower doesn't have any cubes. In one move, Nikita either puts exactly 1 1 cube on top of the tower or removes exactly 1 1 cube from the top of the tower. Is it possible that after n n moves, the resulting tower has exactly m m cubes?

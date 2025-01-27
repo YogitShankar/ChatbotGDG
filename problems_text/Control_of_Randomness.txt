@@ -1,0 +1,9 @@
+You are given a tree with n n vertices.
+
+Let's place a robot in some vertex v ≠ 1 v ≠ 1 , and suppose we initially have p p coins. Consider the following process, where in the i i -th step (starting from i = 1 i = 1 ):
+
+The process stops as soon as the robot reaches vertex 1 1 . Let f ( v , p ) f ( v , p ) be the minimum possible expected number of steps in the process above if we spend our coins optimally.
+
+Answer q q queries, in the i i -th of which you have to find the value of f ( v i , p i ) f ( v i , p i ) , modulo ∗ ∗ 998 244 353 998 244 353 .
+
+∗ ∗ Formally, let M = 998 244 353 M = 998 244 353 . It can be shown that the answer can be expressed as an irreducible fraction p q p q , where p p and q q are integers and q ≢ 0 ( mod M ) q ≢ 0 ( mod M ) . Output the integer equal to p ⋅ q − 1 mod M p ⋅ q − 1 mod M . In other words, output such an integer x x that 0 ≤ x < M 0 ≤ x < M and x ⋅ q ≡ p ( mod M ) x ⋅ q ≡ p ( mod M ) .

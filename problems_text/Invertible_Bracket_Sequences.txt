@@ -1,0 +1,3 @@
+A regular bracket sequence is a bracket sequence that can be transformed into a correct arithmetic expression by inserting characters ' 1 ' and ' + ' between the original characters of the sequence. For example:
+Let's define the inverse of the bracket sequence as follows: replace all brackets ' ( ' with ' ) ', and vice versa (all brackets ' ) ' with ' ( '). For example, strings " ()(( " and " )()) " are inverses of each other.
+You are given a regular bracket sequence s s . Calculate the number of pairs of integers ( l , r ) ( l , r ) ( 1 ≤ l ≤ r ≤ | s | 1 ≤ l ≤ r ≤ | s | ) such that if you replace the substring of s s from the l l -th character to the r r -th character (inclusive) with its inverse, s s will still be a regular bracket sequence.

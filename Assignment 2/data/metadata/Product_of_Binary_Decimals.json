@@ -1,0 +1,11 @@
+{
+    "time_limit": "3 seconds",
+    "memory_limit": "256 megabytes",
+    "tags": [
+        "brute force",
+        "dp",
+        "implementation",
+        "number theory",
+        "*1100"
+    ]
+}

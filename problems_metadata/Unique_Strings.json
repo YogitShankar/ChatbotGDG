@@ -1,0 +1,29 @@
+{
+    "time_limit": "2 seconds",
+    "memory_limit": "256 megabytes",
+    "tags": [
+        "combinatorics",
+        "dp",
+        "math",
+        "*3100"
+    ],
+    "solution": [
+        "What's common in all strings we can get: each string has no more than c+kc+k ones and at least cc consecutive ones.",
+        "So let's loosen up our constraints a little and just calculate the number of strings with no more than c+kc+k ones and at least cc consecutive ones, i.\u00a0e. this block of ones can be anywhere, can even start at the end and continue at the beginning. Let's name such strings as good strings.",
+        "Note that the number of unique good strings is exactly equal to the answer of the initial task, since we can shift each good string and make it start from the block of ones.",
+        "How to calculate the number of good strings? Using Burnside's lemma! Since the group of transformations is just a group of cyclic shifts, we can calculate the answer as following",
+        "Note that if the string doesn't change while shifting by ii characters, then it means that s[p]=s[(p+i)mod|s|]s[p]=s[(p+i)mod|s|] for all pp. Further investigation reveals that all characters will be split into exactly g=gcd(i,n)g=gcd(i,n) groups and each group will contain exactly ngng equal characters.",
+        "It means that if gcd(i,n)=gcd(j,n)gcd(i,n)=gcd(j,n) then FixedPoints(i)=FixedPoints(j)FixedPoints(i)=FixedPoints(j) since in both cases we'll get exactly the same group division. So, we can rewrite the answer as following:",
+        "So, it's time to calculate FixedPoints(g)FixedPoints(g) for some divisor gg of nn. It's not hard to see that if s[p]=s[(p+g)mod|s|]s[p]=s[(p+g)mod|s|] then the first gg characters of ss will uniquely define the whole string ss. So it's enough to work with only a prefix of length gg, remembering that each character will be copied ngng times.",
+        "Remember that a good string is a string with at most c+kc+k ones, and since each character will be copied ngng times, we can place at most on=(c+k)gnon=(c+k)gn ones in our prefix (or at least zr=g\u2212onzr=g\u2212on zeroes).",
+        "Also, since a good string has cc consecutive ones, our prefix should also have cc consecutive ones, including the case where the ones go \"cyclically\" starting at the end of the prefix. In case if c\u2265gc\u2265g then the whole prefix should consist of ones, and it's either possible (if c+k=nc+k=n) or impossible (if c+k<nc+k<n).",
+        "In case c<gc<g we need to calculate the number of good prefixes that can be described as \"the cyclic strings of length gg that has no more than onon ones and contains cc consecutive ones\". Instead of good prefixes, let's calculate bad prefixes and subtract them from all possible prefixes.",
+        "All prefixes are just strings with at most onon ones and there are all=\u2211i=0on(gi)all=\u2211i=0on(gi) such strings.",
+        "Bad prefixes are cyclic strings with at most onon ones, where all blocks of ones have length less than cc. In order to calculate bad prefixes, let's precalc the following dp: d[z][l]d[z][l] is the number of strings of length ll with zz zeroes where all blocks of ones have length less than cc and the last character of the string is 00.",
+        "Why did we use the number of zeroes in the state, and why did we add the last zero in d[z][l]d[z][l]? Because it will help us to calculate dp fast. d[0][0]=1d[0][0]=1. Now, if we have value d[z][l]d[z][l], we can add a block of ii ones (0\u2264i<c0\u2264i<c) and zero to the end of the string and update the value in d[z+1][l+i+1]d[z+1][l+i+1]. Note that we are updating a segment of row z+1z+1 from l+1l+1 to l+cl+c with value d[z][l]d[z][l]\u00a0\u2014 we can do it in O(1)O(1). So, we can precalc the whole dp in O(n2)O(n2) time.",
+        "Now, it's time to calculate the number of bad strings: if we iterate over the length of the prefix of ones, length of the suffix of ones and the number of zeroes in between, we'll get",
+        "If we play a little with the sum, we can simplify it in the following way:",
+        "Good prefixes are just all\u2212badall\u2212bad and since badbad can be calculated in O(g2)O(g2), the total complexity of FixedPoints(g)FixedPoints(g) is O(g2)O(g2).",
+        "The resulting complexity is O(n2)+\u2211g|nO(g2)O(n2)+\u2211g|nO(g2) that looks like just O(n2)O(n2)."
+    ]
+}

@@ -1,0 +1,15 @@
+{
+    "time_limit": "3 seconds",
+    "memory_limit": "256 megabytes",
+    "tags": [
+        "constructive algorithms",
+        "dfs and similar",
+        "graphs",
+        "greedy",
+        "hashing",
+        "implementation",
+        "strings",
+        "*2400"
+    ],
+    "solution": null
+}

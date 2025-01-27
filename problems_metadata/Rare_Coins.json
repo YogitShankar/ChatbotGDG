@@ -1,0 +1,19 @@
+{
+    "time_limit": "2 seconds",
+    "memory_limit": "256 megabytes",
+    "tags": [
+        "combinatorics",
+        "math",
+        "probabilities",
+        "*2500"
+    ],
+    "solution": [
+        "To calculate the probability, we will calculate the number of ways to assign values to silver coins in such a way that the total value inside the segment is greater than the total value outside.",
+        "Let define xx as the number of silver coins with value 11 inside the segment, yy as the number of silver coins with value 11 outside, kk as the difference between golden coins inside and outside the segment. Then the way to assign values to the coins is considered good if condition x\u2212y+k>0x\u2212y+k>0 is met.",
+        "We have an issue here: coins in the segment and coins outside the segment affect the inequality in different directions (that is, one of them increases the difference with a probability of 1212, while others decrease with a probability of 1212). It is not convenient for us.",
+        "So let's fix it, we can say that the coins inside the segment have value 11 by default, and with a probability of 1212 are 00. And the coins outside the segment have value of 00 by default, and with a probability of 1212 are 11. Then each of them, with a probability of 1212, reduces the difference \"total in the segment minus total outside the segment\" by 11.",
+        "Thus, we have some starting value that decreases by 11 with a probability of 1212 mm times (where mm is the total number of silver coins). And it is left to calculate the number of ways when the number of decreases is not big enough to break the inequality.",
+        "Let curcur be the number of silver coins inside the segment. Then the starting value is st=k+curst=k+cur and the number of ways to not break the inequality is equal to sum=\u2211i=0st\u22121(mi)sum=\u2211i=0st\u22121(mi). And the answer to the problem is equal to sum2msum2m.",
+        "Now we only need to consider how to answer queries faster than iterating from 00 to stst. But thanks to the fact that the value of mm is always the same, we can precalculate the prefix sums on these binomial coefficients."
+    ]
+}

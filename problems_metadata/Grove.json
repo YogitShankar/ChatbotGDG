@@ -1,0 +1,13 @@
+{
+    "time_limit": "4 seconds",
+    "memory_limit": "256 megabytes",
+    "tags": [
+        "brute force",
+        "dfs and similar",
+        "dp",
+        "geometry",
+        "probabilities",
+        "*3300"
+    ],
+    "solution": null
+}

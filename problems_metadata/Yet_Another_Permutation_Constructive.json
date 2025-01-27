@@ -1,0 +1,17 @@
+{
+    "time_limit": "2 seconds",
+    "memory_limit": "512 megabytes",
+    "tags": [
+        "*special problem",
+        "constructive algorithms",
+        "*1900"
+    ],
+    "solution": [
+        "Let the current size of the array be mm. When an operation is applied, at least \u230am2\u230b\u230am2\u230b elements will be removed, because if an element is not removed, both of its neighbors will be removed.",
+        "So, for every value of kk, we can calculate the minimum possible size of an array nn (let's call it fkfk). For k=1k=1, fk=2fk=2; for k>1k>1, this value is fi=2\u22c5fk\u22121\u22121fi=2\u22c5fk\u22121\u22121. We can actually derive an exact formula fk=2k\u22121+1fk=2k\u22121+1, but we don't actually have to, since it can be calculated in O(n)O(n).",
+        "If n<fkn<fk, obviously, there is no solution. Let's show how to construct the answer for n=fkn=fk, and then let's deal with the case n>fkn>fk.",
+        "For k=1k=1, we can use an array [1,2][1,2]. If we want to go from kk to k+1k+1, we can insert elements which will be removed on the first operation between the existing elements, while increasing the existing elements by the number of elements we added (so that they are actually greater). For example, [1,2]\u2192[2,1,3]\u2192[4,1,3,2,5][1,2]\u2192[2,1,3]\u2192[4,1,3,2,5] (every element on even position is a newly inserted element). That's how we can resolve the case n=fkn=fk.",
+        "What if n>fkn>fk? Construct the answer for n=fkn=fk. Let's say we have m=n\u2212fkm=n\u2212fk \"extra\" elements. Let's insert them in such a way that they will all be deleted during the first operation, and will not affect the existing elements. For example, we can increase every existing element by mm, and then add 1,2,3,\u2026,m1,2,3,\u2026,m to the beginning of the array, so that they don't affect existing elements, and are all deleted during the first operation.",
+        "You have to take into account that fkfk might overflow. And you should first check that fk\u2264nfk\u2264n, and only then construct the answer, since it takes O(fk+n)O(fk+n)."
+    ]
+}

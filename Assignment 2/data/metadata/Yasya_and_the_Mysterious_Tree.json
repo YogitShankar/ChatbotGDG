@@ -1,0 +1,14 @@
+{
+    "time_limit": "2.5 seconds",
+    "memory_limit": "512 megabytes",
+    "tags": [
+        "bitmasks",
+        "data structures",
+        "dfs and similar",
+        "graphs",
+        "greedy",
+        "strings",
+        "trees",
+        "*2300"
+    ]
+}

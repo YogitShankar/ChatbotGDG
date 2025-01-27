@@ -1,0 +1,7 @@
+You are given an array a a , consisting of n n integers (numbered from 1 1 to n n ). Initially, they are all zeroes.
+
+You have to process q q queries. The i i -th query consists of two different integers x i x i and y i y i . During the i i -th query, you have to choose an integer p p (which is either x i x i or y i y i ) and an integer d d (which is either 1 1 or − 1 − 1 ), and assign a p = a p + d a p = a p + d .
+
+After each query, every element of a a should be a non-negative integer.
+
+Process all queries in such a way that the sum of all elements of a a after the last query is the minimum possible.

@@ -1,0 +1,2 @@
+You are given n n sticks of lengths a 1 , a 2 , … , a n a 1 , a 2 , … , a n . Find the maximum number of regular (equal-sided) polygons you can construct simultaneously, such that:
+Note: Sticks cannot be broken.

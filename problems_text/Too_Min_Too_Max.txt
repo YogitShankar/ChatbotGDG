@@ -1,0 +1,4 @@
+Given an array a a of n n elements, find the maximum value of the expression:
+
+where i i , j j , k k , and l l are four distinct indices of the array a a , with 1 ≤ i , j , k , l ≤ n 1 ≤ i , j , k , l ≤ n .
+Here | x | | x | denotes the absolute value of x x .

@@ -1,0 +1,18 @@
+{
+    "time_limit": "3 seconds",
+    "memory_limit": "256 megabytes",
+    "tags": [
+        "brute force",
+        "dp",
+        "implementation",
+        "number theory",
+        "*1100"
+    ],
+    "solution": [
+        "First, let's make precompute list of all binary decimals at most 105105. You can do it in many ways, for example iterating through all numbers up to 105105 and checking if each is a binary decimal.",
+        "Let's call a number good if it can be represented as the product of binary decimals. For each test case, we will write a simple recursive function. nn is good if:",
+        "Even if your implementation is slightly too slow, there are not many good numbers; you can simply precompute them all locally and hardcode them to get a solution that works in O(1)O(1).",
+        "",
+        "A more accurate estimate can be made by picking the solution to \u03b15=2\u03b14+4\u03b13+8\u03b12+16\u03b1+2\u03b15=2\u03b14+4\u03b13+8\u03b12+16\u03b1+2, which gives a bound O(n0.587)O(n0.587)."
+    ]
+}

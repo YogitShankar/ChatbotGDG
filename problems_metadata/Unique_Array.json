@@ -1,0 +1,20 @@
+{
+    "time_limit": "2 seconds",
+    "memory_limit": "256 megabytes",
+    "tags": [
+        "binary search",
+        "data structures",
+        "divide and conquer",
+        "dp",
+        "greedy",
+        "*2400"
+    ],
+    "solution": [
+        "When we replace an element, we can always choose an integer that is not present in the array. So, if we replace the ii-th element, every subarray containing it becomes unique; and the problem can be reformulated as follows: consider all non-unique subarrays of the array, and calculate the minimum number of elements you have to choose so that, for every non-unique subarray, at least one of its elements is chosen.",
+        "We can use the following greedy strategy to do it: go through the array from left to right, maintaining the index ss of the last element we replaced. When we consider the ii-th element of the array, if there is a non-unique subarray [l,r][l,r] with l>sl>s, we replace the ii-th element, otherwise we don't replace anything.",
+        "Why is it optimal? Essentially, this greedy approach always finds a non-unique subarray [l,r][l,r] with the lowest value of rr, and replaces the rr-th element. We obviously have to replace at least one element from the subarray [l,r][l,r]; but replacing the rr-th element is optimal since we picked the lowest value of rr, so every non-unique subarray which contains any element from [l,r][l,r] also contains the rr-th element.",
+        "Okay, but we need to make this greedy solution work fast. When we consider the ii-th element, how do we check that there's a non-unique subarray starting after the element ss and ending at the ii-th element? Suppose we go from the ii-th element to the left and maintain a counter; when we meet an element for the first time, we increase this counter; when we meet an element for the second time, we decrease this counter. If this counter is equal to 00, then the current subarray is non-unique: every element appears at least twice. Otherwise, at least one element has exactly one occurrence.",
+        "Suppose we maintain an array tt where for each integer present in the original array, we put 11 in the last position we've seen this element, and \u22121\u22121 in the second-to-last position we've seen this element (i.\u2009e. for every element, we consider its two last occurrences among the first ii positions in the array, put 11 in the last of them, and \u22121\u22121 in the second-to-last of them). Then, if we go from ii to ll and maintain the counter in the same way as we described in the previous paragraph, the value of this counter will be equal to the sum of the corresponding segment in this array tt.",
+        "So, we want to check if there's a segment in the array tt such that its left border is greater than ss (the last position where we made a replacement), the right border is ii, and the sum is 00. We can show that the sum on any segment ending in the ii-th position is currently non-negative; so, we actually want to find the segment with the minimum sum. We can store a segment tree that, for every position ll from s+1s+1 to ii, maintains the sum on segment [l,i][l,i]; then changing an element is just performing the query \"add on segment\", and finding the minimum sum is just performing the query \"minimum on segment\". This allows us to get a solution with complexity of O(nlogn)O(nlog\u2061n)."
+    ]
+}

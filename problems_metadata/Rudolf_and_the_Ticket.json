@@ -1,0 +1,12 @@
+{
+    "time_limit": "1 second",
+    "memory_limit": "256 megabytes",
+    "tags": [
+        "brute force",
+        "math",
+        "*800"
+    ],
+    "solution": [
+        "For each test case, we calculate all elements bibi from the first array. Then we iterate through the elements cjcj in the second array and in a loop, we calculate each sum bi+cjbi+cj. If this sum is less than or equal to kk, we add 11 to the answer."
+    ]
+}

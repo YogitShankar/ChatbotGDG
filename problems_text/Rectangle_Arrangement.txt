@@ -1,0 +1,5 @@
+You are coloring an infinite square grid, in which all cells are initially white. To do this, you are given n n stamps. Each stamp is a rectangle of width w i w i and height h i h i .
+
+You will use each stamp exactly once to color a rectangle of the same size as the stamp on the grid in black. You cannot rotate the stamp, and for each cell, the stamp must either cover it fully or not cover it at all. You can use the stamp at any position on the grid, even if some or all of the cells covered by the stamping area are already black.
+
+What is the minimum sum of the perimeters of the connected regions of black squares you can obtain after all the stamps have been used?

@@ -1,0 +1,12 @@
+{
+    "time_limit": "3 seconds",
+    "memory_limit": "1024 megabytes",
+    "tags": [
+        "brute force",
+        "combinatorics",
+        "dp",
+        "math",
+        "*2400"
+    ],
+    "solution": null
+}

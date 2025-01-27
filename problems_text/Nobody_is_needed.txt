@@ -1,0 +1,3 @@
+Oleg received a permutation a a of length n n as a birthday present.
+Oleg's friend Nechipor asks Oleg q q questions, each question is characterized by two numbers l l and r r , in response to the question Oleg must say the number of sets of indices ( t 1 , t 2 , … , t k ) ( t 1 , t 2 , … , t k ) of any length k ≥ 1 k ≥ 1 such that:
+Help Oleg and answer all of Nechipor's questions.

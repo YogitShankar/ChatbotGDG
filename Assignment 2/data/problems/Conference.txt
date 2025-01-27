@@ -1,0 +1,5 @@
+You have been asked to organize a very important art conference. The first step is to choose the dates.
+The conference must last for a certain number of consecutive days. Each day, one lecturer must perform, and the same lecturer cannot perform more than once.
+You asked n n potential lecturers if they could participate in the conference. Lecturer i i indicated that they could perform on any day from l i l i to r i r i inclusive.
+A certain segment of days can be chosen as the conference dates if there is a way to assign an available lecturer to each day of the segment, assigning each lecturer to no more than one day.
+For each k k from 1 1 to n n , find how many ways there are to choose a segment of k k consecutive days as the conference dates.

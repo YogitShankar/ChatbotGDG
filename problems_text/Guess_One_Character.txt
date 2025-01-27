@@ -1,0 +1,26 @@
+This is an interactive problem. You have to use flush operation right after printing each line. For example, in C++ you should use the function fflush(stdout) or cout.flush() , in Java or Kotlin — System.out.flush() , and in Python — sys.stdout.flush() .
+
+The jury has a string s s consisting of characters 0 and/or 1 . The length of this string is n n .
+
+You can ask the following queries:
+
+You have to guess at least one character in the string s s by asking no more than 3 3 queries. Note that giving the answer does not count as a query.
+
+In every test and in every test case, the string s s is fixed beforehand .
+
+Initially, the jury program sends one integer t t ( 1 ≤ t ≤ 1000 1 ≤ t ≤ 1000 ) — the number of test cases.
+
+At the start of each test case, the jury program sends one integer n n ( 2 ≤ n ≤ 50 2 ≤ n ≤ 50 ) — the length of the string.
+
+After that, your program can submit queries to the jury program by printing the following line (do not forget to flush the output after printing a line!) :
+
+For every query, the jury prints one integer on a separate line. It is either:
+
+To submit the answer, your program should send a line in the following format (do not forget to flush the output after printing a line!) :
+
+If your guess is correct, the jury program will print one integer 1 1 on a separate line, indicating that you may proceed to the next test case (or terminate the program, if it was the last test case) and that the number of queries you have asked is reset. If it is not correct, the jury program will print one integer − 1 − 1 on a separate line.
+
+After your program receives − 1 − 1 as the response, it should immediately terminate. This will lead to your submission receiving the verdict "Wrong Answer". If your program does not terminate, the verdict of your submission is undefined.
+
+In the example, there are 3 3 test cases: 101 , 11 and 10 . Note that everything after the // sign is a comment that explains which line means what in the interaction. The jury program won't print these comments in the actual problem, and you shouldn't print them . The empty lines are also added for your convenience, the jury program won't print them, and your solution should not print any empty lines .
+

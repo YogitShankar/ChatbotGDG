@@ -1,0 +1,5 @@
+Tina has a square grid with n n rows and n n columns. Each cell in the grid is either 0 0 or 1 1 .
+Tina wants to reduce the grid by a factor of k k ( k k is a divisor of n n ). To do this, Tina splits the grid into k × k k × k nonoverlapping blocks of cells such that every cell belongs to exactly one block.
+Tina then replaces each block of cells with a single cell equal to the value of the cells in the block. It is guaranteed that every cell in the same block has the same value .
+For example, the following demonstration shows a grid being reduced by factor of 3 3 .
+Help Tina reduce the grid by a factor of k k .

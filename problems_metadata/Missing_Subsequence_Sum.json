@@ -1,0 +1,23 @@
+{
+    "time_limit": "2 seconds",
+    "memory_limit": "256 megabytes",
+    "tags": [
+        "bitmasks",
+        "constructive algorithms",
+        "greedy",
+        "number theory",
+        "*1800"
+    ],
+    "solution": [
+        "Notice that for a fixed kk, a solution for n=cn=c is also a solution for all n<cn<c. So we can ignore the value of nn and just assume it's always 106106.",
+        "If we didn't have the restriction that no subsequence can add up to kk, the most natural solution would be [1,2,4,8,\u22ef219][1,2,4,8,\u22ef219]. Every value from 11 to 106106 appears as the sum of the subsequence given by its binary representation. We will use a modified version of this array to solve the problem.",
+        "Let ii be the largest integer such that 2i\u2264k2i\u2264k. We will use this array (of size 2222):",
+        "a=[k\u22122i,k+1,k+1+2i,1,2,4,...2i\u22121,2i+1,...219]a=[k\u22122i,k+1,k+1+2i,1,2,4,...2i\u22121,2i+1,...219]",
+        "To prove that no subsequence of aa adds up to kk, consider the list of all elements in the array that are at most kk, since these are the only ones that could be present in a subsequence adding to kk. These are",
+        "k\u22122i,1,2,4,...2i\u22121k\u22122i,1,2,4,...2i\u22121",
+        "Since these add up to k\u22121k\u22121, no subsequence can add up to kk.",
+        "To prove that for all 1\u2264v\u2264n1\u2264v\u2264n where v\u2260kv\u2260k, there is a subsequence adding up to vv, we consider several cases:",
+        "So in all cases, we can form a subsequence adding up to vv.",
+        "Complexity: O(logn)O(log\u2061n)"
+    ]
+}

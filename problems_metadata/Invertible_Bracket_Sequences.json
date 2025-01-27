@@ -1,0 +1,21 @@
+{
+    "time_limit": "2 seconds",
+    "memory_limit": "256 megabytes",
+    "tags": [
+        "binary search",
+        "combinatorics",
+        "data structures",
+        "divide and conquer",
+        "implementation",
+        "two pointers",
+        "*2000"
+    ],
+    "solution": [
+        "Let's define balibali as the number of characters '(' minus the number of characters ')' if we consider a prefix of length ii.",
+        "The bracket sequence is regular if both of the following conditions holds:",
+        "Using that fact, we can say that the substring [l,r][l,r] is \"good\" if both of the following conditions holds:",
+        "There are many solutions that are based on these two facts. Let's consider one of them.",
+        "Let's iterate over the right bound of the substring (denote it as rr). According to the second condition, ball\u22121=balrball\u22121=balr, therefore, we can maintain a map that stores the number of positions for each balance value. But, unfortunately, not all such left borders form a good substring because of the first condition. Luckily, it is easy to fix, if the current balance balrbalr and there is balance xx in the map such that x<balr\u2212xx<balr\u2212x, we can remove all its occurrences from the map (i.\u2009e. remove the key xx from the map). This fix works because the current position lies between the left border (which we store in the map) and the potential right border, and the current balance is too high (which violates the first condition).",
+        "So, we get a solution that works in O(nlogn)O(nlog\u2061n)."
+    ]
+}

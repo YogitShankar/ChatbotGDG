@@ -1,0 +1,11 @@
+{
+    "time_limit": "1 second",
+    "memory_limit": "256 megabytes",
+    "tags": [
+        "math",
+        "*800"
+    ],
+    "solution": [
+        "It is necessary to have at least mm problems of each difficulty level. If there are already at least mm problems of difficulty level cc, then there is no need to come up with more problems of this difficulty level. Otherwise, it is necessary to come up with m\u2212cntcm\u2212cntc problems, where cntccntc is the number of problems of difficulty level cc (if more problems of this difficulty level are created, the number will not be minimum)."
+    ]
+}

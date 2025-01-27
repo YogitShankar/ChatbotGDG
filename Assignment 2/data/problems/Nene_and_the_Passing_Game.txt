@@ -1,0 +1,3 @@
+Nene is training her team as a basketball coach. Nene's team consists of n n players, numbered from 1 1 to n n . The i i -th player has an arm interval [ l i , r i ] [ l i , r i ] . Two players i i and j j ( i ≠ j i ≠ j ) can pass the ball to each other if and only if | i − j | ∈ [ l i + l j , r i + r j ] | i − j | ∈ [ l i + l j , r i + r j ] (here, | x | | x | denotes the absolute value of x x ).
+Nene wants to test the cooperation ability of these players. In order to do this, she will hold several rounds of assessment.
+As a coach, Nene wants each of n n players to appear in at least one round of assessment. Since Nene has to go on a date after school, Nene wants you to calculate the minimum number of rounds of assessment needed to complete the task.

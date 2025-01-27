@@ -1,0 +1,3 @@
+Bob decided to open a bakery. On the opening day, he baked n n buns that he can sell. The usual price of a bun is a a coins, but to attract customers, Bob organized the following promotion:
+Note that k k can be equal to 0 0 . In this case, Bob will sell all the buns at a a coins each.
+Help Bob determine the maximum profit he can obtain by selling all n n buns.

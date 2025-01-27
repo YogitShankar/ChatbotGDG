@@ -1,0 +1,4 @@
+Congratulations, you have been accepted to the Master's Assistance Center! However, you were extremely bored in class and got tired of doing nothing, so you came up with a game for yourself.
+You are given a string s s and an even integer n n . There are two types of operations that you can apply to it:
+It is required to determine the lexicographically smallest † † string that can be obtained after applying exactly n n operations. Note that you can apply operations of different types in any order, but you must apply exactly n n operations in total.
+† † A string a a is lexicographically smaller than a string b b if and only if one of the following holds:

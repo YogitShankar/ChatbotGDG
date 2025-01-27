@@ -1,0 +1,4 @@
+Define the binary encoding of a finite set of natural numbers T ⊆ { 0 , 1 , 2 , … } T ⊆ { 0 , 1 , 2 , … } as f ( T ) = ∑ i ∈ T 2 i f ( T ) = ∑ i ∈ T 2 i . For example, f ( { 0 , 2 } ) = 2 0 + 2 2 = 5 f ( { 0 , 2 } ) = 2 0 + 2 2 = 5 and f ( { } ) = 0 f ( { } ) = 0 . Notice that f f is a bijection from all such sets to all non-negative integers. As such, f − 1 f − 1 is also defined.
+You are given an integer n n along with 2 n − 1 2 n − 1 sets V 1 , V 2 , … , V 2 n − 1 V 1 , V 2 , … , V 2 n − 1 .
+Find all sets S S that satisfy the following constraint:
+Due to the large input and output, both input and output will be given in terms of binary encodings of the sets.

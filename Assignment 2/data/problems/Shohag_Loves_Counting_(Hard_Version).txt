@@ -1,0 +1,9 @@
+This is the hard version of the problem. The only differences between the two versions of this problem are the constraints on t t , m m , and the sum of m m . You can only make hacks if both versions of the problem are solved.
+
+For an integer array a a of length n n , define f ( k ) f ( k ) as the greatest common divisor (GCD) of the maximum values of all subarrays ∗ ∗ of length k k . For example, if the array is [ 2 , 1 , 4 , 6 , 2 ] [ 2 , 1 , 4 , 6 , 2 ] , then f ( 3 ) = gcd ( max ( [ 2 , 1 , 4 ] ) , max ( [ 1 , 4 , 6 ] ) , max ( [ 4 , 6 , 2 ] ) ) = gcd ( 4 , 6 , 6 ) = 2 f ( 3 ) = gcd ⁡ ( max ⁡ ( [ 2 , 1 , 4 ] ) , max ⁡ ( [ 1 , 4 , 6 ] ) , max ⁡ ( [ 4 , 6 , 2 ] ) ) = gcd ⁡ ( 4 , 6 , 6 ) = 2 .
+
+An array is good if f ( i ) ≠ f ( j ) f ( i ) ≠ f ( j ) is satisfied over all pairs 1 ≤ i < j ≤ n 1 ≤ i < j ≤ n .
+
+Shohag has an integer m m . Help him count the number, modulo 998 244 353 998 244 353 , of non-empty good arrays of arbitrary length such that each element of the array is an integer from 1 1 to m m .
+
+∗ ∗ An array d d is a subarray of an array c c if d d can be obtained from c c by deletion of several (possibly, zero or all) elements from the beginning and several (possibly, zero or all) elements from the end.

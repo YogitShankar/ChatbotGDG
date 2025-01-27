@@ -1,0 +1,14 @@
+{
+    "time_limit": "2 seconds",
+    "memory_limit": "256 megabytes",
+    "tags": [
+        "brute force",
+        "*1200"
+    ],
+    "solution": [
+        "According to the statement, to the left of the road there should be no less elements aiai such that ai=0ai=0 than such that ai=1ai=1, and to the right of the road there should be no less elements aiai than such that ai=1ai=1 than such that ai=0ai=0.",
+        "We will consider each position of the road and check the compliance with the road design condition. To do this, we will use the prefix sum method to access the number of 11's in the suffix in O(1)O(1) (the number of such ii that i>xi>x and ai=1ai=1 for any xx). We will also maintain the count of 00's among the elements to the left of the road and the optimal answer. If the road position xx is suitable and it is closer to the middle than the most optimal answer found before, we will update it (and will not forget to increase the count of 00 if the next element ax+1=0ax+1=0).",
+        "It is convenient to double the distance to the middle of the village: instead of \u2223\u2223n2\u2212i\u2223\u2223|n2\u2212i|, consider it as 2\u2223\u2223n2\u2212i\u2223\u2223=|n\u22122\u22c5i|2|n2\u2212i|=|n\u22122\u22c5i|. This way, we can get rid of calculations in non-integer numbers.",
+        "Complexity: O(n)O(n)"
+    ]
+}
