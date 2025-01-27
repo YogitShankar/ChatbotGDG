@@ -1,0 +1,13 @@
+{
+    "time_limit": "2 seconds",
+    "memory_limit": "512 megabytes",
+    "tags": [
+        "combinatorics",
+        "data structures",
+        "dfs and similar",
+        "greedy",
+        "math",
+        "trees",
+        "*2500"
+    ]
+}

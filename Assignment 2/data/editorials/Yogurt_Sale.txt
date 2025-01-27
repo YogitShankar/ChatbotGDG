@@ -1,0 +1,1 @@
+You can always buy yogurts one by one without using the promotion, then the answer is n⋅an⋅a.Suppose it is more advantageous to buy yogurts on promotion than one by one, that is, b<2⋅ab<2⋅a. If nn is even, the answer is n2⋅bn2⋅b, otherwise (n−1)2⋅b+a(n−1)2⋅b+a.Now you just need to choose whether to buy yogurts one by one or on promotion, taking the minimum of the two options.

@@ -1,0 +1,2 @@
+Given an integer r r , find the number of lattice points that have a Euclidean distance from ( 0 , 0 ) ( 0 , 0 ) greater than or equal to r r but strictly less than r + 1 r + 1 .
+A lattice point is a point with integer coordinates. The Euclidean distance from ( 0 , 0 ) ( 0 , 0 ) to the point ( x , y ) ( x , y ) is x 2 + y 2 − − − − − − √ x 2 + y 2 .

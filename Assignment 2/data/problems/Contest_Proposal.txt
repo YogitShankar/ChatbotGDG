@@ -1,0 +1,4 @@
+A contest contains n n problems and the difficulty of the i i -th problem is expected to be at most b i b i . There are already n n problem proposals and the difficulty of the i i -th problem is a i a i . Initially, both a 1 , a 2 , … , a n a 1 , a 2 , … , a n and b 1 , b 2 , … , b n b 1 , b 2 , … , b n are sorted in non-decreasing order.
+Some of the problems may be more difficult than expected, so the writers must propose more problems. When a new problem with difficulty w w is proposed, the most difficult problem will be deleted from the contest, and the problems will be sorted in a way that the difficulties are non-decreasing.
+In other words, in each operation, you choose an integer w w , insert it into the array a a , sort array a a in non-decreasing order, and remove the last element from it.
+Find the minimum number of new problems to make a i ≤ b i a i ≤ b i for all i i .

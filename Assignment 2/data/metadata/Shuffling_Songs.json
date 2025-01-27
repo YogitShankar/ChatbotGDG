@@ -1,0 +1,14 @@
+{
+    "time_limit": "3 seconds",
+    "memory_limit": "256 megabytes",
+    "tags": [
+        "bitmasks",
+        "dfs and similar",
+        "dp",
+        "graphs",
+        "hashing",
+        "implementation",
+        "strings",
+        "*1900"
+    ]
+}

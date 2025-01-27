@@ -1,0 +1,4 @@
+You are given an integer array a a of length n n .
+You can perform the following operation any number of times (possibly zero): take any element of the array a a , which is at least 10 10 , delete it, and instead insert the digits that element consisted of in the same position, in order they appear in that element.
+For example:
+Your task is to determine whether it is possible to make a a sorted in non-descending order using the aforementioned operation any number of times (possibly zero) . In other words, you have to determine if it is possible to transform the array a a in such a way that a 1 ≤ a 2 ≤ ⋯ ≤ a k a 1 ≤ a 2 ≤ ⋯ ≤ a k , where k k is the current length of the array a a .

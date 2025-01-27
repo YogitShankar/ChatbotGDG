@@ -1,0 +1,3 @@
+There is a grid, consisting of 2 2 rows and n n columns. The rows are numbered from 1 1 to 2 2 from top to bottom. The columns are numbered from 1 1 to n n from left to right. Each cell of the grid contains an arrow pointing either to the left or to the right. No arrow points outside the grid.
+There is a robot that starts in a cell ( 1 , 1 ) ( 1 , 1 ) . Every second, the following two actions happen one after another:
+Your task is to determine whether the robot can reach the cell ( 2 , n ) ( 2 , n ) .

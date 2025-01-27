@@ -1,0 +1,11 @@
+{
+    "time_limit": "6 seconds",
+    "memory_limit": "512 megabytes",
+    "tags": [
+        "2-sat",
+        "data structures",
+        "dfs and similar",
+        "dp",
+        "*2500"
+    ]
+}

@@ -1,0 +1,11 @@
+This is the hard version of the problem. In the two versions, the constraints on q q and the time limit are different. In this version, 0 ≤ q ≤ 2 ⋅ 10 5 0 ≤ q ≤ 2 ⋅ 10 5 . You can make hacks only if all the versions of the problem are solved.
+
+A team consisting of n n members, numbered from 1 1 to n n , is set to present a slide show at a large meeting. The slide show contains m m slides.
+
+There is an array a a of length n n . Initially, the members are standing in a line in the order of a 1 , a 2 , … , a n a 1 , a 2 , … , a n from front to back. The slide show will be presented in order from slide 1 1 to slide m m . Each section will be presented by the member at the front of the line. After each slide is presented, you can move the member at the front of the line to any position in the lineup (without changing the order of the rest of the members). For example, suppose the line of members is [ 3 , 1 , 2 , 4 ] [ 3 , 1 , 2 , 4 ] . After member 3 3 presents the current slide, you can change the line of members into either [ 3 , 1 , 2 , 4 ] [ 3 , 1 , 2 , 4 ] , [ 1 , 3 , 2 , 4 ] [ 1 , 3 , 2 , 4 ] , [ 1 , 2 , 3 , 4 ] [ 1 , 2 , 3 , 4 ] or [ 1 , 2 , 4 , 3 ] [ 1 , 2 , 4 , 3 ] .
+
+There is also an array b b of length m m . The slide show is considered good if it is possible to make member b i b i present slide i i for all i i from 1 1 to m m under these constraints.
+
+However, your annoying boss wants to make q q updates to the array b b . In the i i -th update, he will choose a slide s i s i and a member t i t i and set b s i : = t i b s i := t i . Note that these updates are persistent , that is changes made to the array b b will apply when processing future updates.
+
+For each of the q + 1 q + 1 states of array b b , the initial state and after each of the q q updates, determine if the slideshow is good.

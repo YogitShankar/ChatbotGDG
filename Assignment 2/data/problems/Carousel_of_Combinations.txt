@@ -1,0 +1,4 @@
+You are given an integer n n . The function C ( i , k ) C ( i , k ) represents the number of distinct ways you can select k k distinct numbers from the set { 1 , 2 , … , i 1 , 2 , … , i } and arrange them in a circle † † .
+Find the value of
+Since this value can be very large, find it modulo 10 9 + 7 10 9 + 7 .
+† † In a circular arrangement, sequences are considered identical if one can be rotated to match the other. For instance, [ 1 , 2 , 3 ] [ 1 , 2 , 3 ] and [ 2 , 3 , 1 ] [ 2 , 3 , 1 ] are equivalent in a circle.

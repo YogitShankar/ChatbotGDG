@@ -1,0 +1,13 @@
+This is an interactive problem.
+
+Kachina challenges you to guess her favorite binary string ∗ ∗ s s of length n n . She defines f ( l , r ) f ( l , r ) as the number of subsequences † † of 01 01 in s l s l + 1 … s r s l s l + 1 … s r . Two subsequences are considered different if they are formed by deleting characters from different positions in the original string, even if the resulting subsequences consist of the same characters.
+
+To determine s s , you can ask her some questions. In each question, you can choose two indices l l and r r ( 1 ≤ l < r ≤ n 1 ≤ l < r ≤ n ) and ask her for the value of f ( l , r ) f ( l , r ) .
+
+Determine and output s s after asking Kachina no more than n n questions. However, it may be the case that s s is impossible to be determined . In this case, you would need to report IMPOSSIBLE IMPOSSIBLE instead.
+
+Formally, s s is impossible to be determined if after asking n n questions, there are always multiple possible strings for s s , regardless of what questions are asked. Note that if you report IMPOSSIBLE IMPOSSIBLE when there exists a sequence of at most n n queries that will uniquely determine the binary string, you will get the Wrong Answer verdict.
+
+∗ ∗ A binary string only contains characters 0 0 and 1 1 .
+
+† † A sequence a a is a subsequence of a sequence b b if a a can be obtained from b b by the deletion of several (possibly, zero or all) elements. For example, subsequences of 1011101 1011101 are 0 0 , 1 1 , 11111 11111 , 0111 0111 , but not 000 000 nor 11100 11100 .

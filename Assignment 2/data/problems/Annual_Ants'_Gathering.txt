@@ -1,0 +1,4 @@
+Deep within a forest lies an ancient tree, home to n n ants living in n n tiny houses, indexed from 1 1 to n n , connected by the branches of the tree.
+Once a year, all the ants need to gather to watch the EUC. For this, all ants move along the n − 1 n − 1 branches of the tree they live on to meet at the home of one ant.
+However, this year the ants could not agree on where to meet and need your help to gather up. You can tell all the ants currently at house u u to move to house v v if there is a branch directly connecting those two houses. However, the ants ignore your command if there are fewer ants gathered in house v v than in house u u , i.e., if it would be easier for the ants from house v v to move. This even holds true if no ant at all is currently in house v v . You can give this kind of commands as many times as you want.
+Is it possible for you to gather all the ants in a single house?

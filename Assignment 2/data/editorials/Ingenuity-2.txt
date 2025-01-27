@@ -1,0 +1,1 @@
+For the string SS, calculate the 2D-coordinates (x,y)(x,y) of the point obtained as a result of sequentially executing all instructions (for example, N decreases yy by 1, S increases yy by 1, E increases xx by 1, W decreases xx by 1). Consider the following cases:

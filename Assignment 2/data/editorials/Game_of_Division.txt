@@ -1,0 +1,1 @@
+[problem:2040A]|x−y||x−y|is divisible bykkif and only ifxmodk=ymodkxmodk=ymodk. Let's split all numbers into groups according to the valuexmodkxmodk. The second player wins if he chooses a number from the same group. This means that the first player must choose the number that is the only one in its group.

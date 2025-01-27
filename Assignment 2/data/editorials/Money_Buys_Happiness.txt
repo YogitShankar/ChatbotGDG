@@ -1,0 +1,1 @@
+Let's consider the classic knapsack problem. Let dp[j]dp[j] be the minimum cost required to achieve happiness jj. In the ii-th month, we iterate through dp[k]dp[k] and check if dp[k]+ci≤(i−1)⋅xdp[k]+ci≤(i−1)⋅x, and if so, we can afford to transition to dp[k+hi]dp[k+hi] and accordingly update dp[k+hi]dp[k+hi].The complexity is O(m⋅∑ihi)O(m⋅∑ihi) for each set of input data.

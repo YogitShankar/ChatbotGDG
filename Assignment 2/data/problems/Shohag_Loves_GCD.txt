@@ -1,0 +1,5 @@
+Shohag has an integer n n and a set S S of m m unique integers. Help him find the lexicographically largest ∗ ∗ integer array a 1 , a 2 , … , a n a 1 , a 2 , … , a n such that a i ∈ S a i ∈ S for each 1 ≤ i ≤ n 1 ≤ i ≤ n and a gcd ( i , j ) ≠ gcd ( a i , a j ) a gcd ⁡ ( i , j ) ≠ gcd ⁡ ( a i , a j ) † † is satisfied over all pairs 1 ≤ i < j ≤ n 1 ≤ i < j ≤ n , or state that no such array exists.
+
+∗ ∗ An array a a is lexicographically larger than an array b b of the same length if a ≠ b a ≠ b , and in the first position where a a and b b differ, the array a a has a larger element than the corresponding element in b b .
+
+† † gcd ( x , y ) gcd ( x , y ) denotes the greatest common divisor (GCD) of integers x x and y y .

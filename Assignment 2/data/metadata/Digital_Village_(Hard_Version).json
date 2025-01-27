@@ -1,0 +1,13 @@
+{
+    "time_limit": "2 seconds",
+    "memory_limit": "256 megabytes",
+    "tags": [
+        "data structures",
+        "dp",
+        "dsu",
+        "graphs",
+        "math",
+        "trees",
+        "*2500"
+    ]
+}

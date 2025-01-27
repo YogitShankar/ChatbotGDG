@@ -1,0 +1,11 @@
+{
+    "time_limit": "2 seconds",
+    "memory_limit": "1024 megabytes",
+    "tags": [
+        "combinatorics",
+        "dp",
+        "math",
+        "sortings",
+        "*1800"
+    ]
+}

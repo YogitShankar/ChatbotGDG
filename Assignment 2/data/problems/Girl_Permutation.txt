@@ -1,0 +1,7 @@
+Some permutation of length n n is guessed.
+You are given the indices of its prefix maximums and suffix maximums.
+Recall that a permutation of length k k is an array of size k k such that each integer from 1 1 to k k occurs exactly once.
+Prefix maximums are the elements that are the maximum on the prefix ending at that element. More formally, the element a i a i is a prefix maximum if a i > a j a i > a j for every j < i j < i .
+Similarly, suffix maximums are defined, the element a i a i is a suffix maximum if a i > a j a i > a j for every j > i j > i .
+You need to output the number of different permutations that could have been guessed.
+As this number can be very large, output the answer modulo 10 9 + 7 10 9 + 7 .

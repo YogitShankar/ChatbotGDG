@@ -1,0 +1,1 @@
+You can use, for example, an if-statement or some inbuilt minmin and maxmax function available in most languages (like Python or C++).

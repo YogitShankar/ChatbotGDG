@@ -1,0 +1,7 @@
+Consider the following game. There is a deck, which consists of cards of n n different suits. For each suit, there are 13 13 cards in the deck, all with different ranks (the ranks are 2 2 , 3 3 , 4 4 , ..., 10 10 , Jack, Queen, King and Ace).
+
+Initially, the deck is shuffled randomly (all ( 13 n ) ! ( 13 n ) ! possible orders of cards have the same probability). You draw 5 5 topmost cards from the deck. Then, every turn of the game, the following events happen, in the given order:
+
+Your goal is to find a strategy that allows you to win in the minimum expected number of turns. Note that the turn when the game ends is not counted (for example, if the 5 5 cards you draw initially already form a Royal Flush , you win in 0 0 turns).
+
+Calculate the minimum possible expected number of turns required to win the game.

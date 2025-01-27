@@ -1,0 +1,4 @@
+You just created a new character in your favourite role-playing game and now have to decide how to skill him.
+The two skill attributes to be chosen are: damage per hit and hits per second . Damage per hit is the amount of damage you deal with a single hit, while hits per second is the number of hits you can make in one second. Initially, both skill attributes are set at 0 0 . You have k k skill points to distribute as you want; in other words, you can choose the values of the two skills so that they are positive integers with sum at most k k .
+The tutorial of the game (the boring part you want to finish as soon as possible) consists of n n monsters to be killed one after the other. The i i -th monster has h i h i health points, i.e., it dies after you have inflicted at least h i h i damage.
+How can you assign the two skill attributes to minimize the time necessary to kill all the n n monsters?

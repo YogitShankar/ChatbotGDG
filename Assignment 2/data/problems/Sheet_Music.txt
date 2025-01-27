@@ -1,0 +1,7 @@
+Alice likes singing. As a singing enthusiast, Alice has listened to countless songs and has tried singing them many times. However, occasionally, some songs make Alice feel bored. After some research, Alice believes that this is because even though the songs she chose are all different, due to her instinctive preference, they all turn out to be musically similar to one another.
+
+To thoroughly analyze this, Alice decided to study the sheet music of the songs. For convenience, Alice represented a song of length n n as an integer sequence a 1 , a 2 , … , a n a 1 , a 2 , … , a n , where a i a i is the pitch of the i i -th note. Then she defined the musical equivalence between songs. Two songs a 1 , a 2 , … , a n a 1 , a 2 , … , a n and b 1 , b 2 , … , b n b 1 , b 2 , … , b n of length n n are musically equivalent if for all 1 ≤ i < n 1 ≤ i < n , both a i , a i + 1 a i , a i + 1 and b i , b i + 1 b i , b i + 1 have the same pitch relationship. More specifically, a i , a i + 1 a i , a i + 1 and b i , b i + 1 b i , b i + 1 have the same pitch relationship if either
+
+Having practiced consistently for a long time, Alice is able to sing any note in the range of [ 1 , k ] [ 1 , k ] . She wants to know how many different songs of length n n within her range there are, if we treat musically equivalent songs as the same one. Can you help her calculate the number?
+
+Since the answer might be large, print the answer modulo 998244353 998244353 .

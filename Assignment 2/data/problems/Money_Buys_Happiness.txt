@@ -1,0 +1,4 @@
+Being a physicist, Charlie likes to plan his life in simple and precise terms.
+For the next m m months, starting with no money, Charlie will work hard and earn x x pounds per month. For the i i -th month ( 1 ≤ i ≤ m ) ( 1 ≤ i ≤ m ) , there'll be a single opportunity of paying cost c i c i pounds to obtain happiness h i h i .
+Borrowing is not allowed. Money earned in the i i -th month can only be spent in a later j j -th month ( j > i j > i ).
+Since physicists don't code, help Charlie find the maximum obtainable sum of happiness.
