@@ -1,0 +1,36 @@
+Problem: 1512A - Spy Detected!
+Problem Link: https://codeforces.com/problemset/problem/1512/A
+Editorial Link: https://codeforces.com/blog/entry/89535
+
+================================================================================
+
+1512A - Spy Detected!Author: MikeMirzayanov Tutorial1512A - Spy Detected!To find a number that differs from the rest of the numbers in the array, you need to iterate through the array, maintaining two pairs of numbers (𝑥1,𝑐1) and (𝑥2,𝑐2), where 𝑥𝑖 is a number from the array, 𝑐𝑖 is how many times the number 𝑥𝑖 occurs in the array.Then, to get an answer, you need to find the position of the 𝑥𝑖 that occurs in the array exactly once (i.e. 𝑐𝑖=1). Solution#include <bits/stdc++.h>
+
+using namespace std;
+
+typedef long long ll;
+
+void solve() {
+    int n;
+    cin >> n;
+    vector<int> v(n);
+    for (int &e : v) {
+        cin >> e;
+    }
+    vector<int> a = v;
+    sort(a.begin(), a.end());
+    for (int i = 0; i < n; i++) {
+        if (v[i] != a[1]) {
+            cout << i + 1 << "\n";
+        }
+    }
+}
+
+int main() {
+    int n;
+    cin >> n;
+    while (n--) {
+        solve();
+    }
+    return 0;
+}

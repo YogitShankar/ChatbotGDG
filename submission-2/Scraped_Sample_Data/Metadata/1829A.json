@@ -1,0 +1,15 @@
+{
+    "problem_tag": "1829A",
+    "title": "Love Story",
+    "link": "https://codeforces.com/problemset/problem/1829/A",
+    "description": "Timur loves codeforces. That's why he has a string\ns\nhaving length\n10\nmade containing only lowercase Latin letters. Timur wants to know how many indices string\ns\ndiffers from the string \"codeforces\".\nFor example string\ns=\n\"coolforsez\" differs from \"codeforces\" in\n4\nindices, shown in bold.\nHelp Timur by finding the number of indices where string\ns\ndiffers from \"codeforces\".\nNote that you can't reorder the characters in the string\ns\n.",
+    "input_specification": "The first line contains a single integer\nt\n(\n1≤t≤1000\n) — the number of test cases.\nEach test case is one line and contains the string\ns\n, consisting of exactly\n10\nlowercase Latin characters.",
+    "output_specification": "For each test case, output a single integer — the number of indices where string\ns\ndiffers.",
+    "time_limit": "1 second",
+    "memory_limit": "256 megabytes",
+    "tags": [
+        "implementation",
+        "strings",
+        "*800"
+    ]
+}

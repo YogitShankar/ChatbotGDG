@@ -1,0 +1,28 @@
+Problem: 1619A - Square String?
+Problem Link: https://codeforces.com/problemset/problem/1619/A
+Editorial Link: https://codeforces.com/blog/entry/98159
+
+================================================================================
+
+1619A - Square String?Idea: MikeMirzayanov Tutorial1619A - Square String?If the length of the given string 𝑠 is odd, then the answer is NO, since adding two strings cannot do that. Otherwise, let 𝑛 be the length of the string. Let's go through the first half of the string, comparing whether its first and 𝑛2+1 characters are equal, its second and 𝑛2+2 characters are equal, and so on. If the characters in any pair are not equal, the answer is NO, otherwise - YES. Solution#include <bits/stdc++.h>
+ 
+using namespace std;
+ 
+#define forn(i, n) for (int i = 0; i < int(n); i++)
+ 
+int main() {
+    int t;
+    cin >> t;
+    forn(tt, t) {
+        string s;
+        cin >> s;
+        bool ok = true;
+        if (s.length() % 2 == 0) {
+            forn(i, s.length() / 2)
+                if (s[i] != s[i + s.length() / 2])
+                    ok = false;
+        } else
+            ok = false;
+        cout << (ok ? "YES" : "NO") << endl;
+    }
+}

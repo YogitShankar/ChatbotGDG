@@ -1,0 +1,14 @@
+{
+    "problem_tag": "977A",
+    "title": "Wrong Subtraction",
+    "link": "https://codeforces.com/problemset/problem/977/A",
+    "description": "Little girl Tanya is learning how to decrease a number by one, but she does it wrong with a number consisting of two or more digits. Tanya subtracts one from a number by the following algorithm:\nYou are given an integer number\nn\n. Tanya will subtract one from it\nk\ntimes. Your task is to print the result after all\nk\nsubtractions.\nIt is guaranteed that the result will be positive integer number.",
+    "input_specification": "The first line of the input contains two integer numbers\nn\nand\nk\n(\n2≤n≤109\n,\n1≤k≤50\n) — the number from which Tanya will subtract and the number of subtractions correspondingly.",
+    "output_specification": "Print one integer number — the result of the decreasing\nn\nby one\nk\ntimes.\nIt is guaranteed that the result will be positive integer number.",
+    "time_limit": "1 second",
+    "memory_limit": "256 megabytes",
+    "tags": [
+        "implementation",
+        "*800"
+    ]
+}

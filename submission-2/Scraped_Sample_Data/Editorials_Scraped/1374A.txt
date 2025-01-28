@@ -1,0 +1,30 @@
+Problem: 1374A - Required Remainder
+Problem Link: https://codeforces.com/problemset/problem/1374/A
+Editorial Link: https://codeforces.com/blog/entry/79517
+
+================================================================================
+
+1374A - Required RemainderIdea: vovuh Tutorial1374A - Required RemainderThere are two cases in this problem. If we try to maximize the answer, we need to consider only two integers: 𝑛−𝑛mod𝑥+𝑦 and 𝑛−𝑛mod𝑥−(𝑥−𝑦). Of course, the first one is better (we get rid of the existing remainder and trying to add 𝑦 to this number). If it's too big, then we can and need to take the second one (this number is just the first one but decreased by 𝑥). The answer can be always found between these numbers.Time complexity: 𝑂(1). Solution#include <bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+#ifdef _DEBUG
+	freopen("input.txt", "r", stdin);
+//	freopen("output.txt", "w", stdout);
+#endif
+	
+	int t;
+	cin >> t;
+	while (t--) {
+		int x, y, n;
+		cin >> x >> y >> n;
+		if (n - n % x + y <= n) {
+			cout << n - n % x + y << endl;
+		} else {
+			cout << n - n % x - (x - y) << endl;
+		}
+	}
+	
+	return 0;
+}
