@@ -1,0 +1,15 @@
+{
+    "problem_tag": "996A",
+    "title": "Hit the Lottery",
+    "link": "https://codeforces.com/problemset/problem/996/A",
+    "description": "Allen has a LOT of money. He has\nn\ndollars in the bank. For security reasons, he wants to withdraw it in cash (we will not disclose the reasons here). The denominations for dollar bills are\n1\n,\n5\n,\n10\n,\n20\n,\n100\n. What is the minimum number of bills Allen could receive after withdrawing his entire balance?",
+    "input_specification": "The first and only line of input contains a single integer\nn\n(\n1≤n≤109\n).",
+    "output_specification": "Output the minimum number of bills that Allen could receive.",
+    "time_limit": "1 second",
+    "memory_limit": "256 megabytes",
+    "tags": [
+        "dp",
+        "greedy",
+        "*800"
+    ]
+}

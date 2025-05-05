@@ -1,0 +1,15 @@
+{
+    "problem_tag": "1352A",
+    "title": "Sum of Round Numbers",
+    "link": "https://codeforces.com/problemset/problem/1352/A",
+    "description": "A positive (strictly greater than zero) integer is called round if it is of the form d00...0. In other words, a positive integer is round if all its digits except the leftmost (most significant) are equal to zero. In particular, all numbers from\n1\nto\n9\n(inclusive) are round.\nFor example, the following numbers are round:\n4000\n,\n1\n,\n9\n,\n800\n,\n90\n. The following numbers are not round:\n110\n,\n707\n,\n222\n,\n1001\n.\nYou are given a positive integer\nn\n(\n1≤n≤104\n). Represent the number\nn\nas a sum of round numbers using the minimum number of summands (addends). In other words, you need to represent the given number\nn\nas a sum of the least number of terms, each of which is a round number.",
+    "input_specification": "The first line contains an integer\nt\n(\n1≤t≤104\n) — the number of test cases in the input. Then\nt\ntest cases follow.\nEach test case is a line containing an integer\nn\n(\n1≤n≤104\n).",
+    "output_specification": "Print\nt\nanswers to the test cases. Each answer must begin with an integer\nk\n— the minimum number of summands. Next,\nk\nterms must follow, each of which is a round number, and their sum is\nn\n. The terms can be printed in any order. If there are several answers, print any of them.",
+    "time_limit": "1 second",
+    "memory_limit": "256 megabytes",
+    "tags": [
+        "implementation",
+        "math",
+        "*800"
+    ]
+}

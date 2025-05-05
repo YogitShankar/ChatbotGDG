@@ -1,0 +1,15 @@
+{
+    "problem_tag": "1551A",
+    "title": "Polycarp and Coins",
+    "link": "https://codeforces.com/problemset/problem/1551/A",
+    "description": "Polycarp must pay exactly\nn\nburles at the checkout. He has coins of two nominal values:\n1\nburle and\n2\nburles. Polycarp likes both kinds of coins equally. So he doesn't want to pay with more coins of one type than with the other.\nThus, Polycarp wants to minimize the difference between the count of coins of\n1\nburle and\n2\nburles being used. Help him by determining two non-negative integer values\nc1\nand\nc2\nwhich are the number of coins of\n1\nburle and\n2\nburles, respectively, so that the total value of that number of coins is exactly\nn\n(i. e.\nc1+2⋅c2=n\n), and the absolute value of the difference between\nc1\nand\nc2\nis as little as possible (i. e. you must minimize\n|c1−c2|\n).",
+    "input_specification": "The first line contains one integer\nt\n(\n1≤t≤104\n) — the number of test cases. Then\nt\ntest cases follow.\nEach test case consists of one line. This line contains one integer\nn\n(\n1≤n≤109\n) — the number of burles to be paid by Polycarp.",
+    "output_specification": "For each test case, output a separate line containing two integers\nc1\nand\nc2\n(\nc1,c2≥0\n) separated by a space where\nc1\nis the number of coins of\n1\nburle and\nc2\nis the number of coins of\n2\nburles. If there are multiple optimal solutions, print any one.",
+    "time_limit": "1 second",
+    "memory_limit": "256 megabytes",
+    "tags": [
+        "greedy",
+        "math",
+        "*800"
+    ]
+}

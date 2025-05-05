@@ -1,0 +1,7 @@
+Problem: 266A - Stones on the Table
+Problem Link: https://codeforces.com/problemset/problem/266/A
+Editorial Link: https://codeforces.com/blog/entry/6499
+
+================================================================================
+
+266A - Stones on the TableIn this problem you should count number of consecutive pairs of equal letters. It can be done using one cycle and O(N) time.

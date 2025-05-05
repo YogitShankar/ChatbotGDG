@@ -1,0 +1,14 @@
+# Core AI and machine learning libraries
+torch==2.0.1
+transformers==4.33.0
+
+# Vector search for similarity
+faiss-cpu==1.7.4
+
+# Conversational AI framework
+langchain==0.0.234
+langchain-community==0.0.2
+
+# Data processing utilities
+numpy==1.24.2
+pandas==1.5.3
