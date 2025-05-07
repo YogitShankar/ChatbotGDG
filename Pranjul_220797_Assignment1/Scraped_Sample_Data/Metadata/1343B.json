@@ -1,0 +1,15 @@
+{
+    "problem_tag": "1343B",
+    "title": "Balanced Array",
+    "link": "https://codeforces.com/problemset/problem/1343/B",
+    "description": "You are given a positive integer\nn\n, it is guaranteed that\nn\nis even (i.e. divisible by\n2\n).\nYou want to construct the array\na\nof length\nn\nsuch that:\nIf there are multiple answers, you can print any. It is not guaranteed that the answer exists.\nYou have to answer\nt\nindependent test cases.",
+    "input_specification": "The first line of the input contains one integer\nt\n(\n1≤t≤104\n) — the number of test cases. Then\nt\ntest cases follow.\nThe only line of the test case contains one integer\nn\n(\n2≤n≤2⋅105\n) — the length of the array. It is guaranteed that that\nn\nis even (i.e. divisible by\n2\n).\nIt is guaranteed that the sum of\nn\nover all test cases does not exceed\n2⋅105\n(\n∑n≤2⋅105\n).",
+    "output_specification": "For each test case, print the answer — \"NO\" (without quotes), if there is no suitable answer for the given test case or \"YES\" in the first line and any suitable array\na1,a2,…,an\n(\n1≤ai≤109\n) satisfying conditions from the problem statement on the second line.",
+    "time_limit": "1 second",
+    "memory_limit": "256 megabytes",
+    "tags": [
+        "constructive algorithms",
+        "math",
+        "*800"
+    ]
+}

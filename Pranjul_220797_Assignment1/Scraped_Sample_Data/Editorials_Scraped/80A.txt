@@ -1,0 +1,7 @@
+Problem: 80A - Panoramix's Prediction
+Problem Link: https://codeforces.com/problemset/problem/80/A
+Editorial Link: https://codeforces.com/blog/entry/1769
+
+================================================================================
+
+My solution for this task.We need discriminant to be above zero, so we have:p - 4q >= 0p >= 4qWhat is probability? It's relation of needed events to all. In this case needed events are all pairs (p,q) where p >= 4qAll events are all possible pairs (p,q) How we can count them?All possible pairs is Cartasian product. We can draw it like rectangle.Its area - number of all possible pairs.Also we need to find area of polygon, where p >= 4q.For this let's draw line y=4x and needed set of points is above this line.Our answer is relation between this area and area of whole rectangle.I think finding areas isn't problem.There is one case that I draw on second image, when 4b < aThere are 2 cases - when a=0 and b=0When a=0 we have only left part of image, so answer is 0.5When b=0 we have vertical line, so answer is 1.0Sorry for some mistakes in English.

@@ -1,0 +1,9 @@
+Problem: 2009A - Minimize!
+Problem Link: https://codeforces.com/problemset/problem/2009/A
+Editorial Link: https://codeforces.com/blog/entry/133296
+
+================================================================================
+
+2009A - Minimize!Problem Credits: cry  Analysis: cry Solution We choose 𝑐 between 𝑎 and 𝑏 (𝑎<=𝑐<=𝑏). The distance is (𝑐−𝑎)+(𝑏−𝑐)=𝑏−𝑎. Note that the distance does not depend on the the position 𝑐 at all. Code (Python) (ntarsis30) for _ in range(int(input())):
+    a,b = map(int,input().split())
+    print(b-a)

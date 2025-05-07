@@ -1,0 +1,15 @@
+{
+    "problem_tag": "1399A",
+    "title": "Remove Smallest",
+    "link": "https://codeforces.com/problemset/problem/1399/A",
+    "description": "You are given the array\na\nconsisting of\nn\npositive (greater than zero) integers.\nIn one move, you can choose two indices\ni\nand\nj\n(\ni≠j\n) such that the absolute difference between\nai\nand\naj\nis no more than one (\n|ai−aj|≤1\n) and remove the smallest of these two elements. If two elements are equal, you can remove any of them (but exactly one).\nYour task is to find if it is possible to obtain the array consisting of only one element using several (possibly, zero) such moves or not.\nYou have to answer\nt\nindependent test cases.",
+    "input_specification": "The first line of the input contains one integer\nt\n(\n1≤t≤1000\n) — the number of test cases. Then\nt\ntest cases follow.\nThe first line of the test case contains one integer\nn\n(\n1≤n≤50\n) — the length of\na\n. The second line of the test case contains\nn\nintegers\na1,a2,…,an\n(\n1≤ai≤100\n), where\nai\nis the\ni\n-th element of\na\n.",
+    "output_specification": "For each test case, print the answer: \"YES\" if it is possible to obtain the array consisting of only one element using several (possibly, zero) moves described in the problem statement, or \"NO\" otherwise.",
+    "time_limit": "1 second",
+    "memory_limit": "256 megabytes",
+    "tags": [
+        "greedy",
+        "sortings",
+        "*800"
+    ]
+}

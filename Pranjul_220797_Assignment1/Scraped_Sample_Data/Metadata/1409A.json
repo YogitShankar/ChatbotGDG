@@ -1,0 +1,15 @@
+{
+    "problem_tag": "1409A",
+    "title": "Yet Another Two Integers Problem",
+    "link": "https://codeforces.com/problemset/problem/1409/A",
+    "description": "You are given two integers\na\nand\nb\n.\nIn one move, you can choose some integer\nk\nfrom\n1\nto\n10\nand add it to\na\nor subtract it from\na\n. In other words, you choose an integer\nk∈[1;10]\nand perform\na:=a+k\nor\na:=a−k\n. You may use different values of\nk\nin different moves.\nYour task is to find the minimum number of moves required to obtain\nb\nfrom\na\n.\nYou have to answer\nt\nindependent test cases.",
+    "input_specification": "The first line of the input contains one integer\nt\n(\n1≤t≤2⋅104\n) — the number of test cases. Then\nt\ntest cases follow.\nThe only line of the test case contains two integers\na\nand\nb\n(\n1≤a,b≤109\n).",
+    "output_specification": "For each test case, print the answer: the minimum number of moves required to obtain\nb\nfrom\na\n.",
+    "time_limit": "1 second",
+    "memory_limit": "256 megabytes",
+    "tags": [
+        "greedy",
+        "math",
+        "*800"
+    ]
+}

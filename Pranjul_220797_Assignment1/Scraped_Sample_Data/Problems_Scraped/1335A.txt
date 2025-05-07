@@ -1,0 +1,52 @@
+Problem: 1335A - Candies and Two Sisters
+Link: https://codeforces.com/problemset/problem/1335/A
+
+Description:
+There are two sisters Alice and Betty. You have
+n
+candies. You want to distribute these
+n
+candies between two sisters in such a way that:
+Your task is to calculate the number of ways to distribute exactly
+n
+candies between sisters in a way described above. Candies are indistinguishable.
+Formally, find the number of ways to represent
+n
+as the sum of
+n=a+b
+, where
+a
+and
+b
+are positive integers and
+a>b
+.
+You have to answer
+t
+independent test cases.
+
+Input Specification:
+The first line of the input contains one integer
+t
+(
+1<=t<=104
+) - the number of test cases. Then
+t
+test cases follow.
+The only line of a test case contains one integer
+n
+(
+1<=n<=2⋅109
+) - the number of candies you have.
+
+Output Specification:
+For each test case, print the answer - the number of ways to distribute exactly
+n
+candies between two sisters in a way described in the problem statement. If there is no way to satisfy all the conditions, print
+0
+.
+
+Time Limit: 1 second
+Memory Limit: 256 megabytes
+
+Tags: math, *800

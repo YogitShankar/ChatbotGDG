@@ -1,0 +1,14 @@
+{
+    "problem_tag": "1560A",
+    "title": "Dislike of Threes",
+    "link": "https://codeforces.com/problemset/problem/1560/A",
+    "description": "Polycarp doesn't like integers that are divisible by\n3\nor end with the digit\n3\nin their decimal representation. Integers that meet both conditions are disliked by Polycarp, too.\nPolycarp starts to write out the positive (greater than\n0\n) integers which he likes:\n1,2,4,5,7,8,10,11,14,16,…\n. Output the\nk\n-th element of this sequence (the elements are numbered from\n1\n).",
+    "input_specification": "The first line contains one integer\nt\n(\n1≤t≤100\n) — the number of test cases. Then\nt\ntest cases follow.\nEach test case consists of one line containing one integer\nk\n(\n1≤k≤1000\n).",
+    "output_specification": "For each test case, output in a separate line one integer\nx\n— the\nk\n-th element of the sequence that was written out by Polycarp.",
+    "time_limit": "1 second",
+    "memory_limit": "256 megabytes",
+    "tags": [
+        "implementation",
+        "*800"
+    ]
+}

@@ -1,0 +1,15 @@
+{
+    "problem_tag": "1619A",
+    "title": "Square String?",
+    "link": "https://codeforces.com/problemset/problem/1619/A",
+    "description": "A string is called square if it is some string written twice in a row. For example, the strings \"aa\", \"abcabc\", \"abab\" and \"baabaa\" are square. But the strings \"aaa\", \"abaaab\" and \"abcdabc\" are not square.\nFor a given string\ns\ndetermine if it is square.",
+    "input_specification": "The first line of input data contains an integer\nt\n(\n1≤t≤100\n) —the number of test cases.\nThis is followed by\nt\nlines, each containing a description of one test case. The given strings consist only of lowercase Latin letters and have lengths between\n1\nand\n100\ninclusive.",
+    "output_specification": "For each test case, output on a separate line:\nYou can output YES and NO in any case (for example, strings yEs, yes, Yes and YES will be recognized as a positive response).",
+    "time_limit": "1 second",
+    "memory_limit": "256 megabytes",
+    "tags": [
+        "implementation",
+        "strings",
+        "*800"
+    ]
+}
