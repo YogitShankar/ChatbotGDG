@@ -1,0 +1,7 @@
+problem statement- 1844C:
+You have discovered n mysterious particles on a line with integer charges of c1,…,cn. You have a device that allows you to perform the following operation: 
+  Choose a particle and remove it from the line. The remaining particles will shift to fill in the gap that is created. If there were particles with charges x and y directly to the left and right of the removed particle, they combine into a single particle of charge x+y. 
+For example, if the line of particles had charges of [−3,1,4,−1,5,−9], performing the operation on the 4th particle will transform the line into [−3,1,9,−9].
+  
+If we then use the device on the 1st particle in this new line, the line will turn into [1,9,−9]. 
+You will perform operations until there is only one particle left. What is the maximum charge of this remaining particle that you can obtain?

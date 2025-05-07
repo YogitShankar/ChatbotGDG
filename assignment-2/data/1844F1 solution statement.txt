@@ -1,0 +1,51 @@
+Solution statetment-1844F1 - Min Cost Permutation (Easy Version)
+Hint 1 
+ Solve the case c≥0 first. There is a very simple description of the answer. Another HintWhat is the answer when c=0? 
+Hint 2 
+ When c≥0, the answer is the array sorted in nondecreasing order. 
+Hint 3 
+ When c<0, the minimum cost is achieved by sorting the array in nonincreasing order, but this is not the lexicographically smallest. Try to greedily form the lexicographically smallest array one element at a time. 
+Let the cost of a permutation b of a be the value ∑n−1i=1|bi+1−bi−c|.When c≥0, it can be proven that the minimum cost can be obtained by sorting a in nondecreasing order. As sorting a in nondecreasing order is also the lexicographically smallest array, this is the answer.Similarly, when c<0, it can be proven that the minimum cost can be obtained by sorting a in nonincreasing order. Furthermore, if we have fixed the values of b1,…,bk for some 1≤k<n, then intuitively, one optimal permutation bk+1,…,bn of the remaining elements is to sort them in nonincreasing order†.To find the lexicographically smallest permutation, we can greedily loop through k=1,…,n, each time taking the smallest bk that does not increase the cost. If ak≥⋯≥an are the unused elements sorted in nonincreasing order, then the condition we need to check to determine if setting bk:=ai is good is whether |ai−1−ai−c|+|ai−ai+1−c|+|bk−1−ak−c|≥|ai−1−ai+1−c|+|bk−1−ai−c|+|ai−ak−c|(∗) (with some adjustments in the corner cases when k=1 or i=k,n). This condition (∗) can be checked in constant time, and we try O(n) values of i for each of the O(n) values of k, so the time complexity is O(n2).The proofs of the claims used in this solution can be found at the end of the solution for the hard version.†This is actually not true as stated (e.g. when c=−1 and we fix b1=2, [2,1,9,8] is better than [2,9,8,1]), but it turns out it is true for all states that the greedy algorithm can reach (i.e. in this example, the greedy algorithm could not have chosen b1=2).
+Solution statetment-1844F1 
+Implementation 
+ #include <bits/stdc++.h>
+using namespace std;
+typedef long long int LLI;
+
+int a[200000];
+int main() {
+    int i,j;
+    int t,n,c;
+    scanf("%d",&t);
+    while (t--) {
+        scanf("%d %d",&n,&c);
+        for (i = 0; i < n; i++) scanf("%d",&a[i]);
+        if (c >= 0) {
+            sort(a,a+n);
+            for (i = 0; i < n; i++) printf("%d%c",a[i],(i == n-1) ? '\n':' ');
+            continue;
+        }
+
+        sort(a,a+n,greater<int>());
+        for (i = 0; i < n; i++) {
+            for (j = n-1; j > i; j--) {
+                LLI diff = -abs(a[j]-a[j-1]-c);
+                if (j < n-1) {
+                    diff -= abs(a[j+1]-a[j]-c);
+                    diff += abs(a[j+1]-a[j-1]-c);
+                }
+                if (i == 0) diff += abs(a[i]-a[j]-c);
+                else {
+                    diff -= abs(a[i]-a[i-1]-c);
+                    diff += abs(a[i]-a[j]-c);
+                    diff += abs(a[j]-a[i-1]-c);
+                }
+                if (diff == 0) {
+                    for (; j > i; j--) swap(a[j],a[j-1]);
+                }
+            }
+        }
+        for (i = 0; i < n; i++) printf("%d%c",a[i],(i == n-1) ? '\n':' ');
+    }
+    return 0;
+} 

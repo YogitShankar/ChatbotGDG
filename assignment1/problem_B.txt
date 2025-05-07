@@ -1,0 +1,87 @@
+Imagine you have
+n
+light bulbs numbered
+1,2,…,n
+. Initially, all bulbs are on. To flip the state of a bulb means to turn it off if it used to be on, and to turn it on otherwise.
+Next, you do the following:
+for each
+i=1,2,…,n
+, flip the state of all bulbs
+j
+such that
+j
+is divisible by
+i
+†
+.
+After performing all operations, there will be several bulbs that are still on. Your goal is to make this number exactly
+k
+.
+Find the smallest suitable
+n
+such that after performing the operations there will be exactly
+k
+bulbs on. We can show that an answer always exists.
+†
+An integer
+x
+is divisible by
+y
+if there exists an integer
+z
+such that
+x=y⋅z
+.Imagine you have
+n
+light bulbs numbered
+1,2,…,n
+. Initially, all bulbs are on. To flip the state of a bulb means to turn it off if it used to be on, and to turn it on otherwise.Next, you do the following:After performing all operations, there will be several bulbs that are still on. Your goal is to make this number exactly
+k
+.Find the smallest suitable
+n
+such that after performing the operations there will be exactly
+k
+bulbs on. We can show that an answer always exists.†
+An integer
+x
+is divisible by
+y
+if there exists an integer
+z
+such that
+x=y⋅z
+.Each test contains multiple test cases. The first line contains the number of test cases
+t
+(
+1≤t≤
+10
+4
+). The description of the test cases follows.The only line of each test case contains a single integer
+k
+(
+1≤k≤
+10
+18
+).For each test case, output
+n
+— the minimum number of bulbs.In the first test case, the minimum number of bulbs is
+2
+. Let's denote the state of all bulbs with an array, where
+1
+corresponds to a turned on bulb, and
+0
+corresponds to a turned off bulb. Initially, the array is
+[1,1]
+.In the end, there are
+k=1
+bulbs on. We can also show that the answer cannot be less than
+2
+.In the second test case, the minimum number of bulbs is
+5
+. Initially, the array is
+[1,1,1,1,1]
+.In the end, there are
+k=3
+bulbs on. We can also show that the answer cannot be smaller than
+5
+.

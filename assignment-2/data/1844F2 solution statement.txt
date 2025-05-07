@@ -1,0 +1,52 @@
+Solution statetment-1844F2 - Min Cost Permutation (Hard Version):
+Hint 4 
+ We need to optimize the O(n2) greedy with some data structures. There exist solutions with varying levels of data structure implementation depending on how much effort is put into characterizing the answer array. For a short solution, start by simplifying the formula (∗) (in the solution for the easy version) to get a cleaner description. 
+Hint 5 
+ The condition is actually equivalent to (ai−1−ai+1≤|c| or ai−1=ai or ai=ai+1) and (bk−1−ai≤|c|). 
+Hint 6 
+ Maintain a linked list of the unused entries of a and a set of unused entries that satisfy (ai−1−ai+1≤|c| or ai−1=ai or ai=ai+1). 
+Let c<0.We now simplify condition (∗), which involves considering a few cases depending on the sign of the terms. It turns out that the condition is equivalent to (ai−1−ai+1≤|c| or ai−1=ai or ai=ai+1) and (bk−1−ai≤|c|) (for full details, see the overall proof below).Sort a in nonincreasing order so that a1≥a2≥⋯≥an. We can simulate the greedy algorithm from the easy version with the help of a linked list of the unused elements of a and a set of ai which satisfy the first part of the condition, (ai−1−ai+1≤|c| or ai−1=ai or ai=ai+1). Here, ai−1 and ai+1 actually refer to the closest unused elements of a, which are ai's left and right pointers in the linked list, respectively. Each time, we query the set for its smallest element ai that satisfies ai≥bk−1−|c|. If this element does not exist, then we take ai to be the largest element in the linked list. Then, we set bk:=ai, delete ai from the linked list, and update the set with the left and right elements of ai if they now satisfy the condition.One small observation is that in the answer b, b1=a1 and bn=an. This may simplify the implementation since it means that some edge cases of (∗) actually don't need to be checked. It is also actually not necessary to check the ai−1=ai or ai=ai+1 condition.The time complexity is O(nlogn). ProofsThe case n≤2 is trivial. In the following, we only consider the case c<0 and n≥3. The case c≥0 follows by symmetry (reverse the array).Let c′:=−c to reduce confusion with negative signs, and WLOG let a1≥a2≥⋯≥an.Instead of considering ∑n−1i=1|bi+1−bi−c|, consider a permutation b that minimizes the augmented cost |b1−bn−c|+∑n−1i=1|bi+1−bi−c|. By circular symmetry, WLOG rotate b so that bn=an.We will perform a sequence of steps to sort b in nonincreasing order without ever increasing the augmented cost. Consider looking at bn−1,bn−2,…,b1 in order, such that when we look at bk, we have the invariant that bk+1≥bk+2≥⋯≥bn=an. If bk≥bk+1, do not do anything. Otherwise, since bk≥an=bn, there exists an index k+1≤i<n such that bi≥bk≥bi+1. Consider deleting bk from the array and reinserting it between index i and i+1. We have the following results:Claim 1: Deleting bk decreases the augmented cost by at least c′.Proof: Let x:=bk−1−bk (or bn−b1 if k=1) and y:=bk+1−bk≥0. We need to check that |x−y−c′|+c′≤|x−c′|+|−y−c′|, which follows from |x−c′|+|−y−c′|=|x−c′|+y+c′≥|x−y−c′|+c′ (we use the triangle inequality in the last step).Note that equality holds if and only if x−c′≤0, i.e. bk−1−bk≤c′.Claim 2: Reinserting bk increases the augmented cost by at most c′.Proof: Let x:=bi−bk≥0 and y:=bk−bi+1≥0. We need to check that |x−c′|+|y−c′|≤|x+y−c′|+c′. Consider four cases:  If x,y≥c′, then |x−c′|+|y−c′|=x+y−2c′<(x+y−c′)+c′=|x+y−c′|+c′. If x≥c′,y≤c′, then |x−c′|+|y−c′|=x−y≤(x+y−c′)+c′=|x+y−c′|+c′. If x≤c′,y≥c′, then |x−c′|+|y−c′|=y−x≤(x+y−c′)+c′=|x+y−c′|+c′. If x,y≤c′, then |x−c′|+|y−c′|=2c′−x−y=(c′−x−y)+c′≤|x+y−c′|+c′. Note that equality holds if and only if x=0 or y=0 or c′−x−y≥0, i.e. bi−bi+1≤c′ or bi=bk or bk=bi+1.Therefore, each step does not increase the augmented cost. After all the steps, b will be sorted in nonincreasing order. Therefore, the smallest possible augmented cost is |a1−an−c|+∑n−1i=1|ai+1−ai−c|.Now note that |a1−an−c|=(a1−an)+c′ is the maximum possible value of |b1−bn−c|! This means that the minimum cost cannot be less than the minimum augmented cost minus (a1−an)+c′. It follows that the minimum cost is obtained by sorting a in nonincreasing order, and furthermore, any optimal permutation b satisfies b1=a1 and bn=an.Furthermore, suppose we have fixed b1,…,bk and also bn=an. By a similar argument (looking at bn−1,…,bk+1 and reinserting them to the right), one optimal permutation bk+1,…,bn of the remaining elements is to sort them in nonincreasing order. Our greedy algorithm can only reach states where the optimal remaining permutation satisfies bn=an, so it is correct.Note that condition (∗) is similar to equality being achieved in both claim 1 and claim 2. It follows that (∗) is equivalent to (ai−1−ai+1≤|c| or ai−1=ai or ai=ai+1) and (bk−1−ai≤|c|) as claimed.
+Solution statetment-1844F2: 
+Implementation 
+ #include <bits/stdc++.h>
+using namespace std;
+typedef pair<int,int> pii;
+#define mp make_pair
+
+int a[200000],b[200000],l[200000],r[200000];
+set<pii> S;
+int main() {
+    int i;
+    int t,n,c;
+    scanf("%d",&t);
+    while (t--) {
+        scanf("%d %d",&n,&c);
+        for (i = 0; i < n; i++) scanf("%d",&a[i]);
+        if (c >= 0) {
+            sort(a,a+n);
+            for (i = 0; i < n; i++) printf("%d%c",a[i],(i == n-1) ? '\n':' ');
+            continue;
+        }
+
+        sort(a,a+n,greater<int>());
+        b[0] = a[0];
+        for (i = 0; i < n; i++) l[i] = (i+n-1) % n,r[i] = (i+1) % n;
+        for (i = 2; i < n-1; i++) {
+            if (a[l[i]]-a[r[i]] <= -c) S.insert(mp(a[i],i));
+        }
+        for (i = 1; i < n; i++) {
+            int u;
+            auto it = S.lower_bound(mp(b[i-1]+c,0));
+            if (it == S.end()) u = r[0];
+            else u = it->second,S.erase(it);
+            b[i] = a[u];
+            int x = l[u],y = r[u];
+            r[x] = y,l[y] = x;
+            S.erase(mp(a[x],x)),S.erase(mp(a[y],y));
+            if ((x != 0) && (l[x] != 0) && (r[x] != 0) && (a[l[x]]-a[r[x]] <= -c)) S.insert(mp(a[x],x));
+            if ((y != 0) && (l[y] != 0) && (r[y] != 0) && (a[l[y]]-a[r[y]] <= -c)) S.insert(mp(a[y],y));
+        }
+        for (i = 0; i < n; i++) printf("%d%c",b[i],(i == n-1) ? '\n':' ');
+    }
+    return 0;
+} 
