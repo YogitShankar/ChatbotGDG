@@ -1,0 +1,8 @@
+{
+  "name": "F. Formation",
+  "time_limit": "time limit per test3 seconds",
+  "memory_limit": "memory limit per test512 megabytes",
+  "input": "InputEach test contains multiple test cases. The first line contains a single integer $$$t$$$ ($$$1 \\le t \\le 10^4$$$) — the number of test cases. The description of the test cases follows.The first line of each set of test case contains two integers $$$n$$$ and $$$q$$$ ($$$1 \\le n, q \\le 5 \\cdot 10^4$$$) — the number of pupils and the number of options for how many pizzas the teachers will order.The second line of each set of test case contains $$$n$$$ integers $$$a_1, a_2, \\ldots, a_n$$$ ($$$1 \\le a_i \\le 10^9$$$) — the heights of the pupils.It is guaranteed that initially, the line is comfortable.Each of the following $$$q$$$ lines of each set of input data contains one integer $$$k_i$$$ ($$$1 \\le k_i \\le 10^9$$$) — the next limit for how many pizzas the pupils can eat.It is guaranteed that the sum of the values of $$$n$$$ across all sets of input data does not exceed $$$5 \\cdot 10^4$$$.It is guaranteed that the sum of the values of $$$q$$$ across all sets of input data does not exceed $$$5 \\cdot 10^4$$$.",
+  "output": "OutputFor each test case, for each limit for how many pizzas the pupils can eat, output the maximum value $$$\\max(a_1, a_2, \\ldots, a_n)$$$ that can be achieved while ensuring that the line is comfortable.",
+  "tags": []
+}

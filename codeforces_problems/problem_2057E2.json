@@ -1,0 +1,8 @@
+{
+  "name": "E2. Another Exercise on Graphs (hard version)",
+  "time_limit": "time limit per test3 seconds",
+  "memory_limit": "memory limit per test1024 megabytes",
+  "input": "InputEach test contains multiple test cases. The first line contains a single integer $$$t$$$ ($$$1 \\le t \\le 100$$$) — the number of test cases. The description of the test cases follows.The first line of each set of test case contains three integers $$$n, m$$$ and $$$q$$$ ($$$2 \\le n \\le 400$$$, $$$n - 1 \\le m \\le \\frac{n \\cdot (n - 1)}{2}$$$, $$$1 \\le q \\le 3 \\cdot 10^5$$$) — the number of vertices, the number of edges, and the number of questions, respectively.Each of the following $$$m$$$ lines of each set of test case contains three integers $$$v, u$$$ and $$$w$$$ ($$$1 \\le v, u \\le n$$$, $$$1 \\le w \\le 10^9$$$) — the ends of the next edge of the graph and its weight, respectively. It is guaranteed that the graph does not contain self-loops and multiple edges.Each of the following $$$q$$$ lines of each set of test case contains three integers $$$a, b$$$ and $$$k$$$ ($$$1 \\le a, b \\le n$$$, $$$k \\ge 1$$$) — the next question. It is guaranteed that any path from vertex $$$a$$$ to vertex $$$b$$$ contains at least $$$k$$$ edges.It is guaranteed that the sum of the values of $$$n$$$ across all sets of test cases does not exceed $$$400$$$.It is guaranteed that the sum of the values of $$$q$$$ across all sets of test cases does not exceed $$$3 \\cdot 10^5$$$.",
+  "output": "OutputFor each set of test case, output the answers to all questions.",
+  "description": "E2. Another Exercise on Graphs (hard version)time limit per test3 secondsmemory limit per test1024 megabytesinputstandard inputoutputstandard output"
+}

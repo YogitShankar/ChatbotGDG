@@ -1,0 +1,8 @@
+{
+  "name": "C. The Trail",
+  "time_limit": "time limit per test2 seconds",
+  "memory_limit": "memory limit per test256 megabytes",
+  "input": "InputEach test contains multiple test cases. The first line contains the number of test cases $$$t$$$ ($$$1 \\le t \\le 10^4$$$). The description of the test cases follows. The first line of each test case contains two integers $$$n$$$ and $$$m$$$ ($$$2 \\leq n, m \\leq 1000$$$) — the number of rows and columns in the grid.The second line of each test case contains a string $$$s$$$ of length $$$n+m-2$$$ ($$$s_i = \\mathtt{D}$$$ or $$$s_i = \\mathtt{R}$$$) — the steps the path makes from $$$(1, 1)$$$ to $$$(n, m)$$$. The character $$$\\mathtt{D}$$$ represents a downward step, and $$$\\mathtt{R}$$$ represents a rightward step.The $$$i$$$-th of the next $$$n$$$ lines each contain $$$m$$$ integers $$$a_{i,1}, a_{i, 2}, \\ldots, a_{i,m}$$$ ($$$-10^6 \\leq a_{i,j} \\leq 10^6$$$) — the altitude of each cell in the grid. It is guaranteed that if a cell $$$(i, j)$$$ lies on the path, then $$$a_{i,j} = 0$$$.It is guaranteed that the sum of $$$n \\cdot m$$$ over all test cases does not exceed $$$10^6$$$.",
+  "output": "OutputFor each test case, output $$$n$$$ lines of $$$m$$$ integers representing the restored grid of altitudes $$$b_{i, j}$$$. The altitudes must satisfy $$$-10^{15} \\leq b_{i,j} \\leq 10^{15}$$$, and additionally $$$a_{i,j} = b_{i,j}$$$ if $$$(i, j)$$$ is not on the path. If multiple solutions exist, output any of them.",
+  "tags": []
+}

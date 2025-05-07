@@ -1,0 +1,8 @@
+{
+  "name": "B. Journey",
+  "time_limit": "time limit per test1 second",
+  "memory_limit": "memory limit per test256 megabytes",
+  "input": "InputThe first line contains one integer $$$t$$$ ($$$1 \\le t \\le 10^4$$$) — the number of test cases.Each test case consists of one line containing four integers $$$n$$$, $$$a$$$, $$$b$$$, $$$c$$$ ($$$1 \\le n \\le 10^9$$$; $$$1 \\le a, b, c \\le 10^6$$$).",
+  "output": "OutputFor each test case, output one integer — the day on which Monocarp will have walked at least $$$n$$$ kilometers in total and will complete his journey.",
+  "tags": []
+}

@@ -1,0 +1,8 @@
+{
+  "name": "A. Preparing for the Olympiad",
+  "time_limit": "time limit per test2 seconds",
+  "memory_limit": "memory limit per test256 megabytes",
+  "input": "InputThe first line contains a single integer $$$t$$$ ($$$1 \\le t \\le 10^3$$$) — the number of test cases.The first line of each test case contains a single integer $$$n$$$ ($$$1 \\le n \\le 100$$$).The second line contains $$$n$$$ integers $$$a_1, a_2, \\dots, a_n$$$ ($$$1 \\le a_i \\le 100$$$).The third line contains $$$n$$$ integers $$$b_1, b_2, \\dots, b_n$$$ ($$$1 \\le b_i \\le 100$$$).",
+  "output": "OutputFor each test case, print a single integer — the maximum possible difference between the number of problems Monocarp solves and the number of problems Stereocarp solves.",
+  "tags": []
+}
