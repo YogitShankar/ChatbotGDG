@@ -1,0 +1,57 @@
+Section 1:
+Hint 1
+Can you find a partition that is always valid?
+
+Section 2:
+Hint 2
+Suppose you are given a set $$$S$$$. How do you judge whether $$$S$$$ is
+stable
+in $$$\mathcal O(\lvert S\rvert)$$$?
+
+Section 3:
+Hint 3
+Are sets that are very large really necessary?
+
+Section 4:
+Solution
+Note that: we always have a partition like $$$[a_1], [a_2], \dots, [a_n]$$$, since $$$(x, x, x)$$$ always forms a non-degenerate (equilateral) triangle.
+We focus on the second partition scheme in which not all continuous subsegments have a length of $$$1$$$. One can also note that if a set $$$S$$$ is
+stable
+then for all $$$T \subsetneq S$$$ ($$$T \neq \varnothing$$$), $$$T$$$ is also
+stable
+.
+Short proof: If $$$\exists u, v, w \in T$$$ such that $$$(u, v, w)$$$ doesn't form a non-degenerate triangle, therefore $$$u, v, w \in S$$$ so it is concluded that $$$S$$$ is not
+stable
+. Contradiction!
+If such a partition exists, we can always split long continuous subsegments into shorter parts, while the partition remains valid. Therefore, it's enough to check the case in which there is one subsegment of length $$$2$$$ and the rest of length $$$1$$$. So, we should output
+NO
+if and only if for all $$$1 \leq i < n$$$, $$$2\min(a_i, a_{i+1}) \leq \max(a_i, a_{i+1})$$$.
+
+Section 5:
+Code (C++)
+#include <bits/stdc++.h>
+ 
+#define MAXN 1001
+int a[MAXN];
+void solve() {
+	int n; std::cin >> n;
+	for (int i = 1; i <= n; ++i) std::cin >> a[i];
+	for (int i = 1; i < n; ++i) if (2 * std::min(a[i], a[i + 1]) > std::max(a[i], a[i + 1])) 
+		{ std::cout << "YES\n"; return; }
+	std::cout << "NO\n";
+}
+ 
+int main() {
+	std::ios::sync_with_stdio(false);
+	std::cin.tie(nullptr), std::cout.tie(nullptr);
+	int t; std::cin >> t; while (t--) solve(); return 0;
+}
+
+Section 6:
+Rate the Problem
+Amazing problem:
+Good problem:
+Average problem:
+Bad problem:
+Didn't solve:
+

@@ -1,0 +1,54 @@
+Section 1:
+Hint 1
+What if for all $$$1 \leq i \leq n$$$, $$$l_i \ne r_i$$$ holds? How do you prove it?
+
+Section 2:
+Hint 2
+Use prefix sums or similar to optimize your solution.
+
+Section 3:
+Solution
+For each $$$1 \leq i \leq n$$$, for each $$$l_i \leq x \leq r_i$$$, we want to check if it is okay for impression $$$i$$$ being
+unique
+at the value of $$$x$$$. Note that: for each $$$j \neq i$$$, we can always switch $$$w_j$$$ to a value different from $$$x$$$ if $$$l_j \neq r_j$$$, since there are at least two options. Therefore, it is impossible if and only if there exists a $$$1 \leq j \leq n$$$ with $$$j \neq i$$$ such that $$$l_j = r_j = x$$$.
+Let's record $$$a_i$$$ as the number of different $$$k$$$ satisfying $$$1 \leq k \leq n$$$ and $$$l_k = r_k = i$$$. If $$$l_i \neq r_i$$$, then we say impression $$$i$$$
+cannot
+be made
+unique
+if and only if for all $$$l_i \leq k \leq r_i$$$, $$$a_k \geq 1$$$; otherwise ($$$l_i = r_i$$$), it cannot be
+unique
+if and only if $$$a_{l_i} \geq 2$$$.
+This can all be checked quickly within a prefix sum, so the overall time complexity is $$$\mathcal O(\sum n)$$$.
+
+Section 4:
+Code (C++)
+#include <bits/stdc++.h>
+ 
+#define MAXN 400001
+int l[MAXN], r[MAXN], sum[MAXN], cnt[MAXN];
+void solve() {
+	int n; std::cin >> n;
+	for (int i = 1; i <= 2 * n; ++i) sum[i] = cnt[i] = 0;
+	for (int i = 1; i <= n; ++i) {
+		std::cin >> l[i] >> r[i];
+		if (l[i] == r[i]) sum[l[i]] = 1, ++cnt[l[i]];
+	}
+	for (int i = 2; i <= 2 * n; ++i) sum[i] += sum[i - 1];
+	for (int i = 1; i <= n; ++i) 
+		std::cout << ((l[i] == r[i] ? cnt[l[i]] <= 1 : sum[r[i]] - sum[l[i] - 1] < r[i] - l[i] + 1) ? "1" : "0");
+	std::cout << '\n';
+}
+int main() {
+	std::ios::sync_with_stdio(false);
+	std::cin.tie(nullptr), std::cout.tie(nullptr);
+	int t; std::cin >> t; while (t--) solve(); return 0;
+}
+
+Section 5:
+Rate the Problem
+Amazing problem:
+Good problem:
+Average problem:
+Bad problem:
+Didn't solve:
+
