@@ -1,0 +1,27 @@
+Problem: 1328A - Divisibility Problem
+Problem Link: https://codeforces.com/problemset/problem/1328/A
+Editorial Link: https://codeforces.com/blog/entry/75246
+
+================================================================================
+
+1328A - Divisibility ProblemIdea: MikeMirzayanov Tutorial1328A - Divisibility ProblemIf 𝑎%𝑏=0 (𝑎 is divisible by 𝑏), just print 0. Otherwise, we need exactly 𝑏−𝑎%𝑏 moves to make zero remainder of 𝑎 modulo 𝑏. % is modulo operation. Solution#include <bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+#ifdef _DEBUG
+	freopen("input.txt", "r", stdin);
+//	freopen("output.txt", "w", stdout);
+#endif
+	
+	int t;
+	cin >> t;
+	while (t--) {
+		int a, b;
+		cin >> a >> b;
+		if (a % b == 0) cout << 0 << endl;
+		else cout << b - a % b << endl;
+	}
+	
+	return 0;
+}

@@ -1,0 +1,15 @@
+{
+    "problem_tag": "1985A",
+    "title": "Creating Words",
+    "link": "https://codeforces.com/problemset/problem/1985/A",
+    "description": "Matthew is given two strings\na\nand\nb\n, both of length\n3\n. He thinks it's particularly funny to create two new words by swapping the first character of\na\nwith the first character of\nb\n. He wants you to output\na\nand\nb\nafter the swap.\nNote that the new words may not necessarily be different.",
+    "input_specification": "The first line contains\nt\n(\n1≤t≤100\n)  — the number of test cases.\nThe first and only line of each test case contains two space-separated strings,\na\nand\nb\n, both of length\n3\n. The strings only contain lowercase Latin letters.",
+    "output_specification": "For each test case, after the swap, output\na\nand\nb\n, separated by a space.",
+    "time_limit": "1 second",
+    "memory_limit": "256 megabytes",
+    "tags": [
+        "implementation",
+        "strings",
+        "*800"
+    ]
+}
