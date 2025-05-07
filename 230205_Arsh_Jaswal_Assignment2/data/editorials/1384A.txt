@@ -1,0 +1,54 @@
+1384A - Common PrefixesThe problem asks to find n+1 strings such that LCP(si,si+1)=ai for all i (1≤i≤n). A way to solve this problem is the following:  Set s1= "aaaa...aaaaaaa" (ie. 200 times 'a').  For i such that (1≤i≤n) set si+1:=si and then flip (ai+1)-th character of si+1 (ie. if it was 'a' put 'b' otherwise 'a'). So for each i:   si and si+1 will have exactly ai common characters from the prefix.  The (ai+1)-th character of si+1 is different than (ai+1)-th character of si (this character always exists since 0≤ai≤50 and each string has length exactly 200).  Therefore the LCP is ai as desired. Time complexity: O(n) per testcase C++ solution#include <iostream>
+
+#define endl '\n'
+
+using namespace std;
+
+void solve()
+{
+    int n;
+    cin >> n;
+
+    string s(200, 'a');
+    cout << s << endl;
+
+    for (int i = 0; i < n; ++i)
+    {
+        int u;
+        cin >> u;
+        s[u] = s[u] == 'a' ? 'b' : 'a';
+        cout << s << endl;
+    }
+}
+
+int main()
+{
+    int t;
+    cin >> t;
+
+    for (int i = 0; i < t; ++i)
+    {
+        solve();
+    }
+
+    return 0;
+} Python solutionimport sys
+input = sys.stdin.readline
+
+def main():
+    t = int(input())
+    
+    for _ in range(t):
+        n = int(input())
+        a = list(map(int, input().split()))
+    
+        mx = max(a)
+        ans = [ 'a' * (mx + 1) ] * (n + 1)
+    
+        for i, x in enumerate(a):
+            who = 'a' if ans[i][x] == 'b' else 'b'
+            ans[i + 1] = ans[i][:x] + who + ans[i][x + 1:]
+    
+        print('\n'.join(ans))    
+
+main()Problem idea: dcordbSolution idea: dcordb and Devil 

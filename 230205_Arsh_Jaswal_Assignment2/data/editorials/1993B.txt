@@ -1,0 +1,27 @@
+1993B - Parity and Sum Hint 1Find a way to make all the elements even. Then odd. Hint 2In the worst case, the number of operations required is the number of even elements + 1. Why? SolutionFirst, if all elements already have the same parity, we don't need to do perform any operation.Next, if the array contains both even and odd numbers. In this case, it is impossible to convert all elements to even numbers. Why?If we apply an operation on:  two odd elements, one of them remains odd. two elements of distinct parities, one of them is replaced with their sum, which is an odd number. This implies even if we want to change an odd element to even number, it fails in both ways possible.So we just want to convert all of them to odd numbers. Now come the greedy part:  even+even=even⟶ it doesn't reduce the number of even elements, so skip it. odd+odd=even⟶ this creates another even number, indeed very awful. even+odd=odd⟶ this is great, but only if the sum replaces the even one (which means even<odd). Let's find the largest odd element and call it s. Then traverse each even elements t in non-decreasing order and apply an operation on s and t:  If t<s, s+t becomes largest odd number. Thus, we set s:=s+t. This reduce the number of even element by 1. If t>s, before we do this operation, we need to do another on s and the largest even element to make s the largest in the array. Note that this case only happens at most once. As a result, the answer is the number of even elements (plus 1 if the second case occurs).Time complexity: O(nlogn). Code (python)t = int(input())
+for _ in range(t):
+    n = int(input())
+    a = list(map(int, input().split()))
+
+    s = -1
+    v = []
+    for x in a:
+        if x%2 == 0:
+            v.append(x)
+        elif x > s:
+            s = x
+    v.sort()
+
+    if s == -1 or v == []:
+        print(0)
+        continue
+    
+    ans = len(v)
+    for t in v:
+        if t < s:
+            s += t
+        else:
+            ans += 1
+            break
+
+    print(ans)

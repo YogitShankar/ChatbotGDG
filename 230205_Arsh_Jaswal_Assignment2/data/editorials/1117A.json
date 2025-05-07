@@ -1,0 +1,3 @@
+{
+    "solution": "1117A - Best Subsegment TutorialTutorial is loading... Solution (adedalic)#include<iostream>\nusing namespace std;\n\nint main() {\n\tint n; cin >> n;\n\tint mx = -1, lenMx = 0;\n\t\n\tint curEl = -1, curLen = 0;\n\tfor(int i = 0; i < n; i++) {\n\t\tint a; cin >> a;\n\t\t\n\t\tif(curEl != a)\n\t\t\tcurEl = a, curLen = 0;\n\t\tcurLen++;\n\t\t\n\t\tif(mx < curEl)\n\t\t\tmx = curEl, lenMx = 0;\n\t\tif(mx == curEl)\n\t\t\tlenMx = max(lenMx, curLen);\n\t}\n\tcout << lenMx << endl;\n\treturn 0;\n}"
+}

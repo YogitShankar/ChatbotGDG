@@ -1,0 +1,8 @@
+You are given two integer arrays: array aa of length nn and array bb of length n+1n+1.
+You can perform the following operations any number of times in any order: 
+Your task is to calculate the minimum number of aforementioned operations (possibly zero) required to transform the array aa into the array bb. It can be shown that under the constraints of the problem, it is always possible.
+The first line contains a single integer tt (1≤t≤1041≤t≤104) — the number of test cases.
+Each test case consists of three lines:
+Additional constraint on the input: the sum of nn over all test cases doesn't exceed 2⋅1052⋅105.
+For each test case, print a single integer — the minimum number of operations (possibly zero) required to transform the array aa into the array bb.
+In the first example, you can transform aa into bb as follows: [2]→[2,2]→[1,2]→[1,3][2]→[2,2]→[1,2]→[1,3].

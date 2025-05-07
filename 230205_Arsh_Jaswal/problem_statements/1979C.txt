@@ -1,0 +1,16 @@
+Problem Title: C. Earning on Bets
+
+time limit per test2 seconds
+memory limit per test256 megabytes
+
+You have been offered to play a game. In this game, there are n possible outcomes, and for each of them, you must bet a certain integer amount of coins. In the event that the i-th outcome turns out to be winning, you will receive back the amount of coins equal to your bet on that outcome, multiplied by ki. Note that exactly one of the n outcomes will be winning.
+Your task is to determine how to distribute the coins in such a way that you will come out ahead in the event of any winning outcome. More formally, the total amount of coins you bet on all outcomes must be strictly less than the number of coins received back for each possible winning outcome.
+Each test consists of multiple test cases. The first line contains a single integer t (1≤t≤104) — the number of test cases. The description of the test cases follows.
+The first line of each test case contains a single integer n (1≤n≤50) — the number of outcomes.
+The second line of each test case contains n integers k1,k2,…,kn (2≤ki≤20) — the multiplier for the amount of coins if the i-th outcome turns out to be winning.
+It is guaranteed that the sum of n over all test cases does not exceed 2⋅105.
+For each test case, output −1 if there is no way to distribute the coins as required. Otherwise, output n integers x1,x2,…,xn (1≤xi≤109) — your bets on the outcomes.
+It can be shown that if a solution exists, there is always a solution that satisfies these constraints.
+If there are multiple suitable solutions, output any of them.
+In the first test case, the coins can be distributed as follows: 27 coins on the first outcome, 41 coins on the second outcome, 12 coins on the third outcome. Then the total amount of coins bet on all outcomes is 27+41+12=80 coins. If the first outcome turns out to be winning, you will receive back 3⋅27=81 coins, if the second outcome turns out to be winning, you will receive back 2⋅41=82 coins, if the third outcome turns out to be winning, you will receive back 7⋅12=84 coins. All these values are strictly greater than 80.
+In the second test case, one way is to bet one coin on each of the outcomes.

@@ -1,0 +1,21 @@
+Problem Title: D. Matryoshkas
+
+time limit per test2 seconds
+memory limit per test256 megabytes
+
+Matryoshka is a wooden toy in the form of a painted doll, inside which you can put a similar doll of a smaller size.
+A set of nesting dolls contains one or more nesting dolls, their sizes are consecutive positive integers. Thus, a set of nesting dolls is described by two numbers: ss — the size of a smallest nesting doll in a set and mm — the number of dolls in a set. In other words, the set contains sizes of s,s+1,…,s+m−1s,s+1,…,s+m−1 for some integer ss and mm (s,m>0s,m>0).
+You had one or more sets of nesting dolls. Recently, you found that someone mixed all your sets in one and recorded a sequence of doll sizes — integers a1,a2,…,ana1,a2,…,an.
+You do not remember how many sets you had, so you want to find the minimum number of sets that you could initially have.
+For example, if a given sequence is a=[2,2,3,4,3,1]a=[2,2,3,4,3,1]. Initially, there could be 22 sets: 
+According to a given sequence of sizes of nesting dolls a1,a2,…,ana1,a2,…,an, determine the minimum number of nesting dolls that can make this sequence.
+Each set is completely used, so all its nesting dolls are used. Each element of a given sequence must correspond to exactly one doll from some set.
+The first line of input data contains a single integer tt (1≤t≤1041≤t≤104) — the number of test cases.
+The description of the test cases follows.
+The first line of each test case contains one integer nn (1≤n≤2⋅1051≤n≤2⋅105) — the total number of matryoshkas that were in all sets.
+The second line of each test case contains nn integers a1,a2,…,ana1,a2,…,an (1≤ai≤1091≤ai≤109)  — the sizes of the matryoshkas. 
+It is guaranteed that the sum of values of nn over all test cases does not exceed 2⋅1052⋅105.
+For each test case, print one integer kk — the minimum possible number of matryoshkas sets.
+The first test case is described in the problem statement.
+In the second test case, all matryoshkas could be part of the same set with minimum size s=7s=7.
+In the third test case, each matryoshka represents a separate set.

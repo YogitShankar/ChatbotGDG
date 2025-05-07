@@ -1,0 +1,30 @@
+1770A - Koxia and WhiteboardsIdea by m_99 Hint 1Exactly n items out of of a1,…,an,b1,…,bm will remain on the whiteboard at the end. Hint 2bm will always remain on the board at the end. Hint 3Consider the case where n=2 and m=2. As we mentioned in hint 2, b2 will always be written, but what about b1? SolutionThis problem can be solved naturally with a greedy algorithm — for i=1,2,…,m, we use bi to replace the minimal value among the current a1,a2,…,an. The time complexity is O(nm) for each test case.Alternatively, we can first add bm to our final sum. For the remaining (n+m−1) integers, we can freely pick (n−1) out of them and add it to our final sum. This is because if we want a certain ai to remain on the board at the end, we simply do not touch it in the process. If we want a certain bi to remain on the board at the end, then on the ith operation we replace some aj that we do not want at the end by bi.Using an efficient sorting algorithm gives us a O((n+m)log(n+m)) solution, which is our intended solution. Code (m_99)#include <stdio.h>
+#include <bits/stdc++.h>
+using namespace std;
+#define rep(i,n) for (int i = 0; i < (n); ++i)
+#define Inf32 1000000001
+#define Inf64 4000000000000000001
+
+int main(){
+	
+	int _t;
+	cin>>_t;
+	
+	rep(_,_t){
+		int n,m;
+		cin>>n>>m;
+		vector<long long> a(n+m);
+		rep(i,n+m)scanf("%lld",&a[i]);
+		
+		sort(a.begin(),a.end()-1);
+		reverse(a.begin(),a.end());
+		
+		long long ans = 0;
+		rep(i,n)ans += a[i];
+		
+		cout<<ans<<endl;
+	}
+	
+	
+	return 0;
+}

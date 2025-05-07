@@ -1,0 +1,10 @@
+1346A - Color RevolutionNotice that all division sizes are determined by the size of the first one. So the sizes are n1,n1⋅k,n1⋅k2,n1⋅k3. Their sum is n1+n1⋅k+n1⋅k2+n1⋅k3. Let's rewrite it as n1⋅(1+k+k2+k3). Now it's easy to see that n1 can be obtained by dividing n by (1+k+k2+k3).Alternatively, you can binary search for n1 because the sum of sizes only increases with the increase of n1.Overall complexity: O(1) or O(logmaxn) per testcase. Solution (elizarov)fun main() {
+    repeat(readLine()!!.toInt()) {
+        val (n, k) = readLine()!!.split(" ").map { it.toInt() }
+        val n1 = n / (1 + k + k * k + k * k * k)
+        val n2 = n1 * k
+        val n3 = n2 * k
+        val n4 = n3 * k
+        println("$n1 $n2 $n3 $n4")
+    }
+}

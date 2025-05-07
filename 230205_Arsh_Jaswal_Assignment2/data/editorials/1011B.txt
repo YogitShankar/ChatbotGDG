@@ -1,0 +1,30 @@
+1011B - Planning The ExpeditionLet ci be the number of food packages that equal to i. Calculate the array c.For any d we can calculate the maximum number of people k, who can participate in the expedition for d days. To do this, we'll go over all the elements of the array c. Let now be considered ci. If ci≥d, we can decrease ci by d and increase k by 1, that is, take d daily food packages for one person. If still ci≥d, repeat the algorithm, and so on. That is for i-th iteration number k increases by ⌊cid⌋. After all the iterations the number k will be the required number of people.It is clear that the answer does not exceed m (every day at least one food package is used).Let's iterate d from m to 1, each time checking whether the answer can be equal d. To do this, we calculate the maximum number of people k, who can participate in the expedition for d days. If k≥n, then the answer is d. If no answer was received on any iteration, then the answer is 0.Complexity: O(m2).Bonus. Try to improve the complexity to O(mlogm). Solution#include <bits/stdc++.h>
+
+using namespace std;
+
+const int N = 100;
+
+int main() {
+    int n, m;
+    cin >> n >> m;
+    vector<int> c(N + 1);
+    for (int i = 0; i < m; i++) {
+        int a;
+        cin >> a;
+        c[a]++;
+    }
+    for (int d = N; d >= 1; d--) {
+        vector<int> cc(c);
+        int k = 0;
+        for (int i = 1; i <= N; i++)
+            while (cc[i] >= d) {
+                k++;
+                cc[i] -= d;
+            }
+        if (k >= n) {
+            cout << d << endl;
+            return 0;
+        }
+    }
+    cout << 0 << endl;
+}

@@ -1,0 +1,18 @@
+Problem Title: B. Two Binary Strings
+
+time limit per test2 seconds
+memory limit per test256 megabytes
+
+You are given two strings a and b of equal length, consisting of only characters 0 and/or 1; both strings start with character 0 and end with character 1. 
+You can perform the following operation any number of times (possibly zero): 
+Formally, you choose one of these two strings (let the chosen string be s), then pick two integers l and r such that 1≤l<r≤|s| and sl=sr, then replace every character si such that l<i<r with sl.
+For example, if the chosen string is 010101, you can transform it into one of the following strings by applying one operation:
+You have to determine if it's possible to make the given strings equal by applying this operation any number of times.
+The first line contains a single integer t (1≤t≤2000)  — the number of test cases.
+Each test case consists of two lines: 
+Additional constraints on the input: 
+For each test case, print YES if it is possible to make the strings equal. Otherwise, print NO. You can print each letter in any register.
+In the first test case, we can perform the following operations: 
+In the second test case, the strings are already equal.
+In the third test case, we can perform the following operations: 
+In the fourth and fifth test cases, it's impossible to make the given strings equal.

@@ -1,0 +1,1 @@
+1517B - Morning JoggingThe minimum sum is the sum of m smallest of all nm numbers.To construct the answer, we can just mark these m smallest numbers and put them in m different columns. A possible way is that for each row, you can sort all numbers from small to large, and rotate the marked number in this row to unmarked columns.For example,1?????23?????45 

@@ -1,0 +1,14 @@
+Problem Title: C1. Shohag Loves XOR (Easy Version)
+
+time limit per test2 seconds
+memory limit per test256 megabytes
+
+This is the easy version of the problem. The differences between the two versions are highlighted in bold. You can only make hacks if both versions of the problem are solved.
+Shohag has two integers xx and mm. Help him count the number of integers 1≤y≤m1≤y≤m such that x≠yx≠y and x⊕yx⊕y is a divisor∗∗ of either xx, yy, or both. Here ⊕⊕ is the bitwise XOR operator.
+∗∗The number bb is a divisor of the number aa if there exists an integer cc such that a=b⋅ca=b⋅c.
+The first line contains a single integer tt (1≤t≤1041≤t≤104) — the number of test cases.
+The first and only line of each test case contains two space-separated integers xx and mm (1≤x≤1061≤x≤106, 1≤m≤10181≤m≤1018).
+It is guaranteed that the sum of xx over all test cases does not exceed 107107.
+For each test case, print a single integer — the number of suitable yy.
+In the first test case, for x=6x=6, there are 33 valid values for yy among the integers from 11 to m=9m=9, and they are 44, 55, and 77.
+In the second test case, for x=5x=5, there are 22 valid values for yy among the integers from 11 to m=7m=7, and they are 44 and 66.

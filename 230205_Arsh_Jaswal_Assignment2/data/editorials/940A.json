@@ -1,0 +1,3 @@
+{
+    "solution": "940A - Points on the lineIt's clear that diameter of the multiset of points equals to difference of coordinates of point with maximum coordinate and point with minimum coordinate. So we can iterate over all possible pairs of maximum and minimum point and check number of remaining points in O(n). This solution works in O(n3).Of course, there are faster solutions.(Developing — vintage_Vlad_Makeev, ch_egor, V--o_o--V, demon1999) "
+}

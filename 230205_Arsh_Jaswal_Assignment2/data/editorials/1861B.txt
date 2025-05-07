@@ -1,0 +1,24 @@
+1861B - Two Binary StringsIf the answer is YES, we can always bring both strings to the form 00…01…11 (some prefix consists of zeros, some suffix consists of ones, and all zeroes are before all ones). It's true because after we make both strings equal, we can apply another operation with l=i,r=|a|, where i is the minimum index where both strings have 1 after we made them equal. For example, in the first test case, the strings are equal to 01110001 after applying all operations considered in the statement. We can turn them into the string 01111111 by applying operation with l=2,r=8.Okay, now let's try to find out when we can transform a string into the form 00…0011…11. We claim that it's possible to transform the string s into the form "i first elements are zeroes, all the remaining elements are ones" if and only if si=0 and si+1=1:  if si=0 and si+1=1, we can apply two operations with l=1,r=i and l=i+1,r=|s|, and the string turns into the form "i first elements are zeroes, all the remaining elements are ones";  however, if that's not the case, then either si=si+1, or si=1 and si+1=0. In the former case, we need to change one of these two elements; but since they are equal and adjacent, every operation on them will affect them both, so it's impossible to change only one of them. In the latter case, we need to set either si to 0 or si+1 to 1 first; and when we do it, the elements become equal, and every operation on them will affect them both. So, it's impossible to bring the string into the form "i first elements are zeroes, all the remaining elements are ones". So, the answer is YES if there is an index i such that ai=bi=0 and ai+1=bi+1=1. Otherwise, the answer is NO. Solution (Roms)#include <bits/stdc++.h>
+ 
+using namespace std;
+ 
+int main() {
+    int t;
+    cin >> t;
+    for (int tc = 0; tc < t; ++tc) {
+        string a, b;
+        cin >> a >> b;
+        bool ok = false;
+        for (int i = 0; i + 1 < a.size(); ++i) {
+            if (a[i] == b[i] && a[i] == '0' && a[i + 1] == b[i + 1] && a[i + 1] == '1') {
+                ok = true;
+            }
+        }
+        
+        if (ok) 
+            puts("YES");
+        else
+            puts("NO");
+    }
+    return 0;
+}

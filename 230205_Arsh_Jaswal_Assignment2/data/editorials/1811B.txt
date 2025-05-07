@@ -1,0 +1,12 @@
+1811B - Conveyor BeltsIdea: Vladosiya, prepared: senjougaharin TutorialTutorial is loading... Solutiondef layer(n, x, y):
+    return min([x, y, n + 1 - x, n + 1 - y])
+
+
+def solve():
+    n, x1, y1, x2, y2 = map(int, input().split())
+    print(abs(layer(n, x1, y1) - layer(n, x2, y2)))
+
+
+t = int(input())
+for _ in range(t):
+    solve()

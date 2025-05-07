@@ -1,0 +1,70 @@
+1903B - StORage roomSolution:Initially, we set all ai=230−1 (all bits on).You can through every i,j such that i≠j and do ai&=Mi,j and aj&=Mi,j.Then we check if Mi,j=ai|aj for all pairs. If this holds you found the array else the answer is NO.Proof:Initially, all elements have all their bits set on and we remove only the bits that affect our answer. If Mi,j doesn't have a specific bit then definitely neither ai nor aj should have it. If Mi,j has a specific bit on then we don't have to remove anything (in the end we want at least one of ai and aj to have the bit on). Code (C++)#include <bits/stdc++.h>
+using namespace std;
+int main(){
+    ios_base::sync_with_stdio(0);
+    cin.tie(0);
+    int t;
+    cin>>t;
+    while(t--){
+        int n;
+        cin>>n;
+        int m[n][n];
+        int arr[n];
+        for(int i = 0;i < n;i++){
+            arr[i] = (1<<30) - 1;
+        }
+        for(int i = 0;i < n;i++){
+            for(int j = 0;j < n;j++){
+                cin>>m[i][j];
+                if(i != j){
+                    arr[i] &= m[i][j];
+                    arr[j] &= m[i][j];
+                }
+            }
+        }
+        bool ok = true;
+        for(int i = 0;i < n;i++){
+            for(int j = 0;j < n;j++){
+                if(i != j && (arr[i] | arr[j]) != m[i][j]){
+                    ok = false;
+                }
+            }
+        }
+        if(!ok){
+            cout<<"NO\n";
+        }
+        else{
+            cout<<"YES\n";
+            for(int i = 0;i < n;i++){
+                cout<<arr[i]<<" ";
+            }
+            cout<<"\n";
+        }
+    }
+} Rate this problemGood 
+
+    
+
+
+596
+
+
+
+Mid 
+
+    
+
+
+52
+
+
+
+Bad 
+
+    
+
+
+186
+
+
+

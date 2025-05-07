@@ -1,0 +1,24 @@
+1611C - Polycarp Recovers the PermutationThe maximum element is always added last, so if it is not in the first or last position, then there is no answer.Let us prove that if the permutation has its maximum element in the first or last position, then after n actions we can get an expanded permutation. Indeed, the maximum element will be added last at the desired end, and all the others will be added in reverse order.Then, if the answer exists, it is sufficient to simply unfold the permutation. Solution#include <bits/stdc++.h>
+ 
+using namespace std;
+ 
+#define forn(i, n) for (int i = 0; i < int(n); i++)
+ 
+int main() {
+    int t;
+    cin >> t;
+    forn(tt, t) {
+        int n;
+        cin >> n;
+        vector<int> a(n);
+        forn(i, n)
+            cin >> a[i];
+        if (a[0] != n && a[n - 1] != n)
+            cout << -1 << endl;
+        else {
+            for (int i = n - 1; i >= 0; i--)
+                cout << a[i] << " ";
+            cout << endl;
+        }
+    }
+}

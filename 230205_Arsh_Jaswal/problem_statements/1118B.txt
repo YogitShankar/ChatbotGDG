@@ -1,0 +1,16 @@
+Problem Title: B. Tanya and Candies
+
+time limit per test1 second
+memory limit per test256 megabytes
+
+Tanya has n candies numbered from 1 to n. The i-th candy has the weight ai.
+She plans to eat exactly n−1 candies and give the remaining candy to her dad. Tanya eats candies in order of increasing their numbers, exactly one candy per day.
+Your task is to find the number of such candies i (let's call these candies good) that if dad gets the i-th candy then the sum of weights of candies Tanya eats in even days will be equal to the sum of weights of candies Tanya eats in odd days. Note that at first, she will give the candy, after it she will eat the remaining candies one by one.
+For example, n=4 and weights are [1,4,3,3]. Consider all possible cases to give a candy to dad:
+In total there 2 cases which should counted (these candies are good), so the answer is 2.
+The first line of the input contains one integer n (1≤n≤2⋅105) — the number of candies.
+The second line of the input contains n integers a1,a2,…,an (1≤ai≤104), where ai is the weight of the i-th candy.
+Print one integer — the number of such candies i (good candies) that if dad gets the i-th candy then the sum of weights of candies Tanya eats in even days will be equal to the sum of weights of candies Tanya eats in odd days.
+In the first example indices of good candies are [1,2].
+In the second example indices of good candies are [2,3].
+In the third example indices of good candies are [4,5,9].

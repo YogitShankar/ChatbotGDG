@@ -1,0 +1,10 @@
+You are given a decimal representation of an integer x without leading zeros.
+You have to perform the following reduction on it exactly once: take two neighboring digits in x and replace them with their sum without leading zeros (if the sum is 0, it's represented as a single 0).
+For example, if x=10057, the possible reductions are: 
+What's the largest number that can be obtained?
+The first line contains a single integer t (1≤t≤104) — the number of testcases.
+Each testcase consists of a single integer x (10≤x<10200000). x doesn't contain leading zeros.
+The total length of the decimal representations of x over all testcases doesn't exceed 2⋅105.
+For each testcase, print a single integer — the largest number that can be obtained after the reduction is applied exactly once. The number should not contain leading zeros.
+The first testcase of the example is already explained in the statement.
+In the second testcase, there is only one possible reduction: the first and the second digits.

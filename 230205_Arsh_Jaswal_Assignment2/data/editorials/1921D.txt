@@ -1,0 +1,41 @@
+1921D - Very Different ArrayLet's sort the array a in ascending order, and the array b in descending order. Notice that small elements of array a need to be matched with large elements of array b and vice versa. Thus, for some k, we need to take a prefix of array b of length k and a suffix of length n−k, and form array c from them. We iterate over the value of k from 0 to n, and each time k changes by 1, only one element of array c changes, so we can recalculate the value of D in O(1). We select the maximum value of D from the obtained values to get the answer. This solution works in O(n) time plus the initial sorting in O(nlogn).There are other ways to solve the problem in the same time complexity. Solution#include <bits/stdc++.h>
+using namespace std;
+
+struct test {
+   void solve() {
+        int n, m;
+        cin >> n >> m;
+        vector<int> a(n);
+        for (int i = 0; i < n; i++) cin >> a[i];
+        vector<int> b(m);
+        for (int i = 0; i < m; i++) cin >> b[i];
+        sort(a.begin(), a.end());
+        sort(b.rbegin(), b.rend());
+        vector<int> c(n);
+        long long s = 0;
+        for (int i = 0; i < n; i++) {
+            c[i] = b[m &mdash; n + i];
+            s += abs(c[i] &mdash; a[i]);
+        }
+        long long res = 0;
+        for (int k = 0; k <= n; k++) {
+            res = max(res, s);
+            if (k < n) {
+                s -= abs(c[k] &mdash; a[k]);
+                c[k] = b[k];
+                s += abs(c[k] &mdash; a[k]);
+            }
+        }
+        cout << res << "\n";
+    }
+};
+
+int main() {
+    ios::sync_with_stdio(false);
+    int n;
+    cin >> n;
+    for (int i = 0; i < n; i++) {
+        test().solve();
+    }
+    return 0;
+}

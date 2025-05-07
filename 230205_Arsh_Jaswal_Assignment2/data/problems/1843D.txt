@@ -1,0 +1,15 @@
+Timofey has an apple tree growing in his garden; it is a rooted tree of nn vertices with the root in vertex 11 (the vertices are numbered from 11 to nn). A tree is a connected graph without loops and multiple edges.
+This tree is very unusual — it grows with its root upwards. However, it's quite normal for programmer's trees.
+The apple tree is quite young, so only two apples will grow on it. Apples will grow in certain vertices (these vertices may be the same). After the apples grow, Timofey starts shaking the apple tree until the apples fall. Each time Timofey shakes the apple tree, the following happens to each of the apples:
+Let the apple now be at vertex uu.
+It can be shown that after a finite time, both apples will fall from the tree.
+Timofey has qq assumptions in which vertices apples can grow. He assumes that apples can grow in vertices xx and yy, and wants to know the number of pairs of vertices (aa, bb) from which apples can fall from the tree, where aa — the vertex from which an apple from vertex xx will fall, bb — the vertex from which an apple from vertex yy will fall. Help him do this.
+The first line contains integer tt (1≤t≤1041≤t≤104) — the number of test cases.
+The first line of each test case contains integer nn (2≤n≤2⋅1052≤n≤2⋅105) — the number of vertices in the tree.
+Then there are n−1n−1 lines describing the tree. In line ii there are two integers uiui and vivi (1≤ui,vi≤n1≤ui,vi≤n, ui≠viui≠vi) — edge in tree.
+The next line contains a single integer qq (1≤q≤2⋅1051≤q≤2⋅105) — the number of Timofey's assumptions.
+Each of the next qq lines contains two integers xixi and yiyi (1≤xi,yi≤n1≤xi,yi≤n) — the supposed vertices on which the apples will grow for the assumption ii.
+It is guaranteed that the sum of nn does not exceed 2⋅1052⋅105. Similarly, It is guaranteed that the sum of qq does not exceed 2⋅1052⋅105.
+For each Timofey's assumption output the number of ordered pairs of vertices from which apples can fall from the tree if the assumption is true on a separate line.
+In the first example: 
+For the second example, there are 44 of possible pairs of vertices from which apples can fall: (2,3),(2,2),(3,2),(3,3)(2,3),(2,2),(3,2),(3,3). For the second assumption, there is only one possible pair: (2,3)(2,3). For the third assumption, there are two pairs: (3,2),(3,3)(3,2),(3,3).

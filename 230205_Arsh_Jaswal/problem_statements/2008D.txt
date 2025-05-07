@@ -1,0 +1,17 @@
+Problem Title: D. Sakurako's Hobby
+
+time limit per test2 seconds
+memory limit per test256 megabytes
+
+For a certain permutation pp∗∗ Sakurako calls an integer jj reachable from an integer ii if it is possible to make ii equal to jj by assigning i=pii=pi a certain number of times.
+If p=[3,5,6,1,2,4]p=[3,5,6,1,2,4], then, for example, 44 is reachable from 11, because: i=1i=1 →→ i=p1=3i=p1=3 →→ i=p3=6i=p3=6 →→ i=p6=4i=p6=4. Now i=4i=4, so 44 is reachable from 11.
+Each number in the permutation is colored either black or white.
+Sakurako defines the function F(i)F(i) as the number of black integers that are reachable from ii.
+Sakurako is interested in F(i)F(i) for each 1≤i≤n1≤i≤n, but calculating all values becomes very difficult, so she asks you, as her good friend, to compute this.
+∗∗A permutation of length nn is an array consisting of nn distinct integers from 11 to nn in arbitrary order. For example, [2,3,1,5,4][2,3,1,5,4] is a permutation, but [1,2,2][1,2,2] is not a permutation (the number 22 appears twice in the array), and [1,3,4][1,3,4] is also not a permutation (n=3n=3, but the array contains 44).
+The first line contains a single integer tt (1≤t≤1041≤t≤104)  — the number of test cases.
+The first line of each test case contains a single integer nn (1≤n≤2⋅1051≤n≤2⋅105)  — the number of elements in the array.
+The second line of each test case contains nn integers p1,p2,…,pnp1,p2,…,pn (1≤pi≤n1≤pi≤n)  — the elements of the permutation.
+The third line of each test case contains a string ss of length nn, consisting of '0' and '1'. If si=0si=0, then the number pipi is colored black; if si=1si=1, then the number pipi is colored white.
+It is guaranteed that the sum of nn across all test cases does not exceed 2⋅1052⋅105.
+For each test case, output nn integers F(1),F(2),…,F(n)F(1),F(2),…,F(n).

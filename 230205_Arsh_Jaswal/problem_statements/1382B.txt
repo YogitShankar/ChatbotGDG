@@ -1,0 +1,13 @@
+Problem Title: B. Sequential Nim
+
+time limit per test1 second
+memory limit per test256 megabytes
+
+There are n piles of stones, where the i-th pile has ai stones. Two people play a game, where they take alternating turns removing stones.
+In a move, a player may remove a positive number of stones from the first non-empty pile (the pile with the minimal index, that has at least one stone). The first player who cannot make a move (because all piles are empty) loses the game. If both players play optimally, determine the winner of the game.
+The first line contains a single integer t (1≤t≤1000)  — the number of test cases. Next 2t lines contain descriptions of test cases.
+The first line of each test case contains a single integer n (1≤n≤105)  — the number of piles.
+The second line of each test case contains n integers a1,…,an (1≤ai≤109)  — ai is equal to the number of stones in the i-th pile.
+It is guaranteed that the sum of n for all test cases does not exceed 105.
+For each test case, if the player who makes the first move will win, output "First". Otherwise, output "Second".
+In the first test case, the first player will win the game. His winning strategy is: 

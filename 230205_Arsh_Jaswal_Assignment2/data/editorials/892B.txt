@@ -1,0 +1,1 @@
+892B - WrathThe i'th person will be alive if min(j - Lj) > i over all j > i.Consider you know the jth person is alive or not if j > i and you have x = min(j - Lj) over all j > i. If x > i then the ith person will be alive.And you can update x easily. 

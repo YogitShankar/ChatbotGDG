@@ -1,0 +1,18 @@
+Problem Title: B. Permutations & Primes
+
+time limit per test1 second
+memory limit per test256 megabytes
+
+You are given a positive integer nn.
+In this problem, the MEXMEX of a collection of integers c1,c2,…,ckc1,c2,…,ck is defined as the smallest positive integer xx which does not occur in the collection cc. 
+The primality of an array a1,…,ana1,…,an is defined as the number of pairs (l,r)(l,r) such that 1≤l≤r≤n1≤l≤r≤n and MEX(al,…,ar)MEX(al,…,ar) is a prime number. 
+Find any permutation of 1,2,…,n1,2,…,n with the maximum possible primality among all permutations of 1,2,…,n1,2,…,n. 
+Note: 
+Each test contains multiple test cases. The first line contains the number of test cases tt (1≤t≤1041≤t≤104). The description of the test cases follows.
+The only line of each test case contains a single integer nn (1≤n≤2⋅1051≤n≤2⋅105).
+It is guaranteed that the sum of nn over all test cases does not exceed 2⋅1052⋅105.
+For each test case, output nn integers: a permutation of 1,2,…,n1,2,…,n that achieves the maximum possible primality.
+If there are multiple solutions, print any of them.
+In the first test case, there are 33 pairs (l,r)(l,r) with 1≤l≤r≤21≤l≤r≤2, out of which 22 have a prime MEX(al,…,ar)MEX(al,…,ar): 
+In the second test case, MEX(1)=2MEX(1)=2 is prime, so the primality is 11.
+In the third test case, the maximum possible primality is 88.

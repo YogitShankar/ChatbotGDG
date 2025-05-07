@@ -1,0 +1,34 @@
+1454C - Sequence TransformationFirstly, let's remove all consecutive equal elements (just keep one occurrence of each such element). For example, the array [1,1,2,3,3,3,2] becomes [1,2,3,2].Now, the answer for each ai is almost the number of its occurrences plus one. Why is it so? Because we need to remove all segments of elements between every pair of consecutive occurrences of ai. The number of such segments is the number of occurrences of ai minus one. There is also a segment before the first occurrence of ai and a segment after the last occurrence of ai. But the first segment doesn't exist for the first element and the last segment doesn't exist for the last element.So, after removing consecutive elements, let's calculate for each ai the number of its occurrences plus one, subtract one from the value of the first element and from the value of the last element. Then the answer is the minimum among these values for all ai. Solution#include <bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+#ifdef _DEBUG
+	freopen("input.txt", "r", stdin);
+//	freopen("output.txt", "w", stdout);
+#endif
+	
+	int t;
+	cin >> t;
+	while (t--) {
+		int n;
+		cin >> n;
+		vector<int> a(n);
+		for (auto &it : a) cin >> it;
+		vector<int> res(n + 1, 1);
+		n = unique(a.begin(), a.end()) - a.begin();
+		a.resize(n);
+		for (int i = 0; i < n; ++i) {
+			res[a[i]] += 1;
+		}
+		res[a[0]] -= 1;
+		res[a[n - 1]] -= 1;
+		int ans = 1e9;
+		for (int i = 0; i < n; ++i) {
+			ans = min(ans, res[a[i]]);
+		}
+		cout << ans << endl;
+	}
+	
+	return 0;
+}

@@ -1,0 +1,23 @@
+1388B - Captain Flint and a Long VoyageStatement: x consists of digits 8−9.This is so, because if x contains digits 0−7, which in their binary notation are shorter than digits 8−9, then the number k written on the board, and therefore the number r (obtained by removing the last n digits of the number k) will be shorter than if you use only the digits 8 and 9, which means it will not be the maximum possible.Statement: x is 99…988…8.Obviously, the more x, the more k and r. Therefore, to maximize k, x must be 99…999. However, due to the fact that r is k without the last n digits, at the end of the number x it is possible to replace a certain number of 9 digits with 8 so that r will still be the maximum possible.Statement: the number of digits 8 in the number x of length n is equal to ⌈n4⌉.810=10002 and 910=10012. We can see that the binary notations of the digits 8 and 9 are 4 long and differ in the last digit.Suppose the suffix of a number x consists of p digits 8. Then the maximum r is achieved if at least 4⋅p−3 digits are removed from the end of k. By the condition of the problem, exactly n digits are removed, which means 4⋅p−3≤n and then p=⌊n+34⌋=⌈n4⌉.Complexity: O(n). Solution (Karavaev1101)#include <bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+    ios_base::sync_with_stdio(false);
+    cin.tie(nullptr); cout.tie(nullptr);
+
+    int q;
+    cin >> q;
+
+    while (q--) {
+        int n; cin >> n;
+        int x = (n + 3) / 4;
+        for (int i = 0; i < n - x; ++i) {
+            cout << 9;
+        }
+        for (int i = 0; i < x; ++i) {
+            cout << 8;
+        }
+        cout << endl;
+    }
+}

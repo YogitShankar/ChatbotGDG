@@ -1,0 +1,8 @@
+1073A - Diverse SubstringNotice that the string of two distinct letter is already diverse. That implies that the answer is "NO" if and only if all the letters in the string are the same. Otherwise you can check all pairs of adjacent letters in O(n).Overall complexity: O(n). Solution (PikMike)n = int(input())
+s = input()
+for i in range(n - 1):
+	if (s[i] != s[i + 1]):
+		print("YES")
+		print(s[i], s[i + 1], sep="")
+		exit(0)
+print("NO")

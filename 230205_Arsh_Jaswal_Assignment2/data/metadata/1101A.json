@@ -1,0 +1,10 @@
+{
+    "title": "A. Minimum Integer",
+    "description": "You are given q queries in the following form:\nGiven three integers li, ri and di, find minimum positive integer xi such that it is divisible by di and it does not belong to the segment [li,ri].\nCan you answer all the queries?\nRecall that a number x belongs to segment [l,r] if l≤x≤r.\nThe first line contains one integer q (1≤q≤500) — the number of queries.\nThen q lines follow, each containing a query given in the format li ri di (1≤li≤ri≤109, 1≤di≤109). li, ri and di are integers.\nFor each query print one integer: the answer to this query.",
+    "time limit": "time limit per test1 second",
+    "memory limit": "memory limit per test256 megabytes",
+    "tags": [
+        "math",
+        "*1000"
+    ]
+}

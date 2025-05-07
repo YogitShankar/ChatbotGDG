@@ -1,0 +1,41 @@
+1946B - Maximum SumLet's denote s as the sum of the original array and x as the sum of the subarray with the maximum sum from the original array.We solve the problem when k equals 1. In this case, we need to find the subarray of the array with the maximum sum and insert this sum anywhere in the array, so the answer is s+x. Now, let k be 2. In this case, there is already a value where we insert the sum of the subarray with the maximum sum. Then we can increase the sum of the subarray with the maximum sum by no more than x (we can increase it by x simply by inserting it into the subarray with the maximum sum), and obtain the sum of the subarray with the maximum sum 2⋅x. Then insert it anywhere in the array, thus obtaining the sum of the final array equal to s+x+2⋅x. Similarly, for any k, the sum of the subarray with the maximum sum is initially x, then 2⋅x, then 4⋅x, …, 2k−1⋅x, then the answer is equal to s+x+2⋅x+⋯+2k−1⋅x=s+2k⋅x−x. Solution#include <bits/stdc++.h>
+using namespace std;
+#define int long long
+const int P = 1e9 + 7;
+
+void solve() {
+    int n, k;
+    cin >> n >> k;
+    vector<int> a(n);
+    for (int i = 0; i < n; i++)
+        cin >> a[i];
+    int S = 0, sum = 0;
+    int cur = 0;
+    for (int i = 0; i < n; i++) {
+        sum += a[i];
+        cur += a[i];
+        cur = max(cur, 0LL);
+        S = max(S, cur);
+    }
+    sum = (sum % P + P) % P;
+    S = S % P;
+    int t = 1;
+    for (int i = 0; i < k; i++) {
+        t = t * 2 % P;
+    }
+    int ans = (sum + S * t - S + P) % P;
+    cout << ans << '\n';
+}
+
+
+signed main() {
+    //cout << fixed << setprecision(20);
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
+    int T = 1, G = 1;
+    //cin >> G;
+    cin >> T;
+    while (T--)
+        solve();
+    return 0;
+}author: dope, developer: dope

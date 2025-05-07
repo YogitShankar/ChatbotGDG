@@ -1,0 +1,75 @@
+1862C - Flower City FenceObviously, if a1≠n, then this fence is not symmetric, because the fence a has a length of n, while the horizontally laid fence has a length of a1≠n.Now let's build a fence b using horizontal boards that would match the original fence a. And let's check if the arrays a and b are equal. If they are equal, then the fence is symmetric; otherwise, it is not. There won't be any memory issues since all ai≤n, which means the length of array b does not exceed n. Solution#include <iostream>
+#include <vector>
+ 
+using namespace std;
+ 
+int main() {
+    int t;
+    cin >> t;
+    while (t--) {
+        int n;
+        cin >> n;
+        vector<int> a(n + 1);
+        for (int i = 1; i <= n; i++) {
+            cin >> a[i];
+        }
+        if (a[1] != n) {
+            cout << "NO" << '\n';
+            continue;
+        }
+        vector<int> b;
+        for (int i = n; i >= 1; i--) {
+            while (b.size() < a[i]) {
+                b.push_back(i);
+            }
+        }
+        bool meow = true;
+        for (int i = 1; i <= n; i++) {
+            if (a[i] != b[i - 1]) {
+                cout << "NO" << '\n';
+                meow = false;
+                break;
+            }
+        }
+        if (meow) {
+            cout << "YES" << '\n';
+        }
+    }
+    return 0;
+} Rate the problem Didn't solve 
+
+    
+
+
+130
+
+
+
+ Good task 
+
+    
+
+
+532
+
+
+
+ Average task 
+
+    
+
+
+49
+
+
+
+ Bad task 
+
+    
+
+
+126
+
+
+
+ 

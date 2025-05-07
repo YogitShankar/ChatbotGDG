@@ -1,0 +1,55 @@
+1426C - Increase and CopyIt is pretty intuitive that we firstly need to do all increments and only then copy numbers (because otherwise we can swap the order of moves and the sum will not decrease). You could notice that the answer does not exceed O(n−−√) so we can just iterate from 1 to ⌊n−−√⌋ and fix the number we will copy. Let it be x. Then we need x−1 moves to obtain it and also need ⌈n−xx⌉ moves to get the enough number of copies. So, we can update the answer with this number of moves.Time complexity: O(n−−√) per test case.Actually, the required number is always pretty near to ⌊n−−√⌋ so it is enough to try a few options in range [⌊n−−√⌋−5;⌊n−−√⌋+5] to get the optimal answer. This is O(1) solution. Solution#include <bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+#ifdef _DEBUG
+	freopen("input.txt", "r", stdin);
+//	freopen("output.txt", "w", stdout);
+#endif
+	
+	int t;
+	cin >> t;
+	while (t--) {
+		int n;
+		cin >> n;
+		int ans = 1e9;
+		for (int x = 1; x * x <= n; ++x) {
+			ans = min(ans, x - 1 + ((n - x) + x - 1) / x);
+		}
+		cout << ans << endl;
+	}
+	
+	return 0;
+}
+ Solution 2#include<bits/stdc++.h>
+
+using namespace std;
+
+const long double EPS = 1e-9;
+
+long long f(long long x)
+{                                                        
+	long long z = sqrtl(x);
+	long long ans = 1e18;
+	for(int i = -5; i <= 5; i++)
+	{
+	 	long long z2 = z - i;
+	 	if(z2 > x || z2 < 1)
+	 		continue;
+	 	ans = min(ans, z2 - 2 + (x + z2 - 1) / z2);
+	}
+	return ans;
+}
+
+int main()
+{
+ 	int t;
+ 	cin >> t;
+ 	for(int i = 0; i < t; i++)
+ 	{
+ 	 	long long x;
+ 	 	cin >> x;
+ 	 	cout << f(x) << endl;
+ 	}
+}

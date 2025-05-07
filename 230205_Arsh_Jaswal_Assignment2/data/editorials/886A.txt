@@ -1,0 +1,1 @@
+886A - ACM ICPCIn this problem it's enough to iterate through all the triples checking whether its sum equals to the sum of remaining triple or not. Answer is "YES" if equality is possible and "NO" — otherwise. 

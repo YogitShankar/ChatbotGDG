@@ -1,0 +1,11 @@
+The array [a1,a2,…,ak] is called beautiful if it is possible to remove several (maybe zero) elements from the beginning of the array and insert all these elements to the back of the array in the same order in such a way that the resulting array is sorted in non-descending order.
+In other words, the array [a1,a2,…,ak] is beautiful if there exists an integer i∈[0,k−1] such that the array [ai+1,ai+2,…,ak−1,ak,a1,a2,…,ai] is sorted in non-descending order.
+For example:
+Note that any array consisting of zero elements or one element is beautiful.
+You are given an array a, which is initially empty. You have to process q queries to it. During the i-th query, you will be given one integer xi, and you have to do the following:
+After each query, report whether you appended the given integer xi, or not.
+The first line contains one integer t (1≤t≤104) — the number of test cases.
+Each test case consists of two lines. The first line contains one integer q (1≤q≤2⋅105) — the number of queries. The second line contains q integers x1,x2,…,xq (0≤xi≤109).
+Additional constraint on the input: the sum of q over all test cases does not exceed 2⋅105).
+For each test case, print one string consisting of exactly q characters. The i-th character of the string should be 1 if you appended the integer during the i-th query; otherwise, it should be 0.
+Consider the first test case of the example. Initially, the array is [].

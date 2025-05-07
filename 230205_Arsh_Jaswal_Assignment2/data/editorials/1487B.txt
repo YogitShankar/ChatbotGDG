@@ -1,0 +1,8 @@
+1487B - Cat CycleIf n is even, then each hour A and B are on the spots with different parity, so they will never meet. Otherwise, let's look closely what happens.At the start, A in n and B in 1. But since we can form a cycle from spots then it means that n and 1 in reality are neighbors. After that, A and B (starting from neighboring positions) just go in opposite directions and meet each other in the opposite spot after exactly ⌊n2⌋ steps.After meeting B "jumps over" A making 1 extra step and the situation become practically the same: A and B are neighbors and move in the opposite direction.In other words, each f=⌊n2⌋ steps B makes one extra step, so the answer (if both k and spots are 0-indexed) is (k+(nmod2)⋅⌊kf⌋)modn Solution (adedalic)fun main() {
+    repeat(readLine()!!.toInt()) {
+        var (n, k) = readLine()!!.split(' ').map { it.toInt() }
+        k--
+        val floor = n / 2
+        println((k + (n % 2) * k / floor) % n + 1)
+    }
+}

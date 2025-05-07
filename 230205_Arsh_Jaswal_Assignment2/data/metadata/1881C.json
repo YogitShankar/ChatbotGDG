@@ -1,0 +1,11 @@
+{
+    "title": "C. Perfect Square",
+    "description": "Kristina has a matrix of size n by n, filled with lowercase Latin letters. The value of n is even.\nShe wants to change some characters so that her matrix becomes a perfect square. A matrix is called a perfect square if it remains unchanged when rotated 90∘ clockwise once.\nHere is an example of rotating a matrix by 90∘:\nIn one operation, Kristina can choose any cell and replace its value with the next character in the alphabet. If the character is equal to \"z\", its value does not change.\nFind the minimum number of operations required to make the matrix a perfect square.\nFor example, if the 4 by 4 matrix looks like this:\nabbabcbbbccbabba\nthen it is enough to apply 1 operation to the letter b, highlighted in bold.\nThe first line of the input contains a single integer t (1≤t≤102) — the number of test cases.\nThen follows the description of each test case.\nThe first line of each test case contains a single even integer n (2≤n≤103) — the number of rows and columns in the matrix.\nThen follows n lines, each containing exactly n lowercase Latin letters.\nIt is guaranteed that the sum of n over all test cases does not exceed 103.\nFor each test case, output a single number on a separate line: the minimum number of operations required for Kristina to obtain a perfect square.\nThe first test case is explained in the problem statement.",
+    "time limit": "time limit per test2 seconds",
+    "memory limit": "memory limit per test256 megabytes",
+    "tags": [
+        "brute force",
+        "implementation",
+        "*1200"
+    ]
+}

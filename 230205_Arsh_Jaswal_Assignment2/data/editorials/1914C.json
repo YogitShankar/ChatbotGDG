@@ -1,0 +1,3 @@
+{
+    "solution": "1914C - QuestsIdea: Roms TutorialTutorial is loading... Solution (Neon)fun main() = repeat(readLine()!!.toInt()) {\n  val (n, k) = readLine()!!.split(\" \").map { it.toInt() }\n  val a = readLine()!!.split(\" \").map { it.toInt() }\n  val b = readLine()!!.split(\" \").map { it.toInt() }\n  var (res, sum, mx) = intArrayOf(0, 0, 0)\n  for (i in 0 until minOf(n, k)) {\n    sum += a[i]\n    mx = maxOf(mx, b[i])\n    res = maxOf(res, sum + mx * (k - i - 1))\n  }\n  println(res)\n}"
+}

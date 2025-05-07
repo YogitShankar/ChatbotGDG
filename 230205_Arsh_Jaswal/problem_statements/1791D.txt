@@ -1,0 +1,15 @@
+Problem Title: D. Distinct Split
+
+time limit per test2 seconds
+memory limit per test256 megabytes
+
+Let's denote the f(x)f(x) function for a string xx as the number of distinct characters that the string contains. For example f(abc)=3f(abc)=3, f(bbbbb)=1f(bbbbb)=1, and f(babacaba)=3f(babacaba)=3.
+Given a string ss, split it into two non-empty strings aa and bb such that f(a)+f(b)f(a)+f(b) is the maximum possible. In other words, find the maximum possible value of f(a)+f(b)f(a)+f(b) such that a+b=sa+b=s (the concatenation of string aa and string bb is equal to string ss).
+The input consists of multiple test cases. The first line contains an integer tt (1≤t≤1041≤t≤104) — the number of test cases. The description of the test cases follows.
+The first line of each test case contains an integer nn (2≤n≤2⋅1052≤n≤2⋅105) — the length of the string ss.
+The second line contains the string ss, consisting of lowercase English letters.
+It is guaranteed that the sum of nn over all test cases does not exceed 2⋅1052⋅105.
+For each test case, output a single integer  — the maximum possible value of f(a)+f(b)f(a)+f(b) such that a+b=sa+b=s.
+For the first test case, there is only one valid way to split aaaa into two non-empty strings aa and aa, and f(a)+f(a)=1+1=2f(a)+f(a)=1+1=2.
+For the second test case, by splitting abcabcdabcabcd into abcabc and abcdabcd we can get the answer of f(abc)+f(abcd)=3+4=7f(abc)+f(abcd)=3+4=7 which is maximum possible.
+For the third test case, it doesn't matter how we split the string, the answer will always be 22.

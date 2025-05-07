@@ -1,0 +1,6 @@
+Baby Badawy's first words were "AND 0 SUM BIG", so he decided to solve the following problem. Given two integers n and k, count the number of arrays of length n such that:
+Since the answer can be very large, print its remainder when divided by 109+7.
+The first line contains an integer t (1≤t≤10) — the number of test cases you need to solve.
+Each test case consists of a line containing two integers n and k (1≤n≤105, 1≤k≤20).
+For each test case, print the number of arrays satisfying the conditions. Since the answer can be very large, print its remainder when divided by 109+7.
+In the first example, the 4 arrays are:

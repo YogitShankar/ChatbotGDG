@@ -1,0 +1,29 @@
+1734C — Removing Smallest MultiplesOne operation should be used to remove every element not belonging to T.Let v be an element not belonging to T. Suppose a x-cost operation removes value v, then v must be divisible by x. Furthermore, the multiples x,2x,⋯(k−1)x must have been already removed from S, where we write v=kx.Since removed elements stay removed, the above is only possible if all of x,2x,⋯(k−1)x does not belong to T.For each v, let f(v) be the smallest integer x satisfying the above condition. As we can always remove v using a v-cost operation, f(v)≤v and in particular f(v) exists.The total cost must be at least ∑i∉Tf(i). We claim that this cost can be achieved.To do so, we should remove the required elements in ascending order. When removing v, we assume all w∉T with w<v have already been removed. At this state, an f(v)-cost operation would be able to remove v. It remains to find the values f(v). To do so efficiently, we can perform the above process in a bottom-up manner similar to the Sieve of Eratosthenes. Please refer to the code below for implementation details. The overall complexity is n(1+12+13+⋯+1n)=Θ(nlogn). Code in C++#include <bits/stdc++.h>
+using namespace std;
+void solve() {
+    int n;
+    cin >> n;
+    bool a[n + 1];
+    string str;
+    cin >> str;
+    for (int i = 1; i <= n; i++) {
+        a[i] = (str[i - 1] == '1');
+    }
+    long long ans = 0;
+    int cost[n + 1];
+    for (int i = n; i >= 1; i--) {
+        for (int j = i; j <= n; j += i) {
+            if (a[j]) break;
+            cost[j] = i;
+        }
+    }
+    for (int i = 1; i <= n; i++) {
+        if (!a[i]) ans += cost[i];
+    }
+    cout << ans << '\n';
+}
+int main() {
+    int t;
+    cin >> t;
+    while (t--) solve();
+}

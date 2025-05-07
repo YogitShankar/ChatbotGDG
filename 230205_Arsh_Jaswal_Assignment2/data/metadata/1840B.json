@@ -1,0 +1,12 @@
+{
+    "title": "B. Binary Cafe",
+    "description": "Once upon a time, Toma found himself in a binary cafe. It is a very popular and unusual place.\nThe cafe offers visitors k different delicious desserts. The desserts are numbered from 0 to k−1. The cost of the i-th dessert is 2i coins, because it is a binary cafe! Toma is willing to spend no more than n coins on tasting desserts. At the same time, he is not interested in buying any dessert more than once, because one is enough to evaluate the taste.\nIn how many different ways can he buy several desserts (possibly zero) for tasting?\nThe first line of the input contains a single integer t (1≤t≤1000) — the number of test cases.\nThen follows t lines, each of which describes one test case.\nEach test case is given on a single line and consists of two integers n and k (1≤n,k≤109) — the number of coins Toma is willing to spend and the number of desserts in the binary cafe.\nOutput t integers, the i-th of which should be equal to the answer for the i-th test case — the number of ways to buy desserts for tasting.\nVariants for 1st sample: {}, {1}\nVariants for 2nd sample: {}, {1}\nVariants for 3rd sample: {}, {1}, {2}\nVariants for 4th sample: {}, {1}, {2}, {1, 2}",
+    "time limit": "time limit per test1 second",
+    "memory limit": "memory limit per test256 megabytes",
+    "tags": [
+        "bitmasks",
+        "combinatorics",
+        "math",
+        "*1100"
+    ]
+}

@@ -1,0 +1,38 @@
+1657C - Bracket Sequence DeletionConsider the first character of the string. If it is '(', then we can remove the first two characters of the string and continue (because the prefix of length 2 will be either a palindrome or a regular bracket sequence). If the first character of the string is ')' then this is a bad case. Of course, the regular bracket sequence can't start with '(', so this prefix should be a palindrome. And what is the shortest palindrome we can get with the first character ')'? It is the closing bracket ')', then some (possibly, zero) amount of opening brackets '(', and another one closing bracket. We can see that we can't find a palindrome shorter than this one because we have to find a pair for the first character. So, if the first character of the string is ')', then we just remove anything until the next character ')' inclusive. To not remove any characters explicitly, we can just use pointers instead. And the last thing is to carefully handle cases when we can't do any operations. Solution (vovuh)#include <bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+#ifdef _DEBUG
+    freopen("input.txt", "r", stdin);
+//  freopen("output.txt", "w", stdout);
+#endif
+    
+    int t;
+    cin >> t;
+    while (t--) {
+        int n;
+        string s;
+        cin >> n >> s;
+        int l = 0;
+        int cnt = 0;
+        while (l + 1 < n) {
+            if (s[l] == '(' || (s[l] == ')' && s[l + 1] == ')')) {
+                l += 2;
+            } else {
+                int r = l + 1;
+                while (r < n && s[r] != ')') {
+                    ++r;
+                }
+                if (r == n) {
+                    break;
+                }
+                l = r + 1;
+            }
+            ++cnt;
+        }
+        cout << cnt << ' ' << n - l << '\n';
+    }
+    
+    return 0;
+}

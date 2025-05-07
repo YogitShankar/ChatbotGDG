@@ -1,0 +1,49 @@
+1842B - Tenzing and Books TutorialObserve the bitwise OR: if a bit of the knowledge changes to 1, it will never become 0.It tells us, if a book has difficulty rating y, and x|y≠x, Tenzing will never read this book because it will change a 0 bit in x to 1.We called a number y valid if x|y=x. For each sequence, we can find a longest prefix of it such that all numbers in this prefix are valid. Find the bitwise OR of the three prefix and check whether it equals to x.Time complexity: O(n) per test case. Alternative SolutionA naive approach is to enumerate the prefixes of the three stacks, which is an enumeration of n3. For each stack, the bitwise OR of the prefix has at most 31 different values (including empty prefix), because the bitwise OR of the prefix is non-decreasing, and each change will increase the number of 1s in binary. Since the number of 1s in binary cannot exceed 30, it can be changed at most 30 times. Therefore, the enumeration is reduced to min(n,31)3. In the worst case, the time complexity is O(∑n∗312). Code#include <iostream>
+
+using namespace std;
+
+int main() {
+    ios::sync_with_stdio(false), cin.tie(nullptr);
+    int T;
+    cin >> T;
+    while (T--) {
+        int n, x, a[100000];
+        cin >> n >> x;
+        int s = 0;
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < n; j++) cin >> a[j];
+            for (int j = 0; j < n; j++) {
+                if ((x | a[j]) != x) break;
+                s |= a[j];
+            }
+        }
+        if (s == x) cout << "YES\n";
+        else cout << "NO\n";
+    }
+} Alternative Code#include <bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+    ios::sync_with_stdio(false), cin.tie(nullptr);
+    int T;
+    cin >> T;
+    while (T--) {
+        int n, x, ai;
+        cin >> n >> x;
+        vector<int> pre[3];
+        for (int i = 0; i < 3; i++) {
+            int s = 0;
+            pre[i].push_back(s);
+            for (int j = 0; j < n; j++) {
+                cin >> ai;
+                if ((s | ai) != s)
+                    s |= ai, pre[i].push_back(s);
+            }
+        }
+        bool ans = 0;
+        for (int A : pre[0]) for (int B : pre[1]) for (int C : pre[2])
+            ans |= (A | B | C) == x;
+        cout << (ans ? "YES\n" : "NO\n");
+    }
+}

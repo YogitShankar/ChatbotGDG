@@ -1,0 +1,14 @@
+1766B - Notepad#Why does the problem ask us only to check if we can do less than n operations instead of just asking the minimum amount? That must be making the problem easier, so let's focus our attention on that.What if it was ≤n instead of <n? Well, then the problem would be trivial. You can type the word letter by letter and be done in n operations. So we only have to save one operation. In order to save at least one operation, we have to use the copy operation and copy more than one character in that.Let's take a closer look at any of the copy operations we do. Basically, it has to be a substring that has at least two non-intersection occurrences in the string. Thus, if the string has any substring that has length at least two that appears at least twice in the string, we can copy it, and the answer will be "YES".That's still not enough to solve the problem — we'd have to check all substrings, which is O(n2).Let's think further. Imagine we found a substring that works. Let it have length k. Notice how you can remove its last character, obtaining a substring of length k−1, and it will still occure in the same set of positions (possibly, even more occurrences will be found). Remove characters until the substring has length 2. Thus, if any appropriate substring exists, an appropriate substring of length 2 also exists.Finally, we can check if there exists a substring of length 2 that appears at least twice in the string so that the occurrences are at least 2 apart. That can be done with a set/hashset or a map/hashmap. Some implementations might require careful handling of the substrings of kind "aa", "bb" and similar.Overall complexity: O(n) or O(nlogn) per testcase. Solution (awoo)for _ in range(int(input())):
+	n = int(input())
+	s = input()
+	cur = {}
+	for i in range(n - 1):
+		t = s[i:i+2]
+		if t in cur:
+			if cur[t] < i - 1:
+				print("YES")
+				break
+		else:
+			cur[t] = i
+	else:
+		print("NO")

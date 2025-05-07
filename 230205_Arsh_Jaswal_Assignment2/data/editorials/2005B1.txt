@@ -1,0 +1,1 @@
+2005B1 - The Strict Teacher (Easy Version) HintSeparately solve for cases when David is on left side of both the teachers, in between the teachers and right side of both the teachers.My submission — 281147180 Video Editorial

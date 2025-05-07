@@ -1,0 +1,12 @@
+{
+    "title": "B. AND Sorting",
+    "description": "You are given a permutation p of integers from 0 to n−1 (each of them occurs exactly once). Initially, the permutation is not sorted (that is, pi>pi+1 for at least one 1≤i≤n−1). \nThe permutation is called X-sortable for some non-negative integer X if it is possible to sort the permutation by performing the operation below some finite number of times: \nHere & denotes the bitwise AND operation.\nFind the maximum value of X such that p is X-sortable. It can be shown that there always exists some value of X such that p is X-sortable.\nThe input consists of multiple test cases. The first line contains a single integer t (1≤t≤104)  — the number of test cases. Description of test cases follows.\nThe first line of each test case contains a single integer n (2≤n≤2⋅105)  — the length of the permutation.\nThe second line of each test case contains n integers p1,p2,...,pn (0≤pi≤n−1, all pi are distinct)  — the elements of p. It is guaranteed that p is not sorted.\nIt is guaranteed that the sum of n over all cases does not exceed 2⋅105.\nFor each test case output a single integer — the maximum value of X such that p is X-sortable.\nIn the first test case, the only X for which the permutation is X-sortable are X=0 and X=2, maximum of which is 2.\nSorting using X=0: \nSorting using X=2: \nIn the second test case, we must swap p1 and p2 which is possible only with X=0.",
+    "time limit": "time limit per test1 second",
+    "memory limit": "memory limit per test256 megabytes",
+    "tags": [
+        "bitmasks",
+        "constructive algorithms",
+        "sortings",
+        "*1100"
+    ]
+}

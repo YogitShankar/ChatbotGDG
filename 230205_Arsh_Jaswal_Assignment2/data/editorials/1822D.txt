@@ -1,0 +1,65 @@
+1822D - Super-PermutationLet k be the position of the number n in the permutation a, that is, ak=n, then if k>1, then bk=(bk−1+ak)modn=bk−1 therefore, b is not a permutation, so k=1. Now note that if n>1 is odd, then bn=(a1 + a2 + … + an)modn=(1+2+ … +n)modn=n⋅(n+1)2modn=0=b1. So there is no answer.If n is even, then one possible example would be a=[n, 1, n−2, 3, n−4, 5, …, n−1, 2], since then b=[0, 1, n−1, 2, n−2, 3, n−3, …, n2]. Solution#include <bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+    int q;
+    cin >> q;
+    while (q--) {
+        int n;
+        cin >> n;
+        if (n == 1) {
+            cout << "1\n";
+            continue;
+        }
+        if (n % 2) {
+            cout << "-1\n";
+        } else {
+            for (int i = 0; i < n; ++i) {
+                if (i % 2) {
+                    cout << i << " ";
+                } else {
+                    cout << n - i << " ";
+                }
+            }
+            cout << "\n";
+        }
+    }
+    return 0;
+} Rate the problem Didn't solve 
+
+    
+
+
+160
+
+
+
+ Good task 
+
+    
+
+
+290
+
+
+
+ Average task 
+
+    
+
+
+55
+
+
+
+ Bad task 
+
+    
+
+
+466
+
+
+
+ 

@@ -1,0 +1,10 @@
+{
+    "title": "B. Strings Equalization",
+    "description": "You are given two strings of equal length s and t consisting of lowercase Latin letters. You may perform any number (possibly, zero) operations on these strings.\nDuring each operation you choose two adjacent characters in any string and assign the value of the first character to the value of the second or vice versa.\nFor example, if s is \"acbc\" you can get the following strings in one operation: \nNote that you can also apply this operation to the string t.\nPlease determine whether it is possible to transform s into t, applying the operation above any number of times.\nNote that you have to answer q independent queries.\nThe first line contains one integer q (1≤q≤100) — the number of queries. Each query is represented by two consecutive lines.\nThe first line of each query contains the string s (1≤|s|≤100) consisting of lowercase Latin letters.\nThe second line of each query contains the string t (1≤|t|≤100, |t|=|s|) consisting of lowercase Latin letters.\nFor each query, print \"YES\" if it is possible to make s equal to t, and \"NO\" otherwise.\nYou may print every letter in any case you want (so, for example, the strings \"yEs\", \"yes\", \"Yes\", and \"YES\" will all be recognized as positive answer).\nIn the first query, you can perform two operations s1=s2 (after it s turns into \"aabb\") and t4=t3 (after it t turns into \"aabb\"). \nIn the second query, the strings are equal initially, so the answer is \"YES\".\nIn the third query, you can not make strings s and t equal. Therefore, the answer is \"NO\".",
+    "time limit": "time limit per test1 second",
+    "memory limit": "memory limit per test256 megabytes",
+    "tags": [
+        "strings",
+        "*1000"
+    ]
+}

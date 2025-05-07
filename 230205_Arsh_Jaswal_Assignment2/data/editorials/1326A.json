@@ -1,0 +1,3 @@
+{
+    "solution": "1326A - Bad Ugly NumbersIf n=1, no solution exists.Otherwise, if n≥2, the number 233…3¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯ (n digits) satisfies all conditions, because it is not divisible by 2 and 3.Jury solution: link "
+}

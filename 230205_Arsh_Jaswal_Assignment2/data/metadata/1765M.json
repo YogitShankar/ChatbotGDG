@@ -1,0 +1,11 @@
+{
+    "title": "M. Minimum LCM",
+    "description": "You are given an integer n.\nYour task is to find two positive (greater than 0) integers a and b such that a+b=n and the least common multiple (LCM) of a and b is the minimum among all possible values of a and b. If there are multiple answers, you can print any of them.\nThe first line contains a single integer t (1≤t≤100) — the number of test cases.\nThe first line of each test case contains a single integer n (2≤n≤109).\nFor each test case, print two positive integers a and b — the answer to the problem. If there are multiple answers, you can print any of them.\nIn the second example, there are 8 possible pairs of a and b:\nIn the third example, there are 5 possible pairs of a and b:",
+    "time limit": "time limit per test2 seconds",
+    "memory limit": "memory limit per test512 megabytes",
+    "tags": [
+        "math",
+        "number theory",
+        "*1000"
+    ]
+}

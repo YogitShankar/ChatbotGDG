@@ -1,0 +1,34 @@
+1333B - Kind AntonFirst of all, note that we can add an element with index i to an element with index j iff i<j. This means that the element an cannot be added to any other element because there is no index j>n in the array. This is why we can first equalize the elements an and bn. If an=bn, they are already equal. If an<bn, then we need to have element equal to 1 along the elements a with indexes {1,...,n−1}. For an>bn, we need to have −1 along these elements. After the elements with index n become equal, we can go to the element with index n−1 and do the same. Then indexes n−2, n−3, ..., 1. You can implement this idea yourself!Final time complexity: O(n) Solution C++#include <bits/stdc++.h>
+
+using namespace std;
+
+void solve() {
+    int n; cin >> n;
+    vector<int> a(n), b(n);
+    for (int i = 0; i < n; ++i) {
+        cin >> a[i];
+    }
+    for (int i = 0; i < n; ++i) {
+        cin >> b[i];
+    }
+    vector<int> good(2, 0);
+    for (int i = 0; i < n; ++i) {
+        if (a[i] > b[i] && !good[0]) {
+            cout << "NO\n";
+            return;
+        } else if (a[i] < b[i] && !good[1]) {
+            cout << "NO\n";
+            return;
+        }
+        if (a[i] == -1) good[0] = 1;
+        if (a[i] == 1) good[1] = 1;
+    }
+    cout << "YES\n";
+}
+
+int main() {
+    int t; cin >> t;
+    while(t--) {
+        solve();
+    }
+} 

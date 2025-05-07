@@ -1,0 +1,46 @@
+1593D1 - All are Samek can be arbitrarily large if and only if all numbers in the array are the same. In this case, we can choose any number k and subtract it from all the numbers, for example, exactly once.Suppose we fix some k. Let qi be the number of subtractions of the number k from the number ai. In this case, all numbers will be equal if and only if, for any two numbers ai and aj from the array, ai−k⋅qi=aj−k⋅qj. Let qi0 be the minimum of qi. Then all numbers in the array become the same if for each index i we subtract from ai k not qi, but qi−qi0 times. Then we will never subtract k from the element ai0. This means that there is always an element in the array from which we can never subtract k. This element is the minimum on the array. Then from ai we will subtract k exactly ai−ai0k times.Thus, with the current k, it is possible to make all elements equal if and only if for all elements ai the value ai−ai0 (where ai0 is the minimum on the array) is divisible by k. So, the maximum k is the greatest common divisor of all values of ai−ai0, i=1,n¯¯¯¯¯¯¯¯. Solution#include <bits/stdc++.h>
+
+using namespace std;
+
+int main()
+{
+	int t;
+	cin >> t;
+
+	while (t--)
+	{
+		int n;
+		cin >> n;
+
+		vector<int> a(n);
+		for (int i = 0; i < n; i++) cin >> a[i];
+
+		bool inf = true;
+		int minval = a[0];
+
+		for (int i = 1; i < n; i++)
+		{
+			if (a[i] != a[0])
+			{
+				inf = false;
+				break;
+			}
+			minval = min(minval, a[i]);
+		}
+
+		if (inf)
+		{
+			cout << "-1\n";
+			continue;
+		}
+
+		sort(a.begin(), a.end());
+
+		int ans = 0;
+		for (int i = 0; i < n; i++)
+			ans = gcd(ans, a[i] - minval);
+		cout << ans << '\n';
+	}
+
+	return 0;
+}

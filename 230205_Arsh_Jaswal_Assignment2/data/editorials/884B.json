@@ -1,0 +1,3 @@
+{
+    "solution": "884B - Japanese Crosswords Strike BackThe only answer is when no segment can be moved one cell either to the left or to the right. So there should be exactly one cell between two consecutive segments and the first and the last segments should touch the borders.Thus total count of cells needed is .Overall complexity; O(n).  "
+}

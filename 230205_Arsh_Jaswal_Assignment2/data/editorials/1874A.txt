@@ -1,0 +1,87 @@
+1874A - Jellyfish and Game TutorialLet us define min(a) to be the minimum value of a in the current round, max(a) to be the maximum value of a in the current round, min(b) to be the minimum value of b in the current round, max(b) to be the maximum value of b in the current round, MIN to be the minimum value of all the apples, MAX to be the maximum value of all the apples.By greedy and induction, we would come to the following conclusion:  If Jellyfish is the one operating this round: If min(a)<max(b), she will swap this two apples, otherwise she will do nothing. If Gellyfish is the one operating this round: If max(a)>min(b), he will swap this two apples, otherwise she will do nothing. We consider who MAX and MIN will belong to after the first round.In the first round:  If max(a)<max(b), MAX=max(b). And because min(a)<max(b), Jellyfish will swap this two apples. So MAX belongs to Jellyfish. If max(a)>max(b), MAX=max(a). If min(a)=max(a), then min(a)>max(b), Jellyfish will do nothing. Otherwise Jellyfish won't swap the apple with value MAX. In conclusion MAX belongs to Jellyfish We can also show that MIN belongs to Gellyfish, and the proof is symmetric with the above.So in the second round, min(b)=MIN,max(a)=MAX, We have MIN<MAX. So Gellyfish will swap this two apples, in the third round, min(a)=MIN,max(b)=MAX, Jellyfish will swap this two apples.So after the first round, the game will go two rounds at a time, with two people swapping two apples with the minimum value and the maximum value back and forth.So we only need to know the answer for k=1 and k=2.Time complexity: O(n+m) per test case.Memory complexity: O(n+m) per test case. Code#include<bits/stdc++.h>
+
+using namespace std;
+
+const int N = 1000 + 5;
+int n = 0, m = 0, k = 0, x = 0, y = 0, a[N] = {}, b[N] = {};
+
+inline void solve(){
+	scanf("%d %d %d", &n, &m, &k); k --;
+	for(int i = 0 ; i < n ; i ++) scanf("%d", &a[i]);
+	for(int i = 0 ; i < m ; i ++) scanf("%d", &b[i]);
+	x = y = 0;
+	for(int i = 1 ; i < n ; i ++) if(a[i] < a[x]) x = i;
+	for(int i = 1 ; i < m ; i ++) if(b[i] > b[y]) y = i;
+	if(b[y] > a[x]) swap(a[x], b[y]);
+	if(k & 1){
+		x = 0, y = 0;
+		for(int i = 1 ; i < n ; i ++) if(a[i] > a[x]) x = i;
+		for(int i = 1 ; i < m ; i ++) if(b[i] < b[y]) y = i;
+		swap(a[x], b[y]);
+	}
+	long long ans = 0;
+	for(int i = 0 ; i < n ; i ++) ans += a[i];
+	printf("%lld\n", ans);
+	
+}
+
+int T = 0;
+
+int main(){
+	scanf("%d", &T);
+	for(int i = 0 ; i < T ; i ++) solve();
+	return 0;
+}
+1875C - Jellyfish and Green Apple TutorialFirstly, if n≥m, we can make the problem transform n<m by giving each person an apple at a time until there are not enough apples.We can calculate the mass of apples that each person ends up with as nm.Since it's cut in half every time, if mgcd(n,m) is not an integral power of 2, there's no solution.Since the number of apple pieces is added to exactly 1 for each cut, So we just need to minimize the final number of apple pieces.As the problem is transformed, nm is less than 1, and mgcd(n,m) is an integral power of 2. So we can uniquely find a set of positive integers S satisfying nm=∑i∈S12i. And this method can be proven to be optimal, if we find another multiset T satisfying S≠T, for every element x that appears twice or more, We can make the answer better by removing two x at a time from T and adding one x−1 to T. By repeating this process, eventually T will become S.We can use std::__builtin_popcount() to get |S|, the answer is m×|S|−n.Time complexity: O(logm) per test case.Memory complexity: O(1) per test case. Code#include<bits/stdc++.h>
+
+using namespace std;
+
+int n = 0, m = 0;
+
+inline void solve(){
+	scanf("%d %d", &n, &m); n %= m;
+	int a = n / __gcd(n, m), b = m / __gcd(n, m);
+	if(__builtin_popcount(b) > 1) printf("-1\n");
+	else printf("%lld\n", 1ll * __builtin_popcount(a) * m - n);
+}
+
+int T = 0;
+
+int main(){
+	scanf("%d", &T);
+	for(int i = 0 ; i < T ; i ++) solve();
+	return 0;
+}
+1875D - Jellyfish and Mex TutorialWe only care about the operation before MEX(a) reaches 0, because after that, m will never change.Lemma. Before MEX(a) reaches 0, we will choose a positive integer x at a time that satisfies x<MEX(a), and delete all x from a, the MEX(a) will become x.Proof. Because if x>MEX(a), we can place this operation after the MEX(a) becomes 0, if we don't delete all of x, MEX(a) won't change, we can also put this operation later.So before MEX(a) reaches 0, the x we delete is non-increasing.It means we can solve this problem by dynamic programming. Let dpi represents when MEX(a)=i, and we haven't delete any x satisfying x<i,the minimum value of m.Let ci represents the number of times i appears in a, the transition is: ∀j<i,dpj←dpi+i×(cj−1)+j.Time complexity: O(n2) per test case.Memory complexity: O(n) per test case. Code#include<bits/stdc++.h>
+
+using namespace std;
+typedef long long ll;
+
+const ll N = 5000 + 5, Inf = 0x3f3f3f3f3f3f3f3f;
+ll n = 0, m = 0, a[N] = {}, dp[N] = {};
+
+inline void init(){
+	for(ll i = 0 ; i <= n ; i ++) a[i] = 0, dp[i] = Inf;
+	n = m = 0;
+}
+
+inline void solve(){
+	scanf("%lld", &n);
+	for(ll i = 1, x = 0 ; i <= n ; i ++){
+		scanf("%lld", &x);
+		if(x < n) a[x] ++;
+	}
+	while(a[m]) m ++;
+	dp[m] = 0;
+	for(ll i = m ; i >= 1 ; i --) for(ll j = 0 ; j < i ; j ++) dp[j] = min(dp[j], dp[i] + i * a[j]);
+	printf("%lld\n", dp[0] - m);
+}
+
+ll T = 0;
+
+int main(){
+	memset(dp, 0x3f, sizeof(dp));
+	scanf("%lld", &T);
+	for(ll i = 0 ; i < T ; i ++) init(), solve();
+	return 0;
+}

@@ -1,0 +1,25 @@
+1195B - Sport MafiaIn fact, we need to solve the following equation: x(x+1)2−(n−x)=k and when we will find x we need to print n−x as the answer. x(x+1)2 is the number of candies Alya will put into the box with x turns (sum of arithmetic progression). This equation can be solved mathematically. The only problem is getting the square root, it can be avoided with binary search or taking square root in non-integer numbers and checking some amount of integers in small range nearby the obtained root. The other solution is the binary search by x.  Solution (binary search)#include <iostream>
+#include <cmath>
+
+int main() {
+    long long n, k;
+    std::cin >> n >> k;
+    long long l = -1, r = n + 1;
+    while (r - l > 1) {
+        long long m = (l + r) / 2;
+        if ((n - m) * (n - m + 1) / 2 - m > k)
+            l = m;
+        else
+            r = m;
+    }
+    std::cout << r;
+    return 0;
+} Solution (formula)#include <iostream>
+#include <cmath>
+
+int main() {
+    long long n, k;
+    std::cin >> n >> k;
+    std::cout << static_cast<long long>(round(n + 1.5 - sqrt(2 * (n + k) + 2.75)));
+    return 0;
+}

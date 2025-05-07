@@ -1,0 +1,3 @@
+{
+    "solution": "1616B - Mirror in the StringLet's compare s1s2…sksksk−1…s1 and s1s2…sk+1sk+1sk…s1. Note that they have a long common prefix s1,s2,…,sk. And the next pair of characters to compare is sk+1 and sk. So, unless s1s2…sksksk−1…s1 is a prefix of s1s2…sk+1sk+1sk…s1, it is optimal to choose k+1 if sk+1≤sk.Pushing this idea further, we can see that the answer is either s1s1 or s1s2…sksksk−1…s1, for the largest k such that sk≤sk−1. "
+}

@@ -1,0 +1,33 @@
+988B - Substrings SortFirstly, sort all the strings by their lengths (if there are several strings of the same length, their order does not matter because if the answer is "YES" then all the strings of the same length should be equal). Then for each i∈[1..n−1] check that si is a substring of si+1. If it doesn't hold for some i then the answer is "NO". Otherwise the answer is "YES" and the sorted array is the correct order of strings. Solution (Vovuh)#include <bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+#ifdef _DEBUG
+	freopen("input.txt", "r", stdin);
+//	freopen("output.txt", "w", stdout);
+#endif
+	
+	int n;
+	cin >> n;
+	vector<string> s(n);
+	for (int i = 0; i < n; ++i)
+		cin >> s[i];
+		
+	sort(s.begin(), s.end(), [&] (const string &s, const string &t) {
+		return s.size() < t.size();
+	});
+	
+	for (int i = 0; i < n - 1; ++i) {
+		if (s[i + 1].find(s[i]) == string::npos) {
+			cout << "NO\n";
+			return 0;
+		}
+	}
+	
+	cout << "YES\n";
+	for (auto it : s)
+		cout << it << endl;
+	
+	return 0;
+}

@@ -1,0 +1,13 @@
+{
+    "title": "B. Binary Colouring",
+    "description": "You are given a positive integer x. Find any array of integers a0,a1,…,an−1 for which the following holds: \nIt can be proven that under the constraints of the problem, a valid array always exists.\nEach test contains multiple test cases. The first line of input contains a single integer t (1≤t≤104) — the number of test cases. The description of the test cases follows.\nThe only line of each test case contains a single positive integer x (1≤x<230).\nFor each test case, output two lines.\nOn the first line, output an integer n (1≤n≤32) — the length of the array a0,a1,…,an−1.\nOn the second line, output the array a0,a1,…,an−1.\nIf there are multiple valid arrays, you can output any of them.\nIn the first test case, one valid array is [1], since (1)⋅20=1.\nIn the second test case, one possible valid array is [0,−1,0,0,1], since (0)⋅20+(−1)⋅21+(0)⋅22+(0)⋅23+(1)⋅24=−2+16=14.",
+    "time limit": "time limit per test1 second",
+    "memory limit": "memory limit per test256 megabytes",
+    "tags": [
+        "bitmasks",
+        "constructive algorithms",
+        "greedy",
+        "math",
+        "*1100"
+    ]
+}

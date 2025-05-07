@@ -1,0 +1,3 @@
+{
+    "solution": "1907B - YetnotherrokenKeoardIdea: pashka, MikeMirzayanov TutorialTutorial is loading... Solutionfor _ in range(int(input())):\n    s = list(input())\n    n = len(s)\n    upper = []\n    lower = []\n    for i in range(n):\n        if s[i] == 'b':\n            s[i] = ''\n            if lower:\n                s[lower.pop()] = ''\n            continue\n        if s[i] == 'B':\n            s[i] = ''\n            if upper:\n                s[upper.pop()] = ''\n            continue\n        if 'a' <= s[i] <= 'z':\n            lower += [i]\n        else:\n            upper += [i]\n    print(''.join(s))"
+}

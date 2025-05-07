@@ -1,0 +1,12 @@
+{
+    "title": "A. Shovels and Swords",
+    "description": "Polycarp plays a well-known computer game (we won't mention its name). In this game, he can craft tools of two types — shovels and swords. To craft a shovel, Polycarp spends two sticks and one diamond; to craft a sword, Polycarp spends two diamonds and one stick.\nEach tool can be sold for exactly one emerald. How many emeralds can Polycarp earn, if he has a sticks and b diamonds?\nThe first line contains one integer t (1≤t≤1000) — the number of test cases.\nThe only line of each test case contains two integers a and b (0≤a,b≤109) — the number of sticks and the number of diamonds, respectively.\nFor each test case print one integer — the maximum number of emeralds Polycarp can earn.\nIn the first test case Polycarp can earn two emeralds as follows: craft one sword and one shovel.\nIn the second test case Polycarp does not have any diamonds, so he cannot craft anything.",
+    "time limit": "time limit per test1 second",
+    "memory limit": "memory limit per test256 megabytes",
+    "tags": [
+        "binary search",
+        "greedy",
+        "math",
+        "*1100"
+    ]
+}

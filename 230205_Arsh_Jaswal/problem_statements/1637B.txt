@@ -1,0 +1,16 @@
+Problem Title: B. MEX and Array
+
+time limit per test1 second
+memory limit per test256 megabytes
+
+Let there be an array b1,b2,…,bkb1,b2,…,bk. Let there be a partition of this array into segments [l1;r1],[l2;r2],…,[lc;rc][l1;r1],[l2;r2],…,[lc;rc], where l1=1l1=1, rc=krc=k, and for any 2≤i≤c2≤i≤c holds that ri−1+1=liri−1+1=li. In other words, each element of the array belongs to exactly one segment.
+Let's define the cost of a partition as c+c∑i=1mex({bli,bli+1,…,bri}),c+∑i=1cmex({bli,bli+1,…,bri}), where mexmex of a set of numbers SS is the smallest non-negative integer that does not occur in the set SS. In other words, the cost of a partition is the number of segments plus the sum of MEX over all segments. Let's define the value of an array b1,b2,…,bkb1,b2,…,bk as the maximum possible cost over all partitions of this array.
+You are given an array aa of size nn. Find the sum of values of all its subsegments.
+An array xx is a subsegment of an array yy if xx can be obtained from yy by deletion of several (possibly, zero or all) elements from the beginning and several (possibly, zero or all) elements from the end.
+The input contains several test cases. The first line contains one integer tt (1≤t≤301≤t≤30) — the number of test cases.
+The first line for each test case contains one integer nn (1≤n≤1001≤n≤100) — the length of the array.
+The second line contains a sequence of integers a1,a2,…,ana1,a2,…,an (0≤ai≤1090≤ai≤109) — the array elements.
+It is guaranteed that the sum of the values nn over all test cases does not exceed 100100.
+For each test case print a single integer — the answer to the problem.
+In the second test case: 
+The sum of values over all subsegments equals to 4+3+1+3+2+1=144+3+1+3+2+1=14.
