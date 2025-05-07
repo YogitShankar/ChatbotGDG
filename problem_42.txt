@@ -1,0 +1,124 @@
+Title: D. DAG Serialization
+Statement:
+Consider a simple single-bit boolean register that supports two operations:
+The initial state of the register is false. Suppose there were
+n
+operations
+opi
+(for
+1≤i≤n
+) where at most two operations returned true. Also, we are given the partial order of operations as a directed acyclic graph (DAG): an edge
+i→j
+means that
+opi
+happened before
+opj
+. You are asked whether it is possible to put these operations in some linear sequential order that satisfies the given partial order and such that if operations are applied to the register in that order, their results are the same as given.
+In the first line, you are given an integer
+n
+— the number of operations (
+1≤n≤105
+). In the following
+n
+lines, you are given operations in the format "type result", where type is either "set" or "unset" and result is either "true" or "false". It is guaranteed that at most two operations have "true" results.
+In the next line, you are given an integer
+m
+— the number of arcs of the DAG (
+0≤m≤105
+). In the following
+m
+lines, you are given arcs — pairs of integers
+a
+and
+b
+(
+1≤a,b≤n
+;
+a≠b
+). Each arc indicates that operation
+opa
+happened before operation
+opb
+.
+Print any linear order of operations that satisfies the DAG constraints and ensures the results of the operations match the ones given in the input. If a correct operation order does not exist, print
+−1
+.
+Input Specification:
+Input
+In the first line, you are given an integer
+n
+— the number of operations (
+1≤n≤105
+). In the following
+n
+lines, you are given operations in the format "type result", where type is either "set" or "unset" and result is either "true" or "false". It is guaranteed that at most two operations have "true" results.
+In the next line, you are given an integer
+m
+— the number of arcs of the DAG (
+0≤m≤105
+). In the following
+m
+lines, you are given arcs — pairs of integers
+a
+and
+b
+(
+1≤a,b≤n
+;
+a≠b
+). Each arc indicates that operation
+opa
+happened before operation
+opb
+.
+Output Specification:
+Output
+Print any linear order of operations that satisfies the DAG constraints and ensures the results of the operations match the ones given in the input. If a correct operation order does not exist, print
+−1
+.
+Sample Tests:
+Examples
+input
+Copy
+5
+set true
+unset true
+set false
+unset false
+unset false
+2
+1 4
+5 2
+output
+Copy
+5 1 3 2 4 
+input
+Copy
+3
+unset true
+unset false
+set true
+0
+output
+Copy
+2 3 1 
+input
+Copy
+2
+unset false
+set true
+1
+2 1
+output
+Copy
+-1
+input
+Copy
+2
+unset false
+set false
+0
+output
+Copy
+-1 
+Constraints: time limit per test3 seconds memory limit per test1024 megabytes
