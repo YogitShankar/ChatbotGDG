@@ -1,0 +1,9 @@
+You are given an array x2,x3,…,xn. Your task is to find any array a1,…,an, where: 
+Here cmodd denotes the remainder of the division of the integer c by the integer d. For example 5mod2=1, 72mod3=0, 143mod14=3.
+Note that if there is more than one a which satisfies the statement, you are allowed to find any.
+The first line contains a single integer t (1≤t≤104) — the number of test cases.
+The first line of each test case contains a single integer n (2≤n≤500) — the number of elements in a.
+The second line of each test case contains n−1 integers x2,…,xn (1≤xi≤500) — the elements of x.
+It is guaranteed that the sum of values n over all test cases does not exceed 2⋅105.
+For each test case output any a1,…,an (1≤ai≤109) which satisfies the statement.
+In the first test case a=[3,5,4,9] satisfies the conditions, because: 

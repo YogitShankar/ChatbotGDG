@@ -1,0 +1,40 @@
+1433D - Districts ConnectionIf all districts belong to the same gang then the answer is NO. Otherwise, the answer is always YES (yeah, as in the previous problem). How to construct it? Let's choose the first "root" as the district 1 and connect all such districts i that a1≠ai to the district 1. So, all disconnected districts that remain are under control of the gang a1. Let's find any district i that ai≠a1 and just connect all remaining districts of the gang a1 to this district. This district always exists because we have at least two different gangs and it is connected to the remaining structure because its gang is not a1. So, all conditions are satisfied. Solution#include <bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+#ifdef _DEBUG
+	freopen("input.txt", "r", stdin);
+//	freopen("output.txt", "w", stdout);
+#endif
+	
+	int t;
+	cin >> t;
+	while (t--) {
+		int n;
+		cin >> n;
+		vector<int> a(n);
+		for (auto &it : a) cin >> it;
+		vector<pair<int, int>> res;
+		int idx = -1;
+		for (int i = 1; i < n; ++i) {
+			if (a[i] != a[0]) {
+				idx = i;
+				res.push_back({1, i + 1});
+			}
+		}
+		if (idx == -1) {
+			cout << "NO" << endl;
+			continue;
+		}
+		for (int i = 1; i < n; ++i) {
+			if (a[i] == a[0]) {
+				res.push_back({idx + 1, i + 1});
+			}
+		}
+		cout << "YES" << endl;
+		for (auto [x, y] : res) cout << x << " " << y << endl;
+	}
+	
+	return 0;
+}

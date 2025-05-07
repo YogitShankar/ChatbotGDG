@@ -1,0 +1,10 @@
+{
+    "title": "C. Restoring Permutation",
+    "description": "You are given a sequence b1,b2,…,bn. Find the lexicographically minimal permutation a1,a2,…,a2n such that bi=min(a2i−1,a2i), or determine that it is impossible.\nEach test contains one or more test cases. The first line contains the number of test cases t (1≤t≤100).\nThe first line of each test case consists of one integer n — the number of elements in the sequence b (1≤n≤100).\nThe second line of each test case consists of n different integers b1,…,bn — elements of the sequence b (1≤bi≤2n).\nIt is guaranteed that the sum of n by all test cases doesn't exceed 100.\nFor each test case, if there is no appropriate permutation, print one number −1.\nOtherwise, print 2n integers a1,…,a2n — required lexicographically minimal permutation of numbers from 1 to 2n.",
+    "time limit": "time limit per test1 second",
+    "memory limit": "memory limit per test256 megabytes",
+    "tags": [
+        "greedy",
+        "*1200"
+    ]
+}

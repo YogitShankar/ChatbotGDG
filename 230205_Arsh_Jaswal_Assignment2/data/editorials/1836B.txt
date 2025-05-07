@@ -1,0 +1,28 @@
+1836B - AstrophysicistsNote that in the perfect world, we'd give each astrophysicist precisely ⌊G−12⌋, and we'd spare N⋅⌊G−12⌋ silver coins. Unfortunately, two things may happen:   First, we may run out of money. This is an easy case; it is enough to output K⋅G if it is less than ⌊G−12⌋.  Second, we may have some money left. It turns out that an acceptable solution is to give everything to one astrophysicist. The intuition behind it is simple — we are only interested in bonus sizes modulo G, and by decreasing the bonus of one astrophysicist, we can get at most 1 from another one, and by increasing it, we lose ⌊G−12⌋. In both cases, it is not worth changing the value.Thus, we got a formula to calculate in O(1). Solution#include "bits/stdc++.h"
+using namespace std;
+ 
+int main()
+{
+	int t;
+	scanf ("%d", &t);
+	while (t--) {
+		long long n, k, g;
+		scanf ("%lld %lld %lld", &n, &k, &g);
+ 
+		long long stolen = min((g - 1) / 2 * n, k * g);
+		long long rest = (k * g - stolen) % g;
+ 
+		if (rest > 0) {
+		    stolen -= (g - 1) / 2;
+		    long long last = ((g - 1) / 2 + rest) % g;
+ 
+		    if (last * 2 < g) {
+		        stolen += last;
+		    } else {
+		        stolen -= g - last;
+		    }
+		}
+ 
+		printf ("%lld\n", stolen);
+	}
+}

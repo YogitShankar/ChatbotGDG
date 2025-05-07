@@ -1,0 +1,13 @@
+{
+    "title": "B. Yet Another Coin Problem",
+    "description": "You have 5 different types of coins, each with a value equal to one of the first 5 triangular numbers: 1, 3, 6, 10, and 15. These coin types are available in abundance. Your goal is to find the minimum number of these coins required such that their total value sums up to exactly n.\nWe can show that the answer always exists.\nThe first line contains one integer t (1≤t≤104) — the number of test cases. The description of the test cases follows.\nThe first line of each test case contains an integer n (1≤n≤109) — the target value.\nFor each test case, output a single number — the minimum number of coins required.\nIn the first test case, for n=1, the answer is 1 since only one 1 value coin is sufficient. 1=1⋅1.\nIn the fourth test case, for n=5, the answer is 3, which can be achieved using two 1 value coins and one 3 value coin. 5=2⋅1+1⋅3.\nIn the seventh test case, for n=12, the answer is 2, which can be achieved using two 6 value coins.\nIn the ninth test case, for n=16, the answer is 2, which can be achieved using one 1 value coin and one 15 value coin or using one 10 value coin and one 6 value coin. 16=1⋅1+1⋅15=1⋅6+1⋅10.",
+    "time limit": "time limit per test1 second",
+    "memory limit": "memory limit per test256 megabytes",
+    "tags": [
+        "brute force",
+        "dp",
+        "greedy",
+        "math",
+        "*1200"
+    ]
+}

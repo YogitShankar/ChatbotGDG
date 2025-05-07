@@ -1,0 +1,399 @@
+EDITORIAL SCRAPING SUMMARY
+================================================================================
+
+Total problems tested: 100
+No editorial available: 12
+Successfully scraped: 87
+No solution found: 1
+Errors encountered: 0
+
+Detailed Results:
+--------------------------------------------------------------------------------
+
+Problem 4A: Watermelon
+Status: no_editorial
+
+Problem 71A: Way Too Long Words
+Status: success
+Pattern: fallback_pattern
+
+Problem 231A: Team
+Status: success
+Pattern: contest_number_match
+
+Problem 282A: Bit++
+Status: no_editorial
+
+Problem 158A: Next Round
+Status: success
+Pattern: contest_number_match
+
+Problem 50A: Domino piling
+Status: success
+Pattern: fallback_pattern
+
+Problem 263A: Beautiful Matrix
+Status: success
+Pattern: contest_number_match
+
+Problem 112A: Petya and Strings
+Status: success
+Pattern: url_match
+
+Problem 339A: Helpful Maths
+Status: success
+Pattern: contest_number_match
+
+Problem 281A: Word Capitalization
+Status: success
+Pattern: url_match
+
+Problem 236A: Boy or Girl
+Status: success
+Pattern: contest_number_match
+
+Problem 791A: Bear and Big Brother
+Status: success
+Pattern: contest_number_match
+
+Problem 266A: Stones on the Table
+Status: success
+Pattern: contest_number_match
+
+Problem 617A: Elephant
+Status: success
+Pattern: contest_number_match
+
+Problem 546A: Soldier and Bananas
+Status: success
+Pattern: fallback_pattern
+
+Problem 59A: Word
+Status: no_editorial
+
+Problem 977A: Wrong Subtraction
+Status: success
+Pattern: contest_number_match
+
+Problem 110A: Nearly Lucky Number
+Status: success
+Pattern: fallback_pattern
+
+Problem 734A: Anton and Danik
+Status: success
+Pattern: contest_number_match
+
+Problem 41A: Translation
+Status: success
+Pattern: fallback_pattern
+
+Problem 116A: Tram
+Status: success
+Pattern: fallback_pattern
+
+Problem 677A: Vanya and Fence
+Status: success
+Pattern: contest_number_match
+
+Problem 271A: Beautiful Year
+Status: success
+Pattern: contest_number_match
+
+Problem 266B: Queue at the School
+Status: success
+Pattern: contest_number_match
+
+Problem 1030A: In Search of an Easy Problem
+Status: success
+Pattern: contest_number_match
+
+Problem 467A: George and Accommodation
+Status: no_editorial
+
+Problem 344A: Magnets
+Status: success
+Pattern: contest_number_match
+
+Problem 486A: Calculating Function
+Status: success
+Pattern: contest_number_match
+
+Problem 136A: Presents
+Status: success
+Pattern: fallback_pattern
+
+Problem 200B: Drinks
+Status: success
+Pattern: contest_number_match
+
+Problem 61A: Ultra-Fast Mathematician
+Status: no_editorial
+
+Problem 228A: Is your horseshoe on the other hoof?
+Status: success
+Pattern: contest_number_match
+
+Problem 705A: Hulk
+Status: no_editorial
+
+Problem 1328A: Divisibility Problem
+Status: success
+Pattern: contest_number_match
+
+Problem 520A: Pangram
+Status: success
+Pattern: contest_number_match
+
+Problem 469A: I Wanna Be the Guy
+Status: success
+Pattern: contest_number_match
+
+Problem 144A: Arrival of the General
+Status: success
+Pattern: fallback_pattern
+
+Problem 148A: Insomnia cure
+Status: success
+Pattern: contest_number_match
+
+Problem 996A: Hit the Lottery
+Status: success
+Pattern: contest_number_match
+
+Problem 443A: Anton and Letters
+Status: no_editorial
+
+Problem 785A: Anton and Polyhedrons
+Status: no_editorial
+
+Problem 268A: Games
+Status: no_solution
+Pattern: error
+
+Problem 1335A: Candies and Two Sisters
+Status: success
+Pattern: contest_number_match
+
+Problem 510A: Fox And Snake
+Status: success
+Pattern: contest_number_match
+
+Problem 141A: Amusing Joke
+Status: success
+Pattern: contest_number_match
+
+Problem 1352A: Sum of Round Numbers
+Status: success
+Pattern: contest_number_match
+
+Problem 723A: The New Year: Meeting Friends
+Status: success
+Pattern: contest_number_match
+
+Problem 427A: Police Recruits
+Status: success
+Pattern: contest_number_match
+
+Problem 750A: New Year and Hurry
+Status: success
+Pattern: contest_number_match
+
+Problem 155A: I_love_\%username\%
+Status: success
+Pattern: contest_number_match
+
+Problem 1742A: Sum
+Status: success
+Pattern: contest_number_match
+
+Problem 151A: Soft Drinking
+Status: success
+Pattern: contest_number_match
+
+Problem 732A: Buy a Shovel
+Status: success
+Pattern: contest_number_match
+
+Problem 1703A: YES or YES?
+Status: success
+Pattern: contest_number_match
+
+Problem 1154A: Restoring Three Numbers
+Status: success
+Pattern: contest_number_match
+
+Problem 581A: Vasya the Hipster
+Status: success
+Pattern: contest_number_match
+
+Problem 630A: Again Twenty Five!
+Status: success
+Pattern: url_match
+
+Problem 381A: Sereja and Dima
+Status: success
+Pattern: contest_number_match
+
+Problem 1399A: Remove Smallest
+Status: success
+Pattern: contest_number_match
+
+Problem 1409A: Yet Another Two Integers Problem
+Status: success
+Pattern: contest_number_match
+
+Problem 1692A: Marathon
+Status: success
+Pattern: contest_number_match
+
+Problem 1676A: Lucky?
+Status: success
+Pattern: contest_number_match
+
+Problem 1669A: Division?
+Status: success
+Pattern: contest_number_match
+
+Problem 1512A: Spy Detected!
+Status: success
+Pattern: contest_number_match
+
+Problem 32B: Borze
+Status: no_editorial
+
+Problem 1807A: Plus or Minus
+Status: success
+Pattern: contest_number_match
+
+Problem 1791A: Codeforces Checking
+Status: success
+Pattern: contest_number_match
+
+Problem 758A: Holiday Of Equality
+Status: success
+Pattern: contest_number_match
+
+Problem 1760A: Medium Number
+Status: success
+Pattern: contest_number_match
+
+Problem 1560A: Dislike of Threes
+Status: success
+Pattern: contest_number_match
+
+Problem 472A: Design Tutorial: Learn from Math
+Status: no_editorial
+
+Problem 432A: Choosing Teams
+Status: success
+Pattern: contest_number_match
+
+Problem 490A: Team Olympiad
+Status: success
+Pattern: contest_number_match
+
+Problem 1915A: Odd One Out
+Status: success
+Pattern: contest_number_match
+
+Problem 1999A: A+B Again?
+Status: success
+Pattern: contest_number_match
+
+Problem 1850A: To My Critics
+Status: success
+Pattern: contest_number_match
+
+Problem 1367A: Short Substrings
+Status: success
+Pattern: contest_number_match
+
+Problem 9A: Die Roll
+Status: success
+Pattern: fallback_pattern
+
+Problem 703A: Mishka and Game
+Status: success
+Pattern: contest_number_match
+
+Problem 1343B: Balanced Array
+Status: success
+Pattern: contest_number_match
+
+Problem 1873A: Short Sort
+Status: success
+Pattern: contest_number_match
+
+Problem 1985A: Creating Words
+Status: success
+Pattern: contest_number_match
+
+Problem 431A: Black Square
+Status: success
+Pattern: contest_number_match
+
+Problem 80A: Panoramix's Prediction
+Status: success
+Pattern: fallback_pattern
+
+Problem 1950A: Stair, Peak, or Neither?
+Status: success
+Pattern: contest_number_match
+
+Problem 1374A: Required Remainder
+Status: success
+Pattern: contest_number_match
+
+Problem 1367B: Even Array
+Status: success
+Pattern: contest_number_match
+
+Problem 2009A: Minimize!
+Status: success
+Pattern: contest_number_match
+
+Problem 1433A: Boring Apartments
+Status: success
+Pattern: contest_number_match
+
+Problem 1370A: Maximum GCD
+Status: success
+Pattern: contest_number_match
+
+Problem 1829A: Love Story
+Status: success
+Pattern: contest_number_match
+
+Problem 1619A: Square String?
+Status: success
+Pattern: contest_number_match
+
+Problem 1624A: Plus One on the Subset
+Status: success
+Pattern: contest_number_match
+
+Problem 1722A: Spell Check
+Status: success
+Pattern: contest_number_match
+
+Problem 1520A: Do Not Be Distracted!
+Status: no_editorial
+
+Problem 1283A: Minutes Before the New Year
+Status: success
+Pattern: contest_number_match
+
+Problem 1551A: Polycarp and Coins
+Status: success
+Pattern: contest_number_match
+
+Problem 1472B: Fair Division
+Status: success
+Pattern: contest_number_match
+
+Problem 492A: Vanya and Cubes
+Status: no_editorial
+
+Problem 1360A: Minimal Square
+Status: success
+Pattern: contest_number_match

@@ -1,0 +1,13 @@
+Problem Title: C. Double-ended Strings
+
+time limit per test2 seconds
+memory limit per test256 megabytes
+
+You are given the strings a and b, consisting of lowercase Latin letters. You can do any number of the following operations in any order: 
+Note that after each of the operations, the string a or b may become empty.
+For example, if a="hello" and b="icpc", then you can apply the following sequence of operations: 
+For the given strings a and b, find the minimum number of operations for which you can make the strings a and b equal. Note that empty strings are also equal.
+The first line contains a single integer t (1≤t≤100). Then t test cases follow.
+The first line of each test case contains the string a (1≤|a|≤20), consisting of lowercase Latin letters.
+The second line of each test case contains the string b (1≤|b|≤20), consisting of lowercase Latin letters.
+For each test case, output the minimum number of operations that can make the strings a and b equal.

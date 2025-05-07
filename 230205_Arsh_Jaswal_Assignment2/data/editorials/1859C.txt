@@ -1,0 +1,56 @@
+1859C - Another Permutation Problem HintsHint 1What if we fix the maximum element in the resulting array? Hint 2Try using greedy. Hint 3Optimize the log factor away by noticing a certain fact. TutorialLet's fix the maximum element in an array — let it be M. Now, let's iterate from n to 1. Let the current chosen number be i. I claim that if we maintain the remaining available numbers to multiply by, then it is optimal to take the maximum such number x that x∗i≤M. Proof: let's say that this is not correct. Then, let's say that we pair i with another number x1, and x gets paired with some other number i1. Then, i1<i, because it was chosen later, and x1<x (otherwise i∗x1>M). Now let's swap x with x1. The sum is increased by i∗x−i∗x1−i1∗x+i1∗x1=(i−i1)(x−x1)>0, and all of the numbers are less or equal to M.Now the task can be solved in O(N3logN) by simply iterating on the maximum from N2 to 1, while maintaining the remaining numbers with a set. In order to squeeze it in the TL, you can only consider such maximums that they can be represented as i∗j,1≤i,j≤n.In order to optimize it to O(N3), let's notice that for each number x, it can be paired with any number from 1 to Mx. Now just maintain a stack of all available elements at the current moment, add all numbers that possible, and pop the maximum number for all i from 1 to N. Author's code#include <iostream>
+#include <algorithm>
+#include <set>
+#include <stack>
+#include <vector>
+using namespace std;
+void solve() {
+	int N = 0; cin >> N;
+	int ans = 0;
+	vector<int> pr;
+	pr.assign(N * N, -1);
+	for (int i = 1; i <= N; ++i) {
+		for (int j = 1; j <= N; ++j) {
+			pr[i * j - 1] = 1;
+		}
+	}
+	for (int mx = N * N; mx >= 1; --mx) {
+		if (pr[mx - 1] == -1) continue;
+		vector<vector<int>> a;
+		int curans = -mx;
+		bool br = false;
+		a.assign(N, vector<int>());
+		for (int j = N; j >= 1; --j) {
+			int num = min(mx / j, N);
+			if (num < 1) {
+				br = true;
+				break;
+			}
+			a[num - 1].push_back(j);
+		}
+		if (br) break;
+		stack<int> s;
+		for (int i = 0; i < N; ++i) {
+			s.push(i + 1);
+			bool brk = false;
+			for (auto x : a[i]) {
+				if (s.empty()) {
+					brk = true; break;
+				}
+				curans += s.top() * x;
+				s.pop();
+			}
+			if (brk) break;
+		}
+		ans = max(ans, curans);
+	}
+	cout << ans << "\n";
+}
+ 
+int main() {
+	ios_base::sync_with_stdio(false);
+	cin.tie(nullptr);
+	int t = 0; cin >> t;
+	while (t--) solve();
+	return 0;
+}

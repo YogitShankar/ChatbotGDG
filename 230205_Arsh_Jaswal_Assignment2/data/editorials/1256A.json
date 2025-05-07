@@ -1,0 +1,3 @@
+{
+    "solution": "1256A - Payment Without ChangeFirstly, we obviously need to take at least S%n coins of value 1. If we cannot do it, the answer it NO. Otherwise we always can obtain the required sum S if a⋅n+b≥S. Solution#include <iostream>\n\nusing namespace std;\n\nint main() {\n\tint q;\n\tcin >> q;\n\n\tfor (int qr = 0; qr < q; ++qr) {\n\t\tint a, b, n, s;\n\t\tcin >> a >> b >> n >> s;\n\n\t\tif (s % n <= b && 1ll * a * n + b >= s) {\n\t\t\tcout << \"YES\\n\";\n\t\t}\n\t\telse {\n\t\t\tcout << \"NO\\n\";\n\t\t}\n\t}\n}"
+}

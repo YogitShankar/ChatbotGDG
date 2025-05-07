@@ -1,0 +1,13 @@
+{
+    "title": "B. 378QAQ and Mocha's Array",
+    "description": "Mocha likes arrays, so before her departure, 378QAQ gave her an array a consisting of n positive integers as a gift.\nMocha thinks that a is beautiful if there exist two numbers i and j (1≤i,j≤n, i≠j) such that for all k (1≤k≤n), ak is divisible† by either ai or aj.\nDetermine whether a is beautiful.\n† x is divisible by y if there exists an integer z such that x=y⋅z.\nEach test contains multiple test cases. The first line contains the number of test cases t (1≤t≤500). The description of the test cases follows.\nThe first line of each test case contains a single integer n (3≤n≤105) — the length of the array a.\nThe second line of each test case contains n integers a1,a2,…,an (1≤ai≤109) — the elements of the array a.\nIt is guaranteed that the sum of n over all test cases does not exceed 105.\nFor each test case, output \"Yes\" if array a is beautiful, and output \"No\" otherwise.\nYou can output \"Yes\" and \"No\" in any case (for example, strings \"yEs\", \"yes\", \"Yes\" and \"YES\" will be recognized as a positive response).\nIn the first test case, any two numbers in the array are coprime, so the answer is \"No\".\nIn the second test case, we can pick i=2 and j=1. Since every number in the array is divisible by ai=1, the answer is \"Yes\".\nIn the third test case, we can pick i=3 and j=5. 2 and 4 is divisible by ai=2 while 3, 6 and 12 is divisible by aj=3, so the answer is \"Yes\".",
+    "time limit": "time limit per test1 second",
+    "memory limit": "memory limit per test256 megabytes",
+    "tags": [
+        "brute force",
+        "greedy",
+        "math",
+        "sortings",
+        "*1000"
+    ]
+}

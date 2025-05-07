@@ -1,0 +1,17 @@
+1759C - ThermostatFirst let's consider the cases when the answer exists:  If a=b, then the thermostat is already set up and the answer is 0.  else if |a−b|≥x, then it is enough to reconfigure the thermostat in 1 operation.  else if exist such temperature c, that |a−c|≥x and |b−c|≥x, then you can configure the thermostat in 2 operations. If such c exists between l and r, we can chose one of bounds: a→l→b or a→r→b.  we need to make 3 operations if times if we cannot reconfigure through one of the boundaries as above, but we can through both: a→l→r→b or a→r→l→b If we can't get the temperature b in one of these ways, the answer is −1. Solutiondef solve():
+    l, r, x = map(int, input().split())
+    a, b = map(int, input().split())
+    if a == b:
+        return 0
+    if abs(a - b) >= x:
+        return 1
+    if r - max(a, b) >= x or min(a, b) - l >= x:
+        return 2
+    if r - b >= x and a - l >= x or r - a >= x and b - l >= x:
+        return 3
+    return -1
+
+
+t = int(input())
+for _ in range(t):
+    print(solve())

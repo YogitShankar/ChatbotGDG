@@ -1,0 +1,57 @@
+Title: A. Find K Distinct Points with Fixed Center
+
+Time Limit: time limit per test1 second
+Memory Limit: memory limit per test256 megabytes
+
+Statement:
+You are given three integers x_c, y_c, and k (-100 ≤q x_c, y_c ≤q 100, 1 ≤q k ≤q 1000).
+
+You need to find k distinct points (x_1, y_1), (x_2, y_2), ..., (x_k, y_k), having integer coordinates, on the 2D coordinate plane such that:
+
+- their center∗ is (x_c, y_c)
+- -10^9 ≤q x_i, y_i ≤q 10^9 for all i from 1 to k
+It can be proven that at least one set of k distinct points always exists that satisfies these conditions.
+
+∗The center of k points (x_1, y_1), (x_2, y_2), ..., (x_k, y_k) is ≤ft( \frac{x_1 + x_2 + ... + x_k}{k}, \frac{y_1 + y_2 + ... + y_k}{k} \right).
+
+The first line contains t (1 ≤q t ≤q 100) — the number of test cases.
+
+Each test case contains three integers x_c, y_c, and k (-100 ≤q x_c, y_c ≤q 100, 1 ≤q k ≤q 1000) — the coordinates of the center and the number of distinct points you must output.
+
+It is guaranteed that the sum of k over all test cases does not exceed 1000.
+
+For each test case, output k lines, the i-th line containing two space separated integers, x_i and y_i, (-10^9 ≤q x_i, y_i ≤q 10^9) — denoting the position of the i-th point.
+
+If there are multiple answers, print any of them. It can be shown that a solution always exists under the given constraints.
+
+For the first test case, ≤ft( \frac{10}{1}, \frac{10}{1} \right) = (10, 10).
+
+For the second test case, ≤ft( \frac{-1 + 5 - 4}{3}, \frac{-1 -1 + 2}{3} \right) = (0, 0).
+
+
+
+Sample Tests:
+Sample Input:
+4
+10 10 1
+0 0 3
+-5 -8 8
+4 -5 3
+
+Sample Output:
+10 10
+-1 -1
+5 -1
+-4 2
+-6 -7
+-5 -7
+-4 -7
+-4 -8
+-4 -9
+-5 -9
+-6 -9
+-6 -8
+1000 -1000
+-996 995
+8 -10
+

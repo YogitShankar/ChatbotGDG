@@ -1,0 +1,27 @@
+1613C - Poisoned DaggerLet's find out the total damage for a fixed value of k. Since the effect of the poison from the i-th attack deals damage min(k,ai+1−ai) seconds for i<n and k seconds for i=n, then the total damage is k+∑i=1n−1min(k,ai+1−ai). We can see that the higher the value of k, the greater the total sum. So we can do a binary search on k and find the minimum value when the sum is greater than or equal to h. Solution (Neon)#include <bits/stdc++.h>
+
+using namespace std;
+
+using li = long long;
+
+int main() {
+  int t;
+  cin >> t;
+  while (t--) {
+    int n;
+    li h;
+    cin >> n >> h;
+    vector<li> a(n);
+    for (li &x : a) cin >> x;
+    li l = 1, r = 1e18;
+    while (l <= r) {
+      li m = (l + r) / 2;
+      li sum = m;
+      for (int i = 0; i < n - 1; ++i) 
+        sum += min(m, a[i + 1] - a[i]);
+      if (sum < h) l = m + 1;
+      else r = m - 1;
+    }
+    cout << r + 1 << '\n';
+  }
+}

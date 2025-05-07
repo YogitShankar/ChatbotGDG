@@ -1,0 +1,7 @@
+Problem: 486A - Calculating Function
+Problem Link: https://codeforces.com/problemset/problem/486/A
+Editorial Link: https://codeforces.com/blog/entry/14678
+
+================================================================================
+
+486A - Calculating FunctionIf n is even, then the answer is n / 2, otherwise the answer is (n - 1) / 2 - n =  - (n + 1) / 2.

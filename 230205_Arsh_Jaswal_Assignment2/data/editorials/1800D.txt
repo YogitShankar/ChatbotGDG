@@ -1,0 +1,29 @@
+1800D - Remove Two LettersConsider deleting characters with numbers i and i+1, as well as characters with numbers i+1 and i+2. In the first case, the symbol with the number i+2 remains, in the second - i. Symbols with numbers less than i or more than i+2 remain in both cases. Therefore, the same strings will be obtained if the characters with the numbers i and i+2 match. Therefore, we just need to count the number of i:1≤i≤n−2:si=si+2, and subtract this value from n−1. Solution#include <iostream>
+#include <vector>
+#include <queue>
+#include <map>
+#include <set>
+
+using namespace std;
+
+void solve() {
+    int n;
+    cin >> n;
+    string s;
+    cin >> s;
+    int res = n - 1;
+    for (int i = 1; i + 1 < n; ++i) {
+        if (s[i - 1] == s[i + 1]) {
+            res--;
+        }
+    }
+    cout << res << '\n';
+}
+
+int main(int argc, char* argv[]) {
+    int t;
+    cin >> t;
+    for (int i = 0; i < t; ++i) {
+        solve();
+    }
+}

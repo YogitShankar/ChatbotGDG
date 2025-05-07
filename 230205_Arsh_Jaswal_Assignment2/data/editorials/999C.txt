@@ -1,0 +1,71 @@
+999C - Alphabetic RemovalsLet the lowercase Latin letters be indexed from 0 to 25.There are exists at least two different solutions:If k=n exit the program. Otherwise, count the number of occurrences of each letter i from 0 to 25. Let it be cnt. Now, find the (alphabetically) smallest letter that will be in the resulting string. It can be done as follows: iterate over all i from 0 to 25, and if cnti≤k then subtract it from k, otherwise, i will be the smallest letter that will be in the resulting string. But we (possibly) need to remove some number of its leftmost occurrences. It is obvious that letters smaller than i will not appear in the resulting string. Also, the k leftmost occurrences of letter i will be removed. Now, let's iterate over all letters in string s from left to right and construct the resulting string res. If the current character of s (let it be sj) is smaller than i, then do nothing. If sj is greater than i, then add it to res. Otherwise sj=i. If k>0, then decrease k by one, otherwise, add sj to res. The time complexity is O(n).Another solution is the following. Let's carry the vector of pairs (si,i) where si is the i-th character of s and i is its position. If we sort this vector with the standard compare function, it is easy to see that the first k elements of this vector will be removed from the input string. Then if we will sort the last n−k elements of this vector by its positions in the input string in increasing order, we will obtain the answer. The time complexity is O(nlogn). Solution 1 (Vovuh)#include <bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+#ifdef _DEBUG
+	freopen("input.txt", "r", stdin);
+//	freopen("output.txt", "w", stdout);
+#endif
+	
+	int n, k;
+	cin >> n >> k;
+	string s;
+	cin >> s;
+	
+	vector<int> cnt(26);
+	for (auto c : s) ++cnt[c - 'a'];
+
+	int pos = 26;
+	for (int i = 0; i < 26; ++i) {
+		if (k >= cnt[i]) {
+			k -= cnt[i];
+		} else {
+			pos = i;
+			break;
+		}
+	}
+	
+	string ans;
+	int rem = k;
+	for (auto c : s) {
+		int cur = c - 'a';
+		if (cur > pos || (cur == pos && rem == 0)) {
+			ans += c;
+		} else if (cur == pos) {
+			--rem;
+		}
+	}
+	
+	cout << ans << endl;
+	
+	return 0;
+} Solution 2 (Vovuh)#include <bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+#ifdef _DEBUG
+	freopen("input.txt", "r", stdin);
+//	freopen("output.txt", "w", stdout);
+#endif
+	
+	int n, k;
+	cin >> n >> k;
+	string s;
+	cin >> s;
+
+	vector<pair<char, int>> c(n);
+	for (int i = 0; i < n; ++i)
+		c[i] = make_pair(s[i], i);
+	sort(c.begin(), c.end());
+	sort(c.begin() + k, c.end(), [&] (const pair<char, int> &a, const pair<char, int> &b) {
+		return a.second < b.second;
+	});
+	
+	for (int i = k; i < n; ++i)
+		cout << c[i].first;
+	cout << endl;
+	
+	return 0;
+}

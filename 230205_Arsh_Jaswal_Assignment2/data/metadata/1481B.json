@@ -1,0 +1,12 @@
+{
+    "title": "B. New Colony",
+    "description": "After reaching your destination, you want to build a new colony on the new planet. Since this planet has many mountains and the colony must be built on a flat surface you decided to flatten the mountains using boulders (you are still dreaming so this makes sense to you).\nYou are given an array h1,h2,…,hn, where hi is the height of the i-th mountain, and k — the number of boulders you have.\nYou will start throwing boulders from the top of the first mountain one by one and they will roll as follows (let's assume that the height of the current mountain is hi): \nYou want to find the position of the k-th boulder or determine that it will fall into the waste collection system.\nThe first line contains a single integer t (1≤t≤100) — the number of test cases.\nEach test case consists of two lines. The first line in each test case contains two integers n and k (1≤n≤100; 1≤k≤109) — the number of mountains and the number of boulders.\nThe second line contains n integers h1,h2,…,hn (1≤hi≤100) — the height of the mountains.\nIt is guaranteed that the sum of n over all test cases does not exceed 100.\nFor each test case, print −1 if the k-th boulder will fall into the collection system. Otherwise, print the position of the k-th boulder.\nLet's simulate the first case:\nThe positions where each boulder stopped are the following: [2,3,2].\nIn the second case, all 7 boulders will stop right at the first mountain rising its height from 1 to 8.\nThe third case is similar to the first one but now you'll throw 5 boulders. The first three will roll in the same way as in the first test case. After that, mountain heights will be equal to [4,3,3,3], that's why the other two boulders will fall into the collection system.\nIn the fourth case, the first and only boulders will fall straight into the collection system.",
+    "time limit": "time limit per test2 seconds",
+    "memory limit": "memory limit per test256 megabytes",
+    "tags": [
+        "brute force",
+        "greedy",
+        "implementation",
+        "*1100"
+    ]
+}

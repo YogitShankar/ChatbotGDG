@@ -1,0 +1,40 @@
+2036C - Anya and 1100Idea: m3tr0 HintWith each query, to track the change in the presence of “1100” in a row, you don't have to go through the entire row — you can check just a few neighboring cells. TutorialFirst, in a naive way, let's count count — the number of times “1100” occurs in s.Then for each of q queries we will update count: consider the substring s[max(1,i−3);min(i+3,n)] before changing si and find before — the number of times that “1100” occurs in it. Then update si=v and similarly find after — the number of times that “1100” occurs in s[max(1,i−3);min(i+3,n)] after applying the query.Thus, by doing count=count+(after−before), we get the number of times that “1100” occurs in s after the query is applied. If count>0, the answer to the query is “YES”, otherwise it is “NO”.Complexity: O(|s|+q) Solution (m3tr0)#include <cstdio>
+#include <cstring>
+
+using namespace std;
+typedef long long l;
+
+char buf[1000000];
+l n;
+
+bool check_1100(l i) {
+	if (i < 0) return false;
+	if (i >= n - 3) return false;
+	if (buf[i] == '1' && buf[i + 1] == '1' && buf[i + 2] == '0' && buf[i + 3] == '0') return true;
+	return false;
+}
+
+void solve() {
+	scanf("%s", buf);
+	n = strlen(buf);
+	l count = 0;
+	for (l i = 0; i < n; i++)
+		if (check_1100(i)) count++;
+	
+	l q; scanf("%lld", &q);
+	while (q--) {
+		l i, v; scanf("%lld %lld", &i, &v); i--;
+		if (buf[i] != '0' + v) {
+		    bool before = check_1100(i - 3) || check_1100(i - 2) || check_1100(i - 1) || check_1100(i);
+		    buf[i] = '0' + v;
+		    bool after = check_1100(i - 3) || check_1100(i - 2) || check_1100(i - 1) || check_1100(i);
+		    count += after - before;
+		}
+		printf(count ? "YES\n" : "NO\n");
+	}
+}
+
+int main() {
+	l t; scanf("%lld", &t);
+	while (t--) solve();
+}

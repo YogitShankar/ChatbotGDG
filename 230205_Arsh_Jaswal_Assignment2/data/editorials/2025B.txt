@@ -1,0 +1,21 @@
+2025B - Binomial Coefficients, Kind OfIn order to solve the task, just try to generate values and find a pattern. The pattern is easy: C[n][k]=2k for all k∈[0,n).The last step is to calculate C[n][k] fast enough. For example, we can precalculate all powers of two in some array p as p[k]=2⋅p[k−1]mod(109+7) for all k<105 and print the necessary values when asked.Proof:C[n][k]=C[n][k−1]+C[n−1][k−1]= =C[n][k−2]+2⋅C[n−1][k−2]+C[n−2][k−2]= =C[n][k−3]+3⋅C[n−1][k−3]+3⋅C[n−2][k−3]+C[n−3][k−3]= =∑i=0j(ji)⋅C[n−i][k−j]=∑i=0k(ki)⋅C[n−i][0]=∑i=0k(ki)=2k Solution (adedalic)#include<bits/stdc++.h>
+
+using namespace std;
+
+const int MOD = int(1e9) + 7;
+
+int main() {
+	int t; cin >> t;
+	vector<int> ks(t);
+	for (int _ = 0; _ < 2; _++)
+		for (int i = 0; i < t; i++)
+			cin >> ks[i];
+	
+	vector<int> ans(1 + *max_element(ks.begin(), ks.end()), 1);
+	for (int i = 1; i < (int)ans.size(); i++)
+		ans[i] = (2LL * ans[i - 1]) % MOD;
+	
+	for (int k : ks)
+		cout << ans[k] << '\n';
+	return 0;
+}

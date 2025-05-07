@@ -1,0 +1,38 @@
+1582C - Grandma Capa Knits a ScarfLet's iterate over the letter that we will erase from the string (from 'a' to 'z'), and for each letter independently find the minimal number of erased symbols required to make the string a palindrome.Let's say we are currently considering a letter c. Let's use the two pointers method: we will maintain two pointers l, r, initially l points at the beginning of the string, and r points at the end of the string. Now we will form a palindrome: each time we will compare sl and sr, if they are equal, then we can add both of them to the palindrome at corresponding positions and iterate to symbols l+1 and r−1. If sl≠sr, then we need to erase one of these symbols (otherwise, we won't get a palindrome), if sl=c, let's erase it (we'll add to the number of erased symbols 1 and iterate to l+1-th symbol), similarly, if sr=c, we'll add to the number of the erased symbols 1 and iterate to r−1-th symbol. And the last case, if sl≠c and sr≠c, then it's impossible to get a palindrome from s by erasing only letters equal to c.The asymptotic behaviour of this solution is O(|C|⋅n), where |C| is the size of the alphabet, i.e. 26. Solution (74TrAkToR)#include<bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+    ios_base::sync_with_stdio(0);
+    cin.tie(0);
+    cout.tie(0);
+    int t, n;
+    cin >> t;
+    while (t--) {
+        string s;
+        cin >> n >> s;
+        int ans = n + 1;
+        for (int c = 0; c < 26; ++c) {
+            int l = 0, r = n - 1, cnt = 0;
+            while (l <= r) {
+                if (s[l] == s[r]) {
+                    l++, r--;
+                }
+                else if (s[l] == char('a' + c)) {
+                    cnt++, l++;
+                }
+                else if (s[r] == char('a' + c)) {
+                    cnt++, r--;
+                }
+                else {
+                    cnt = n + 1;
+                    break;
+                }
+            }
+            ans = min(ans, cnt);
+        }
+        if (ans == n + 1) ans = -1;
+        cout << ans << '\n';
+    }
+    return 0;
+}

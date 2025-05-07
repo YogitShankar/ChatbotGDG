@@ -1,0 +1,33 @@
+2002C — Black Circlesidea: Flamire, solution: le0n HintThe problem can't be that hard, find some simple strategy. TutorialWe consider a simple strategy: walk towards the goal in a straight line.If some circle reaches the goal first, it is obvious that we have no chance of succeeding, no matter what path we take.Otherwise, it can be proven that we will not pass any circles on our way to the goal.Suppose we start at A, our goal is B, and we got intercepted by some circle C at the point D. It follows that CD=AD. According to the triangle inequality, CD>CB−DB should hold. Thus, we have CB−DB≤AD, which means CB≤AB, proof by contradiction.Time complexity: O(n). Solution#include <bits/stdc++.h>
+#define ll long long
+using namespace std;
+int t, n, x[100011], y[100011], xs, ys, xt, yt;
+ll dis(int x1, int y1, int x2, int y2) {
+    return 1ll * (x2 - x1) * (x2 - x1) + 1ll * (y2 - y1) * (y2 - y1);
+}
+int main() {
+    scanf("%d", &t);
+
+    while (t--) {
+        scanf("%d", &n);
+
+        for (int i = 1; i <= n; ++i)
+            scanf("%d%d", x + i, y + i);
+
+        scanf("%d%d%d%d", &xs, &ys, &xt, &yt);
+        bool ok = 1;
+
+        for (int i = 1; i <= n; ++i) {
+            if (dis(xt, yt, x[i], y[i]) <= dis(xt, yt, xs, ys)) {
+                ok = 0;
+                break;
+            }
+        }
+
+        printf(ok ? "YES\n" : "NO\n");
+    }
+
+    fclose(stdin);
+    fclose(stdout);
+    return 0;
+}

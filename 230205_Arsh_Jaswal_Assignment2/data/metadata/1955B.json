@@ -1,0 +1,13 @@
+{
+    "title": "B. Progressive Square",
+    "description": "A progressive square of size n is an n×n matrix. Maxim chooses three integers a1,1, c, and d and constructs a progressive square according to the following rules:\nai+1,j=ai,j+c\nai,j+1=ai,j+d\nFor example, if n=3, a1,1=1, c=2, and d=3, then the progressive square looks as follows:\n(1473695811)\nLast month Maxim constructed a progressive square and remembered the values of n, c, and d. Recently, he found an array b of n2 integers in random order and wants to make sure that these elements are the elements of that specific square.\nIt can be shown that for any values of n, a1,1, c, and d, there exists exactly one progressive square that satisfies all the rules.\nThe first line contains an integer t (1≤t≤104) — the number of test cases.\nThe first line of each test case contains three integers n, c, and d (2≤n≤500, 1≤c,d≤106) — the size of the square and the values of c and d as described in the statement.\nThe second line of each test case contains n⋅n integers b1,b2,…,bn⋅n (1≤bi≤109) — the elements found by Maxim.\nIt is guaranteed that the sum of n2 over all test cases does not exceed 25⋅104.\nFor each test case, output \"YES\" in a separate line if a progressive square for the given n, c, and d can be constructed from the array elements a, otherwise output \"NO\".\nYou can output each letter in any case (lowercase or uppercase). For example, the strings \"yEs\", \"yes\", \"Yes\", and \"YES\" will be accepted as a positive answer.",
+    "time limit": "time limit per test2 seconds",
+    "memory limit": "memory limit per test256 megabytes",
+    "tags": [
+        "constructive algorithms",
+        "data structures",
+        "implementation",
+        "sortings",
+        "*1000"
+    ]
+}

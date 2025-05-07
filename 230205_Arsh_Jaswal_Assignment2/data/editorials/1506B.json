@@ -1,0 +1,3 @@
+{
+    "solution": "1506B - Partial ReplacementProblem author: MikeMirzayanov EditorialTutorial is loading... Solution#include <bits/stdc++.h>\nusing namespace std;\n\nvoid solve() {\n  int n, k;\n  cin >> n >> k;\n  string s;\n  cin >> s;\n  int res = 1;\n  int i = s.find_first_of('*');\n  while (true) {\n    int j = min(n - 1, i + k);\n    for (; i < j && s[j] == '.'; j--) {}\n    if (i == j) {\n      break;\n    }\n    res++;\n    i = j;\n  }\n  cout << res << \"\\n\";\n}\n\nint main() {\n  int tests;\n  cin >> tests;\n  while (tests-- > 0) {\n    solve();\n  }\n  return 0;\n}"
+}

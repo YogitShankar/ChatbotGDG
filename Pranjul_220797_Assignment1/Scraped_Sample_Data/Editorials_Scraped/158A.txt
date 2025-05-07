@@ -1,0 +1,7 @@
+Problem: 158A - Next Round
+Problem Link: https://codeforces.com/problemset/problem/158/A
+Editorial Link: https://codeforces.com/blog/entry/4089
+
+================================================================================
+
+158A - Next RoundJust sort. Notice 0 in the array.B

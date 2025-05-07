@@ -1,0 +1,12 @@
+You are given three arrays a, b and c. Initially, array a consists of n elements, arrays b and c are empty.
+You are performing the following algorithm that consists of two steps: 
+Can you make array c sorted in non-decreasing order?
+The first line contains a single integer t (1≤t≤2⋅104) — the number of test cases. Next t cases follow.
+The first line of each test case contains the single integer n (1≤n≤2⋅105) — the length of array a.
+The second line of each test case contains n integers a1,a2,…,an (1≤ai≤106) — the array a itself.
+It's guaranteed that the sum of n doesn't exceed 2⋅105.
+For each test, print YES (case-insensitive), if you can make array c sorted in non-decreasing order. Otherwise, print NO (case-insensitive).
+In the first test case, we can do the following for a=[3,1,5,3]:
+Step 1: 
+
+Step 2: 

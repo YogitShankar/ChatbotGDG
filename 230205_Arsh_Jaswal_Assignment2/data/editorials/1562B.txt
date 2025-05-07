@@ -1,0 +1,47 @@
+1562B - Scenes From a MemoryLet's show that if a number has three digits, you can always remove at least one from it to get a number that is not prime. This can be proved by a simple brute-force search of all numbers with three digits, but we'll try to do it without a brute-force search.In fact, if a number contains the digits '1', '4', '6', '8' or '9', then that one digit is the answer, because 1, 4, 6, 8 and 9 are not prime numbers.Now let's see what happens if the number doesn't have those digits. Then, if the number has two identical digits, we have found an answer of size two — the number of two identical digits (22, 33, 55, or 77) is divisible by 11. Also, if the digits 2 or 5 are not at the beginning of the number, we again have found an answer of size two — the number of two digits ending in 2 or 5 is not prime.If none of the above cases worked, then we find that a three-digit number has one of the following values: 237, 273, 537, 573. It is not difficult to see that these numbers have two digits, which form a number, that is divisible by three.Thus, the maximum answer is two, that is, you can leave no more than two digits in the number. You can find these digits by considering the above cases, or you can just try.It can be shown that such a brute-force solution will work for O(k).Asymptotics: O(k) per test case. Code C++ (Wind_Eagle)#include <iostream>
+
+using namespace std;
+
+int n;
+
+string s;
+
+bool prime[100];
+
+void solve() {
+    for (int i = 0; i < n; i++) {
+        if (s[i] == '1' || s[i] == '4' || s[i] == '6' || s[i] == '8' || s[i] == '9') {
+            cout << 1 << endl;
+            cout << s[i] << endl;
+            return;
+        }
+    }
+    for (int i = 0; i < n; i++) {
+        for (int j = i + 1; j < n; j++) {
+            if (!prime[(s[i] - '0') * 10 + (s[j] - '0')]) {
+                cout << 2 << endl;
+                cout << s[i] << s[j] << endl;
+                return;
+            }
+        }
+    }
+    exit(42);
+}
+
+int main() {
+    for (int i = 2; i < 100; i++) {
+        prime[i] = true;
+        for (int j = 2; j * j <= i; j++) {
+            if (i % j == 0) {
+                prime[i] = false;
+            }
+        }
+    }
+    int t;
+    cin >> t;
+    while (t--) {
+        cin >> n;
+        cin >> s;
+        solve();
+    }
+} Additional Problem 1Try to prove that the author's solution works for O(k) for one test case. Solution of Additional Problem 1Finding an answer consisting of one digit works in O(k). Now let's see how long the loop takes to complete. Indeed, it is easy to see that once the pairs of indexes (0,1), (0,2), and (1,2) are considered, an answer will always be found. This is so because in any number of three digits you can find an answer consisting of two digits (this was proved earlier). So this is equivalent to removing all but the first three digits, and then solving the problem for them (assuming that the length of the optimal answer is two). Additional Problem 2Try to think of a way to search index pairs and a test such that this search works for O(k2) per test case. Solution of Additional Problem 2Let's take the string \t{3737 \ldots 37} as a string. We will search pairs of indices in the following way: first we will search all pairs of indices with different parities, and then all pairs of indices with the same parity. It is easy to see that such a search will work for O(k2) for one test case, because all pairs of indices with different parity will give numbers 37 and 73, which are prime, and there are O(k2) such pairs.

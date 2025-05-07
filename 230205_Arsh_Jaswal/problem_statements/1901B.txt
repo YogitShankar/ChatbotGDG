@@ -1,0 +1,16 @@
+Problem Title: B. Chip and Ribbon
+
+time limit per test2 seconds
+memory limit per test256 megabytes
+
+There is a ribbon divided into nn cells, numbered from 11 to nn from left to right. Initially, an integer 00 is written in each cell.
+Monocarp plays a game with a chip. The game consists of several turns. During the first turn, Monocarp places the chip in the 11-st cell of the ribbon. During each turn except for the first turn, Monocarp does exactly one of the two following actions:
+At the end of each turn, the integer written in the cell with the chip is increased by 11.
+Monocarp's goal is to make some turns so that the 11-st cell contains the integer c1c1, the 22-nd cell contains the integer c2c2, ..., the nn-th cell contains the integer cncn. He wants to teleport the chip as few times as possible.
+Help Monocarp calculate the minimum number of times he has to teleport the chip. 
+The first line contains one integer tt (1≤t≤1041≤t≤104) — the number of test cases.
+Each test case consists of two lines: 
+It can be shown that under these constraints, it is always possible to make a finite amount of turns so that the integers in the cells match the sequence c1,c2,…,cnc1,c2,…,cn.
+Additional constraint on the input: the sum of values of nn over all test cases does not exceed 2⋅1052⋅105.
+For each test case, print one integer — the minimum number of times Monocarp has to teleport the chip.
+In the first test case of the example, Monocarp can perform the turns as follows:

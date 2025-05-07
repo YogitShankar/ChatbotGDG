@@ -1,0 +1,16 @@
+{
+    "tags": [
+        "brute force",
+        "constructive algorithms",
+        "graph matchings",
+        "implementation",
+        "*1300"
+    ],
+    "contest_id": 2049,
+    "problem_index": "B",
+    "problem_name": "pspspsps",
+    "time limit per test": "1 second",
+    "memory limit per test": "256 megabytes",
+    "input": "standard input",
+    "output": "standard output"
+}

@@ -1,0 +1,33 @@
+1042A - BenchesThe maximum value of k should be determined in the following way: let's find the maximum number of people already sitting on the same bench (i. e. the maximum value in the array a). Let this number be t. Then if all additional m people will seat on this bench, we will get the maximum value of k, so the answer is t+m.To determine the minimum value of k let's perform m operations. During each operation we put a new person on the bench currently having minimum number of people occupying it. The answer is the maximum number of people on the bench after we perform this operation for each of m newcomers. Solution#include <set>
+#include <algorithm>
+#include <iostream>
+#include <vector>
+#include <string>
+#include <cassert>
+
+using namespace std;
+
+const int N = 100 + 13;
+
+int n, m;
+int a[N];
+
+int main() {
+    cin >> n >> m;
+    for (int i = 0; i < n; i++) {
+        cin >> a[i];
+    }
+    int ans2 = *max_element(a, a + n) + m;
+    for (int it = 0; it < m; it++) {
+        int pos = -1;
+        for (int i = 0; i < n; i++) {
+            if (pos == -1 || a[i] < a[pos]) {
+                pos = i;
+            }
+        }
+        assert(pos != -1);
+        a[pos]++;
+    }
+    int ans1 = *max_element(a, a + n);
+    cout << ans1 << ' ' << ans2 << endl;
+}

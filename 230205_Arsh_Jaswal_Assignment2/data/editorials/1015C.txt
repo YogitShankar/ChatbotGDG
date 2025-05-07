@@ -1,0 +1,36 @@
+1015C - Songs CompressionIf we will no compress songs, the sum of the sizes will be equal ∑i=1nai. Let it be sum. Now, if we will compress the j-th song, how do sum will change? It will decrease by aj−bj. This suggests that the optimal way to compress the songs is the compress it in non-increasing order of aj−bj. Let's create the array d of size n, where dj=aj−bj. Let's sort it in non-increasing order, and then iterate over all j from 1 to n. If at the current step sum≤m, we print j−1 and terminate the program. Otherwise we set sum:=sum−dj. After all we have to check again if sum≤m then print n otherwise print "-1".Time complexity is O(nlogn) because of sorting. Solution (Vovuh)#include <bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+#ifdef _DEBUG
+	freopen("input.txt", "r", stdin);
+//	freopen("output.txt", "w", stdout);
+#endif
+	
+	int n, m;
+	cin >> n >> m;
+	vector<pair<int, int>> a(n);
+	long long sum = 0;
+	for (int i = 0; i < n; ++i) {
+		cin >> a[i].first >> a[i].second;
+		sum += a[i].first;
+	}
+	
+	sort(a.begin(), a.end(), [&](pair<int, int> a, pair<int, int> b) { return a.first - a.second > b.first - b.second; });
+	
+	for (int i = 0; i < n; ++i) {
+		if (sum <= m) {
+			cout << i << endl;
+			return 0;
+		}
+		sum -= a[i].first - a[i].second;
+	}
+	
+	if (sum <= m)
+		cout << n << endl;
+	else
+		cout << -1 << endl;
+	
+	return 0;
+}

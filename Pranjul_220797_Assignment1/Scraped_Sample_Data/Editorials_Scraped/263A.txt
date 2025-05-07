@@ -1,0 +1,7 @@
+Problem: 263A - Beautiful Matrix
+Problem Link: https://codeforces.com/problemset/problem/263/A
+Editorial Link: https://codeforces.com/blog/entry/6419
+
+================================================================================
+
+263A - Beautiful MatrixIf the single 1 is located on the intersection of the r-th row and the c-th column (1-based numeration), then the answer is |3 - r| + |3 - c|.

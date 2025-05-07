@@ -1,0 +1,9 @@
+1622B - Berland MusicSince we know that every disliked song should have lower rating than every liked song, we actually know which new ratings should belong to disliked songs and which should belong to the liked ones.The disliked songs take ratings from 1 to the number of zeros in s. The liked songs take ratings from the number of zeros in s plus 1 to n. Thus, we have two independent tasks to solve.Let the disliked songs have ratings d1,d2,…,dk. Their new ratings should be 1,2,…,k. We can show that if we sort the array d, then |d′1−1|+|d′2−2|+⋯+|d′k−k| will be the lowest possible. The general way to prove it is to show that if the order has any inversions, we can always fix the leftmost of them (swap two adjacent values), and the cost doesn't increase.So the solution can be to sort triples (si,pi,i) and restore q from the order of i in these.Overall complexity: O(nlogn) per testcase. Solution (awoo)for _ in range(int(input())):
+	n = int(input())
+	p = [int(x) for x in input().split()]
+	s = input()
+	l = sorted([[s[i], p[i], i] for i in range(n)])
+	q = [-1 for i in range(n)]
+	for i in range(n):
+		q[l[i][2]] = i + 1
+	print(*q)

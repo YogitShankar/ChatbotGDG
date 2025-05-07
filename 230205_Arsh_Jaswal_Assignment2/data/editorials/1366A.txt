@@ -1,0 +1,3 @@
+1366A - Shovels and SwordsThere are three constraints on the number of emeralds:  the number of emeralds can't be greater than a;  the number of emeralds can't be greater than b;  the number of emeralds can't be greater than a+b3. So the answer is min(a,b,a+b3). Solution (Roms)for _ in range(int(input())):
+    l, r = map(int, input().split())
+    print(min(l, r, (l + r) // 3))

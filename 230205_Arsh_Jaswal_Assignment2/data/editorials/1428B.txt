@@ -1,0 +1,53 @@
+1428B - Belted RoomsSetter: oolimryPrepared by: oolimry Hint 1There are 2 cases to consider for a room to be returnable. Hint 2For a room to be returnable, either go one big round around all the rooms or move to an adjacent room and move back. SolutionLet's consider two ways to return to the start point. The first is to go one big round around the circle. The second is to move 1 step to the side, and return back immediately.Going one big round is only possible if and only if:  There are no clockwise belts OR There are no anticlockwise belts If we can go one big round, all rooms are returnable.If there are both clockwise and anticlockwise belts, then we can't go one big round. For any room to be returnable, it must have an off belt to the left or to the right. In summary, check if clockwise belts are absent or if anticlockwise belts are absent. If either is absent, the answer is n. Otherwise, we have to count the number of rooms with an off belt to the left or to the right. Other commentsSorry for the unclear statement for B, we should've explained each sample testcase more clearly with better diagrams. Additionally, we're also sorry for the weak pretests. We should've added more testcases of smaller length, and thanks to hackers for adding stronger tests. Code (C++)#include <bits/stdc++.h>
+using namespace std;
+
+int main(){
+	ios_base::sync_with_stdio(false); cin.tie(0);
+	
+	int TC; cin >> TC;
+	while(TC--){
+		int n; cin >> n;
+		string s; cin >> s;
+		
+		bool hasCW = false;
+		bool hasCCW = false;
+		for(int i = 0;i < n;i++){
+			if(s[i] == '<') hasCW = true;
+			if(s[i] == '>') hasCCW = true;
+		}
+		
+		if(hasCW && hasCCW){
+			int ans = 0;
+			s += s[0];
+			for(int i = 0;i < n;i++){
+				if(s[i] == '-' || s[i+1] == '-') ans++;
+			}
+			cout << ans << "\n";
+		}
+		else{
+			cout << n << "\n";
+		}
+	}
+} Code (Python)TC = int(input())
+for tc in range(TC):
+    n = int(input())
+    s = input()
+
+    hasCW = False
+    hasCCW = False 
+    for c in s:
+        if c == '>':
+            hasCW = True
+        if c == '<':
+            hasCCW = True
+            
+    if hasCW and hasCCW:
+        s += s[0]
+        ans = 0;
+        for i in range(n):
+            if s[i] == '-' or s[i+1] == '-':
+                ans += 1
+        print(ans)
+        
+    else:
+        print(n)

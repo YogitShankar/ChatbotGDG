@@ -1,0 +1,14 @@
+{
+    "problem_tag": "1807A",
+    "title": "Plus or Minus",
+    "link": "https://codeforces.com/problemset/problem/1807/A",
+    "description": "You are given three integers\na\n,\nb\n, and\nc\nsuch that exactly one of these two equations is true:",
+    "input_specification": "The first line contains a single integer\nt\n(\n1≤t≤162\n) — the number of test cases.\nThe description of each test case consists of three integers\na\n,\nb\n,\nc\n(\n1≤a,b≤9\n,\n−8≤c≤18\n). The additional constraint on the input: it will be generated so that exactly one of the two equations will be true.",
+    "output_specification": "For each test case, output either + or - on a new line, representing the correct equation.",
+    "time_limit": "1 second",
+    "memory_limit": "256 megabytes",
+    "tags": [
+        "implementation",
+        "*800"
+    ]
+}

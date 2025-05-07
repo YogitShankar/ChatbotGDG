@@ -1,0 +1,97 @@
+Problem: 1154A - Restoring Three Numbers
+Link: https://codeforces.com/problemset/problem/1154/A
+
+Description:
+Polycarp has guessed three positive integers
+𝑎
+,
+𝑏
+and
+𝑐
+. He keeps these numbers in secret, but he writes down four numbers on a board in arbitrary order - their pairwise sums (three numbers) and sum of all three numbers (one number). So, there are four numbers on a board in random order:
+𝑎+𝑏
+,
+𝑎+𝑐
+,
+𝑏+𝑐
+and
+𝑎+𝑏+𝑐
+.
+You have to guess three numbers
+𝑎
+,
+𝑏
+and
+𝑐
+using given numbers. Print three guessed integers in any order.
+Pay attention that some given numbers
+𝑎
+,
+𝑏
+and
+𝑐
+can be equal (it is also possible that
+𝑎=𝑏=𝑐
+).
+
+Input Specification:
+The only line of the input contains four positive integers
+𝑥
+1
+,
+𝑥
+2
+,
+𝑥
+3
+,
+𝑥
+4
+(
+2<=
+𝑥
+𝑖
+<=
+10
+9
+) - numbers written on a board in random order. It is guaranteed that the answer exists for the given number
+𝑥
+1
+,
+𝑥
+2
+,
+𝑥
+3
+,
+𝑥
+4
+.
+
+Output Specification:
+Print such positive integers
+𝑎
+,
+𝑏
+and
+𝑐
+that four numbers written on a board are values
+𝑎+𝑏
+,
+𝑎+𝑐
+,
+𝑏+𝑐
+and
+𝑎+𝑏+𝑐
+written in some order. Print
+𝑎
+,
+𝑏
+and
+𝑐
+in any order. If there are several answers, you can print any. It is guaranteed that the answer exists.
+
+Time Limit: 1 second
+Memory Limit: 256 megabytes
+
+Tags: math, *800

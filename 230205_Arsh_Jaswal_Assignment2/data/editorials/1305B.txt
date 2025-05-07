@@ -1,0 +1,90 @@
+1305B - Kuroni and Simple StringsWe claim that the answer is always 0 or 1. First, note we can't apply any operations if and only if each '(' symbol is left from each ')' symbol, so that the string looks as ')))(((((('.Let a1,a2,…,ap be the indexes of symbols '(' in the string, and b1,b2,…,bq be the indexes of symbols ')' in the string. Let i be the largest index for which ai<bq−i+1. We claim that we can delete subsequence {a1,a2,…,ai,bq−i+1,…,bq−1,bq}, and won't be able to apply any operation to the resulting string. Indeed, suppose that in the resulting string some '(' symbol will be to the left from some ')' symbol, say they were ak and bl in out sequences. Then we must have k>i and l<q−i+1, as they weren't deleted yet. So, we get that bi+1≤bk<bl≤bq−i, so i wasn't maximal.In other words, just pick brackets greedily from ends, forming as large simple string as you can. Asymptotics O(|s|). Solution (Ari, C++)Submission link: 72364435 Source code in plain text#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+	string s;
+	cin >> s;
+	vector<int> le, ri;
+	int l = 0, r = s.size() - 1;
+	while(l < r) {
+		while(l < s.size() && s[l] == ')')
+			l++;
+		while(r >= 0 && s[r] == '(')
+			r--;
+		if(l < s.size() && r >= 0 && l < r) {
+			le.push_back(l + 1);
+			ri.push_back(r + 1);
+			l++;
+			r--;
+		}
+	}
+	if(le.empty()) {
+		cout << "0\n";
+		return 0;
+	}
+	cout << "1\n";
+	cout << 2 * le.size() << '\n';
+	for(auto x : le)
+		cout << x << " ";
+	reverse(ri.begin(), ri.end());
+	for(auto x : ri)
+		cout << x << " ";
+	cout << '\n';
+} Solution (Akikaze, Java 8)Submission link: 72364561 Source code in plain textimport java.io.*;
+import java.util.*;
+
+public class JavAki {
+	public static Scanner sc = new Scanner(System.in);
+
+	public static String s;
+
+	public static void Input() {
+		s = sc.next();
+	}
+
+	public static void Solve() {
+		ArrayList<Integer> oList = new ArrayList<>();
+		ArrayList<Integer> cList = new ArrayList<>();
+		for (int i=0; i<s.length(); i++) {
+			if (s.charAt(i) == '(') oList.add(i);
+			if (s.charAt(i) == ')') cList.add(i);
+		}
+
+		ArrayList<Integer> removal = new ArrayList<>();
+		int oPtr = 0, cPtr = cList.size() - 1;
+		while (oPtr < oList.size() && cPtr >= 0) {
+			if (oList.get(oPtr) > cList.get(cPtr)) break;
+			removal.add(oList.get(oPtr)); removal.add(cList.get(cPtr));
+			oPtr++; cPtr--;
+		}
+
+		Collections.sort(removal);
+		if (removal.size() == 0) System.out.println(0);
+		else {
+			System.out.println(1); System.out.println(removal.size());
+			for (int x: removal) System.out.print((x+1) + " ");
+			System.out.println();
+		}
+	}
+
+	public static void main(String[] args) {
+		Input(); Solve();
+	}
+} Solution (Akikaze, Python 3)Submission link: 72364606 Source code in plain textstring = input()
+oList, cList = [], []
+for i in range(len(string)):
+	if string[i] == '(': oList.append(i)
+	if string[i] == ')': cList.append(i)
+
+oPtr, cPtr = 0, len(cList)-1
+removal = []
+while oPtr < len(oList) and cPtr >= 0:
+	if oList[oPtr] > cList[cPtr]: break
+	removal.append(oList[oPtr])
+	removal.append(cList[cPtr])
+	oPtr += 1
+	cPtr -= 1
+
+removal.sort()
+if len(removal) == 0: print(0)
+else: print('1\n{}\n{}'.format(len(removal), ' '.join([str(x+1) for x in removal])))

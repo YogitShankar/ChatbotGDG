@@ -1,0 +1,42 @@
+1537C - Challenging CliffsWe claim that the maximum difficulty is at least n−2. Assume the array is sorted. We first need to find the two mountains which go on the ends. To do this, we can iterate through every mountain in the sorted array and check the difference between a mountain and its neighbours in the array. Let mk and mk+1 be the mountains with the smallest height difference. We can achieve at least a difficulty of n−2 by arranging the mountains as mk,mk+2,mk+3...mn,m1,m2,.....,mk+1. To get difficulty n−1, we need mk to be the shortest mountain and mk+1 to be the tallest mountain. This will only happen if n=2. Code#include "bits/stdc++.h"
+using namespace std;
+
+int main()
+{
+    int t;
+    cin >> t;
+    while(t--){
+        int n;
+        cin >> n;
+        vector<int> h(n);
+
+        for (int i = 0;i < n; i++){
+            cin >> h[i];
+        }
+        sort(h.begin(), h.end());
+
+        if(n == 2){
+            cout << h[0] << " " << h[1] << "\n";
+            continue;
+        }
+
+        int pos = -1, mn = INT_MAX;
+
+        for (int i = 1;i < n; i++){
+            if(mn > abs(h[i] - h[i - 1])){
+                pos = i;
+                mn = abs(h[i] - h[i - 1]);
+            }
+        }
+        
+        for (int i = pos;i < n; i++){
+            cout << h[i] << " ";
+        }
+        for(int i = 0;i < pos; i++){
+            cout << h[i] << " ";
+        }
+
+        cout << "\n";
+
+    }
+}

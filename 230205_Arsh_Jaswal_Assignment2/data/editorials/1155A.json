@@ -1,0 +1,3 @@
+{
+    "solution": "1155A - Reverse a Substring TutorialTutorial is loading... Solution (Vovuh)#include <bits/stdc++.h>\n\nusing namespace std;\n\nint main() {\n#ifdef _DEBUG\n\tfreopen(\"input.txt\", \"r\", stdin);\n//\tfreopen(\"output.txt\", \"w\", stdout);\n#endif\n\t\n\tint n;\n\tstring s;\n\tcin >> n >> s;\n\t\n\tfor (int i = 1; i < int(s.size()); ++i) {\n\t\tif (s[i] < s[i - 1]) {\n\t\t\tcout << \"YES\" << endl;\n\t\t\tcout << i << \" \" << i + 1 << endl;\n\t\t\treturn 0;\n\t\t}\n\t}\n\t\n\tcout << \"NO\" << endl;\n\n\treturn 0;\n}"
+}

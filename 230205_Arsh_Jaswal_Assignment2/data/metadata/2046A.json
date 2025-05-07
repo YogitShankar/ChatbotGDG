@@ -1,0 +1,11 @@
+{
+    "title": "A. Swap Columns and Find a Path",
+    "description": " \nThere is a matrix consisting of 2 rows and n columns. The rows are numbered from 1 to 2 from top to bottom; the columns are numbered from 1 to n from left to right. Let's denote the cell on the intersection of the i-th row and the j-th column as (i,j). Each cell contains an integer; initially, the integer in the cell (i,j) is ai,j.\nYou can perform the following operation any number of times (possibly zero):\nAfter performing the operations, you have to choose a path from the cell (1,1) to the cell (2,n). For every cell (i,j) in the path except for the last, the next cell should be either (i+1,j) or (i,j+1). Obviously, the path cannot go outside the matrix.\nThe cost of the path is the sum of all integers in all (n+1) cells belonging to the path. You have to perform the operations and choose a path so that its cost is maximum possible.\nEach test contains multiple test cases. The first line contains the number of test cases t (1≤t≤5000). The description of the test cases follows. \nEach test case consists of three lines:\nIt is guaranteed that the sum of n over all test cases does not exceed 5000. \nFor each test case, print one integer — the maximum cost of a path you can obtain.\nHere are the explanations of the first three test cases of the example. The left matrix is the matrix given in the input, the right one is the state of the matrix after several column swaps (possibly zero). The optimal path is highlighted in green.",
+    "time limit": "time limit per test2 seconds",
+    "memory limit": "memory limit per test512 megabytes",
+    "tags": [
+        "greedy",
+        "sortings",
+        "*1200"
+    ]
+}

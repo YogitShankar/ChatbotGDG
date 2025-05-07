@@ -1,0 +1,11 @@
+{
+    "title": "A. 1-3-5",
+    "description": "In Berland, coins of worth 1, 3 and 5 burles are commonly used (burles are local currency).\nEva has to pay exactly n burles in a shop. She has an infinite amount of coins of all three types. However, she doesn't like to pay using coins worth 1 burle — she thinks they are the most convenient to use.\nHelp Eva to calculate the minimum number of coins worth 1 burle she has to use, if she has to pay exactly n burles. Note that she can spend any number of coins worth 3 and/or 5 burles.\nThe first line contains one integer t (1≤t≤100) — the number of test cases.\nEach test case consists of one line, containing one integer n (1≤n≤100).\nFor each test case, print one integer — the minimum number of 1-burle coins Eva has to use.\nIn the first test case, Eva should use 1 coin worth 1 burle, and 2 coins worth 3 burles.\nIn the second test case, Eva should use 1 coin worth 3 burles and 1 coin worth 5 burles.\nIn the third test case, Eva should use 14 coins worth 3 burles.\nIn the fourth test case, Eva should use 2 coins worth 1 burle.\nIn the fifth test case, Eva should use 2 coins worth 3 burles and 1 coin worth 5 burles.",
+    "time limit": "time limit per test2 seconds",
+    "memory limit": "memory limit per test512 megabytes",
+    "tags": [
+        "*special problem",
+        "dp",
+        "*1100"
+    ]
+}

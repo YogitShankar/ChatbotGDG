@@ -1,0 +1,56 @@
+1860B - Fancy CoinsThere are two ways to approach this problem: a mathematical way and an algorithmic way.Approach 1Let's start by looking at the possible ways to represent m burles with our coins. For example, we could try to use as many coins of value k as possible: then, the number of coins of value k will be ⌊mk⌋, and the number of coins of value 1 will be mmodk.Now suppose it's not optimal to use that many coins of value k; what if it's better to use more coins of value 1 and fewer coins of value k? Well, we can still start with using ⌊mk⌋ coins of value k and mmodk coins of value 1, and then try to replace one coin of value k with k coins of value 1 several times (maybe zero).How many times should we do this, and when should we stop to get an optimal solution? Well, firstly, let's make sure that we have already taken as many regular coins as possible. Then, if we have at least k leftover coins of value 1 which are regular (not fancy), and we have taken at least one fancy coin of value k, it's better to replace that coin. It's easy to see that there's no need for any replacements if that's not the case: if we don't have k regular coins which are currently unused, then at least one of the replacement coins will be fancy; and if the coin of value k we want to replace is not fancy, why replacing it at all?So, we could write a while-loop that keeps track how many coins of which types we have taken, and replaces one fancy coin of value k with k regular coins of value 1 until it's impossible. Unfortunately, this is too slow. But instead of running this loop, we can calculate the number of times we make that replacement in O(1): it is the minimum of the number of regular coins of value 1 we aren't using, divided by k, and the number of fancy coins of value k we are using.So, the outline of the solution is the following:  start by taking as many coins of value k as possible, and calculate how many coins of which value we have taken;  calculate how many regular and fancy coins of both types we have taken;  calculate how many "replacements" (discard one fancy coin of value k, add k regular coins of value 1) we can make. Approach 2The second approach also starts with analyzing how many coins of value 1 and how many coins of value k we can take. The minimum number of coins of value k we can take is 0, and the maximum number of such coins is ⌊mk⌋.Let f(x) denote the number of fancy coins we use, if we take exactly x coins of value k. This function can easily be calculated because we know how many coins of both types we take, if x is fixed. We need to find the minimum of this function on [0,⌊mk⌋].How does f(x+1)−f(x) behave? The meaning of going from f(x) to f(x+1) is just replacing k coins of value 1 with one coin of value k. When we increase x, obviously, we should try to discard fancy coins of value 1 first, then regular coins of value 1 (and the number of fancy coins we will discard will never increase when we increase x). Similarly, we should try to take regular coins of value k first, then fancy ones (and the number of fancy coins we take will never decrease when we increase x). So, the value of f(x+1)−f(x) does not decrease when x increases.All of this means that the minimum value of f(x) can be found using ternary search. Solution 1 (BledDest)#include<bits/stdc++.h>
+ 
+using namespace std;
+ 
+int main()
+{
+	int t;
+	cin >> t;
+	for(int i = 0; i < t; i++)
+	{
+		int m, k, a1, ak;
+		cin >> m >> k >> a1 >> ak;
+		int taken_k = m / k;
+		int taken_1 = m % k;
+		int taken_fancy_1 = max(0, taken_1 - a1);
+		int left_regular_1 = max(0, a1 - taken_1);
+		int taken_fancy_k = max(0, taken_k - ak);
+		int to_replace = min(left_regular_1 / k, taken_fancy_k);
+		int ans = taken_fancy_1 + taken_fancy_k - to_replace;
+		cout << ans << endl;
+	}
+} Solution 2 (BledDest)#include<bits/stdc++.h>
+ 
+using namespace std;
+ 
+int main()
+{
+	int t;
+	cin >> t;
+	for(int i = 0; i < t; i++)
+	{
+		int m, k, a1, ak;
+		cin >> m >> k >> a1 >> ak;
+		// function which calculates the number of fancy coins taken
+		// if we take exactly x coins of value k
+		auto f = [m, k, a1, ak](int x)
+		{
+			int taken_1 = m - k * x;
+			return max(0, taken_1 - a1) + max(0, x - ak);
+		};
+		
+		int lf = 0;
+		int rg = m / k;
+		while(rg - lf > 2)
+		{
+			int mid = (lf + rg) / 2;
+			if(f(mid) < f(mid + 1))
+				rg = mid + 1;
+			else
+				lf = mid;
+		}
+		int ans = 1e9;
+		for(int i = lf; i <= rg; i++) ans = min(ans, f(i));
+		cout << ans << endl;
+	}
+}

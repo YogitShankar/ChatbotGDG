@@ -1,0 +1,22 @@
+985A - Chess PlacingFirstly let's sort our array p (pay the attention that there are  elements in this array, not n). Then for 0-indexed array p answer will be equal to , where |a - b| is an absolute value of difference between a and b. Solution (Vovuh)#include <bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+	int n;
+	cin >> n;
+	vector<int> pos(n / 2);
+	for (int i = 0; i < n / 2; ++i)
+		cin >> pos[i];
+	sort(pos.begin(), pos.end());
+	
+	int ans1 = 0, ans2 = 0;
+	for (int i = 0; i < n / 2; ++i) {
+		ans1 += abs(pos[i] - (i * 2 + 1));
+		ans2 += abs(pos[i] - (i * 2 + 2));
+	}
+	
+	cout << min(ans1, ans2) << endl;
+	
+	return 0;
+}

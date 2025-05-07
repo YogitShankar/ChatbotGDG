@@ -1,0 +1,12 @@
+1633C - Kill the MonsterFirst of all, let's understand how to solve the problem without upgrades. To do this, it is enough to compare two numbers: ⌈hMdC⌉ and ⌈hCdM⌉ — the number of attacks that the character needs to kill the monster and the number of attacks that the monster needs to kill the character, respectively. So, if the first number is not greater than the second number, then the character wins.Note that the number of coins is not very large, which means we can iterate over the number of coins that we will spend on weapon upgrades, and the remaining coins will be spent on armor upgrades. After that, we can use the formula described above to check whether the character will win.The complexity of the solution is O(k). Solution (awoo)for _ in range(int(input())):
+    hc, dc = map(int, input().split())
+    hm, dm = map(int, input().split())
+    k, w, a = map(int, input().split())
+    for i in range(k + 1):
+        nhc = hc + i * a
+        ndc = dc + (k - i) * w
+        if (hm + ndc - 1) // ndc <= (nhc + dm - 1) // dm:
+            print("YES")
+            break
+    else:
+        print("NO")

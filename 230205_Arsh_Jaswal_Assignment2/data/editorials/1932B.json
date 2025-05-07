@@ -1,0 +1,3 @@
+{
+    "solution": "1932B - Chaya CalendarThe tribe will wait for the first sign in year a1. They will expect the second event in some year x>a1, which is divisible by a2, this will happen after a2−a1moda2 years. Let's maintain the number cur of the year in which the i-th sign occurred, then the (i+1)-th will occur in the year cur+ai+1−curmodai+1. Since this is the smallest year number divisible by ai+1, which is strictly greater than cur. Solutiondef solve():\n    n = int(input())\n    a = [int(x) for x in input().split()]\n    cur = 0\n    for e in a:\n        cur += e - cur % e\n    print(cur)\n \n \nfor _ in range(1, int(input()) + 1):\n    solve()"
+}

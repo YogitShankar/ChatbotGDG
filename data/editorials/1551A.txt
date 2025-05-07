@@ -1,0 +1,15 @@
+Problem: 1551A - Polycarp and Coins
+Problem Link: https://codeforces.com/problemset/problem/1551/A
+Editorial Link: https://codeforces.com/blog/entry/93149
+
+================================================================================
+
+1551A - Polycarp and Coins Tutorial1551A - Polycarp and CoinsLet's initialize variables 𝑐1 and 𝑐2 by the same value of ⌊𝑛3⌋. Then we need to gather additionally the remainder of dividing 𝑛 by 3.If the remainder is equal to 0, we don't need to gather anything else because the variables 𝑐1 and 𝑐2 have been already set to the correct answer: |𝑐1−𝑐2|=0 because 𝑐1=𝑐2 and no absolute value can be less than 0. Otherwise, |𝑐1−𝑐2|≠0 because 𝑐1=𝑐2 and 𝑛=𝑐1+2×𝑐2=3×𝑐1 in this case, but that's impossible if 𝑛 isn't divisible by 3.If the remainder is equal to 1, then we need to gather additionally 1 burle using one coin of 1 burle so let's increase 𝑐1 by 1. In this case, 𝑐1=𝑐2+1, hence |𝑐1−𝑐2|=1, this value cannot be less than 1, as it was proved above.If the remainder is equal to 2, then we need to gather additionally 2 burles using one coin of 2 burles so let's increase 𝑐2 by 1. In this case, 𝑐2=𝑐1+1, hence |𝑐1−𝑐2|=1, this value cannot be less than 1.There are no other remainders of dividing by 3 so these cases cover the whole solution. Solutionfor i in range(0, int(input())):
+    n = int(input())
+    c1 = n // 3;
+    c2 = c1;
+    if n % 3 == 1:
+        c1 += 1
+    elif n % 3 == 2:
+        c2 += 1
+    print(c1, c2)

@@ -1,0 +1,19 @@
+1800C2 - Powering the Hero (hard version)Idea: Vladosiya TutorialTutorial is loading... Solutionfrom queue import PriorityQueue
+
+
+def solve():
+    n = int(input())
+    s = [int(x) for x in input().split()]
+    ans = 0
+    buffs = PriorityQueue()
+    for e in s:
+        if e > 0:
+            buffs.put(-e)
+        elif not buffs.empty():
+            ans -= buffs.get()
+    print(ans)
+
+
+t = int(input())
+for _ in range(t):
+    solve()

@@ -1,0 +1,1 @@
+1991B - AND Reconstruction IdeaFind minimum possible value of each Ai, then check if it gives you B Video editorial
