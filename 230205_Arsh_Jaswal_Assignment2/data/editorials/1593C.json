@@ -1,0 +1,3 @@
+{
+    "solution": "1593C - Save More MiceIdea: ITMO student team TutorialTutorial is loading... Solution#include <bits/stdc++.h>\n\nusing namespace std;\n\nint main()\n{\n\tint t;\n\tcin >> t;\n\n\twhile (t--)\n\t{\n\t\tint n, k;\n\t\tcin >> n >> k;\n\n\t\tvector<int> x(k);\n\t\tfor (int i = 0; i < k; i++) cin >> x[i];\n\t\tsort(x.rbegin(), x.rend());\n\n\t\tint cnt = 0;\n\t\tlong long sum = 0;\n\n\t\twhile (cnt < x.size() && sum + n - x[cnt] < n)\n\t\t{\n\t\t\tsum += n - x[cnt++];\n\t\t}\n\n\t\tcout << cnt << '\\n';\n\t}\n\n\treturn 0;\n}\n"
+}

@@ -1,0 +1,66 @@
+Section 1:
+Hint 1
+Consider the leftmost and rightmost characters, and recursively construct the sequence.
+
+Section 2:
+Tutorial
+2048I1 - Kevin and Puzzle (Easy Version)
+Lemma:
+Suppose the largest value filled is $$$mx$$$, and the number of distinct values is $$$c$$$. Let $$$d = c - mx$$$. Then, $$$d = 0$$$ or $$$d = 1$$$.
+Proof:
+Clearly, $$$c \le mx + 1$$$. If $$$c < mx$$$, observe where $$$mx$$$ is placed, and a contradiction arises.
+Now, consider the leftmost and rightmost characters in sequence $$$s$$$:
+If they are
+L
+and
+R
+, we can see that both positions must be filled with $$$0$$$, and no other position can be filled with $$$0$$$. For internal positions, whether
+L
+or
+R
+, $$$0$$$ counts as a distinct number. Therefore, we can remove these two positions, recursively solve for the remaining part, add $$$1$$$ to all numbers, and then place a $$$0$$$ at both ends.
+If both are
+L
+, the leftmost
+L
+must be $$$0$$$. Suppose the rightmost
+L
+is filled with $$$x$$$. It is easy to prove that $$$x$$$ cannot be placed in internal positions. For internal positions, whether
+L
+or
+R
+, either $$$0$$$ or $$$x$$$ is counted as a distinct number. So, as in the previous case, we remove the two positions, recursively solve for the remaining part, add $$$1$$$ to all numbers, and then add $$$0$$$ and $$$x$$$ at both ends. The value of $$$x$$$ must be the number of distinct values inside plus 1. This condition is equivalent to the internal region satisfying $$$d = 1$$$.
+If both are
+R
+, the analysis is the same as for the
+L
+and
+L
+case.
+If the leftmost character is
+R
+and the rightmost character is
+L
+, a simple construction is to fill everything with $$$1$$$. In this case, no $$$0$$$ will appear, so this case can only correspond to $$$d = 0$$$.
+We recursively remove the leftmost and rightmost characters, solve for the inner region, add $$$1$$$ to all of them, and place $$$0$$$ and $$$x$$$ at both ends.
+Now, consider how $$$d$$$ changes:
+For the
+LR
+case, $$$d$$$ remains unchanged.
+For
+LL
+or
+RR
+, the internal region must satisfy $$$d = 1$$$.
+For
+RL
+, the entire region results in $$$d = 0$$$.
+Therefore, consider the outermost
+RL
+. If it contains
+LL
+or
+RR
+inside, there is no solution.
+Otherwise, a solution always exists, and it can be easily constructed based on the above process, the time complexity is $$$O(n)$$$.
+

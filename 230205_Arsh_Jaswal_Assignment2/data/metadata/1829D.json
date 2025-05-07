@@ -1,0 +1,13 @@
+{
+    "title": "D. Gold Rush",
+    "description": "Initially you have a single pile with n gold nuggets. In an operation you can do the following: \nOne possible move is to take a pile of size 6 and split it into piles of sizes 2 and 4, which is valid since 4 is twice as large as 2. \nThe first line contains an integer t (1≤t≤1000) — the number of test cases.\nThe only line of each test case contains two integers n and m (1≤n,m≤107) — the starting and target pile sizes, respectively.\nFor each test case, output \"YES\" if you can make a pile of size exactly m, and \"NO\" otherwise.\nYou can output the answer in any case (for example, the strings \"yEs\", \"yes\", \"Yes\" and \"YES\" will be recognized as a positive answer).\nThe first test case is pictured in the statement. We can make a pile of size 4.\nIn the second test case, we can perform the following operations: {9}→{6,3}→{4,2,3}. The pile that is split apart is colored red before each operation.\nIn the third test case, we can't perform a single operation.\nIn the fourth test case, we can't end up with a larger pile than we started with.",
+    "time limit": "time limit per test2 seconds",
+    "memory limit": "memory limit per test256 megabytes",
+    "tags": [
+        "brute force",
+        "dfs and similar",
+        "dp",
+        "implementation",
+        "*1000"
+    ]
+}

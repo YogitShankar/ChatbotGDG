@@ -1,0 +1,11 @@
+{
+    "title": "B. Lunatic Never Content",
+    "description": "You have an array aa of nn non-negative integers. Let's define f(a,x)=[a1modx,a2modx,…,anmodx]f(a,x)=[a1modx,a2modx,…,anmodx] for some positive integer xx. Find the biggest xx, such that f(a,x)f(a,x) is a palindrome.\nHere, amodxamodx is the remainder of the integer division of aa by xx.\nAn array is a palindrome if it reads the same backward as forward. More formally, an array aa of length nn is a palindrome if for every ii (1≤i≤n1≤i≤n) ai=an−i+1ai=an−i+1.\nThe first line contains a single integer tt (1≤t≤1051≤t≤105) — the number of test cases.\nThe first line of each test case contains a single integer nn (1≤n≤1051≤n≤105).\nThe second line of each test case contains nn integers aiai (0≤ai≤1090≤ai≤109).\nIt's guaranteed that the sum of all nn does not exceed 105105.\nFor each test case output the biggest xx, such that f(a,x)f(a,x) is a palindrome. If xx can be infinitely large, output 00 instead.\nIn the first example, f(a,x=1)=[0,0]f(a,x=1)=[0,0] which is a palindrome.\nIn the second example, f(a,x=2)=[1,0,1,0,0,1,0,1]f(a,x=2)=[1,0,1,0,0,1,0,1] which is a palindrome.\nIt can be proven that in the first two examples, no larger xx satisfies the condition.\nIn the third example, f(a,x)=[0]f(a,x)=[0] for any xx, so we can choose it infinitely large, so the answer is 00.",
+    "time limit": "time limit per test2 seconds",
+    "memory limit": "memory limit per test256 megabytes",
+    "tags": [
+        "math",
+        "number theory",
+        "*1100"
+    ]
+}

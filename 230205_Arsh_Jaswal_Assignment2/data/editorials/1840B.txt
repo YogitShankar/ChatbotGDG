@@ -1,0 +1,51 @@
+1840B - Binary CafeIdea: diskoteka, preparation: diskoteka TutorialTutorial is loading... Solution#include <bits/stdc++.h>
+ 
+using namespace std;
+ 
+int32_t main() {
+    int t;
+    cin >> t;
+    while (t--) {
+        int n, k;
+        cin >> n >> k;
+        k = min(k, 30);
+        cout << min(n, (1 << k) - 1) + 1 << "\n";
+    }
+    return 0;
+} Rate the problem Didn't solve 
+
+    
+
+
+207
+
+
+
+ Good task 
+
+    
+
+
+524
+
+
+
+ Average task 
+
+    
+
+
+64
+
+
+
+ Bad task 
+
+    
+
+
+639
+
+
+
+ 

@@ -1,0 +1,9 @@
+1607C - Minimum ExtractionNote that the order of numbers in the array does not affect anything. If you swap two elements in the original array, the set of elements at each step will not change in any way. Let's sort the original array a and denote it by a0.We denote by ai the state of array a0 after applying i operations of minimum extraction. The minimum element in a0 is a01, so the elements of array a1 will be equal to a1i=a0i+1−a01, and therefore the minimum of them will be a02−a01.Constructing an array a2, we can notice that its elements are equal to a2i=a1i+1−a11. We know that the elements of a1 are the difference between corresponding elements of the array a0 and a01, so a2i=a1i+1−a11=(a0i+2−a01)−(a02−a01)=a0i+2−a02Thus, the elements of the array a2 are the differences between elements of a0 starting with third and a02, the minimum of which is a03−a02. It is not difficult to show in a similar way (for example by induction) that the elements of ac are equal to aci=a0i+c−a0c, the minimum of which is a0c+1−a0c.So the "candidates" for the answer are simply differences of adjacent elements of the array a0. Indeed, if we look at a0=[1,4,6,12,13], it will undergo changes as follows: [1,4,6,12,15]→[3,5,11,14]→[2,8,11]→[6,9]→[3]. You can notice that the minimum elements starting with after the first operation are exactly 4−1, 6−4, 12−6 and 15−12, respectively.Thus, to solve the problem, it was sufficient to sort the array in ascending order, then take the maximum of the original first element and the differences of all adjacent elements max(a01,maxi=2n(a0i−a0i−1)) Solutiont = int(input())
+
+for _ in range(t):
+    n = int(input())
+    a = sorted(list(map(int, input().split())))
+    res = a[0]
+    for i in range(n - 1):
+        res = max(res, a[i + 1] - a[i])
+    print(res)

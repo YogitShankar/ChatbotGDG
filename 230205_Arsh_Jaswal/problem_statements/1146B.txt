@@ -1,0 +1,12 @@
+Problem Title: B. Hate "A"
+
+time limit per test1 second
+memory limit per test256 megabytes
+
+Bob has a string ss consisting of lowercase English letters. He defines s′s′ to be the string after removing all "a" characters from ss (keeping all other characters in the same order). He then generates a new string tt by concatenating ss and s′s′. In other words, t=s+s′t=s+s′ (look at notes for an example).
+You are given a string tt. Your task is to find some ss that Bob could have used to generate tt. It can be shown that if an answer exists, it will be unique.
+The first line of input contains a string tt (1≤|t|≤1051≤|t|≤105) consisting of lowercase English letters.
+Print a string ss that could have generated tt. It can be shown if an answer exists, it is unique. If no string exists, print ":(" (without double quotes, there is no space between the characters).
+In the first example, we have s=s= "aaaaa", and s′=s′= "".
+In the second example, no such ss can work that will generate the given tt.
+In the third example, we have s=s= "ababacac", and s′=s′= "bbcc", and t=s+s′=t=s+s′= "ababacacbbcc".

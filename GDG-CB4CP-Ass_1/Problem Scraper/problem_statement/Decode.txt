@@ -1,0 +1,36 @@
+Title: E. Decode
+
+Time Limit: time limit per test2 seconds
+Memory Limit: memory limit per test256 megabytes
+
+Statement:
+
+
+You are given a binary string s of length n. For each pair of integers (l, r) (1 ≤q l ≤q r ≤q n), count the number of pairs (x, y) (l ≤q x ≤q y ≤q r) such that the amount of \mathtt{0} equals the amount of \mathtt{1} in the substring s_xs_{x+1}...s_y.
+
+Output the sum of counts over all possible (l, r) modulo 10^9+7.
+
+The first line contains t (1 ≤q t ≤q 1000) — the number of test cases.
+
+Each test case contains a binary string s (1 ≤q |s| ≤q 2 · 10^5). It is guaranteed s only contains characters \mathtt{0} and \mathtt{1}.
+
+It is guaranteed the sum of |s| over all test cases does not exceed 2 · 10^5.
+
+For each test case, output an integer, the answer modulo 10^9+7.
+
+
+
+Sample Tests:
+Sample Input:
+4
+0000
+01010101
+1100111001
+11000000111
+
+Sample Output:
+0
+130
+147
+70
+

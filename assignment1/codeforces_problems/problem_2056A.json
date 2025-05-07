@@ -1,0 +1,8 @@
+{
+  "name": "A. Shape Perimeter",
+  "time_limit": "time limit per test1 second",
+  "memory_limit": "memory limit per test256 megabytes",
+  "input": "InputEach test contains multiple test cases. The first line contains the number of test cases $$$t$$$ ($$$1 \\le t \\le 1000$$$). The description of the test cases follows. The first line of each test case contains two integers $$$n$$$ and $$$m$$$ ($$$1 \\le n \\le 100$$$, $$$2 \\le m \\le 100$$$) — the number of operations performed and the side length of the square stamp.The $$$i$$$-th of the next $$$n$$$ lines contains two integers $$$x_i$$$ and $$$y_i$$$ ($$$1 \\le x_i, y_i \\le m - 1$$$) — the distance that the stamp will be moved right and up during the $$$i$$$-th operation, respectively.Note that there are no constraints on the sum of $$$n$$$ over all test cases.",
+  "output": "OutputFor each test case, output a single integer representing the perimeter of the colored shape on the paper.",
+  "tags": []
+}

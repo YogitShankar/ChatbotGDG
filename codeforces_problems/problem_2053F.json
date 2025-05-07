@@ -1,0 +1,8 @@
+{
+  "name": "F. Earnest Matrix Complement",
+  "time_limit": "time limit per test5 seconds",
+  "memory_limit": "memory limit per test512 megabytes",
+  "input": "InputThe first line of input contains a single integer $$$t$$$ ($$$1 \\leq t \\leq 2\\cdot 10^4$$$) — the number of test cases. The description of test cases follows.The first line of each test case contains three integers $$$n$$$, $$$m$$$, and $$$k$$$ ($$$2 \\leq n \\leq 2\\cdot 10^5$$$, $$$2 \\leq m \\leq 2\\cdot 10^5$$$, $$$n \\cdot m \\leq 6\\cdot 10^5$$$, $$$1 \\leq k \\leq n\\cdot m$$$) — the number of rows and columns of the matrix $$$A$$$, and the range of the integers in the matrix, respectively.Then $$$n$$$ lines follow, the $$$i$$$-th line containing $$$m$$$ integers $$$A_{i,1},A_{i,2},\\ldots,A_{i,m}$$$ ($$$1 \\leq A_{i,j} \\leq k$$$ or $$$A_{i,j} = -1$$$) — the elements in $$$A$$$.It is guaranteed that the sum of $$$n\\cdot m$$$ over all test cases does not exceed $$$6\\cdot 10^5$$$.",
+  "output": "OutputFor each test case, output a single integer — the maximum possible beauty.",
+  "description": "F. Earnest Matrix Complementtime limit per test5 secondsmemory limit per test512 megabytesinputstandard inputoutputstandard output"
+}

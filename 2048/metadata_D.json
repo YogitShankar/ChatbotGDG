@@ -1,0 +1,18 @@
+{
+    "tags": [
+        "binary search",
+        "brute force",
+        "data structures",
+        "greedy",
+        "sortings",
+        "two pointers",
+        "*1600"
+    ],
+    "contest_id": 2048,
+    "problem_index": "D",
+    "problem_name": "Kevin and Competition Memories",
+    "time limit per test": "2 seconds",
+    "memory limit per test": "256 megabytes",
+    "input": "standard input",
+    "output": "standard output"
+}

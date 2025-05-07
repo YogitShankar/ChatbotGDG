@@ -1,0 +1,76 @@
+1051A - Vasya And PasswordThere are just a few general cases in the task to consider:   If the password s is already valid, nothing has to be changed, just print s.   Try to change exactly one character, iterate over all positions in s and all three options for character (any digit, any lowercase or uppercase Latin letter). After the replacement the string is checked for the validity and printed if it turned out to be valid.   We weren't able to replace a substring of length 0 or 1, then the answer is at least 2. We can obtain it in a following manner: replace the first two characters to "a1" if the third character is an uppercase Latin letter, to "A1" if the third character is a lowercase Latin letter and to "aA" if the third character is a digit.  Solution (Ajosteen)#include <bits/stdc++.h>
+
+using namespace std;
+
+string s;
+
+bool ok(string t){
+    int msk = 0;
+    
+    for(int i = 0; i < int(t.size()); ++i){
+	    if(isupper(t[i])) msk |= 1;
+	    if(islower(t[i])) msk |= 2;
+	    if(isdigit(t[i])) msk |= 4;
+	}
+	
+	return msk == 7;
+}
+
+int main() {
+	//freopen("input.txt", "r", stdin);
+	int t;
+	cin >> t;
+	for(int i = 0; i < t; ++i){
+    	cin >> s;
+    	if(ok(s)){
+    	    cout << s << endl;
+    	    continue;
+    	}
+    	bool fnd = false;
+        for(int i = 0; i < int(s.size()); ++i){
+            string t = s;
+            
+            t[i] = '1';
+            if(ok(t)){
+    	        cout << t << endl;
+    	        fnd = true;
+    	        break;
+    	    }
+            t[i] = 'a';
+            if(ok(t)){
+    	        cout << t << endl;
+    	        fnd = true;
+    	        break;
+    	    }
+    	    t[i] = 'A';
+            if(ok(t)){
+    	        cout << t << endl;
+    	        fnd = true;
+    	        break;
+    	    }
+        }
+    	
+    	if(fnd) continue;
+    	
+    	if(isupper(s[2])){
+    	    s[0] = 'a';
+    	    s[1] = '1';
+    	    cout << s << endl;
+    	    continue;
+    	}
+    	if(islower(s[2])){
+    	    s[0] = 'A';
+    	    s[1] = '1';
+    	    cout << s << endl;
+    	    continue;
+    	}
+    	if(isdigit(s[2])){
+    	    s[0] = 'a';
+    	    s[1] = 'A';
+    	    cout << s << endl;
+    	    continue;
+    	}
+	}
+	return  0;
+}
+

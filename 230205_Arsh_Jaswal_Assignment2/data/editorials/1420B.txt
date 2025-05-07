@@ -1,0 +1,43 @@
+1420B - Rock and LeverLet's take a pair (ai,aj) and see in which case ai & aj≥ai⊕aj will hold. For this we will follow the bits ai and aj from highest to lowest. If we meet two zero bits, the values of ai & aj and ai⊕aj will match in this bit, so we move on. If we meet a zero bit in ai and in aj —one bit(or vice versa), then we get ai & aj<ai⊕aj, and we can immediately say that the required condition is false. And if we meet two one bits, then the required condition is fulfilled,  e. ai & aj>ai⊕aj, and then the bits can no longer be considered.Now let's consider the highest one bit in the number of ai (let it stand at pi position) and the highest single bit in the number of aj (let it stand at pj position). (Here, we consider that the bits are numbered in order of lowest to highest.) Then, pi=pj must hold. If pi>pj, then there is zero in the aj position and one unit in the ai position. But then from the reasoning above we get that ai & aj<ai⊕aj. The case of pi<pj is treated in a similar way.It is also easy to see that if pi=pj then we automatically get the condition ai & aj>ai⊕aj.From here the problem is solved. For each number we find the position of the highest one bit pi. Then we need to calculate the number of pairs of numbers, for which pi=pj. You may notice that the answer is ∑ℓkℓ⋅(kℓ−1)2, where kℓ — the number of numbers for which pi=pj.The complexity of the solution is O(n). Code in C++ (Wind_Eagle)#include<iostream>
+#include<vector>
+#include<algorithm>
+#include<ctime>
+#include<random>
+
+using namespace std;
+
+mt19937 rnd(time(NULL));
+
+int a[1000000+5];
+
+int main()
+{
+    ios_base::sync_with_stdio(false);
+    cin.tie(0);
+    cout.tie(0);
+    int t;
+    cin>>t;
+    while (t--)
+    {
+        int n;
+        cin>>n;
+        for (int i=0; i<n; i++)
+        {
+            cin>>a[i];
+        }
+        int64_t ans=0;
+        for (int j=29; j>=0; j--)
+        {
+            int64_t cnt=0;
+            for (int i=0; i<n; i++)
+            {
+                if (a[i]>=(1<<j)&&a[i]<(1<<(j+1)))
+                {
+                    cnt++;
+                }
+            }
+            ans+=cnt*(cnt-1)/2;
+        }
+        cout<<ans<<'\n';
+    }
+}

@@ -1,0 +1,7 @@
+Problem: 266B - Queue at the School
+Problem Link: https://codeforces.com/problemset/problem/266/B
+Editorial Link: https://codeforces.com/blog/entry/6499
+
+================================================================================
+
+266B - Queue at the SchoolIn this you should realize the given process. You should t times swap elements i and i + 1 if on the place i was a girl and on the place i + 1 was a boy. You should not push some girl to the left multiple times at once. The solution can be written using O(N·T) time.

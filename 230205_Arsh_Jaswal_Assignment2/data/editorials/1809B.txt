@@ -1,0 +1,27 @@
+1809B - Points on PlaneSuppose, the answer is k. What's the maximum number of chips we can place? Firstly, the allowed points (x,y) to place chips are such that |x|+|y|≤k. We can group them by x-coordinate: for x=k there is only one y=0, for x=k−1 possible y are −1,0,1; for x=k−2 possible y are in segment [−2,…,2] and so on. For x=0 possible y are in [−k,…,k]. The negative x-s are the same.Let's calculate the maximum number of chips we can place at each "row": for x=k it's 1; for x=k−1 there are three y-s, but since we can't place chips at the neighboring y-s, we can place at most 2 chips; for x=k−2 we have 5 places, but can place only 3 chips; for x=0 we have 2k+1 places, but can occupy only k+1 points.In total, for x∈[0,…,k] we can place at most 1+2+⋯+(k+1)=(k+1)(k+2)2 chips. Analogically, for x∈[−k,…,−1] we can place at most 1+2+⋯+k=k(k+1)2 chips.In total, we can place at most (k+1)(k+2)2+k(k+1)2=(k+1)2 chips with cost at most k. Note that (k+1)2 can actually be reached since the distance between chips on the different rows is greater than 1. So, to solve our task, it's enough to find minimum k such that (k+1)2≥n that can be done with Binary Search.Or we can calculate k=⌈n−−√⌉−1. Note that n−−√ can lose precision, since n is cast to double before taking the square root (for example, 975461057789971042 transforms to 9.754610577899711⋅1017=975461057789971100 when converted to double). So you should either cast long long to long double (that consists of 80 bits in some C++ compilers) or check value k+1 as a possible answer. Solution 1 (adedalic)fun main() {
+    repeat(readln().toInt()) {
+        val n = readln().toLong()
+        var l = (-1).toLong()
+        var r = 1e9.toLong()
+        while (r - l > 1) {
+            val mid = (l + r) / 2
+            if (mid * mid >= n)
+                r = mid
+            else
+                l = mid
+        }
+        println(r - 1)
+    }
+} Solution 2 (adedalic)import kotlin.math.sqrt
+
+fun main() {
+    repeat(readln().toInt()) {
+        val n = readln().toLong()
+        var ans = sqrt(n.toDouble()).toLong()
+        while (ans * ans > n)
+            ans--
+        while (ans * ans < n)
+            ans++
+        println(ans - 1)
+    }
+}

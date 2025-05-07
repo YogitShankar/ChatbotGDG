@@ -1,0 +1,3 @@
+{
+    "solution": "1669F - Eating CandiesIdea: MikeMirzayanov TutorialTutorial is loading... Solutiont = int(input())\nfor test in range(t):\n    n = int(input())\n    a = list(map(int, input().split()))\n    l = 0\n    r = n - 1\n    suml = a[0]\n    sumr = a[n-1]\n    ans = 0\n    while l < r:\n        if suml == sumr:\n            ans = max(ans, l + 1 + n - r)\n\n        if suml <= sumr:\n            l+=1\n            suml+=a[l]\n\n        elif sumr < suml:\n            r-=1\n            sumr+=a[r]\n            \n    print(ans)"
+}

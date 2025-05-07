@@ -1,0 +1,7 @@
+Problem: 581A - Vasya the Hipster
+Problem Link: https://codeforces.com/problemset/problem/581/A
+Editorial Link: https://codeforces.com/blog/entry/20508
+
+================================================================================
+
+581A - Vasya the HipsterThe first number in answer (number of days which Vasya can dress fashionably) is min(a, b) because every from this day he will dress one red sock and one blue sock.After this Vasya will have either only red socks or only blue socks or socks do not remain at all. Because of that the second number in answer is max((a - min(a, b)) / 2, (b - min(a, b)) / 2).Asymptotic behavior of this solution - O(1).

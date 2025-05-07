@@ -1,0 +1,6 @@
+You are given array a1,a2,…,an. Find the subsegment al,al+1,…,ar (1≤l≤r≤n) with maximum arithmetic mean 1r−l+1r∑i=lai (in floating-point numbers, i.e. without any rounding).
+If there are many such subsegments find the longest one.
+The first line contains single integer n (1≤n≤105) — length of the array a.
+The second line contains n integers a1,a2,…,an (0≤ai≤109) — the array a.
+Print the single integer — the length of the longest subsegment with maximum possible arithmetic mean.
+The subsegment [3,4] is the longest among all subsegments with maximum arithmetic mean.

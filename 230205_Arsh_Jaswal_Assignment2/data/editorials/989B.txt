@@ -1,0 +1,90 @@
+989B - A Tide of RiverscapeOur very first observation is that when p≤n2, the answer can never be "No".Under this case, find any dot si=".". At least one of si−p and si+p exists because p≤n2 and 1≤i≤n. We want to make si different from this character. In case this character is "0" or "1", replace the dot the other way round. In case it's a dot, replace the two dots differently with "0" and "1". After that, fill the remaining dots arbitrarily, and we obtain a valid answer.If p>n2, we'd like to find a dot with a similiar property. That is, si=".", and si−p or si+p exists. Go over all dots, try find one, and carry out the same operation as above. If no such dot exists, the answer is "No".Bonus. Prove the time complexity of the seemingly-brute-force solution below.Bonus. In case the answer is "Yes", find the lexicographically smallest string that fulfill the requirements.Bonus. Solve the bonus challenge with n≤105. (Estimated difficulty: Div. 2 C) Noam's C++ solution#include <bits/stdc++.h>
+#define endl '\n'
+#define fast ios::sync_with_stdio(0), cin.tie(0), cout.tie(0)
+#define finish(x) return cout << x << endl, 0
+using namespace std;
+
+string s, t;
+int n, p;
+
+bool isperiod() {
+	for (int i = p; i < n; i++)
+		if (t[i] != t[i - p]) return false;
+	return true;
+}
+
+int main() {
+	fast;
+	cin >> n >> p >> s;
+
+	// attempt 1
+	t = s;
+	for (auto &i : t)
+		if (i == '.') i = '0';
+	if (!isperiod()) finish(t);
+
+	// attempt 2
+	int i = 0;
+	while (i < n && s[i] != '.') i++;
+	if (i + p < n) {
+		t[i] = '1';
+		finish(t);
+	}
+	i = n - 1;
+	while (i >= 0 && s[i] != '.') i--;
+	if (i - p >= 0) {
+		t[i] = '1';
+		finish(t);
+	}
+
+	finish("No");
+} Python solution for the original problem as well as for the last challengen, p = map(int, input().split())
+s = input()
+
+t = s.replace('.', '0')
+
+if all(t[i] == t[i + p] for i in range(n - p)):
+    rmost = -1
+    for r in range(p - 1, -1, -1):
+        x = s[r::p].rfind('.')
+        if x != -1 and s[r::p] != '.':
+            rmost = max(rmost, x * p + r)
+    if rmost == -1:
+        print('No')
+    else:
+        print(t[:rmost] + '1' + t[(rmost + 1):])
+else:
+    print(t) C++ seemingly-brute-force solution#include <algorithm>
+#include <cstdio>
+
+static const int MAXN = 2005;
+
+static int n, p;
+static char s[MAXN];
+
+static int dots_ct = 0, dots[MAXN];
+
+int main()
+{
+    scanf("%d%d%s", &n, &p, s);
+
+    for (int i = 0; i < n; ++i) if (s[i] == '.') {
+        dots[dots_ct++] = i;
+        s[i] = '0';
+    }
+
+    for (int i = 1; i <= (1 << std::min(dots_ct, 19)); ++i) {
+        bool is_period = true;
+        for (int j = 0; j < n - p; ++j)
+            if (s[j] != s[j + p]) { is_period = false; break; }
+        if (!is_period) {
+            puts(s);
+            return 0;
+        }
+        for (int j = 0; j <= __builtin_ctz(i); ++j)
+            s[dots[j]] ^= 1;
+    }
+
+    puts("No");
+    return 0;
+} 

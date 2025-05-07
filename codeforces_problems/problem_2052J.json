@@ -1,0 +1,8 @@
+{
+  "name": "J. Judicious Watching",
+  "time_limit": "time limit per test3 seconds",
+  "memory_limit": "memory limit per test1024 megabytes",
+  "input": "InputThere are several test cases in the input. The input begins with the number of test cases $$$T$$$ ($$$1 \\le T \\le 1\\,000$$$). Each test case starts with a line with three integers $$$n$$$ ($$$1 \\le n \\le 200\\,000$$$) — the number of homework tasks, $$$m$$$ ($$$1 \\le m \\le 200\\,000$$$) — the number of episodes, and $$$q$$$ ($$$1 \\le q \\le 200\\,000$$$) — the number of possible times for the call with Jill.The second line contains $$$n$$$ integers $$$a_i$$$ ($$$1 \\le a_i \\le 10^9$$$) — the number of minutes it takes to complete the task. The next line contains $$$n$$$ integers $$$d_i$$$ ($$$1 \\le d_i \\le 10^{15}$$$) — the deadline before which this task must be completed. The next line contains $$$m$$$ integers $$$l_j$$$ ($$$1 \\le l_j \\le 10^9$$$) — the length of episodes in the order they need to be watched. The next line contains $$$q$$$ integers $$$t_k$$$ ($$$1 \\le t_k \\le 10^{15}$$$) — the possible times of call with Jill. It is possible to complete all tasks within their respective deadlines.The sum of each of $$$n$$$, $$$m$$$, $$$q$$$ over all test cases in input doesn't exceed $$$200\\,000$$$.",
+  "output": "OutputFor each test case output a single line with $$$q$$$ integers — for each possible time $$$t_k$$$ the maximum number of episodes Jill can watch.",
+  "description": "J. Judicious Watchingtime limit per test3 secondsmemory limit per test1024 megabytesinputstandard inputoutputstandard output"
+}

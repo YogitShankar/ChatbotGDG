@@ -1,0 +1,10 @@
+{
+    "title": "B. Notepad#",
+    "description": "You want to type the string s, consisting of n lowercase Latin letters, using your favorite text editor Notepad#.\nNotepad# supports two kinds of operations: \nCan you type string s in strictly less than n operations?\nThe first line contains a single integer t (1≤t≤104) — the number of testcases.\nThe first line of each testcase contains a single integer n (1≤n≤2⋅105) — the length of the string s.\nThe second line contains a string s, consisting of n lowercase Latin letters.\nThe sum of n doesn't exceed 2⋅105 over all testcases.\nFor each testcase, print \"YES\" if you can type string s in strictly less than n operations. Otherwise, print \"NO\".\nIn the first testcase, you can start with typing \"codef\" (5 operations), then copy \"o\" (1 operation) from an already typed part, then finish with typing \"rces\" (4 operations). That will be 10 operations, which is not strictly less than n. There exist other ways to type \"codeforces\". However, no matter what you do, you can't do less than n operations.\nIn the second testcase, you can type \"labac\" (5 operations), then copy \"aba\" (1 operation), finishing the string in 6 operations.",
+    "time limit": "time limit per test3 seconds",
+    "memory limit": "memory limit per test256 megabytes",
+    "tags": [
+        "implementation",
+        "*1000"
+    ]
+}

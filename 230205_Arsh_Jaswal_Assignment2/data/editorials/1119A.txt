@@ -1,0 +1,1 @@
+1119A - Ilya and a Colorful WalkIt is enough to find the last color different from the c1 and the first color different from cn and print the maximum of the two distances.

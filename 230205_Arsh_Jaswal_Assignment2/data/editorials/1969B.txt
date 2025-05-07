@@ -1,0 +1,16 @@
+1969B - Shifts and SortingLet's look at the operation as the following: you choose (l,r), erase the element at position r and then insert it before the element at position l. We can also interpret the cost of such operation as the following: you pay 1 for the element at position r you "teleport" to the left and 1 for each element you teleport through (element inside segment [l,r−1]).Now let's look at two indices x<y where ax=1 and ay=0. Since at the end, all zeroes should be before ones, you have to move ay to the left of ax. But the only thing that moves to the left is element ar, so you have to make at least one operation ending at ay.What does it mean? It means:   for every 0 that has at least one 1 from the left, you have to pay at least 1 for teleporting it to the left;  for every 1, if there are c 0-s to the right, you have to pay at least c, since each zero should be teleported through this 1. The thoughts above gave us the lower bound on the answer, and it's not hard to come up with some constructive algorithms that will give us exactly that cost.To calculate the lower bound, you just need to maintain some info while iterating from left to right: for example, the number of 0-s and 1-s to the left of the current position and the total number of 0-s in s. It's enough to check: is there any 1 to the left of the current position, and how many 0-s are to the right.Instead of calculating the lower bound itself, you can also implement one of the algorithms that reach that lower bound, and it may be even a little easier. Solution (adedalic)fun main() {
+    repeat(readln().toInt()) {
+        val s = readln().map { it.code - '0'.code }
+        val zeroes = s.count { it == 0 }
+        val cnt = intArrayOf(0, 0)
+        var ans = 0L
+        for (c in s) {
+            cnt[c]++
+            if (c == 0)
+                ans += if (cnt[1] > 0) 1 else 0
+            else
+                ans += (zeroes - cnt[0])
+        }
+        println(ans)
+    }
+}

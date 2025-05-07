@@ -1,0 +1,57 @@
+1798B - Three SevensLet's calculate the array last, where lastX is the last day of the lottery in which the person X participated. Then the only day when X could be a winner is the day lastX. Then on the day of i, only the person with lastX=i can be the winner. It is also clear that if there are several such participants for the day i, you can choose any of them as the winner, since these participants cannot be winners on any other days. In total, we need to go through all the days, if for some day there are no participants with last equal to this day, then the answer is −1. Otherwise, we choose any participant with lastX=i as the winner on the day of i. SolutionMAX = 50000
+last = [0] * (MAX + 777)
+for _ in range(int(input())):
+    m = int(input())
+    a_ = []
+    for day in range(m):
+        n = int(input())
+        a = list(map(int, input().split()))
+        for x in a:
+            last[x] = day
+        a_.append(a)
+    ans = [-1] * m
+    for day in range(m):
+        for x in a_[day]:
+            if last[x] == day:
+                ans[day] = x
+        if ans[day] == -1:
+            print(-1)
+            break
+    else:
+        print(*ans) Rate the problem Didnt solve 
+
+    
+
+
+86
+
+
+
+ Good problem 
+
+    
+
+
+575
+
+
+
+ Average problem 
+
+    
+
+
+121
+
+
+
+ Bad problem 
+
+    
+
+
+60
+
+
+
+ 

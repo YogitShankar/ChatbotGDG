@@ -1,0 +1,70 @@
+Title: F. Expected Median
+
+Time Limit: time limit per test3 seconds
+Memory Limit: memory limit per test256 megabytes
+
+Statement:
+Arul has a binary array∗ a of length n.
+
+He will take all subsequences^{\text{†}} of length k (k is odd) of this array and find their median.^{\text{‡}}
+
+What is the sum of all these values?
+
+As this sum can be very large, output it modulo 10^9 + 7. In other words, print the remainder of this sum when divided by 10^9 + 7.
+
+∗A binary array is an array consisting only of zeros and ones.
+
+^{\text{†}}An array b is a subsequence of an array a if b can be obtained from a by the deletion of several (possibly, zero or all) elements. Subsequences don't have to be contiguous.
+
+^{\text{‡}}The median of an array of odd length k is the \frac{k+1}{2}-th element when sorted.
+
+The first line contains a single integer t (1 ≤q t ≤q 10^4) — the number of test cases.
+
+The first line of each test case contains two integers n and k (1 ≤q k ≤q n ≤q 2 · 10^5, k is odd ) — the length of the array and the length of the subsequence, respectively.
+
+The second line of each test case contains n integers a_i (0 ≤q a_i ≤q 1) — the elements of the array.
+
+It is guaranteed that sum of n over all test cases does not exceed 2 · 10^5.
+
+For each test case, print the sum modulo 10^9 + 7.
+
+In the first test case, there are four subsequences of [1,0,0,1] with length k=3:
+
+- [1,0,0]: median = 0.
+- [1,0,1]: median = 1.
+- [1,0,1]: median = 1.
+- [0,0,1]: median = 0.
+In the second test case, all subsequences of length 1 have median 1, so the answer is 5.
+
+
+
+Sample Tests:
+Sample Input:
+8
+4 3
+1 0 0 1
+5 1
+1 1 1 1 1
+5 5
+0 1 0 1 0
+6 3
+1 0 1 0 1 1
+4 3
+1 0 1 1
+5 3
+1 0 1 1 0
+2 1
+0 0
+34 17
+1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
+
+Sample Output:
+2
+5
+0
+16
+4
+7
+0
+333606206
+

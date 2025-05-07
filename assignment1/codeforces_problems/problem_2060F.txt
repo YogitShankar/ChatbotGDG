@@ -1,0 +1,46 @@
+F. Multiplicative Arrays
+time limit per test
+4 seconds
+memory limit per test
+512 megabytes
+input
+standard input
+output
+standard output
+You're given integers $$$k$$$ and $$$n$$$. For each integer $$$x$$$ from $$$1$$$ to $$$k$$$, count the number of integer arrays $$$a$$$ such that all of the following are satisfied:
+ 
+ $$$1 \leq |a| \leq n$$$ where $$$|a|$$$ represents the length of $$$a$$$. 
+ $$$1 \leq a_i \leq k$$$ for all $$$1 \leq i \leq |a|$$$. 
+ $$$a_1 \times a_2 \times \dots \times a_{|a|}=x$$$ (i.e., the product of all elements is $$$x$$$). 
+Note that two arrays $$$b$$$ and $$$c$$$ are different if either their lengths are different, or if there exists an index $$$1 \leq i \leq |b|$$$ such that $$$b_i\neq c_i$$$.
+Output the answer modulo $$$998\,244\,353$$$.
+Input
+The first line contains an integer $$$t$$$ ($$$1 \leq t\leq 10^3$$$) — the number of independent test cases.
+The only line of each test case contains two integers $$$k$$$ and $$$n$$$ ($$$1 \leq k \leq 10^5, 1\leq n \leq 9\cdot 10^8$$$).
+It is guaranteed that the sum of $$$k$$$ over all test cases does not exceed $$$10^5$$$.
+Output
+For each test case, output $$$k$$$ space-separated integers on a new line: the number of arrays for $$$x=1,2,\ldots,k$$$, modulo $$$998\,244\,353$$$.
+Example
+Input
+
+
+3
+2 2
+4 3
+10 6969420
+Output
+
+2 3
+3 6 6 10
+6969420 124188773 124188773 729965558 124188773 337497990 124188773 50981194 729965558 337497990
+
+Note
+In the first test case, there are $$$2$$$ arrays $$$a$$$ with $$$|a|\leq 2$$$ and the product of elements equal to $$$1$$$: 
+ 
+ $$$[1]$$$ 
+ $$$[1,1]$$$ 
+There are $$$3$$$ arrays $$$a$$$ with $$$|a|\leq 2$$$ and the product of elements equal to $$$2$$$: 
+ 
+ $$$[2]$$$ 
+ $$$[1,2]$$$ 
+ $$$[2,1]$$$

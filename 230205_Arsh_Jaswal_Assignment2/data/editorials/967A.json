@@ -1,0 +1,3 @@
+{
+    "solution": "967A - Mind the GapThis problem requires you to carefully read and understand the statement. First, scan all the landing times, transforming each h and m pair into the number of minutes from the starting moment 60h+m. Then, there are three possibilities:  The first plane takes of not earlier than s+1 minutes from now. In this case we may put new takeoff right now.  Otherwise, if there is a pair of planes with at least 2+2s minutes between them. In this case we may choose the earliest such pair and put a new takeoff at 1+s minutes after the first of these planes.  Otherwise, we may always put a new plane in 1+s minutes after the last plane. Finally, print the answer in an h m format. "
+}

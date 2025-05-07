@@ -1,0 +1,55 @@
+1042B - VitaminsLet's calculate the minimum cost of the juice containing only the vitamin "A", only the vitamin "B" and only the vitamin "C". Also let's calculate the minimum cost of the juice containing all three vitamins.If there is at least one juice containing only the vitamin "A", at least one juice containing only the vitamin "B" and at least one juice containing only the vitamin "C", let's update the answer with the sum of the corresponding minimum costs.If there is at least one juice containing all three vitamins, let's update the answer with its cost.Only one case remains — when Petya has to buy two juices. Let's iterate over all pairs of juices using nested loops. Let the index of the first juice we iterate be a, the index of the second juice be b. We have to check that the strings sa and sb contain all three letters "A", "B", "C" (i.e. these juices contain all the vitamins). If they do, let's update the answer with the value ca+cb. Solution#include <bits/stdc++.h>
+
+using namespace std;
+
+const int INF = 1e9;
+
+int n;
+map<string, int> was;
+
+inline void read() {	
+	cin >> n;
+	for (int i = 0; i < n; i++) {
+		int c;
+		string s;
+		cin >> c >> s;
+		sort(s.begin(), s.end());
+		if (was.count(s) == 0) {
+			was[s] = c;
+		} else {
+			was[s] = min(was[s], c);
+		}
+	}
+}
+
+inline int getC(string a, string b) {
+ 	if (!was.count(a) || !was.count(b)) {
+ 		return INF;
+ 	}
+ 	return was[a] + was[b];
+}
+
+inline void solve() {
+	int ans = INF;
+	if (was.count("A") && was.count("B") && was.count("C")) {
+		ans = was["A"] + was["B"] + was["C"];
+	}
+    if (was.count("ABC")) {
+    	ans = min(ans, was["ABC"]);
+    }
+    ans = min(ans, getC("AB", "C"));
+    ans = min(ans, getC("A", "BC"));
+    ans = min(ans, getC("AC", "B"));
+    ans = min(ans, getC("AB", "BC"));
+    ans = min(ans, getC("AC", "BC"));
+    ans = min(ans, getC("AC", "AB"));
+    if (ans == INF) {
+    	ans = -1;
+    }
+    cout << ans << endl;
+}
+
+int main () {
+    read();
+    solve();
+}

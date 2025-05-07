@@ -1,0 +1,26 @@
+Problem: 1360A - Minimal Square
+Problem Link: https://codeforces.com/problemset/problem/1360/A
+Editorial Link: https://codeforces.com/blog/entry/77846
+
+================================================================================
+
+1360A - Minimal Square Editorial1360A - Minimal SquareObviously that both rectangles should completely touch by one of the sides. Otherwise, you can move them closer to each other so that the total height or total width decreases, and the other dimension does not change. Thus, there are only two options:   The rectangles touch by width, we get the side of the square equal to max(2𝑏,𝑎),  The rectangles touch by height, we get the side of the square equal to max(2𝑎,𝑏).  Thus, the minimum side of the square is equal to the minimum of these two options. Then the answer is (min(max(2𝑏,𝑎),max(2𝑎,𝑏)))2. Solution#include <bits/stdc++.h>
+
+using namespace std;
+
+#define forn(i, n) for (int i = 0; i < int(n); i++)
+
+int solve(int a, int b) {
+    int side = min(max(a * 2, b), max(a, b * 2));
+    return side * side;
+}
+
+int main(int argc, char* argv[]) {
+    int t;
+    cin >> t;
+    forn(tt, t) {
+        int a, b;
+        cin >> a >> b;
+        cout << solve(a, b) << endl;
+    }
+}

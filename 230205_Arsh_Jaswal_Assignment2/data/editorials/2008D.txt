@@ -1,0 +1,98 @@
+2008D - Sakurako's HobbyAny permutation can be divided into some number of cycles, so F(i) is equal to the number of black colored elements in the cycle where i is. So, we can write out all cycles in O(n) and memorize for each i the number of black colored elements in the cycle where it is. Solution in C++#include <bits/stdc++.h>
+
+using namespace std;
+
+int main(){
+    int t;
+    cin>>t;
+    while(t--)
+    {
+        long long n;
+        cin>>n;
+        long long p[n+1]={0},b[n+1]={0};
+        int us[n+1]={0};
+        for(int i=1;i<=n;i++)
+        {
+            cin>>p[i];
+        }
+        string s;
+        cin >> s;
+        for(int i=1;i<=n;i++)
+        {
+            if(us[i])continue;
+            int sz=0;
+            while(!us[i])
+            {
+                us[i]=1;
+                sz += s[i - 1] == '0';
+                i=p[i];
+            }
+            while(us[i]!=2)
+            {
+                b[i]=sz;
+                us[i]=2;
+                i=p[i];
+            }
+        }
+        for(int i=1;i<=n;i++)
+        {
+            cout<<b[i]<<" ";
+        }
+        cout<<endl;
+    }
+} Solution in Pythont = int(input())
+for _ in range(t):
+    n = int(input())
+    b = [0] * (n + 1)
+    us = [0] * (n + 1)
+    p = [k-1 for k in map(int, input().split())]
+    s = input()
+    for i in range(0, n):
+        if us[i]:
+            continue
+        sz = 0
+        while not us[i]:
+            us[i] = 1
+            sz += s[i] == '0'
+            i = p[i]
+        while us[i] != 2:
+            b[i] = sz
+            us[i] = 2
+            i = p[i]
+    print(" ".join(map(str, b[:-1]))) Rate the problem Didn't solve 
+
+    
+
+
+70
+
+
+
+ Good task 
+
+    
+
+
+427
+
+
+
+ Average task 
+
+    
+
+
+39
+
+
+
+ Bad task 
+
+    
+
+
+31
+
+
+
+ 

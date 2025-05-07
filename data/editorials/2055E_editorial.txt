@@ -1,0 +1,185 @@
+Section 1:
+Hint 1
+Let's say you have to empty the haystacks in a fixed order. What's the best way to do it?
+
+Section 2:
+Hint 2
+Write the expression for the number of moves for a given order.
+
+Section 3:
+Hint 3
+In an optimal ordering, you should not gain anything by swapping two entries of the order. Using this, describe the optimal order.
+
+Section 4:
+Hint 4
+The constraint only limits what you can empty last. How can you efficiently compute the expression in Hint 2?
+
+Section 5:
+Solution
+Let's say we fixed some permutation $$$\sigma$$$ of $$$1, \dots, n$$$ such that we empty haystacks in the order $$$\sigma_1, \dots, \sigma_n$$$. Notice that a choice of $$$\sigma$$$ is possible if and only if the final stack $$$\sigma_n$$$ can be cleared, which is equivalent to the constraint
+$$$a_{\sigma_1} + \dots + a_{\sigma_n} \leq b_{\sigma_1} + \dots + b_{\sigma_{n-1}}.$$$
+With this added constraint, the optimal sequence of moves is as follows:
+Iterate $$$i$$$ through $$$1, \dots, n-1$$$. For each $$$i$$$, try to move its haybales to haystacks $$$1, \dots, i-1$$$, and if they are all full then move haybales to haystack $$$n$$$. Once this process terminates, move all haystacks from $$$n$$$ back onto arbitrary haystacks $$$1, \dots, n-1$$$, being careful to not overflow the height limits.
+The key observation is that the number of extra haybales that must be moved onto haystack $$$n$$$ is
+$$$\max_{1 \leq i \leq n-1} \left\{\sum_{j=1}^i a_{\sigma_j} - \sum_{j=1}^{i-1} b_{\sigma_j}\right\}.$$$
+To show this, consider the last time $$$i$$$ that a haybale is moved onto haystack $$$n$$$. At this time, all haybales from haystacks $$$1, \dots, i$$$ have found a home, either on the height limited haystacks $$$1, \dots, i-1$$$ or on haystack $$$n$$$, from which the identity immediately follows. Now, every haystack that wasn't moved onto haystack $$$n$$$ will get moved once, and every haystack that did gets moved twice. Therefore, our task becomes the following: Compute
+$$$\sum_{i=1}^{n} a_i + \min_{\sigma} \max_{1 \leq i \leq n-1} \left\{\sum_{j=1}^i a_{\sigma_j} - \sum_{j=1}^{i-1} b_{\sigma_j}\right\}$$$
+for $$$\sigma$$$ satisfying
+$$$a_{\sigma_1} + \dots + a_{\sigma_n} \leq b_{\sigma_1} + \dots + b_{\sigma_{n-1}}.$$$
+Notice that the $$$\sum_{i=1}^n a_i$$$ term is constant, and we will omit it for the rest of this tutorial. We will first solve the task with no restriction on $$$\sigma$$$ to gain some intuition. Denote $$$<_{\sigma}$$$ the ordering of pairs $$$(a, b)$$$ corresponding to $$$\sigma$$$.
+Consider adjacent pairs $$$(a_i, b_i) <_{\sigma} (a_j, b_j)$$$. Then, if the choice of $$$\sigma$$$ is optimal, it must not be better to swap their ordering, i.e.
+$$$\begin{align*} \overbrace{(a_i, b_i) <_{\sigma} (a_j, b_j)}^{\text{optimal}} \implies& \max(a_i, a_i + a_j - b_i) \leq \max(a_j, a_i + a_j - b_j) \\ \iff& \max(-a_j, -b_i) \leq \max(-a_i, -b_j)\\ \iff& \min(a_j, b_i) \geq \min(a_i, b_j). \end{align*}$$$
+As a corollary, there exists an optimal $$$\sigma$$$ satisfying the following properties:
+Claim [Optimality conditions of $\sigma$].
+All pairs with $$$a_i < b_i$$$ come first. Then, all pairs with $$$a_i = b_i$$$ come next. Then, all pairs with $$$a_i > b_i$$$.
+The pairs with $$$a_i < b_i$$$ are in ascending order of $$$a_i$$$.
+The pairs with $$$a_i > b_i$$$ are in descending order of $$$b_i$$$.
+It is not hard to show that all such $$$\sigma$$$ satisfying these properties are optimal by following similar logic as above. We leave it as an exercise for the reader.
+Now, we add in the constraint on the final term $$$\sigma_n$$$ of the ordering. We will perform casework on this final haystack. Notice that for any fixed $$$a_n, b_n$$$, if
+$$$\max_{1 \leq i \leq n-1} \left\{\sum_{j=1}^i a_{\sigma_j} - \sum_{j=1}^{i-1} b_{\sigma_j}\right\}$$$
+is maximized, then so is
+$$$\max_{1 \leq i \leq n} \left\{\sum_{j=1}^i a_{\sigma_j} - \sum_{j=1}^{i-1} b_{\sigma_j}\right\}.$$$
+So, if we were to fix any last haystack $$$\sigma_n$$$, the optimality conditions tell us that we should still order the remaining $$$n-1$$$ haystacks as before. Now, we may iterate over all valid $$$\sigma_n$$$ and compute the answer efficiently as follows: maintain a segment tree with leaves representing pairs $$$(a_i, b_i)$$$ and range queries for
+$$$\max_{1 \leq i \leq n} \left\{\sum_{j=1}^i a_{\sigma_j} - \sum_{j=1}^{i-1} b_{\sigma_j}\right\}.$$$
+This gives an $$$O(n \log n)$$$ solution.
+Note that it is possible to implement this final step using prefix and suffix sums to yield an $$$O(n)$$$ solution, but it is not necessary to do so.
+
+Section 6:
+Implementation
+#include <bits/stdc++.h>
+
+#define f first
+#define s second
+#define pb push_back
+
+typedef long long int ll;
+typedef unsigned long long int ull;
+using namespace std;
+typedef pair<int,int> pii;
+typedef pair<ll,ll> pll;
+
+template<typename T> int die(T x) { cout << x << endl; return 0; }
+
+#define LNF 1e15
+
+int N;
+vector<pll> segtree;
+
+pll f(pll a, pll b) {
+    return {max(a.first, a.second + b.first), a.second + b.second};
+}
+
+void pull(int t) {
+    segtree[t] = f(segtree[2*t], segtree[2*t+1]);
+}
+
+void point_set(int idx, pll val, int L = 1, int R = N, int t = 1) {
+    if (L == R) segtree[t] = val;
+    else {
+        int M = (L + R) / 2;
+        if (idx <= M) point_set(idx, val, L, M, 2*t);
+        else point_set(idx, val, M+1, R, 2*t+1);
+        pull(t);
+    }
+}
+
+pll range_add(int left, int right, int L = 1, int R = N, int t = 1) {
+    if (left <= L && R <= right) return segtree[t];
+    else {
+        int M = (L + R) / 2;
+        pll ret = {0, 0};
+        if (left <= M) ret = f(ret, range_add(left, right, L, M, 2*t));
+        if (right > M) ret = f(ret, range_add(left, right, M+1, R, 2*t+1));
+        return ret;
+    }
+}
+
+void build(vector<pll>& arr, int L = 1, int R = N, int t = 1) {
+    if (L == R) segtree[t] = arr[L-1];
+    else {
+        int M = (L + R) / 2;
+        build(arr, L, M, 2*t);
+        build(arr, M+1, R, 2*t+1);
+        pull(t);
+    }
+}
+
+vector<int> theoretical(const vector<pii>& arr) {
+    vector<int> idx(arr.size());
+    for (int i = 0; i < arr.size(); ++i) {
+        idx[i] = i;
+    }
+
+    vector<int> ut, eq, lt;
+    for (int i = 0; i < arr.size(); ++i) {
+        if (arr[i].first < arr[i].second) {
+            ut.push_back(i);
+        } else if (arr[i].first == arr[i].second) {
+            eq.push_back(i);
+        } else {
+            lt.push_back(i);
+        }
+    }
+
+    sort(ut.begin(), ut.end(), [&arr](int i, int j) {
+        return arr[i].first < arr[j].first;
+    });
+
+    sort(eq.begin(), eq.end(), [&arr](int i, int j) {
+        return arr[i].first > arr[j].first;
+    });
+
+    sort(lt.begin(), lt.end(), [&arr](int i, int j) {
+        return arr[i].second > arr[j].second;
+    });
+
+    vector<int> result;
+    result.insert(result.end(), ut.begin(), ut.end());
+    result.insert(result.end(), eq.begin(), eq.end());
+    result.insert(result.end(), lt.begin(), lt.end());
+
+    return result;
+}
+
+int main() {
+    ios_base::sync_with_stdio(false);
+    cin.tie(0);
+    int T = 1; cin >> T;
+    while (T--) {
+        cin >> N;
+        vector<pll> data(N);
+        ll sum_a = 0;
+        ll sum_b = 0;
+        for (int i = 0; i < N; i++) {
+            cin >> data[i].f >> data[i].s;
+            sum_a += data[i].f;
+            sum_b += data[i].s;
+        }
+        vector<int> order = theoretical(vector<pii>(data.begin(), data.end()));
+
+        vector<pll> data_sorted;
+        for (int i : order) data_sorted.push_back({data[i].first, data[i].first - data[i].second});
+        data_sorted.push_back({0, 0});
+
+        ++N;
+
+        segtree = vector<pll>(4*N);
+        build(data_sorted);
+
+        ll ans = LNF;
+        for (int i = 0; i < N-1; i++) {
+            if (sum_b - (data_sorted[i].first - data_sorted[i].second) >= sum_a) {
+                point_set(i+1, data_sorted[N-1]);
+                point_set(N, data_sorted[i]);
+
+                ans = min(ans, range_add(1, N).first);
+
+                point_set(i+1, data_sorted[i]);
+                point_set(N, data_sorted[N-1]);
+            }
+        }
+        if (ans == LNF) cout << -1 << endl;
+        else cout << ans + sum_a << endl;
+    }
+}
+

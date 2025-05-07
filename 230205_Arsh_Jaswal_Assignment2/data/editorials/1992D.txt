@@ -1,0 +1,53 @@
+1992D - Test of LoveIdea: ArSarapkinPreparation: K1o0n TutorialIn this problem, there are two main solutions: dynamic programming and greedy algorithm.Dynamic programming solution: dpi − the minimum number of meters that need to be swum to reach the i-th cell. The base case of the dynamic programming is dp0=0. Then, the update rule is: dpi=minimum of{dpi−1+1min(dpj)if Ai='W'for all j,where:max(0,i—m)≤j<i and Aj='L' Solution complexity: O(nm).Greedy algorithm solution: If we can jump, we want to jump to the shore if possible. If we can't, we want to jump to any log ahead to jump from it later. If we can't, we jump as far as possible to avoid crocodiles and swim as little as possible.Solution complexity: O(n). Solution (greedy)def run() -> None:
+    n,m,k = map(int, input().split())
+    A = input()
+    logs = [i for i in range(n) if A[i] == "L"]
+    logs.append(n+1)
+    i = -1
+    next_log = 0
+    while i < n-1:
+        if m >= logs[next_log] - i:
+            i = logs[next_log]
+        else:
+            i+=m
+            if i > n-1:
+                print("YES")
+                return
+            while i < n and i < logs[next_log]:
+                if A[i] != "C" and k > 0:
+                    i+=1
+                    k-=1
+                else:
+                    print("NO")
+                    return
+        next_log +=1
+    print("YES")
+ 
+for _ in range(int(input())):
+    run() Solution (DP)#include <bits/stdc++.h>
+using namespace std;
+int main() {
+    int t;
+    cin >> t;
+    while (t--) {
+        int n, m, k; 
+        cin >> n >> m >> k;
+        string s;
+        cin >> s;
+        vector<int> dp(n + 2, -1);
+        dp[0] = k;
+        for (int i = 1; i <= n + 1; i++) {
+            if (i != n + 1 && s[i - 1] == 'C') 
+                continue;
+            for (int t = 1; t <= m; t++)
+                if (i - t >= 0 && (i - t == 0 || s[i - t - 1] == 'L'))
+                    dp[i] = max(dp[i], dp[i - t]);
+            if (i > 1 && s[i - 2] == 'W') 
+                dp[i] = max(dp[i], dp[i - 1] - 1);
+        }
+        if (dp[n + 1] >= 0) 
+            cout << "YES\n";
+        else 
+            cout << "NO\n";
+    }
+}

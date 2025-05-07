@@ -1,0 +1,51 @@
+1293B - JOE is on TV!Frums - Turnstile JumperThis is a greedy problem, with the optimal scenario being each question eliminating a single opponent.It is easy to see that we will want each question to eliminate one opponent only, since after each elimination, the ratio t/s will be more and more rewarding (as s lowers overtime) - as a result, each elimination should have the lowest possible t (i.e. t=1) so more opponents would have their rewards increased.Time complexity is O(n). Solution (Akikaze, C++)Submission link: 69151243 Source code in plain text#pragma GCC optimize("Ofast")
+
+#include <bits/stdc++.h>
+using namespace std;
+
+#define endl '\n'
+
+int n;
+
+void Input() {
+	cin >> n;
+}
+
+void Solve() {
+	double ans = 0;
+	for (int i=1; i<=n; i++) ans += 1.0 / i;
+	
+	cout << fixed << setprecision(12) << ans << endl;
+}
+
+int main(int argc, char* argv[]) {
+	ios_base::sync_with_stdio(0); cin.tie(NULL);
+	Input(); Solve(); return 0;
+} Solution (Akikaze, Java 8)Submission link: 69151737 Source code in plain textimport java.io.*;
+import java.util.*;
+
+public class Akisolution {
+	public static Scanner sc = new Scanner(System.in);
+	public static PrintWriter out = new PrintWriter(System.out, true);
+	public static int n;
+
+	public static void Input() {
+		n = sc.nextInt();
+	}
+
+	public static void Solve() {
+		double ans = 0;
+		for (int i=1; i<=n; i++) ans += 1.0 / i;
+
+		out.printf("%.12f\n", ans);
+	}
+
+	public static void main(String[] args) {
+		Input(); Solve();
+	}
+} Solution (Akikaze, Python 3)Submission link: 69151256 Source code in plain textT = 1
+for test_no in range(T):
+	n = int(input())
+	ans = sum([1.0 / i for i in range(1, n+1)])
+
+	print(ans)

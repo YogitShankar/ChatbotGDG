@@ -1,0 +1,8 @@
+{
+  "name": "B. Kevin and Geometry",
+  "time_limit": "time limit per test1 second",
+  "memory_limit": "memory limit per test256 megabytes",
+  "input": "InputEach test contains multiple test cases. The first line contains the number of test cases $$$t$$$ ($$$1 \\le t \\le 10^4$$$). The description of the test cases follows. The first line of each test case contains a single integer $$$n$$$ ($$$4 \\le n \\le 2\\cdot 10^5$$$).The second line contains $$$n$$$ integers $$$a_1, a_2, \\ldots, a_n$$$ ($$$1 \\le a_i \\le 10^8$$$).It is guaranteed that the sum of $$$n$$$ over all test cases does not exceed $$$2\\cdot 10^5$$$.",
+  "output": "OutputFor each test case, output $$$4$$$ integers — the lengths of sticks. If no solution exists, output $$$-1$$$.If there are multiple solutions, print any of them.",
+  "tags": []
+}

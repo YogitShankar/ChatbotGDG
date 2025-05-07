@@ -1,0 +1,52 @@
+Section 1:
+Hint 1
+Process many segments simultaneously. What kind of segments do we process at a time?
+
+Section 2:
+Hint 2
+The length.
+
+Section 3:
+Solution
+The point that must be noted is: that if we call the process of splitting a large segment into two smaller segments a round, then all segments are of the same length when the $$$i$$$-th round of the observation is conducted; and, the number of rounds does not exceed $$$\mathcal O(\log n)$$$. The $$$k$$$ restriction is equivalent to specifying that only a certain prefix of rounds is computed.
+Here are some different approaches:
+(Most succinctly) Note that the distribution of segments after round 1 is centrally symmetric; Also, $$$x$$$ and $$$y$$$ being centrally symmetric implies that $$$x + y = n + 1$$$, so it is simple to calculate by simulating the number of segments and the length directly.
+If a segment $$$[l, r]$$$ is split into $$$[l, m - 1]$$$ and $$$[m + 1, r]$$$, its left endpoint sum changes from $$$l$$$ to $$$2l + \frac{r - l}{2} + 1$$$, and since $$$(r - l)$$$ is fixed, the sum of the left endpoints of all segments can be maintained similarly.
+The following recursive method also works: the answer to $$$n$$$ can be recovered by the answer to $$$\lfloor \frac{n}{2} \rfloor$$$. The time complexity is $$$\mathcal O(t\log n)$$$.
+
+Section 4:
+Code (C++)
+This is written by
+_TernaryTree_
+.
+#include <bits/stdc++.h>
+#define int long long
+ 
+using namespace std;
+ 
+int T;
+int n, k;
+ 
+signed main() {
+	cin >> T;
+	while (T--) {
+		cin >> n >> k;
+		int mul = n + 1, sum = 0, cur = 1;
+		while (n >= k) {
+			if (n & 1) sum += cur;
+			n >>= 1;
+			cur <<= 1;
+		}
+		cout << mul * sum / 2 << endl;
+	}
+	return 0;
+}
+
+Section 5:
+Rate the Problem
+Amazing problem:
+Good problem:
+Average problem:
+Bad problem:
+Didn't solve:
+

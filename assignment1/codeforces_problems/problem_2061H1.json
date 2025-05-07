@@ -1,0 +1,8 @@
+{
+  "name": "H1. Kevin and Stones (Easy Version)",
+  "time_limit": "time limit per test4 seconds",
+  "memory_limit": "memory limit per test512 megabytes",
+  "input": "InputEach test contains multiple test cases. The first line contains the number of test cases $$$t$$$ ($$$1 \\le t \\le 1000$$$). The description of the test cases follows. The first line of each test case contains two integers $$$n$$$ and $$$m$$$ ($$$1\\leq n \\leq 2000$$$, $$$0\\leq m \\leq \\min(\\frac{n(n-1)}{2}, 10^4)$$$) — the number of vertices and edges in the graph.The second line contains a binary string $$$s$$$ consisting of '0' and '1'. The $$$i$$$-th bit of $$$s$$$ indicates the number of stones on the $$$i$$$-th vertex in the initial state.The third line contains a binary string $$$t$$$ consisting of '0' and '1'. The $$$i$$$-th bit of $$$t$$$ indicates the number of stones on the $$$i$$$-th vertex in the target state.Each of the next $$$m$$$ lines contains two integers $$$u$$$ and $$$v$$$ ($$$1\\leq u, v \\leq n$$$) — an undirected edge between the $$$u$$$-th vertex and the $$$v$$$-th vertex.It is guaranteed that the graph is simple. There are no self-loops and parallel edges in the graph.It is guaranteed that the numbers of '1' in $$$s$$$ and $$$t$$$ are the same.It is guaranteed that the sum of $$$n$$$ over all test cases does not exceed $$$2000$$$. It is guaranteed that the sum of $$$m$$$ over all test cases does not exceed $$$10^4$$$.",
+  "output": "OutputFor each test case, on the first line, output \"Yes\" or \"No\" to indicate whether a valid sequence of operations exists.You can output the answer in any case (upper or lower). For example, the strings \"yEs\", \"yes\", \"Yes\", and \"YES\" will be recognized as positive responses.",
+  "tags": []
+}

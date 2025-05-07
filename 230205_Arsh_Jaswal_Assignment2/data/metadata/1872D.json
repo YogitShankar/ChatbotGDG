@@ -1,0 +1,10 @@
+{
+    "title": "D. Plus Minus Permutation",
+    "description": "You are given 3 integers — n, x, y. Let's call the score of a permutation† p1,…,pn the following value:\n(p1⋅x+p2⋅x+…+p⌊nx⌋⋅x)−(p1⋅y+p2⋅y+…+p⌊ny⌋⋅y)\nIn other words, the score of a permutation is the sum of pi for all indices i divisible by x, minus the sum of pi for all indices i divisible by y.\nYou need to find the maximum possible score among all permutations of length n.\nFor example, if n=7, x=2, y=3, the maximum score is achieved by the permutation [2,6_,1_,7_,5,4__,3] and is equal to (6+7+4)−(1+4)=17−5=12.\n† A permutation of length n is an array consisting of n distinct integers from 1 to n in any order. For example, [2,3,1,5,4] is a permutation, but [1,2,2] is not a permutation (the number 2 appears twice in the array) and [1,3,4] is also not a permutation (n=3, but the array contains 4).\nThe first line of input contains an integer t (1≤t≤104) — the number of test cases.\nThen follows the description of each test case.\nThe only line of each test case description contains 3 integers n, x, y (1≤n≤109, 1≤x,y≤n).\nFor each test case, output a single integer — the maximum score among all permutations of length n.\nThe first test case is explained in the problem statement above.\nIn the second test case, one of the optimal permutations will be [12,11,2_,4,8,9__,10,6,1_,5,3,7__]. The score of this permutation is (9+7)−(2+9+1+7)=−3. It can be shown that a score greater than −3 can not be achieved. Note that the answer to the problem can be negative.\nIn the third test case, the score of the permutation will be (p1+p2+…+p9)−p9. One of the optimal permutations for this case is [9,8,7,6,5,4,3,2,1], and its score is 44. It can be shown that a score greater than 44 can not be achieved.\nIn the fourth test case, x=y, so the score of any permutation will be 0.",
+    "time limit": "time limit per test1 second",
+    "memory limit": "memory limit per test256 megabytes",
+    "tags": [
+        "math",
+        "*1200"
+    ]
+}

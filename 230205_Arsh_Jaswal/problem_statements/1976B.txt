@@ -1,0 +1,13 @@
+Problem Title: B. Increase/Decrease/Copy
+
+time limit per test2 seconds
+memory limit per test256 megabytes
+
+You are given two integer arrays: array a of length n and array b of length n+1.
+You can perform the following operations any number of times in any order: 
+Your task is to calculate the minimum number of aforementioned operations (possibly zero) required to transform the array a into the array b. It can be shown that under the constraints of the problem, it is always possible.
+The first line contains a single integer t (1≤t≤104) — the number of test cases.
+Each test case consists of three lines:
+Additional constraint on the input: the sum of n over all test cases doesn't exceed 2⋅105.
+For each test case, print a single integer — the minimum number of operations (possibly zero) required to transform the array a into the array b.
+In the first example, you can transform a into b as follows: [2]→[2,2]→[1,2]→[1,3].

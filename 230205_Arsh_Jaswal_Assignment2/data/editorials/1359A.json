@@ -1,0 +1,3 @@
+{
+    "solution": "1359A - Berland PokerIdea: BledDest TutorialTutorial is loading... Solution 1 (BledDest)t = int(input())\n\nfor i in range(t):\n    n, m, k = map(int, input().split())\n    d = n // k\n    a1 = min(m, d)\n    a2 = (m - a1 + k - 2) // (k - 1)\n    print(a1 - a2) Solution 2 (BledDest)t = int(input())\n\nfor i in range(t):\n    n, m, k = map(int, input().split())\n    ans = 0\n    d = n // k\n    for a1 in range(m + 1):\n        for a2 in range(a1 + 1):\n            if(a1 > d):\n                continue\n            if(a1 + a2 > m):\n                continue\n            if(a1 + (k - 1) * a2 < m):\n                continue\n            ans = max(ans, a1 - a2)\n    print(ans)"
+}

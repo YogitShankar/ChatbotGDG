@@ -1,0 +1,32 @@
+2050B - TransfusionThe main idea of this problem is that these operations only change elements on the positions with the same parity. So, we can solve for elements on odd and even positions independently.Let's make two arrays $$$od$$$ and $$$ev$$$  — the first one will consist of all the elements on the odd positions, and the second one will consist of all the elements on the even positions. Now we can rewrite given operations as: pick any array $$$od$$$ or $$$ev$$$, after that pick any two adjacent elements and subtract $$$1$$$ from one of these elements and add $$$1$$$ to another. In order to make all the elements in array $$$od$$$ equal, the sum of all elements in $$$od$$$ must be divisible by $$$|od|$$$, and also the sum of all the elements in $$$ev$$$ must be divisible by $$$|ev|$$$, where $$$|a|$$$ is the length of array $$$a$$$. And also to make all the elements of the initial array equal, $$$\frac{sum(od)}{|od|} = \frac{sum(ev)}{|ev|}$$$ must be satisfied. If all these conditions are satisfied, the answer is "YES", otherwise "NO". Код#include <bits/stdc++.h>
+
+using namespace std;
+
+void solve() {
+    int n; cin >> n;
+    vector<int> a(n);
+    for (int &x : a) cin >> x;
+    
+    long long ods = 0, evs = 0;
+    for (int i = 0; i < n; i++) {
+        if (i & 1) ods += a[i];
+        else evs += a[i];
+    }
+    int odc = n / 2, evc = n / 2;
+    if (n & 1) evc++;
+
+    if (ods % odc != 0 || evs % evc != 0 || ods / odc != evs / evc) {
+        cout << "NO";
+        return;
+    }
+    cout << "YES";
+}
+
+int main() {
+    int TESTS; cin >> TESTS;
+    while (TESTS --> 0) {
+        solve();
+        cout << '\n';
+    }
+    return 0;
+}

@@ -1,0 +1,180 @@
+Section 1:
+Tutorial
+2049F - MEX OR Mania
+Let's figure out when a sequence is good. Let $$$m$$$ be the maximum element of the sequence. Notice that the bitwise OR of the sequence is at least $$$m$$$ and as MEX $$$-$$$ OR $$$=1$$$, that means MEX has to be at least $$$m + 1$$$. Which means all elements from $$$0$$$ to $$$m$$$ has to be present in the sequence. As MEX can't be greater than $$$m + 1$$$, the MEX has to be exactly $$$m + 1$$$.
+Now we need to check for which $$$m$$$ the bitwise OR of the elements from $$$0$$$ to $$$m$$$ is exactly $$$m$$$. It's not hard to see that this is true for $$$m = 2^k - 1$$$ for some integer $$$k \geq 0$$$. The reason is that all bits from $$$0$$$ to $$$k - 1$$$ have to be set in $$$m$$$ for the OR to be $$$m$$$ and it's only possible if $$$m$$$ is of the form $$$2^k - 1$$$.
+So, a sequence is good if the maximum element is $$$m = 2^k - 1$$$ for some integer $$$k$$$ and all elements from $$$0$$$ to $$$m$$$ are present in the sequence.
+Now, let's see how to answer the queries without any updates. To find the longest good subarray, we can use a two-pointers approach. But a better way to do this is to fix the power $$$k (0 \leq k \leq \log_2 n)$$$ and find the longest good subarray with maximum element $$$2^k - 1$$$. To do this, ignore the elements greater than $$$2^k - 1$$$ and then split the array into segments of consecutive numbers where each segment has elements from $$$0$$$ to $$$2^k - 1$$$. To check if a segment is good, we can track the number of distinct elements in the segment. If the number of distinct elements is $$$2^k$$$, then the segment is good.
+So to sum it up, for each power $$$k$$$, we will track some segments/components and the number of distinct elements in them and also the lengths of the segments to get the longest one during queries.
+Now regarding the updates, it is hard to track everything if we do the updates normally. But its's easier if we look at them in reverse order!
+Then each update will be decreasing the value of $$$a_i$$$ by $$$x$$$. Then for each power $$$k$$$, we will have to add a new element to a component or merge two components. For tracking distinct elements, we can use a map or unordered map and to merge we can use DSU with small to large merging. And that's pretty much it.
+Please check my code for more details.
+Overall complexity is $$$O((n + q) \log^2 n)$$$ or $$$O((n + q) \log^3 n)$$$ depending on if you use an unordered map or a map.
+
+Section 2:
+Solution
+#include<bits/stdc++.h>
+using namespace std;
+ 
+const int N = 1e5 + 9, Q = 3e5 + 9;
+using ll = long long;
+ 
+struct GoodSet { // insert, erase and track distinct and total elements
+  map<int, int> mp;
+  int size;
+  int k;
+  GoodSet() {}
+  GoodSet(int _k): k(_k), size(0) { };
+  void insert(int x, int c = 1) {
+    mp[x] += c;
+    size += c;
+  }
+  void erase(int x) {
+    if (mp[x] == 1) {
+      mp.erase(x);
+    }
+    else {
+      mp[x]--;
+    }
+    size -= 1;
+  }
+  void merge(GoodSet oth) {
+    for (auto [x, c]: oth.mp) {
+      insert(x, c);
+    }
+  }
+  bool is_good() { // check if all elements from 0 to 2^k - 1 exists in the set
+    return (int) mp.size() == (1 << k);
+  }
+  int get_value() {
+    if (is_good()) return size;
+    return 0;
+  }
+};
+ 
+struct MaxSet { // insert, erase and track max element
+  map<int, int> mp;
+  MaxSet() {}
+  void insert(int x) {
+    mp[x]++;
+  }
+  void erase(int x) {
+    mp[x]--;
+    if (mp[x] == 0) mp.erase(x);
+  }
+  int get_max() {
+    return mp.rbegin() -> first;
+  }
+};
+ 
+struct DSU { // DSU for each power of 2
+  int n;
+  int k;
+  vector<int> par;
+  vector<GoodSet> comp;
+  MaxSet good_lengths;
+  DSU() {}
+  DSU(int _n, int _k): n(_n), k(_k) {
+    par.resize(n + 1);
+    comp.resize(n + 1);
+    for (int i = 1; i <= n; i++) {
+      par[i] = i;
+      comp[i] = GoodSet(k);
+      good_lengths.insert(comp[i].get_value());
+    }
+  }
+  int find(int u) {
+    return par[u] = (par[u] == u ? u : find(par[u]));
+  }
+  void merge(int u, int v) {
+    u = find(u); v = find(v);
+    if (u == v) return;
+    good_lengths.erase(comp[u].get_value());
+    good_lengths.erase(comp[v].get_value());
+ 
+    // small to large merging
+    if (comp[u].mp.size() < comp[v].mp.size()) {
+      comp[u].mp.swap(comp[v].mp);
+      swap(comp[u].size, comp[v].size);
+    }
+    comp[u].merge(comp[v]);
+    comp[v].mp.clear(); // clear to save up memory
+ 
+    good_lengths.insert(comp[u].get_value());
+    par[v] = u;
+  }
+  // insert or erase an element from the component that u belongs to
+  void update_in_component(int u, int x, bool insert = true) {
+    u = find(u);
+    good_lengths.erase(comp[u].get_value());
+    if (insert) comp[u].insert(x);
+    else comp[u].erase(x);
+    good_lengths.insert(comp[u].get_value());
+  }
+};
+DSU f[18];
+ll a[N]; // make it long long as total sum can be huge
+int id[Q], x[Q], ans[Q];
+void solve() {
+  int n, q; cin >> n >> q;
+  for (int i = 1; i <= n; i++) {
+    cin >> a[i];
+  }
+  for (int i = 1; i <= q; i++) {
+    cin >> id[i] >> x[i];
+    a[id[i]] += x[i];
+  }
+  MaxSet se;
+  for (int k = 0; (1 << k) <= n; k++) {
+    f[k] = DSU(n, k);
+    for (int i = 1; i <= n; i++) {
+      if (a[i] < (1 << k)) {
+        f[k].update_in_component(i, a[i], true);
+      }
+    }
+    for (int i = 2; i <= n; i++) {
+      if (a[i] < (1 << k) and a[i - 1] < (1 << k)) {
+        f[k].merge(i - 1, i);
+      }
+    }
+    se.insert(f[k].good_lengths.get_max());
+  }
+  for (int qid = q; qid >= 1; qid--) {
+    ans[qid] = se.get_max();
+    int i = id[qid], sub = x[qid];
+    for (int k = 0; (1 << k) <= n; k++) {
+      se.erase(f[k].good_lengths.get_max());
+ 
+      if (a[i] < (1 << k)) f[k].update_in_component(i, a[i], false);
+      if (a[i] - sub < (1 << k)) f[k].update_in_component(i, a[i] - sub, true);
+ 
+      if (a[i] >= (1 << k) and a[i] - sub < (1 << k)) {
+        if (i > 1 and a[i - 1] < (1 << k)) {
+          f[k].merge(i - 1, i);
+        }
+        if (i + 1 <= n and a[i + 1] < (1 << k)) {
+          f[k].merge(i, i + 1);
+        }
+      }
+ 
+      se.insert(f[k].good_lengths.get_max());
+    }
+    a[i] -= sub;
+  }
+ 
+  for (int i = 1; i <= q; i++) {
+    cout << ans[i] << '\n';
+  }
+}
+ 
+int32_t main() {
+  ios_base::sync_with_stdio(0);
+  cin.tie(0);
+  int t = 1;
+  cin >> t;
+  while (t--) {
+    solve();
+  }
+  return 0;
+}
+

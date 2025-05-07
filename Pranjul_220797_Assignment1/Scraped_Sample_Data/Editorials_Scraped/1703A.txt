@@ -1,0 +1,28 @@
+Problem: 1703A - YES or YES?
+Problem Link: https://codeforces.com/problemset/problem/1703/A
+Editorial Link: https://codeforces.com/blog/entry/104786
+
+================================================================================
+
+1703A - YES or YES?Idea: flamestorm Tutorial1703A - YES or YES?You should implement what is written in the statement. Here are three ways to do it:   Check that the first character is 𝚈 or 𝚢, check that the second character is 𝙴 or 𝚎, and check the third character is 𝚂 or 𝚜.  Make an array storing all acceptable strings (there are only 8), and loop and see if any of the strings match the input.  Use some built-in function like tolower() in C++ to make the string all lowercase, and check if 𝑠 is equal to 𝚢𝚎𝚜.  The complexity is (1) per test case. Solution#include <bits/stdc++.h>
+
+using namespace std;
+
+const int MAX = 200007;
+const int MOD = 1000000007;
+
+void solve() {
+	string s;
+	cin >> s;
+	if (s[0] != 'y' && s[0] != 'Y') {cout << "NO\n";}
+	else if (s[1] != 'e' && s[1] != 'E') {cout << "NO\n";}
+	else if (s[2] != 's' && s[2] != 'S') {cout << "NO\n";}
+	else {cout << "YES\n";}
+}
+
+int main() {
+	ios::sync_with_stdio(false);
+	cin.tie(nullptr);
+	int tt; cin >> tt; for (int i = 1; i <= tt; i++) {solve();}
+	// solve();
+}

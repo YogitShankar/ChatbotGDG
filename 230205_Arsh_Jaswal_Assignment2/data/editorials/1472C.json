@@ -1,0 +1,3 @@
+{
+    "solution": "1472C - Long Jumps EditorialTutorial is loading... Solution#include <bits/stdc++.h>\nusing namespace std;\n\nvoid solve() {\n  int n;\n  cin >> n;\n  vector<int> a(n);\n  for (int &x : a) {\n    cin >> x;\n  }\n\n  vector<int> dp(n);\n  for (int i = n - 1; i >= 0; i--) {\n    dp[i] = a[i];\n    int j = i + a[i];\n    if (j < n) {\n      dp[i] += dp[j];\n    }\n  }\n  cout << *max_element(dp.begin(), dp.end()) << endl;\n}\n\nint main() {\n  int tests;\n  cin >> tests;\n  while (tests-- > 0) {\n    solve();\n  }\n  return 0;\n}"
+}

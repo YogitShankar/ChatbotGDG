@@ -1,0 +1,8 @@
+{
+  "name": "D. DAG Serialization",
+  "time_limit": "time limit per test3 seconds",
+  "memory_limit": "memory limit per test1024 megabytes",
+  "input": "InputIn the first line, you are given an integer $$$n$$$ — the number of operations ($$$1 \\le n \\le 10^5$$$). In the following $$$n$$$ lines, you are given operations in the format \"type result\", where type is either \"set\" or \"unset\" and result is either \"true\" or \"false\". It is guaranteed that at most two operations have \"true\" results. In the next line, you are given an integer $$$m$$$ — the number of arcs of the DAG ($$$0 \\le m \\le 10^5$$$). In the following $$$m$$$ lines, you are given arcs — pairs of integers $$$a$$$ and $$$b$$$ ($$$1 \\leq a, b \\leq n$$$; $$$a \\neq b$$$). Each arc indicates that operation $$$op_a$$$ happened before operation $$$op_b$$$.",
+  "output": "OutputPrint any linear order of operations that satisfies the DAG constraints and ensures the results of the operations match the ones given in the input. If a correct operation order does not exist, print $$$-1$$$.",
+  "tags": []
+}

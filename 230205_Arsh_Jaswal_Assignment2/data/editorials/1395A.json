@@ -1,0 +1,3 @@
+{
+    "solution": "1395A - Boboniu Likes to Color BallsIdea: dqa2021 TutorialTutorial is loading... Solutiondef check(r,g,b,w):\n    return False if r%2 + g%2 + b%2 + w%2 > 1 else True\n\nif __name__ == '__main__':\n    T = int(input())\n    for ttt in range(T):\n        r,g,b,w = map(int,input().split())\n        if check(r,g,b,w):\n            print(\"Yes\")\n        elif r>0 and g>0 and b>0 and check(r-1,g-1,b-1,w+1):\n            print(\"Yes\")\n        else :\n            print(\"No\")"
+}

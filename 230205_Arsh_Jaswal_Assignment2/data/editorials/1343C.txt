@@ -1,0 +1,38 @@
+1343C - Alternating SubsequenceFirstly, let's extract maximum by inclusion segments of the array that consists of the numbers with the same sign. For example, if the array is [1,1,2,−1,−5,2,1,−3] then these segments are [1,1,2], [−1,−5], [2,1] and [−3]. We can do it with any "two pointers"-like algorithm. The number of these segments is the maximum possible length of the alternating subsequence because we can take only one element from each block. And as we want to maximize the sum, we need to take the maximum element from each block.Time complexity: O(n). Solution#include <bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+#ifdef _DEBUG
+	freopen("input.txt", "r", stdin);
+//	freopen("output.txt", "w", stdout);
+#endif
+	
+	auto sgn = [&](int x) {
+		if (x > 0) return 1;
+		else return -1;
+	};
+
+	int t;
+	cin >> t;
+	while (t--) {
+		int n;
+		cin >> n;
+		vector<int> a(n);
+		for (auto &it : a) cin >> it;
+		long long sum = 0;
+		for (int i = 0; i < n; ++i) {
+			int cur = a[i];
+			int j = i;
+			while (j < n && sgn(a[i]) == sgn(a[j])) {
+				cur = max(cur, a[j]);
+				++j;
+			}
+			sum += cur;
+			i = j - 1;
+		}
+		cout << sum << endl;
+	}
+	
+	return 0;
+}

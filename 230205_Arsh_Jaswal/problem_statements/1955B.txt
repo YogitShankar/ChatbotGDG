@@ -1,0 +1,18 @@
+Problem Title: B. Progressive Square
+
+time limit per test2 seconds
+memory limit per test256 megabytes
+
+A progressive square of size nn is an n×nn×n matrix. Maxim chooses three integers a1,1a1,1, cc, and dd and constructs a progressive square according to the following rules:
+ai+1,j=ai,j+cai+1,j=ai,j+c
+ai,j+1=ai,j+dai,j+1=ai,j+d
+For example, if n=3n=3, a1,1=1a1,1=1, c=2c=2, and d=3d=3, then the progressive square looks as follows:
+(1473695811)⎛⎝⎜1354687911⎞⎠⎟
+Last month Maxim constructed a progressive square and remembered the values of nn, cc, and dd. Recently, he found an array bb of n2n2 integers in random order and wants to make sure that these elements are the elements of that specific square.
+It can be shown that for any values of nn, a1,1a1,1, cc, and dd, there exists exactly one progressive square that satisfies all the rules.
+The first line contains an integer tt (1≤t≤1041≤t≤104) — the number of test cases.
+The first line of each test case contains three integers nn, cc, and dd (2≤n≤5002≤n≤500, 1≤c,d≤1061≤c,d≤106) — the size of the square and the values of cc and dd as described in the statement.
+The second line of each test case contains n⋅nn⋅n integers b1,b2,…,bn⋅nb1,b2,…,bn⋅n (1≤bi≤1091≤bi≤109) — the elements found by Maxim.
+It is guaranteed that the sum of n2n2 over all test cases does not exceed 25⋅10425⋅104.
+For each test case, output "YES" in a separate line if a progressive square for the given nn, cc, and dd can be constructed from the array elements aa, otherwise output "NO".
+You can output each letter in any case (lowercase or uppercase). For example, the strings "yEs", "yes", "Yes", and "YES" will be accepted as a positive answer.

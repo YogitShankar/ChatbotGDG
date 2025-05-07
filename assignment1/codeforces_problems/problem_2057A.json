@@ -1,0 +1,8 @@
+{
+  "name": "A. MEX Table",
+  "time_limit": "time limit per test1 second",
+  "memory_limit": "memory limit per test256 megabytes",
+  "input": "InputEach test contains multiple test cases. The first line contains a single integer $$$t$$$ ($$$1 \\le t \\le 1000$$$) — the number of test cases. The description of the test cases follows.The first line of each test case contains two integers $$$n$$$ and $$$m$$$ ($$$1 \\le n, m \\le 10^9$$$) — the number of rows and columns in the table, respectively.",
+  "output": "OutputFor each test case, output the maximum possible sum of $$$\\operatorname{mex}$$$ across all rows and columns.",
+  "tags": []
+}

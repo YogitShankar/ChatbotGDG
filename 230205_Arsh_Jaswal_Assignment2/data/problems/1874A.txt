@@ -1,0 +1,13 @@
+Jellyfish has n green apples with values a1,a2,…,an and Gellyfish has m green apples with values b1,b2,…,bm.
+They will play a game with k rounds. For i=1,2,…,k in this order, they will perform the following actions: 
+Both players want to maximize the sum of the values of their apples.
+Since you are one of the smartest people in the world, Jellyfish wants you to tell her the final sum of the value of her apples after all k rounds of the game. Assume that both Jellyfish and Gellyfish play optimally to maximize the sum of values of their apples.
+Each test contains multiple test cases. The first line contains the number of test cases t (1≤t≤2000). The description of the test cases follows.
+The first line of each test case contains three integers, n, m and k (1≤n,m≤50, 1≤k≤109) — the number of green apples Jellyfish has, the number of green apples Gellyfish has and the number of rounds of the game respectively.
+The second line of each test case contains n integers a1,a2,…,an (1≤ai≤109) — the values of Jellyfish's green apples.
+The third line of each test case contains m integers b1,b2,…,bm (1≤bi≤109) — the values of Gellyfish's green apples.
+Do note that the sum of n and m over all test cases are both not bounded.
+For each test case, output a single integer — the final sum of the values of Jellyfish's apples.
+In the first test case, Jellyfish will swap the apple of value 1 and 4.
+In the second test case, both players will swap the two apples 10,000 times.
+In the fourth test case, Jellyfish will do nothing.

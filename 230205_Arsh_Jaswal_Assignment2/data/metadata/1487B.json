@@ -1,0 +1,11 @@
+{
+    "title": "B. Cat Cycle",
+    "description": "Suppose you are living with two cats: A and B. There are n napping spots where both cats usually sleep.\nYour cats like to sleep and also like all these spots, so they change napping spot each hour cyclically: \nThe cat B is much younger, so they have a strict hierarchy: A and B don't lie together. In other words, if both cats'd like to go in spot x then the A takes this place and B moves to the next place in its order (if x<n then to x+1, but if x=n then to 1). Cat B follows his order, so it won't return to the skipped spot x after A frees it, but will move to the spot x+2 and so on.\nCalculate, where cat B will be at hour k?\nThe first line contains a single integer t (1≤t≤104) — the number of test cases.\nThe first and only line of each test case contains two integers n and k (2≤n≤109; 1≤k≤109) — the number of spots and hour k.\nFor each test case, print one integer — the index of the spot where cat B will sleep at hour k.\nIn the first and second test cases n=2, so: \nIn the sixth test case: ",
+    "time limit": "time limit per test1 second",
+    "memory limit": "memory limit per test256 megabytes",
+    "tags": [
+        "math",
+        "number theory",
+        "*1200"
+    ]
+}

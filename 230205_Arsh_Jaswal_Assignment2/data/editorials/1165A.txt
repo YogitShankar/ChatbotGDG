@@ -1,0 +1,24 @@
+1165A - RemainderIdea: vovuh TutorialTutorial is loading... Solution#include <bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+#ifdef _DEBUG
+	freopen("input.txt", "r", stdin);
+//	freopen("output.txt", "w", stdout);
+#endif
+	
+	int n, x, y;
+	string s;
+	cin >> n >> x >> y >> s;
+	
+	int ans = 0;
+	for (int i = n - x; i < n; ++i) {
+		if (i == n - y - 1) ans += s[i] != '1';
+		else ans += s[i] != '0';
+	}
+	
+	cout << ans << endl;
+	
+	return 0;
+}

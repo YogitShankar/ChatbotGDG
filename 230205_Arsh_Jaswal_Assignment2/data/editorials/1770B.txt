@@ -1,0 +1,18 @@
+1770B - Koxia and PermutationIdea by m_99 Hint 1For k=1, the cost is always 2n for any permutation. Hint 2For k≥2, the minimal cost is always n+1. SolutionWhen k=1 every permutation has the same cost.When k≥2, the minimal cost will be at least n+1. This is because there will always be at least one segment containing the element n in the permutation, contributing n to the "max" part of the sum, and the "min" part will add at least 1 to the sum.In fact, the cost n+1 is optimal. It can be achieved by ordering the numbers in the pattern [n,1,n−1,2,n−2,3,n−3,4,…].The time complexity is O(n) for each test case. Other careful constructions should also get Accepted. Code (Nanako)#include <iostream>
+#define MULTI int _T; cin >> _T; while(_T--)
+using namespace std;
+typedef long long ll;
+ 
+int n, k;
+ 
+int main () {
+	ios::sync_with_stdio(0);
+	cin.tie(0);
+	
+	MULTI {
+		cin >> n >> k;
+		int l = 1, r = n, _ = 1;
+		while (l <= r) cout << ((_ ^= 1) ? l++ : r--) << ' ';
+		cout << endl;
+	}
+}

@@ -1,0 +1,13 @@
+{
+    "title": "C. Turtle Fingers: Count the Values of k",
+    "description": "You are given three positive integers a, b and l (a,b,l>0). \nIt can be shown that there always exists a way to choose non-negative (i.e. ≥0) integers k, x, and y such that l=k⋅ax⋅by. \nYour task is to find the number of distinct possible values of k across all such ways.\nThe first line contains the integer t (1≤t≤104) — the number of test cases.\nThe following t lines contain three integers, a, b and l (2≤a,b≤100, 1≤l≤106) — description of a test case.\nOutput t lines, with the i-th (1≤i≤t) line containing an integer, the answer to the i-th test case.\nIn the first test case, a=2,b=5,l=20. The possible values of k (and corresponding x,y) are as follows: \nIn the second test case, a=2,b=5,l=21. Note that l=21 is not divisible by either a=2 or b=5. Therefore, we can only set x=0,y=0, which corresponds to k=21.\nIn the third test case, a=4,b=6,l=48. The possible values of k (and corresponding x,y) are as follows: ",
+    "time limit": "time limit per test5 seconds",
+    "memory limit": "memory limit per test256 megabytes",
+    "tags": [
+        "brute force",
+        "implementation",
+        "math",
+        "number theory",
+        "*1100"
+    ]
+}

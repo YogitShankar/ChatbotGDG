@@ -1,0 +1,2630 @@
+[
+    {
+        "id": "A",
+        "title": "A. Two Frogs",
+        "contest": "contest/2055",
+        "tags": [
+            "constructive algorithms",
+            "games",
+            "greedy"
+        ],
+        "time_limit": "time limit per test1 second",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "id": "B",
+        "title": "B. Crafting",
+        "contest": "contest/2055",
+        "tags": [
+            "constructive algorithms",
+            "greedy",
+            "sortings"
+        ],
+        "time_limit": "time limit per test1 second",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "id": "C",
+        "title": "C. The Trail",
+        "contest": "contest/2055",
+        "tags": [
+            "constructive algorithms",
+            "greedy",
+            "math"
+        ],
+        "time_limit": "time limit per test2 seconds",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "id": "D",
+        "title": "D. Scarecrow",
+        "contest": "contest/2055",
+        "tags": [
+            "greedy",
+            "implementation"
+        ],
+        "time_limit": "time limit per test2 seconds",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "id": "E",
+        "title": "E. Haystacks",
+        "contest": "contest/2055",
+        "tags": [
+            "brute force",
+            "constructive algorithms",
+            "data structures",
+            "greedy"
+        ],
+        "time_limit": "time limit per test2 seconds",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "id": "F",
+        "title": "F. Cosmic Divide",
+        "contest": "contest/2055",
+        "tags": [
+            "brute force",
+            "geometry",
+            "hashing",
+            "math",
+            "strings"
+        ],
+        "time_limit": "time limit per test4 seconds",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "id": "A",
+        "title": "A. MEX Table",
+        "contest": "contest/2057",
+        "tags": [
+            "constructive algorithms",
+            "math",
+            "*800"
+        ],
+        "time_limit": "time limit per test1 second",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "id": "B",
+        "title": "B. Gorilla and the Exam",
+        "contest": "contest/2057",
+        "tags": [
+            "greedy",
+            "sortings",
+            "*1000"
+        ],
+        "time_limit": "time limit per test1 second",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "id": "C",
+        "title": "C. Trip to the Olympiad",
+        "contest": "contest/2057",
+        "tags": [
+            "bitmasks",
+            "constructive algorithms",
+            "greedy",
+            "math",
+            "*1500"
+        ],
+        "time_limit": "time limit per test2 seconds",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "id": "D",
+        "title": "D. Gifts Order",
+        "contest": "contest/2057",
+        "tags": [
+            "data structures",
+            "greedy",
+            "implementation",
+            "math",
+            "matrices",
+            "*2000"
+        ],
+        "time_limit": "time limit per test2 seconds",
+        "memory_limit": "memory limit per test512 megabytes"
+    },
+    {
+        "id": "E1",
+        "title": "E1. Another Exercise on Graphs (Easy Version)",
+        "contest": "contest/2057",
+        "tags": [
+            "binary search",
+            "brute force",
+            "dp",
+            "dsu",
+            "graphs",
+            "shortest paths",
+            "sortings",
+            "*2300"
+        ],
+        "time_limit": "time limit per test3 seconds",
+        "memory_limit": "memory limit per test1024 megabytes"
+    },
+    {
+        "id": "E2",
+        "title": "E2. Another Exercise on Graphs (hard version)",
+        "contest": "contest/2057",
+        "tags": [
+            "binary search",
+            "dfs and similar",
+            "dp",
+            "dsu",
+            "graphs",
+            "shortest paths",
+            "sortings",
+            "*2500"
+        ],
+        "time_limit": "time limit per test3 seconds",
+        "memory_limit": "memory limit per test1024 megabytes"
+    },
+    {
+        "id": "F",
+        "title": "F. Formation",
+        "contest": "contest/2057",
+        "tags": [
+            "binary search",
+            "data structures",
+            "dp",
+            "sortings",
+            "two pointers",
+            "*3300"
+        ],
+        "time_limit": "time limit per test3 seconds",
+        "memory_limit": "memory limit per test512 megabytes"
+    },
+    {
+        "id": "G",
+        "title": "G. Secret Message",
+        "contest": "contest/2057",
+        "tags": [
+            "constructive algorithms",
+            "dfs and similar",
+            "math",
+            "*3000"
+        ],
+        "time_limit": "time limit per test2 seconds",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "id": "H",
+        "title": "H. Coffee Break",
+        "contest": "contest/2057",
+        "tags": [
+            "data structures",
+            "greedy",
+            "math",
+            "*3500"
+        ],
+        "time_limit": "time limit per test2 seconds",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "id": "A",
+        "title": "A. Tender Carpenter",
+        "contest": "contest/2053",
+        "tags": [
+            "dp",
+            "geometry",
+            "greedy",
+            "math",
+            "*800"
+        ],
+        "time_limit": "time limit per test1 second",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "id": "B",
+        "title": "B. Outstanding Impressionist",
+        "contest": "contest/2053",
+        "tags": [
+            "binary search",
+            "brute force",
+            "data structures",
+            "greedy",
+            "*1200"
+        ],
+        "time_limit": "time limit per test1 second",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "id": "C",
+        "title": "C. Bewitching Stargazer",
+        "contest": "contest/2053",
+        "tags": [
+            "bitmasks",
+            "divide and conquer",
+            "dp",
+            "math",
+            "*1500"
+        ],
+        "time_limit": "time limit per test2 seconds",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "id": "D",
+        "title": "D. Refined Product Optimality",
+        "contest": "contest/2053",
+        "tags": [
+            "binary search",
+            "data structures",
+            "greedy",
+            "math",
+            "schedules",
+            "sortings",
+            "*1700"
+        ],
+        "time_limit": "time limit per test3 seconds",
+        "memory_limit": "memory limit per test512 megabytes"
+    },
+    {
+        "id": "E",
+        "title": "E. Resourceful Caterpillar Sequence",
+        "contest": "contest/2053",
+        "tags": [
+            "dfs and similar",
+            "dp",
+            "games",
+            "graphs",
+            "greedy",
+            "trees",
+            "*1900"
+        ],
+        "time_limit": "time limit per test2 seconds",
+        "memory_limit": "memory limit per test512 megabytes"
+    },
+    {
+        "id": "F",
+        "title": "F. Earnest Matrix Complement",
+        "contest": "contest/2053",
+        "tags": [
+            "brute force",
+            "data structures",
+            "dp",
+            "greedy",
+            "implementation",
+            "math",
+            "*2600"
+        ],
+        "time_limit": "time limit per test5 seconds",
+        "memory_limit": "memory limit per test512 megabytes"
+    },
+    {
+        "id": "G",
+        "title": "G. Naive String Splits",
+        "contest": "contest/2053",
+        "tags": [
+            "binary search",
+            "brute force",
+            "greedy",
+            "hashing",
+            "math",
+            "number theory",
+            "strings",
+            "*3400"
+        ],
+        "time_limit": "time limit per test10 seconds",
+        "memory_limit": "memory limit per test1024 megabytes"
+    },
+    {
+        "id": "H",
+        "title": "H. Delicate Anti-monotonous Operations",
+        "contest": "contest/2053",
+        "tags": [
+            "constructive algorithms",
+            "implementation",
+            "*3500"
+        ],
+        "time_limit": "time limit per test2 seconds",
+        "memory_limit": "memory limit per test512 megabytes"
+    },
+    {
+        "id": "I1",
+        "title": "I1. Affectionate Arrays (Easy Version)",
+        "contest": "contest/2053",
+        "tags": [
+            "data structures",
+            "dp",
+            "greedy",
+            "*2800"
+        ],
+        "time_limit": "time limit per test3 seconds",
+        "memory_limit": "memory limit per test512 megabytes"
+    },
+    {
+        "id": "I2",
+        "title": "I2. Affectionate Arrays (Hard Version)",
+        "contest": "contest/2053",
+        "tags": [
+            "data structures",
+            "dp",
+            "graphs",
+            "greedy",
+            "math",
+            "shortest paths",
+            "two pointers",
+            "*3500"
+        ],
+        "time_limit": "time limit per test3 seconds",
+        "memory_limit": "memory limit per test512 megabytes"
+    },
+    {
+        "id": "A",
+        "title": "A. Coin Transformation",
+        "contest": "contest/2043",
+        "tags": [
+            "brute force",
+            "math",
+            "*800"
+        ],
+        "time_limit": "time limit per test2 seconds",
+        "memory_limit": "memory limit per test512 megabytes"
+    },
+    {
+        "id": "B",
+        "title": "B. Digits",
+        "contest": "contest/2043",
+        "tags": [
+            "math",
+            "number theory",
+            "*1100"
+        ],
+        "time_limit": "time limit per test1 second",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "id": "C",
+        "title": "C. Sums on Segments",
+        "contest": "contest/2043",
+        "tags": [
+            "binary search",
+            "brute force",
+            "data structures",
+            "dp",
+            "greedy",
+            "math",
+            "*1600"
+        ],
+        "time_limit": "time limit per test1 second",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "id": "D",
+        "title": "D. Problem about GCD",
+        "contest": "contest/2043",
+        "tags": [
+            "brute force",
+            "flows",
+            "math",
+            "number theory",
+            "*1800"
+        ],
+        "time_limit": "time limit per test1 second",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "id": "E",
+        "title": "E. Matrix Transformation",
+        "contest": "contest/2043",
+        "tags": [
+            "bitmasks",
+            "brute force",
+            "data structures",
+            "dfs and similar",
+            "graphs",
+            "greedy",
+            "implementation",
+            "*2300"
+        ],
+        "time_limit": "time limit per test1 second",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "id": "F",
+        "title": "F. Nim",
+        "contest": "contest/2043",
+        "tags": [
+            "bitmasks",
+            "brute force",
+            "combinatorics",
+            "dp",
+            "games",
+            "greedy",
+            "implementation",
+            "shortest paths",
+            "*2700"
+        ],
+        "time_limit": "time limit per test6 seconds",
+        "memory_limit": "memory limit per test512 megabytes"
+    },
+    {
+        "id": "G",
+        "title": "G. Problem with Queries",
+        "contest": "contest/2043",
+        "tags": [
+            "brute force",
+            "data structures",
+            "implementation",
+            "*3000"
+        ],
+        "time_limit": "time limit per test8 seconds",
+        "memory_limit": "memory limit per test1024 megabytes"
+    },
+    {
+        "id": "A",
+        "title": "A. TON Block Compression",
+        "contest": "contest/2054",
+        "tags": [
+            "*special problem",
+            "interactive"
+        ],
+        "time_limit": "time limit per test2 seconds",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "id": "A",
+        "title": "A. Preparing for the Olympiad",
+        "contest": "contest/2051",
+        "tags": [
+            "greedy",
+            "*800"
+        ],
+        "time_limit": "time limit per test2 seconds",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "id": "B",
+        "title": "B. Journey",
+        "contest": "contest/2051",
+        "tags": [
+            "binary search",
+            "math",
+            "*800"
+        ],
+        "time_limit": "time limit per test1 second",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "id": "C",
+        "title": "C. Preparing for the Exam",
+        "contest": "contest/2051",
+        "tags": [
+            "constructive algorithms",
+            "implementation",
+            "*1000"
+        ],
+        "time_limit": "time limit per test1.5 seconds",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "id": "D",
+        "title": "D. Counting Pairs",
+        "contest": "contest/2051",
+        "tags": [
+            "binary search",
+            "sortings",
+            "two pointers",
+            "*1200"
+        ],
+        "time_limit": "time limit per test2 seconds",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "id": "E",
+        "title": "E. Best Price",
+        "contest": "contest/2051",
+        "tags": [
+            "binary search",
+            "brute force",
+            "data structures",
+            "greedy",
+            "sortings",
+            "*1600"
+        ],
+        "time_limit": "time limit per test2 seconds",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "id": "F",
+        "title": "F. Joker",
+        "contest": "contest/2051",
+        "tags": [
+            "brute force",
+            "greedy",
+            "implementation",
+            "math",
+            "*2000"
+        ],
+        "time_limit": "time limit per test2 seconds",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "id": "G",
+        "title": "G. Snakes",
+        "contest": "contest/2051",
+        "tags": [
+            "bitmasks",
+            "dp",
+            "dsu",
+            "graphs",
+            "*2100"
+        ],
+        "time_limit": "time limit per test3 seconds",
+        "memory_limit": "memory limit per test512 megabytes"
+    },
+    {
+        "id": "A",
+        "title": "A. MEX Destruction",
+        "contest": "contest/2049",
+        "tags": [
+            "greedy",
+            "implementation",
+            "*800"
+        ],
+        "time_limit": "time limit per test1 second",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "id": "B",
+        "title": "B. pspspsps",
+        "contest": "contest/2049",
+        "tags": [
+            "brute force",
+            "constructive algorithms",
+            "graph matchings",
+            "implementation",
+            "*1300"
+        ],
+        "time_limit": "time limit per test1 second",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "id": "C",
+        "title": "C. MEX Cycle",
+        "contest": "contest/2049",
+        "tags": [
+            "brute force",
+            "constructive algorithms",
+            "greedy",
+            "implementation",
+            "*1500"
+        ],
+        "time_limit": "time limit per test2 seconds",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "id": "D",
+        "title": "D. Shift + Esc",
+        "contest": "contest/2049",
+        "tags": [
+            "brute force",
+            "dp",
+            "*1900"
+        ],
+        "time_limit": "time limit per test2.5 seconds",
+        "memory_limit": "memory limit per test512 megabytes"
+    },
+    {
+        "id": "E",
+        "title": "E. Broken Queries",
+        "contest": "contest/2049",
+        "tags": [
+            "binary search",
+            "bitmasks",
+            "brute force",
+            "constructive algorithms",
+            "implementation",
+            "interactive",
+            "*2400"
+        ],
+        "time_limit": "time limit per test2 seconds",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "id": "F",
+        "title": "F. MEX OR Mania",
+        "contest": "contest/2049",
+        "tags": [
+            "bitmasks",
+            "brute force",
+            "data structures",
+            "dsu",
+            "implementation",
+            "*2700"
+        ],
+        "time_limit": "time limit per test4 seconds",
+        "memory_limit": "memory limit per test1024 megabytes"
+    },
+    {
+        "id": "A",
+        "title": "A. Kevin and Combination Lock",
+        "contest": "contest/2048",
+        "tags": [
+            "brute force",
+            "greedy",
+            "implementation",
+            "math",
+            "number theory",
+            "*800"
+        ],
+        "time_limit": "time limit per test1 second",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "id": "B",
+        "title": "B. Kevin and Permutation",
+        "contest": "contest/2048",
+        "tags": [
+            "constructive algorithms",
+            "greedy",
+            "*900"
+        ],
+        "time_limit": "time limit per test1 second",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "id": "C",
+        "title": "C. Kevin and Binary Strings",
+        "contest": "contest/2048",
+        "tags": [
+            "bitmasks",
+            "brute force",
+            "greedy",
+            "implementation",
+            "strings",
+            "*1200"
+        ],
+        "time_limit": "time limit per test2 seconds",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "id": "D",
+        "title": "D. Kevin and Competition Memories",
+        "contest": "contest/2048",
+        "tags": [
+            "binary search",
+            "brute force",
+            "data structures",
+            "greedy",
+            "sortings",
+            "two pointers",
+            "*1600"
+        ],
+        "time_limit": "time limit per test2 seconds",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "id": "E",
+        "title": "E. Kevin and Bipartite Graph",
+        "contest": "contest/2048",
+        "tags": [
+            "constructive algorithms",
+            "graphs",
+            "greedy",
+            "*2000"
+        ],
+        "time_limit": "time limit per test2 seconds",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "id": "F",
+        "title": "F. Kevin and Math Class",
+        "contest": "contest/2048",
+        "tags": [
+            "brute force",
+            "data structures",
+            "divide and conquer",
+            "dp",
+            "implementation",
+            "math",
+            "trees",
+            "*2500"
+        ],
+        "time_limit": "time limit per test2 seconds",
+        "memory_limit": "memory limit per test1024 megabytes"
+    },
+    {
+        "id": "G",
+        "title": "G. Kevin and Matrices",
+        "contest": "contest/2048",
+        "tags": [
+            "brute force",
+            "combinatorics",
+            "dp",
+            "math",
+            "*2800"
+        ],
+        "time_limit": "time limit per test6 seconds",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "id": "H",
+        "title": "H. Kevin and Strange Operation",
+        "contest": "contest/2048",
+        "tags": [
+            "data structures",
+            "dp",
+            "*3100"
+        ],
+        "time_limit": "time limit per test2 seconds",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "id": "I1",
+        "title": "I1. Kevin and Puzzle (Easy Version)",
+        "contest": "contest/2048",
+        "tags": [
+            "constructive algorithms",
+            "*3500"
+        ],
+        "time_limit": "time limit per test2 seconds",
+        "memory_limit": "memory limit per test512 megabytes"
+    },
+    {
+        "id": "I2",
+        "title": "I2. Kevin and Puzzle (Hard Version)",
+        "contest": "contest/2048",
+        "tags": [
+            "bitmasks",
+            "fft",
+            "math",
+            "*3500"
+        ],
+        "time_limit": "time limit per test6 seconds",
+        "memory_limit": "memory limit per test512 megabytes"
+    },
+    {
+        "id": "A",
+        "title": "A. Easy Problem",
+        "contest": "contest/2044",
+        "tags": [
+            "brute force",
+            "math",
+            "*800"
+        ],
+        "time_limit": "time limit per test1 second",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "id": "B",
+        "title": "B. Normal Problem",
+        "contest": "contest/2044",
+        "tags": [
+            "implementation",
+            "strings",
+            "*800"
+        ],
+        "time_limit": "time limit per test1 second",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "id": "C",
+        "title": "C. Hard Problem",
+        "contest": "contest/2044",
+        "tags": [
+            "greedy",
+            "math",
+            "*800"
+        ],
+        "time_limit": "time limit per test1 second",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "id": "D",
+        "title": "D. Harder Problem",
+        "contest": "contest/2044",
+        "tags": [
+            "constructive algorithms",
+            "greedy",
+            "math",
+            "*1100"
+        ],
+        "time_limit": "time limit per test2 seconds",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "id": "E",
+        "title": "E. Insane Problem",
+        "contest": "contest/2044",
+        "tags": [
+            "binary search",
+            "greedy",
+            "implementation",
+            "math",
+            "number theory",
+            "*1300"
+        ],
+        "time_limit": "time limit per test2 seconds",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "id": "F",
+        "title": "F. Easy Demon Problem",
+        "contest": "contest/2044",
+        "tags": [
+            "binary search",
+            "brute force",
+            "data structures",
+            "math",
+            "number theory",
+            "*1900"
+        ],
+        "time_limit": "time limit per test4 seconds",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "id": "G1",
+        "title": "G1. Medium Demon Problem (easy version)",
+        "contest": "contest/2044",
+        "tags": [
+            "dfs and similar",
+            "graph matchings",
+            "graphs",
+            "implementation",
+            "trees",
+            "*1700"
+        ],
+        "time_limit": "time limit per test2 seconds",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "id": "G2",
+        "title": "G2. Medium Demon Problem (hard version)",
+        "contest": "contest/2044",
+        "tags": [
+            "dfs and similar",
+            "dp",
+            "dsu",
+            "graphs",
+            "implementation",
+            "trees",
+            "*1900"
+        ],
+        "time_limit": "time limit per test2 seconds",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "id": "H",
+        "title": "H. Hard Demon Problem",
+        "contest": "contest/2044",
+        "tags": [
+            "constructive algorithms",
+            "data structures",
+            "dp",
+            "implementation",
+            "math",
+            "*2100"
+        ],
+        "time_limit": "time limit per test3.5 seconds",
+        "memory_limit": "memory limit per test512 megabytes"
+    },
+    {
+        "id": "A",
+        "title": "A. Adrenaline Rush",
+        "contest": "contest/2052",
+        "tags": [
+            "constructive algorithms",
+            "*1600"
+        ],
+        "time_limit": "time limit per test3 seconds",
+        "memory_limit": "memory limit per test1024 megabytes"
+    },
+    {
+        "id": "D",
+        "title": "D. DAG Serialization",
+        "contest": "contest/2052",
+        "tags": [
+            "brute force",
+            "graphs",
+            "*2100"
+        ],
+        "time_limit": "time limit per test3 seconds",
+        "memory_limit": "memory limit per test1024 megabytes"
+    },
+    {
+        "id": "E",
+        "title": "E. Expression Correction",
+        "contest": "contest/2052",
+        "tags": [
+            "brute force",
+            "expression parsing",
+            "strings",
+            "*1900"
+        ],
+        "time_limit": "time limit per test3 seconds",
+        "memory_limit": "memory limit per test1024 megabytes"
+    },
+    {
+        "id": "F",
+        "title": "F. Fix Flooded Floor",
+        "contest": "contest/2052",
+        "tags": [
+            "constructive algorithms",
+            "dp",
+            "graphs",
+            "*1700"
+        ],
+        "time_limit": "time limit per test3 seconds",
+        "memory_limit": "memory limit per test1024 megabytes"
+    },
+    {
+        "id": "G",
+        "title": "G. Geometric Balance",
+        "contest": "contest/2052",
+        "tags": [
+            "data structures",
+            "geometry",
+            "implementation",
+            "*2800"
+        ],
+        "time_limit": "time limit per test3 seconds",
+        "memory_limit": "memory limit per test1024 megabytes"
+    },
+    {
+        "id": "J",
+        "title": "J. Judicious Watching",
+        "contest": "contest/2052",
+        "tags": [
+            "binary search",
+            "greedy",
+            "sortings",
+            "*2000"
+        ],
+        "time_limit": "time limit per test3 seconds",
+        "memory_limit": "memory limit per test1024 megabytes"
+    },
+    {
+        "id": "A",
+        "title": "A. Game of Division",
+        "contest": "contest/2040",
+        "tags": [
+            "games",
+            "math",
+            "*800"
+        ],
+        "time_limit": "time limit per test1 second",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "id": "B",
+        "title": "B. Paint a Strip",
+        "contest": "contest/2040",
+        "tags": [
+            "constructive algorithms",
+            "greedy",
+            "math",
+            "*1000"
+        ],
+        "time_limit": "time limit per test1 second",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "id": "C",
+        "title": "C. Ordered Permutations",
+        "contest": "contest/2040",
+        "tags": [
+            "bitmasks",
+            "combinatorics",
+            "constructive algorithms",
+            "greedy",
+            "math",
+            "two pointers",
+            "*1600"
+        ],
+        "time_limit": "time limit per test2 seconds",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "id": "D",
+        "title": "D. Non Prime Tree",
+        "contest": "contest/2040",
+        "tags": [
+            "brute force",
+            "constructive algorithms",
+            "dfs and similar",
+            "greedy",
+            "number theory",
+            "trees",
+            "two pointers",
+            "*1900"
+        ],
+        "time_limit": "time limit per test2 seconds",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "id": "E",
+        "title": "E. Control of Randomness",
+        "contest": "contest/2040",
+        "tags": [
+            "combinatorics",
+            "dfs and similar",
+            "dp",
+            "graphs",
+            "greedy",
+            "math",
+            "probabilities",
+            "trees",
+            "*2100"
+        ],
+        "time_limit": "time limit per test2 seconds",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "id": "F",
+        "title": "F. Number of Cubes",
+        "contest": "contest/2040",
+        "tags": [
+            "combinatorics",
+            "dp",
+            "math",
+            "number theory",
+            "*2700"
+        ],
+        "time_limit": "time limit per test5 seconds",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "id": "A",
+        "title": "A. Line Breaks",
+        "contest": "contest/2050",
+        "tags": [
+            "implementation",
+            "*800"
+        ],
+        "time_limit": "time limit per test1 second",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "id": "B",
+        "title": "B. Transfusion",
+        "contest": "contest/2050",
+        "tags": [
+            "brute force",
+            "greedy",
+            "math",
+            "*1100"
+        ],
+        "time_limit": "time limit per test2 seconds",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "id": "C",
+        "title": "C. Uninteresting Number",
+        "contest": "contest/2050",
+        "tags": [
+            "brute force",
+            "dp",
+            "math",
+            "*1200"
+        ],
+        "time_limit": "time limit per test2 seconds",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "id": "D",
+        "title": "D. Digital string maximization",
+        "contest": "contest/2050",
+        "tags": [
+            "brute force",
+            "greedy",
+            "math",
+            "strings",
+            "*1300"
+        ],
+        "time_limit": "time limit per test2 seconds",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "id": "E",
+        "title": "E. Three Strings",
+        "contest": "contest/2050",
+        "tags": [
+            "dp",
+            "implementation",
+            "strings",
+            "*1500"
+        ],
+        "time_limit": "time limit per test2.5 seconds",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "id": "F",
+        "title": "F. Maximum modulo equality",
+        "contest": "contest/2050",
+        "tags": [
+            "data structures",
+            "divide and conquer",
+            "math",
+            "number theory",
+            "*1700"
+        ],
+        "time_limit": "time limit per test5 seconds",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "id": "G",
+        "title": "G. Tree Destruction",
+        "contest": "contest/2050",
+        "tags": [
+            "dfs and similar",
+            "dp",
+            "trees",
+            "*1900"
+        ],
+        "time_limit": "time limit per test2 seconds",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "id": "A",
+        "title": "A. Swap Columns and Find a Path",
+        "contest": "contest/2046",
+        "tags": [
+            "greedy",
+            "sortings",
+            "*1200"
+        ],
+        "time_limit": "time limit per test2 seconds",
+        "memory_limit": "memory limit per test512 megabytes"
+    },
+    {
+        "id": "B",
+        "title": "B. Move Back at a Cost",
+        "contest": "contest/2046",
+        "tags": [
+            "binary search",
+            "data structures",
+            "greedy",
+            "sortings",
+            "*1600"
+        ],
+        "time_limit": "time limit per test2 seconds",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "id": "C",
+        "title": "C. Adventurers",
+        "contest": "contest/2046",
+        "tags": [
+            "binary search",
+            "data structures",
+            "greedy",
+            "sortings",
+            "ternary search",
+            "two pointers",
+            "*2100"
+        ],
+        "time_limit": "time limit per test3 seconds",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "id": "D",
+        "title": "D. For the Emperor!",
+        "contest": "contest/2046",
+        "tags": [
+            "flows",
+            "graphs",
+            "*3100"
+        ],
+        "time_limit": "time limit per test2 seconds",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "id": "E1",
+        "title": "E1. Cheops and a Contest (Easy Version)",
+        "contest": "contest/2046",
+        "tags": [
+            "constructive algorithms",
+            "greedy",
+            "*2900"
+        ],
+        "time_limit": "time limit per test4 seconds",
+        "memory_limit": "memory limit per test512 megabytes"
+    },
+    {
+        "id": "E2",
+        "title": "E2. Cheops and a Contest (Hard Version)",
+        "contest": "contest/2046",
+        "tags": [
+            "greedy",
+            "implementation",
+            "*3500"
+        ],
+        "time_limit": "time limit per test4 seconds",
+        "memory_limit": "memory limit per test512 megabytes"
+    },
+    {
+        "id": "F1",
+        "title": "F1. Yandex Cuneiform (Easy Version)",
+        "contest": "contest/2046",
+        "tags": [
+            "constructive algorithms",
+            "data structures",
+            "greedy",
+            "*3300"
+        ],
+        "time_limit": "time limit per test2 seconds",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "id": "F2",
+        "title": "F2. Yandex Cuneiform (Hard Version)",
+        "contest": "contest/2046",
+        "tags": [
+            "constructive algorithms",
+            "data structures",
+            "greedy",
+            "implementation",
+            "*3500"
+        ],
+        "time_limit": "time limit per test2 seconds",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "id": "A",
+        "title": "A. Alyona and a Square Jigsaw Puzzle",
+        "contest": "contest/2047",
+        "tags": [
+            "implementation",
+            "math",
+            "*800"
+        ],
+        "time_limit": "time limit per test1 second",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "id": "B",
+        "title": "B. Replace Character",
+        "contest": "contest/2047",
+        "tags": [
+            "brute force",
+            "combinatorics",
+            "greedy",
+            "strings",
+            "*900"
+        ],
+        "time_limit": "time limit per test1 second",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "id": "C",
+        "title": "C. Swap Columns and Find a Path",
+        "contest": "contest/2047",
+        "tags": [
+            "data structures",
+            "greedy",
+            "sortings",
+            "*1200"
+        ],
+        "time_limit": "time limit per test2 seconds",
+        "memory_limit": "memory limit per test512 megabytes"
+    },
+    {
+        "id": "D",
+        "title": "D. Move Back at a Cost",
+        "contest": "contest/2047",
+        "tags": [
+            "binary search",
+            "data structures",
+            "greedy",
+            "sortings",
+            "*1600"
+        ],
+        "time_limit": "time limit per test2 seconds",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "id": "E",
+        "title": "E. Adventurers",
+        "contest": "contest/2047",
+        "tags": [
+            "binary search",
+            "data structures",
+            "flows",
+            "greedy",
+            "implementation",
+            "*2100"
+        ],
+        "time_limit": "time limit per test3 seconds",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "id": "F",
+        "title": "F. For the Emperor!",
+        "contest": "contest/2047",
+        "tags": [
+            "flows",
+            "graphs",
+            "*3100"
+        ],
+        "time_limit": "time limit per test2 seconds",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "id": "A",
+        "title": "A. Greedy Monocarp",
+        "contest": "contest/2042",
+        "tags": [
+            "greedy",
+            "sortings",
+            "*800"
+        ],
+        "time_limit": "time limit per test2 seconds",
+        "memory_limit": "memory limit per test512 megabytes"
+    },
+    {
+        "id": "B",
+        "title": "B. Game with Colored Marbles",
+        "contest": "contest/2042",
+        "tags": [
+            "games",
+            "greedy",
+            "*900"
+        ],
+        "time_limit": "time limit per test2 seconds",
+        "memory_limit": "memory limit per test512 megabytes"
+    },
+    {
+        "id": "C",
+        "title": "C. Competitive Fishing",
+        "contest": "contest/2042",
+        "tags": [
+            "greedy",
+            "*1800"
+        ],
+        "time_limit": "time limit per test2 seconds",
+        "memory_limit": "memory limit per test512 megabytes"
+    },
+    {
+        "id": "D",
+        "title": "D. Recommendations",
+        "contest": "contest/2042",
+        "tags": [
+            "data structures",
+            "implementation",
+            "sortings",
+            "two pointers",
+            "*1900"
+        ],
+        "time_limit": "time limit per test2 seconds",
+        "memory_limit": "memory limit per test512 megabytes"
+    },
+    {
+        "id": "E",
+        "title": "E. Vertex Pairs",
+        "contest": "contest/2042",
+        "tags": [
+            "binary search",
+            "brute force",
+            "data structures",
+            "dfs and similar",
+            "divide and conquer",
+            "greedy",
+            "implementation",
+            "trees",
+            "*2900"
+        ],
+        "time_limit": "time limit per test3 seconds",
+        "memory_limit": "memory limit per test512 megabytes"
+    },
+    {
+        "id": "F",
+        "title": "F. Two Subarrays",
+        "contest": "contest/2042",
+        "tags": [
+            "data structures",
+            "dp",
+            "implementation",
+            "matrices",
+            "*2600"
+        ],
+        "time_limit": "time limit per test3 seconds",
+        "memory_limit": "memory limit per test512 megabytes"
+    },
+    {
+        "id": "A",
+        "title": "A. Scrambled Scrabble",
+        "contest": "contest/2045",
+        "tags": [
+            "brute force",
+            "greedy",
+            "*1700"
+        ],
+        "time_limit": "time limit per test1 second",
+        "memory_limit": "memory limit per test1024 megabytes"
+    },
+    {
+        "id": "B",
+        "title": "B. ICPC Square",
+        "contest": "contest/2045",
+        "tags": [
+            "math",
+            "number theory",
+            "*2000"
+        ],
+        "time_limit": "time limit per test1 second",
+        "memory_limit": "memory limit per test1024 megabytes"
+    },
+    {
+        "id": "C",
+        "title": "C. Saraga",
+        "contest": "contest/2045",
+        "tags": [
+            "greedy",
+            "strings",
+            "*1400"
+        ],
+        "time_limit": "time limit per test1 second",
+        "memory_limit": "memory limit per test1024 megabytes"
+    },
+    {
+        "id": "D",
+        "title": "D. Aquatic Dragon",
+        "contest": "contest/2045",
+        "tags": [
+            "*3500"
+        ],
+        "time_limit": "time limit per test3 seconds",
+        "memory_limit": "memory limit per test1024 megabytes"
+    },
+    {
+        "id": "E",
+        "title": "E. Narrower Passageway",
+        "contest": "contest/2045",
+        "tags": [
+            "combinatorics",
+            "data structures",
+            "*2700"
+        ],
+        "time_limit": "time limit per test1 second",
+        "memory_limit": "memory limit per test1024 megabytes"
+    },
+    {
+        "id": "F",
+        "title": "F. Grid Game 3-angle",
+        "contest": "contest/2045",
+        "tags": [
+            "games",
+            "math",
+            "*3000"
+        ],
+        "time_limit": "time limit per test1 second",
+        "memory_limit": "memory limit per test1024 megabytes"
+    },
+    {
+        "id": "G",
+        "title": "G. X Aura",
+        "contest": "contest/2045",
+        "tags": [
+            "graphs",
+            "math",
+            "shortest paths",
+            "*2200"
+        ],
+        "time_limit": "time limit per test1 second",
+        "memory_limit": "memory limit per test1024 megabytes"
+    },
+    {
+        "id": "H",
+        "title": "H. Missing Separators",
+        "contest": "contest/2045",
+        "tags": [
+            "dp",
+            "sortings",
+            "string suffix structures",
+            "strings",
+            "*2200"
+        ],
+        "time_limit": "time limit per test1 second",
+        "memory_limit": "memory limit per test1024 megabytes"
+    },
+    {
+        "id": "I",
+        "title": "I. Microwavable Subsequence",
+        "contest": "contest/2045",
+        "tags": [
+            "data structures",
+            "*2100"
+        ],
+        "time_limit": "time limit per test1 second",
+        "memory_limit": "memory limit per test1024 megabytes"
+    },
+    {
+        "id": "J",
+        "title": "J. Xorderable Array",
+        "contest": "contest/2045",
+        "tags": [
+            "bitmasks",
+            "data structures",
+            "*2600"
+        ],
+        "time_limit": "time limit per test1 second",
+        "memory_limit": "memory limit per test1024 megabytes"
+    },
+    {
+        "id": "K",
+        "title": "K. GCDDCG",
+        "contest": "contest/2045",
+        "tags": [
+            "*2900"
+        ],
+        "time_limit": "time limit per test1 second",
+        "memory_limit": "memory limit per test1024 megabytes"
+    },
+    {
+        "id": "L",
+        "title": "L. Buggy DFS",
+        "contest": "contest/2045",
+        "tags": [
+            "constructive algorithms",
+            "*3000"
+        ],
+        "time_limit": "time limit per test1 second",
+        "memory_limit": "memory limit per test1024 megabytes"
+    },
+    {
+        "id": "M",
+        "title": "M. Mirror Maze",
+        "contest": "contest/2045",
+        "tags": [
+            "brute force",
+            "dfs and similar",
+            "graphs",
+            "implementation",
+            "*1800"
+        ],
+        "time_limit": "time limit per test1 second",
+        "memory_limit": "memory limit per test1024 megabytes"
+    },
+    {
+        "id": "A",
+        "title": "A. King Keykhosrow's Mystery",
+        "contest": "contest/2034",
+        "tags": [
+            "brute force",
+            "chinese remainder theorem",
+            "math",
+            "number theory",
+            "*800"
+        ],
+        "time_limit": "time limit per test1 second",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "id": "B",
+        "title": "B. Rakhsh's Revival",
+        "contest": "contest/2034",
+        "tags": [
+            "data structures",
+            "greedy",
+            "implementation",
+            "two pointers",
+            "*1000"
+        ],
+        "time_limit": "time limit per test1 second",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "id": "C",
+        "title": "C. Trapped in the Witch's Labyrinth",
+        "contest": "contest/2034",
+        "tags": [
+            "constructive algorithms",
+            "dfs and similar",
+            "graphs",
+            "implementation",
+            "*1400"
+        ],
+        "time_limit": "time limit per test3 seconds",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "id": "D",
+        "title": "D. Darius' Wisdom",
+        "contest": "contest/2034",
+        "tags": [
+            "constructive algorithms",
+            "greedy",
+            "implementation",
+            "sortings",
+            "*1600"
+        ],
+        "time_limit": "time limit per test2 seconds",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "id": "E",
+        "title": "E. Permutations Harmony",
+        "contest": "contest/2034",
+        "tags": [
+            "combinatorics",
+            "constructive algorithms",
+            "greedy",
+            "hashing",
+            "math",
+            "*2200"
+        ],
+        "time_limit": "time limit per test2 seconds",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "id": "F1",
+        "title": "F1. Khayyam's Royal Decree (Easy Version)",
+        "contest": "contest/2034",
+        "tags": [
+            "combinatorics",
+            "dp",
+            "math",
+            "sortings",
+            "*2500"
+        ],
+        "time_limit": "time limit per test2 seconds",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "id": "F2",
+        "title": "F2. Khayyam's Royal Decree (Hard Version)",
+        "contest": "contest/2034",
+        "tags": [
+            "combinatorics",
+            "dp",
+            "math",
+            "sortings",
+            "*2800"
+        ],
+        "time_limit": "time limit per test2 seconds",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "id": "G1",
+        "title": "G1. Simurgh's Watch (Easy Version)",
+        "contest": "contest/2034",
+        "tags": [
+            "constructive algorithms",
+            "greedy",
+            "implementation",
+            "sortings",
+            "*3500"
+        ],
+        "time_limit": "time limit per test2 seconds",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "id": "G2",
+        "title": "G2. Simurgh's Watch (Hard Version)",
+        "contest": "contest/2034",
+        "tags": [
+            "greedy",
+            "implementation",
+            "*3500"
+        ],
+        "time_limit": "time limit per test2 seconds",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "id": "H",
+        "title": "H. Rayan vs. Rayaneh",
+        "contest": "contest/2034",
+        "tags": [
+            "brute force",
+            "dfs and similar",
+            "dp",
+            "number theory",
+            "*3300"
+        ],
+        "time_limit": "time limit per test4 seconds",
+        "memory_limit": "memory limit per test512 megabytes"
+    },
+    {
+        "id": "A",
+        "title": "A. The Bento Box Adventure",
+        "contest": "contest/2041",
+        "tags": [
+            "implementation",
+            "sortings",
+            "*1300"
+        ],
+        "time_limit": "time limit per test1 second",
+        "memory_limit": "memory limit per test1024 megabytes"
+    },
+    {
+        "id": "B",
+        "title": "B. Bowling Frame",
+        "contest": "contest/2041",
+        "tags": [
+            "binary search",
+            "brute force",
+            "math",
+            "*1200"
+        ],
+        "time_limit": "time limit per test1 second",
+        "memory_limit": "memory limit per test1024 megabytes"
+    },
+    {
+        "id": "C",
+        "title": "C. Cube",
+        "contest": "contest/2041",
+        "tags": [
+            "bitmasks",
+            "dfs and similar",
+            "dp",
+            "*2000"
+        ],
+        "time_limit": "time limit per test3 seconds",
+        "memory_limit": "memory limit per test1024 megabytes"
+    },
+    {
+        "id": "D",
+        "title": "D. Drunken Maze",
+        "contest": "contest/2041",
+        "tags": [
+            "brute force",
+            "dfs and similar",
+            "graphs",
+            "shortest paths",
+            "*1700"
+        ],
+        "time_limit": "time limit per test2 seconds",
+        "memory_limit": "memory limit per test1024 megabytes"
+    },
+    {
+        "id": "E",
+        "title": "E. Beautiful Array",
+        "contest": "contest/2041",
+        "tags": [
+            "constructive algorithms",
+            "math",
+            "*1200"
+        ],
+        "time_limit": "time limit per test1 second",
+        "memory_limit": "memory limit per test1024 megabytes"
+    },
+    {
+        "id": "F",
+        "title": "F. Segmentation Folds",
+        "contest": "contest/2041",
+        "tags": [
+            "brute force",
+            "dfs and similar",
+            "number theory",
+            "*2400"
+        ],
+        "time_limit": "time limit per test1 second",
+        "memory_limit": "memory limit per test1024 megabytes"
+    },
+    {
+        "id": "G",
+        "title": "G. Grid Game",
+        "contest": "contest/2041",
+        "tags": [
+            "*3100"
+        ],
+        "time_limit": "time limit per test4 seconds",
+        "memory_limit": "memory limit per test1024 megabytes"
+    },
+    {
+        "id": "H",
+        "title": "H. Sheet Music",
+        "contest": "contest/2041",
+        "tags": [
+            "combinatorics",
+            "dp",
+            "math",
+            "*2300"
+        ],
+        "time_limit": "time limit per test1 second",
+        "memory_limit": "memory limit per test1024 megabytes"
+    },
+    {
+        "id": "I",
+        "title": "I. Auto Complete",
+        "contest": "contest/2041",
+        "tags": [
+            "binary search",
+            "data structures",
+            "hashing",
+            "implementation",
+            "sortings",
+            "strings",
+            "trees",
+            "*2300"
+        ],
+        "time_limit": "time limit per test4 seconds",
+        "memory_limit": "memory limit per test1024 megabytes"
+    },
+    {
+        "id": "J",
+        "title": "J. Bottle Arrangement",
+        "contest": "contest/2041",
+        "tags": [
+            "data structures",
+            "divide and conquer",
+            "dp",
+            "dsu",
+            "greedy",
+            "*2700"
+        ],
+        "time_limit": "time limit per test5 seconds",
+        "memory_limit": "memory limit per test1024 megabytes"
+    },
+    {
+        "id": "K",
+        "title": "K. Trophic Balance Species",
+        "contest": "contest/2041",
+        "tags": [
+            "binary search",
+            "brute force",
+            "dfs and similar",
+            "graphs",
+            "*3100"
+        ],
+        "time_limit": "time limit per test3 seconds",
+        "memory_limit": "memory limit per test128 megabytes"
+    },
+    {
+        "id": "L",
+        "title": "L. Building Castle",
+        "contest": "contest/2041",
+        "tags": [
+            "*2900"
+        ],
+        "time_limit": "time limit per test10 seconds",
+        "memory_limit": "memory limit per test1024 megabytes"
+    },
+    {
+        "id": "M",
+        "title": "M. Selection Sort",
+        "contest": "contest/2041",
+        "tags": [
+            "binary search",
+            "data structures",
+            "greedy",
+            "two pointers",
+            "*2000"
+        ],
+        "time_limit": "time limit per test2 seconds",
+        "memory_limit": "memory limit per test1024 megabytes"
+    },
+    {
+        "id": "N",
+        "title": "N. Railway Construction",
+        "contest": "contest/2041",
+        "tags": [
+            "*3300"
+        ],
+        "time_limit": "time limit per test4 seconds",
+        "memory_limit": "memory limit per test1024 megabytes"
+    },
+    {
+        "id": "A",
+        "title": "A. Shohag Loves Mod",
+        "contest": "contest/2039",
+        "tags": [
+            "constructive algorithms",
+            "number theory",
+            "*800"
+        ],
+        "time_limit": "time limit per test1 second",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "id": "B",
+        "title": "B. Shohag Loves Strings",
+        "contest": "contest/2039",
+        "tags": [
+            "constructive algorithms",
+            "greedy",
+            "implementation",
+            "strings",
+            "*1000"
+        ],
+        "time_limit": "time limit per test1 second",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "id": "C1",
+        "title": "C1. Shohag Loves XOR (Easy Version)",
+        "contest": "contest/2039",
+        "tags": [
+            "bitmasks",
+            "brute force",
+            "math",
+            "number theory",
+            "*1200"
+        ],
+        "time_limit": "time limit per test2 seconds",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "id": "C2",
+        "title": "C2. Shohag Loves XOR (Hard Version)",
+        "contest": "contest/2039",
+        "tags": [
+            "bitmasks",
+            "brute force",
+            "math",
+            "number theory",
+            "*1800"
+        ],
+        "time_limit": "time limit per test2 seconds",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "id": "D",
+        "title": "D. Shohag Loves GCD",
+        "contest": "contest/2039",
+        "tags": [
+            "constructive algorithms",
+            "greedy",
+            "math",
+            "number theory",
+            "*1700"
+        ],
+        "time_limit": "time limit per test2 seconds",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "id": "E",
+        "title": "E. Shohag Loves Inversions",
+        "contest": "contest/2039",
+        "tags": [
+            "combinatorics",
+            "dp",
+            "implementation",
+            "math",
+            "*2200"
+        ],
+        "time_limit": "time limit per test2 seconds",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "id": "F1",
+        "title": "F1. Shohag Loves Counting (Easy Version)",
+        "contest": "contest/2039",
+        "tags": [
+            "combinatorics",
+            "dp",
+            "math",
+            "number theory",
+            "*2800"
+        ],
+        "time_limit": "time limit per test4 seconds",
+        "memory_limit": "memory limit per test512 megabytes"
+    },
+    {
+        "id": "F2",
+        "title": "F2. Shohag Loves Counting (Hard Version)",
+        "contest": "contest/2039",
+        "tags": [
+            "dp",
+            "number theory",
+            "*3200"
+        ],
+        "time_limit": "time limit per test4 seconds",
+        "memory_limit": "memory limit per test512 megabytes"
+    },
+    {
+        "id": "G",
+        "title": "G. Shohag Loves Pebae",
+        "contest": "contest/2039",
+        "tags": [
+            "math",
+            "number theory",
+            "*3500"
+        ],
+        "time_limit": "time limit per test5 seconds",
+        "memory_limit": "memory limit per test768 megabytes"
+    },
+    {
+        "id": "H1",
+        "title": "H1. Cool Swap Walk (Easy Version)",
+        "contest": "contest/2039",
+        "tags": [
+            "constructive algorithms",
+            "implementation",
+            "sortings",
+            "*3500"
+        ],
+        "time_limit": "time limit per test2 seconds",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "id": "H2",
+        "title": "H2. Cool Swap Walk (Hard Version)",
+        "contest": "contest/2039",
+        "tags": [
+            "constructive algorithms",
+            "constructive algorithms",
+            "constructive algorithms",
+            "implementation",
+            "sortings",
+            "*3500"
+        ],
+        "time_limit": "time limit per test2 seconds",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "id": "A",
+        "title": "A. Bonus Project",
+        "contest": "contest/2038",
+        "tags": [
+            "games",
+            "greedy",
+            "*1400"
+        ],
+        "time_limit": "time limit per test2 seconds",
+        "memory_limit": "memory limit per test512 megabytes"
+    },
+    {
+        "id": "B",
+        "title": "B. Make It Equal",
+        "contest": "contest/2038",
+        "tags": [
+            "binary search",
+            "brute force",
+            "greedy",
+            "math",
+            "*2100"
+        ],
+        "time_limit": "time limit per test2 seconds",
+        "memory_limit": "memory limit per test512 megabytes"
+    },
+    {
+        "id": "C",
+        "title": "C. DIY",
+        "contest": "contest/2038",
+        "tags": [
+            "data structures",
+            "geometry",
+            "greedy",
+            "sortings",
+            "*1400"
+        ],
+        "time_limit": "time limit per test2 seconds",
+        "memory_limit": "memory limit per test512 megabytes"
+    },
+    {
+        "id": "D",
+        "title": "D. Divide OR Conquer",
+        "contest": "contest/2038",
+        "tags": [
+            "binary search",
+            "bitmasks",
+            "data structures",
+            "dp",
+            "implementation",
+            "*2400"
+        ],
+        "time_limit": "time limit per test3 seconds",
+        "memory_limit": "memory limit per test512 megabytes"
+    },
+    {
+        "id": "E",
+        "title": "E. Barrels",
+        "contest": "contest/2038",
+        "tags": [
+            "data structures",
+            "greedy",
+            "math",
+            "*2900"
+        ],
+        "time_limit": "time limit per test2 seconds",
+        "memory_limit": "memory limit per test512 megabytes"
+    },
+    {
+        "id": "F",
+        "title": "F. Alternative Platforms",
+        "contest": "contest/2038",
+        "tags": [
+            "combinatorics",
+            "data structures",
+            "fft",
+            "math",
+            "sortings",
+            "*2500"
+        ],
+        "time_limit": "time limit per test2 seconds",
+        "memory_limit": "memory limit per test512 megabytes"
+    },
+    {
+        "id": "G",
+        "title": "G. Guess One Character",
+        "contest": "contest/2038",
+        "tags": [
+            "constructive algorithms",
+            "implementation",
+            "interactive",
+            "*1900"
+        ],
+        "time_limit": "time limit per test2 seconds",
+        "memory_limit": "memory limit per test512 megabytes"
+    },
+    {
+        "id": "H",
+        "title": "H. Galactic Council",
+        "contest": "contest/2038",
+        "tags": [
+            "flows",
+            "*3000"
+        ],
+        "time_limit": "time limit per test3 seconds",
+        "memory_limit": "memory limit per test512 megabytes"
+    },
+    {
+        "id": "I",
+        "title": "I. Polyathlon",
+        "contest": "contest/2038",
+        "tags": [
+            "binary search",
+            "data structures",
+            "hashing",
+            "string suffix structures",
+            "strings",
+            "*2500"
+        ],
+        "time_limit": "time limit per test3 seconds",
+        "memory_limit": "memory limit per test512 megabytes"
+    },
+    {
+        "id": "J",
+        "title": "J. Waiting for...",
+        "contest": "contest/2038",
+        "tags": [
+            "greedy",
+            "implementation",
+            "*800"
+        ],
+        "time_limit": "time limit per test2 seconds",
+        "memory_limit": "memory limit per test512 megabytes"
+    },
+    {
+        "id": "K",
+        "title": "K. Grid Walk",
+        "contest": "contest/2038",
+        "tags": [
+            "brute force",
+            "dp",
+            "greedy",
+            "math",
+            "number theory",
+            "*2100"
+        ],
+        "time_limit": "time limit per test2 seconds",
+        "memory_limit": "memory limit per test512 megabytes"
+    },
+    {
+        "id": "L",
+        "title": "L. Bridge Renovation",
+        "contest": "contest/2038",
+        "tags": [
+            "brute force",
+            "dp",
+            "greedy",
+            "math",
+            "two pointers",
+            "*1400"
+        ],
+        "time_limit": "time limit per test2 seconds",
+        "memory_limit": "memory limit per test512 megabytes"
+    },
+    {
+        "id": "M",
+        "title": "M. Royal Flush",
+        "contest": "contest/2038",
+        "tags": [
+            "dp",
+            "implementation",
+            "*2800"
+        ],
+        "time_limit": "time limit per test3 seconds",
+        "memory_limit": "memory limit per test512 megabytes"
+    },
+    {
+        "id": "N",
+        "title": "N. Fixing the Expression",
+        "contest": "contest/2038",
+        "tags": [
+            "implementation",
+            "*800"
+        ],
+        "time_limit": "time limit per test2 seconds",
+        "memory_limit": "memory limit per test512 megabytes"
+    },
+    {
+        "id": "A",
+        "title": "A. Twice",
+        "contest": "contest/2037",
+        "tags": [
+            "implementation",
+            "*800"
+        ],
+        "time_limit": "time limit per test1 second",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "id": "B",
+        "title": "B. Intercepted Inputs",
+        "contest": "contest/2037",
+        "tags": [
+            "brute force",
+            "implementation",
+            "*800"
+        ],
+        "time_limit": "time limit per test2 seconds",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "id": "C",
+        "title": "C. Superultra's Favorite Permutation",
+        "contest": "contest/2037",
+        "tags": [
+            "constructive algorithms",
+            "greedy",
+            "math",
+            "number theory",
+            "*1000"
+        ],
+        "time_limit": "time limit per test2 seconds",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "id": "D",
+        "title": "D. Sharky Surfing",
+        "contest": "contest/2037",
+        "tags": [
+            "data structures",
+            "greedy",
+            "two pointers",
+            "*1300"
+        ],
+        "time_limit": "time limit per test3 seconds",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "id": "E",
+        "title": "E. Kachina's Favorite Binary String",
+        "contest": "contest/2037",
+        "tags": [
+            "dp",
+            "greedy",
+            "interactive",
+            "two pointers",
+            "*1600"
+        ],
+        "time_limit": "time limit per test2 seconds",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "id": "F",
+        "title": "F. Ardent Flames",
+        "contest": "contest/2037",
+        "tags": [
+            "binary search",
+            "data structures",
+            "math",
+            "sortings",
+            "two pointers",
+            "*2100"
+        ],
+        "time_limit": "time limit per test4 seconds",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "id": "G",
+        "title": "G. Natlan Exploring",
+        "contest": "contest/2037",
+        "tags": [
+            "bitmasks",
+            "combinatorics",
+            "data structures",
+            "dp",
+            "math",
+            "number theory",
+            "*2000"
+        ],
+        "time_limit": "time limit per test4 seconds",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "id": "A",
+        "title": "A. Penchick and Modern Monument",
+        "contest": "contest/2031",
+        "tags": [
+            "constructive algorithms",
+            "dp",
+            "greedy",
+            "math",
+            "*800"
+        ],
+        "time_limit": "time limit per test1 second",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "id": "B",
+        "title": "B. Penchick and Satay Sticks",
+        "contest": "contest/2031",
+        "tags": [
+            "brute force",
+            "greedy",
+            "sortings",
+            "*900"
+        ],
+        "time_limit": "time limit per test1.5 seconds",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "id": "C",
+        "title": "C. Penchick and BBQ Buns",
+        "contest": "contest/2031",
+        "tags": [
+            "constructive algorithms",
+            "math",
+            "number theory",
+            "*1300"
+        ],
+        "time_limit": "time limit per test2 seconds",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "id": "D",
+        "title": "D. Penchick and Desert Rabbit",
+        "contest": "contest/2031",
+        "tags": [
+            "binary search",
+            "data structures",
+            "dfs and similar",
+            "dp",
+            "dsu",
+            "greedy",
+            "implementation",
+            "two pointers",
+            "*1700"
+        ],
+        "time_limit": "time limit per test3 seconds",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "id": "E",
+        "title": "E. Penchick and Chloe's Trees",
+        "contest": "contest/2031",
+        "tags": [
+            "data structures",
+            "dfs and similar",
+            "dp",
+            "greedy",
+            "implementation",
+            "math",
+            "sortings",
+            "trees",
+            "*2100"
+        ],
+        "time_limit": "time limit per test3.5 seconds",
+        "memory_limit": "memory limit per test512 megabytes"
+    },
+    {
+        "id": "F",
+        "title": "F. Penchick and Even Medians",
+        "contest": "contest/2031",
+        "tags": [
+            "binary search",
+            "constructive algorithms",
+            "interactive",
+            "probabilities",
+            "*2800"
+        ],
+        "time_limit": "time limit per test3 seconds",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "id": "A",
+        "title": "A. Alice's Adventures in \"Chess\"",
+        "contest": "contest/2028",
+        "tags": [
+            "brute force",
+            "implementation",
+            "math",
+            "*900"
+        ],
+        "time_limit": "time limit per test1 second",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "id": "B",
+        "title": "B. Alice's Adventures in Permuting",
+        "contest": "contest/2028",
+        "tags": [
+            "binary search",
+            "implementation",
+            "math",
+            "*1400"
+        ],
+        "time_limit": "time limit per test1 second",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "id": "C",
+        "title": "C. Alice's Adventures in Cutting Cake",
+        "contest": "contest/2028",
+        "tags": [
+            "binary search",
+            "dp",
+            "greedy",
+            "two pointers",
+            "*1600"
+        ],
+        "time_limit": "time limit per test2 seconds",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "id": "D",
+        "title": "D. Alice's Adventures in Cards",
+        "contest": "contest/2028",
+        "tags": [
+            "constructive algorithms",
+            "data structures",
+            "dp",
+            "graphs",
+            "greedy",
+            "implementation",
+            "ternary search",
+            "*2000"
+        ],
+        "time_limit": "time limit per test2 seconds",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "id": "E",
+        "title": "E. Alice's Adventures in the Rabbit Hole",
+        "contest": "contest/2028",
+        "tags": [
+            "combinatorics",
+            "dfs and similar",
+            "dp",
+            "games",
+            "greedy",
+            "math",
+            "probabilities",
+            "trees",
+            "*2300"
+        ],
+        "time_limit": "time limit per test2 seconds",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "id": "F",
+        "title": "F. Alice's Adventures in Addition",
+        "contest": "contest/2028",
+        "tags": [
+            "bitmasks",
+            "brute force",
+            "dp",
+            "implementation",
+            "*2700"
+        ],
+        "time_limit": "time limit per test3 seconds",
+        "memory_limit": "memory limit per test32 megabytes"
+    },
+    {
+        "id": "A",
+        "title": "A. Set",
+        "contest": "contest/2029",
+        "tags": [
+            "greedy",
+            "math",
+            "*800"
+        ],
+        "time_limit": "time limit per test1 second",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "id": "B",
+        "title": "B. Replacement",
+        "contest": "contest/2029",
+        "tags": [
+            "constructive algorithms",
+            "games",
+            "strings",
+            "*1100"
+        ],
+        "time_limit": "time limit per test1 second",
+        "memory_limit": "memory limit per test256 megabytes"
+    },
+    {
+        "id": "C",
+        "title": "C. New Rating",
+        "contest": "contest/2029",
+        "tags": [
+            "binary search",
+            "data structures",
+            "dp",
+            "greedy",
+            "*1700"
+        ],
+        "time_limit": "time limit per test2 seconds",
+        "memory_limit": "memory limit per test512 megabytes"
+    },
+    {
+        "id": "D",
+        "title": "D. Cool Graph",
+        "contest": "contest/2029",
+        "tags": [
+            "constructive algorithms",
+            "data structures",
+            "dfs and similar",
+            "dsu",
+            "graphs",
+            "greedy",
+            "trees",
+            "*1900"
+        ],
+        "time_limit": "time limit per test3 seconds",
+        "memory_limit": "memory limit per test512 megabytes"
+    },
+    {
+        "id": "E",
+        "title": "E. Common Generator",
+        "contest": "contest/2029",
+        "tags": [
+            "brute force",
+            "constructive algorithms",
+            "math",
+            "number theory",
+            "*2100"
+        ],
+        "time_limit": "time limit per test2 seconds",
+        "memory_limit": "memory limit per test512 megabytes"
+    },
+    {
+        "id": "F",
+        "title": "F. Palindrome Everywhere",
+        "contest": "contest/2029",
+        "tags": [
+            "constructive algorithms",
+            "graphs",
+            "greedy",
+            "*2500"
+        ],
+        "time_limit": "time limit per test2 seconds",
+        "memory_limit": "memory limit per test512 megabytes"
+    },
+    {
+        "id": "G",
+        "title": "G. Balanced Problem",
+        "contest": "contest/2029",
+        "tags": [
+            "data structures",
+            "dp",
+            "*3000"
+        ],
+        "time_limit": "time limit per test3 seconds",
+        "memory_limit": "memory limit per test1024 megabytes"
+    },
+    {
+        "id": "H",
+        "title": "H. Message Spread",
+        "contest": "contest/2029",
+        "tags": [
+            "bitmasks",
+            "brute force",
+            "combinatorics",
+            "dp",
+            "*3500"
+        ],
+        "time_limit": "time limit per test12 seconds",
+        "memory_limit": "memory limit per test1024 megabytes"
+    },
+    {
+        "id": "I",
+        "title": "I. Variance Challenge",
+        "contest": "contest/2029",
+        "tags": [
+            "flows",
+            "graphs",
+            "greedy",
+            "*3400"
+        ],
+        "time_limit": "time limit per test6 seconds",
+        "memory_limit": "memory limit per test256 megabytes"
+    }
+]

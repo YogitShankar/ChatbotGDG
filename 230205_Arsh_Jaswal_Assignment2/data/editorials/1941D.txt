@@ -1,0 +1,71 @@
+1941D - Rudolf and the Ball GameLet's introduce a set of unique elements q, initially containing a single element x — the index of the first player who started the game. For each i from 1 to m, we will update q in such a way as to maintain the set of players who could have the ball after the i-th throw. For each element qj of the set q, we will remove qj from q, and also:   if ci="0" or ci="?", add to q the element ((qj+ri−1) mod n+1) — the index of the player who will receive the ball in case of a clockwise throw;  if ci="1" or ci="?", add to q the element ((qj−ri−1+n) mod n+1) — the index of the player who will receive the ball in case of a counterclockwise throw. The term n before the mod operation is necessary to obtain a positive argument of this operation. Otherwise, in some programming languages, the mod function will return a negative result, which does not correspond to the semantics of the problem.  The operation u mod v denotes the remainder of the division of u by v. It should be noted that it is not needed to store duplicates in q — one index of the thrower is sufficient for the correct calculation of the players who could have received their throw.After the m-th iteration of the described cyclic process, the set q will contain the desired indices of all players who could have the ball at the end of the game.At each iteration of the loop, the power of q does not exceed n, and a total of exactly m iterations will be performed. Thus, the asymptotic complexity of the algorithm is of the order O(n∗m). Solution#include <iostream>
+#include <set>
+
+using namespace std;
+
+int main()
+{
+    int t; cin >> t;
+    while (t--) {
+        int n, m, a; cin >> n >> m >> a;
+        set <int> q[2];
+        int ix = 0;
+        q[ix].insert(a);
+        while (m--) {
+            int x; char ch; cin >> x >> ch;
+            while (!q[ix].empty()) {
+                int u = *(q[ix].begin());
+                q[ix].erase(u);
+                if (ch == '?' || ch == '0') {
+                    q[ix ^ 1].insert((u + x - 1) % n + 1);
+                }
+                if (ch == '?' || ch == '1') {
+                    q[ix ^ 1].insert((u - x - 1 + n) % n + 1);
+                }
+            }
+            ix ^= 1;
+        }
+        cout << q[ix].size() << '\n';
+        for (auto& x : q[ix]) {
+            cout << x << ' ';
+        }
+        cout << '\n';
+    }
+    return 0;
+} Rate the problem Didn't solve 
+
+    
+
+
+66
+
+
+
+ Good task 
+
+    
+
+
+384
+
+
+
+ Average task 
+
+    
+
+
+35
+
+
+
+ Bad task 
+
+    
+
+
+35
+
+
+
+ 

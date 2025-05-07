@@ -1,0 +1,8 @@
+{
+  "name": "C. MEX Cycle",
+  "time_limit": "time limit per test2 seconds",
+  "memory_limit": "memory limit per test256 megabytes",
+  "input": "InputEach test contains multiple test cases. The first line contains the number of test cases $$$t$$$ ($$$1 \\le t \\le 10^4$$$). The description of the test cases follows. The first and only line of each test case contains three integers $$$n$$$, $$$x$$$, $$$y$$$ ($$$3 \\le n \\le 2 \\cdot 10^5$$$, $$$1 \\le x < y \\le n$$$).It is guaranteed that the sum of $$$n$$$ over all test cases does not exceed $$$2 \\cdot 10^5$$$.",
+  "output": "OutputFor each test case, output $$$n$$$ space-separated non-negative integers $$$a_1, a_2, \\ldots, a_n$$$ ($$$0 \\le a_i \\le 10^9$$$) on a line that satisfy the condition in the statement. If there are multiple solutions, print any of them. It can be proven that under the problem constraints, a solution with $$$0 \\le a_i \\le 10^9$$$ always exists.",
+  "tags": []
+}

@@ -1,0 +1,8 @@
+{
+  "name": "A. Two Frogs",
+  "time_limit": "time limit per test1 second",
+  "memory_limit": "memory limit per test256 megabytes",
+  "input": "InputEach test contains multiple test cases. The first line contains the number of test cases $$$t$$$ ($$$1 \\le t \\le 500$$$). The description of the test cases follows. The first and only line of each test case contains three integers $$$n$$$, $$$a$$$, and $$$b$$$ ($$$2 \\leq n \\leq 100$$$, $$$1 \\leq a, b \\leq n$$$, $$$a\\neq b$$$) — the number of lilypads, and the starting positions of Alice and Bob, respectively.Note that there are no constraints on the sum of $$$n$$$ over all test cases.",
+  "output": "OutputFor each test case, print a single line containing either \"YES\" or \"NO\", representing whether or not Alice has a winning strategy. You can output the answer in any case (upper or lower). For example, the strings \"yEs\", \"yes\", \"Yes\", and \"YES\" will be recognized as positive responses.",
+  "tags": []
+}

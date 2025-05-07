@@ -1,0 +1,16 @@
+Problem Title: C. Non-coprime Split
+
+time limit per test1 second
+memory limit per test256 megabytes
+
+You are given two integers l≤rl≤r. You need to find positive integers aa and bb such that the following conditions are simultaneously satisfied:
+or report that they do not exist.
+gcd(a,b)gcd(a,b) denotes the greatest common divisor of numbers aa and bb. For example, gcd(6,9)=3gcd(6,9)=3, gcd(8,9)=1gcd(8,9)=1, gcd(4,2)=2gcd(4,2)=2.
+The first line of the input contains an integer tt (1≤t≤5001≤t≤500) — the number of test cases.
+Then the descriptions of the test cases follow.
+The only line of the description of each test case contains 22 integers l,rl,r (1≤l≤r≤1071≤l≤r≤107).
+For each test case, output the integers a,ba,b that satisfy all the conditions on a separate line. If there is no answer, instead output a single number −1−1.
+If there are multiple answers, you can output any of them.
+In the first test case, 11≤6+9≤1511≤6+9≤15, gcd(6,9)=3gcd(6,9)=3, and all conditions are satisfied. Note that this is not the only possible answer, for example, {4,10},{5,10},{6,6}{4,10},{5,10},{6,6} are also valid answers for this test case.
+In the second test case, the only pairs {a,b}{a,b} that satisfy the condition 1≤a+b≤31≤a+b≤3 are {1,1},{1,2},{2,1}{1,1},{1,2},{2,1}, but in each of these pairs gcd(a,b)gcd(a,b) equals 11, so there is no answer.
+In the third sample test, gcd(14,4)=2gcd(14,4)=2.

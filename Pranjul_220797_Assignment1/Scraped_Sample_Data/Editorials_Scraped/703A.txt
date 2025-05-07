@@ -1,0 +1,7 @@
+Problem: 703A - Mishka and Game
+Problem Link: https://codeforces.com/problemset/problem/703/A
+Editorial Link: https://codeforces.com/blog/entry/46434
+
+================================================================================
+
+703A - Mishka and GameIn this problem you had to do use the following algo. If Mishka wins Chris in the current round, then increase variable countM by 1. Otherwise (if Chris wins Mishka) increase variable countC. After that you had to compare this values and print the answer.

@@ -1,0 +1,28 @@
+1260A - HeatingLet's denote the number of sections in the i-th radiator as xi. Let's prove that in the optimal answer max(xi)−min(xi)<2. Proof by contradiction: suppose we have x and y≥x+2 in the answer, let's move 1 from y to x and check: (x+1)2+(y−1)2=x2+2x+1+y2−2y+1=(x2+y2)+2(x−y+1)<x2+y2 The answer is not optimal — contradiction.Finally, there is the only way to take x1+x2+⋯+xc=sum with max(xi)−min(xi)≤1. And it's to take (summodc) elements with value ⌊sumc⌋+1 and c−(summodc) elements with ⌊sumc⌋. Solution (adedalic)#include<bits/stdc++.h>
+using namespace std;
+
+int c, sum;
+
+inline bool read() {
+	if(!(cin >> c >> sum))
+		return false;
+	return true;
+}
+
+inline void solve() {
+	int d = sum / c;
+	int rem = sum % c;
+	cout << rem * (d + 1) * (d + 1) + (c - rem) * d * d << endl;
+}
+
+int main() {
+#ifdef _DEBUG
+	freopen("input.txt", "r", stdin);
+#endif
+	int n; cin >> n;
+	while(n--) {
+		read();
+		solve();
+	}
+	return 0;
+}

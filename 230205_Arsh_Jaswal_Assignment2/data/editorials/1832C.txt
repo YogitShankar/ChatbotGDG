@@ -1,0 +1,22 @@
+1832C - Contrast ValueLet's rephrase the problem in the following form: let the elements of the array be points on a coordinate line. Then the absolute difference between two adjacent elements of the array can be represented as the distance between two points, and the contrast of the entire array is equal to the total distance to visit all points in the given order.In this interpretation, it becomes obvious that removing any set of points does not increase contrast. Since the resulting contrast should be equal to the original one, we can only remove elements from the array that do not decrease the contrast.First of all, let's look at consecutive equal elements, it is obvious that you can delete all of them except one, and the contrast of the array will not change. In some languages, you can use a standard function to do this — for example, in C++ you can use unique.After that, let's look at such positions i that ai−1<ai<ai+1; you can delete the i-th element, because |ai−1−ai|+|ai−ai+1|=|ai−1−ai+1|. Similarly, for positions i, where ai−1>ai>ai+1, the element can be removed. In all other cases, removing the element will decrease the contrast. Solution (Neon)#include <bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+  ios::sync_with_stdio(false); cin.tie(0);
+  int t;
+  cin >> t;
+  while (t--) {
+    int n;
+    cin >> n;
+    vector<int> a(n);
+    for (int& x : a) cin >> x;
+    n = unique(a.begin(), a.end()) - a.begin();
+    int ans = n;
+    for (int i = 0; i + 2 < n; ++i) {
+      ans -= (a[i] < a[i + 1] && a[i + 1] < a[i + 2]);
+      ans -= (a[i] > a[i + 1] && a[i + 1] > a[i + 2]);
+    }
+    cout << ans << '\n';
+  }
+}

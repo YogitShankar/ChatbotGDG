@@ -1,0 +1,53 @@
+1747C — Swap Game Hint 1Divide problem into two different cases. When a1>min(a) and when a1=min(a). Hint 2You do not need more hints to solve the problem. TutorialCase 1: a1>min(a) Alice can force the Bob to always decrease the minimum element by always choosing minimum element of a in her turn. Where as Bob can not do much, all other elements he would swap with would be greater than or equal to min(a). Even if there exists multiple minimums in a, In first move Alice would decrease from a1, hence in this case Alice would always win.Case 2: a1=min(a) In this case optimal startegy for Bob would be to always chhose minimum element of the array, which is a1. Alice would always be swapping the element greater than a1 in her turn, hence in the case Bob would always win Solution// Jai Shree Ram  
+  
+#include<bits/stdc++.h>
+using namespace std;
+
+#define rep(i,a,n)     for(int i=a;i<n;i++)
+#define ll             long long
+#define int            long long
+#define pb             push_back
+#define all(v)         v.begin(),v.end()
+#define endl           "\n"
+#define x              first
+#define y              second
+#define gcd(a,b)       __gcd(a,b)
+#define mem1(a)        memset(a,-1,sizeof(a))
+#define mem0(a)        memset(a,0,sizeof(a))
+#define sz(a)          (int)a.size()
+#define pii            pair<int,int>
+#define hell           1000000007
+#define elasped_time   1.0 * clock() / CLOCKS_PER_SEC
+
+
+
+template<typename T1,typename T2>istream& operator>>(istream& in,pair<T1,T2> &a){in>>a.x>>a.y;return in;}
+template<typename T1,typename T2>ostream& operator<<(ostream& out,pair<T1,T2> a){out<<a.x<<" "<<a.y;return out;}
+template<typename T,typename T1>T maxs(T &a,T1 b){if(b>a)a=b;return a;}
+template<typename T,typename T1>T mins(T &a,T1 b){if(b<a)a=b;return a;}
+
+
+int solve(){
+ 		int n; cin >> n;
+ 		vector<int> a(n);
+ 		for(auto &i:a)cin >> i;
+ 		sort(a.begin() + 1,a.end());
+ 		cout << (a[0] > a[1] ? "Alice" : "Bob") << endl;
+ return 0;
+}
+signed main(){
+    ios_base::sync_with_stdio(0);cin.tie(0);cout.tie(0);
+    //freopen("input.txt", "r", stdin);
+    //freopen("output.txt", "w", stdout);
+    #ifdef SIEVE
+    sieve();
+    #endif
+    #ifdef NCR
+    init();
+    #endif
+    int t=1;cin>>t;
+    while(t--){
+        solve();
+    }
+    return 0;
+}

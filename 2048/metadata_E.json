@@ -1,0 +1,15 @@
+{
+    "tags": [
+        "constructive algorithms",
+        "graphs",
+        "greedy",
+        "*2000"
+    ],
+    "contest_id": 2048,
+    "problem_index": "E",
+    "problem_name": "Kevin and Bipartite Graph",
+    "time limit per test": "2 seconds",
+    "memory limit per test": "256 megabytes",
+    "input": "standard input",
+    "output": "standard output"
+}

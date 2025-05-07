@@ -1,0 +1,10 @@
+{
+    "title": "C. Swap Game",
+    "description": "Alice and Bob are playing a game on an array aa of n positive integers. Alice and Bob make alternating moves with Alice going first.\nIn his/her turn, the player makes the following move:\nDetermine the winner of the game if both players play optimally.\nThe input consists of multiple test cases. The first line contains a single integer t (1≤t≤2⋅104)  — the number of test cases. The description of the test cases follows.\nThe first line of each test case contains a single integer n (2≤n≤105)  — the length of the array a.\nThe second line of each test case contains n integers a1,a2…an (1≤ai≤109)  — the elements of the array a.\nIt is guaranteed that sum of n over all test cases does not exceed 2⋅105.\nFor each test case, if Alice will win the game, output \"Alice\". Otherwise, output \"Bob\".\nYou can output each letter in any case. For example, \"alIcE\", \"Alice\", \"alice\" will all be considered identical.\nIn the first testcase, in her turn, Alice can only choose i=2, making the array equal [1,0]. Then Bob, in his turn, will also choose i=2 and make the array equal [0,0]. As a1=0, Alice loses.\nIn the second testcase, once again, players can only choose i=2. Then the array will change as follows: [2,1]→[1,1]→[1,0]→[0,0], and Bob loses.\nIn the third testcase, we can show that Alice has a winning strategy.",
+    "time limit": "time limit per test1 second",
+    "memory limit": "memory limit per test256 megabytes",
+    "tags": [
+        "games",
+        "*1200"
+    ]
+}

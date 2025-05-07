@@ -1,0 +1,24 @@
+1923B - Monsters Attack!Let's look at monsters at distance of 1 (i. e. in positions 1 and −1). We must kill them in the 1-st second, so their total hp (let denote it as s1) should not exceed k. If this condition is not met, the answer is NO. Otherwise, we can say that there are k−s1 bullets left unused during the first second (let denote it as lft). Now let's look at the monsters at a distance of 2. We must kill them no later than the 2-nd second. We have k bullets for the 2-nd second plus lft unused bullets from the 1-st second, so total hp of monsters at distance 2 should not exceed k+lft. We can see that the situation is similar to the 1-st second, if the condition is not met, then the answer is NO, otherwise we move on to the next distance with the updated value of lft.If all n seconds are considered and all conditions are met, then the answer is YES.Therefore, we got a solution that works in O(n). Solution (Neon)#include <bits/stdc++.h>
+ 
+using namespace std;
+ 
+int main() {
+  int t;
+  cin >> t;
+  while (t--) {
+    int n, k;
+    cin >> n >> k;
+    vector<int> a(n), x(n);
+    for (auto& it : a) cin >> it;
+    for (auto& it : x) cin >> it;
+    vector<long long> s(n + 1);
+    for (int i = 0; i < n; ++i) s[abs(x[i])] += a[i];
+    bool ok = true;
+    long long lft = 0;
+    for (int i = 1; i <= n; ++i) {
+      lft += k - s[i];
+      ok &= (lft >= 0);
+    }
+    cout << (ok ? "YES" : "NO") << '\n';
+  }
+}

@@ -1,0 +1,16 @@
+Section 1:
+Hint 1
+Consider the minimum number that can be obtained by operating $$$0, 1, 2, \dots, m$$$ times on a number $$$x$$$.
+
+Section 2:
+Hint 2
+Do these numbers have any other properties?
+
+Section 3:
+Hint 3
+Consider the cost of each operation and each number independently.
+
+Section 4:
+Solution
+Tutorial is loading...
+

@@ -1,0 +1,14 @@
+{
+    "tags": [
+        "data structures",
+        "dp",
+        "*3100"
+    ],
+    "contest_id": 2048,
+    "problem_index": "H",
+    "problem_name": "Kevin and Strange Operation",
+    "time limit per test": "2 seconds",
+    "memory limit per test": "256 megabytes",
+    "input": "standard input",
+    "output": "standard output"
+}

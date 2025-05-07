@@ -1,0 +1,26 @@
+1849B - MonstersLet's simulate the game process until the number of health points of each monster becomes k or less. Then we can consider that the i-th monster has aimodk health instead of ai (except for the case when ai is divisible by k, then the remaining health is k, not 0).Now, the health points of all monsters are from 1 to k, so each time we damage a monster, we kill it. Therefore, monsters with k health points will die first, then the ones with k−1 health points, and so on. So, let's sort the monsters by their remaining health points in descending order (don't forget that, if two monsters have the same health, then they should be compared by index). And the order you get after sorting is the answer to the problem. Solution (Neon)#include <bits/stdc++.h>
+ 
+using namespace std;
+
+int main() {
+  ios::sync_with_stdio(false); cin.tie(0);
+  int t;
+  cin >> t;
+  while (t--) {
+    int n, k;
+    cin >> n >> k;
+    vector<int> a(n);
+    for (auto &x : a) {
+      cin >> x;
+      x %= k;
+      if (!x) x = k;
+    }
+    vector<int> ord(n);
+    iota(ord.begin(), ord.end(), 0);
+    stable_sort(ord.begin(), ord.end(), [&](int i, int j) {
+      return a[i] > a[j];
+    });
+    for (auto &x : ord) cout << x + 1 << ' ';
+    cout << endl;
+  }
+}

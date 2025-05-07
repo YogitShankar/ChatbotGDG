@@ -1,0 +1,26 @@
+Problem: 1283A - Minutes Before the New Year
+Problem Link: https://codeforces.com/problemset/problem/1283/A
+Editorial Link: https://codeforces.com/blog/entry/72592
+
+================================================================================
+
+1283A - Minutes Before the New Year Tutorial1283A - Minutes Before the New YearIn this problem we just need to print 1440−60ℎ−𝑚. Solution#include <bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+#ifdef _DEBUG
+	freopen("input.txt", "r", stdin);
+//	freopen("output.txt", "w", stdout);
+#endif
+	
+	int q;
+	scanf("%d", &q);
+	for (int i = 0; i < q; ++i) {
+		int h, m;
+		scanf("%d %d", &h, &m);
+		printf("%d\n", 1440 - h * 60 - m);
+	}
+	
+	return 0;
+}

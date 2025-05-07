@@ -1,0 +1,12 @@
+Problem Title: C. Not Adjacent Matrix
+
+time limit per test4 seconds
+memory limit per test256 megabytes
+
+We will consider the numbers a and b as adjacent if they differ by exactly one, that is, |a−b|=1.
+We will consider cells of a square matrix n×n as adjacent if they have a common side, that is, for cell (r,c) cells (r,c−1), (r,c+1), (r−1,c) and (r+1,c) are adjacent to it.
+For a given number n, construct a square matrix n×n such that: 
+The first line contains one integer t (1≤t≤100). Then t test cases follow.
+Each test case is characterized by one integer n (1≤n≤100).
+For each test case, output: 
+The matrix should be outputted as n lines, where each line contains n integers.

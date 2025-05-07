@@ -1,0 +1,28 @@
+1675C - Detective TaskFirst, let's note that we will have a transition from 1 to 0 only once, otherwise it turns out that first the picture disappeared, then it appeared and disappeared back, but we can consider that a friend in the middle, who answered 1 lied to us, but this is not true, because even before him the picture disappeared.So we need to find this transition. Since we can also meet ?, we find the index of the leftmost 0 (in case of absence, we take n−1) and mark it as r0, and the index of rightmost 1 (in case of absence, we take 0) and mark as l1. Answer – the number of indices between them (inclusive), because only they could lie. r0−l1+1There could not be a thief to the left of l1, since either the friend under the index l1 lied, or the picture was not stolen before l1. There could not be a thief to the right of r0, since either the painting had already been stolen in the presence of r0's friend, or it was he who lied. Solution#include <bits/stdc++.h>
+
+using namespace std;
+
+#define forn(i, n) for (int i = 0; i < int(n); i++)
+
+int main() {
+    int t;
+    cin >> t;
+    forn(tt, t) {
+        string s;
+        cin >> s;
+        int n = s.length();
+        vector<bool> a(n + 1);
+        a[0] = true;
+        forn(i, n)
+            a[i + 1] = a[i] && (s[i] == '1' || s[i] == '?');
+        vector<bool> b(n + 1);
+        b[0] = true;
+        for (int i = n - 1; i >= 0; i--)
+            b[n - i] = b[n - i - 1] && (s[i] == '0' || s[i] == '?');
+        int result = 0;
+        forn(i, n)
+            if (a[i] && b[n - i - 1])
+                result++;
+        cout << result << endl;
+    }
+}
