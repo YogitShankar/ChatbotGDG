@@ -1,0 +1,3 @@
+{
+    "solution": "1371B - Magical CalendarFirst, let's consider in case of a week has exactly w days.  If w<n , the length of painted cells is strictly more than one week. So there are w valid shapes. (The first week contains 1,2,...,w days) The shapes have w-day width, then if the value of w are different, the shapes are also different.  Otherwise (n≤w) , there is only one valid liner pattern. The shape is insensitive to the chosen value of w. We can sum up this for 1≤w≤r, by using following well-known formula: a+(a+1)+(a+2)+...+b=(a+b)∗(b−a+1)2Total complexity : O(1) Jury solution: 85699884 "
+}

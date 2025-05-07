@@ -1,0 +1,31 @@
+1881C - Perfect SquareWhen rotating a matrix of size n by n by 90 degrees:   element a[i][j] takes the position of element a[j][n−1−i]; element a[n−1−j][i] takes the position of element a[i][j]; element a[n−1−i][n−1−j] takes the position of element a[n−1−j][i]. In order for the matrix to be a perfect square, the symbols at all of these positions must be equal. Since we can only maximize a symbol, we do the following:  Among these 4 symbols, let's find the lexicographically maximal one, that is, the one that is in the alphabet not before all the others;  For all characters that are not equal to the maximum, calculate the number of operations that must be applied to them to make them equal to the maximum character. This number of operations is equal to the difference of positions of symbols in the alphabet.  Solution#include <bits/stdc++.h>
+#define all(arr) arr.begin(), arr.end()
+
+using namespace std;
+
+const int MAXN = 1010;
+
+int n;
+string A[MAXN];
+
+int solve() {
+    int ans = 0;
+    for (int i = 0; i * 2 < n; ++i)
+        for (int j = 0; j * 2 < n; ++j) {
+            vector<char> M {A[i][j], A[n - 1 - j][i], A[n - 1 - i][n - 1 - j], A[j][n - 1 - i]};
+            char c = *max_element(all(M));
+            for(char e: M)
+                ans += c - e;
+        }
+    return ans;
+}
+
+int main() {
+    int t; cin >> t;
+    while (t--) {
+        cin >> n;
+        for (int i = 0; i < n; ++i)
+            cin >> A[i];
+        cout << solve() << endl;
+    }
+}

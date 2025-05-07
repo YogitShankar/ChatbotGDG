@@ -1,0 +1,13 @@
+{
+    "title": "E. The Lakes",
+    "description": "You are given an n×m grid a of non-negative integers. The value ai,j represents the depth of water at the i-th row and j-th column. \nA lake is a set of cells such that:\nThe volume of a lake is the sum of depths of all the cells in the lake.\nFind the largest volume of a lake in the grid.\nThe first line contains a single integer t (1≤t≤104) — the number of test cases.\nThe first line of each test case contains two integers n,m (1≤n,m≤1000) — the number of rows and columns of the grid, respectively.\nThen n lines follow each with m integers ai,j (0≤ai,j≤1000) — the depth of the water at each cell.\nIt is guaranteed that the sum of n⋅m over all test cases does not exceed 106.\nFor each test case, output a single integer — the largest volume of a lake in the grid.",
+    "time limit": "time limit per test3 seconds",
+    "memory limit": "memory limit per test256 megabytes",
+    "tags": [
+        "dfs and similar",
+        "dsu",
+        "graphs",
+        "implementation",
+        "*1100"
+    ]
+}

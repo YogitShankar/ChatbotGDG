@@ -1,0 +1,3 @@
+{
+    "solution": "1954B - Make It UglyIdea: BledDest TutorialTutorial is loading... Solution (awoo)for _ in range(int(input())):\n    n = int(input())\n    a = list(map(int, input().split()))\n    lst = -1\n    ans = n\n    for i in range(n):\n        if a[i] != a[0]:\n            ans = min(ans, i - lst - 1)\n            lst = i\n    ans = min(ans, n - lst - 1)\n    if ans == n:\n        print(-1)\n    else:\n        print(ans)"
+}

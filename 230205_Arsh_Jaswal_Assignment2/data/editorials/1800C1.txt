@@ -1,0 +1,20 @@
+1800C1 - Powering the Hero (easy version)Idea: Vladosiya TutorialTutorial is loading... Solutiondef solve():
+    n = int(input())
+    s = [int(x) for x in input().split()]
+    ans = 0
+    buffs = [0] * n
+    for e in s:
+        if e > 0:
+            buffs += [e]
+            j = len(buffs) - 1
+            while buffs[j] < buffs[j - 1]:
+                buffs[j], buffs[j - 1] = buffs[j - 1], buffs[j]
+                j -= 1
+        else:
+            ans += buffs.pop()
+    print(ans)
+
+
+t = int(input())
+for _ in range(t):
+    solve()

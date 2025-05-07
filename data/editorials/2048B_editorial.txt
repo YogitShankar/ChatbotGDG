@@ -1,0 +1,11 @@
+Section 1:
+Hint 1
+If the permutation is sufficiently long, what is the maximum number of length $$$k$$$ subintervals where the minimum value is $$$1$$$?
+
+Section 2:
+Tutorial
+2048B - Kevin and Permutation
+In the entire permutation, at most $$$k$$$ subintervals can contain $$$1$$$. Similarly, at most $$$k$$$ subintervals can contain $$$2, 3, \ldots$$$. To maximize the number of subintervals where the minimum value is as small as possible, we use the following construction:
+$$$ p_k=1,p_{2k}=2,\dots,p_{\lfloor{\frac{n}{k}}\rfloor\cdot k}=\left\lfloor\frac{n}{k}\right\rfloor $$$
+For the remaining positions, we can fill them arbitrarily with all values from $$$\lfloor \frac{n}{k} \rfloor + 1$$$ to $$$n$$$. It is easy to prove that this construction minimizes the answer.
+

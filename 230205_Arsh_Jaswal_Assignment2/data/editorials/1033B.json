@@ -1,0 +1,3 @@
+{
+    "solution": "1033B - Square DifferenceThe task looks simple enough, but there is a problem. The number we want to check might be very large - it might not even fit into 64-bit integer. Checking primality for it certainly cannot be performed naively.However, the input is no ordinary number. It is of form A2−B2, which can be expressed as (A−B)(A+B). This is prime if and only if A−B=1 and A+B is a prime. Since A+B is at most 2∗1011, we can use trial division to check its primality.Complexity: O(TA+B−−−−−√). Alternatively, you could cheat and use big integers and test primality using Miller-Rabin algorithm. With Java's BigInteger.isProbablePrime it's not too much work. "
+}

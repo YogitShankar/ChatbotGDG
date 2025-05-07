@@ -1,0 +1,3 @@
+{
+    "solution": "1257B - Волшебная палочкаIdea: BledDest TutorialTutorial is loading... Solution (Ne0n25)#include <bits/stdc++.h>\n\nusing namespace std;\n\nvoid solve() {\n\tint x, y;\n\tcin >> x >> y;\n\t\n\tif (x > 3) puts(\"YES\");\n\telse if (x == 1) puts(y == 1 ? \"YES\" : \"NO\");\n\telse puts(y <= 3 ? \"YES\" : \"NO\");\n}\n\nint main() {\n\tint tc;\n\tcin >> tc;\n\twhile (tc--) solve();\n}"
+}

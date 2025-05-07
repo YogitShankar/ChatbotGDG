@@ -1,0 +1,23 @@
+1931C - Make Equal AgainIf all the elements of the arrays are equal, then nothing additional needs to be done, and the answer is 0. Otherwise, you need to apply the assignment operation on the segment alone.Our goal is to choose the shortest possible segment, which means to exclude as many elements as possible from the beginning and end of the segment. Note that we can exclude only equal elements, and then assign a value equal to the excluded elements on the segment. Let's find the lengths of the maximum prefix and suffix consisting of equal elements. Let's denote by k the number of excluded elements, by k1 — the length of the maximum suitable prefix, by k2 — the maximum suitable suffix. Then if a0=an−1, then k=k1+k2 (exclude both prefix and suffix), otherwise k=max(k1,k2) (exclude the longer one).The answer is n−k — all non-excluded elements must be replaced so that they become equal to the excluded one. Solutiondef solve():
+    n = int(input())
+    a = list(map(int, input().split()))
+    i1 = 0
+    i2 = 0
+    while i1 < n and a[i1] == a[0]:
+        i1 += 1
+    while i2 < n and a[n - i2 - 1] == a[n - 1]:
+        i2 += 1
+    res = n
+    if a[0] == a[n - 1]:
+        res -= i1
+        res -= i2
+    else:
+        res -= max(i1, i2)
+    print(max(0, res))
+ 
+ 
+t = int(input())
+ 
+ 
+for i in range(t):
+    solve()

@@ -1,0 +1,60 @@
+1987C - Basil's GardenFirst, let's try to find when hn will first be equal to zero. The answer is clearly hn.Suppose for some 2≤i≤n we know that hi will first become equal to zero at time ti (tn=hn). If at some point in time, hi−1 was equal to hi (at the start of the second and before they are both equal to zero), ti−1 is equal to ti+1. Since after that point in time, if hi decreases, hi−1 must decrease in the next second. If hi−1 is never equal to hi (until they hit zero), hi−1 must always be strictly greater than hi. This means that hi−1 will keep decreasing every second until it hits zero, so ti−1 is equal to hi−1 in this case.Examples:   The array [2,3,1,1,1] changes as follows: [2,3,1,1,1]→[2,2,1,1,0]→[2,1,1,0,0]→ [1,1,0,0,0]→[1,0,0,0,0]→[0,0,0,0,0]. If we focus on the first two elements, they change as follows: [2,3]→[2,2]→[2,1]→[1,1]→[1,1]→[1,0]→[0,0].  The array [4,1,1] changes as follows: [4,1,1]→[3,1,0]→[2,0,0]→[1,0,0]→[0,0,0]. Let's combine the two cases. If initially hi−1≤hi holds, hi−1 will become equal to hi at some point in time, so ti−1=ti+1. Else, hi−1>hi, so ti−1=hi−1. Combining the two, we get ti−1=max(hi−1,ti+1).Since we know tn=hn, we can easily calculate all the other values of ti by iterating from n−1 to 1. The answer to the problem is t1, since ti−1≥ti+1 for all 2≤i≤n.Complexity: O(n) Solution#include <bits/stdc++.h>
+
+#define all(x) (x).begin(), (x).end()
+#define allr(x) (x).rbegin(), (x).rend()
+
+const char nl = '\n';
+typedef long long ll;
+typedef long double ld;
+
+using namespace std;
+
+void solve() {
+    int n;
+    cin >> n;
+    
+    vector<int> h(n);
+    for (auto &x: h) cin >> x;
+    
+    int ans = h[n - 1];
+    for (int i = n - 2; i >= 0; i--) {
+        ans = max(ans + 1, h[i]);
+    }
+
+    cout << ans << nl;
+}
+
+int main() {
+	ios::sync_with_stdio(0); cin.tie(0);
+    
+    int T;
+    cin >> T;
+    while (T--) solve();
+} Feedback Good problem 
+
+    
+
+
+387
+
+
+
+ Average problem 
+
+    
+
+
+42
+
+
+
+ Bad problem 
+
+    
+
+
+317
+
+
+
+ 

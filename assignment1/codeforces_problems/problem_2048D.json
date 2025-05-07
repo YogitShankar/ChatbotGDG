@@ -1,0 +1,8 @@
+{
+  "name": "D. Kevin and Competition Memories",
+  "time_limit": "time limit per test2 seconds",
+  "memory_limit": "memory limit per test256 megabytes",
+  "input": "InputEach test contains multiple test cases. The first line contains the number of test cases $$$ t $$$ ($$$ 1 \\le t \\le 5\\cdot 10^4 $$$).The first line of each test case contains two integers $$$ n $$$ and $$$ m $$$ ($$$ 1 \\le n, m \\leq 3\\cdot 10^5 $$$) — the number of participants and the number of problems.The second line of each test case contains $$$ n $$$ integers $$$ a_1, a_2, \\ldots, a_n $$$ ($$$ 0 \\le a_i \\le 10^9 $$$) — the rating of each participant.The third line of each test case contains $$$ m $$$ integers $$$ b_1, b_2, \\ldots, b_m $$$ ($$$ 0 \\le b_i \\le 10^9 $$$) — the difficulty of each problem.It is guaranteed that both the sum of $$$ n $$$ and the sum of $$$ m $$$ over all test cases do not exceed $$$ 3 \\cdot 10^5 $$$.",
+  "output": "OutputFor each test case, output $$$m$$$ integers — the minimum sum of Kevin's ranks for each $$$ k = 1, 2, \\ldots, m$$$.",
+  "tags": []
+}

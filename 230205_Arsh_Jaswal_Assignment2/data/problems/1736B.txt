@@ -1,0 +1,11 @@
+You are given an integer array aa of length nn. 
+Does there exist an array bb consisting of n+1n+1 positive integers such that ai=gcd(bi,bi+1)ai=gcd(bi,bi+1) for all ii (1≤i≤n1≤i≤n)? 
+Note that gcd(x,y)gcd(x,y) denotes the greatest common divisor (GCD) of integers xx and yy.
+Each test contains multiple test cases. The first line contains the number of test cases tt (1≤t≤1051≤t≤105). Description of the test cases follows.
+The first line of each test case contains an integer nn (1≤n≤1051≤n≤105) — the length of the array aa.
+The second line of each test case contains nn space-separated integers a1,a2,…,ana1,a2,…,an representing the array aa (1≤ai≤1041≤ai≤104).
+It is guaranteed that the sum of nn over all test cases does not exceed 105105.
+For each test case, output "YES" if such bb exists, otherwise output "NO". You can print each letter in any case (upper or lower).
+In the first test case, we can take b=[343,343]b=[343,343].
+In the second test case, one possibility for bb is b=[12,8,6]b=[12,8,6].
+In the third test case, it can be proved that there does not exist any array bb that fulfills all the conditions.

@@ -1,0 +1,39 @@
+1365A - Matrix GameKey Idea:Vivek and Ashish can never claim cells in rows and columns which already have at least one cell claimed. So we need to look at the parity of minimum of the number of rows and columns which have no cells claimed initially.Solution:Let a be the number of rows which do not have any cell claimed in them initially and similarly b be the number of columns which do not have any cell claimed initially. Each time a player makes a move both a and b decrease by 1, since they only claim cells in rows and columns with no claimed cells. If either one of a or b becomes 0, the player whose turn comes next loses the game. Since both a and b decrease by 1 after each move, min(a,b) becomes 0 first. So, if min(a,b) is odd, Ashish wins the game otherwise Vivek wins.Time complexity: O(n⋅m) Code
+#include 
+using namespace std;
+ 
+#define IOS ios::sync_with_stdio(0); cin.tie(0); cout.tie(0);
+#define endl "\n"
+#define int long long
+
+const int N = 51;
+
+int n, m;
+int a[N][N];
+
+int32_t main()
+{
+	IOS;
+	int t;
+	cin >> t;
+	while(t--)
+	{
+		cin >> n >> m;
+		set< int > r, c;
+		for(int i = 1; i <= n; i++)
+		{
+			for(int j = 1; j <= m; j++)
+			{
+				cin >> a[i][j];
+				if(a[i][j] == 1)
+					r.insert(i), c.insert(j);
+			}
+		}
+		int mn = min(n — r.size(), m — c.size());
+		if(mn % 2)
+			cout << "Ashish" << endl;
+		else
+			cout << "Vivek" << endl;
+	}
+	return 0;
+}This problem was prepared by Ashishgup

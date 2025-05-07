@@ -1,0 +1,16 @@
+Problem Title: B. Binary Cafe
+
+time limit per test1 second
+memory limit per test256 megabytes
+
+Once upon a time, Toma found himself in a binary cafe. It is a very popular and unusual place.
+The cafe offers visitors kk different delicious desserts. The desserts are numbered from 00 to k−1k−1. The cost of the ii-th dessert is 2i2i coins, because it is a binary cafe! Toma is willing to spend no more than nn coins on tasting desserts. At the same time, he is not interested in buying any dessert more than once, because one is enough to evaluate the taste.
+In how many different ways can he buy several desserts (possibly zero) for tasting?
+The first line of the input contains a single integer tt (1≤t≤10001≤t≤1000) — the number of test cases.
+Then follows tt lines, each of which describes one test case.
+Each test case is given on a single line and consists of two integers nn and kk (1≤n,k≤1091≤n,k≤109) — the number of coins Toma is willing to spend and the number of desserts in the binary cafe.
+Output tt integers, the ii-th of which should be equal to the answer for the ii-th test case — the number of ways to buy desserts for tasting.
+Variants for 1st sample: {}, {1}
+Variants for 2nd sample: {}, {1}
+Variants for 3rd sample: {}, {1}, {2}
+Variants for 4th sample: {}, {1}, {2}, {1, 2}

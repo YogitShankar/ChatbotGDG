@@ -1,0 +1,11 @@
+{
+    "title": "B. Bogosort",
+    "description": "You are given an array a1,a2,…,an. Array is good if for each pair of indexes i<j the condition j−aj≠i−ai holds. Can you shuffle this array so that it becomes good? To shuffle an array means to reorder its elements arbitrarily (leaving the initial order is also an option).\nFor example, if a=[1,1,3,5], then shuffled arrays [1,3,5,1], [3,5,1,1] and [5,3,1,1] are good, but shuffled arrays [3,1,5,1], [1,1,3,5] and [1,1,5,3] aren't.\nIt's guaranteed that it's always possible to shuffle an array to meet this condition.\nThe first line contains one integer t (1≤t≤100) — the number of test cases.\nThe first line of each test case contains one integer n (1≤n≤100) — the length of array a.\nThe second line of each test case contains n integers a1,a2,…,an (1≤ai≤100).\nFor each test case print the shuffled version of the array a which is good.",
+    "time limit": "time limit per test2 seconds",
+    "memory limit": "memory limit per test256 megabytes",
+    "tags": [
+        "constructive algorithms",
+        "sortings",
+        "*1000"
+    ]
+}

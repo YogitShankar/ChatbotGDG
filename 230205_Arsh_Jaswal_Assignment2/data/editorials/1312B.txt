@@ -1,0 +1,3 @@
+1312B - BogosortLet's sort array a in non-ascending order (a1≥a2≥⋯≥an). In this case for each pair of indexes i<j the condition j−aj≠i−ai holds. Solution (Roms)for t in range(int(input())):
+    n = input()
+    print(*sorted(map(int, input().split()))[::-1])

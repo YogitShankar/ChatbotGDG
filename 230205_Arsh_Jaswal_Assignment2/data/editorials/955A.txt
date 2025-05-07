@@ -1,0 +1,1 @@
+955A - Feed the catIt's optimal to buy buns either right after waking up or at 20:00 (if possible) because between the awakening and 20:00 cost doesn't change but cat's hunger does. There was one extra case when Andrew wakes up after 20:00 and has only one possible option of buying everything since he cannot turn back time.Code: 36605296 

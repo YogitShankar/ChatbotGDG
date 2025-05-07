@@ -1,0 +1,33 @@
+1272C - Yet Another Broken KeyboardLet's replace all characters of s with zeros and ones (zero if the character is unavailable and one otherwise). Then we have the binary string and we have to calculate the number of contiguous segments of this string consisting only of ones. It can be done with two pointers approach.If we are staying at the position i and its value is zero, just skip it. Otherwise, let's find the leftmost position j such that j>i and the j-th value is zero. Then we have to add to the answer the value (j−i)⋅(j−i+1)2 and set i:=j.Time complexity: O(n). Solution#include <bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+#ifdef _DEBUG
+	freopen("input.txt", "r", stdin);
+//	freopen("output.txt", "w", stdout);
+#endif
+	
+	int n, k;
+	cin >> n >> k;
+	string s;
+	cin >> s;
+	set<char> st;
+	for (int i = 0; i < k; ++i) {
+		char c;
+		cin >> c;
+		st.insert(c);
+	}
+	
+	long long ans = 0;
+	for (int i = 0; i < n; ++i) {
+		int j = i;
+		while (j < n && st.count(s[j])) ++j;
+		int len = j - i;
+		ans += len * 1ll * (len + 1) / 2;
+		i = j;
+	}
+	cout << ans << endl;
+	
+	return 0;
+}

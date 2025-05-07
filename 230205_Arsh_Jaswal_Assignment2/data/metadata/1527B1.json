@@ -1,0 +1,11 @@
+{
+    "title": "B1. Palindrome Game (easy version)",
+    "description": "The only difference between the easy and hard versions is that the given string s in the easy version is initially a palindrome, this condition is not always true for the hard version.\nA palindrome is a string that reads the same left to right and right to left. For example, \"101101\" is a palindrome, while \"0101\" is not.\nAlice and Bob are playing a game on a string s (which is initially a palindrome in this version) of length n consisting of the characters '0' and '1'. Both players take alternate turns with Alice going first.\nIn each turn, the player can perform one of the following operations: \nReversing a string means reordering its letters from the last to the first. For example, \"01001\" becomes \"10010\" after reversing.\nThe game ends when every character of string becomes '1'. The player who spends minimum dollars till this point wins the game and it is a draw if both spend equal dollars. If both players play optimally, output whether Alice wins, Bob wins, or if it is a draw.\nThe first line contains a single integer t (1≤t≤103). Then t test cases follow.\nThe first line of each test case contains a single integer n (1≤n≤103).\nThe second line of each test case contains the string s of length n, consisting of the characters '0' and '1'. It is guaranteed that the string s is a palindrome and contains at least one '0'. \nNote that there is no limit on the sum of n over test cases.\nFor each test case print a single word in a new line: \nIn the first test case of the example, ",
+    "time limit": "time limit per test1 second",
+    "memory limit": "memory limit per test256 megabytes",
+    "tags": [
+        "constructive algorithms",
+        "games",
+        "*1200"
+    ]
+}

@@ -1,0 +1,30 @@
+1133C - Balanced TeamLet's sort all values in non-decreasing order. Then we can use two pointers to calculate for each student i the maximum number of students j such that aj−ai≤5 (j>i). This is pretty standard approach. We also can use binary search to do it (or we can store for each programming skill the number of students with this skill and just iterate from some skill x to x+5 and sum up all numbers of students). Solution#include <bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+#ifdef _DEBUG
+	freopen("input.txt", "r", stdin);
+//	freopen("output.txt", "w", stdout);
+#endif
+	
+	int n;
+	cin >> n;
+	vector<int> a(n);
+	for (int i = 0; i < n; ++i) {
+		cin >> a[i];
+	}
+	sort(a.begin(), a.end());
+	int ans = 0;
+	int j = 0;
+	for (int i = 0; i < n; ++i) {
+		while (j < n && a[j] - a[i] <= 5) {
+			++j;
+			ans = max(ans, j - i);
+		}
+	}
+	
+	cout << ans << endl;
+	
+	return 0;
+}

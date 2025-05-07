@@ -1,0 +1,3 @@
+1288B - Yet Another Meme ProblemLet's perform some conversions:a⋅b+a+b=conc(a,b)a⋅b+a+b=a⋅10|b|+b, where |b| is the length of decimal representation of b.a⋅b+a=a⋅10|b|b+1=10|b|Thus, b always look like 99…99. So, the answer is a∗(|b+1|−1). Solution (Roms)for t in range(int(input())):
+	a, b = map(int, input().split())
+	print(a * (len(str(b + 1)) - 1))

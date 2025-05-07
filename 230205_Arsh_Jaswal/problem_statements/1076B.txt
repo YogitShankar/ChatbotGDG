@@ -1,0 +1,11 @@
+Problem Title: B. Divisor Subtraction
+
+time limit per test2 seconds
+memory limit per test256 megabytes
+
+You are given an integer number n. The following algorithm is applied to it:
+Determine the number of subtrations the algorithm will make.
+The only line contains a single integer n (2≤n≤1010).
+Print a single integer — the number of subtractions the algorithm will make.
+In the first example 5 is the smallest prime divisor, thus it gets subtracted right away to make a 0.
+In the second example 2 is the smallest prime divisor at both steps.

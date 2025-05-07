@@ -1,0 +1,2 @@
+1223B - Strings EqualizationIf there is a character which is contained in string s and t (let's denote it as c), then we answer is "YES" because we can turn these string into string consisting only of this character c.Otherwise the answer is "NO", because if initially strings have not a common character, then after performing operation they also have not a common character.  Solution (Roms)for t in range(int(input())):
+    print('NO' if len(set(input()) & set(input())) == 0 else 'YES')

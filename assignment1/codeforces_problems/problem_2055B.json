@@ -1,0 +1,8 @@
+{
+  "name": "B. Crafting",
+  "time_limit": "time limit per test1 second",
+  "memory_limit": "memory limit per test256 megabytes",
+  "input": "InputEach test contains multiple test cases. The first line contains the number of test cases $$$t$$$ ($$$1 \\le t \\le 10^4$$$). The description of the test cases follows. The first line of each test case contains a single integer $$$n$$$ ($$$2\\le n\\le 2\\cdot 10^5$$$) — the number of types of materials.The second line of each test case contains $$$n$$$ integers $$$a_1, a_2, \\ldots, a_n$$$ ($$$0 \\le a_i\\le 10^9$$$) — the amount of each material $$$i$$$ that you currently hold.The third line of each test case contains $$$n$$$ integers $$$b_1, b_2, \\ldots, b_n$$$ ($$$0 \\le b_i\\le 10^9$$$) — the amount of each material $$$i$$$ needed to produce the artifact.It is guaranteed that the sum of $$$n$$$ over all test cases does not exceed $$$2 \\cdot 10^5$$$.",
+  "output": "OutputFor each test case, print a single line containing either \"YES\" or \"NO\", representing whether or not the artifact can be crafted.You can output the answer in any case (upper or lower). For example, the strings \"yEs\", \"yes\", \"Yes\", and \"YES\" will be recognized as positive responses.",
+  "tags": []
+}

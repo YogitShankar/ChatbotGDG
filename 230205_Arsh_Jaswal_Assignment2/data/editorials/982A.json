@@ -1,0 +1,3 @@
+{
+    "solution": "982A - RowSeating is the maximum when it does not exist two ones or three zeros together. It is also necessary to carefully process the ends of the series — it is necessary to check that you can not put a person on the most right or the most left chairs."
+}

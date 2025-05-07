@@ -1,0 +1,17 @@
+1743C - Save the MagazinesLet's process the boxes from left to right.Consider the first box. If it has a lid, then you can just add the number of magazines in it to the answer and forget about this box. To be exact, proceed to solve the problem with the first box removed.If it doesn't have a lid, then look at the next box. If it doesn't have a lid too, then this box can never be covered. Remove it and proceed further.If the next box has a lid, then look at the next one. Again, if it doesn't have a lid, then these two first boxes are solved independently of everything else. You can cover exactly one of them. Choose the bigger one and remove them both.To propagate the argument, let's derive a pattern. First, there's a box without a lid. Then some number of boxes with lids in a row. Then a box without a lid again. Among the first box and the box with lids, you can choose exactly one to not be covered. However, that can be any one of them. The best box to be left uncovered is the one with the smallest number of magazines in it.Thus, the solution is the following. As long as the first box has a lid, keep removing the first box and adding it to the answer. Then, as long as there are boxes left, take the first box and the largest number of consecutive boxes with lids after it (that number might be zero). On that segment, find the minimum value and the sum. Add the sum minus the minimum to the answer, remove the entire segment.The removals can be done explicitly with a queue or just a reversed vector or implicitly with maintaining a pointer to the first non-removed box.Overall complexity: O(n). Solution (awoo)for _ in range(int(input())):
+	n = int(input())
+	s = '0' + input()
+	a = [0] + list(map(int, input().split()))
+	ans = 0
+	i = 0
+	while i <= n:
+		mn = a[i]
+		sm = a[i]
+		j = i + 1
+		while j <= n and s[j] == '1':
+			mn = min(mn, a[j])
+			sm += a[j]
+			j += 1
+		ans += sm - mn
+		i = j
+	print(ans)

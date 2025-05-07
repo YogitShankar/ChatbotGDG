@@ -1,0 +1,3 @@
+{
+    "solution": "1700B - Palindromic Numbers Let X be the number in input. Consider two cases: first digit of X is 9 and not 9.If the first digit of input number is not 9, we can simply output 9999...999 (n digits) - X. If the first digit is 9, we can output 111...1111 (n+1 digits) - X. It is easy to show that this number will be exactly n-digit.To simplify implementation, we can first find 9999...999 - X by subtracting all digits of X from 9, and than if this number is not n-digit, add 111...1111 - 9999...999 = 11111...1112 to it.Overall complexity will be O(n). "
+}

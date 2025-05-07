@@ -1,0 +1,25 @@
+1975C - Chamo and Mocha's ArrayIdea: Bazoka13 Solution: Bazoka13 Prepared by: Bazoka13 Hint 1If a subarray of length at least 2 contains only the same elements, we can change all elements of the array to that element by operations. Hint 2Suppose the answer is x, we can perform no more than one operation on the original array a so that there is a subarray of length at least 2 that contains only x. Hint 3If we can make all elements of a subarray become x in one operation, then there must be a subarray of length 3 with a median of y (y≥x). SolutionRead the hints.If n=2, the answer is the minimum element.If n≥3, we iterate over all subarrays of length 3, and the answer is the maximum value of the median of all subarrays of length 3. Code#include<bits/stdc++.h>
+using namespace std;
+const int N = 1e5+10;
+int a[N];
+int main(){
+    int n,t;
+    cin>>t;
+    while(t--){
+        cin>>n;
+        for(int i=1;i<=n;i++) 
+            cin>>a[i];
+        if(n==2)cout<<min(a[1],a[2])<<"\n";
+        else{
+            int ans = min(a[1],a[2]);
+            for(int i=1;i<=n-2;i++){
+                vector<int> tmp;
+                for(int k=0;k<=2;k++)
+                    tmp.push_back(a[i+k]);
+                sort(tmp.begin(),tmp.end());
+                ans = max(ans,tmp[1]);
+            }
+            cout<<ans<<"\n";
+        }
+    }
+}

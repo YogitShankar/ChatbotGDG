@@ -1,0 +1,8 @@
+{
+  "name": "B. Transfusion",
+  "time_limit": "time limit per test2 seconds",
+  "memory_limit": "memory limit per test256 megabytes",
+  "input": "InputFirst line of input consists of one integer $$$t$$$ ($$$1 \\le t \\le 10^4$$$)  — the number of test cases.First line of each test case consists of one integer $$$n$$$ ($$$3 \\le n \\le 2\\cdot 10^5$$$).Second line of each test case consists of $$$n$$$ integers $$$a_i$$$ ($$$1 \\le a_i \\le 10^9$$$).It is guaranteed that the sum of $$$n$$$ of all test cases doesn't exceed $$$2\\cdot 10^5$$$.",
+  "output": "OutputFor each test case, print \"YES\" without quotation marks if it is possible to make all the elements equal after any number of operations; otherwise, print \"NO\" without quotation marks.You can print answers in any register: \"yes\", \"YeS\", \"nO\"  — will also be considered correct.",
+  "tags": []
+}

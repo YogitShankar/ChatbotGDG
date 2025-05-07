@@ -1,0 +1,7 @@
+Problem: 281A - Word Capitalization
+Problem Link: https://codeforces.com/problemset/problem/281/A
+Editorial Link: https://codeforces.com/blog/entry/6939
+
+================================================================================
+
+Backstage: The screencast of my screen during the contest, you can see what happened behind the scene if you are interested, just have fun ~. 

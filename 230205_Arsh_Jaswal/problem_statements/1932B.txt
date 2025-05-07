@@ -1,0 +1,13 @@
+Problem Title: B. Chaya Calendar
+
+time limit per test2 seconds
+memory limit per test256 megabytes
+
+The Chaya tribe believes that there are n signs of the apocalypse. Over time, it has been found out that the i-th sign occurs every ai years (in years ai, 2⋅ai, 3⋅ai, …).
+According to the legends, for the apocalypse to happen, the signs must occur sequentially. That is, first they wait for the first sign to occur, then strictly after it, the second sign will occur, and so on. That is, if the i-th sign occurred in the year x, the tribe starts waiting for the occurrence of the (i+1)-th sign, starting from the year x+1.
+In which year will the n-th sign occur and the apocalypse will happen?
+The first line of the input contains a single integer t (1≤t≤1000) — the number of test cases. Then follow the descriptions of the test cases.
+The first line of each test case contains a single integer n (1≤n≤100) — the number of signs.
+The second line of each test case contains n integers a1,a2,a3,…,an (1≤ai≤106) — the periodicities of the signs.
+For each test case, output a single integer — the year in which all n signs will occur.
+In the first set of input data of the example:

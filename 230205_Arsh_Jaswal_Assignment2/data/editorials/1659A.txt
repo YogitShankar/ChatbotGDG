@@ -1,0 +1,76 @@
+1659A - Red Versus BlueWe have b B's which divide the string into b+1 regions and we have to place the R's in these regions. By the strong form of the pigeonhole principle, at least one region must have at least ⌈rb+1⌉ R's. This gives us a lower bound on the answer.Now, we will construct a string whose answer is exactly equal to the lower bound.We place the B's so that they are not adjacent. Then we equally distribute the R's in the b+1 regions.Let p=⌊rb+1⌋ and q=rmod(b+1).We place p R's in each region and an extra R in any q regions. Hence, our answer for the construction is ⌈rb+1⌉, which is equal to the lower bound.Importantly, r>b, so none of the B's will be consecutive.Time complexity: O(n). Implementation (C++)#include<bits/stdc++.h>
+using namespace std;
+using lol=long long int;
+#define endl "\n"
+ 
+int main()
+{
+ios_base::sync_with_stdio(false);
+cin.tie(NULL);
+int _=1;
+cin>>_;
+while(_--)
+{
+    int n,r,b;
+    cin>>n>>r>>b;
+    int p=r/(b+1),q=r%(b+1);
+    for(int i=0;i<q;i++)    cout<<string(p+1,'R')<<'B';
+    for(int i=q;i<b;i++)    cout<<string(p,'R')<<'B';
+    cout<<string(p,'R');
+    cout<<endl;
+}
+return 0;
+} Implementation (Python)t = int(input())
+for i in range(t):
+    n, r, b = map(int, input().split())
+    p = r % (b + 1)
+    y = ""
+    for j in range(int(r / (b + 1))):
+        y = y + "R"
+    ans = ""
+    for i in range(b + 1):
+        if i > 0:
+            ans = ans + "B"
+        ans = ans + y
+        if p > 0:
+            ans = ans + "R"
+            p = p - 1
+    print(ans) Feedback Good problem: 
+
+
+
+
+367
+
+
+
+
+
+ Average problem: 
+
+    
+
+
+64
+
+
+
+ Bad problem: 
+
+    
+
+
+303
+
+
+
+ Did not solve: 
+
+    
+
+
+42
+
+
+
+ 

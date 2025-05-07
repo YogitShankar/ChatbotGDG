@@ -1,0 +1,93 @@
+Section 1:
+Hint 1
+What are we going to fill into the matrix? In other words, is there any relationship between the filed numbers?
+
+Section 2:
+Hint 2
+Try to come up with a naive DP solution that works in large time complexity, such as $$$\mathcal O(nk^2)$$$.
+
+Section 3:
+Hint 3
+For many different numbers between two consecutive rows, however, the transition is almost the same.
+
+Section 4:
+Hint 4
+If $$$x' = \max(a, x + b)$$$ and $$$x'' = \max(c, x' + d)$$$, then $$$x'' = \max(\max(a + d, c), x + b + d)$$$.
+
+Section 5:
+Solution
+Conclusion
+: For each row, an optimal solution exists, such that the newly filled-in numbers are the same.
+Proof
+: Consider fixing the rows $$$i - 1$$$ and $$$i + 1$$$, and observe all the newly filled-in numbers at row $$$i$$$. Then a new number $$$u$$$ brings a contribution of $$$c_{u, i-1} + c_{u, i+1}$$$, and it is clear that there exists a scheme that takes the maximum value such that all the $$$u$$$ filled in are equal. Adjusting for each row leads to the above conclusion.
+Consider dp. Let $$$f_{i,j}$$$ denote the maximum contribution that can be achieved between the first $$$i$$$ rows
+(ignoring the initial contribution)
+when the empty elements in the $$$i$$$-th row are filled with $$$j$$$. Let $$$c_i$$$ be the number of $$$-1$$$ numbers in the $$$i$$$-th row, and $$$d_{i,j}$$$ denote the number of elements $$$j$$$ in the $$$i$$$-th row initially.
+The transfer should be as follows:
+$$$f_{i, j} = \max(\max\limits_{1 \leq w \leq k}(f_{i-1, w} + c_i \cdot d_{i-1, w} + c_{i-1} \cdot d_{i-1, j}), f_{i-1, j} + (d_{i, j} + c_i) \cdot (d_{i-1, j} + c_{i-1}) - d_{i, j}d_{i-1, j}).$$$
+In addition to being able to optimize the above transition to $$$\mathcal O(nk)$$$, the present problem in a matrix has a good property. Specifically, for the same $$$i$$$, there are only $$$\mathcal O(m)$$$ values of $$$j$$$ such that $$$d_{i,j} \neq 0$$$!
+If $$$d_{i,j} = 0$$$ and $$$d_{i-1, j} = 0$$$, the original transfer can be viewed as
+$$$f_{i,j} = \max(\max\limits_{1 \leq w \leq k}(f_{i-1, w}), f_{i-1, j} + c_i \cdot c_{i-1}).$$$
+This can be seen as a global modification in the form of $$$x \gets \max(a, x + b)$$$. The tags are composable in $$$\mathcal O(1)$$$; Otherwise, we can brutely update the new $$$dp_j$$$ for $$$\mathcal O(m)$$$ positions.
+Therefore, this problem is solved in $$$\mathcal O(nm)$$$. We decided to let every segment tree solution pass comfortably, so that we set small constraints and large TL.
+Bonus Hint for implementation: always use $$$\max(a, dp_j + b)$$$ to get the real value.
+
+Section 6:
+Code (C++)
+#include <bits/stdc++.h>
+ 
+namespace FastIO {
+	char buf[1 << 21], *p1 = buf, *p2 = buf;
+#define getchar() (p1 == p2 && (p1 = buf, p2 = (p1 + fread(buf, 1, 1 << 21, stdin))) == p1 ? EOF : *p1++)
+	template <typename T> inline T read() { T x = 0, w = 0; char ch = getchar(); while (ch < '0' || ch > '9') w |= (ch == '-'), ch = getchar(); while ('0' <= ch && ch <= '9') x = x * 10 + (ch ^ '0'), ch = getchar(); return w ? -x : x; }
+	template <typename T> inline void write(T x) { if (!x) return; write<T>(x / 10), putchar((x % 10) ^ '0'); }
+	template <typename T> inline void print(T x) { if (x > 0) write<T>(x); else if (x < 0) putchar('-'), write<T>(-x); else putchar('0'); }
+	template <typename T> inline void print(T x, char en) { print<T>(x), putchar(en); }
+#undef getchar
+}; using namespace FastIO;
+ 
+using ll = long long;
+void solve() {
+	int n = read<int>(), m = read<int>(), k = read<int>(); ll cntP = 0, cntQ = 0;
+	std::vector<int> vep(m), veq(m), cntp(k + 1), cntq(k + 1), vis(k + 1);
+	std::vector<ll> dp(k + 1); ll a = 0, b = 0, v = 0, ext = 0; // max(a, x + b).
+	cntp[0] = cntq[0] = m;
+	auto get = [&](int x) -> int { return (~x) ? x : 0; };
+	auto read_q = [&]() -> void {
+		for (int i = 0; i < m; ++i) --cntq[get(veq[i])];
+		for (int i = 0; i < m; ++i) ++cntq[get(veq[i] = read<int>())];
+		cntQ = cntq[0];
+	};
+	auto roll = [&]() -> void { std::swap(vep, veq), std::swap(cntp, cntq), std::swap(cntP, cntQ); };
+	auto chkmax = [&](ll &a, ll b) -> void { a = std::max(a, b); };
+	read_q(), roll();
+	for (int i = 2; i <= n; ++i) {
+		read_q();
+		ll max_dp = std::max(a, v + b);
+		for (int k : vep) if (~k) chkmax(max_dp, std::max(a, dp[k] + b) + cntP * cntq[k]);
+		for (int k : veq) if (~k) chkmax(max_dp, std::max(a, dp[k] + b) + cntP * cntq[k]);
+		for (int k : vep) if ((~k) && vis[k] != i) {
+			vis[k] = i, ext += 1ll * cntp[k] * cntq[k];
+			dp[k] = std::max(a, dp[k] + b) + cntP * cntq[k] + cntQ * cntp[k] - b;
+			chkmax(dp[k], max_dp + cntp[k] * cntQ - b - cntP * cntQ);
+			chkmax(v, dp[k]);
+		} for (int k : veq) if ((~k) && vis[k] != i) {
+			vis[k] = i;
+			dp[k] = std::max(a, dp[k] + b) + cntP * cntq[k] + cntQ * cntp[k] - b;
+			chkmax(dp[k], max_dp + cntp[k] * cntQ - b - cntP * cntQ);
+			chkmax(v, dp[k]);
+		} a = std::max(max_dp, a + cntP * cntQ), b += cntP * cntQ;
+		roll();
+	} print<ll>(std::max(a, v + b) + ext, '\n');
+}
+ 
+int main() { int T = read<int>(); while (T--) solve(); return 0; }
+
+Section 7:
+Rate the Problem
+Amazing problem:
+Good problem:
+Average problem:
+Bad problem:
+Didn't solve:
+

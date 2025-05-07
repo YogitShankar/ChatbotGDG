@@ -1,0 +1,55 @@
+1840C - Ski ResortTo simplify the task, let's replace all numbers in the array a. If the value of ai is greater than q, then replace it with 0. Otherwise, replace it with 1.Now Dima can go on this day if ai=1. Therefore, we need to consider segments consisting only of 1.Note that if the segment consists of less than k ones, then Dima will not be able to go on these dates, so the segment can be ignored.For all remaining segments, we need to calculate the number of ways for Dima to choose travel dates on this segment. And for a segment of length l, the number of ways to choose a trip of at least length k is (l−k+2l−k).The answer to the problem will be the sum of the number of ways to choose travel dates for all segments. SolutiontestCases = int(input())
+ 
+for testCase in range(testCases):
+    n, k, q = map(int, input().split(' '))
+    a = list(map(int, input().split(' ')))
+    
+    ans = 0
+    len = 0
+    for i in range(n):
+        if a[i] <= q:
+            len += 1
+        else:
+            if len >= k:
+                ans += (len - k + 1) * (len - k + 2) // 2
+            len = 0
+    
+    if len >= k:
+        ans += (len - k + 1) * (len - k + 2) // 2
+    print(ans) Rate the problem Didn't solve 
+
+    
+
+
+76
+
+
+
+ Good task 
+
+    
+
+
+728
+
+
+
+ Average task 
+
+    
+
+
+117
+
+
+
+ Bad task 
+
+    
+
+
+43
+
+
+
+ 

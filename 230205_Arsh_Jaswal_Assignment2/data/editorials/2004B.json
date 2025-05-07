@@ -1,0 +1,3 @@
+{
+    "solution": "2004B - Game with DoorsIdea: BledDest TutorialTutorial is loading... Solution (Neon)#include <bits/stdc++.h>\n \nusing namespace std;\n \nint main() {\n  int t;\n  cin >> t;\n  while (t--) {\n    int l, r, L, R;\n    cin >> l >> r >> L >> R;\n    int inter = min(r, R) - max(l, L) + 1;\n    int ans = inter - 1;\n    if (inter <= 0) {\n      ans = 1;\n    } else {\n      ans += (l != L);\n      ans += (r != R);\n    }\n    cout << ans << '\\n';\n  }\n}"
+}

@@ -1,0 +1,11 @@
+{
+    "title": "C1. k-LCM (easy version)",
+    "description": "It is the easy version of the problem. The only difference is that in this version k=3.\nYou are given a positive integer n. Find k positive integers a1,a2,…,ak, such that:\nHere LCM is the least common multiple of numbers a1,a2,…,ak.\nWe can show that for given constraints the answer always exists.\nThe first line contains a single integer t (1≤t≤104)  — the number of test cases.\nThe only line of each test case contains two integers n, k (3≤n≤109, k=3).\nFor each test case print k positive integers a1,a2,…,ak, for which all conditions are satisfied.",
+    "time limit": "time limit per test1 second",
+    "memory limit": "memory limit per test256 megabytes",
+    "tags": [
+        "constructive algorithms",
+        "math",
+        "*1200"
+    ]
+}

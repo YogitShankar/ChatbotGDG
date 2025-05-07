@@ -1,0 +1,10 @@
+{
+    "title": "E. Mirror Grid",
+    "description": "You are given a square grid with n rows and n columns. Each cell contains either 0 or 1. \nIn an operation, you can select a cell of the grid and flip it (from 0→1 or 1→0). Find the minimum number of operations you need to obtain a square that remains the same when rotated 0∘, 90∘, 180∘ and 270∘.\nThe picture below shows an example of all rotations of a grid.\nThe first line contains a single integer t (1≤t≤100) — the number of test cases.\nThe first line of each test case contains a single integer n (1≤n≤100) — the size of the grid.\nThen n lines follow, each with n characters ai,j (0≤ai,j≤1) — the number written in each cell.\nFor each test case output a single integer  — the minimum number of operations needed to make the square look the same rotated 0∘, 90∘, 180∘ and 270∘.\nIn the first test case, we can perform one operations to make the grid 010111010. Now, all rotations of the square are the same.\nIn the second test case, all rotations of the square are already the same, so we don't need any flips.",
+    "time limit": "time limit per test2 seconds",
+    "memory limit": "memory limit per test256 megabytes",
+    "tags": [
+        "implementation",
+        "*1200"
+    ]
+}

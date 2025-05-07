@@ -1,0 +1,3 @@
+{
+    "solution": "2003C - Turtle and Good Pairs Hint 1Try to find bad pairs. Hint 2Some of the bad substring are.- aaaabbbbb- aabb- ab Some of the good substring are.- ababababb- abab  Hint 3Intuitively, we should try to create a string which does not contain equal chars together.My submission — 278156003 Video Editorial"
+}

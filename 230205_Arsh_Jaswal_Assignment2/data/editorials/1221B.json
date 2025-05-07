@@ -1,0 +1,3 @@
+{
+    "solution": "1221B - KnightsIdea: BledDest TutorialTutorial is loading... Solution (PikMike)n = int(input())\nfor i in range(n):\n\tprint(''.join(['W' if (i + j) % 2 == 0 else 'B' for j in range(n)]))"
+}

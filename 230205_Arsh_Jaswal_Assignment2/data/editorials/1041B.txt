@@ -1,0 +1,16 @@
+1041B - Buying a TV SetFirstly let's make x and y coprime. To do so, we calculate g=gcd(x,y) and then divide both numbers by g.Then the pair (w,h) is included in the answer if the following conditions are met: w≤a, h≤b, and there exists some positive integer k such that w=kx and h=ky. Furthermore, each such pair is uniquely determined by this integer k. So we can reduce our task to counting the number of positive integers k such that kx≤a and ky≤b, and that is just min(⌊ax⌋,⌊by⌋). Solution #include <bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+
+int main(){
+    ios_base::sync_with_stdio(0);
+    cin.tie(0);
+    cout.tie(0);
+    
+    ll a, b, c, d;
+    cin >> a >> b >> c >> d;
+    ll gc = __gcd(c, d);
+    c /= gc;
+    d /= gc;
+    cout << min(a/c, b/d);
+}

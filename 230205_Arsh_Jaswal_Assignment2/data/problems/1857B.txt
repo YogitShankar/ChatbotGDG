@@ -1,0 +1,14 @@
+Given a natural number x. You can perform the following operation: 
+Note that the positions are numbered from right to left, starting from zero. If the number has k digits, it is considered that the digit at the k-th position is equal to 0.
+The rounding is done as follows: 
+ 
+ 
+Your task is to make x as large as possible, if you can perform the operation as many times as you want.
+For example, if x is equal to 3451, then if you choose consecutively: 
+The first line contains a single integer t (1≤t≤104) — the number of test cases.
+Each test case consists of positive integer x with a length of up to 2⋅105. It is guaranteed that there are no leading zeros in the integer.
+It is guaranteed that the sum of the lengths of all integers x over all test cases does not exceed 2⋅105.
+For each set of input data, output the maximum possible value of x after the operations. The number should not have leading zeros in its representation.
+In the first sample, it is better not to perform any operations.
+In the second sample, you can perform one operation and obtain 10.
+In the third sample, you can choose k=1 or k=2. In both cases the answer will be 100.

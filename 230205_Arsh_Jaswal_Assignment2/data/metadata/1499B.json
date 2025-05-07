@@ -1,0 +1,13 @@
+{
+    "title": "B. Binary Removals",
+    "description": "You are given a string ss, consisting only of characters '0' or '1'. Let |s||s| be the length of ss.\nYou are asked to choose some integer kk (k>0k>0) and find a sequence aa of length kk such that: \nThe characters at positions a1,a2,…,aka1,a2,…,ak are removed, the remaining characters are concatenated without changing the order. So, in other words, the positions in the sequence aa should not be adjacent.\nLet the resulting string be s′s′. s′s′ is called sorted if for all ii from 22 to |s′||s′| s′i−1≤s′is′i−1≤s′i.\nDoes there exist such a sequence aa that the resulting string s′s′ is sorted?\nThe first line contains a single integer tt (1≤t≤10001≤t≤1000) — the number of testcases.\nThen the descriptions of tt testcases follow.\nThe only line of each testcase contains a string ss (2≤|s|≤1002≤|s|≤100). Each character is either '0' or '1'.\nFor each testcase print \"YES\" if there exists a sequence aa such that removing the characters at positions a1,a2,…,aka1,a2,…,ak and concatenating the parts without changing the order produces a sorted string.\nOtherwise, print \"NO\".\nYou may print every letter in any case you want (so, for example, the strings yEs, yes, Yes and YES are all recognized as positive answer).\nIn the first testcase you can choose a sequence a=[1,3,6,9]a=[1,3,6,9]. Removing the underlined letters from \"10101011011\" will produce a string \"0011111\", which is sorted.\nIn the second and the third testcases the sequences are already sorted.\nIn the fourth testcase you can choose a sequence a=[3]a=[3]. s′=s′= \"11\", which is sorted.\nIn the fifth testcase there is no way to choose a sequence aa such that s′s′ is sorted.",
+    "time limit": "time limit per test2 seconds",
+    "memory limit": "memory limit per test256 megabytes",
+    "tags": [
+        "brute force",
+        "dp",
+        "greedy",
+        "implementation",
+        "*1000"
+    ]
+}

@@ -1,0 +1,44 @@
+Section 1:
+Hints
+Hint 1
+Look at the picture. I mean,
+look
+at the picture.
+Hint 2
+Consider coordinates $$$x$$$ and $$$y$$$ separately.
+
+Section 2:
+Solution
+Consider coordinates $$$x$$$ and $$$y$$$ separately. Since $$$1 \le x_i, y_i \le m - 1$$$, after each step both coordinates increase and remain connected with the previous square.
+From the picture we can see that each coordinate spans from the bottom-left corner of the first square to the top-right corner of the last square.
+To calculate the perimeter we can add the length of that interval for both coordinates and multiply it by $$$2$$$, as it is counted in the perimeter twice, going in both directions:
+The coordinates of the bottom-left corner of the first square are $$$(x_1, y_1)$$$ and of the top-right corner of the last square are $$$(m + \sum\limits_{i = 1}^n x_i, m + \sum\limits_{i = 1}^n y_i)$$$.
+The lengths of the intervals are $$$m + \sum\limits_{i = 2}^n x_i$$$ and $$$m + \sum\limits_{i = 2}^n y_i$$$.
+Therefore, the answer is $$$2(2m + \sum\limits_{i = 2}^n (x_i + y_i))$$$.
+
+Section 3:
+Code
+#include <bits/stdc++.h>
+
+using namespace std;
+
+void solve() {
+    int n, m;
+    cin >> n >> m;
+    vector<int> x(n), y(n);
+    for(int i = 0; i < n; i++) {
+        cin >> x[i] >> y[i];
+    }
+    int ans = 2 * (accumulate(x.begin(), x.end(), 0) + m - x[0] + accumulate(y.begin(), y.end(), 0) + m - y[0]);
+    cout << ans << '\n';
+}
+
+signed main() {
+    ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);
+    int ttt = 1;
+    cin >> ttt;
+    while(ttt--) {
+        solve();
+    }
+}
+

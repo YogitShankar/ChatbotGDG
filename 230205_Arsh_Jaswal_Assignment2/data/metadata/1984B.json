@@ -1,0 +1,11 @@
+{
+    "title": "B. Large Addition",
+    "description": "A digit is large if it is between 5 and 9, inclusive. A positive integer is large if all of its digits are large.\nYou are given an integer x. Can it be the sum of two large positive integers with the same number of digits?\nThe first line contains a single integer t (1≤t≤104) — the number of test cases.\nThe only line of each test case contains a single integer x (10≤x≤1018).\nFor each test case, output YES if x satisfies the condition, and NO otherwise.\nYou can output YES and NO in any case (for example, strings yES, yes, and Yes will be recognized as a positive response).\nIn the first test case, we can have 658+679=1337.\nIn the second test case, it can be shown that no numbers of equal length and only consisting of large digits can add to 200.\nIn the third test case, we can have 696969+696969=1393938.\nIn the fourth test case, we can have 777+657=1434.",
+    "time limit": "time limit per test1 second",
+    "memory limit": "memory limit per test256 megabytes",
+    "tags": [
+        "implementation",
+        "math",
+        "*1100"
+    ]
+}

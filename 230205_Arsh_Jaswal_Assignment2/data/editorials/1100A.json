@@ -1,0 +1,3 @@
+{
+    "solution": "1100A - Roman and BrowserLoop over all values of b and take the sum of all indices that are not equivalent to . Remember to take the absolute value at the end. Runtime is . Code: 48374675"
+}

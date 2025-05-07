@@ -1,0 +1,3 @@
+{
+    "solution": "975B - Mancalain this problem, we brute-force on the optimal hole to choose since there are only 14 holes, but how to calculate how many stones there will be after we start from the ith hole? the process of putting stones is repeating every 14 holes, suppose k is the number of stones in hand now so k/14 will be added to all holes and we simulate adding k mod 14 then we take the maximum answer from all the holes.Solution "
+}

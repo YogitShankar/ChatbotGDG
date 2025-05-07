@@ -1,0 +1,26 @@
+1029B - Creating the ContestThe answer is always a segment of the initial array. The authors solution uses two pointers technique: let's iterate over all left bounds of the correct contests and try to search maximum by inclusion correct contest. Let's iterate over all i from 0 to n−1 and let the current left bound be i. Let j be the maximum right bound of the correct contest starting from the position i. Initially j=i. Now while j+1<n and aj+1≤aj⋅2 let's increase j. Try to update the answer with the value j−i+1. It is obvious that all positions from i+1 to j cannot be left bounds of the maximum by inclusion correct contests, so let's set i=j and go on. Because each element will be processed once, time complexity is O(n). Solution (Vovuh)#include <bits/stdc++.h>
+
+using namespace std;
+
+int main() {
+#ifdef _DEBUG
+	freopen("input.txt", "r", stdin);
+#endif
+
+	int n;
+	scanf("%d", &n);
+	vector<int> a(n);
+	for (int i = 0; i < n; ++i)
+		scanf("%d", &a[i]);
+		
+	int ans = 0;
+	for (int i = 0; i < n; ++i) {
+		int j = i;
+		while (j + 1 < n && a[j + 1] <= a[j] * 2)
+			++j;
+		ans = max(ans, j - i + 1);
+		i = j;
+	}
+	
+	printf("%d\n", ans);
+}

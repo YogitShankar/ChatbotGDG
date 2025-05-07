@@ -1,0 +1,8 @@
+{
+  "name": "C. Uninteresting Number",
+  "time_limit": "time limit per test2 seconds",
+  "memory_limit": "memory limit per test256 megabytes",
+  "input": "InputThe first line contains an integer $$$t$$$ ($$$1 \\le t \\le 10^4$$$) — the number of test cases.The only line of each test case contains the number $$$n$$$, without leading zeros. The length of the number does not exceed $$$10^5$$$.It is guaranteed that the sum of the lengths of the numbers across all test cases does not exceed $$$10^5$$$.",
+  "output": "OutputFor each test case, output \"YES\" if it is possible to obtain a number divisible by $$$9$$$ using the described operations, and \"NO\" otherwise.You can output each letter in any case (lowercase or uppercase). For example, the strings \"yEs\", \"yes\", \"Yes\", and \"YES\" will be accepted as a positive answer.",
+  "tags": []
+}

@@ -1,0 +1,56 @@
+1864B-Swap and ReverseIdea : Amir_Parsa, chromate00 TutorialBy the first kind of operation, we already know that every odd index (same for the even ones) can be swapped with each other freely. Therefore, let us write down the values of the indices modulo 2. For example, if n is 10, the indices modulo 2 are [1,0,1,0,1,0,1,0,1,0]. Now, we consider the two cases.  When k is odd. We can find out that after reversing any subarray of length k, the indices modulo 2 do not change. So in this case, any series of the second operation is identical to some series of the first operation. Therefore, you should sort the odd indices and the even indices separately, and output the result of merging them into one string.  When k is even. Let us observe how we can swap two adjacent indices in this case. First, reverse [i,i+k−1], and then reverse [i+1,i+k]. If we do this on [1,0,1,0,1,0,1,0,1,0], assuming i=1 and k=6, the indices modulo 2 turn into [0,1,0,1,0,1,1,0,1,0], and then [0,1,1,0,1,0,1,0,1,0]. Using these two steps and some series of the first operation, we can see that we can swap any two adjacent indices as a result. And such a series of operation is always possible, as k<n. Therefore, we can sort the entire string, and output the result. solution#include <bits/stdc++.h>
+
+#define all(a) (a).begin(), (a).end()
+#define sz(a) (int)(a).size()
+#define pb push_back
+#define mp make_pair
+
+using namespace std;
+
+typedef long long ll;
+typedef long double ld;
+typedef pair<int, int> pii;
+
+int main() {
+
+    ios_base::sync_with_stdio(false);
+    cin.tie(0);
+    cout.tie(0);
+    
+    int tt;
+    cin >> tt;
+    while (tt--) {
+        int n, k;
+        cin >> n >> k;
+        string s;
+        cin >> s;
+        vector<char> odd, even;
+        for (int i = 0; i < n; ++i) {
+            if (i % 2 == 0) {
+                even.pb(s[i]);
+            } else {
+                odd.pb(s[i]);
+            }
+        }
+        sort(all(even));
+        sort(all(odd));
+        string ans1 = "";
+        for (int i = 0, j = 0; i < sz(even) || j < sz(odd); ++i, ++j) {
+            if (i < sz(even)) {
+                ans1 += even[i];
+            }
+            if (j < sz(odd)) {
+                ans1 += odd[i];
+            }
+        }
+        if (k % 2 == 0) {
+            sort(all(s));
+            cout << s << "\n";
+            continue;
+        }
+        cout << ans1 << "\n";
+    }
+
+}
+
+ bonusTry to solve the problem if n=k was allowed.

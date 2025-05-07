@@ -1,0 +1,38 @@
+Problem: 1669A - Division?
+Link: https://codeforces.com/problemset/problem/1669/A
+
+Description:
+Codeforces separates its users into
+4
+divisions by their rating:
+Given a
+rating
+, print in which division the
+rating
+belongs.
+
+Input Specification:
+The first line of the input contains an integer
+t
+(
+1<=t<=104
+) - the number of testcases.
+The description of each test consists of one line containing one integer
+rating
+(
+−5000<=rating<=5000
+).
+
+Output Specification:
+For each test case, output a single line containing the correct division in the format "Division X", where
+X
+is an integer between
+1
+and
+4
+representing the division for the corresponding rating.
+
+Time Limit: 1 second
+Memory Limit: 256 megabytes
+
+Tags: implementation, *800

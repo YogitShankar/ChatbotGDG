@@ -1,0 +1,27 @@
+1838B - Minimize Permutation SubarraysLet idxx be the position of the element x in p, and consider what happens if idxn is in between idx1 and idx2. Notice that any subarray of size greater than 1 that is a permutation must contain idx1 and idx2. So it must also contain every index in between, including idxn. Therefore, n is an element of the permutation subarray, so it must be of size at least n, and therefore must be the whole array. Therefore, if idxn is in between idx1 and idx2, the only subarrays that are permutations are [idx1,idx1] and [1,n]. These two subarrays will always be permutations, so this is minimal.To achieve this, we have 3 cases:  If idxn lies in between idx1 and idx2, swap idx1 and idx2.  If idxn<idx1,idx2, swap idxn with the smaller of idx1, idx2.  If idxn>idx1,idx2, swap idxn with the larger of idx1, idx2. In all three of these cases, after the swap, idxn will lie in between idx1 and idx2, minimizing the number of permutation subarrays.Complexity: O(n) Code#include <bits/stdc++.h>
+using namespace std;
+#define N 200010
+
+int idx[N];
+
+int main() {
+
+    int t; cin >> t;
+    for(int tc = 1; tc <= t; ++tc) {
+
+        int n; cin >> n;
+
+        for(int i = 1; i <= n; ++i) {
+            int x; cin >> x;
+            idx[x] = i;
+        }
+
+        if(idx[n] < min(idx[1], idx[2])) {
+            cout << idx[n] << ' ' << min(idx[1], idx[2]) << '\n';
+        } else if(idx[n] > max(idx[1], idx[2])) {
+            cout << idx[n] << ' ' << max(idx[1], idx[2]) << '\n';
+        } else {
+            cout << idx[1] << ' ' << idx[2] << '\n';
+        }
+    }
+}

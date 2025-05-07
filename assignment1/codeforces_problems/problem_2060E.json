@@ -1,0 +1,8 @@
+{
+  "name": "E. Graph Composition",
+  "time_limit": "time limit per test2 seconds",
+  "memory_limit": "memory limit per test256 megabytes",
+  "input": "InputThe first line contains an integer $$$t$$$ ($$$1 \\leq t \\leq 10^4$$$) — the number of independent test cases.The first line of each test case contains three integers $$$n$$$, $$$m_1$$$, and $$$m_2$$$ ($$$1 \\leq n \\leq 2\\cdot 10^5$$$, $$$0 \\leq m_1,m_2 \\leq 2\\cdot 10^5$$$) — the number of vertices, the number of edges in $$$F$$$, and the number of edges in $$$G$$$.The following $$$m_1$$$ lines each contain two integers $$$u$$$ and $$$v$$$ ($$$1 \\leq u, v\\leq n$$$) — there is an edge between $$$u$$$ and $$$v$$$ in $$$F$$$. It is guaranteed that there are no repeated edges or self loops.The following $$$m_2$$$ lines each contain two integers $$$u$$$ and $$$v$$$ ($$$1 \\leq u,v\\leq n$$$) — there is an edge between $$$u$$$ and $$$v$$$ in $$$G$$$. It is guaranteed that there are no repeated edges or self loops.It is guaranteed that the sum of $$$n$$$, the sum of $$$m_1$$$, and the sum of $$$m_2$$$ over all test cases do not exceed $$$2 \\cdot 10^5$$$.",
+  "output": "OutputFor each test case, output a single integer denoting the minimum operations required on a new line.",
+  "tags": []
+}

@@ -1,0 +1,12 @@
+{
+    "title": "A. Ehab Fails to Be Thanos",
+    "description": "You're given an array a of length 2n. Is it possible to reorder it in such way so that the sum of the first n elements isn't equal to the sum of the last n elements?\nThe first line contains an integer n (1≤n≤1000), where 2n is the number of elements in the array a.\nThe second line contains 2n space-separated integers a1, a2, …, a2n (1≤ai≤106) — the elements of the array a.\nIf there's no solution, print \"-1\" (without quotes). Otherwise, print a single line containing 2n space-separated integers. They must form a reordering of a. You are allowed to not change the order.\nIn the first example, the first n elements have sum 2+1+3=6 while the last n elements have sum 1+1+2=4. The sums aren't equal.\nIn the second example, there's no solution.",
+    "time limit": "time limit per test1 second",
+    "memory limit": "memory limit per test256 megabytes",
+    "tags": [
+        "constructive algorithms",
+        "greedy",
+        "sortings",
+        "*1000"
+    ]
+}

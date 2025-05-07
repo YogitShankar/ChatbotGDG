@@ -1,0 +1,15 @@
+Rudolf has registered for a programming competition that will follow the rules of ICPC. The rules imply that for each solved problem, a participant gets 1 point, and also incurs a penalty equal to the number of minutes passed from the beginning of the competition to the moment of solving the problem. In the final table, the participant with the most points is ranked higher, and in case of a tie in points, the participant with the lower penalty is ranked higher.
+In total, n participants have registered for the competition. Rudolf is a participant with index 1. It is known that m problems will be proposed. And the competition will last h minutes.
+A powerful artificial intelligence has predicted the values ti,j, which represent the number of minutes it will take for the i-th participant to solve the j-th problem.
+Rudolf realized that the order of solving problems will affect the final result. For example, if h=120, and the times to solve problems are [20,15,110], then if Rudolf solves the problems in the order:
+Rudolf became interested in what place he will take in the competition if each participant solves problems in the optimal order based on the predictions of the artificial intelligence. It will be assumed that in case of a tie in points and penalty, Rudolf will take the best place.
+The first line contains an integer t (1≤t≤103) — the number of test cases.
+Then follow the descriptions of the test cases.
+The first line of each test case contains three integers n,m,h (1≤n⋅m≤2⋅105,1≤h≤106) — the number of participants, the number of problems, and the duration of the competition, respectively.
+Then there are n lines, each containing m integers ti,j (1≤ti,j≤106) — the number of minutes it will take for the i-th participant to solve the j-th problem.
+The sum of n⋅m over all test cases does not exceed 2⋅105.
+For each test case, output an integer — Rudolf's place in the final table if all participants solve problems in the optimal order.
+In the first example, Rudolf will get 2 points and 50 penalty minutes. The second participant will solve only one problem and get 1 point and 90 penalty minutes. And the third participant will solve all 3 problems and get 3 points and 240 penalty minutes. Thus, Rudolf will take the second place.
+In the second example, both participants will get 1 point and 30 penalty minutes. In case of a tie in points, Rudolf gets the better position, so he will take the first place.
+In the third example, Rudolf is the only participant, so he will take the first place.
+In the fourth example, all participants can solve two problems with penalty of 25=8+(8+9), 24=7+(7+10) and 26=8+(8+10), respectively, thanks to the penalty, the second participant gets the first place, and Rudolf gets the second.

@@ -1,0 +1,11 @@
+{
+    "title": "B. Array Cancellation",
+    "description": "You're given an array a of n integers, such that a1+a2+⋯+an=0.\nIn one operation, you can choose two different indices i and j (1≤i,j≤n), decrement ai by one and increment aj by one. If i<j this operation is free, otherwise it costs one coin.\nHow many coins do you have to spend in order to make all elements equal to 0?\nEach test contains multiple test cases. The first line contains the number of test cases t (1≤t≤5000). Description of the test cases follows.\nThe first line of each test case contains an integer n (1≤n≤105)  — the number of elements.\nThe next line contains n integers a1,…,an (−109≤ai≤109). It is given that ∑ni=1ai=0.\nIt is guaranteed that the sum of n over all test cases does not exceed 105.\nFor each test case, print the minimum number of coins we have to spend in order to make all elements equal to 0.\nPossible strategy for the first test case: ",
+    "time limit": "time limit per test1 second",
+    "memory limit": "memory limit per test256 megabytes",
+    "tags": [
+        "constructive algorithms",
+        "implementation",
+        "*1000"
+    ]
+}

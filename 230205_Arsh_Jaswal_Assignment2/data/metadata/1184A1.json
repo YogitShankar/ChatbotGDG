@@ -1,0 +1,12 @@
+{
+    "title": "A1. Heidi Learns Hashing (Easy)",
+    "description": "Melody Pond was stolen from her parents as a newborn baby by Madame Kovarian, to become a weapon of the Silence in their crusade against the Doctor. Madame Kovarian changed Melody's name to River Song, giving her a new identity that allowed her to kill the Eleventh Doctor.\nHeidi figured out that Madame Kovarian uses a very complicated hashing function in order to change the names of the babies she steals. In order to prevent this from happening to future Doctors, Heidi decided to prepare herself by learning some basic hashing techniques.\nThe first hashing function she designed is as follows.\nGiven two positive integers (x,y)(x,y) she defines H(x,y):=x2+2xy+x+1H(x,y):=x2+2xy+x+1.\nNow, Heidi wonders if the function is reversible. That is, given a positive integer rr, can you find a pair (x,y)(x,y) (of positive integers) such that H(x,y)=rH(x,y)=r?\nIf multiple such pairs exist, output the one with smallest possible xx. If there is no such pair, output \"NO\".\nThe first and only line contains an integer rr (1≤r≤10121≤r≤1012).\nOutput integers x,yx,y such that H(x,y)=rH(x,y)=r and xx is smallest possible, or \"NO\" if no such pair exists.",
+    "time limit": "time limit per test1 second",
+    "memory limit": "memory limit per test256 megabytes",
+    "tags": [
+        "brute force",
+        "math",
+        "number theory",
+        "*1200"
+    ]
+}

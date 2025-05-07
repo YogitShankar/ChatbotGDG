@@ -1,0 +1,13 @@
+{
+    "title": "E. Cardboard for Pictures",
+    "description": "Mircea has n pictures. The i-th picture is a square with a side length of si centimeters. \nHe mounted each picture on a square piece of cardboard so that each picture has a border of w centimeters of cardboard on all sides. In total, he used c square centimeters of cardboard. Given the picture sizes and the value c, can you find the value of w?\nPlease note that the piece of cardboard goes behind each picture, not just the border.\nThe first line contains a single integer t (1≤t≤1000) — the number of test cases.\nThe first line of each test case contains two positive integers n (1≤n≤2⋅105) and c (1≤c≤1018) — the number of paintings, and the amount of used square centimeters of cardboard.\nThe second line of each test case contains n space-separated integers si (1≤si≤104) — the sizes of the paintings.\nThe sum of n over all test cases doesn't exceed 2⋅105.\nAdditional constraint on the input: Such an integer w exists for each test case.\nPlease note, that some of the input for some test cases won't fit into 32-bit integer type, so you should use at least 64-bit integer type in your programming language (like long long for C++).\nFor each test case, output a single integer — the value of w (w≥1) which was used to use exactly c squared centimeters of cardboard.\nThe first test case is explained in the statement.\nFor the second test case, the chosen w was 2, thus the only cardboard covers an area of c=(2⋅2+6)2=102=100 squared centimeters.\nFor the third test case, the chosen w was 4, which obtains the covered area c=(2⋅4+2)2×5=102×5=100×5=500 squared centimeters.",
+    "time limit": "time limit per test2 seconds",
+    "memory limit": "memory limit per test256 megabytes",
+    "tags": [
+        "binary search",
+        "geometry",
+        "implementation",
+        "math",
+        "*1100"
+    ]
+}

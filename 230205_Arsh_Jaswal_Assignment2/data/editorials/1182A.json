@@ -1,0 +1,3 @@
+{
+    "solution": "1182A - Filling ShapesIf you want to have no empty spaces on 3×n tiles, you should fill leftmost bottom tile. Then you have only 2 choices;  Both cases force you to group leftmost 3×2 tiles and fill. By this fact, we should group each 3×2 tiles and fill independently. So the answer is — if n is odd, then the answer is 0 (impossible), otherwise, the answer is 2n2.Time complexity is O(1) with bit operation or O(n) with iteration.Solution Code for ABehind story of B: Original B was harder. None of 2100+ rated testers solved original B, so it got downgraded. Also there was more than 15 pretests before. "
+}

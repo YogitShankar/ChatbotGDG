@@ -1,0 +1,11 @@
+{
+    "title": "B. Lamps",
+    "description": "You have n lamps, numbered by integers from 1 to n. Each lamp i has two integer parameters ai and bi.\nAt each moment each lamp is in one of three states: it may be turned on, turned off, or broken.\nInitially all lamps are turned off. In one operation you can select one lamp that is turned off and turn it on (you can't turn on broken lamps). You receive bi points for turning lamp i on. The following happens after each performed operation: \nPlease note that broken lamps never count as turned on and that after a turned on lamp breaks, you still keep points received for turning it on.\nYou can perform an arbitrary number of operations.\nFind the maximum number of points you can get.\nThe first line contains a single integer t (1≤t≤104) — the number of test cases.\nThe first line contains a single integer n (1≤n≤2⋅105) — the number of lamps.\nEach of the next n lines contains two integers ai and bi (1≤ai≤n,1≤bi≤109) — parameters of the i-th lamp.\nIt is guaranteed that sum of n over all test cases doesn't exceed 2⋅105.\nFor each test case, output one integer — the maximum number of points you can get.\nIn first test case n=4. One of ways to get the maximum number of points is as follows: \nYour receive 13+2=15 points in total. It can be shown that this is the maximum number of points you can get, so the answer for the first test case is 15.\nIn the second test case, one of the ways to get the maximum number of points is as follows:\nYou receive 2+5+4+3=14 points in total. It can be shown that this is the maximum number of points you can get.\nIn the third test case, one of the ways to get the maximum number of points is as follows:\nYou receive 4+4+3+4+5=20 points in total. It can be shown that this is the maximum number of points you can get.",
+    "time limit": "time limit per test1 second",
+    "memory limit": "memory limit per test256 megabytes",
+    "tags": [
+        "greedy",
+        "sortings",
+        "*1100"
+    ]
+}
