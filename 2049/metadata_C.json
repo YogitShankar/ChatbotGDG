@@ -1,0 +1,16 @@
+{
+    "tags": [
+        "brute force",
+        "constructive algorithms",
+        "greedy",
+        "implementation",
+        "*1500"
+    ],
+    "contest_id": 2049,
+    "problem_index": "C",
+    "problem_name": "MEX Cycle",
+    "time limit per test": "2 seconds",
+    "memory limit per test": "256 megabytes",
+    "input": "standard input",
+    "output": "standard output"
+}
