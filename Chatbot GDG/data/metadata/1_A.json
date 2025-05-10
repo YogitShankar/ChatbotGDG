@@ -1,0 +1,12 @@
+{
+    "title": "A. Theatre Square",
+    "tags": [],
+    "time_limit": "",
+    "memory_limit": "",
+    "test_cases": [
+        {
+            "input": "InputCopy6 6 4",
+            "output": "OutputCopy4"
+        }
+    ]
+}
