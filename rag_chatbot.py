@@ -94,8 +94,6 @@ class Chatbot(ProblemChatbot):
             return super().respond(user_input)
             
         problem_id = self._extract_problem_id(user_input)
-        if problem_id:
-            return super().respond(user_input)
 
         retrieved = self._retrieve_relevant_info(user_input)
         rag_context = "\n".join(
